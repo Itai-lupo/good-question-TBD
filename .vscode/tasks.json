@@ -1,0 +1,17 @@
+{
+    "tasks": [
+        {
+            "label": "compileEditor",
+            "command": "make",
+            "args": [ "-j", "14", "-s", "-w", "output/editor.out"],
+            "type": "shell"
+        },
+        {
+            "label": "compileTests",
+            "command": "make",
+            "args": [ "-j", "14", "-s", "-w", "output/test.out"],
+            "type": "shell"
+        }
+    ],
+    "version": "2.0.0"
+}

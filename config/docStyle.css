@@ -1,0 +1,41 @@
+:root
+{
+    background-color: #111;
+    color: white;
+
+}
+
+body, div, span.lineno, .memdoc, tr[class^="memItem"], .mdescLeft, .mdescRight, .memItemLeft, .memItemRight, .memTemplItemLeft, .memTemplItemRight, .memTemplParam  {
+    background-color: #111;
+    color: white;
+    margin: 0;
+}
+.classindex dl.odd{
+    background-color: #222;
+}
+
+td, #nav-tree {
+    background-color: #111;
+    color: white;
+    margin: 0;
+
+}
+
+.memtitle{
+    color: black;
+}
+
+.memproto, dl.reflist dt
+{
+    padding: 0;
+}
+
+h2.groupheader
+{
+    color: whitesmoke;
+}
+
+a{
+    text-decoration: underline;
+    color: #2999f5;
+}
