@@ -2,11 +2,15 @@
     "configurations": [
         {
             "name": "Linux",
-            "compilerArgs": [ "-Wall", "-Wextra", "-pedantic" ],
+            "compilerArgs": [
+                "-Wall",
+                "-Wextra",
+                "-pedantic"
+            ],
             "includePath": [
                 "${workspaceFolder}/include/**",
                 "${workspaceFolder}/vendor/**",
-                "${workspaceFolder}/libs/**"
+                "${workspaceFolder}/vendor/waylandExtensions/"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/clang",

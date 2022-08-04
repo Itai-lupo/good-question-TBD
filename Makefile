@@ -36,7 +36,7 @@ CPPFLAGS ?=   -std=c++20
 
 CXXFLAGS += $(INC_FLAGS)  -MMD -MP -g -pthread -O0 
 
-LDFLAGS =  -lstdc++ -lgflags -lglog -lGL -lglfw -lrt -lm -ldl
+LDFLAGS =  -lstdc++ -lgflags -lglog -lGL -lglfw -lrt -lm -ldl  -lwayland-client
 TEST_LDFLAGS = -lgtest -lgtest_main -lgmock  
 
 

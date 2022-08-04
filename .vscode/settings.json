@@ -172,8 +172,8 @@
     },
     "gtest-adapter.debugConfig": "debug tests",
     "gtest-adapter.supportLocation": true,
-    "cpp-class-helper.srcFolderPath": "/home/itailupo/Documents/programing projects/cpp/Laughtale-game-engine/src",
-    "cpp-class-helper.includeFolderPath": "/home/itailupo/Documents/programing projects/cpp/Laughtale-game-engine/include",
+    "cpp-class-helper.srcFolderPath": "/home/itailupo/Documents/programing projects/cpp/good-question-TBD/src",
+    "cpp-class-helper.includeFolderPath": "/home/itailupo/Documents/programing projects/cpp/good-question-TBD/include",
     "makefile.launchConfigurations": [
         {
             "cwd": "/home/itailupo/Documents/programing projects/cpp/Laughtale-game-engine/output",
@@ -181,7 +181,16 @@
             "binaryArgs": []
         }
     ],
-    "cpp-class-helper.headerFileDefaultValue": "#pragma once\n\nnamespace LTE\n{\n\tclass ${class_name}\n\t{\n\t\tpublic:\n\t\t\t${class_name}();\n\t\t\t${class_name}(const ${class_name}&) = default;\n\t\t\t${class_name}(${class_name}&&) = default;\n\t\t\t${class_name}& operator=(const ${class_name}&);\n\t\t\t${class_name}& operator=(${class_name}&&);\n\n\t\t\t~${class_name}();\n\t};\n}",
-    "cpp-class-helper.sourceFileDefaultValue": "#include \"${class_name}.hpp\"\n\nnamespace LTE\n{\n\t${class_name}::${class_name}()\n\t{\n\t\n\t}\n\t\n\t${class_name}::~${class_name}()\n\t{\n\n\t}\n}"
+    "cpp-class-helper.headerFileDefaultValue": "#pragma once\n\nclass ${class_name}\n{\n\tpublic:\n\t\t${class_name}();\n\t\t${class_name}(const ${class_name}&) = default;\n\t\t${class_name}(${class_name}&&) = default;\n\t\t${class_name}& operator=(const ${class_name}&);\n\t\t${class_name}& operator=(${class_name}&&);\n\n\t\t~${class_name}();\n};\n",
+    "cpp-class-helper.sourceFileDefaultValue": "#include \"${class_name}.hpp\"\n\n${class_name}::${class_name}()\n{\n\t\n}\n\t\n${class_name}::~${class_name}()\n{\n\n}\n",
+
+    "CppHelper.SourcePattern": [
+        "{FILE}.cpp",
+        "{FILE}.c",
+        "{FILE}.inl",
+        "/src/*/{FILE}.cpp"
+    ],
+
+    
 
 }
