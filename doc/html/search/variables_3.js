@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['surface_0',['surface',['../d3/d08/structlinux_window.html#aede3de202e3c97330a28703c314f3350',1,'linuxWindow']]]
+  ['title_0',['title',['../d7/d7e/structwindow_spec.html#ae830786c27bda3999a2763b539bd8a73',1,'windowSpec']]]
 ];

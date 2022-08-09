@@ -107,22 +107,22 @@ Inheritance diagram for osAPI:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a78b6b1d9732161ef132f8cc2a8b2519d"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#a78b6b1d9732161ef132f8cc2a8b2519d">~osAPI</a> ()=default</td></tr>
 <tr class="separator:a78b6b1d9732161ef132f8cc2a8b2519d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13ba09b785354fc53aae99ad73f4c0b2"><td class="memItemLeft" align="right" valign="top">virtual uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#a13ba09b785354fc53aae99ad73f4c0b2">createWindow</a> (<a class="el" href="../../d7/d7e/structwindow_spec.html">windowSpec</a> *windowToCreate)=0</td></tr>
-<tr class="separator:a13ba09b785354fc53aae99ad73f4c0b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8593557d014ea0ffde24df78b5e56ed4"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#a8593557d014ea0ffde24df78b5e56ed4">createWindow</a> (const <a class="el" href="../../d7/d7e/structwindow_spec.html">windowSpec</a> &amp;windowToCreate)=0</td></tr>
+<tr class="separator:a8593557d014ea0ffde24df78b5e56ed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee10eee274a9248993695f53e97d2b84"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#aee10eee274a9248993695f53e97d2b84">pollEvents</a> ()=0</td></tr>
 <tr class="separator:aee10eee274a9248993695f53e97d2b84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c4425786b72296a12f2072d8fe7e229"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#a9c4425786b72296a12f2072d8fe7e229">isWindowOpen</a> (uint64_t winId)=0</td></tr>
-<tr class="separator:a9c4425786b72296a12f2072d8fe7e229"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a677ea3edffbe8b25ef58a6bcf83f1f2f"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#a677ea3edffbe8b25ef58a6bcf83f1f2f">isWindowOpen</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId)=0</td></tr>
+<tr class="separator:a677ea3edffbe8b25ef58a6bcf83f1f2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60f4d15065ae4cad2ef9d8021478d3ed"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#a60f4d15065ae4cad2ef9d8021478d3ed">setVSyncForCurrentContext</a> (bool enabled)=0</td></tr>
 <tr class="separator:a60f4d15065ae4cad2ef9d8021478d3ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7e1bc7274e53e5d4cba27d8229e56ae"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#ac7e1bc7274e53e5d4cba27d8229e56ae">makeContextCurrent</a> (uint64_t winId)=0</td></tr>
-<tr class="separator:ac7e1bc7274e53e5d4cba27d8229e56ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71e400f57aa4074d077794f0115b650d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#a71e400f57aa4074d077794f0115b650d">closeWindow</a> (uint64_t winId)=0</td></tr>
-<tr class="separator:a71e400f57aa4074d077794f0115b650d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc77d1c7a2785f013b89499a1ccc1db5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#afc77d1c7a2785f013b89499a1ccc1db5">swapBuffers</a> (uint64_t winId)=0</td></tr>
-<tr class="separator:afc77d1c7a2785f013b89499a1ccc1db5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeafd31f6a23e3a3834bbfec3d822f975"><td class="memItemLeft" align="right" valign="top">virtual uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#aeafd31f6a23e3a3834bbfec3d822f975">getCurrentContextWindowId</a> ()=0</td></tr>
-<tr class="separator:aeafd31f6a23e3a3834bbfec3d822f975"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae59e2cacff44b17d64e50d489de02099"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#ae59e2cacff44b17d64e50d489de02099">makeContextCurrent</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId)=0</td></tr>
+<tr class="separator:ae59e2cacff44b17d64e50d489de02099"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c7e502bc226048e61a0bafc47002ef3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#a3c7e502bc226048e61a0bafc47002ef3">closeWindow</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId)=0</td></tr>
+<tr class="separator:a3c7e502bc226048e61a0bafc47002ef3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c7f6504a85d468d4f02b4a71eef0875"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#a0c7f6504a85d468d4f02b4a71eef0875">swapBuffers</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId)=0</td></tr>
+<tr class="separator:a0c7f6504a85d468d4f02b4a71eef0875"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19161785f276649a4cde1a46aa5aaee1"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#a19161785f276649a4cde1a46aa5aaee1">getCurrentContextWindowId</a> ()=0</td></tr>
+<tr class="separator:a19161785f276649a4cde1a46aa5aaee1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa223184cfa803e0dcdf0fd623b2af5fa"><td class="memItemLeft" align="right" valign="top">virtual void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#aa223184cfa803e0dcdf0fd623b2af5fa">getProcAddress</a> ()=0</td></tr>
 <tr class="separator:aa223184cfa803e0dcdf0fd623b2af5fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -158,8 +158,8 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a71e400f57aa4074d077794f0115b650d" name="a71e400f57aa4074d077794f0115b650d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a71e400f57aa4074d077794f0115b650d">&#9670;&nbsp;</a></span>closeWindow()</h2>
+<a id="a3c7e502bc226048e61a0bafc47002ef3" name="a3c7e502bc226048e61a0bafc47002ef3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c7e502bc226048e61a0bafc47002ef3">&#9670;&nbsp;</a></span>closeWindow()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -170,7 +170,7 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">virtual void osAPI::closeWindow </td>
           <td>(</td>
-          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
           <td class="paramname"><em>winId</em></td><td>)</td>
           <td></td>
         </tr>
@@ -182,12 +182,21 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="../../dd/df1/classlinux_a_p_i.html#a997541c8948d915a59c399d20ec1196d">linuxAPI</a>.</p>
+<p>Implemented in <a class="el" href="../../dd/df1/classlinux_a_p_i.html#a6449b1e3200bf9c5f05d3e02295114f9">linuxAPI</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d5/d6a/classos_a_p_i_a3c7e502bc226048e61a0bafc47002ef3_icgraph.png" border="0" usemap="#ad5/d6a/classos_a_p_i_a3c7e502bc226048e61a0bafc47002ef3_icgraph" alt=""/></div>
+<map name="ad5/d6a/classos_a_p_i_a3c7e502bc226048e61a0bafc47002ef3_icgraph" id="ad5/d6a/classos_a_p_i_a3c7e502bc226048e61a0bafc47002ef3_icgraph">
+<area shape="rect" title=" " alt="" coords="104,5,245,32"/>
+<area shape="rect" href="../../df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,56,32"/>
+</map>
+</div>
 
 </div>
 </div>
-<a id="a13ba09b785354fc53aae99ad73f4c0b2" name="a13ba09b785354fc53aae99ad73f4c0b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a13ba09b785354fc53aae99ad73f4c0b2">&#9670;&nbsp;</a></span>createWindow()</h2>
+<a id="a8593557d014ea0ffde24df78b5e56ed4" name="a8593557d014ea0ffde24df78b5e56ed4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8593557d014ea0ffde24df78b5e56ed4">&#9670;&nbsp;</a></span>createWindow()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -196,9 +205,9 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual uint64_t osAPI::createWindow </td>
+          <td class="memname">virtual <a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> osAPI::createWindow </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d7/d7e/structwindow_spec.html">windowSpec</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="../../d7/d7e/structwindow_spec.html">windowSpec</a> &amp;&#160;</td>
           <td class="paramname"><em>windowToCreate</em></td><td>)</td>
           <td></td>
         </tr>
@@ -210,12 +219,12 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="../../dd/df1/classlinux_a_p_i.html#ab0c766522843ab52e09fb19ad4a8feca">linuxAPI</a>.</p>
+<p>Implemented in <a class="el" href="../../dd/df1/classlinux_a_p_i.html#a6f70526c0822ffa6dfa8d40d34da24b6">linuxAPI</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d5/d6a/classos_a_p_i_a13ba09b785354fc53aae99ad73f4c0b2_icgraph.png" border="0" usemap="#ad5/d6a/classos_a_p_i_a13ba09b785354fc53aae99ad73f4c0b2_icgraph" alt=""/></div>
-<map name="ad5/d6a/classos_a_p_i_a13ba09b785354fc53aae99ad73f4c0b2_icgraph" id="ad5/d6a/classos_a_p_i_a13ba09b785354fc53aae99ad73f4c0b2_icgraph">
+<div class="center"><img src="../../d5/d6a/classos_a_p_i_a8593557d014ea0ffde24df78b5e56ed4_icgraph.png" border="0" usemap="#ad5/d6a/classos_a_p_i_a8593557d014ea0ffde24df78b5e56ed4_icgraph" alt=""/></div>
+<map name="ad5/d6a/classos_a_p_i_a8593557d014ea0ffde24df78b5e56ed4_icgraph" id="ad5/d6a/classos_a_p_i_a8593557d014ea0ffde24df78b5e56ed4_icgraph">
 <area shape="rect" title=" " alt="" coords="104,5,251,32"/>
 <area shape="rect" href="../../df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,56,32"/>
 </map>
@@ -223,8 +232,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="aeafd31f6a23e3a3834bbfec3d822f975" name="aeafd31f6a23e3a3834bbfec3d822f975"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeafd31f6a23e3a3834bbfec3d822f975">&#9670;&nbsp;</a></span>getCurrentContextWindowId()</h2>
+<a id="a19161785f276649a4cde1a46aa5aaee1" name="a19161785f276649a4cde1a46aa5aaee1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19161785f276649a4cde1a46aa5aaee1">&#9670;&nbsp;</a></span>getCurrentContextWindowId()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -233,7 +242,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual uint64_t osAPI::getCurrentContextWindowId </td>
+          <td class="memname">virtual <a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> osAPI::getCurrentContextWindowId </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -246,7 +255,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="../../dd/df1/classlinux_a_p_i.html#a4a5d5d6f5e8d6211dcb19efc05479920">linuxAPI</a>.</p>
+<p>Implemented in <a class="el" href="../../dd/df1/classlinux_a_p_i.html#af3f9d78fad707845bff70826a8ecc18e">linuxAPI</a>.</p>
 
 </div>
 </div>
@@ -311,8 +320,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a9c4425786b72296a12f2072d8fe7e229" name="a9c4425786b72296a12f2072d8fe7e229"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c4425786b72296a12f2072d8fe7e229">&#9670;&nbsp;</a></span>isWindowOpen()</h2>
+<a id="a677ea3edffbe8b25ef58a6bcf83f1f2f" name="a677ea3edffbe8b25ef58a6bcf83f1f2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a677ea3edffbe8b25ef58a6bcf83f1f2f">&#9670;&nbsp;</a></span>isWindowOpen()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -323,7 +332,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">virtual bool osAPI::isWindowOpen </td>
           <td>(</td>
-          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
           <td class="paramname"><em>winId</em></td><td>)</td>
           <td></td>
         </tr>
@@ -335,12 +344,12 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="../../dd/df1/classlinux_a_p_i.html#a75c73e179057e90697a4135fbf793ee6">linuxAPI</a>.</p>
+<p>Implemented in <a class="el" href="../../dd/df1/classlinux_a_p_i.html#a113c1b78bf2d8f1022db21d5186d3136">linuxAPI</a>.</p>
 
 </div>
 </div>
-<a id="ac7e1bc7274e53e5d4cba27d8229e56ae" name="ac7e1bc7274e53e5d4cba27d8229e56ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7e1bc7274e53e5d4cba27d8229e56ae">&#9670;&nbsp;</a></span>makeContextCurrent()</h2>
+<a id="ae59e2cacff44b17d64e50d489de02099" name="ae59e2cacff44b17d64e50d489de02099"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae59e2cacff44b17d64e50d489de02099">&#9670;&nbsp;</a></span>makeContextCurrent()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -351,7 +360,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">virtual void osAPI::makeContextCurrent </td>
           <td>(</td>
-          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
           <td class="paramname"><em>winId</em></td><td>)</td>
           <td></td>
         </tr>
@@ -363,7 +372,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="../../dd/df1/classlinux_a_p_i.html#aa1e126cfefaf2b89e48fcd33b50358e8">linuxAPI</a>.</p>
+<p>Implemented in <a class="el" href="../../dd/df1/classlinux_a_p_i.html#a4cc6e0d8b41f6ff8318192146f9d688d">linuxAPI</a>.</p>
 
 </div>
 </div>
@@ -431,8 +440,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="afc77d1c7a2785f013b89499a1ccc1db5" name="afc77d1c7a2785f013b89499a1ccc1db5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc77d1c7a2785f013b89499a1ccc1db5">&#9670;&nbsp;</a></span>swapBuffers()</h2>
+<a id="a0c7f6504a85d468d4f02b4a71eef0875" name="a0c7f6504a85d468d4f02b4a71eef0875"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c7f6504a85d468d4f02b4a71eef0875">&#9670;&nbsp;</a></span>swapBuffers()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -443,7 +452,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">virtual void osAPI::swapBuffers </td>
           <td>(</td>
-          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
           <td class="paramname"><em>winId</em></td><td>)</td>
           <td></td>
         </tr>
@@ -455,7 +464,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="../../dd/df1/classlinux_a_p_i.html#a2637bacff32364361cea8e0b6eab2792">linuxAPI</a>.</p>
+<p>Implemented in <a class="el" href="../../dd/df1/classlinux_a_p_i.html#a52450e50c01c1531c5a839c4dd022b15">linuxAPI</a>.</p>
 
 </div>
 </div>

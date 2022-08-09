@@ -19,7 +19,7 @@ linuxAPI::linuxAPI()
     windowApi = new linuxWindowAPI();
 }
 
-uint64_t linuxAPI::createWindow(windowSpec *windowToCreate)
+windowId linuxAPI::createWindow(const windowSpec& windowToCreate)
 {
     return windowApi->createWindow(windowToCreate);
 }
@@ -28,10 +28,10 @@ uint64_t linuxAPI::createWindow(windowSpec *windowToCreate)
 
 int linuxAPI::pollEvents()
 {
-    return wl_display_dispatch(windowApi->display);
+    return wl_display_dispatch(windowApi->getDisplay());
 }
 
-bool linuxAPI::isWindowOpen(uint64_t winId)
+bool linuxAPI::isWindowOpen(windowId winId)
 {
     
 }
@@ -41,22 +41,22 @@ void linuxAPI::setVSyncForCurrentContext(bool enabled)
     
 }
 
-void linuxAPI::makeContextCurrent(uint64_t winId)
+void linuxAPI::makeContextCurrent(windowId winId)
 {
     
 }
 
-void linuxAPI::closeWindow(uint64_t winId)
+void linuxAPI::closeWindow(windowId winId)
+{
+    windowApi->closeWindow(winId);
+}
+
+void linuxAPI::swapBuffers(windowId winId)
 {
     
 }
 
-void linuxAPI::swapBuffers(uint64_t winId)
-{
-    
-}
-
-uint64_t linuxAPI::getCurrentContextWindowId()
+windowId linuxAPI::getCurrentContextWindowId()
 {
     
 }

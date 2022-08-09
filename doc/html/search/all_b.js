@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['w_0',['w',['../d7/d7e/structwindow_spec.html#aafef5bcda013d24414edd2d1c0d39e99',1,'windowSpec::w()'],['../d6/de3/structwindow.html#a5d373511184d14a961eabb6991eb855a',1,'window::w()']]],
-  ['window_1',['window',['../d6/de3/structwindow.html',1,'']]],
-  ['window_2ehpp_2',['window.hpp',['../d2/d5a/window_8hpp.html',1,'']]],
-  ['windowspec_3',['windowSpec',['../d7/d7e/structwindow_spec.html',1,'windowSpec'],['../d7/d7e/structwindow_spec.html#a00c3f9db06d2f9dec249548dfc6d9258',1,'windowSpec::windowSpec()']]]
+  ['_7elinuxapi_0',['~linuxAPI',['../dd/df1/classlinux_a_p_i.html#a3bcd7c622cabae2e6639a3dc5594abb7',1,'linuxAPI']]],
+  ['_7elinuxwindowapi_1',['~linuxWindowAPI',['../de/d8e/classlinux_window_a_p_i.html#a99dd1776d7040823e29a5f2a799f44c0',1,'linuxWindowAPI']]],
+  ['_7eosapi_2',['~osAPI',['../d5/d6a/classos_a_p_i.html#a78b6b1d9732161ef132f8cc2a8b2519d',1,'osAPI']]],
+  ['_7esceneloader_3',['~sceneLoader',['../d8/deb/classscene_loader.html#ac86c0453b81e31a5dbab211733c79f57',1,'sceneLoader']]]
 ];

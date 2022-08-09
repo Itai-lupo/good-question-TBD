@@ -1,6 +1,5 @@
 #pragma once
-#include "osAPI.hpp"
-#include "window.hpp"
+#include "core.hpp"
 
 #include <string>
 #include <functional>
@@ -19,15 +18,15 @@ class osAPI
 {
 	public:
 		virtual ~osAPI() = default;
-		virtual uint64_t createWindow(windowSpec *windowToCreate) = 0;
+		virtual windowId createWindow(const windowSpec& windowToCreate) = 0;
 		
         virtual int pollEvents() = 0;
-        virtual bool isWindowOpen(uint64_t winId) = 0;
+        virtual bool isWindowOpen(windowId winId) = 0;
         virtual void setVSyncForCurrentContext(bool enabled) = 0;
-        virtual void makeContextCurrent(uint64_t winId) = 0;
-        virtual void closeWindow(uint64_t winId) = 0;
-        virtual void swapBuffers(uint64_t winId) = 0;
-        virtual uint64_t getCurrentContextWindowId() = 0;
+        virtual void makeContextCurrent(windowId winId) = 0;
+        virtual void closeWindow(windowId winId) = 0;
+        virtual void swapBuffers(windowId winId) = 0;
+        virtual windowId getCurrentContextWindowId() = 0;
 
         virtual void *getProcAddress() = 0;
 

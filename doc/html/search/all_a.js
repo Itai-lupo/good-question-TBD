@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['test_0',['TEST',['../de/d7f/main_8test_8cpp.html#a0d900b48e0c2aeab7ea63d72b076dc45',1,'main.test.cpp']]],
-  ['title_1',['title',['../d7/d7e/structwindow_spec.html#ae830786c27bda3999a2763b539bd8a73',1,'windowSpec::title()'],['../d6/de3/structwindow.html#a1a9358b155242c9e9ab380349d00bb63',1,'window::title()']]]
+  ['w_0',['w',['../d7/d7e/structwindow_spec.html#aafef5bcda013d24414edd2d1c0d39e99',1,'windowSpec']]],
+  ['windowid_1',['windowId',['../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51',1,'core.hpp']]],
+  ['windowspec_2',['windowSpec',['../d7/d7e/structwindow_spec.html',1,'windowSpec'],['../d7/d7e/structwindow_spec.html#a00c3f9db06d2f9dec249548dfc6d9258',1,'windowSpec::windowSpec()']]]
 ];

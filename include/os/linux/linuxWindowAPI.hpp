@@ -1,6 +1,6 @@
 #pragma once
 #include "osAPI.hpp"
-#include "window.hpp"
+#include "log.hpp"
 
 #include <errno.h>
 #include <fcntl.h>
@@ -9,19 +9,14 @@
 #include <sys/mman.h>
 #include <time.h>
 
+
 #include <wayland-client.h>
 #include <xdg-shell-client-protocol.h>
+#include <xdg-decoration-client-protocol.h>
 
 #include <unistd.h>
 #include <string.h>
-
-struct linuxWindow: public window
-{
-    wl_surface *surface;
-    xdg_surface *xdgSurface;
-    xdg_toplevel *xdgToplevel;
-};
-
+#include <map>
 
 class linuxWindowAPI
 {
@@ -91,17 +86,16 @@ class linuxWindowAPI
 
             wl_shm_pool *pool = wl_shm_create_pool(shm, fd, size);
             wl_buffer *buffer = wl_shm_pool_create_buffer(pool, 0,
-                    width, height, stride, WL_SHM_FORMAT_XRGB8888);
+                    width, height, stride, WL_SHM_FORMAT_ARGB8888);
             wl_shm_pool_destroy(pool);
             close(fd);
 
-            /* Draw checkerboxed background */
             for (int y = 0; y < height; ++y) {
                 for (int x = 0; x < width; ++x) {
-                    if ((x + y / 8 * 8) % 16 < 8)
-                        data[y * width + x] = 0xFF666666;
+                    if ((x + y / 32 * 32) % 64 < 32)
+                        data[y * width + x] = 0xffEEEEEE;
                     else
-                        data[y * width + x] = 0xFFEEEEEE;
+                        data[y * width + x] = 0xFF111111;
                 }
             }
 
@@ -110,6 +104,31 @@ class linuxWindowAPI
             return buffer;
         }        
 	private:
+        static void toplevelDecorationConfigure(void *data, zxdg_toplevel_decoration_v1 *zxdg_toplevelDecoration, uint32_t mode);
+
+        static constexpr zxdg_toplevel_decoration_v1_listener toplevelDecorationListener = {
+            .configure = toplevelDecorationConfigure
+        };
+
+        static void wl_seat_capabilities (void *data, wl_seat *seat, uint32_t serial);
+        static void wl_seat_name(void *data, struct wl_seat *seat, const char *name);
+        static constexpr struct wl_seat_listener wl_seat_listener = {
+            .capabilities = wl_seat_capabilities,
+            .name = wl_seat_name,
+        };
+
+        static void xdgTopLevelConfigure(void *data, xdg_toplevel *xdgToplevel, int32_t width, int32_t height, wl_array *states);
+        static void xdgTopLevelClose(void *data, xdg_toplevel *xdgToplevel);
+        static void xdgTopLevelConfigureBounds(void *data, xdg_toplevel *xdgToplevel, int32_t width, int32_t height)
+        {
+            LOG_INFO(width << ", " << height)
+        }
+        static constexpr xdg_toplevel_listener xdgTopLevelListener = {
+            .configure = xdgTopLevelConfigure,
+            .close = xdgTopLevelClose,
+            .configure_bounds = xdgTopLevelConfigureBounds
+        };
+
         static void xdg_wm_base_ping(void *data, struct xdg_wm_base *xdg_wm_base, uint32_t serial);
         static constexpr struct xdg_wm_base_listener xdg_wm_base_listener = {
             .ping = xdg_wm_base_ping,
@@ -136,14 +155,41 @@ class linuxWindowAPI
     private:
         wl_compositor *compositor = NULL;
         wl_registry *registry;
+        wl_seat *seat;
         xdg_wm_base *xdgWmBase;
+        zxdg_decoration_manager_v1 * decorationManger;
+        wl_display *display = NULL;
+        
+        struct windowInfo
+        {
+            wl_surface *surface;
+            xdg_surface *xdgSurface;
+            xdg_toplevel *xdgToplevel;
+            zxdg_toplevel_decoration_v1 *topLevelDecoration;
+            
+            std::string title;
+            int width, height;
+            windowId id;
+        };
+
+        std::vector<windowInfo> windowsInfo;
+        std::map<uint32_t, std::pair<uint64_t, uint32_t>> idToIndex; 
+
+        int64_t getIndexFromId(windowId id)
+        {
+            if(idToIndex.find(id.index) != idToIndex.end() && id.gen == idToIndex[id.index].second)
+                return id.index;
+            LOG_ERROR("no matching window id with index: " << id.index << " and gen: " << id.gen)
+            return -1;
+        }
 
     public:
-        wl_display *display = NULL;
         linuxWindowAPI();
         ~linuxWindowAPI();
-        uint64_t createWindow(windowSpec *windowToCreate);
-        bool isWindowOpen(uint64_t winId);
-        void closeWindow(uint64_t winId);
+        windowId createWindow(const windowSpec& windowToCreate);
+        bool isWindowOpen(windowId winId);
+        void closeWindow(windowId winId);
+
+        wl_display *getDisplay(){ return display; }
 
 };

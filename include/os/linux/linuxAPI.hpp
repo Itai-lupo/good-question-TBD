@@ -16,17 +16,17 @@ class linuxAPI: public osAPI
         linuxWindowAPI* windowApi;
 	public:
         linuxAPI();
-		virtual ~linuxAPI();
+        virtual ~linuxAPI();
 
-		virtual uint64_t createWindow(windowSpec *windowToCreate) override;
+        virtual windowId createWindow(const windowSpec& windowToCreate) override;
 
         virtual int pollEvents() override;
-        virtual bool isWindowOpen(uint64_t winId) override;
+        virtual bool isWindowOpen(windowId winId) override;
         virtual void setVSyncForCurrentContext(bool enabled) override;
-        virtual void makeContextCurrent(uint64_t winId) override;
-        virtual void closeWindow(uint64_t winId) override;
-        virtual void swapBuffers(uint64_t winId) override;
-        virtual uint64_t getCurrentContextWindowId() override;
+        virtual void makeContextCurrent(windowId winId) override;
+        virtual void closeWindow(windowId winId) override;
+        virtual void swapBuffers(windowId winId) override;
+        virtual windowId getCurrentContextWindowId() override;
 
         virtual void *getProcAddress() override;
 

@@ -1,8 +1,9 @@
 <map id="main" name="main">
-<area shape="rect" id="node1" title=" " alt="" coords="5,107,56,133"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,132,56,159"/>
 <area shape="rect" id="node2" href="$dc/d37/classlogger.html#ad0973f5782961630972e85adbed14b07" title=" " alt="" coords="130,5,225,32"/>
-<area shape="rect" id="node3" href="$d5/d6a/classos_a_p_i.html#a13ba09b785354fc53aae99ad73f4c0b2" title=" " alt="" coords="104,56,251,83"/>
-<area shape="rect" id="node4" href="$d5/d6a/classos_a_p_i.html#a3ae30258c7da69482047987a8a386c2b" title=" " alt="" coords="137,107,218,133"/>
-<area shape="rect" id="node5" href="$dc/d37/classlogger.html#a55fa1aad396cc494aa03de1c2e2026af" title=" " alt="" coords="137,157,217,184"/>
-<area shape="rect" id="node6" href="$d5/d6a/classos_a_p_i.html#aee10eee274a9248993695f53e97d2b84" title=" " alt="" coords="115,208,239,235"/>
+<area shape="rect" id="node3" href="$d5/d6a/classos_a_p_i.html#a3c7e502bc226048e61a0bafc47002ef3" title=" " alt="" coords="107,56,248,83"/>
+<area shape="rect" id="node4" href="$d5/d6a/classos_a_p_i.html#a8593557d014ea0ffde24df78b5e56ed4" title=" " alt="" coords="104,107,251,133"/>
+<area shape="rect" id="node5" href="$d5/d6a/classos_a_p_i.html#a3ae30258c7da69482047987a8a386c2b" title=" " alt="" coords="137,157,218,184"/>
+<area shape="rect" id="node6" href="$dc/d37/classlogger.html#a55fa1aad396cc494aa03de1c2e2026af" title=" " alt="" coords="137,208,217,235"/>
+<area shape="rect" id="node7" href="$d5/d6a/classos_a_p_i.html#aee10eee274a9248993695f53e97d2b84" title=" " alt="" coords="115,259,239,285"/>
 </map>

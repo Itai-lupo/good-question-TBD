@@ -13,6 +13,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./libs/:$b
 filePath=output/editor.out
 make -j 14 -s -w $filePath || exit 1
 clear
-$filePath
+# WAYLAND_DEBUG=1 $filePath
 
+$filePath
 echo "program exited with code $?"
