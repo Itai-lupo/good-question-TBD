@@ -91,14 +91,16 @@ $(document).ready(function(){initNavTree('df/d0a/main_8cpp.html','../../'); init
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="../../d4/d3d/log_8hpp_source.html">log.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d6/dcb/os_a_p_i_8hpp_source.html">osAPI.hpp</a>&quot;</code><br />
+<code>#include &quot;Tracy.hpp&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for main.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../da/dce/main_8cpp__incl.png" border="0" usemap="#asrc_2main_8cpp" alt=""/></div>
 <map name="asrc_2main_8cpp" id="asrc_2main_8cpp">
-<area shape="rect" title=" " alt="" coords="159,5,255,32"/>
+<area shape="rect" title=" " alt="" coords="252,5,348,32"/>
 <area shape="rect" href="../../d4/d3d/log_8hpp.html" title=" " alt="" coords="127,80,190,107"/>
 <area shape="rect" href="../../d6/dcb/os_a_p_i_8hpp.html" title=" " alt="" coords="259,80,341,107"/>
+<area shape="rect" title=" " alt="" coords="366,80,445,107"/>
 <area shape="rect" title=" " alt="" coords="5,155,107,181"/>
 <area shape="rect" title=" " alt="" coords="131,155,186,181"/>
 <area shape="rect" href="../../da/d47/core_8hpp.html" title=" " alt="" coords="210,155,281,181"/>
@@ -130,47 +132,47 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <div class="fragment"><div class="line"><span class="lineno">    8</span>{</div>
-<div class="line"><span class="lineno">    9</span>    <a class="code hl_function" href="../../dc/d37/classlogger.html#a55fa1aad396cc494aa03de1c2e2026af">logger::init</a>(<span class="stringliteral">&quot;./logs/&quot;</span>, <span class="stringliteral">&quot;TBD&quot;</span>);</div>
-<div class="line"><span class="lineno">   10</span>    </div>
-<div class="line"><span class="lineno">   11</span>    <a class="code hl_class" href="../../d5/d6a/classos_a_p_i.html">osAPI</a> *a = <a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#a3ae30258c7da69482047987a8a386c2b">osAPI::init</a>();</div>
-<div class="line"><span class="lineno">   12</span>    </div>
-<div class="line"><span class="lineno">   13</span>    a-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#a8593557d014ea0ffde24df78b5e56ed4">createWindow</a>({<span class="stringliteral">&quot;test 1&quot;</span>, 64*5, 64*11});</div>
-<div class="line"><span class="lineno">   14</span>    a-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#a3c7e502bc226048e61a0bafc47002ef3">closeWindow</a>(a-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#a8593557d014ea0ffde24df78b5e56ed4">createWindow</a>({<span class="stringliteral">&quot;test 2&quot;</span>, 800, 800}));</div>
-<div class="line"><span class="lineno">   15</span>    a-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#a8593557d014ea0ffde24df78b5e56ed4">createWindow</a>({<span class="stringliteral">&quot;test 3&quot;</span>, 64*7, 64*11});</div>
-<div class="line"><span class="lineno">   16</span>    a-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#a8593557d014ea0ffde24df78b5e56ed4">createWindow</a>({<span class="stringliteral">&quot;test 4&quot;</span>, 64*9, 64*11});</div>
-<div class="line"><span class="lineno">   17</span>    </div>
-<div class="line"><span class="lineno">   18</span>    </div>
+<div class="line"><span class="lineno">    9</span>    ZoneScoped;</div>
+<div class="line"><span class="lineno">   10</span>    <a class="code hl_function" href="../../dc/d37/classlogger.html#a55fa1aad396cc494aa03de1c2e2026af">logger::init</a>(<span class="stringliteral">&quot;./logs/&quot;</span>, <span class="stringliteral">&quot;TBD&quot;</span>);</div>
+<div class="line"><span class="lineno">   11</span>    </div>
+<div class="line"><span class="lineno">   12</span>    <a class="code hl_class" href="../../d5/d6a/classos_a_p_i.html">osAPI</a> *a = <span class="keyword">new</span> <a class="code hl_class" href="../../d5/d6a/classos_a_p_i.html">osAPI</a>();</div>
+<div class="line"><span class="lineno">   13</span>    </div>
+<div class="line"><span class="lineno">   14</span>    a-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#aa717d13e65be64bc00998eb5e7d5e263">createWindow</a>({<span class="stringliteral">&quot;test 1&quot;</span>, 64*5, 64*11});</div>
+<div class="line"><span class="lineno">   15</span>    a-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#acad316dd14987374a79961de24e01a0f">closeWindow</a>(a-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#aa717d13e65be64bc00998eb5e7d5e263">createWindow</a>({<span class="stringliteral">&quot;test 2&quot;</span>, 800, 800}));</div>
+<div class="line"><span class="lineno">   16</span>    a-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#aa717d13e65be64bc00998eb5e7d5e263">createWindow</a>({<span class="stringliteral">&quot;test 3&quot;</span>, 64*7, 64*11});</div>
+<div class="line"><span class="lineno">   17</span>    a-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#aa717d13e65be64bc00998eb5e7d5e263">createWindow</a>({<span class="stringliteral">&quot;test 4&quot;</span>, 64*9, 64*11});</div>
+<div class="line"><span class="lineno">   18</span>     </div>
 <div class="line"><span class="lineno">   19</span>    </div>
-<div class="line"><span class="lineno">   20</span>    <span class="keywordflow">while</span> (a-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#aee10eee274a9248993695f53e97d2b84">pollEvents</a>()) {</div>
-<div class="line"><span class="lineno">   21</span>        <span class="comment">/* This space deliberately left blank */</span></div>
-<div class="line"><span class="lineno">   22</span>    }</div>
-<div class="line"><span class="lineno">   23</span>    std::getchar();</div>
-<div class="line"><span class="lineno">   24</span>    <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#abba4f33d5caf52c17ab95053b60f76d7">LOG_INFO</a>(<span class="stringliteral">&quot;exits&quot;</span>);</div>
-<div class="line"><span class="lineno">   25</span>    </div>
-<div class="line"><span class="lineno">   26</span>    <a class="code hl_function" href="../../dc/d37/classlogger.html#ad0973f5782961630972e85adbed14b07">logger::close</a>();</div>
+<div class="line"><span class="lineno">   20</span>    </div>
+<div class="line"><span class="lineno">   21</span>    <span class="keywordflow">while</span> (a-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#ad67c0569696423ea25478ea6924d7dde">pollEvents</a>()) {</div>
+<div class="line"><span class="lineno">   22</span>        <span class="comment">/* This space deliberately left blank */</span></div>
+<div class="line"><span class="lineno">   23</span>    }</div>
+<div class="line"><span class="lineno">   24</span>    <span class="keyword">delete</span> a;</div>
+<div class="line"><span class="lineno">   25</span>    std::getchar();</div>
+<div class="line"><span class="lineno">   26</span>    <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#abba4f33d5caf52c17ab95053b60f76d7">LOG_INFO</a>(<span class="stringliteral">&quot;exits&quot;</span>);</div>
 <div class="line"><span class="lineno">   27</span>    </div>
-<div class="line"><span class="lineno">   28</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">   29</span>}</div>
+<div class="line"><span class="lineno">   28</span>    <a class="code hl_function" href="../../dc/d37/classlogger.html#ad0973f5782961630972e85adbed14b07">logger::close</a>();</div>
+<div class="line"><span class="lineno">   29</span>    </div>
+<div class="line"><span class="lineno">   30</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   31</span>}</div>
 <div class="ttc" id="aclasslogger_html_a55fa1aad396cc494aa03de1c2e2026af"><div class="ttname"><a href="../../dc/d37/classlogger.html#a55fa1aad396cc494aa03de1c2e2026af">logger::init</a></div><div class="ttdeci">static void init(const std::string &amp;pathToLogs, const std::string &amp;projectName)</div><div class="ttdef"><b>Definition:</b> log.cpp:6</div></div>
 <div class="ttc" id="aclasslogger_html_ad0973f5782961630972e85adbed14b07"><div class="ttname"><a href="../../dc/d37/classlogger.html#ad0973f5782961630972e85adbed14b07">logger::close</a></div><div class="ttdeci">static void close()</div><div class="ttdef"><b>Definition:</b> log.cpp:20</div></div>
 <div class="ttc" id="aclassos_a_p_i_html"><div class="ttname"><a href="../../d5/d6a/classos_a_p_i.html">osAPI</a></div><div class="ttdef"><b>Definition:</b> osAPI.hpp:18</div></div>
-<div class="ttc" id="aclassos_a_p_i_html_a3ae30258c7da69482047987a8a386c2b"><div class="ttname"><a href="../../d5/d6a/classos_a_p_i.html#a3ae30258c7da69482047987a8a386c2b">osAPI::init</a></div><div class="ttdeci">static osAPI * init()</div></div>
-<div class="ttc" id="aclassos_a_p_i_html_a3c7e502bc226048e61a0bafc47002ef3"><div class="ttname"><a href="../../d5/d6a/classos_a_p_i.html#a3c7e502bc226048e61a0bafc47002ef3">osAPI::closeWindow</a></div><div class="ttdeci">virtual void closeWindow(windowId winId)=0</div></div>
-<div class="ttc" id="aclassos_a_p_i_html_a8593557d014ea0ffde24df78b5e56ed4"><div class="ttname"><a href="../../d5/d6a/classos_a_p_i.html#a8593557d014ea0ffde24df78b5e56ed4">osAPI::createWindow</a></div><div class="ttdeci">virtual windowId createWindow(const windowSpec &amp;windowToCreate)=0</div></div>
-<div class="ttc" id="aclassos_a_p_i_html_aee10eee274a9248993695f53e97d2b84"><div class="ttname"><a href="../../d5/d6a/classos_a_p_i.html#aee10eee274a9248993695f53e97d2b84">osAPI::pollEvents</a></div><div class="ttdeci">virtual int pollEvents()=0</div></div>
+<div class="ttc" id="aclassos_a_p_i_html_aa717d13e65be64bc00998eb5e7d5e263"><div class="ttname"><a href="../../d5/d6a/classos_a_p_i.html#aa717d13e65be64bc00998eb5e7d5e263">osAPI::createWindow</a></div><div class="ttdeci">windowId createWindow(const windowSpec &amp;windowToCreate)</div></div>
+<div class="ttc" id="aclassos_a_p_i_html_acad316dd14987374a79961de24e01a0f"><div class="ttname"><a href="../../d5/d6a/classos_a_p_i.html#acad316dd14987374a79961de24e01a0f">osAPI::closeWindow</a></div><div class="ttdeci">void closeWindow(windowId winId)</div></div>
+<div class="ttc" id="aclassos_a_p_i_html_ad67c0569696423ea25478ea6924d7dde"><div class="ttname"><a href="../../d5/d6a/classos_a_p_i.html#ad67c0569696423ea25478ea6924d7dde">osAPI::pollEvents</a></div><div class="ttdeci">int pollEvents()</div></div>
 <div class="ttc" id="alog_8hpp_html_abba4f33d5caf52c17ab95053b60f76d7"><div class="ttname"><a href="../../d4/d3d/log_8hpp.html#abba4f33d5caf52c17ab95053b60f76d7">LOG_INFO</a></div><div class="ttdeci">#define LOG_INFO(toLog)</div><div class="ttdef"><b>Definition:</b> log.hpp:6</div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../df/d0a/main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph.png" border="0" usemap="#adf/d0a/main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph" alt=""/></div>
 <map name="adf/d0a/main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph" id="adf/d0a/main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph">
-<area shape="rect" title=" " alt="" coords="5,132,56,159"/>
+<area shape="rect" title=" " alt="" coords="5,107,56,133"/>
 <area shape="rect" href="../../dc/d37/classlogger.html#ad0973f5782961630972e85adbed14b07" title=" " alt="" coords="130,5,225,32"/>
-<area shape="rect" href="../../d5/d6a/classos_a_p_i.html#a3c7e502bc226048e61a0bafc47002ef3" title=" " alt="" coords="107,56,248,83"/>
-<area shape="rect" href="../../d5/d6a/classos_a_p_i.html#a8593557d014ea0ffde24df78b5e56ed4" title=" " alt="" coords="104,107,251,133"/>
-<area shape="rect" href="../../d5/d6a/classos_a_p_i.html#a3ae30258c7da69482047987a8a386c2b" title=" " alt="" coords="137,157,218,184"/>
-<area shape="rect" href="../../dc/d37/classlogger.html#a55fa1aad396cc494aa03de1c2e2026af" title=" " alt="" coords="137,208,217,235"/>
-<area shape="rect" href="../../d5/d6a/classos_a_p_i.html#aee10eee274a9248993695f53e97d2b84" title=" " alt="" coords="115,259,239,285"/>
+<area shape="rect" href="../../d5/d6a/classos_a_p_i.html#acad316dd14987374a79961de24e01a0f" title=" " alt="" coords="107,56,248,83"/>
+<area shape="rect" href="../../d5/d6a/classos_a_p_i.html#aa717d13e65be64bc00998eb5e7d5e263" title=" " alt="" coords="104,107,251,133"/>
+<area shape="rect" href="../../dc/d37/classlogger.html#a55fa1aad396cc494aa03de1c2e2026af" title=" " alt="" coords="137,157,217,184"/>
+<area shape="rect" href="../../d5/d6a/classos_a_p_i.html#ad67c0569696423ea25478ea6924d7dde" title=" " alt="" coords="115,208,239,235"/>
 </map>
 </div>
 

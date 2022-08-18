@@ -10,7 +10,8 @@
             "includePath": [
                 "${workspaceFolder}/include/**",
                 "${workspaceFolder}/vendor/**",
-                "${workspaceFolder}/vendor/waylandExtensions/"
+                "${workspaceFolder}/vendor/waylandExtensions/",
+                "${workspaceFolder}/submodules/tracy/public/tracy"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/clang",

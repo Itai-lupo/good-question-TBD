@@ -17,19 +17,19 @@ struct windowSpec
 class osAPI
 {
 	public:
-		virtual ~osAPI() = default;
-		virtual windowId createWindow(const windowSpec& windowToCreate) = 0;
+		osAPI();
+		~osAPI();
+		windowId createWindow(const windowSpec& windowToCreate);
 		
-        virtual int pollEvents() = 0;
-        virtual bool isWindowOpen(windowId winId) = 0;
-        virtual void setVSyncForCurrentContext(bool enabled) = 0;
-        virtual void makeContextCurrent(windowId winId) = 0;
-        virtual void closeWindow(windowId winId) = 0;
-        virtual void swapBuffers(windowId winId) = 0;
-        virtual windowId getCurrentContextWindowId() = 0;
+        int pollEvents();
+        bool isWindowOpen(windowId winId);
+        void setVSyncForCurrentContext(bool enabled);
+        void makeContextCurrent(windowId winId);
+        void closeWindow(windowId winId);
+        void swapBuffers(windowId winId);
+        windowId getCurrentContextWindowId();
 
-        virtual void *getProcAddress() = 0;
+        void *getProcAddress();
 
-		static osAPI *init();
 };
 

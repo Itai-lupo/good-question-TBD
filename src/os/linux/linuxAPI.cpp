@@ -1,67 +1,64 @@
 #ifdef __linux__
 
-#include "linuxAPI.hpp"
+#include "osAPI.hpp"
+#include "linuxWindowAPI.hpp"
 #include "log.hpp"
+#include "Tracy.hpp"
 
-osAPI *osAPI::init()
+osAPI::~osAPI()
 {
-    return new linuxAPI();
+    linuxWindowAPI::closeApi();    
 }
 
-linuxAPI::~linuxAPI()
-{
-    delete windowApi;
+osAPI::osAPI()
+{    
+    linuxWindowAPI::init();
 }
 
-linuxAPI::linuxAPI()
+windowId osAPI::createWindow(const windowSpec& windowToCreate)
 {
-    
-    windowApi = new linuxWindowAPI();
-}
-
-windowId linuxAPI::createWindow(const windowSpec& windowToCreate)
-{
-    return windowApi->createWindow(windowToCreate);
+    return linuxWindowAPI::createWindow(windowToCreate);
 }
 
 
 
-int linuxAPI::pollEvents()
+int osAPI::pollEvents()
 {
-    return wl_display_dispatch(windowApi->getDisplay());
+    ZoneScoped;
+    return wl_display_dispatch(linuxWindowAPI::getDisplay());
 }
 
-bool linuxAPI::isWindowOpen(windowId winId)
+bool osAPI::isWindowOpen(windowId winId)
 {
-    
+    linuxWindowAPI::isWindowOpen(winId);
 }
 
-void linuxAPI::setVSyncForCurrentContext(bool enabled)
+void osAPI::setVSyncForCurrentContext(bool enabled)
 {
     
 }
 
-void linuxAPI::makeContextCurrent(windowId winId)
+void osAPI::makeContextCurrent(windowId winId)
 {
     
 }
 
-void linuxAPI::closeWindow(windowId winId)
+void osAPI::closeWindow(windowId winId)
 {
-    windowApi->closeWindow(winId);
+    linuxWindowAPI::closeWindow(winId);
 }
 
-void linuxAPI::swapBuffers(windowId winId)
-{
-    
-}
-
-windowId linuxAPI::getCurrentContextWindowId()
+void osAPI::swapBuffers(windowId winId)
 {
     
 }
 
-void* linuxAPI::getProcAddress()
+windowId osAPI::getCurrentContextWindowId()
+{
+    
+}
+
+void* osAPI::getProcAddress()
 {
     
 }

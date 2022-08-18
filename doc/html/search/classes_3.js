@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['sceneloader_0',['sceneLoader',['../d8/deb/classscene_loader.html',1,'']]]
+  ['linuxwindowapi_0',['linuxWindowAPI',['../de/d8e/classlinux_window_a_p_i.html',1,'']]],
+  ['logger_1',['logger',['../dc/d37/classlogger.html',1,'']]]
 ];

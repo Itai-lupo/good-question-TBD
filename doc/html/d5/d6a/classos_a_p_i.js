@@ -1,13 +1,14 @@
 var classos_a_p_i =
 [
-    [ "~osAPI", "d5/d6a/classos_a_p_i.html#a78b6b1d9732161ef132f8cc2a8b2519d", null ],
-    [ "closeWindow", "d5/d6a/classos_a_p_i.html#a3c7e502bc226048e61a0bafc47002ef3", null ],
-    [ "createWindow", "d5/d6a/classos_a_p_i.html#a8593557d014ea0ffde24df78b5e56ed4", null ],
-    [ "getCurrentContextWindowId", "d5/d6a/classos_a_p_i.html#a19161785f276649a4cde1a46aa5aaee1", null ],
-    [ "getProcAddress", "d5/d6a/classos_a_p_i.html#aa223184cfa803e0dcdf0fd623b2af5fa", null ],
-    [ "isWindowOpen", "d5/d6a/classos_a_p_i.html#a677ea3edffbe8b25ef58a6bcf83f1f2f", null ],
-    [ "makeContextCurrent", "d5/d6a/classos_a_p_i.html#ae59e2cacff44b17d64e50d489de02099", null ],
-    [ "pollEvents", "d5/d6a/classos_a_p_i.html#aee10eee274a9248993695f53e97d2b84", null ],
-    [ "setVSyncForCurrentContext", "d5/d6a/classos_a_p_i.html#a60f4d15065ae4cad2ef9d8021478d3ed", null ],
-    [ "swapBuffers", "d5/d6a/classos_a_p_i.html#a0c7f6504a85d468d4f02b4a71eef0875", null ]
+    [ "osAPI", "d5/d6a/classos_a_p_i.html#ace1df979b9e38bdc5be2753cf16f1a13", null ],
+    [ "~osAPI", "d5/d6a/classos_a_p_i.html#afc58aad2c57b4642f05b2e598cb500cc", null ],
+    [ "closeWindow", "d5/d6a/classos_a_p_i.html#acad316dd14987374a79961de24e01a0f", null ],
+    [ "createWindow", "d5/d6a/classos_a_p_i.html#aa717d13e65be64bc00998eb5e7d5e263", null ],
+    [ "getCurrentContextWindowId", "d5/d6a/classos_a_p_i.html#a345196727562c28dc772c7feced3434d", null ],
+    [ "getProcAddress", "d5/d6a/classos_a_p_i.html#a0a043b6f3c663ac880a51d1859d26fb9", null ],
+    [ "isWindowOpen", "d5/d6a/classos_a_p_i.html#af428baf543977fcb1ec52be933d9edb0", null ],
+    [ "makeContextCurrent", "d5/d6a/classos_a_p_i.html#a944da2f8b7892216e90ba22d72e59de2", null ],
+    [ "pollEvents", "d5/d6a/classos_a_p_i.html#ad67c0569696423ea25478ea6924d7dde", null ],
+    [ "setVSyncForCurrentContext", "d5/d6a/classos_a_p_i.html#a9ced3b00e4ba0cacca29e4cffba96073", null ],
+    [ "swapBuffers", "d5/d6a/classos_a_p_i.html#ab8e45221b92555e589445671a24e3801", null ]
 ];

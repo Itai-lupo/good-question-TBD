@@ -11,11 +11,11 @@ TARGET_EXEC ?= editor.out
 
 BUILD_DIR ?= ./build
 OUTPUT_DIR ?= ./output
-INCLUDE_DIR ?= ./include ./vendor
+INCLUDE_DIR ?= ./include ./vendor ./submodules/tracy/public/tracy
 SRC_DIRS ?= ./src/ ./vendor
 TEST_DIR ?= ./tests
 
-SRCS += $(foreach  dir,$(SRC_DIRS),$(call rwildcard,$(dir),*.c*))
+SRCS += $(foreach  dir,$(SRC_DIRS),$(call rwildcard,$(dir),*.c*)) submodules/tracy/public/TracyClient.cpp
 OBJS :=  $(SRCS:%=$(BUILD_DIR)/%.o)
 DEPS := $(OBJS:.o=.d)
 
@@ -34,9 +34,9 @@ INC_FLAGS := $(addprefix -I,$(INC_DIRS) $(LIB_DIR))
 CPPFLAGS ?=   -std=c++20
 # CFLAGS :=
 
-CXXFLAGS += $(INC_FLAGS)  -MMD -MP -g -pthread -O0 
+CXXFLAGS += $(INC_FLAGS)  -MMD -MP -g -pthread -O0 -ggdb3 -DTRACY_ENABLE
 
-LDFLAGS =  -lstdc++ -lgflags -lglog -lGL -lglfw -lrt -lm -ldl  -lwayland-client
+LDFLAGS =  -lstdc++ -lgflags -lglog -lGL -lglfw -lrt -lm -ldl  -lwayland-client -lxkbcommon
 TEST_LDFLAGS = -lgtest -lgtest_main -lgmock  
 
 

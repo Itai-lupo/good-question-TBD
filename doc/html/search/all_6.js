@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['operator_3d_0',['operator=',['../d8/deb/classscene_loader.html#afa3568e1099b76003952817a4d53268a',1,'sceneLoader::operator=(const sceneLoader &amp;)'],['../d8/deb/classscene_loader.html#acdc798efac623cd099dac66f681f5305',1,'sceneLoader::operator=(sceneLoader &amp;&amp;)']]],
-  ['osapi_1',['osAPI',['../d5/d6a/classos_a_p_i.html',1,'']]],
-  ['osapi_2ehpp_2',['osAPI.hpp',['../d6/dcb/os_a_p_i_8hpp.html',1,'']]]
+  ['h_0',['h',['../d7/d7e/structwindow_spec.html#a57b0ea217e4ce365e8883a388b99e1df',1,'windowSpec']]],
+  ['height_1',['height',['../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a4dabe160e024c94643414c422fc79e0e',1,'linuxWindowAPI::windowInfo']]]
 ];

@@ -11,12 +11,17 @@
 
 
 #include <wayland-client.h>
-#include <xdg-shell-client-protocol.h>
 #include <xdg-decoration-client-protocol.h>
+#include <xdg-shell-client-protocol.h>
+#include <xkbcommon/xkbcommon.h>
 
 #include <unistd.h>
 #include <string.h>
 #include <map>
+#include <thread>
+
+
+#include <Tracy.hpp>
 
 class linuxWindowAPI
 {
@@ -67,10 +72,14 @@ class linuxWindowAPI
             return fd;
         }
 
-        static struct wl_buffer *draw_frame(int width, int height)
+        static struct wl_buffer *draw_frame(int width, int height, uint32_t offset = 0)
         {
+            
+            ZoneScoped;
+
             int stride = width * 4;
             int size = stride * height;
+            offset %= 64;
 
             int fd = allocate_shm_file(size);
             if (fd == -1) {
@@ -89,39 +98,37 @@ class linuxWindowAPI
                     width, height, stride, WL_SHM_FORMAT_ARGB8888);
             wl_shm_pool_destroy(pool);
             close(fd);
-
+            uint32_t * ptr = data;
+            
             for (int y = 0; y < height; ++y) {
                 for (int x = 0; x < width; ++x) {
-                    if ((x + y / 32 * 32) % 64 < 32)
+                    if ((x + offset + y / 32 * 32) % 64 < 32)
                         data[y * width + x] = 0xffEEEEEE;
                     else
                         data[y * width + x] = 0xFF111111;
                 }
             }
 
+
             munmap(data, size);
             wl_buffer_add_listener(buffer, &wl_buffer_listener, NULL);
             return buffer;
         }        
+        
 	private:
-        static void toplevelDecorationConfigure(void *data, zxdg_toplevel_decoration_v1 *zxdg_toplevelDecoration, uint32_t mode);
+        
 
-        static constexpr zxdg_toplevel_decoration_v1_listener toplevelDecorationListener = {
-            .configure = toplevelDecorationConfigure
+        static void wlSurfaceFrameDone(void *data, wl_callback *cb, uint32_t time);
+        static constexpr wl_callback_listener wlSurfaceFrameListener = 
+        {
+            .done = wlSurfaceFrameDone
         };
-
-        static void wl_seat_capabilities (void *data, wl_seat *seat, uint32_t serial);
-        static void wl_seat_name(void *data, struct wl_seat *seat, const char *name);
-        static constexpr struct wl_seat_listener wl_seat_listener = {
-            .capabilities = wl_seat_capabilities,
-            .name = wl_seat_name,
-        };
-
+        
         static void xdgTopLevelConfigure(void *data, xdg_toplevel *xdgToplevel, int32_t width, int32_t height, wl_array *states);
         static void xdgTopLevelClose(void *data, xdg_toplevel *xdgToplevel);
         static void xdgTopLevelConfigureBounds(void *data, xdg_toplevel *xdgToplevel, int32_t width, int32_t height)
         {
-            LOG_INFO(width << ", " << height)
+            // xdg_toplevel_set_max_size(xdgToplevel, width, height);
         }
         static constexpr xdg_toplevel_listener xdgTopLevelListener = {
             .configure = xdgTopLevelConfigure,
@@ -152,14 +159,13 @@ class linuxWindowAPI
             .configure = xdg_surface_configure,
         };	
 	
-    private:
-        wl_compositor *compositor = NULL;
-        wl_registry *registry;
-        wl_seat *seat;
-        xdg_wm_base *xdgWmBase;
-        zxdg_decoration_manager_v1 * decorationManger;
-        wl_display *display = NULL;
+    public:
+        static inline wl_display *display = NULL;
+        static inline wl_compositor *compositor = NULL;
+        static inline wl_registry *registry;
+        static inline xdg_wm_base *xdgWmBase;
         
+
         struct windowInfo
         {
             wl_surface *surface;
@@ -169,13 +175,18 @@ class linuxWindowAPI
             
             std::string title;
             int width, height;
+            uint32_t lastFrame = 0;
+            float offset = 8;
             windowId id;
         };
 
-        std::vector<windowInfo> windowsInfo;
-        std::map<uint32_t, std::pair<uint64_t, uint32_t>> idToIndex; 
 
-        int64_t getIndexFromId(windowId id)
+        static inline std::vector<windowInfo> windowsInfo;
+
+
+        static inline std::map<uint32_t, std::pair<uint64_t, uint32_t>> idToIndex; 
+
+        static int64_t getIndexFromId(windowId id)
         {
             if(idToIndex.find(id.index) != idToIndex.end() && id.gen == idToIndex[id.index].second)
                 return id.index;
@@ -184,12 +195,13 @@ class linuxWindowAPI
         }
 
     public:
-        linuxWindowAPI();
-        ~linuxWindowAPI();
-        windowId createWindow(const windowSpec& windowToCreate);
-        bool isWindowOpen(windowId winId);
-        void closeWindow(windowId winId);
+        static void init();
+        static void closeApi();
 
-        wl_display *getDisplay(){ return display; }
+        static windowId createWindow(const windowSpec& windowToCreate);
+        static void closeWindow(windowId winId);
+        static bool isWindowOpen(windowId winId);
+
+        static wl_display *getDisplay(){ return display; }
 
 };

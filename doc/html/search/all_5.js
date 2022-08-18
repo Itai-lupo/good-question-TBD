@@ -1,7 +1,10 @@
 var searchData=
 [
-  ['main_0',['main',['../df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;main.cpp'],['../de/d7f/main_8test_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;main.test.cpp']]],
-  ['main_2ecpp_1',['main.cpp',['../df/d0a/main_8cpp.html',1,'']]],
-  ['main_2etest_2ecpp_2',['main.test.cpp',['../de/d7f/main_8test_8cpp.html',1,'']]],
-  ['makecontextcurrent_3',['makeContextCurrent',['../dd/df1/classlinux_a_p_i.html#a4cc6e0d8b41f6ff8318192146f9d688d',1,'linuxAPI::makeContextCurrent()'],['../d5/d6a/classos_a_p_i.html#ae59e2cacff44b17d64e50d489de02099',1,'osAPI::makeContextCurrent()']]]
+  ['gen_0',['gen',['../d6/d98/structgeneric_handle.html#ad665704584157aad1fdd58b0f01f21f0',1,'genericHandle']]],
+  ['generichandle_1',['genericHandle',['../d6/d98/structgeneric_handle.html',1,'']]],
+  ['generichandle_3c_2024_2c_208_20_3e_2',['genericHandle&lt; 24, 8 &gt;',['../d6/d98/structgeneric_handle.html',1,'']]],
+  ['getcurrentcontextwindowid_3',['getCurrentContextWindowId',['../d5/d6a/classos_a_p_i.html#a345196727562c28dc772c7feced3434d',1,'osAPI']]],
+  ['getdisplay_4',['getDisplay',['../de/d8e/classlinux_window_a_p_i.html#af59dd775510002887bcf799677acda0a',1,'linuxWindowAPI']]],
+  ['getindexfromid_5',['getIndexFromId',['../de/d8e/classlinux_window_a_p_i.html#a638311f054c35cf47945415e8c41bf54',1,'linuxWindowAPI']]],
+  ['getprocaddress_6',['getProcAddress',['../d5/d6a/classos_a_p_i.html#a0a043b6f3c663ac880a51d1859d26fb9',1,'osAPI']]]
 ];
