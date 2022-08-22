@@ -101,8 +101,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:afc58aad2c57b4642f05b2e598cb500cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa717d13e65be64bc00998eb5e7d5e263"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#aa717d13e65be64bc00998eb5e7d5e263">createWindow</a> (const <a class="el" href="../../d7/d7e/structwindow_spec.html">windowSpec</a> &amp;windowToCreate)</td></tr>
 <tr class="separator:aa717d13e65be64bc00998eb5e7d5e263"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad67c0569696423ea25478ea6924d7dde"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#ad67c0569696423ea25478ea6924d7dde">pollEvents</a> ()</td></tr>
-<tr class="separator:ad67c0569696423ea25478ea6924d7dde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af428baf543977fcb1ec52be933d9edb0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#af428baf543977fcb1ec52be933d9edb0">isWindowOpen</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId)</td></tr>
 <tr class="separator:af428baf543977fcb1ec52be933d9edb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ced3b00e4ba0cacca29e4cffba96073"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#a9ced3b00e4ba0cacca29e4cffba96073">setVSyncForCurrentContext</a> (bool enabled)</td></tr>
@@ -117,6 +115,38 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a345196727562c28dc772c7feced3434d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a043b6f3c663ac880a51d1859d26fb9"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#a0a043b6f3c663ac880a51d1859d26fb9">getProcAddress</a> ()</td></tr>
 <tr class="separator:a0a043b6f3c663ac880a51d1859d26fb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacaeda788469e3a86e15178f76efcedb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#aacaeda788469e3a86e15178f76efcedb">setKeyPressEventListenrs</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId, std::function&lt; void(const <a class="el" href="../../dc/da2/structkey_data.html">keyData</a> &amp;)&gt; callback)</td></tr>
+<tr class="separator:aacaeda788469e3a86e15178f76efcedb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4730a040b42e0a42c52de9d88a69541a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#a4730a040b42e0a42c52de9d88a69541a">setKeyReleasedEventListenrs</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId, std::function&lt; void(const <a class="el" href="../../dc/da2/structkey_data.html">keyData</a> &amp;)&gt; callback)</td></tr>
+<tr class="separator:a4730a040b42e0a42c52de9d88a69541a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac50b09ad495607dc3e3d4f85dd2fa476"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#ac50b09ad495607dc3e3d4f85dd2fa476">setKeyRepeatEventListenrs</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId, std::function&lt; void(const <a class="el" href="../../dc/da2/structkey_data.html">keyData</a> &amp;)&gt; callback)</td></tr>
+<tr class="separator:ac50b09ad495607dc3e3d4f85dd2fa476"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a561f0204b55ea854f4ca14a9ac9352db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#a561f0204b55ea854f4ca14a9ac9352db">setKeyTypedEventListenrs</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId, std::function&lt; void(const <a class="el" href="../../d8/dfb/struct_key_typed_data.html">KeyTypedData</a> &amp;)&gt; callback)</td></tr>
+<tr class="separator:a561f0204b55ea854f4ca14a9ac9352db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b0f7fe8d04d4d589b7253d595945b3d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#a2b0f7fe8d04d4d589b7253d595945b3d">setMouseButtonPressEventListenrs</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId, std::function&lt; void(const <a class="el" href="../../db/de8/structmouse_button_data.html">mouseButtonData</a> &amp;)&gt; callback)</td></tr>
+<tr class="separator:a2b0f7fe8d04d4d589b7253d595945b3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a895445d3f32cf194f39bc345aa557d25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#a895445d3f32cf194f39bc345aa557d25">setMouseButtonReleasedEventListenrs</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId, std::function&lt; void(const <a class="el" href="../../db/de8/structmouse_button_data.html">mouseButtonData</a> &amp;)&gt; callback)</td></tr>
+<tr class="separator:a895445d3f32cf194f39bc345aa557d25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c915e1e33cb9a6edc4d7b75675a8720"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#a4c915e1e33cb9a6edc4d7b75675a8720">setMouseMovedListenrs</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId, std::function&lt; void(const <a class="el" href="../../d9/d38/structmouse_move_data.html">mouseMoveData</a> &amp;)&gt; callback)</td></tr>
+<tr class="separator:a4c915e1e33cb9a6edc4d7b75675a8720"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6452b31be6eea2600f6ea73f710cad6e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#a6452b31be6eea2600f6ea73f710cad6e">setMouseScrollListenrs</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId, std::function&lt; void(const <a class="el" href="../../da/d46/structmouse_scroll_data.html">mouseScrollData</a> &amp;)&gt; callback)</td></tr>
+<tr class="separator:a6452b31be6eea2600f6ea73f710cad6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17876b4022733e594ad077876fcfc77e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#a17876b4022733e594ad077876fcfc77e">unsetKeyPressEventListenrs</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId)</td></tr>
+<tr class="separator:a17876b4022733e594ad077876fcfc77e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a751a82ce4accddcfbca8d51bf60cd29e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#a751a82ce4accddcfbca8d51bf60cd29e">unsetKeyReleasedEventListenrs</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId)</td></tr>
+<tr class="separator:a751a82ce4accddcfbca8d51bf60cd29e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40a99f13aac874090cb05515d1a34fa9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#a40a99f13aac874090cb05515d1a34fa9">unsetKeyRepeatEventListenrs</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId)</td></tr>
+<tr class="separator:a40a99f13aac874090cb05515d1a34fa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaadd28f04ae104037a0887be3715388"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#acaadd28f04ae104037a0887be3715388">unsetKeyTypedEventListenrs</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId)</td></tr>
+<tr class="separator:acaadd28f04ae104037a0887be3715388"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a861edc2419ecf8a8f7e51129b6fb1b43"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#a861edc2419ecf8a8f7e51129b6fb1b43">unsetMouseButtonPressEventListenrs</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId)</td></tr>
+<tr class="separator:a861edc2419ecf8a8f7e51129b6fb1b43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa753160fb20ab8594cffe7653878d38f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#aa753160fb20ab8594cffe7653878d38f">unsetMouseButtonReleasedEventListenrs</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId)</td></tr>
+<tr class="separator:aa753160fb20ab8594cffe7653878d38f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a599789d696925bf59a8750c4324545"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#a6a599789d696925bf59a8750c4324545">unsetMouseMovedListenrs</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId)</td></tr>
+<tr class="separator:a6a599789d696925bf59a8750c4324545"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c08ac4760a93fa9e896650c4704094d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d6a/classos_a_p_i.html#a7c08ac4760a93fa9e896650c4704094d">unsetMouseScrollListenrs</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId)</td></tr>
+<tr class="separator:a7c08ac4760a93fa9e896650c4704094d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ace1df979b9e38bdc5be2753cf16f1a13" name="ace1df979b9e38bdc5be2753cf16f1a13"></a>
@@ -278,29 +308,254 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="ad67c0569696423ea25478ea6924d7dde" name="ad67c0569696423ea25478ea6924d7dde"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad67c0569696423ea25478ea6924d7dde">&#9670;&nbsp;</a></span>pollEvents()</h2>
+<a id="aacaeda788469e3a86e15178f76efcedb" name="aacaeda788469e3a86e15178f76efcedb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacaeda788469e3a86e15178f76efcedb">&#9670;&nbsp;</a></span>setKeyPressEventListenrs()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int osAPI::pollEvents </td>
+          <td class="memname">void osAPI::setKeyPressEventListenrs </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::function&lt; void(const <a class="el" href="../../dc/da2/structkey_data.html">keyData</a> &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d5/d6a/classos_a_p_i_ad67c0569696423ea25478ea6924d7dde_icgraph.png" border="0" usemap="#ad5/d6a/classos_a_p_i_ad67c0569696423ea25478ea6924d7dde_icgraph" alt=""/></div>
-<map name="ad5/d6a/classos_a_p_i_ad67c0569696423ea25478ea6924d7dde_icgraph" id="ad5/d6a/classos_a_p_i_ad67c0569696423ea25478ea6924d7dde_icgraph">
-<area shape="rect" title=" " alt="" coords="104,5,228,32"/>
+<div class="center"><img src="../../d5/d6a/classos_a_p_i_aacaeda788469e3a86e15178f76efcedb_icgraph.png" border="0" usemap="#ad5/d6a/classos_a_p_i_aacaeda788469e3a86e15178f76efcedb_icgraph" alt=""/></div>
+<map name="ad5/d6a/classos_a_p_i_aacaeda788469e3a86e15178f76efcedb_icgraph" id="ad5/d6a/classos_a_p_i_aacaeda788469e3a86e15178f76efcedb_icgraph">
+<area shape="rect" title=" " alt="" coords="104,5,323,32"/>
 <area shape="rect" href="../../df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,56,32"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="a4730a040b42e0a42c52de9d88a69541a" name="a4730a040b42e0a42c52de9d88a69541a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4730a040b42e0a42c52de9d88a69541a">&#9670;&nbsp;</a></span>setKeyReleasedEventListenrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void osAPI::setKeyReleasedEventListenrs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(const <a class="el" href="../../dc/da2/structkey_data.html">keyData</a> &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d5/d6a/classos_a_p_i_a4730a040b42e0a42c52de9d88a69541a_icgraph.png" border="0" usemap="#ad5/d6a/classos_a_p_i_a4730a040b42e0a42c52de9d88a69541a_icgraph" alt=""/></div>
+<map name="ad5/d6a/classos_a_p_i_a4730a040b42e0a42c52de9d88a69541a_icgraph" id="ad5/d6a/classos_a_p_i_a4730a040b42e0a42c52de9d88a69541a_icgraph">
+<area shape="rect" title=" " alt="" coords="104,5,295,47"/>
+<area shape="rect" href="../../df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,13,56,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac50b09ad495607dc3e3d4f85dd2fa476" name="ac50b09ad495607dc3e3d4f85dd2fa476"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac50b09ad495607dc3e3d4f85dd2fa476">&#9670;&nbsp;</a></span>setKeyRepeatEventListenrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void osAPI::setKeyRepeatEventListenrs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(const <a class="el" href="../../dc/da2/structkey_data.html">keyData</a> &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d5/d6a/classos_a_p_i_ac50b09ad495607dc3e3d4f85dd2fa476_icgraph.png" border="0" usemap="#ad5/d6a/classos_a_p_i_ac50b09ad495607dc3e3d4f85dd2fa476_icgraph" alt=""/></div>
+<map name="ad5/d6a/classos_a_p_i_ac50b09ad495607dc3e3d4f85dd2fa476_icgraph" id="ad5/d6a/classos_a_p_i_ac50b09ad495607dc3e3d4f85dd2fa476_icgraph">
+<area shape="rect" title=" " alt="" coords="104,5,283,47"/>
+<area shape="rect" href="../../df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,13,56,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a561f0204b55ea854f4ca14a9ac9352db" name="a561f0204b55ea854f4ca14a9ac9352db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a561f0204b55ea854f4ca14a9ac9352db">&#9670;&nbsp;</a></span>setKeyTypedEventListenrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void osAPI::setKeyTypedEventListenrs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(const <a class="el" href="../../d8/dfb/struct_key_typed_data.html">KeyTypedData</a> &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2b0f7fe8d04d4d589b7253d595945b3d" name="a2b0f7fe8d04d4d589b7253d595945b3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b0f7fe8d04d4d589b7253d595945b3d">&#9670;&nbsp;</a></span>setMouseButtonPressEventListenrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void osAPI::setMouseButtonPressEventListenrs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(const <a class="el" href="../../db/de8/structmouse_button_data.html">mouseButtonData</a> &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a895445d3f32cf194f39bc345aa557d25" name="a895445d3f32cf194f39bc345aa557d25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a895445d3f32cf194f39bc345aa557d25">&#9670;&nbsp;</a></span>setMouseButtonReleasedEventListenrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void osAPI::setMouseButtonReleasedEventListenrs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(const <a class="el" href="../../db/de8/structmouse_button_data.html">mouseButtonData</a> &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4c915e1e33cb9a6edc4d7b75675a8720" name="a4c915e1e33cb9a6edc4d7b75675a8720"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c915e1e33cb9a6edc4d7b75675a8720">&#9670;&nbsp;</a></span>setMouseMovedListenrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void osAPI::setMouseMovedListenrs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(const <a class="el" href="../../d9/d38/structmouse_move_data.html">mouseMoveData</a> &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6452b31be6eea2600f6ea73f710cad6e" name="a6452b31be6eea2600f6ea73f710cad6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6452b31be6eea2600f6ea73f710cad6e">&#9670;&nbsp;</a></span>setMouseScrollListenrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void osAPI::setMouseScrollListenrs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(const <a class="el" href="../../da/d46/structmouse_scroll_data.html">mouseScrollData</a> &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -330,6 +585,150 @@ Here is the caller graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">void osAPI::swapBuffers </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a17876b4022733e594ad077876fcfc77e" name="a17876b4022733e594ad077876fcfc77e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17876b4022733e594ad077876fcfc77e">&#9670;&nbsp;</a></span>unsetKeyPressEventListenrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void osAPI::unsetKeyPressEventListenrs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a751a82ce4accddcfbca8d51bf60cd29e" name="a751a82ce4accddcfbca8d51bf60cd29e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a751a82ce4accddcfbca8d51bf60cd29e">&#9670;&nbsp;</a></span>unsetKeyReleasedEventListenrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void osAPI::unsetKeyReleasedEventListenrs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a40a99f13aac874090cb05515d1a34fa9" name="a40a99f13aac874090cb05515d1a34fa9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40a99f13aac874090cb05515d1a34fa9">&#9670;&nbsp;</a></span>unsetKeyRepeatEventListenrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void osAPI::unsetKeyRepeatEventListenrs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acaadd28f04ae104037a0887be3715388" name="acaadd28f04ae104037a0887be3715388"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acaadd28f04ae104037a0887be3715388">&#9670;&nbsp;</a></span>unsetKeyTypedEventListenrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void osAPI::unsetKeyTypedEventListenrs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a861edc2419ecf8a8f7e51129b6fb1b43" name="a861edc2419ecf8a8f7e51129b6fb1b43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a861edc2419ecf8a8f7e51129b6fb1b43">&#9670;&nbsp;</a></span>unsetMouseButtonPressEventListenrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void osAPI::unsetMouseButtonPressEventListenrs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa753160fb20ab8594cffe7653878d38f" name="aa753160fb20ab8594cffe7653878d38f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa753160fb20ab8594cffe7653878d38f">&#9670;&nbsp;</a></span>unsetMouseButtonReleasedEventListenrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void osAPI::unsetMouseButtonReleasedEventListenrs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6a599789d696925bf59a8750c4324545" name="a6a599789d696925bf59a8750c4324545"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a599789d696925bf59a8750c4324545">&#9670;&nbsp;</a></span>unsetMouseMovedListenrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void osAPI::unsetMouseMovedListenrs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7c08ac4760a93fa9e896650c4704094d" name="a7c08ac4760a93fa9e896650c4704094d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c08ac4760a93fa9e896650c4704094d">&#9670;&nbsp;</a></span>unsetMouseScrollListenrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void osAPI::unsetMouseScrollListenrs </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
           <td class="paramname"><em>winId</em></td><td>)</td>

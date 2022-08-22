@@ -1,10 +1,4 @@
 var searchData=
 [
-  ['w_0',['w',['../d7/d7e/structwindow_spec.html#aafef5bcda013d24414edd2d1c0d39e99',1,'windowSpec']]],
-  ['width_1',['width',['../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#abeb5a030c548a56952d2c2dfe2457eea',1,'linuxWindowAPI::windowInfo']]],
-  ['windowindex_2',['windowIndex',['../da/dbc/structpointer_1_1input_buffer.html#abd7f265fd56e8bcf97cc962a8e10db94',1,'pointer::inputBuffer']]],
-  ['windowsinfo_3',['windowsInfo',['../de/d8e/classlinux_window_a_p_i.html#af81bd04bac606804d9e29ca969b0a485',1,'linuxWindowAPI']]],
-  ['wl_5fseat_5flistener_4',['wl_seat_listener',['../d5/d3d/classseat.html#a3159ee89e63aef1a63b2a73cee6fe89a',1,'seat']]],
-  ['wlkeyboardlistener_5',['wlKeyboardListener',['../d1/d4e/classkeyboard.html#ac5abaa0a89ae0f4a72c9c0adb67d8107',1,'keyboard']]],
-  ['wlpointerlistener_6',['wlPointerListener',['../d4/df3/classpointer.html#abee9e244abd82bac8edcef3afc719e3f',1,'pointer']]]
+  ['utf8buffer_0',['utf8Buffer',['../dc/da2/structkey_data.html#a5ecb109ce21a7279021d3e107c5ae149',1,'keyData::utf8Buffer()'],['../d8/dfb/struct_key_typed_data.html#a1f8b11c908a1b2bb0d2b9358a641dbfc',1,'KeyTypedData::utf8Buffer()'],['../db/de8/structmouse_button_data.html#ae2d149e9286f0d0c8245b94213f4649b',1,'mouseButtonData::utf8Buffer()'],['../d9/d38/structmouse_move_data.html#add51dc66c7481c60aa109e754a084a53',1,'mouseMoveData::utf8Buffer()'],['../da/d46/structmouse_scroll_data.html#a1b8d2bd28d72efcc7dc65968a60d8271',1,'mouseScrollData::utf8Buffer()']]]
 ];

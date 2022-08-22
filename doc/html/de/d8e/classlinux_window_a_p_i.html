@@ -104,6 +104,8 @@ Classes</h2></td></tr>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a638311f054c35cf47945415e8c41bf54"><td class="memItemLeft" align="right" valign="top">static int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#a638311f054c35cf47945415e8c41bf54">getIndexFromId</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> id)</td></tr>
 <tr class="separator:a638311f054c35cf47945415e8c41bf54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d44ad65c757f398ad8ff31e21ff1aca"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#a0d44ad65c757f398ad8ff31e21ff1aca">windowEventListener</a> ()</td></tr>
+<tr class="separator:a0d44ad65c757f398ad8ff31e21ff1aca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0eb40c7e97c16c95ee3c259b69d001be"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#a0eb40c7e97c16c95ee3c259b69d001be">init</a> ()</td></tr>
 <tr class="separator:a0eb40c7e97c16c95ee3c259b69d001be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0da3db853ade046c96c79d653942690"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#ad0da3db853ade046c96c79d653942690">closeApi</a> ()</td></tr>
@@ -116,6 +118,38 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:aad0e3a102d3fe6b92a3f617799ff7ff7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af59dd775510002887bcf799677acda0a"><td class="memItemLeft" align="right" valign="top">static wl_display *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#af59dd775510002887bcf799677acda0a">getDisplay</a> ()</td></tr>
 <tr class="separator:af59dd775510002887bcf799677acda0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a612e56cacfcf0c491d641539b51ab9fa"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#a612e56cacfcf0c491d641539b51ab9fa">setKeyPressEventListenrs</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId, std::function&lt; void(const <a class="el" href="../../dc/da2/structkey_data.html">keyData</a> &amp;)&gt; callback)</td></tr>
+<tr class="separator:a612e56cacfcf0c491d641539b51ab9fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee72d450e176a225ae20542d888ec23b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#aee72d450e176a225ae20542d888ec23b">setKeyReleasedEventListenrs</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId, std::function&lt; void(const <a class="el" href="../../dc/da2/structkey_data.html">keyData</a> &amp;)&gt; callback)</td></tr>
+<tr class="separator:aee72d450e176a225ae20542d888ec23b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a54e8a308c485e582c7a6c089f78ee9"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#a7a54e8a308c485e582c7a6c089f78ee9">setKeyRepeatEventListenrs</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId, std::function&lt; void(const <a class="el" href="../../dc/da2/structkey_data.html">keyData</a> &amp;)&gt; callback)</td></tr>
+<tr class="separator:a7a54e8a308c485e582c7a6c089f78ee9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a833e168eabfbc54d46e1f0a3ab57f450"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#a833e168eabfbc54d46e1f0a3ab57f450">setKeyTypedEventListenrs</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId, std::function&lt; void(const <a class="el" href="../../d8/dfb/struct_key_typed_data.html">KeyTypedData</a> &amp;)&gt; callback)</td></tr>
+<tr class="separator:a833e168eabfbc54d46e1f0a3ab57f450"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13e543d1934716eb9a367cab9e25c878"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#a13e543d1934716eb9a367cab9e25c878">setMouseButtonPressEventListenrs</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId, std::function&lt; void(const <a class="el" href="../../db/de8/structmouse_button_data.html">mouseButtonData</a> &amp;)&gt; callback)</td></tr>
+<tr class="separator:a13e543d1934716eb9a367cab9e25c878"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a607ff3db750999003e247d9bf2c1fc1d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#a607ff3db750999003e247d9bf2c1fc1d">setMouseButtonReleasedEventListenrs</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId, std::function&lt; void(const <a class="el" href="../../db/de8/structmouse_button_data.html">mouseButtonData</a> &amp;)&gt; callback)</td></tr>
+<tr class="separator:a607ff3db750999003e247d9bf2c1fc1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ca7af4309dcd2790f2fa19d3fe2b355"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#a2ca7af4309dcd2790f2fa19d3fe2b355">setMouseMovedListenrs</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId, std::function&lt; void(const <a class="el" href="../../d9/d38/structmouse_move_data.html">mouseMoveData</a> &amp;)&gt; callback)</td></tr>
+<tr class="separator:a2ca7af4309dcd2790f2fa19d3fe2b355"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca248ca84ecb208c7feb091d2e0ff655"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#aca248ca84ecb208c7feb091d2e0ff655">setMouseScrollListenrs</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId, std::function&lt; void(const <a class="el" href="../../da/d46/structmouse_scroll_data.html">mouseScrollData</a> &amp;)&gt; callback)</td></tr>
+<tr class="separator:aca248ca84ecb208c7feb091d2e0ff655"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45d00c557c804a4f79af5dda96caad38"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#a45d00c557c804a4f79af5dda96caad38">unsetKeyPressEventListenrs</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId)</td></tr>
+<tr class="separator:a45d00c557c804a4f79af5dda96caad38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bb09df8db430dbb9279c0aa7a04c4d8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#a5bb09df8db430dbb9279c0aa7a04c4d8">unsetKeyReleasedEventListenrs</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId)</td></tr>
+<tr class="separator:a5bb09df8db430dbb9279c0aa7a04c4d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdc89d0c3e28b1d6272fdd0986b327b7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#acdc89d0c3e28b1d6272fdd0986b327b7">unsetKeyRepeatEventListenrs</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId)</td></tr>
+<tr class="separator:acdc89d0c3e28b1d6272fdd0986b327b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb27a1fa2969da375a6b900bc262a291"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#aeb27a1fa2969da375a6b900bc262a291">unsetKeyTypedEventListenrs</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId)</td></tr>
+<tr class="separator:aeb27a1fa2969da375a6b900bc262a291"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6760f289b8b6049b58badc2bc10cd365"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#a6760f289b8b6049b58badc2bc10cd365">unsetMouseButtonPressEventListenrs</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId)</td></tr>
+<tr class="separator:a6760f289b8b6049b58badc2bc10cd365"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab21711b621dc4767e5159531220151d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#aab21711b621dc4767e5159531220151d">unsetMouseButtonReleasedEventListenrs</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId)</td></tr>
+<tr class="separator:aab21711b621dc4767e5159531220151d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44686c97c9466ee75ab4f61489ed5b48"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#a44686c97c9466ee75ab4f61489ed5b48">unsetMouseMovedListenrs</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId)</td></tr>
+<tr class="separator:a44686c97c9466ee75ab4f61489ed5b48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c0466023661b7bb5e4bbd2ac9a84555"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#a2c0466023661b7bb5e4bbd2ac9a84555">unsetMouseScrollListenrs</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> winId)</td></tr>
+<tr class="separator:a2c0466023661b7bb5e4bbd2ac9a84555"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -131,6 +165,8 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:af81bd04bac606804d9e29ca969b0a485"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8181b6bcb83744585a53870f84b9c479"><td class="memItemLeft" align="right" valign="top">static std::map&lt; uint32_t, std::pair&lt; uint64_t, uint32_t &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#a8181b6bcb83744585a53870f84b9c479">idToIndex</a></td></tr>
 <tr class="separator:a8181b6bcb83744585a53870f84b9c479"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4faf4b830ab44cafabe53a38c2422a76"><td class="memItemLeft" align="right" valign="top">static std::thread *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#a4faf4b830ab44cafabe53a38c2422a76">eventListenr</a></td></tr>
+<tr class="separator:a4faf4b830ab44cafabe53a38c2422a76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ad0da3db853ade046c96c79d653942690" name="ad0da3db853ade046c96c79d653942690"></a>
@@ -232,8 +268,8 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  205</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../de/d8e/classlinux_window_a_p_i.html#a247a787973f65fac0f132e6af2faf28e">display</a>; }</div>
-<div class="ttc" id="aclasslinux_window_a_p_i_html_a247a787973f65fac0f132e6af2faf28e"><div class="ttname"><a href="../../de/d8e/classlinux_window_a_p_i.html#a247a787973f65fac0f132e6af2faf28e">linuxWindowAPI::display</a></div><div class="ttdeci">static wl_display * display</div><div class="ttdef"><b>Definition:</b> linuxWindowAPI.hpp:163</div></div>
+<div class="fragment"><div class="line"><span class="lineno">  225</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../de/d8e/classlinux_window_a_p_i.html#a247a787973f65fac0f132e6af2faf28e">display</a>; }</div>
+<div class="ttc" id="aclasslinux_window_a_p_i_html_a247a787973f65fac0f132e6af2faf28e"><div class="ttname"><a href="../../de/d8e/classlinux_window_a_p_i.html#a247a787973f65fac0f132e6af2faf28e">linuxWindowAPI::display</a></div><div class="ttdeci">static wl_display * display</div><div class="ttdef"><b>Definition:</b> linuxWindowAPI.hpp:166</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -260,13 +296,13 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  190</span>        {</div>
-<div class="line"><span class="lineno">  191</span>            <span class="keywordflow">if</span>(<a class="code hl_variable" href="../../de/d8e/classlinux_window_a_p_i.html#a8181b6bcb83744585a53870f84b9c479">idToIndex</a>.find(<span class="keywordtype">id</span>.index) != <a class="code hl_variable" href="../../de/d8e/classlinux_window_a_p_i.html#a8181b6bcb83744585a53870f84b9c479">idToIndex</a>.end() &amp;&amp; <span class="keywordtype">id</span>.gen == <a class="code hl_variable" href="../../de/d8e/classlinux_window_a_p_i.html#a8181b6bcb83744585a53870f84b9c479">idToIndex</a>[<span class="keywordtype">id</span>.index].second)</div>
-<div class="line"><span class="lineno">  192</span>                <span class="keywordflow">return</span> <span class="keywordtype">id</span>.index;</div>
-<div class="line"><span class="lineno">  193</span>            <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#a3a78e155ba786a87ea2bf3ec42467a2e">LOG_ERROR</a>(<span class="stringliteral">&quot;no matching window id with index: &quot;</span> &lt;&lt; <span class="keywordtype">id</span>.index &lt;&lt; <span class="stringliteral">&quot; and gen: &quot;</span> &lt;&lt; <span class="keywordtype">id</span>.gen)</div>
-<div class="line"><span class="lineno">  194</span>            <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">  195</span>        }</div>
-<div class="ttc" id="aclasslinux_window_a_p_i_html_a8181b6bcb83744585a53870f84b9c479"><div class="ttname"><a href="../../de/d8e/classlinux_window_a_p_i.html#a8181b6bcb83744585a53870f84b9c479">linuxWindowAPI::idToIndex</a></div><div class="ttdeci">static std::map&lt; uint32_t, std::pair&lt; uint64_t, uint32_t &gt; &gt; idToIndex</div><div class="ttdef"><b>Definition:</b> linuxWindowAPI.hpp:187</div></div>
+<div class="fragment"><div class="line"><span class="lineno">  207</span>        {</div>
+<div class="line"><span class="lineno">  208</span>            <span class="keywordflow">if</span>(<a class="code hl_variable" href="../../de/d8e/classlinux_window_a_p_i.html#a8181b6bcb83744585a53870f84b9c479">idToIndex</a>.find(<span class="keywordtype">id</span>.index) != <a class="code hl_variable" href="../../de/d8e/classlinux_window_a_p_i.html#a8181b6bcb83744585a53870f84b9c479">idToIndex</a>.end() &amp;&amp; <span class="keywordtype">id</span>.gen == <a class="code hl_variable" href="../../de/d8e/classlinux_window_a_p_i.html#a8181b6bcb83744585a53870f84b9c479">idToIndex</a>[<span class="keywordtype">id</span>.index].second)</div>
+<div class="line"><span class="lineno">  209</span>                <span class="keywordflow">return</span> <span class="keywordtype">id</span>.index;</div>
+<div class="line"><span class="lineno">  210</span>            <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#a3a78e155ba786a87ea2bf3ec42467a2e">LOG_ERROR</a>(<span class="stringliteral">&quot;no matching window id with index: &quot;</span> &lt;&lt; <span class="keywordtype">id</span>.index &lt;&lt; <span class="stringliteral">&quot; and gen: &quot;</span> &lt;&lt; <span class="keywordtype">id</span>.gen)</div>
+<div class="line"><span class="lineno">  211</span>            <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">  212</span>        }</div>
+<div class="ttc" id="aclasslinux_window_a_p_i_html_a8181b6bcb83744585a53870f84b9c479"><div class="ttname"><a href="../../de/d8e/classlinux_window_a_p_i.html#a8181b6bcb83744585a53870f84b9c479">linuxWindowAPI::idToIndex</a></div><div class="ttdeci">static std::map&lt; uint32_t, std::pair&lt; uint64_t, uint32_t &gt; &gt; idToIndex</div><div class="ttdef"><b>Definition:</b> linuxWindowAPI.hpp:204</div></div>
 <div class="ttc" id="alog_8hpp_html_a3a78e155ba786a87ea2bf3ec42467a2e"><div class="ttname"><a href="../../d4/d3d/log_8hpp.html#a3a78e155ba786a87ea2bf3ec42467a2e">LOG_ERROR</a></div><div class="ttdeci">#define LOG_ERROR(toLog)</div><div class="ttdef"><b>Definition:</b> log.hpp:8</div></div>
 </div><!-- fragment -->
 </div>
@@ -322,6 +358,527 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a612e56cacfcf0c491d641539b51ab9fa" name="a612e56cacfcf0c491d641539b51ab9fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a612e56cacfcf0c491d641539b51ab9fa">&#9670;&nbsp;</a></span>setKeyPressEventListenrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void linuxWindowAPI::setKeyPressEventListenrs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(const <a class="el" href="../../dc/da2/structkey_data.html">keyData</a> &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aee72d450e176a225ae20542d888ec23b" name="aee72d450e176a225ae20542d888ec23b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee72d450e176a225ae20542d888ec23b">&#9670;&nbsp;</a></span>setKeyReleasedEventListenrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void linuxWindowAPI::setKeyReleasedEventListenrs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(const <a class="el" href="../../dc/da2/structkey_data.html">keyData</a> &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7a54e8a308c485e582c7a6c089f78ee9" name="a7a54e8a308c485e582c7a6c089f78ee9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a54e8a308c485e582c7a6c089f78ee9">&#9670;&nbsp;</a></span>setKeyRepeatEventListenrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void linuxWindowAPI::setKeyRepeatEventListenrs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(const <a class="el" href="../../dc/da2/structkey_data.html">keyData</a> &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a833e168eabfbc54d46e1f0a3ab57f450" name="a833e168eabfbc54d46e1f0a3ab57f450"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a833e168eabfbc54d46e1f0a3ab57f450">&#9670;&nbsp;</a></span>setKeyTypedEventListenrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void linuxWindowAPI::setKeyTypedEventListenrs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(const <a class="el" href="../../d8/dfb/struct_key_typed_data.html">KeyTypedData</a> &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a13e543d1934716eb9a367cab9e25c878" name="a13e543d1934716eb9a367cab9e25c878"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13e543d1934716eb9a367cab9e25c878">&#9670;&nbsp;</a></span>setMouseButtonPressEventListenrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void linuxWindowAPI::setMouseButtonPressEventListenrs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(const <a class="el" href="../../db/de8/structmouse_button_data.html">mouseButtonData</a> &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a607ff3db750999003e247d9bf2c1fc1d" name="a607ff3db750999003e247d9bf2c1fc1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a607ff3db750999003e247d9bf2c1fc1d">&#9670;&nbsp;</a></span>setMouseButtonReleasedEventListenrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void linuxWindowAPI::setMouseButtonReleasedEventListenrs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(const <a class="el" href="../../db/de8/structmouse_button_data.html">mouseButtonData</a> &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2ca7af4309dcd2790f2fa19d3fe2b355" name="a2ca7af4309dcd2790f2fa19d3fe2b355"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ca7af4309dcd2790f2fa19d3fe2b355">&#9670;&nbsp;</a></span>setMouseMovedListenrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void linuxWindowAPI::setMouseMovedListenrs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(const <a class="el" href="../../d9/d38/structmouse_move_data.html">mouseMoveData</a> &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aca248ca84ecb208c7feb091d2e0ff655" name="aca248ca84ecb208c7feb091d2e0ff655"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca248ca84ecb208c7feb091d2e0ff655">&#9670;&nbsp;</a></span>setMouseScrollListenrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void linuxWindowAPI::setMouseScrollListenrs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(const <a class="el" href="../../da/d46/structmouse_scroll_data.html">mouseScrollData</a> &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a45d00c557c804a4f79af5dda96caad38" name="a45d00c557c804a4f79af5dda96caad38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45d00c557c804a4f79af5dda96caad38">&#9670;&nbsp;</a></span>unsetKeyPressEventListenrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void linuxWindowAPI::unsetKeyPressEventListenrs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5bb09df8db430dbb9279c0aa7a04c4d8" name="a5bb09df8db430dbb9279c0aa7a04c4d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bb09df8db430dbb9279c0aa7a04c4d8">&#9670;&nbsp;</a></span>unsetKeyReleasedEventListenrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void linuxWindowAPI::unsetKeyReleasedEventListenrs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acdc89d0c3e28b1d6272fdd0986b327b7" name="acdc89d0c3e28b1d6272fdd0986b327b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdc89d0c3e28b1d6272fdd0986b327b7">&#9670;&nbsp;</a></span>unsetKeyRepeatEventListenrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void linuxWindowAPI::unsetKeyRepeatEventListenrs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeb27a1fa2969da375a6b900bc262a291" name="aeb27a1fa2969da375a6b900bc262a291"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb27a1fa2969da375a6b900bc262a291">&#9670;&nbsp;</a></span>unsetKeyTypedEventListenrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void linuxWindowAPI::unsetKeyTypedEventListenrs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6760f289b8b6049b58badc2bc10cd365" name="a6760f289b8b6049b58badc2bc10cd365"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6760f289b8b6049b58badc2bc10cd365">&#9670;&nbsp;</a></span>unsetMouseButtonPressEventListenrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void linuxWindowAPI::unsetMouseButtonPressEventListenrs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aab21711b621dc4767e5159531220151d" name="aab21711b621dc4767e5159531220151d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab21711b621dc4767e5159531220151d">&#9670;&nbsp;</a></span>unsetMouseButtonReleasedEventListenrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void linuxWindowAPI::unsetMouseButtonReleasedEventListenrs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a44686c97c9466ee75ab4f61489ed5b48" name="a44686c97c9466ee75ab4f61489ed5b48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44686c97c9466ee75ab4f61489ed5b48">&#9670;&nbsp;</a></span>unsetMouseMovedListenrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void linuxWindowAPI::unsetMouseMovedListenrs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2c0466023661b7bb5e4bbd2ac9a84555" name="a2c0466023661b7bb5e4bbd2ac9a84555"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c0466023661b7bb5e4bbd2ac9a84555">&#9670;&nbsp;</a></span>unsetMouseScrollListenrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void linuxWindowAPI::unsetMouseScrollListenrs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0d44ad65c757f398ad8ff31e21ff1aca" name="a0d44ad65c757f398ad8ff31e21ff1aca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d44ad65c757f398ad8ff31e21ff1aca">&#9670;&nbsp;</a></span>windowEventListener()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void linuxWindowAPI::windowEventListener </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="a173a66211fb62270f01845dd69567ca9" name="a173a66211fb62270f01845dd69567ca9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a173a66211fb62270f01845dd69567ca9">&#9670;&nbsp;</a></span>compositor</h2>
@@ -356,6 +913,28 @@ Static Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">wl_display* linuxWindowAPI::display = NULL</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4faf4b830ab44cafabe53a38c2422a76" name="a4faf4b830ab44cafabe53a38c2422a76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4faf4b830ab44cafabe53a38c2422a76">&#9670;&nbsp;</a></span>eventListenr</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::thread* linuxWindowAPI::eventListenr</td>
         </tr>
       </table>
   </td>

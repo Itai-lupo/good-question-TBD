@@ -19,13 +19,15 @@
 #include <string.h>
 #include <map>
 #include <thread>
-
+#include <functional>
+#include <list>
 
 #include <Tracy.hpp>
 
+#include "osEventsData.hpp"
+
 class linuxWindowAPI
 {
-       
 	// todo: move to a cpu side rendering moudle
 	private:
         static inline wl_shm *shm;
@@ -128,8 +130,9 @@ class linuxWindowAPI
         static void xdgTopLevelClose(void *data, xdg_toplevel *xdgToplevel);
         static void xdgTopLevelConfigureBounds(void *data, xdg_toplevel *xdgToplevel, int32_t width, int32_t height)
         {
-            // xdg_toplevel_set_max_size(xdgToplevel, width, height);
+            LOG_INFO(width << ", " << height)
         }
+
         static constexpr xdg_toplevel_listener xdgTopLevelListener = {
             .configure = xdgTopLevelConfigure,
             .close = xdgTopLevelClose,
@@ -177,11 +180,25 @@ class linuxWindowAPI
             int width, height;
             uint32_t lastFrame = 0;
             float offset = 8;
+
+            std::function<void(const keyData&)> keyPressEventListenrs;
+            std::function<void(const keyData&)> keyReleasedEventListenrs;
+            std::function<void(const keyData&)> keyRepeatEventListenrs;
+            std::function<void(const KeyTypedData&)> keyTypedEventListenrs;
+
+            std::function<void(const mouseButtonData&)> mouseButtonPressEventListenrs;
+            std::function<void(const mouseButtonData&)> mouseButtonReleasedEventListenrs;
+
+            std::function<void(const mouseMoveData&)> mouseMovedListenrs;
+            std::function<void(const mouseScrollData&)> mouseScrollListenrs;
+        
             windowId id;
         };
 
 
         static inline std::vector<windowInfo> windowsInfo;
+
+        
 
 
         static inline std::map<uint32_t, std::pair<uint64_t, uint32_t>> idToIndex; 
@@ -194,6 +211,9 @@ class linuxWindowAPI
             return -1;
         }
 
+        static void windowEventListener();
+        static inline std::thread *eventListenr;
+
     public:
         static void init();
         static void closeApi();
@@ -203,5 +223,34 @@ class linuxWindowAPI
         static bool isWindowOpen(windowId winId);
 
         static wl_display *getDisplay(){ return display; }
+
+
+        // ################ set event listener ################################################################
+        static void setKeyPressEventListenrs(windowId winId, std::function<void(const keyData&)> callback);
+        static void setKeyReleasedEventListenrs(windowId winId, std::function<void(const keyData&)> callback);
+        static void setKeyRepeatEventListenrs(windowId winId, std::function<void(const keyData&)> callback);
+        static void setKeyTypedEventListenrs(windowId winId, std::function<void(const KeyTypedData&)> callback);
+
+        static void setMouseButtonPressEventListenrs(windowId winId, std::function<void(const mouseButtonData&)> callback);
+        static void setMouseButtonReleasedEventListenrs(windowId winId, std::function<void(const mouseButtonData&)> callback);
+        
+        static void setMouseMovedListenrs(windowId winId, std::function<void(const mouseMoveData&)> callback);
+        static void setMouseScrollListenrs(windowId winId, std::function<void(const mouseScrollData&)> callback);
+
+
+        // ################ unset event listener ################################################################
+        static void unsetKeyPressEventListenrs(windowId winId);
+        static void unsetKeyReleasedEventListenrs(windowId winId);
+        static void unsetKeyRepeatEventListenrs(windowId winId);
+        static void unsetKeyTypedEventListenrs(windowId winId);
+
+        static void unsetMouseButtonPressEventListenrs(windowId winId);
+        static void unsetMouseButtonReleasedEventListenrs(windowId winId);
+        
+        static void unsetMouseMovedListenrs(windowId winId);
+        static void unsetMouseScrollListenrs(windowId winId);
+
+
+
 
 };

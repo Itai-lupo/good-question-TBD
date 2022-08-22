@@ -11,6 +11,5 @@ var searchData=
   ['pointerenter_8',['pointerEnter',['../da/dbc/structpointer_1_1input_buffer.html#a786d228c1e4504f23317b33ce76857c2',1,'pointer::inputBuffer']]],
   ['pointerhandler_9',['pointerHandler',['../d4/df3/classpointer.html#a4a77206ad078089f077ed7bc4348c33e',1,'pointer']]],
   ['pointerleave_10',['pointerLeave',['../da/dbc/structpointer_1_1input_buffer.html#a6420ba3fe5f227b9d7a59da069a09189',1,'pointer::inputBuffer']]],
-  ['pointermotion_11',['pointerMotion',['../da/dbc/structpointer_1_1input_buffer.html#a3c2c738b4194cbbc4e6db40aaeb38781',1,'pointer::inputBuffer']]],
-  ['pollevents_12',['pollEvents',['../d5/d6a/classos_a_p_i.html#ad67c0569696423ea25478ea6924d7dde',1,'osAPI']]]
+  ['pointermotion_11',['pointerMotion',['../da/dbc/structpointer_1_1input_buffer.html#a3c2c738b4194cbbc4e6db40aaeb38781',1,'pointer::inputBuffer']]]
 ];

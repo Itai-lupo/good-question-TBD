@@ -7,6 +7,7 @@
 
 #include <sstream>
 #include <utility>
+#include <sys/prctl.h>
 
 void linuxWindowAPI::global_registry_handler(void *data, wl_registry *registry, uint32_t id, const char *interface, uint32_t version)
 {
@@ -38,6 +39,7 @@ void linuxWindowAPI::wlSurfaceFrameDone(void *data, wl_callback *cb, uint32_t ti
         return;
 
     windowInfo& temp = windowsInfo[index];
+    
     
     cb = wl_surface_frame(temp.surface);
     wl_callback_add_listener(cb, &wlSurfaceFrameListener, data);
@@ -81,8 +83,7 @@ void linuxWindowAPI::xdgTopLevelConfigure(void *data, xdg_toplevel *xdgToplevel,
             temp.width = temp.width > width ? temp.width: width;
 
         }
-    }
-    
+    }    
 }
 
 void linuxWindowAPI::xdgTopLevelClose(void *data, xdg_toplevel *xdgToplevel)
@@ -130,6 +131,14 @@ void linuxWindowAPI::closeApi()
     wl_display_disconnect(display);
 }
 
+void linuxWindowAPI::windowEventListener()
+{
+    std::string thradNameA = "Event listener";
+    prctl(PR_SET_NAME, thradNameA.c_str());
+    
+    while (wl_display_dispatch(display)) {}
+}
+
 void linuxWindowAPI::init()
 {
     display = wl_display_connect(NULL);
@@ -146,6 +155,8 @@ void linuxWindowAPI::init()
 
     CONDTION_LOG_FATAL("can't find compositor", compositor == NULL);
     CONDTION_LOG_ERROR("can't find decoration manger", toplevelDecoration::decorationManger == NULL);
+
+    eventListenr = new std::thread(windowEventListener);
 }
 
 windowId linuxWindowAPI::createWindow(const windowSpec& windowToCreate)
@@ -182,7 +193,6 @@ windowId linuxWindowAPI::createWindow(const windowSpec& windowToCreate)
     
     windowsInfo.push_back(info);
     wl_surface_commit(info.surface);
-    wl_display_dispatch(display);
 
     wl_callback *cb = wl_surface_frame(info.surface);
     wl_callback_add_listener(cb, &wlSurfaceFrameListener, new windowId(id));
@@ -204,17 +214,185 @@ void linuxWindowAPI::closeWindow(windowId winId)
     idToIndex[last.id.index].first = idToIndex[winId.index].first;
     
     windowsInfo.pop_back();
+
     idToIndex[winId.index].first = -1;
 
     zxdg_toplevel_decoration_v1_destroy(temp.topLevelDecoration);
     xdg_toplevel_destroy(temp.xdgToplevel);
     xdg_surface_destroy(temp.xdgSurface);
     wl_surface_destroy(temp.surface);
+
 }
 
 bool linuxWindowAPI::isWindowOpen(windowId winId)
 {
     return getIndexFromId(winId) != -1;
+}
+
+// ################ set event listener ################################################################
+void linuxWindowAPI::setKeyPressEventListenrs(windowId winId, std::function<void(const keyData&)> callback)
+{
+    int64_t index = getIndexFromId(winId);
+    if(index == -1)
+        return;
+
+    windowsInfo[index].keyPressEventListenrs = callback;
+}
+
+void linuxWindowAPI::setKeyReleasedEventListenrs(windowId winId, std::function<void(const keyData&)> callback)
+{
+    int64_t index = getIndexFromId(winId);
+    if(index == -1)
+        return;
+
+    windowsInfo[index].keyReleasedEventListenrs = callback;
+
+}
+
+void linuxWindowAPI::setKeyRepeatEventListenrs(windowId winId, std::function<void(const keyData&)> callback)
+{
+    int64_t index = getIndexFromId(winId);
+    if(index == -1)
+        return;
+
+    windowsInfo[index].keyRepeatEventListenrs = callback;
+
+}
+
+void linuxWindowAPI::setKeyTypedEventListenrs(windowId winId, std::function<void(const KeyTypedData&)> callback)
+{
+
+    int64_t index = getIndexFromId(winId);
+    if(index == -1)
+        return;
+    windowsInfo[index].keyTypedEventListenrs = callback;
+
+}
+
+
+void linuxWindowAPI::setMouseButtonPressEventListenrs(windowId winId, std::function<void(const mouseButtonData&)> callback)
+{
+    int64_t index = getIndexFromId(winId);
+    if(index == -1)
+        return;
+
+    windowsInfo[index].mouseButtonPressEventListenrs = callback;
+
+}
+
+void linuxWindowAPI::setMouseButtonReleasedEventListenrs(windowId winId, std::function<void(const mouseButtonData&)> callback)
+{
+    int64_t index = getIndexFromId(winId);
+    if(index == -1)
+        return;
+
+    windowsInfo[index].mouseButtonReleasedEventListenrs = callback;
+
+}
+
+
+void linuxWindowAPI::setMouseMovedListenrs(windowId winId, std::function<void(const mouseMoveData&)> callback)
+{
+    int64_t index = getIndexFromId(winId);
+    if(index == -1)
+        return;
+
+    windowsInfo[index].mouseMovedListenrs = callback;
+
+}
+
+void linuxWindowAPI::setMouseScrollListenrs(windowId winId, std::function<void(const mouseScrollData&)> callback)
+{
+    int64_t index = getIndexFromId(winId);
+    if(index == -1)
+        return;
+
+    windowsInfo[index].mouseScrollListenrs = callback;
+
+}
+
+
+
+// ################ unset event listener ################################################################
+void linuxWindowAPI::unsetKeyPressEventListenrs(windowId winId)
+{
+    int64_t index = getIndexFromId(winId);
+    if(index == -1)
+        return;
+
+    windowsInfo[index].keyPressEventListenrs = {};
+
+}
+
+void linuxWindowAPI::unsetKeyReleasedEventListenrs(windowId winId)
+{
+    int64_t index = getIndexFromId(winId);
+    if(index == -1)
+        return;
+
+    windowsInfo[index].keyPressEventListenrs = {};
+
+}
+
+void linuxWindowAPI::unsetKeyRepeatEventListenrs(windowId winId)
+{
+
+    int64_t index = getIndexFromId(winId);
+    if(index == -1)
+        return;
+
+    windowsInfo[index].keyPressEventListenrs = {};
+}
+
+void linuxWindowAPI::unsetKeyTypedEventListenrs(windowId winId)
+{
+
+    int64_t index = getIndexFromId(winId);
+    if(index == -1)
+        return;
+
+    windowsInfo[index].keyPressEventListenrs = {};
+}
+
+
+void linuxWindowAPI::unsetMouseButtonPressEventListenrs(windowId winId)
+{
+    int64_t index = getIndexFromId(winId);
+    if(index == -1)
+        return;
+
+    windowsInfo[index].keyPressEventListenrs = {};
+}
+
+void linuxWindowAPI::unsetMouseButtonReleasedEventListenrs(windowId winId)
+{
+
+    int64_t index = getIndexFromId(winId);
+    if(index == -1)
+        return;
+
+    windowsInfo[index].keyPressEventListenrs = {};
+}
+
+
+void linuxWindowAPI::unsetMouseMovedListenrs(windowId winId)
+{
+
+    int64_t index = getIndexFromId(winId);
+    if(index == -1)
+        return;
+
+    windowsInfo[index].keyPressEventListenrs = {};
+}
+
+void linuxWindowAPI::unsetMouseScrollListenrs(windowId winId)
+{
+
+    int64_t index = getIndexFromId(winId);
+    if(index == -1)
+        return;
+
+    windowsInfo[index].keyPressEventListenrs = {};
 }
 
 
