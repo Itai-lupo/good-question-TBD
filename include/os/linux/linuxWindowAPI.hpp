@@ -184,7 +184,6 @@ class linuxWindowAPI
             std::function<void(const keyData&)> keyPressEventListenrs;
             std::function<void(const keyData&)> keyReleasedEventListenrs;
             std::function<void(const keyData&)> keyRepeatEventListenrs;
-            std::function<void(const KeyTypedData&)> keyTypedEventListenrs;
 
             std::function<void(const mouseButtonData&)> mouseButtonPressEventListenrs;
             std::function<void(const mouseButtonData&)> mouseButtonReleasedEventListenrs;
@@ -197,9 +196,6 @@ class linuxWindowAPI
 
 
         static inline std::vector<windowInfo> windowsInfo;
-
-        
-
 
         static inline std::map<uint32_t, std::pair<uint64_t, uint32_t>> idToIndex; 
 
@@ -225,12 +221,15 @@ class linuxWindowAPI
         static wl_display *getDisplay(){ return display; }
 
 
+        static std::string getWindowTitle(windowId winId);
+        static std::pair<uint32_t, uint32_t> getWindowSize(windowId winId);
+
+
         // ################ set event listener ################################################################
         static void setKeyPressEventListenrs(windowId winId, std::function<void(const keyData&)> callback);
         static void setKeyReleasedEventListenrs(windowId winId, std::function<void(const keyData&)> callback);
         static void setKeyRepeatEventListenrs(windowId winId, std::function<void(const keyData&)> callback);
-        static void setKeyTypedEventListenrs(windowId winId, std::function<void(const KeyTypedData&)> callback);
-
+        
         static void setMouseButtonPressEventListenrs(windowId winId, std::function<void(const mouseButtonData&)> callback);
         static void setMouseButtonReleasedEventListenrs(windowId winId, std::function<void(const mouseButtonData&)> callback);
         
@@ -242,8 +241,7 @@ class linuxWindowAPI
         static void unsetKeyPressEventListenrs(windowId winId);
         static void unsetKeyReleasedEventListenrs(windowId winId);
         static void unsetKeyRepeatEventListenrs(windowId winId);
-        static void unsetKeyTypedEventListenrs(windowId winId);
-
+       
         static void unsetMouseButtonPressEventListenrs(windowId winId);
         static void unsetMouseButtonReleasedEventListenrs(windowId winId);
         

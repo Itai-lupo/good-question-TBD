@@ -2,5 +2,6 @@
 
 struct mouseMoveData
 {
-    char utf8Buffer[4];
+    int x;
+    int y;
 };

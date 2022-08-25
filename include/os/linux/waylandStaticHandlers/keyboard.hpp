@@ -19,8 +19,8 @@ class keyboard
         static inline int32_t keyRepeatRate; 
         static inline int32_t keyRepeatdelay;
         
-        static inline std::map<uint32_t, bool> keyRepertListenersShouldRun;
         static inline int32_t activeWindow = -1; 
+        static inline std::map<keycodes, bool> isKeyPressed;
         
         static void wlKeymap(void *data, wl_keyboard *wl_keyboard, uint32_t format, int32_t fd, uint32_t size);
         static void wlEnter(void *data, wl_keyboard *wl_keyboard, uint32_t serial, wl_surface *surface, wl_array *keys);

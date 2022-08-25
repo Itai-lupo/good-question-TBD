@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['last_0',['Last',['../d7/d0b/keycodes_8hpp.html#a69877ab2ad01f176a4e2f2095fd3213bad55b30607c2a9a2616347d6edb789f6b',1,'keycodes.hpp']]]
+  ['continuous_0',['continuous',['../d5/dde/mouse_format_8hpp.html#a188e4554ed3b3db425c617c2f47a07c9ad2884efee751eb4746b685827c7efcd9',1,'mouseFormat.hpp']]]
 ];

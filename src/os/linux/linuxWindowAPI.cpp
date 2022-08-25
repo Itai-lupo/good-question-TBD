@@ -229,6 +229,27 @@ bool linuxWindowAPI::isWindowOpen(windowId winId)
     return getIndexFromId(winId) != -1;
 }
 
+std::string linuxWindowAPI::getWindowTitle(windowId winId)
+{
+    int64_t index = getIndexFromId(winId);
+    if(index == -1)
+        return "";
+    return windowsInfo[index].title;
+
+}
+
+std::pair<uint32_t, uint32_t> linuxWindowAPI::getWindowSize(windowId winId)
+{
+    int64_t index = getIndexFromId(winId);
+    if(index == -1)
+        return {0, 0};
+
+    return {windowsInfo[index].width, windowsInfo[index].height};
+
+}
+
+        
+
 // ################ set event listener ################################################################
 void linuxWindowAPI::setKeyPressEventListenrs(windowId winId, std::function<void(const keyData&)> callback)
 {
@@ -256,16 +277,6 @@ void linuxWindowAPI::setKeyRepeatEventListenrs(windowId winId, std::function<voi
         return;
 
     windowsInfo[index].keyRepeatEventListenrs = callback;
-
-}
-
-void linuxWindowAPI::setKeyTypedEventListenrs(windowId winId, std::function<void(const KeyTypedData&)> callback)
-{
-
-    int64_t index = getIndexFromId(winId);
-    if(index == -1)
-        return;
-    windowsInfo[index].keyTypedEventListenrs = callback;
 
 }
 
@@ -335,16 +346,6 @@ void linuxWindowAPI::unsetKeyReleasedEventListenrs(windowId winId)
 }
 
 void linuxWindowAPI::unsetKeyRepeatEventListenrs(windowId winId)
-{
-
-    int64_t index = getIndexFromId(winId);
-    if(index == -1)
-        return;
-
-    windowsInfo[index].keyPressEventListenrs = {};
-}
-
-void linuxWindowAPI::unsetKeyTypedEventListenrs(windowId winId)
 {
 
     int64_t index = getIndexFromId(winId);

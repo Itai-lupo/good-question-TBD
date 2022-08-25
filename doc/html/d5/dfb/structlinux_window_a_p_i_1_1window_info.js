@@ -5,7 +5,6 @@ var structlinux_window_a_p_i_1_1window_info =
     [ "keyPressEventListenrs", "d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a96a0fea70fd9c75108a9a80ec8b87e47", null ],
     [ "keyReleasedEventListenrs", "d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a85194b811f60813b6e6e0df6cbf69bd8", null ],
     [ "keyRepeatEventListenrs", "d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a982bfd51d67e58f3a2d49fb2d5ab182f", null ],
-    [ "keyTypedEventListenrs", "d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a9a1bf185f583721d903661c6152dd333", null ],
     [ "lastFrame", "d5/dfb/structlinux_window_a_p_i_1_1window_info.html#aab34e5c01d7996fd05b1f7cfa806ceac", null ],
     [ "mouseButtonPressEventListenrs", "d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a39ba4f8679740120e123912483bc775a", null ],
     [ "mouseButtonReleasedEventListenrs", "d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a8e477f2598f782da6ae98dd3cbcb6620", null ],

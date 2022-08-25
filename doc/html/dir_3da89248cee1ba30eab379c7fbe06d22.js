@@ -3,9 +3,6 @@ var dir_3da89248cee1ba30eab379c7fbe06d22 =
     [ "keyData.hpp", "d3/d71/key_data_8hpp.html", [
       [ "keyData", "dc/da2/structkey_data.html", "dc/da2/structkey_data" ]
     ] ],
-    [ "KeyTypedData.hpp", "d0/d96/_key_typed_data_8hpp.html", [
-      [ "KeyTypedData", "d8/dfb/struct_key_typed_data.html", "d8/dfb/struct_key_typed_data" ]
-    ] ],
     [ "mouseButtonData.hpp", "d0/d5f/mouse_button_data_8hpp.html", [
       [ "mouseButtonData", "db/de8/structmouse_button_data.html", "db/de8/structmouse_button_data" ]
     ] ],

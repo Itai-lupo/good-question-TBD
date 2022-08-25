@@ -1,6 +1,10 @@
 #pragma once
+#include "mouseFormat.hpp"
 
 struct mouseScrollData
 {
-    char utf8Buffer[4];
+    mouseAxis axis;
+    mouseAxisSource axisSource;
+    int value;
+    int discreteValue;
 };

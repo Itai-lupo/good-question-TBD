@@ -125,10 +125,10 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:a85d39861eae47d109dfb3447d42d1c3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a1a474f1f8cb9f6db80b326f4e135d8"><td class="memItemLeft" align="right" valign="top">static int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#a8a1a474f1f8cb9f6db80b326f4e135d8">keyRepeatdelay</a></td></tr>
 <tr class="separator:a8a1a474f1f8cb9f6db80b326f4e135d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac34ed40646069995869e9f45d861e66d"><td class="memItemLeft" align="right" valign="top">static std::map&lt; uint32_t, bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#ac34ed40646069995869e9f45d861e66d">keyRepertListenersShouldRun</a></td></tr>
-<tr class="separator:ac34ed40646069995869e9f45d861e66d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af62af5c8f535fa2980661884a53e0c0c"><td class="memItemLeft" align="right" valign="top">static int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#af62af5c8f535fa2980661884a53e0c0c">activeWindow</a> = -1</td></tr>
 <tr class="separator:af62af5c8f535fa2980661884a53e0c0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aceaa9d1cad75a40f656e03f36ecf654d"><td class="memItemLeft" align="right" valign="top">static std::map&lt; <a class="el" href="../../d7/d0b/keycodes_8hpp.html#a69877ab2ad01f176a4e2f2095fd3213b">keycodes</a>, bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#aceaa9d1cad75a40f656e03f36ecf654d">isKeyPressed</a></td></tr>
+<tr class="separator:aceaa9d1cad75a40f656e03f36ecf654d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5abaa0a89ae0f4a72c9c0adb67d8107"><td class="memItemLeft" align="right" valign="top">static constexpr wl_keyboard_listener&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#ac5abaa0a89ae0f4a72c9c0adb67d8107">wlKeyboardListener</a></td></tr>
 <tr class="separator:ac5abaa0a89ae0f4a72c9c0adb67d8107"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad29915cb7ccecfcefa72ca7768b0dff5"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="../../d7/d0b/keycodes_8hpp.html#a69877ab2ad01f176a4e2f2095fd3213b">keycodes</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#ad29915cb7ccecfcefa72ca7768b0dff5">keycodeFromScaneCode</a> []</td></tr>
@@ -514,6 +514,28 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="aceaa9d1cad75a40f656e03f36ecf654d" name="aceaa9d1cad75a40f656e03f36ecf654d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aceaa9d1cad75a40f656e03f36ecf654d">&#9670;&nbsp;</a></span>isKeyPressed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;<a class="el" href="../../d7/d0b/keycodes_8hpp.html#a69877ab2ad01f176a4e2f2095fd3213b">keycodes</a>, bool&gt; keyboard::isKeyPressed</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a0474ca11be635e1fe2c322c4e5ec55e1" name="a0474ca11be635e1fe2c322c4e5ec55e1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0474ca11be635e1fe2c322c4e5ec55e1">&#9670;&nbsp;</a></span>keyboardHandle</h2>
 
@@ -591,28 +613,6 @@ Static Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">int32_t keyboard::keyRepeatRate</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac34ed40646069995869e9f45d861e66d" name="ac34ed40646069995869e9f45d861e66d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac34ed40646069995869e9f45d861e66d">&#9670;&nbsp;</a></span>keyRepertListenersShouldRun</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::map&lt;uint32_t, bool&gt; keyboard::keyRepertListenersShouldRun</td>
         </tr>
       </table>
   </td>

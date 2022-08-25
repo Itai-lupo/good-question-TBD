@@ -1,5 +1,11 @@
 var searchData=
 [
-  ['valid_0',['valid',['../da/dbc/structpointer_1_1input_buffer.html#af63bfcae041cb8023f9c512ee9059c19',1,'pointer::inputBuffer']]],
-  ['value_1',['value',['../dc/da2/structkey_data.html#a7d43bb6d37ab93eaa27d445a95c188f7',1,'keyData::value()'],['../da/dbc/structpointer_1_1input_buffer.html#afa38b67ce9bbffff458de3bf1232c300',1,'pointer::inputBuffer::value()']]]
+  ['unsetkeypresseventlistenrs_0',['unsetKeyPressEventListenrs',['../de/d8e/classlinux_window_a_p_i.html#a45d00c557c804a4f79af5dda96caad38',1,'linuxWindowAPI::unsetKeyPressEventListenrs()'],['../d5/d6a/classos_a_p_i.html#a17876b4022733e594ad077876fcfc77e',1,'osAPI::unsetKeyPressEventListenrs()']]],
+  ['unsetkeyreleasedeventlistenrs_1',['unsetKeyReleasedEventListenrs',['../de/d8e/classlinux_window_a_p_i.html#a5bb09df8db430dbb9279c0aa7a04c4d8',1,'linuxWindowAPI::unsetKeyReleasedEventListenrs()'],['../d5/d6a/classos_a_p_i.html#a751a82ce4accddcfbca8d51bf60cd29e',1,'osAPI::unsetKeyReleasedEventListenrs()']]],
+  ['unsetkeyrepeateventlistenrs_2',['unsetKeyRepeatEventListenrs',['../de/d8e/classlinux_window_a_p_i.html#acdc89d0c3e28b1d6272fdd0986b327b7',1,'linuxWindowAPI::unsetKeyRepeatEventListenrs()'],['../d5/d6a/classos_a_p_i.html#a40a99f13aac874090cb05515d1a34fa9',1,'osAPI::unsetKeyRepeatEventListenrs()']]],
+  ['unsetmousebuttonpresseventlistenrs_3',['unsetMouseButtonPressEventListenrs',['../de/d8e/classlinux_window_a_p_i.html#a6760f289b8b6049b58badc2bc10cd365',1,'linuxWindowAPI::unsetMouseButtonPressEventListenrs()'],['../d5/d6a/classos_a_p_i.html#a861edc2419ecf8a8f7e51129b6fb1b43',1,'osAPI::unsetMouseButtonPressEventListenrs()']]],
+  ['unsetmousebuttonreleasedeventlistenrs_4',['unsetMouseButtonReleasedEventListenrs',['../de/d8e/classlinux_window_a_p_i.html#aab21711b621dc4767e5159531220151d',1,'linuxWindowAPI::unsetMouseButtonReleasedEventListenrs()'],['../d5/d6a/classos_a_p_i.html#aa753160fb20ab8594cffe7653878d38f',1,'osAPI::unsetMouseButtonReleasedEventListenrs()']]],
+  ['unsetmousemovedlistenrs_5',['unsetMouseMovedListenrs',['../de/d8e/classlinux_window_a_p_i.html#a44686c97c9466ee75ab4f61489ed5b48',1,'linuxWindowAPI::unsetMouseMovedListenrs()'],['../d5/d6a/classos_a_p_i.html#a6a599789d696925bf59a8750c4324545',1,'osAPI::unsetMouseMovedListenrs()']]],
+  ['unsetmousescrolllistenrs_6',['unsetMouseScrollListenrs',['../de/d8e/classlinux_window_a_p_i.html#a2c0466023661b7bb5e4bbd2ac9a84555',1,'linuxWindowAPI::unsetMouseScrollListenrs()'],['../d5/d6a/classos_a_p_i.html#a7c08ac4760a93fa9e896650c4704094d',1,'osAPI::unsetMouseScrollListenrs()']]],
+  ['utf8buffer_7',['utf8Buffer',['../dc/da2/structkey_data.html#a5ecb109ce21a7279021d3e107c5ae149',1,'keyData']]]
 ];

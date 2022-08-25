@@ -1,6 +1,7 @@
 #pragma once
+#include "mouseFormat.hpp"
 
 struct mouseButtonData
 {
-    char utf8Buffer[4];
+    mouseButtons value;  
 };

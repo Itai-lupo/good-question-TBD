@@ -1,25 +1,5 @@
 var searchData=
 [
-  ['sceneloader_0',['sceneLoader',['../d8/deb/classscene_loader.html#a28fdb0e324aacd57a6eba9387ba694f1',1,'sceneLoader::sceneLoader()'],['../d8/deb/classscene_loader.html#a2971c35d604e3325f760394d4d2f858f',1,'sceneLoader::sceneLoader(const sceneLoader &amp;)=default'],['../d8/deb/classscene_loader.html#a0028c74a04862e5f99bea036abe8db5c',1,'sceneLoader::sceneLoader(sceneLoader &amp;&amp;)=default'],['../d8/deb/classscene_loader.html',1,'sceneLoader']]],
-  ['sceneloader_2ecpp_1',['sceneLoader.cpp',['../d9/d25/scene_loader_8cpp.html',1,'']]],
-  ['sceneloader_2ehpp_2',['sceneLoader.hpp',['../da/de9/scene_loader_8hpp.html',1,'']]],
-  ['seat_3',['seat',['../d5/d3d/classseat.html',1,'']]],
-  ['seat_2ecpp_4',['seat.cpp',['../d4/d4a/seat_8cpp.html',1,'']]],
-  ['seat_2ehpp_5',['seat.hpp',['../d5/d7c/seat_8hpp.html',1,'']]],
-  ['seathandle_6',['seatHandle',['../d5/d3d/classseat.html#a4482c7aebf1b70151e8cda4ae4d9e46b',1,'seat']]],
-  ['serial_7',['serial',['../da/dbc/structpointer_1_1input_buffer.html#a5888a60efcdb005e7fa461ca147cad11',1,'pointer::inputBuffer']]],
-  ['setkeypresseventlistenrs_8',['setKeyPressEventListenrs',['../de/d8e/classlinux_window_a_p_i.html#a612e56cacfcf0c491d641539b51ab9fa',1,'linuxWindowAPI::setKeyPressEventListenrs()'],['../d5/d6a/classos_a_p_i.html#aacaeda788469e3a86e15178f76efcedb',1,'osAPI::setKeyPressEventListenrs()']]],
-  ['setkeyreleasedeventlistenrs_9',['setKeyReleasedEventListenrs',['../de/d8e/classlinux_window_a_p_i.html#aee72d450e176a225ae20542d888ec23b',1,'linuxWindowAPI::setKeyReleasedEventListenrs()'],['../d5/d6a/classos_a_p_i.html#a4730a040b42e0a42c52de9d88a69541a',1,'osAPI::setKeyReleasedEventListenrs(windowId winId, std::function&lt; void(const keyData &amp;)&gt; callback)']]],
-  ['setkeyrepeateventlistenrs_10',['setKeyRepeatEventListenrs',['../d5/d6a/classos_a_p_i.html#ac50b09ad495607dc3e3d4f85dd2fa476',1,'osAPI::setKeyRepeatEventListenrs()'],['../de/d8e/classlinux_window_a_p_i.html#a7a54e8a308c485e582c7a6c089f78ee9',1,'linuxWindowAPI::setKeyRepeatEventListenrs(windowId winId, std::function&lt; void(const keyData &amp;)&gt; callback)']]],
-  ['setkeytypedeventlistenrs_11',['setKeyTypedEventListenrs',['../de/d8e/classlinux_window_a_p_i.html#a833e168eabfbc54d46e1f0a3ab57f450',1,'linuxWindowAPI::setKeyTypedEventListenrs()'],['../d5/d6a/classos_a_p_i.html#a561f0204b55ea854f4ca14a9ac9352db',1,'osAPI::setKeyTypedEventListenrs()']]],
-  ['setmousebuttonpresseventlistenrs_12',['setMouseButtonPressEventListenrs',['../de/d8e/classlinux_window_a_p_i.html#a13e543d1934716eb9a367cab9e25c878',1,'linuxWindowAPI::setMouseButtonPressEventListenrs()'],['../d5/d6a/classos_a_p_i.html#a2b0f7fe8d04d4d589b7253d595945b3d',1,'osAPI::setMouseButtonPressEventListenrs()']]],
-  ['setmousebuttonreleasedeventlistenrs_13',['setMouseButtonReleasedEventListenrs',['../de/d8e/classlinux_window_a_p_i.html#a607ff3db750999003e247d9bf2c1fc1d',1,'linuxWindowAPI::setMouseButtonReleasedEventListenrs()'],['../d5/d6a/classos_a_p_i.html#a895445d3f32cf194f39bc345aa557d25',1,'osAPI::setMouseButtonReleasedEventListenrs(windowId winId, std::function&lt; void(const mouseButtonData &amp;)&gt; callback)']]],
-  ['setmousemovedlistenrs_14',['setMouseMovedListenrs',['../d5/d6a/classos_a_p_i.html#a4c915e1e33cb9a6edc4d7b75675a8720',1,'osAPI::setMouseMovedListenrs()'],['../de/d8e/classlinux_window_a_p_i.html#a2ca7af4309dcd2790f2fa19d3fe2b355',1,'linuxWindowAPI::setMouseMovedListenrs(windowId winId, std::function&lt; void(const mouseMoveData &amp;)&gt; callback)']]],
-  ['setmousescrolllistenrs_15',['setMouseScrollListenrs',['../de/d8e/classlinux_window_a_p_i.html#aca248ca84ecb208c7feb091d2e0ff655',1,'linuxWindowAPI::setMouseScrollListenrs()'],['../d5/d6a/classos_a_p_i.html#a6452b31be6eea2600f6ea73f710cad6e',1,'osAPI::setMouseScrollListenrs(windowId winId, std::function&lt; void(const mouseScrollData &amp;)&gt; callback)']]],
-  ['setvsyncforcurrentcontext_16',['setVSyncForCurrentContext',['../d5/d6a/classos_a_p_i.html#a9ced3b00e4ba0cacca29e4cffba96073',1,'osAPI']]],
-  ['state_17',['state',['../da/dbc/structpointer_1_1input_buffer.html#a32b3a8b9e5fcfb2a17f91a0ece4fdaee',1,'pointer::inputBuffer']]],
-  ['surface_18',['surface',['../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#af381255e54938059c537c1fb277bdf8d',1,'linuxWindowAPI::windowInfo']]],
-  ['surface_5fx_19',['surface_x',['../da/dbc/structpointer_1_1input_buffer.html#a4b2a9c2583b2f2fcd5ccc20585bf7089',1,'pointer::inputBuffer']]],
-  ['surface_5fy_20',['surface_y',['../da/dbc/structpointer_1_1input_buffer.html#aa6656a72315a010d5a138bbf649c58a1',1,'pointer::inputBuffer']]],
-  ['swapbuffers_21',['swapBuffers',['../d5/d6a/classos_a_p_i.html#ab8e45221b92555e589445671a24e3801',1,'osAPI']]]
+  ['registry_0',['registry',['../de/d8e/classlinux_window_a_p_i.html#a787a5b914acdc4c6f53f090dc700eef3',1,'linuxWindowAPI']]],
+  ['right_1',['right',['../d5/dde/mouse_format_8hpp.html#aba307b55c0889ec7a6bdcebefe2638d8a7c4f29407893c334a6cb7a87bf045c0d',1,'mouseFormat.hpp']]]
 ];

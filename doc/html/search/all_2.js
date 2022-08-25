@@ -8,6 +8,7 @@ var searchData=
   ['condtion_5flog_5ffatal_5',['CONDTION_LOG_FATAL',['../d4/d3d/log_8hpp.html#a1ab0ffe082dd546a0c479ac3999b6e9f',1,'log.hpp']]],
   ['condtion_5flog_5finfo_6',['CONDTION_LOG_INFO',['../d4/d3d/log_8hpp.html#afed7c5f2f381b34ba17baa01899dc305',1,'log.hpp']]],
   ['condtion_5flog_5fwarning_7',['CONDTION_LOG_WARNING',['../d4/d3d/log_8hpp.html#ad69b14d5ab386ce4f173721dbd42e567',1,'log.hpp']]],
-  ['core_2ehpp_8',['core.hpp',['../da/d47/core_8hpp.html',1,'']]],
-  ['createwindow_9',['createWindow',['../de/d8e/classlinux_window_a_p_i.html#abb81b26381d2ec33289e37960cca04ac',1,'linuxWindowAPI::createWindow()'],['../d5/d6a/classos_a_p_i.html#aa717d13e65be64bc00998eb5e7d5e263',1,'osAPI::createWindow()']]]
+  ['continuous_8',['continuous',['../d5/dde/mouse_format_8hpp.html#a188e4554ed3b3db425c617c2f47a07c9ad2884efee751eb4746b685827c7efcd9',1,'mouseFormat.hpp']]],
+  ['core_2ehpp_9',['core.hpp',['../da/d47/core_8hpp.html',1,'']]],
+  ['createwindow_10',['createWindow',['../de/d8e/classlinux_window_a_p_i.html#abb81b26381d2ec33289e37960cca04ac',1,'linuxWindowAPI::createWindow()'],['../d5/d6a/classos_a_p_i.html#aa717d13e65be64bc00998eb5e7d5e263',1,'osAPI::createWindow()']]]
 ];

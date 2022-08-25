@@ -96,8 +96,8 @@ $(document).ready(function(){initNavTree('dc/da2/structkey_data.html','../../');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:abc0e475620c384fed80b41acd4f222a4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da2/structkey_data.html#abc0e475620c384fed80b41acd4f222a4">keyData</a> (char *c, <a class="el" href="../../d7/d0b/keycodes_8hpp.html#a69877ab2ad01f176a4e2f2095fd3213b">keycodes</a> <a class="el" href="../../dc/da2/structkey_data.html#a7d43bb6d37ab93eaa27d445a95c188f7">value</a>)</td></tr>
-<tr class="separator:abc0e475620c384fed80b41acd4f222a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3170704158b082c3ba955829b05bd9f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da2/structkey_data.html#aa3170704158b082c3ba955829b05bd9f">keyData</a> (char *c, <a class="el" href="../../d7/d0b/keycodes_8hpp.html#a69877ab2ad01f176a4e2f2095fd3213b">keycodes</a> <a class="el" href="../../dc/da2/structkey_data.html#a7d43bb6d37ab93eaa27d445a95c188f7">value</a>, uint32_t <a class="el" href="../../dc/da2/structkey_data.html#a7e65421d985b319ff349c405cef0d9c2">scanCode</a>)</td></tr>
+<tr class="separator:aa3170704158b082c3ba955829b05bd9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -105,10 +105,12 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a5ecb109ce21a7279021d3e107c5ae149"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d43bb6d37ab93eaa27d445a95c188f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d0b/keycodes_8hpp.html#a69877ab2ad01f176a4e2f2095fd3213b">keycodes</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da2/structkey_data.html#a7d43bb6d37ab93eaa27d445a95c188f7">value</a></td></tr>
 <tr class="separator:a7d43bb6d37ab93eaa27d445a95c188f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e65421d985b319ff349c405cef0d9c2"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da2/structkey_data.html#a7e65421d985b319ff349c405cef0d9c2">scanCode</a></td></tr>
+<tr class="separator:a7e65421d985b319ff349c405cef0d9c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="abc0e475620c384fed80b41acd4f222a4" name="abc0e475620c384fed80b41acd4f222a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc0e475620c384fed80b41acd4f222a4">&#9670;&nbsp;</a></span>keyData()</h2>
+<a id="aa3170704158b082c3ba955829b05bd9f" name="aa3170704158b082c3ba955829b05bd9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3170704158b082c3ba955829b05bd9f">&#9670;&nbsp;</a></span>keyData()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -126,7 +128,13 @@ Public Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="../../d7/d0b/keycodes_8hpp.html#a69877ab2ad01f176a4e2f2095fd3213b">keycodes</a>&#160;</td>
-          <td class="paramname"><em>value</em>&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>scanCode</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -140,16 +148,31 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">    7</span>                                    : <a class="code hl_variable" href="../../dc/da2/structkey_data.html#a7d43bb6d37ab93eaa27d445a95c188f7">value</a>(<a class="code hl_variable" href="../../dc/da2/structkey_data.html#a7d43bb6d37ab93eaa27d445a95c188f7">value</a>)    </div>
+<div class="fragment"><div class="line"><span class="lineno">    7</span>                                                       : <a class="code hl_variable" href="../../dc/da2/structkey_data.html#a7d43bb6d37ab93eaa27d445a95c188f7">value</a>(<a class="code hl_variable" href="../../dc/da2/structkey_data.html#a7d43bb6d37ab93eaa27d445a95c188f7">value</a>), <a class="code hl_variable" href="../../dc/da2/structkey_data.html#a7e65421d985b319ff349c405cef0d9c2">scanCode</a>(<a class="code hl_variable" href="../../dc/da2/structkey_data.html#a7e65421d985b319ff349c405cef0d9c2">scanCode</a>)</div>
 <div class="line"><span class="lineno">    8</span>    {</div>
 <div class="line"><span class="lineno">    9</span>        strncpy(<a class="code hl_variable" href="../../dc/da2/structkey_data.html#a5ecb109ce21a7279021d3e107c5ae149">utf8Buffer</a>, c, 4);</div>
 <div class="line"><span class="lineno">   10</span>    }</div>
 <div class="ttc" id="astructkey_data_html_a5ecb109ce21a7279021d3e107c5ae149"><div class="ttname"><a href="../../dc/da2/structkey_data.html#a5ecb109ce21a7279021d3e107c5ae149">keyData::utf8Buffer</a></div><div class="ttdeci">char utf8Buffer[6]</div><div class="ttdef"><b>Definition:</b> keyData.hpp:11</div></div>
 <div class="ttc" id="astructkey_data_html_a7d43bb6d37ab93eaa27d445a95c188f7"><div class="ttname"><a href="../../dc/da2/structkey_data.html#a7d43bb6d37ab93eaa27d445a95c188f7">keyData::value</a></div><div class="ttdeci">keycodes value</div><div class="ttdef"><b>Definition:</b> keyData.hpp:12</div></div>
+<div class="ttc" id="astructkey_data_html_a7e65421d985b319ff349c405cef0d9c2"><div class="ttname"><a href="../../dc/da2/structkey_data.html#a7e65421d985b319ff349c405cef0d9c2">keyData::scanCode</a></div><div class="ttdeci">uint32_t scanCode</div><div class="ttdef"><b>Definition:</b> keyData.hpp:13</div></div>
 </div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a7e65421d985b319ff349c405cef0d9c2" name="a7e65421d985b319ff349c405cef0d9c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e65421d985b319ff349c405cef0d9c2">&#9670;&nbsp;</a></span>scanCode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t keyData::scanCode</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a5ecb109ce21a7279021d3e107c5ae149" name="a5ecb109ce21a7279021d3e107c5ae149"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5ecb109ce21a7279021d3e107c5ae149">&#9670;&nbsp;</a></span>utf8Buffer</h2>
 

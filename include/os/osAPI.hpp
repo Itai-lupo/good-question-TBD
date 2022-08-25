@@ -33,12 +33,16 @@ class osAPI
 
         void *getProcAddress();
 
+        // ################################ get window info #######################
+        std::string getWindowTitle(windowId winId);
+        std::pair<uint32_t, uint32_t> getWindowSize(windowId winId);
+        
+
         
         // ################ set event listener ################################################################
         void setKeyPressEventListenrs(windowId winId, std::function<void(const keyData&)> callback);
         void setKeyReleasedEventListenrs(windowId winId, std::function<void(const keyData&)> callback);
         void setKeyRepeatEventListenrs(windowId winId, std::function<void(const keyData&)> callback);
-        void setKeyTypedEventListenrs(windowId winId, std::function<void(const KeyTypedData&)> callback);
 
         void setMouseButtonPressEventListenrs(windowId winId, std::function<void(const mouseButtonData&)> callback);
         void setMouseButtonReleasedEventListenrs(windowId winId, std::function<void(const mouseButtonData&)> callback);
@@ -51,7 +55,6 @@ class osAPI
         void unsetKeyPressEventListenrs(windowId winId);
         void unsetKeyReleasedEventListenrs(windowId winId);
         void unsetKeyRepeatEventListenrs(windowId winId);
-        void unsetKeyTypedEventListenrs(windowId winId);
 
         void unsetMouseButtonPressEventListenrs(windowId winId);
         void unsetMouseButtonReleasedEventListenrs(windowId winId);

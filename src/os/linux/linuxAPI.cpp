@@ -24,7 +24,7 @@ windowId osAPI::createWindow(const windowSpec& windowToCreate)
 
 bool osAPI::isWindowOpen(windowId winId)
 {
-    linuxWindowAPI::isWindowOpen(winId);
+    return linuxWindowAPI::isWindowOpen(winId);
 }
 
 void osAPI::setVSyncForCurrentContext(bool enabled)
@@ -59,6 +59,18 @@ void* osAPI::getProcAddress()
 
 
 
+std::string osAPI::getWindowTitle(windowId winId)
+{
+    return linuxWindowAPI::getWindowTitle(winId);
+}
+
+std::pair<uint32_t, uint32_t> osAPI::getWindowSize(windowId winId)
+{
+    return linuxWindowAPI::getWindowSize(winId);
+
+}
+
+
 // ################ set event listener ################################################################
 void osAPI::setKeyPressEventListenrs(windowId winId, std::function<void(const keyData&)> callback)
 {
@@ -71,10 +83,6 @@ void osAPI::setKeyReleasedEventListenrs(windowId winId, std::function<void(const
 void osAPI::setKeyRepeatEventListenrs(windowId winId, std::function<void(const keyData&)> callback)
 {
     linuxWindowAPI::setKeyRepeatEventListenrs(winId, callback);
-}
-void osAPI::setKeyTypedEventListenrs(windowId winId, std::function<void(const KeyTypedData&)> callback)
-{
-    linuxWindowAPI::setKeyTypedEventListenrs(winId, callback);
 }
 
 void osAPI::setMouseButtonPressEventListenrs(windowId winId, std::function<void(const mouseButtonData&)> callback)
@@ -109,10 +117,7 @@ void osAPI::unsetKeyRepeatEventListenrs(windowId winId)
 {
     linuxWindowAPI::unsetKeyRepeatEventListenrs(winId);
 }
-void osAPI::unsetKeyTypedEventListenrs(windowId winId)
-{
-    linuxWindowAPI::unsetKeyTypedEventListenrs(winId);
-}
+
 
 void osAPI::unsetMouseButtonPressEventListenrs(windowId winId)
 {

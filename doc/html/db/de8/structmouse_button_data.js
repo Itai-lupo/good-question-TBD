@@ -1,4 +1,4 @@
 var structmouse_button_data =
 [
-    [ "utf8Buffer", "db/de8/structmouse_button_data.html#ae2d149e9286f0d0c8245b94213f4649b", null ]
+    [ "value", "db/de8/structmouse_button_data.html#ad2e78970aa3b7b111e5c36c29ebf57e6", null ]
 ];

@@ -1,17 +1,17 @@
 var searchData=
 [
-  ['main_0',['main',['../df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;main.cpp'],['../de/d7f/main_8test_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;main.test.cpp']]],
-  ['main_2ecpp_1',['main.cpp',['../df/d0a/main_8cpp.html',1,'']]],
-  ['main_2etest_2ecpp_2',['main.test.cpp',['../de/d7f/main_8test_8cpp.html',1,'']]],
-  ['makecontextcurrent_3',['makeContextCurrent',['../d5/d6a/classos_a_p_i.html#a944da2f8b7892216e90ba22d72e59de2',1,'osAPI']]],
-  ['mousebuttondata_4',['mouseButtonData',['../db/de8/structmouse_button_data.html',1,'']]],
-  ['mousebuttondata_2ehpp_5',['mouseButtonData.hpp',['../d0/d5f/mouse_button_data_8hpp.html',1,'']]],
-  ['mousebuttonpresseventlistenrs_6',['mouseButtonPressEventListenrs',['../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a39ba4f8679740120e123912483bc775a',1,'linuxWindowAPI::windowInfo']]],
-  ['mousebuttonreleasedeventlistenrs_7',['mouseButtonReleasedEventListenrs',['../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a8e477f2598f782da6ae98dd3cbcb6620',1,'linuxWindowAPI::windowInfo']]],
-  ['mousemovedata_8',['mouseMoveData',['../d9/d38/structmouse_move_data.html',1,'']]],
-  ['mousemovedata_2ehpp_9',['mouseMoveData.hpp',['../db/d1b/mouse_move_data_8hpp.html',1,'']]],
-  ['mousemovedlistenrs_10',['mouseMovedListenrs',['../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a53516ffccb2f14cb2f36cf041404a623',1,'linuxWindowAPI::windowInfo']]],
-  ['mousescrolldata_11',['mouseScrollData',['../da/d46/structmouse_scroll_data.html',1,'']]],
-  ['mousescrolldata_2ehpp_12',['mouseScrollData.hpp',['../da/db3/mouse_scroll_data_8hpp.html',1,'']]],
-  ['mousescrolllistenrs_13',['mouseScrollListenrs',['../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a9acbbb5eb7543c5a12e3d6d0ad41b564',1,'linuxWindowAPI::windowInfo']]]
+  ['last_0',['Last',['../d7/d0b/keycodes_8hpp.html#a69877ab2ad01f176a4e2f2095fd3213bad55b30607c2a9a2616347d6edb789f6b',1,'keycodes.hpp']]],
+  ['lastframe_1',['lastFrame',['../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#aab34e5c01d7996fd05b1f7cfa806ceac',1,'linuxWindowAPI::windowInfo']]],
+  ['left_2',['left',['../d5/dde/mouse_format_8hpp.html#aba307b55c0889ec7a6bdcebefe2638d8a811882fecd5c7618d7099ebbd39ea254',1,'mouseFormat.hpp']]],
+  ['linuxapi_2ecpp_3',['linuxAPI.cpp',['../d3/d48/linux_a_p_i_8cpp.html',1,'']]],
+  ['linuxwindowapi_4',['linuxWindowAPI',['../de/d8e/classlinux_window_a_p_i.html',1,'']]],
+  ['linuxwindowapi_2ecpp_5',['linuxWindowAPI.cpp',['../d6/dbf/linux_window_a_p_i_8cpp.html',1,'']]],
+  ['linuxwindowapi_2ehpp_6',['linuxWindowAPI.hpp',['../d1/d9a/linux_window_a_p_i_8hpp.html',1,'']]],
+  ['log_2ecpp_7',['log.cpp',['../d9/db8/log_8cpp.html',1,'']]],
+  ['log_2ehpp_8',['log.hpp',['../d4/d3d/log_8hpp.html',1,'']]],
+  ['log_5ferror_9',['LOG_ERROR',['../d4/d3d/log_8hpp.html#a3a78e155ba786a87ea2bf3ec42467a2e',1,'log.hpp']]],
+  ['log_5ffatal_10',['LOG_FATAL',['../d4/d3d/log_8hpp.html#a49230221e4f74e33e108a07ad4674aa6',1,'log.hpp']]],
+  ['log_5finfo_11',['LOG_INFO',['../d4/d3d/log_8hpp.html#abba4f33d5caf52c17ab95053b60f76d7',1,'log.hpp']]],
+  ['log_5fwarning_12',['LOG_WARNING',['../d4/d3d/log_8hpp.html#abfeafd38993fb4706667674dff690d30',1,'log.hpp']]],
+  ['logger_13',['logger',['../dc/d37/classlogger.html',1,'']]]
 ];
