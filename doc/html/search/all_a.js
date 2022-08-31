@@ -13,5 +13,6 @@ var searchData=
   ['log_5ffatal_10',['LOG_FATAL',['../d4/d3d/log_8hpp.html#a49230221e4f74e33e108a07ad4674aa6',1,'log.hpp']]],
   ['log_5finfo_11',['LOG_INFO',['../d4/d3d/log_8hpp.html#abba4f33d5caf52c17ab95053b60f76d7',1,'log.hpp']]],
   ['log_5fwarning_12',['LOG_WARNING',['../d4/d3d/log_8hpp.html#abfeafd38993fb4706667674dff690d30',1,'log.hpp']]],
-  ['logger_13',['logger',['../dc/d37/classlogger.html',1,'']]]
+  ['logger_13',['logger',['../dc/d37/classlogger.html',1,'']]],
+  ['lostfocuslisteners_14',['lostFocusListeners',['../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a0cc2baceed3a4527633d9fa2d4481aa1',1,'linuxWindowAPI::windowInfo']]]
 ];

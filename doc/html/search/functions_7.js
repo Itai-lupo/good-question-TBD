@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['test_0',['TEST',['../de/d7f/main_8test_8cpp.html#a0d900b48e0c2aeab7ea63d72b076dc45',1,'main.test.cpp']]],
-  ['topleveldecorationconfigure_1',['toplevelDecorationConfigure',['../d1/dc4/classtoplevel_decoration.html#af7bd534ab766e1ca3a731f6d6259c4eb',1,'toplevelDecoration']]]
+  ['operator_3d_0',['operator=',['../d8/deb/classscene_loader.html#afa3568e1099b76003952817a4d53268a',1,'sceneLoader::operator=(const sceneLoader &amp;)'],['../d8/deb/classscene_loader.html#acdc798efac623cd099dac66f681f5305',1,'sceneLoader::operator=(sceneLoader &amp;&amp;)']]],
+  ['osapi_1',['osAPI',['../d5/d6a/classos_a_p_i.html#ace1df979b9e38bdc5be2753cf16f1a13',1,'osAPI']]]
 ];

@@ -50,7 +50,12 @@ class osAPI
         void setMouseMovedListenrs(windowId winId, std::function<void(const mouseMoveData&)> callback);
         void setMouseScrollListenrs(windowId winId, std::function<void(const mouseScrollData&)> callback);
 
-
+        void setCloseEventeListenrs(windowId winId, std::function<void()> callback);
+        void setResizeEventeListenrs(windowId winId, std::function<void(const windowResizeData&)> callback);
+        void setGainFocusEventListeners(windowId winId, std::function<void()> callback);
+        void setLostFocusEventListeners(windowId winId, std::function<void()> callback);
+        void setRenderEventListeners(windowId winId, std::function<void(const windowRenderData&)> callback);
+        
         // ################ unset event listener ################################################################
         void unsetKeyPressEventListenrs(windowId winId);
         void unsetKeyReleasedEventListenrs(windowId winId);
@@ -62,6 +67,11 @@ class osAPI
         void unsetMouseMovedListenrs(windowId winId);
         void unsetMouseScrollListenrs(windowId winId);
 
+        void unsetCloseEventeListenrs(windowId winId);
+        void unsetResizeEventeListenrs(windowId winId);
+        void unsetGainFocusEventListeners(windowId winId);
+        void unsetLostFocusEventListeners(windowId winId);
+        void unsetRenderEventListeners(windowId winId);
 
 };
 

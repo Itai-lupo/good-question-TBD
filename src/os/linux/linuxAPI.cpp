@@ -103,6 +103,33 @@ void osAPI::setMouseScrollListenrs(windowId winId, std::function<void(const mous
     linuxWindowAPI::setMouseScrollListenrs(winId, callback);
 }
 
+void osAPI::setCloseEventeListenrs(windowId winId, std::function<void()> callback)
+{
+    linuxWindowAPI::setCloseEventeListenrs(winId, callback);
+}
+
+void osAPI::setResizeEventeListenrs(windowId winId, std::function<void(const windowResizeData&)> callback)
+{
+    linuxWindowAPI::setResizeEventeListenrs(winId, callback);
+}
+
+void osAPI::setGainFocusEventListeners(windowId winId, std::function<void()> callback)
+{
+    linuxWindowAPI::setGainFocusEventListeners(winId, callback);
+}
+
+void osAPI::setLostFocusEventListeners(windowId winId, std::function<void()> callback)
+{
+    linuxWindowAPI::setLostFocusEventListeners(winId, callback);
+}
+
+void osAPI::setRenderEventListeners(windowId winId, std::function<void(const windowRenderData&)> callback)
+{
+    linuxWindowAPI::setRenderEventListeners(winId, callback);
+}
+
+        
+
 
 // ################ unset event listener ################################################################
 void osAPI::unsetKeyPressEventListenrs(windowId winId)
@@ -136,6 +163,32 @@ void osAPI::unsetMouseScrollListenrs(windowId winId)
 {
     linuxWindowAPI::unsetMouseScrollListenrs(winId);
 }
+
+void osAPI::unsetCloseEventeListenrs(windowId winId)
+{
+    linuxWindowAPI::unsetCloseEventeListenrs(winId);
+}
+
+void osAPI::unsetResizeEventeListenrs(windowId winId)
+{
+    linuxWindowAPI::unsetResizeEventeListenrs(winId);
+}
+
+void osAPI::unsetGainFocusEventListeners(windowId winId)
+{
+    linuxWindowAPI::unsetGainFocusEventListeners(winId);
+}
+
+void osAPI::unsetLostFocusEventListeners(windowId winId)
+{
+    linuxWindowAPI::unsetLostFocusEventListeners(winId);
+}
+
+void osAPI::unsetRenderEventListeners(windowId winId)
+{
+    linuxWindowAPI::unsetRenderEventListeners(winId);
+}
+
 
 
 #endif

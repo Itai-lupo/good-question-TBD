@@ -1,9 +1,5 @@
 var searchData=
 [
-  ['main_0',['main',['../df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;main.cpp'],['../de/d7f/main_8test_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;main.test.cpp']]],
-  ['makecontextcurrent_1',['makeContextCurrent',['../d5/d6a/classos_a_p_i.html#a944da2f8b7892216e90ba22d72e59de2',1,'osAPI']]],
-  ['mousemove_2',['mouseMove',['../df/d0a/main_8cpp.html#ab02d1ca18f39872410b61d63fe1ac762',1,'main.cpp']]],
-  ['mousepress_3',['mousePress',['../df/d0a/main_8cpp.html#a1081122b3bce0266a2aad0f0853aebb5',1,'main.cpp']]],
-  ['mousereleased_4',['mouseReleased',['../df/d0a/main_8cpp.html#a2e0401e19296896f456ea941b2e1b069',1,'main.cpp']]],
-  ['mousescroll_5',['mouseScroll',['../df/d0a/main_8cpp.html#afe2c205848c64af2c5fb507772f578a5',1,'main.cpp']]]
+  ['init_0',['init',['../de/d8e/classlinux_window_a_p_i.html#a0eb40c7e97c16c95ee3c259b69d001be',1,'linuxWindowAPI::init()'],['../dc/d37/classlogger.html#a55fa1aad396cc494aa03de1c2e2026af',1,'logger::init()']]],
+  ['iswindowopen_1',['isWindowOpen',['../de/d8e/classlinux_window_a_p_i.html#aad0e3a102d3fe6b92a3f617799ff7ff7',1,'linuxWindowAPI::isWindowOpen()'],['../d5/d6a/classos_a_p_i.html#af428baf543977fcb1ec52be933d9edb0',1,'osAPI::isWindowOpen()']]]
 ];

@@ -28,95 +28,6 @@
 
 class linuxWindowAPI
 {
-	// todo: move to a cpu side rendering moudle
-	private:
-        static inline wl_shm *shm;
-		static void randname(char *buf)
-        {
-            struct timespec ts;
-            clock_gettime(CLOCK_REALTIME, &ts);
-            long r = ts.tv_nsec;
-            for (int i = 0; i < 6; ++i) {
-                buf[i] = 'A'+(r&15)+(r&16)*2;
-                r >>= 5;
-            }
-        }
-
-        static int create_shm_file(void)
-        {
-            int retries = 100;
-            do {
-                char name[] = "/wl_shm-XXXXXX";
-                randname(name + sizeof(name) - 7);
-                --retries;
-                int fd = shm_open(name, O_RDWR | O_CREAT | O_EXCL, 0600);
-                if (fd >= 0) {
-                    shm_unlink(name);
-                    return fd;
-                }
-            } while (retries > 0 && errno == EEXIST);
-            return -1;
-        }
-
-        static int allocate_shm_file(size_t size)
-        {
-            int fd = create_shm_file();
-            if (fd < 0)
-                return -1;
-            int ret;
-            do {
-                ret = ftruncate(fd, size);
-            } while (ret < 0 && errno == EINTR);
-            if (ret < 0) {
-                close(fd);
-                return -1;
-            }
-            return fd;
-        }
-
-        static struct wl_buffer *draw_frame(int width, int height, uint32_t offset = 0)
-        {
-            
-            ZoneScoped;
-
-            int stride = width * 4;
-            int size = stride * height;
-            offset %= 64;
-
-            int fd = allocate_shm_file(size);
-            if (fd == -1) {
-                return NULL;
-            }
-
-            uint32_t *data = (uint32_t *)mmap(NULL, size,
-                    PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
-            if (data == MAP_FAILED) {
-                close(fd);
-                return NULL;
-            }
-
-            wl_shm_pool *pool = wl_shm_create_pool(shm, fd, size);
-            wl_buffer *buffer = wl_shm_pool_create_buffer(pool, 0,
-                    width, height, stride, WL_SHM_FORMAT_ARGB8888);
-            wl_shm_pool_destroy(pool);
-            close(fd);
-            uint32_t * ptr = data;
-            
-            for (int y = 0; y < height; ++y) {
-                for (int x = 0; x < width; ++x) {
-                    if ((x + offset + y / 32 * 32) % 64 < 32)
-                        data[y * width + x] = 0xffEEEEEE;
-                    else
-                        data[y * width + x] = 0xFF111111;
-                }
-            }
-
-
-            munmap(data, size);
-            wl_buffer_add_listener(buffer, &wl_buffer_listener, NULL);
-            return buffer;
-        }        
-        
 	private:
         
 
@@ -130,7 +41,7 @@ class linuxWindowAPI
         static void xdgTopLevelClose(void *data, xdg_toplevel *xdgToplevel);
         static void xdgTopLevelConfigureBounds(void *data, xdg_toplevel *xdgToplevel, int32_t width, int32_t height)
         {
-            LOG_INFO(width << ", " << height)
+
         }
 
         static constexpr xdg_toplevel_listener xdgTopLevelListener = {
@@ -161,13 +72,14 @@ class linuxWindowAPI
 		static constexpr struct xdg_surface_listener xdg_surface_listener = {
             .configure = xdg_surface_configure,
         };	
-	
     public:
         static inline wl_display *display = NULL;
         static inline wl_compositor *compositor = NULL;
         static inline wl_registry *registry;
         static inline xdg_wm_base *xdgWmBase;
+        static inline wl_shm *shm;
         
+        static inline uint32_t smallestWindowId = 0;
 
         struct windowInfo
         {
@@ -176,10 +88,16 @@ class linuxWindowAPI
             xdg_toplevel *xdgToplevel;
             zxdg_toplevel_decoration_v1 *topLevelDecoration;
             
+            int fd;
+            wl_shm_pool *pool;
+
             std::string title;
             int width, height;
             uint32_t lastFrame = 0;
-            float offset = 8;
+            uint32_t memoryPoolSize;
+            uint8_t bufferOffset = 0;
+            uint32_t *buffer;
+            int bufferSize;
 
             std::function<void(const keyData&)> keyPressEventListenrs;
             std::function<void(const keyData&)> keyReleasedEventListenrs;
@@ -190,8 +108,16 @@ class linuxWindowAPI
 
             std::function<void(const mouseMoveData&)> mouseMovedListenrs;
             std::function<void(const mouseScrollData&)> mouseScrollListenrs;
+
+            std::function<void()> closeListenrs;
+            std::function<void(const windowResizeData&)> resizeListenrs;
+            std::function<void()> gainFocusListeners;
+            std::function<void()> lostFocusListeners;
+            std::function<void(const windowRenderData&)> renderListeners;
         
             windowId id;
+
+            std::thread *renderThread;
         };
 
 
@@ -210,6 +136,14 @@ class linuxWindowAPI
         static void windowEventListener();
         static inline std::thread *eventListenr;
 
+        static void allocateWindowCpuPool(windowInfo& info);
+        static void reallocateWindowCpuPool(windowInfo& info);
+        static wl_buffer *allocateWindowBuffer(const windowInfo& info);
+        static uint32_t *mapWindowCpuBuffer(windowInfo& info);
+
+		static void randname(char *buf);
+        static int create_shm_file(void);
+        static int allocate_shm_file(size_t size);
     public:
         static void init();
         static void closeApi();
@@ -236,17 +170,28 @@ class linuxWindowAPI
         static void setMouseMovedListenrs(windowId winId, std::function<void(const mouseMoveData&)> callback);
         static void setMouseScrollListenrs(windowId winId, std::function<void(const mouseScrollData&)> callback);
 
-
+        static void setCloseEventeListenrs(windowId winId, std::function<void()> callback);
+        static void setResizeEventeListenrs(windowId winId, std::function<void(const windowResizeData&)> callback);
+        static void setGainFocusEventListeners(windowId winId, std::function<void()> callback);
+        static void setLostFocusEventListeners(windowId winId, std::function<void()> callback);
+        static void setRenderEventListeners(windowId winId, std::function<void(const windowRenderData&)> callback);
+        
         // ################ unset event listener ################################################################
         static void unsetKeyPressEventListenrs(windowId winId);
         static void unsetKeyReleasedEventListenrs(windowId winId);
         static void unsetKeyRepeatEventListenrs(windowId winId);
-       
+
         static void unsetMouseButtonPressEventListenrs(windowId winId);
         static void unsetMouseButtonReleasedEventListenrs(windowId winId);
         
         static void unsetMouseMovedListenrs(windowId winId);
         static void unsetMouseScrollListenrs(windowId winId);
+
+        static void unsetCloseEventeListenrs(windowId winId);
+        static void unsetResizeEventeListenrs(windowId winId);
+        static void unsetGainFocusEventListeners(windowId winId);
+        static void unsetLostFocusEventListeners(windowId winId);
+        static void unsetRenderEventListeners(windowId winId);
 
 
 

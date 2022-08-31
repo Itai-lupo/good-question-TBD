@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['id_0',['id',['../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a37f9a9644dd82f25cd045d54efd9d3cd',1,'linuxWindowAPI::windowInfo']]],
-  ['idtoindex_1',['idToIndex',['../de/d8e/classlinux_window_a_p_i.html#a8181b6bcb83744585a53870f84b9c479',1,'linuxWindowAPI']]],
-  ['index_2',['index',['../d6/d98/structgeneric_handle.html#acf2a1f03eef7f9547c97ddabf17e8558',1,'genericHandle']]],
-  ['inputframedata_3',['inputFrameData',['../d4/df3/classpointer.html#a1799e6af3a0b61869a31575272279852',1,'pointer']]],
-  ['iskeypressed_4',['isKeyPressed',['../d1/d4e/classkeyboard.html#aceaa9d1cad75a40f656e03f36ecf654d',1,'keyboard']]]
+  ['h_0',['h',['../d7/d7e/structwindow_spec.html#a57b0ea217e4ce365e8883a388b99e1df',1,'windowSpec']]],
+  ['height_1',['height',['../d0/df1/structwindow_render_data.html#a4425698af85c54f223a6c15560818996',1,'windowRenderData::height()'],['../d4/d95/structwindow_resize_data.html#af398927c8e2ed7dd40fbe9c781874dba',1,'windowResizeData::height()'],['../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a4dabe160e024c94643414c422fc79e0e',1,'linuxWindowAPI::windowInfo::height()']]]
 ];

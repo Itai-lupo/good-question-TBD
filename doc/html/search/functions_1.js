@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['getcurrentcontextwindowid_0',['getCurrentContextWindowId',['../d5/d6a/classos_a_p_i.html#a345196727562c28dc772c7feced3434d',1,'osAPI']]],
-  ['getdisplay_1',['getDisplay',['../de/d8e/classlinux_window_a_p_i.html#af59dd775510002887bcf799677acda0a',1,'linuxWindowAPI']]],
-  ['getindexfromid_2',['getIndexFromId',['../de/d8e/classlinux_window_a_p_i.html#a638311f054c35cf47945415e8c41bf54',1,'linuxWindowAPI']]],
-  ['getprocaddress_3',['getProcAddress',['../d5/d6a/classos_a_p_i.html#a0a043b6f3c663ac880a51d1859d26fb9',1,'osAPI']]],
-  ['getwindowsize_4',['getWindowSize',['../de/d8e/classlinux_window_a_p_i.html#a7f23427a1972cbc832f46fb5f57c31f2',1,'linuxWindowAPI::getWindowSize()'],['../d5/d6a/classos_a_p_i.html#a9caf3fe186334a588232d26d1c7de477',1,'osAPI::getWindowSize()']]],
-  ['getwindowtitle_5',['getWindowTitle',['../de/d8e/classlinux_window_a_p_i.html#a205e956259c73996025bcce00ad8f5f2',1,'linuxWindowAPI::getWindowTitle()'],['../d5/d6a/classos_a_p_i.html#a2a07fd40f7bdad0a1a2dc511e71a1758',1,'osAPI::getWindowTitle()']]]
+  ['close_0',['close',['../dc/d37/classlogger.html#ad0973f5782961630972e85adbed14b07',1,'logger']]],
+  ['closeapi_1',['closeApi',['../de/d8e/classlinux_window_a_p_i.html#ad0da3db853ade046c96c79d653942690',1,'linuxWindowAPI']]],
+  ['closewindow_2',['closeWindow',['../de/d8e/classlinux_window_a_p_i.html#a2f04da4be5a56c081477fabbcec802ed',1,'linuxWindowAPI::closeWindow()'],['../d5/d6a/classos_a_p_i.html#acad316dd14987374a79961de24e01a0f',1,'osAPI::closeWindow()']]],
+  ['consolekeywait_3',['consoleKeyWait',['../df/d0a/main_8cpp.html#a3de3a19b0f80e4d82b2bf426608a04bf',1,'main.cpp']]],
+  ['cpurender_4',['cpuRender',['../df/d0a/main_8cpp.html#acaf8ec4ea379f9aec35290a75382af5e',1,'main.cpp']]],
+  ['create_5fshm_5ffile_5',['create_shm_file',['../de/d8e/classlinux_window_a_p_i.html#a58230c69669f94848bccb5203efb2887',1,'linuxWindowAPI']]],
+  ['createwindow_6',['createWindow',['../de/d8e/classlinux_window_a_p_i.html#abb81b26381d2ec33289e37960cca04ac',1,'linuxWindowAPI::createWindow()'],['../d5/d6a/classos_a_p_i.html#aa717d13e65be64bc00998eb5e7d5e263',1,'osAPI::createWindow()']]]
 ];

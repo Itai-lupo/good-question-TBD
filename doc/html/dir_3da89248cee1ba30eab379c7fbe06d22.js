@@ -12,5 +12,11 @@ var dir_3da89248cee1ba30eab379c7fbe06d22 =
     [ "mouseScrollData.hpp", "da/db3/mouse_scroll_data_8hpp.html", [
       [ "mouseScrollData", "da/d46/structmouse_scroll_data.html", "da/d46/structmouse_scroll_data" ]
     ] ],
-    [ "osEventsData.hpp", "de/d7c/os_events_data_8hpp.html", null ]
+    [ "osEventsData.hpp", "de/d7c/os_events_data_8hpp.html", null ],
+    [ "windowRenderData.hpp", "d6/d89/window_render_data_8hpp.html", [
+      [ "windowRenderData", "d0/df1/structwindow_render_data.html", "d0/df1/structwindow_render_data" ]
+    ] ],
+    [ "windowResizeData.hpp", "dd/d8e/window_resize_data_8hpp.html", [
+      [ "windowResizeData", "d4/d95/structwindow_resize_data.html", "d4/d95/structwindow_resize_data" ]
+    ] ]
 ];

@@ -7,5 +7,6 @@ var dir_7b371d9fdb0359ac564866f88df60f77 =
     [ "osAPI.hpp", "d6/dcb/os_a_p_i_8hpp.html", [
       [ "windowSpec", "d7/d7e/structwindow_spec.html", "d7/d7e/structwindow_spec" ],
       [ "osAPI", "d5/d6a/classos_a_p_i.html", "d5/d6a/classos_a_p_i" ]
-    ] ]
+    ] ],
+    [ "windowState.hpp", "d5/dd7/window_state_8hpp.html", "d5/dd7/window_state_8hpp" ]
 ];

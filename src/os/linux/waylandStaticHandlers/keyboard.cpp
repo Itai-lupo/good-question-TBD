@@ -40,6 +40,9 @@ void keyboard::wlEnter(void *data, wl_keyboard *wl_keyboard, uint32_t serial, wl
         }
     }
 
+    if(linuxWindowAPI::windowsInfo[activeWindow].gainFocusListeners)             
+            std::thread(linuxWindowAPI::windowsInfo[activeWindow].gainFocusListeners).detach();
+
     char buf1[128];  
     char buf2[128];  
     uint32_t key;
@@ -50,7 +53,6 @@ void keyboard::wlEnter(void *data, wl_keyboard *wl_keyboard, uint32_t serial, wl
         xkb_keysym_get_name(sym, buf1, sizeof(buf1));
         xkb_state_key_get_utf8(xkbState, key + 8, buf2, sizeof(buf2));
 
-        LOG_INFO(i << ": sym = " << buf1 << " (" <<  sym << "), key = " << key << ", utf8 = '" << buf2 << "'");
         
         isKeyPressed[keycodeFromScaneCode[key]] = true;
         std::thread(keyboard::keyListener, key).detach();
@@ -62,6 +64,9 @@ void keyboard::wlEnter(void *data, wl_keyboard *wl_keyboard, uint32_t serial, wl
 
 void keyboard::wlLeave(void *data, wl_keyboard *wl_keyboard, uint32_t serial, wl_surface *surface)
 {
+    if(linuxWindowAPI::windowsInfo[activeWindow].lostFocusListeners)             
+            std::thread(linuxWindowAPI::windowsInfo[activeWindow].lostFocusListeners).detach();
+
     isKeyPressed.clear();
     activeWindow = -1;
 }
@@ -99,7 +104,6 @@ void keyboard::wlModifiers(void *data, wl_keyboard *wl_keyboard, uint32_t serial
 
 void keyboard::wlRepeatInfo(void *data, wl_keyboard *wl_keyboard, int32_t rate, int32_t delay)
 {
-    LOG_INFO("wlRepeatInfo: " << rate << ", " << delay)
     keyRepeatRate = rate;
     keyRepeatdelay = delay;
 }

@@ -13,5 +13,7 @@ var annotated_dup =
     [ "sceneLoader", "d8/deb/classscene_loader.html", "d8/deb/classscene_loader" ],
     [ "seat", "d5/d3d/classseat.html", null ],
     [ "toplevelDecoration", "d1/dc4/classtoplevel_decoration.html", null ],
+    [ "windowRenderData", "d0/df1/structwindow_render_data.html", "d0/df1/structwindow_render_data" ],
+    [ "windowResizeData", "d4/d95/structwindow_resize_data.html", "d4/d95/structwindow_resize_data" ],
     [ "windowSpec", "d7/d7e/structwindow_spec.html", "d7/d7e/structwindow_spec" ]
 ];
