@@ -138,8 +138,8 @@ class linuxWindowAPI
 
         static void allocateWindowCpuPool(windowInfo& info);
         static void reallocateWindowCpuPool(windowInfo& info);
-        static wl_buffer *allocateWindowBuffer(const windowInfo& info);
-        static uint32_t *mapWindowCpuBuffer(windowInfo& info);
+        static wl_buffer *allocateWindowBuffer(const windowInfo& info, uint32_t offset);
+        static uint32_t *mapWindowCpuBuffer(windowInfo& info, uint32_t offset);
 
 		static void randname(char *buf);
         static int create_shm_file(void);

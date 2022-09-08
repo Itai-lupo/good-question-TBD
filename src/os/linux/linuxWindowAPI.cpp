@@ -59,22 +59,23 @@ void linuxWindowAPI::wlSurfaceFrameDone(void *data, wl_callback *cb, uint32_t ti
     if(temp.lastFrame != 0)
         elpased = time - temp.lastFrame;
 
-    temp.bufferOffset = 1 - temp.bufferOffset;
-    temp.bufferOffset = 0;
     if(temp.renderThread && temp.renderThread->joinable())
     {
-            temp.renderThread->join();  
-
-            int stride = temp.width * 4;
-            int bufferSize = stride * temp.height;
-            munmap(temp.buffer, temp.bufferSize);
+        temp.renderThread->join();  
+        int ret = munmap(temp.buffer, temp.bufferSize);
+        CONDTION_LOG_ERROR(ret, ret != 0)
     }
 
-    uint32_t *frameData = mapWindowCpuBuffer(temp);
+    int stride = temp.width * 4;
+    int bufferSize = stride * temp.height;
+    temp.bufferSize = bufferSize;
+
+    temp.bufferOffset = 1 - temp.bufferOffset;
+    uint32_t *frameData = mapWindowCpuBuffer(temp, temp.bufferOffset);
     if(temp.renderListeners && frameData != NULL)
         temp.renderThread = new std::thread(temp.renderListeners, windowRenderData{temp.width, temp.height, frameData, elpased});
     
-    struct wl_buffer *buffer = allocateWindowBuffer(temp);
+    struct wl_buffer *buffer = allocateWindowBuffer(temp, temp.bufferOffset);
     wl_surface_attach(temp.surface, buffer, 0, 0);
     wl_surface_damage_buffer(temp.surface, 0, 0, temp.width, temp.height);
     wl_surface_commit(temp.surface);
@@ -113,21 +114,20 @@ void linuxWindowAPI::xdgTopLevelConfigure(void *data, xdg_toplevel *xdgToplevel,
             activeState = windowSizeState::maximized;
         
     }    
-    
+    if(activeState == windowSizeState::undefined)
+        return;
     temp.height = height;
     temp.width = width;
     
-    if(temp.renderThread && temp.renderThread->joinable() && activeState != windowSizeState::undefined)
+    if(temp.renderThread && temp.renderThread->joinable())
     {
         temp.renderThread->join();  
 
-        int stride = temp.width * 4;
-        int bufferSize = stride * temp.height;
         munmap(temp.buffer, temp.bufferSize);
-        reallocateWindowCpuPool(temp);
     }
 
-    if(temp.resizeListenrs && activeState != windowSizeState::undefined)
+    reallocateWindowCpuPool(temp);
+    if(temp.resizeListenrs)
         std::thread(temp.resizeListenrs, windowResizeData{height, width, activeState}).detach();
 }
 
@@ -162,21 +162,17 @@ void linuxWindowAPI::xdg_surface_configure(void *data, struct xdg_surface *xdg_s
 
     xdg_surface_ack_configure(xdg_surface, serial);
 
-    uint32_t *frameData = mapWindowCpuBuffer(temp);
+    uint32_t *frameData = mapWindowCpuBuffer(temp, 0);
     
-    temp.renderListeners(windowRenderData{temp.width, temp.height, frameData});
-    struct wl_buffer *buffer = allocateWindowBuffer(temp);
-    temp.renderListeners(windowRenderData{temp.width, temp.height, frameData});
+    struct wl_buffer *buffer = allocateWindowBuffer(temp, 0);
 
-    int stride = temp.width * 4;
-    int bufferSize = stride * temp.height;
-    munmap(frameData, bufferSize);
+    munmap(frameData, temp.bufferSize);
     
     wl_surface_attach(temp.surface, buffer, 0, 0);
     wl_surface_commit(temp.surface);
 
     temp.bufferOffset = 0;
-    frameData = mapWindowCpuBuffer(temp);
+    frameData = mapWindowCpuBuffer(temp, temp.bufferOffset);
     if(temp.renderListeners && frameData)
         temp.renderThread = new std::thread(temp.renderListeners, windowRenderData{temp.width, temp.height, frameData});
     
@@ -566,6 +562,8 @@ void linuxWindowAPI::allocateWindowCpuPool(windowInfo& info)
 {
     int stride = info.width * 4;
     int size = stride * info.height;
+    size += sysconf(_SC_PAGE_SIZE) - size % sysconf(_SC_PAGE_SIZE);
+    size *= 3;
 
     info.fd = allocate_shm_file(size);
     if (info.fd == -1) {
@@ -589,6 +587,8 @@ void linuxWindowAPI::reallocateWindowCpuPool(windowInfo& info)
 {
     int stride = info.width * 4;
     int size = stride * info.height;
+    size += sysconf(_SC_PAGE_SIZE) - size % sysconf(_SC_PAGE_SIZE);
+    size *= 3;
 
     if(size < info.memoryPoolSize)
         return;
@@ -599,35 +599,45 @@ void linuxWindowAPI::reallocateWindowCpuPool(windowInfo& info)
     } while (ret < 0 && errno == EINTR);
     if (ret < 0) {
         close(info.fd);
-        LOG_ERROR("could not resize")
+        LOG_ERROR("could not resize because: " << strerror(errno))
+        return;
     }
     wl_shm_pool_resize(info.pool, size);
     info.memoryPoolSize = size;
 }
 
 
-wl_buffer *linuxWindowAPI::allocateWindowBuffer(const windowInfo& info)
+wl_buffer *linuxWindowAPI::allocateWindowBuffer(const windowInfo& info, uint32_t offset)
 {
     int stride = info.width * 4;
     int size = stride * info.height;
-    wl_buffer *buffer = wl_shm_pool_create_buffer(info.pool, 0, info.width, info.height, stride, WL_SHM_FORMAT_ARGB8888);
+
+
+    offset = offset * size;
+    offset += sysconf(_SC_PAGE_SIZE) - offset % sysconf(_SC_PAGE_SIZE);
+    
+    wl_buffer *buffer = wl_shm_pool_create_buffer(info.pool, offset, info.width, info.height, stride, WL_SHM_FORMAT_ARGB8888);
 
     wl_buffer_add_listener(buffer, &wl_buffer_listener, NULL);
     return buffer;
 }
 
-uint32_t *linuxWindowAPI::mapWindowCpuBuffer(windowInfo& info)
+uint32_t *linuxWindowAPI::mapWindowCpuBuffer(windowInfo& info, uint32_t offset)
 {
     int stride = info.width * 4;
     int size = stride * info.height;
 
-    uint32_t *data = (uint32_t *)mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_SHARED, info.fd, 0);
+    offset = offset * size;
+    offset += sysconf(_SC_PAGE_SIZE) - offset % sysconf(_SC_PAGE_SIZE);
+    
+    uint32_t *data = (uint32_t *)mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_SHARED, info.fd, offset);
     
     if (data == MAP_FAILED) {
         close(info.fd);
-        LOG_ERROR("couldn't map memory")
+        LOG_ERROR("couldn't map memory at " << info.fd << " of size " << size << " at offset " << offset << " from pool of size " << info.memoryPoolSize << " because: " << strerror(errno))
         return NULL;
     }
+    
     info.buffer = data;
     info.bufferSize = size;
     return data;

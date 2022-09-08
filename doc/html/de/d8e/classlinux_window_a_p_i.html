@@ -110,10 +110,10 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:ae0a3c0a6eeaaa828b43e556a80ca76d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e98dc6bf2c69771068ab3816e6994cd"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#a3e98dc6bf2c69771068ab3816e6994cd">reallocateWindowCpuPool</a> (<a class="el" href="../../d5/dfb/structlinux_window_a_p_i_1_1window_info.html">windowInfo</a> &amp;info)</td></tr>
 <tr class="separator:a3e98dc6bf2c69771068ab3816e6994cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8db808b5461d4c0b7fbdaf96a0440a23"><td class="memItemLeft" align="right" valign="top">static wl_buffer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#a8db808b5461d4c0b7fbdaf96a0440a23">allocateWindowBuffer</a> (const <a class="el" href="../../d5/dfb/structlinux_window_a_p_i_1_1window_info.html">windowInfo</a> &amp;info)</td></tr>
-<tr class="separator:a8db808b5461d4c0b7fbdaf96a0440a23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d943cc6ee7effb1342d7c03d1e35916"><td class="memItemLeft" align="right" valign="top">static uint32_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#a4d943cc6ee7effb1342d7c03d1e35916">mapWindowCpuBuffer</a> (<a class="el" href="../../d5/dfb/structlinux_window_a_p_i_1_1window_info.html">windowInfo</a> &amp;info)</td></tr>
-<tr class="separator:a4d943cc6ee7effb1342d7c03d1e35916"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52ddf1bd9d95d99ab16e8ba3a18be0c8"><td class="memItemLeft" align="right" valign="top">static wl_buffer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#a52ddf1bd9d95d99ab16e8ba3a18be0c8">allocateWindowBuffer</a> (const <a class="el" href="../../d5/dfb/structlinux_window_a_p_i_1_1window_info.html">windowInfo</a> &amp;info, uint32_t offset)</td></tr>
+<tr class="separator:a52ddf1bd9d95d99ab16e8ba3a18be0c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b8c8601515b2d9d266ec4b94c97cff8"><td class="memItemLeft" align="right" valign="top">static uint32_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#a7b8c8601515b2d9d266ec4b94c97cff8">mapWindowCpuBuffer</a> (<a class="el" href="../../d5/dfb/structlinux_window_a_p_i_1_1window_info.html">windowInfo</a> &amp;info, uint32_t offset)</td></tr>
+<tr class="separator:a7b8c8601515b2d9d266ec4b94c97cff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2715e529c12e28b13bf2ccdbe22948fd"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#a2715e529c12e28b13bf2ccdbe22948fd">randname</a> (char *buf)</td></tr>
 <tr class="separator:a2715e529c12e28b13bf2ccdbe22948fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58230c69669f94848bccb5203efb2887"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#a58230c69669f94848bccb5203efb2887">create_shm_file</a> (void)</td></tr>
@@ -233,8 +233,8 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a8db808b5461d4c0b7fbdaf96a0440a23" name="a8db808b5461d4c0b7fbdaf96a0440a23"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8db808b5461d4c0b7fbdaf96a0440a23">&#9670;&nbsp;</a></span>allocateWindowBuffer()</h2>
+<a id="a52ddf1bd9d95d99ab16e8ba3a18be0c8" name="a52ddf1bd9d95d99ab16e8ba3a18be0c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52ddf1bd9d95d99ab16e8ba3a18be0c8">&#9670;&nbsp;</a></span>allocateWindowBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -246,8 +246,18 @@ Static Public Attributes</h2></td></tr>
           <td class="memname">static wl_buffer * linuxWindowAPI::allocateWindowBuffer </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="../../d5/dfb/structlinux_window_a_p_i_1_1window_info.html">windowInfo</a> &amp;&#160;</td>
-          <td class="paramname"><em>info</em></td><td>)</td>
+          <td class="paramname"><em>info</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>offset</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -552,8 +562,8 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a4d943cc6ee7effb1342d7c03d1e35916" name="a4d943cc6ee7effb1342d7c03d1e35916"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d943cc6ee7effb1342d7c03d1e35916">&#9670;&nbsp;</a></span>mapWindowCpuBuffer()</h2>
+<a id="a7b8c8601515b2d9d266ec4b94c97cff8" name="a7b8c8601515b2d9d266ec4b94c97cff8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b8c8601515b2d9d266ec4b94c97cff8">&#9670;&nbsp;</a></span>mapWindowCpuBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -565,8 +575,18 @@ Static Public Attributes</h2></td></tr>
           <td class="memname">static uint32_t * linuxWindowAPI::mapWindowCpuBuffer </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d5/dfb/structlinux_window_a_p_i_1_1window_info.html">windowInfo</a> &amp;&#160;</td>
-          <td class="paramname"><em>info</em></td><td>)</td>
+          <td class="paramname"><em>info</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>offset</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>

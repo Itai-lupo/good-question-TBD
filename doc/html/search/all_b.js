@@ -4,7 +4,7 @@ var searchData=
   ['main_2ecpp_1',['main.cpp',['../df/d0a/main_8cpp.html',1,'']]],
   ['main_2etest_2ecpp_2',['main.test.cpp',['../de/d7f/main_8test_8cpp.html',1,'']]],
   ['makecontextcurrent_3',['makeContextCurrent',['../d5/d6a/classos_a_p_i.html#a944da2f8b7892216e90ba22d72e59de2',1,'osAPI']]],
-  ['mapwindowcpubuffer_4',['mapWindowCpuBuffer',['../de/d8e/classlinux_window_a_p_i.html#a4d943cc6ee7effb1342d7c03d1e35916',1,'linuxWindowAPI']]],
+  ['mapwindowcpubuffer_4',['mapWindowCpuBuffer',['../de/d8e/classlinux_window_a_p_i.html#a7b8c8601515b2d9d266ec4b94c97cff8',1,'linuxWindowAPI']]],
   ['maximized_5',['maximized',['../d5/dd7/window_state_8hpp.html#a0a6548decdad99284bc439e3f40fdb76ae20f6c7671f61ce6bc3366c16514fb64',1,'windowState.hpp']]],
   ['memorypoolsize_6',['memoryPoolSize',['../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a46f096e793a6445d8f047841084ea1db',1,'linuxWindowAPI::windowInfo']]],
   ['middle_7',['middle',['../d5/dde/mouse_format_8hpp.html#aba307b55c0889ec7a6bdcebefe2638d8a4a548addbfb239bbd12f5afe11a4b6dc',1,'mouseFormat.hpp']]],
