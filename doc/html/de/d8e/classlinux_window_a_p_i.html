@@ -97,6 +97,8 @@ $(document).ready(function(){initNavTree('de/d8e/classlinux_window_a_p_i.html','
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d92/structlinux_window_a_p_i_1_1id_indexes.html">idIndexes</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dfb/structlinux_window_a_p_i_1_1window_info.html">windowInfo</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -104,8 +106,14 @@ Classes</h2></td></tr>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a638311f054c35cf47945415e8c41bf54"><td class="memItemLeft" align="right" valign="top">static int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#a638311f054c35cf47945415e8c41bf54">getIndexFromId</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> id)</td></tr>
 <tr class="separator:a638311f054c35cf47945415e8c41bf54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac16f884497ac88141d59e5d84327a2ec"><td class="memItemLeft" align="right" valign="top">static int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#ac16f884497ac88141d59e5d84327a2ec">getRenderIndexFromId</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> id)</td></tr>
+<tr class="separator:ac16f884497ac88141d59e5d84327a2ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d44ad65c757f398ad8ff31e21ff1aca"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#a0d44ad65c757f398ad8ff31e21ff1aca">windowEventListener</a> ()</td></tr>
 <tr class="separator:a0d44ad65c757f398ad8ff31e21ff1aca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a674936194dcb3b11aef31ec0d441d651"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#a674936194dcb3b11aef31ec0d441d651">renderWindow</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> win)</td></tr>
+<tr class="separator:a674936194dcb3b11aef31ec0d441d651"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68a371f2955756e6011101509d557e9a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#a68a371f2955756e6011101509d557e9a">swapWindowBuffers</a> (<a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a> win)</td></tr>
+<tr class="separator:a68a371f2955756e6011101509d557e9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0a3c0a6eeaaa828b43e556a80ca76d1"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#ae0a3c0a6eeaaa828b43e556a80ca76d1">allocateWindowCpuPool</a> (<a class="el" href="../../d5/dfb/structlinux_window_a_p_i_1_1window_info.html">windowInfo</a> &amp;info)</td></tr>
 <tr class="separator:ae0a3c0a6eeaaa828b43e556a80ca76d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e98dc6bf2c69771068ab3816e6994cd"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#a3e98dc6bf2c69771068ab3816e6994cd">reallocateWindowCpuPool</a> (<a class="el" href="../../d5/dfb/structlinux_window_a_p_i_1_1window_info.html">windowInfo</a> &amp;info)</td></tr>
@@ -199,10 +207,16 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:ad93498022cb9745f0a85cab4fc1eb3d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa67602586325210ff8f7e47fb6a2694e"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#aa67602586325210ff8f7e47fb6a2694e">smallestWindowId</a> = 0</td></tr>
 <tr class="separator:aa67602586325210ff8f7e47fb6a2694e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af81bd04bac606804d9e29ca969b0a485"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; <a class="el" href="../../d5/dfb/structlinux_window_a_p_i_1_1window_info.html">windowInfo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#af81bd04bac606804d9e29ca969b0a485">windowsInfo</a></td></tr>
-<tr class="separator:af81bd04bac606804d9e29ca969b0a485"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8181b6bcb83744585a53870f84b9c479"><td class="memItemLeft" align="right" valign="top">static std::map&lt; uint32_t, std::pair&lt; uint64_t, uint32_t &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#a8181b6bcb83744585a53870f84b9c479">idToIndex</a></td></tr>
-<tr class="separator:a8181b6bcb83744585a53870f84b9c479"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accb6115824290fc694cac360ab780c4a"><td class="memItemLeft" align="right" valign="top">static std::array&lt; <a class="el" href="../../d5/dfb/structlinux_window_a_p_i_1_1window_info.html">windowInfo</a>, 254 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#accb6115824290fc694cac360ab780c4a">windowsInfo</a></td></tr>
+<tr class="separator:accb6115824290fc694cac360ab780c4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88c39bb406cb45b6358123aef5fb7ebd"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#a88c39bb406cb45b6358123aef5fb7ebd">windowsInfoSize</a> = 0</td></tr>
+<tr class="separator:a88c39bb406cb45b6358123aef5fb7ebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74aee6804e7d57877a90b863efc1032f"><td class="memItemLeft" align="right" valign="top">static std::array&lt; <a class="el" href="../../db/d92/structlinux_window_a_p_i_1_1id_indexes.html">idIndexes</a>, 254 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#a74aee6804e7d57877a90b863efc1032f">idToIndex</a></td></tr>
+<tr class="separator:a74aee6804e7d57877a90b863efc1032f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb647fbf77fa7e62f94b587b57d84118"><td class="memItemLeft" align="right" valign="top">static std::list&lt; uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#abb647fbf77fa7e62f94b587b57d84118">freeSlots</a></td></tr>
+<tr class="separator:abb647fbf77fa7e62f94b587b57d84118"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecbc65b51bed095525fd90094e32e5fb"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#aecbc65b51bed095525fd90094e32e5fb">hightestId</a> = 0</td></tr>
+<tr class="separator:aecbc65b51bed095525fd90094e32e5fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4faf4b830ab44cafabe53a38c2422a76"><td class="memItemLeft" align="right" valign="top">static std::thread *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8e/classlinux_window_a_p_i.html#a4faf4b830ab44cafabe53a38c2422a76">eventListenr</a></td></tr>
 <tr class="separator:a4faf4b830ab44cafabe53a38c2422a76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -420,8 +434,8 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  155</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../de/d8e/classlinux_window_a_p_i.html#a247a787973f65fac0f132e6af2faf28e">display</a>; }</div>
-<div class="ttc" id="aclasslinux_window_a_p_i_html_a247a787973f65fac0f132e6af2faf28e"><div class="ttname"><a href="../../de/d8e/classlinux_window_a_p_i.html#a247a787973f65fac0f132e6af2faf28e">linuxWindowAPI::display</a></div><div class="ttdeci">static wl_display * display</div><div class="ttdef"><b>Definition:</b> linuxWindowAPI.hpp:76</div></div>
+<div class="fragment"><div class="line"><span class="lineno">  195</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../de/d8e/classlinux_window_a_p_i.html#a247a787973f65fac0f132e6af2faf28e">display</a>; }</div>
+<div class="ttc" id="aclasslinux_window_a_p_i_html_a247a787973f65fac0f132e6af2faf28e"><div class="ttname"><a href="../../de/d8e/classlinux_window_a_p_i.html#a247a787973f65fac0f132e6af2faf28e">linuxWindowAPI::display</a></div><div class="ttdeci">static wl_display * display</div><div class="ttdef"><b>Definition:</b> linuxWindowAPI.hpp:79</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -448,14 +462,46 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  129</span>        {</div>
-<div class="line"><span class="lineno">  130</span>            <span class="keywordflow">if</span>(<a class="code hl_variable" href="../../de/d8e/classlinux_window_a_p_i.html#a8181b6bcb83744585a53870f84b9c479">idToIndex</a>.find(<span class="keywordtype">id</span>.index) != <a class="code hl_variable" href="../../de/d8e/classlinux_window_a_p_i.html#a8181b6bcb83744585a53870f84b9c479">idToIndex</a>.end() &amp;&amp; <span class="keywordtype">id</span>.gen == <a class="code hl_variable" href="../../de/d8e/classlinux_window_a_p_i.html#a8181b6bcb83744585a53870f84b9c479">idToIndex</a>[<span class="keywordtype">id</span>.index].second)</div>
-<div class="line"><span class="lineno">  131</span>                <span class="keywordflow">return</span> <span class="keywordtype">id</span>.index;</div>
-<div class="line"><span class="lineno">  132</span>            <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#a3a78e155ba786a87ea2bf3ec42467a2e">LOG_ERROR</a>(<span class="stringliteral">&quot;no matching window id with index: &quot;</span> &lt;&lt; <span class="keywordtype">id</span>.index &lt;&lt; <span class="stringliteral">&quot; and gen: &quot;</span> &lt;&lt; <span class="keywordtype">id</span>.gen)</div>
-<div class="line"><span class="lineno">  133</span>            <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">  134</span>        }</div>
-<div class="ttc" id="aclasslinux_window_a_p_i_html_a8181b6bcb83744585a53870f84b9c479"><div class="ttname"><a href="../../de/d8e/classlinux_window_a_p_i.html#a8181b6bcb83744585a53870f84b9c479">linuxWindowAPI::idToIndex</a></div><div class="ttdeci">static std::map&lt; uint32_t, std::pair&lt; uint64_t, uint32_t &gt; &gt; idToIndex</div><div class="ttdef"><b>Definition:</b> linuxWindowAPI.hpp:126</div></div>
+<div class="fragment"><div class="line"><span class="lineno">  157</span>        {</div>
+<div class="line"><span class="lineno">  158</span>            <span class="keywordflow">if</span>(<span class="keywordtype">id</span>.gen == <a class="code hl_variable" href="../../de/d8e/classlinux_window_a_p_i.html#a74aee6804e7d57877a90b863efc1032f">idToIndex</a>[<span class="keywordtype">id</span>.index].gen)</div>
+<div class="line"><span class="lineno">  159</span>                <span class="keywordflow">return</span> <a class="code hl_variable" href="../../de/d8e/classlinux_window_a_p_i.html#a74aee6804e7d57877a90b863efc1032f">idToIndex</a>[<span class="keywordtype">id</span>.index].index;</div>
+<div class="line"><span class="lineno">  160</span>            <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#a3a78e155ba786a87ea2bf3ec42467a2e">LOG_ERROR</a>(<span class="stringliteral">&quot;no matching window id with index: &quot;</span> &lt;&lt; <span class="keywordtype">id</span>.index &lt;&lt; <span class="stringliteral">&quot; and gen: &quot;</span> &lt;&lt; <span class="keywordtype">id</span>.gen)</div>
+<div class="line"><span class="lineno">  161</span>            <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">  162</span>        }</div>
+<div class="ttc" id="aclasslinux_window_a_p_i_html_a74aee6804e7d57877a90b863efc1032f"><div class="ttname"><a href="../../de/d8e/classlinux_window_a_p_i.html#a74aee6804e7d57877a90b863efc1032f">linuxWindowAPI::idToIndex</a></div><div class="ttdeci">static std::array&lt; idIndexes, 254 &gt; idToIndex</div><div class="ttdef"><b>Definition:</b> linuxWindowAPI.hpp:152</div></div>
 <div class="ttc" id="alog_8hpp_html_a3a78e155ba786a87ea2bf3ec42467a2e"><div class="ttname"><a href="../../d4/d3d/log_8hpp.html#a3a78e155ba786a87ea2bf3ec42467a2e">LOG_ERROR</a></div><div class="ttdeci">#define LOG_ERROR(toLog)</div><div class="ttdef"><b>Definition:</b> log.hpp:8</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ac16f884497ac88141d59e5d84327a2ec" name="ac16f884497ac88141d59e5d84327a2ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac16f884497ac88141d59e5d84327a2ec">&#9670;&nbsp;</a></span>getRenderIndexFromId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int64_t linuxWindowAPI::getRenderIndexFromId </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><span class="lineno">  166</span>        {</div>
+<div class="line"><span class="lineno">  167</span>            <span class="keywordflow">if</span>(<span class="keywordtype">id</span>.gen == <a class="code hl_variable" href="../../de/d8e/classlinux_window_a_p_i.html#a74aee6804e7d57877a90b863efc1032f">idToIndex</a>[<span class="keywordtype">id</span>.index].gen)</div>
+<div class="line"><span class="lineno">  168</span>                <span class="keywordflow">return</span> <a class="code hl_variable" href="../../de/d8e/classlinux_window_a_p_i.html#a74aee6804e7d57877a90b863efc1032f">idToIndex</a>[<span class="keywordtype">id</span>.index].renderIndex;</div>
+<div class="line"><span class="lineno">  169</span>            <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#a3a78e155ba786a87ea2bf3ec42467a2e">LOG_ERROR</a>(<span class="stringliteral">&quot;no matching window id with index: &quot;</span> &lt;&lt; <span class="keywordtype">id</span>.index &lt;&lt; <span class="stringliteral">&quot; and gen: &quot;</span> &lt;&lt; <span class="keywordtype">id</span>.gen)</div>
+<div class="line"><span class="lineno">  170</span>            <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">  171</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -638,6 +684,32 @@ Static Public Attributes</h2></td></tr>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d5/dfb/structlinux_window_a_p_i_1_1window_info.html">windowInfo</a> &amp;&#160;</td>
           <td class="paramname"><em>info</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a674936194dcb3b11aef31ec0d441d651" name="a674936194dcb3b11aef31ec0d441d651"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a674936194dcb3b11aef31ec0d441d651">&#9670;&nbsp;</a></span>renderWindow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void linuxWindowAPI::renderWindow </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>win</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1082,6 +1154,32 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a68a371f2955756e6011101509d557e9a" name="a68a371f2955756e6011101509d557e9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68a371f2955756e6011101509d557e9a">&#9670;&nbsp;</a></span>swapWindowBuffers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void linuxWindowAPI::swapWindowBuffers </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51">windowId</a>&#160;</td>
+          <td class="paramname"><em>win</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a7812243ba2758300bb2275038987b9cf" name="a7812243ba2758300bb2275038987b9cf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7812243ba2758300bb2275038987b9cf">&#9670;&nbsp;</a></span>unsetCloseEventeListenrs()</h2>
 
@@ -1486,8 +1584,8 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a8181b6bcb83744585a53870f84b9c479" name="a8181b6bcb83744585a53870f84b9c479"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8181b6bcb83744585a53870f84b9c479">&#9670;&nbsp;</a></span>idToIndex</h2>
+<a id="abb647fbf77fa7e62f94b587b57d84118" name="abb647fbf77fa7e62f94b587b57d84118"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb647fbf77fa7e62f94b587b57d84118">&#9670;&nbsp;</a></span>freeSlots</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1496,7 +1594,51 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::map&lt;uint32_t, std::pair&lt;uint64_t, uint32_t&gt; &gt; linuxWindowAPI::idToIndex</td>
+          <td class="memname">std::list&lt;uint32_t&gt; linuxWindowAPI::freeSlots</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aecbc65b51bed095525fd90094e32e5fb" name="aecbc65b51bed095525fd90094e32e5fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecbc65b51bed095525fd90094e32e5fb">&#9670;&nbsp;</a></span>hightestId</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int linuxWindowAPI::hightestId = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a74aee6804e7d57877a90b863efc1032f" name="a74aee6804e7d57877a90b863efc1032f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74aee6804e7d57877a90b863efc1032f">&#9670;&nbsp;</a></span>idToIndex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::array&lt;<a class="el" href="../../db/d92/structlinux_window_a_p_i_1_1id_indexes.html">idIndexes</a>, 254&gt; linuxWindowAPI::idToIndex</td>
         </tr>
       </table>
   </td>
@@ -1574,8 +1716,8 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="af81bd04bac606804d9e29ca969b0a485" name="af81bd04bac606804d9e29ca969b0a485"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af81bd04bac606804d9e29ca969b0a485">&#9670;&nbsp;</a></span>windowsInfo</h2>
+<a id="accb6115824290fc694cac360ab780c4a" name="accb6115824290fc694cac360ab780c4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accb6115824290fc694cac360ab780c4a">&#9670;&nbsp;</a></span>windowsInfo</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1584,7 +1726,29 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="../../d5/dfb/structlinux_window_a_p_i_1_1window_info.html">windowInfo</a>&gt; linuxWindowAPI::windowsInfo</td>
+          <td class="memname">std::array&lt;<a class="el" href="../../d5/dfb/structlinux_window_a_p_i_1_1window_info.html">windowInfo</a>, 254&gt; linuxWindowAPI::windowsInfo</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a88c39bb406cb45b6358123aef5fb7ebd" name="a88c39bb406cb45b6358123aef5fb7ebd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88c39bb406cb45b6358123aef5fb7ebd">&#9670;&nbsp;</a></span>windowsInfoSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int linuxWindowAPI::windowsInfoSize = 0</td>
         </tr>
       </table>
   </td>

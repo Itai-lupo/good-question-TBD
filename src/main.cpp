@@ -58,7 +58,6 @@ void focusSwap(windowId winId)
 void cpuRender(windowId winId, double *offset, uint32_t size, const windowRenderData& sendor)
 {
     ZoneScoped;
-
     *offset += (sendor.deltaTime / 1000.0 * 24);
     if(*offset > size * 2)
         *offset =  0;
@@ -71,6 +70,8 @@ void cpuRender(windowId winId, double *offset, uint32_t size, const windowRender
                 sendor.data[y * sendor.width + x] = 0xFF111111;
         }
     }
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+
 }
 
 void consoleKeyWait()
@@ -87,11 +88,31 @@ int main()
     a = new osAPI();
 
     std::vector<windowId> winowsIds;
-    a->closeWindow(a->createWindow({"test 2", 800, 800}));
+    
     winowsIds.push_back(a->createWindow({"test 3", 64*7, 64*11}));
     winowsIds.push_back(a->createWindow({"test 4", 64*9, 64*11}));
-    winowsIds.push_back( a->createWindow({"test 1", 64*5, 64*11}));
-    
+    // for (size_t i = 0; i < 10; i++)
+    // {    
+    //     std::vector<windowId> tempWinowsIds;
+    //     for (size_t j = 0; j < 10; j++)
+    //     {
+    //         tempWinowsIds.push_back(a->createWindow({"test 2", 800, 800}));
+    //     }
+        
+    //     for (size_t j = 0; j < 10; j++)
+    //         a->closeWindow(tempWinowsIds[j]);
+
+    //     std::vector<windowId> tempWinowsIds2;
+    //     for (size_t j = 0; j < 10; j++)
+    //     {
+    //         tempWinowsIds2.push_back(a->createWindow({"test 2", 800, 800}));
+    //     }
+        
+    //     for (int j = 9; j >= 0; j--)
+    //         a->closeWindow(tempWinowsIds2[j]);
+    // }
+    winowsIds.push_back(a->createWindow({"test 2", 64*5, 64*11}));
+
     for(auto& id: winowsIds)
     {
         a->setKeyPressEventListenrs(id, std::bind(keyListener, id, std::placeholders::_1));

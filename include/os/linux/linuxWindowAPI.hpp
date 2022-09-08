@@ -21,6 +21,8 @@
 #include <thread>
 #include <functional>
 #include <list>
+#include <shared_mutex>
+#include <condition_variable>
 
 #include <Tracy.hpp>
 
@@ -72,6 +74,7 @@ class linuxWindowAPI
 		static constexpr struct xdg_surface_listener xdg_surface_listener = {
             .configure = xdg_surface_configure,
         };	
+
     public:
         static inline wl_display *display = NULL;
         static inline wl_compositor *compositor = NULL;
@@ -93,9 +96,11 @@ class linuxWindowAPI
 
             std::string title;
             int width, height;
-            uint32_t lastFrame = 0;
+            uint32_t lastFrame;
             uint32_t memoryPoolSize;
-            uint8_t bufferOffset = 0;
+            uint8_t bufferInRender;
+            uint8_t bufferToRender;
+            uint8_t freeBuffer;
             uint32_t *buffer;
             int bufferSize;
 
@@ -118,23 +123,58 @@ class linuxWindowAPI
             windowId id;
 
             std::thread *renderThread;
+            std::thread *swapBuffersThread;
+
+
+            std::shared_ptr<std::shared_mutex> renderMutex{};
+            std::shared_ptr<std::condition_variable_any> renderFinshed{};
+
+
+            windowInfo(): lastFrame(0), bufferInRender(0), bufferToRender(1), freeBuffer(2), 
+                renderMutex(std::make_shared<std::shared_mutex>()), 
+                renderFinshed(std::make_shared<std::condition_variable_any>())
+            {}
         };
 
 
-        static inline std::vector<windowInfo> windowsInfo;
+        static inline std::array<windowInfo, 254> windowsInfo;
+        static inline int windowsInfoSize = 0;
 
-        static inline std::map<uint32_t, std::pair<uint64_t, uint32_t>> idToIndex; 
+
+        struct idIndexes
+        {
+            uint32_t gen: 24;
+            uint32_t index: 8;
+            uint32_t renderIndex: 8;
+        };
+        
+
+        static inline std::array<idIndexes, 254> idToIndex;  
+        static inline std::list<uint32_t> freeSlots;
+        static inline int hightestId = 0;
 
         static int64_t getIndexFromId(windowId id)
         {
-            if(idToIndex.find(id.index) != idToIndex.end() && id.gen == idToIndex[id.index].second)
-                return id.index;
+            if(id.gen == idToIndex[id.index].gen)
+                return idToIndex[id.index].index;
+            LOG_ERROR("no matching window id with index: " << id.index << " and gen: " << id.gen)
+            return -1;
+        }
+
+
+        static int64_t getRenderIndexFromId(windowId id)
+        {
+            if(id.gen == idToIndex[id.index].gen)
+                return idToIndex[id.index].renderIndex;
             LOG_ERROR("no matching window id with index: " << id.index << " and gen: " << id.gen)
             return -1;
         }
 
         static void windowEventListener();
         static inline std::thread *eventListenr;
+        
+        static void renderWindow(windowId win); 
+        static void swapWindowBuffers(windowId win); 
 
         static void allocateWindowCpuPool(windowInfo& info);
         static void reallocateWindowCpuPool(windowInfo& info);
@@ -192,8 +232,4 @@ class linuxWindowAPI
         static void unsetGainFocusEventListeners(windowId winId);
         static void unsetLostFocusEventListeners(windowId winId);
         static void unsetRenderEventListeners(windowId winId);
-
-
-
-
 };

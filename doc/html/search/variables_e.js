@@ -8,5 +8,6 @@ var searchData=
   ['state_5',['state',['../d4/d95/structwindow_resize_data.html#ad6cb4d3c51d4323db844c2fea5eb449b',1,'windowResizeData::state()'],['../da/dbc/structpointer_1_1input_buffer.html#a32b3a8b9e5fcfb2a17f91a0ece4fdaee',1,'pointer::inputBuffer::state()']]],
   ['surface_6',['surface',['../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#af381255e54938059c537c1fb277bdf8d',1,'linuxWindowAPI::windowInfo']]],
   ['surface_5fx_7',['surface_x',['../da/dbc/structpointer_1_1input_buffer.html#a4b2a9c2583b2f2fcd5ccc20585bf7089',1,'pointer::inputBuffer']]],
-  ['surface_5fy_8',['surface_y',['../da/dbc/structpointer_1_1input_buffer.html#aa6656a72315a010d5a138bbf649c58a1',1,'pointer::inputBuffer']]]
+  ['surface_5fy_8',['surface_y',['../da/dbc/structpointer_1_1input_buffer.html#aa6656a72315a010d5a138bbf649c58a1',1,'pointer::inputBuffer']]],
+  ['swapbuffersthread_9',['swapBuffersThread',['../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a65f4665dd9e4389eac977c2e9d21b29e',1,'linuxWindowAPI::windowInfo']]]
 ];

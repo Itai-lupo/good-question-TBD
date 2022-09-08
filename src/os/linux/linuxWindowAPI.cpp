@@ -8,6 +8,7 @@
 #include <sstream>
 #include <utility>
 #include <sys/prctl.h>
+#include <condition_variable>
 
 void linuxWindowAPI::global_registry_handler(void *data, wl_registry *registry, uint32_t id, const char *interface, uint32_t version)
 {
@@ -51,37 +52,23 @@ void linuxWindowAPI::wlSurfaceFrameDone(void *data, wl_callback *cb, uint32_t ti
         smallestWindowId = temp.id.index; 
         FrameMark;
     }
-    
+
     cb = wl_surface_frame(temp.surface);
     wl_callback_add_listener(cb, &wlSurfaceFrameListener, data);
     
-    int elpased = 0;
-    if(temp.lastFrame != 0)
-        elpased = time - temp.lastFrame;
-
-    if(temp.renderThread && temp.renderThread->joinable())
-    {
-        temp.renderThread->join();  
-        int ret = munmap(temp.buffer, temp.bufferSize);
-        CONDTION_LOG_ERROR(ret, ret != 0)
-    }
-
-    int stride = temp.width * 4;
-    int bufferSize = stride * temp.height;
-    temp.bufferSize = bufferSize;
-
-    temp.bufferOffset = 1 - temp.bufferOffset;
-    uint32_t *frameData = mapWindowCpuBuffer(temp, temp.bufferOffset);
-    if(temp.renderListeners && frameData != NULL)
-        temp.renderThread = new std::thread(temp.renderListeners, windowRenderData{temp.width, temp.height, frameData, elpased});
+    std::unique_lock lk2{*temp.renderMutex.get()};
+    temp.renderFinshed->wait(lk2, [&](){ return true;} );
     
-    struct wl_buffer *buffer = allocateWindowBuffer(temp, temp.bufferOffset);
+    struct wl_buffer *buffer = allocateWindowBuffer(temp, temp.bufferToRender);
+    int tempBuffer = temp.bufferToRender;
+    temp.bufferToRender = temp.bufferInRender;
+    temp.bufferInRender = tempBuffer;
+
     wl_surface_attach(temp.surface, buffer, 0, 0);
     wl_surface_damage_buffer(temp.surface, 0, 0, temp.width, temp.height);
     wl_surface_commit(temp.surface);
 
-
-    temp.lastFrame = time;
+   
 }
 
 void linuxWindowAPI::xdgTopLevelConfigure(void *data, xdg_toplevel *xdgToplevel, int32_t width, int32_t height, wl_array *states)
@@ -162,29 +149,20 @@ void linuxWindowAPI::xdg_surface_configure(void *data, struct xdg_surface *xdg_s
 
     xdg_surface_ack_configure(xdg_surface, serial);
 
-    uint32_t *frameData = mapWindowCpuBuffer(temp, 0);
+    struct wl_buffer *buffer = allocateWindowBuffer(temp, temp.bufferToRender);
     
-    struct wl_buffer *buffer = allocateWindowBuffer(temp, 0);
+    int tempBuffer = temp.bufferToRender;
+    temp.bufferToRender = temp.bufferInRender;
+    temp.bufferInRender = tempBuffer;
 
-    munmap(frameData, temp.bufferSize);
-    
     wl_surface_attach(temp.surface, buffer, 0, 0);
     wl_surface_commit(temp.surface);
-
-    temp.bufferOffset = 0;
-    frameData = mapWindowCpuBuffer(temp, temp.bufferOffset);
-    if(temp.renderListeners && frameData)
-        temp.renderThread = new std::thread(temp.renderListeners, windowRenderData{temp.width, temp.height, frameData});
-    
 }
 
 void linuxWindowAPI::xdg_wm_base_ping(void *data, struct xdg_wm_base *xdg_wm_base, uint32_t serial)
 {
     xdg_wm_base_pong(xdg_wm_base, serial);
 }
-
-
-
 
 void linuxWindowAPI::closeApi()
 {
@@ -227,11 +205,31 @@ windowId linuxWindowAPI::createWindow(const windowSpec& windowToCreate)
     info.width = windowToCreate.w;
     info.title = windowToCreate.title;
 
-    idToIndex[windowsInfo.size()].first = windowsInfo.size();
-    windowId id = {
-        .gen = idToIndex[windowsInfo.size()].second,
-        .index = (uint32_t)windowsInfo.size()
-    };
+    windowId id;
+    if(!freeSlots.empty())
+    {
+        LOG_INFO("slot " <<freeSlots.front() << " slot gen " << idToIndex[freeSlots.front()].gen)
+        id = {
+            .gen = idToIndex[freeSlots.front()].gen,
+            .index = freeSlots.front()
+        };
+        freeSlots.pop_front();
+    }
+    else if(hightestId < idToIndex.size()) 
+    {
+        LOG_INFO("slot " << hightestId << " slot gen " << idToIndex[hightestId].gen)
+        id = {
+            .gen = idToIndex[hightestId].gen,
+            .index = (uint32_t)hightestId
+        };
+        hightestId++;
+    }
+    else{
+        return {
+            .gen    = (uint32_t)-1,
+            .index  = (uint32_t)-1
+        };
+    }
     info.id = id;
     
     info.surface = wl_compositor_create_surface(compositor);
@@ -253,7 +251,13 @@ windowId linuxWindowAPI::createWindow(const windowSpec& windowToCreate)
     
     allocateWindowCpuPool(info);
 
-    windowsInfo.push_back(info);
+    // info.swapBuffersThread = new std::thread(swapWindowBuffers, info.id);
+    info.renderThread = new std::thread(renderWindow, info.id);
+
+    idToIndex[id.index].index = windowsInfoSize;
+    windowsInfo[windowsInfoSize] = info;
+    windowsInfoSize++;
+
     wl_surface_commit(info.surface);
 
     
@@ -265,22 +269,24 @@ windowId linuxWindowAPI::createWindow(const windowSpec& windowToCreate)
 
 void linuxWindowAPI::closeWindow(windowId winId)
 {
-    if(idToIndex.find(winId.index) != idToIndex.end() && idToIndex[winId.index].second != winId.gen)
+    if(winId.gen != idToIndex[winId.index].gen)
         return;
 
-    windowInfo temp = windowsInfo[idToIndex[winId.index].first];
+    windowInfo temp = windowsInfo[idToIndex[winId.index].index];
     
     if(winId.index == smallestWindowId)
         smallestWindowId = INT32_MAX;
 
-    idToIndex[winId.index].second++;
-    windowInfo last = windowsInfo[windowsInfo.size() - 1];
-    windowsInfo[idToIndex[winId.index].first] = last;
-    idToIndex[last.id.index].first = idToIndex[winId.index].first;
+    idToIndex[winId.index].gen++;
+    windowInfo last = windowsInfo[windowsInfoSize - 1];
+    windowsInfo[idToIndex[winId.index].index] = last;
+    idToIndex[last.id.index].index = idToIndex[winId.index].index;
     
-    windowsInfo.pop_back();
+    windowsInfoSize--;
 
-    idToIndex[winId.index].first = -1;
+    idToIndex[winId.index].index = -1;
+    freeSlots.push_back(winId.index);
+    temp.renderThread->join(); 
 
     zxdg_toplevel_decoration_v1_destroy(temp.topLevelDecoration);
     xdg_toplevel_destroy(temp.xdgToplevel);
@@ -558,6 +564,53 @@ void linuxWindowAPI::unsetRenderEventListeners(windowId winId)
 }
 
 
+void linuxWindowAPI::renderWindow(windowId win)
+{
+    int64_t index = getIndexFromId(win);
+    if(index == -1)
+        return;
+
+    std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
+    std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
+
+    do {
+        std::chrono::duration<double, std::milli> time_span = t2 - t1;
+        t1 = std::chrono::high_resolution_clock::now();
+        
+
+        int elpased = time_span.count();
+
+        windowInfo& temp = windowsInfo[index];
+        std::shared_lock lk{*temp.renderMutex.get()};
+
+        int stride = temp.width * 4;
+        int bufferSize = stride * temp.height;
+        temp.bufferSize = bufferSize;
+
+        int bufferIndex = temp.freeBuffer;
+
+        uint32_t *frameData = mapWindowCpuBuffer(temp, temp.freeBuffer);
+        if(temp.renderListeners && frameData)
+            temp.renderListeners(windowRenderData{temp.width, temp.height, frameData, elpased});
+        
+        
+        int ret = munmap(temp.buffer, temp.bufferSize);
+        CONDTION_LOG_ERROR(ret, ret != 0)
+
+        uint8_t tempBufferIndex = temp.freeBuffer;
+        temp.freeBuffer = temp.bufferToRender;
+        temp.bufferToRender = tempBufferIndex;
+        
+        temp.renderFinshed->notify_one();
+        
+        t2 = std::chrono::high_resolution_clock::now();
+        index = getIndexFromId(win);
+    } while (index != -1);
+    
+}
+
+
+
 void linuxWindowAPI::allocateWindowCpuPool(windowInfo& info)
 {
     int stride = info.width * 4;
@@ -611,12 +664,10 @@ wl_buffer *linuxWindowAPI::allocateWindowBuffer(const windowInfo& info, uint32_t
 {
     int stride = info.width * 4;
     int size = stride * info.height;
-
-
-    offset = offset * size;
-    offset += sysconf(_SC_PAGE_SIZE) - offset % sysconf(_SC_PAGE_SIZE);
+    int temp = size + (sysconf(_SC_PAGE_SIZE) - size % sysconf(_SC_PAGE_SIZE));
+    temp *= offset;
     
-    wl_buffer *buffer = wl_shm_pool_create_buffer(info.pool, offset, info.width, info.height, stride, WL_SHM_FORMAT_ARGB8888);
+    wl_buffer *buffer = wl_shm_pool_create_buffer(info.pool, temp, info.width, info.height, stride, WL_SHM_FORMAT_ARGB8888);
 
     wl_buffer_add_listener(buffer, &wl_buffer_listener, NULL);
     return buffer;
@@ -626,15 +677,14 @@ uint32_t *linuxWindowAPI::mapWindowCpuBuffer(windowInfo& info, uint32_t offset)
 {
     int stride = info.width * 4;
     int size = stride * info.height;
-
-    offset = offset * size;
-    offset += sysconf(_SC_PAGE_SIZE) - offset % sysconf(_SC_PAGE_SIZE);
+    int temp = size + (sysconf(_SC_PAGE_SIZE) - size % sysconf(_SC_PAGE_SIZE));
+    temp *= offset;
     
-    uint32_t *data = (uint32_t *)mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_SHARED, info.fd, offset);
+    uint32_t *data = (uint32_t *)mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_SHARED, info.fd, temp);
     
     if (data == MAP_FAILED) {
         close(info.fd);
-        LOG_ERROR("couldn't map memory at " << info.fd << " of size " << size << " at offset " << offset << " from pool of size " << info.memoryPoolSize << " because: " << strerror(errno))
+        LOG_ERROR("couldn't map memory at " << info.fd << " of size " << size << " at offset " << offset << "(" << temp << ")" << " from pool of size " << info.memoryPoolSize << " because: " << strerror(errno))
         return NULL;
     }
     
