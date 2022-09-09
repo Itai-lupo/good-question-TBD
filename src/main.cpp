@@ -55,12 +55,13 @@ void focusSwap(windowId winId)
     // LOG_INFO("focus swap window(" << a->getWindowTitle(winId) <<")")
 }
 
-void cpuRender(windowId winId, double *offset, uint32_t size, const windowRenderData& sendor)
+void cpuRender(double *offset, uint32_t size, const windowRenderData& sendor)
 {
     ZoneScoped;
     *offset += (sendor.deltaTime / 1000.0 * 24);
     if(*offset > size * 2)
         *offset =  0;
+    
 
     for (int y = 0; y < sendor.height; ++y) {
         for (int x = 0; x < sendor.width; ++x) {
@@ -70,7 +71,7 @@ void cpuRender(windowId winId, double *offset, uint32_t size, const windowRender
                 sendor.data[y * sendor.width + x] = 0xFF111111;
         }
     }
-    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    std::this_thread::sleep_for(std::chrono::milliseconds(10));
 
 }
 
@@ -88,6 +89,7 @@ int main()
     a = new osAPI();
 
     std::vector<windowId> winowsIds;
+    std::vector<double *> offsets;
     
     winowsIds.push_back(a->createWindow({"test 3", 64*7, 64*11}));
     winowsIds.push_back(a->createWindow({"test 4", 64*9, 64*11}));
@@ -126,7 +128,8 @@ int main()
         a->setCloseEventeListenrs(id, std::bind(windowClose, id));
         a->setGainFocusEventListeners(id, std::bind(focusSwap, id));
         a->setLostFocusEventListeners(id, std::bind(focusSwap, id));
-        a->setRenderEventListeners(id, std::bind(cpuRender, id, new double(0), (id.index + 1) * 16, std::placeholders::_1));
+        double *temp =  new double(0);
+        a->setRenderEventListeners(id, [=]( const windowRenderData& sendor){cpuRender(temp, (id.index + 1) * 16, sendor);});
     }
     
     std::thread(consoleKeyWait).detach();

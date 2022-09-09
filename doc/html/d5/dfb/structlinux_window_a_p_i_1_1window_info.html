@@ -176,6 +176,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:acf3cf7eda2d2a5b134cdf1f3cc9f6d4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a388872bbcf26c62dd552262e9b87c1ba"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; std::condition_variable_any &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a388872bbcf26c62dd552262e9b87c1ba">renderFinshed</a> {}</td></tr>
 <tr class="separator:a388872bbcf26c62dd552262e9b87c1ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0347635884aae9819067057109a87293"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a0347635884aae9819067057109a87293">renderFinshedBool</a></td></tr>
+<tr class="separator:a0347635884aae9819067057109a87293"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2ef1a1d241458317042286bb9647c8bd" name="a2ef1a1d241458317042286bb9647c8bd"></a>
@@ -200,10 +202,10 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  133</span>                        : <a class="code hl_variable" href="../../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#aab34e5c01d7996fd05b1f7cfa806ceac">lastFrame</a>(0), <a class="code hl_variable" href="../../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a6c30e3c0cc7b7abae9eacde0bc147ce6">bufferInRender</a>(0), <a class="code hl_variable" href="../../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a599ec97b4147989e76445b4edabd3c0c">bufferToRender</a>(1), <a class="code hl_variable" href="../../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a048a64e56961002fdb46215370f93f42">freeBuffer</a>(2), </div>
-<div class="line"><span class="lineno">  134</span>                <a class="code hl_variable" href="../../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#acf3cf7eda2d2a5b134cdf1f3cc9f6d4f">renderMutex</a>(std::make_shared&lt;std::shared_mutex&gt;()), </div>
-<div class="line"><span class="lineno">  135</span>                <a class="code hl_variable" href="../../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a388872bbcf26c62dd552262e9b87c1ba">renderFinshed</a>(std::make_shared&lt;std::condition_variable_any&gt;())</div>
-<div class="line"><span class="lineno">  136</span>            {}</div>
+<div class="fragment"><div class="line"><span class="lineno">  134</span>                        : <a class="code hl_variable" href="../../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#aab34e5c01d7996fd05b1f7cfa806ceac">lastFrame</a>(0), <a class="code hl_variable" href="../../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a6c30e3c0cc7b7abae9eacde0bc147ce6">bufferInRender</a>(0), <a class="code hl_variable" href="../../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a599ec97b4147989e76445b4edabd3c0c">bufferToRender</a>(1), <a class="code hl_variable" href="../../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a048a64e56961002fdb46215370f93f42">freeBuffer</a>(2), </div>
+<div class="line"><span class="lineno">  135</span>                <a class="code hl_variable" href="../../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#acf3cf7eda2d2a5b134cdf1f3cc9f6d4f">renderMutex</a>(std::make_shared&lt;std::shared_mutex&gt;()), </div>
+<div class="line"><span class="lineno">  136</span>                <a class="code hl_variable" href="../../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a388872bbcf26c62dd552262e9b87c1ba">renderFinshed</a>(std::make_shared&lt;std::condition_variable_any&gt;())</div>
+<div class="line"><span class="lineno">  137</span>            {}</div>
 <div class="ttc" id="astructlinux_window_a_p_i_1_1window_info_html_a048a64e56961002fdb46215370f93f42"><div class="ttname"><a href="../../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a048a64e56961002fdb46215370f93f42">linuxWindowAPI::windowInfo::freeBuffer</a></div><div class="ttdeci">uint8_t freeBuffer</div><div class="ttdef"><b>Definition:</b> linuxWindowAPI.hpp:103</div></div>
 <div class="ttc" id="astructlinux_window_a_p_i_1_1window_info_html_a388872bbcf26c62dd552262e9b87c1ba"><div class="ttname"><a href="../../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a388872bbcf26c62dd552262e9b87c1ba">linuxWindowAPI::windowInfo::renderFinshed</a></div><div class="ttdeci">std::shared_ptr&lt; std::condition_variable_any &gt; renderFinshed</div><div class="ttdef"><b>Definition:</b> linuxWindowAPI.hpp:130</div></div>
 <div class="ttc" id="astructlinux_window_a_p_i_1_1window_info_html_a599ec97b4147989e76445b4edabd3c0c"><div class="ttname"><a href="../../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a599ec97b4147989e76445b4edabd3c0c">linuxWindowAPI::windowInfo::bufferToRender</a></div><div class="ttdeci">uint8_t bufferToRender</div><div class="ttdef"><b>Definition:</b> linuxWindowAPI.hpp:102</div></div>
@@ -516,6 +518,20 @@ Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">std::shared_ptr&lt;std::condition_variable_any&gt; linuxWindowAPI::windowInfo::renderFinshed {}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0347635884aae9819067057109a87293" name="a0347635884aae9819067057109a87293"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0347635884aae9819067057109a87293">&#9670;&nbsp;</a></span>renderFinshedBool</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool linuxWindowAPI::windowInfo::renderFinshedBool</td>
         </tr>
       </table>
 </div><div class="memdoc">

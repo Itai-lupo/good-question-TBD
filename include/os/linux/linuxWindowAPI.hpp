@@ -128,6 +128,7 @@ class linuxWindowAPI
 
             std::shared_ptr<std::shared_mutex> renderMutex{};
             std::shared_ptr<std::condition_variable_any> renderFinshed{};
+            bool renderFinshedBool;
 
 
             windowInfo(): lastFrame(0), bufferInRender(0), bufferToRender(1), freeBuffer(2), 

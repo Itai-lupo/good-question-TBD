@@ -434,7 +434,7 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  195</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../de/d8e/classlinux_window_a_p_i.html#a247a787973f65fac0f132e6af2faf28e">display</a>; }</div>
+<div class="fragment"><div class="line"><span class="lineno">  196</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../de/d8e/classlinux_window_a_p_i.html#a247a787973f65fac0f132e6af2faf28e">display</a>; }</div>
 <div class="ttc" id="aclasslinux_window_a_p_i_html_a247a787973f65fac0f132e6af2faf28e"><div class="ttname"><a href="../../de/d8e/classlinux_window_a_p_i.html#a247a787973f65fac0f132e6af2faf28e">linuxWindowAPI::display</a></div><div class="ttdeci">static wl_display * display</div><div class="ttdef"><b>Definition:</b> linuxWindowAPI.hpp:79</div></div>
 </div><!-- fragment -->
 </div>
@@ -462,13 +462,13 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  157</span>        {</div>
-<div class="line"><span class="lineno">  158</span>            <span class="keywordflow">if</span>(<span class="keywordtype">id</span>.gen == <a class="code hl_variable" href="../../de/d8e/classlinux_window_a_p_i.html#a74aee6804e7d57877a90b863efc1032f">idToIndex</a>[<span class="keywordtype">id</span>.index].gen)</div>
-<div class="line"><span class="lineno">  159</span>                <span class="keywordflow">return</span> <a class="code hl_variable" href="../../de/d8e/classlinux_window_a_p_i.html#a74aee6804e7d57877a90b863efc1032f">idToIndex</a>[<span class="keywordtype">id</span>.index].index;</div>
-<div class="line"><span class="lineno">  160</span>            <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#a3a78e155ba786a87ea2bf3ec42467a2e">LOG_ERROR</a>(<span class="stringliteral">&quot;no matching window id with index: &quot;</span> &lt;&lt; <span class="keywordtype">id</span>.index &lt;&lt; <span class="stringliteral">&quot; and gen: &quot;</span> &lt;&lt; <span class="keywordtype">id</span>.gen)</div>
-<div class="line"><span class="lineno">  161</span>            <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">  162</span>        }</div>
-<div class="ttc" id="aclasslinux_window_a_p_i_html_a74aee6804e7d57877a90b863efc1032f"><div class="ttname"><a href="../../de/d8e/classlinux_window_a_p_i.html#a74aee6804e7d57877a90b863efc1032f">linuxWindowAPI::idToIndex</a></div><div class="ttdeci">static std::array&lt; idIndexes, 254 &gt; idToIndex</div><div class="ttdef"><b>Definition:</b> linuxWindowAPI.hpp:152</div></div>
+<div class="fragment"><div class="line"><span class="lineno">  158</span>        {</div>
+<div class="line"><span class="lineno">  159</span>            <span class="keywordflow">if</span>(<span class="keywordtype">id</span>.gen == <a class="code hl_variable" href="../../de/d8e/classlinux_window_a_p_i.html#a74aee6804e7d57877a90b863efc1032f">idToIndex</a>[<span class="keywordtype">id</span>.index].gen)</div>
+<div class="line"><span class="lineno">  160</span>                <span class="keywordflow">return</span> <a class="code hl_variable" href="../../de/d8e/classlinux_window_a_p_i.html#a74aee6804e7d57877a90b863efc1032f">idToIndex</a>[<span class="keywordtype">id</span>.index].index;</div>
+<div class="line"><span class="lineno">  161</span>            <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#a3a78e155ba786a87ea2bf3ec42467a2e">LOG_ERROR</a>(<span class="stringliteral">&quot;no matching window id with index: &quot;</span> &lt;&lt; <span class="keywordtype">id</span>.index &lt;&lt; <span class="stringliteral">&quot; and gen: &quot;</span> &lt;&lt; <span class="keywordtype">id</span>.gen)</div>
+<div class="line"><span class="lineno">  162</span>            <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">  163</span>        }</div>
+<div class="ttc" id="aclasslinux_window_a_p_i_html_a74aee6804e7d57877a90b863efc1032f"><div class="ttname"><a href="../../de/d8e/classlinux_window_a_p_i.html#a74aee6804e7d57877a90b863efc1032f">linuxWindowAPI::idToIndex</a></div><div class="ttdeci">static std::array&lt; idIndexes, 254 &gt; idToIndex</div><div class="ttdef"><b>Definition:</b> linuxWindowAPI.hpp:153</div></div>
 <div class="ttc" id="alog_8hpp_html_a3a78e155ba786a87ea2bf3ec42467a2e"><div class="ttname"><a href="../../d4/d3d/log_8hpp.html#a3a78e155ba786a87ea2bf3ec42467a2e">LOG_ERROR</a></div><div class="ttdeci">#define LOG_ERROR(toLog)</div><div class="ttdef"><b>Definition:</b> log.hpp:8</div></div>
 </div><!-- fragment -->
 </div>
@@ -496,12 +496,12 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  166</span>        {</div>
-<div class="line"><span class="lineno">  167</span>            <span class="keywordflow">if</span>(<span class="keywordtype">id</span>.gen == <a class="code hl_variable" href="../../de/d8e/classlinux_window_a_p_i.html#a74aee6804e7d57877a90b863efc1032f">idToIndex</a>[<span class="keywordtype">id</span>.index].gen)</div>
-<div class="line"><span class="lineno">  168</span>                <span class="keywordflow">return</span> <a class="code hl_variable" href="../../de/d8e/classlinux_window_a_p_i.html#a74aee6804e7d57877a90b863efc1032f">idToIndex</a>[<span class="keywordtype">id</span>.index].renderIndex;</div>
-<div class="line"><span class="lineno">  169</span>            <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#a3a78e155ba786a87ea2bf3ec42467a2e">LOG_ERROR</a>(<span class="stringliteral">&quot;no matching window id with index: &quot;</span> &lt;&lt; <span class="keywordtype">id</span>.index &lt;&lt; <span class="stringliteral">&quot; and gen: &quot;</span> &lt;&lt; <span class="keywordtype">id</span>.gen)</div>
-<div class="line"><span class="lineno">  170</span>            <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">  171</span>        }</div>
+<div class="fragment"><div class="line"><span class="lineno">  167</span>        {</div>
+<div class="line"><span class="lineno">  168</span>            <span class="keywordflow">if</span>(<span class="keywordtype">id</span>.gen == <a class="code hl_variable" href="../../de/d8e/classlinux_window_a_p_i.html#a74aee6804e7d57877a90b863efc1032f">idToIndex</a>[<span class="keywordtype">id</span>.index].gen)</div>
+<div class="line"><span class="lineno">  169</span>                <span class="keywordflow">return</span> <a class="code hl_variable" href="../../de/d8e/classlinux_window_a_p_i.html#a74aee6804e7d57877a90b863efc1032f">idToIndex</a>[<span class="keywordtype">id</span>.index].renderIndex;</div>
+<div class="line"><span class="lineno">  170</span>            <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#a3a78e155ba786a87ea2bf3ec42467a2e">LOG_ERROR</a>(<span class="stringliteral">&quot;no matching window id with index: &quot;</span> &lt;&lt; <span class="keywordtype">id</span>.index &lt;&lt; <span class="stringliteral">&quot; and gen: &quot;</span> &lt;&lt; <span class="keywordtype">id</span>.gen)</div>
+<div class="line"><span class="lineno">  171</span>            <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">  172</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>

@@ -23,6 +23,7 @@ var structlinux_window_a_p_i_1_1window_info =
     [ "mouseScrollListenrs", "d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a9acbbb5eb7543c5a12e3d6d0ad41b564", null ],
     [ "pool", "d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a22719b42073021fcc22fcb176d856bd2", null ],
     [ "renderFinshed", "d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a388872bbcf26c62dd552262e9b87c1ba", null ],
+    [ "renderFinshedBool", "d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a0347635884aae9819067057109a87293", null ],
     [ "renderListeners", "d5/dfb/structlinux_window_a_p_i_1_1window_info.html#ab4f5500297598db0ac6d3230f3e39844", null ],
     [ "renderMutex", "d5/dfb/structlinux_window_a_p_i_1_1window_info.html#acf3cf7eda2d2a5b134cdf1f3cc9f6d4f", null ],
     [ "renderThread", "d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a994b722343ecab1b4fb8aedcc3ad1e9f", null ],

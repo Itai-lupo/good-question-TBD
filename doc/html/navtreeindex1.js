@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"d7/d0b/keycodes_8hpp.html#a69877ab2ad01f176a4e2f2095fd3213bad55b30607c2a9a2616347d6edb789f6b":[1,0,0,1,2,0,120],
 "d7/d0b/keycodes_8hpp.html#a69877ab2ad01f176a4e2f2095fd3213badc12aef696d5eeb29e82a98890cc813e":[1,0,0,1,2,0,57],
 "d7/d0b/keycodes_8hpp.html#a69877ab2ad01f176a4e2f2095fd3213badd4daede84c2a5d3494637c536158343":[1,0,0,1,2,0,21],
 "d7/d0b/keycodes_8hpp.html#a69877ab2ad01f176a4e2f2095fd3213bae04f3a35f96061c198dad5def1ce408e":[1,0,0,1,2,0,95],
@@ -105,7 +106,7 @@ var NAVTREEINDEX1 =
 "df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46":[1,0,1,3,11],
 "df/d0a/main_8cpp.html#a93574e814003e4ab0dc4c0a74f91f2f9":[1,0,1,3,3],
 "df/d0a/main_8cpp.html#ab02d1ca18f39872410b61d63fe1ac762":[1,0,1,3,5],
-"df/d0a/main_8cpp.html#acaf8ec4ea379f9aec35290a75382af5e":[1,0,1,3,1],
+"df/d0a/main_8cpp.html#acbe657e6f7ea64cf3a13f9776212c53b":[1,0,1,3,1],
 "df/d0a/main_8cpp.html#ad30c208ce4812b95ef2f77e4ae4a43f1":[1,0,1,3,9],
 "df/d0a/main_8cpp.html#ae472d9a3fc22c31a0bb52156bdc0b4e5":[1,0,1,3,2],
 "df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4":[1,0,1,3,4],

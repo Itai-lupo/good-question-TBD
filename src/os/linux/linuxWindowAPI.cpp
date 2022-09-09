@@ -57,8 +57,8 @@ void linuxWindowAPI::wlSurfaceFrameDone(void *data, wl_callback *cb, uint32_t ti
     wl_callback_add_listener(cb, &wlSurfaceFrameListener, data);
     
     std::unique_lock lk2{*temp.renderMutex.get()};
-    temp.renderFinshed->wait(lk2, [&](){ return true;} );
-    
+    temp.renderFinshed->wait(lk2, [&](){ return temp.renderFinshedBool;} );
+    temp.renderFinshedBool = false;
     struct wl_buffer *buffer = allocateWindowBuffer(temp, temp.bufferToRender);
     int tempBuffer = temp.bufferToRender;
     temp.bufferToRender = temp.bufferInRender;
@@ -67,8 +67,8 @@ void linuxWindowAPI::wlSurfaceFrameDone(void *data, wl_callback *cb, uint32_t ti
     wl_surface_attach(temp.surface, buffer, 0, 0);
     wl_surface_damage_buffer(temp.surface, 0, 0, temp.width, temp.height);
     wl_surface_commit(temp.surface);
+    FrameMarkNamed(temp.title.c_str());
 
-   
 }
 
 void linuxWindowAPI::xdgTopLevelConfigure(void *data, xdg_toplevel *xdgToplevel, int32_t width, int32_t height, wl_array *states)
@@ -106,12 +106,6 @@ void linuxWindowAPI::xdgTopLevelConfigure(void *data, xdg_toplevel *xdgToplevel,
     temp.height = height;
     temp.width = width;
     
-    if(temp.renderThread && temp.renderThread->joinable())
-    {
-        temp.renderThread->join();  
-
-        munmap(temp.buffer, temp.bufferSize);
-    }
 
     reallocateWindowCpuPool(temp);
     if(temp.resizeListenrs)
@@ -148,8 +142,7 @@ void linuxWindowAPI::xdg_surface_configure(void *data, struct xdg_surface *xdg_s
     windowInfo& temp = windowsInfo[index];
 
     xdg_surface_ack_configure(xdg_surface, serial);
-
-    struct wl_buffer *buffer = allocateWindowBuffer(temp, temp.bufferToRender);
+ struct wl_buffer *buffer = allocateWindowBuffer(temp, temp.bufferToRender);
     
     int tempBuffer = temp.bufferToRender;
     temp.bufferToRender = temp.bufferInRender;
@@ -251,18 +244,20 @@ windowId linuxWindowAPI::createWindow(const windowSpec& windowToCreate)
     
     allocateWindowCpuPool(info);
 
-    // info.swapBuffersThread = new std::thread(swapWindowBuffers, info.id);
-    info.renderThread = new std::thread(renderWindow, info.id);
-
     idToIndex[id.index].index = windowsInfoSize;
     windowsInfo[windowsInfoSize] = info;
     windowsInfoSize++;
+
+    windowsInfo[windowsInfoSize].renderThread = new std::thread(renderWindow, info.id);
+    // windowsInfo[windowsInfoSize].swapBuffersThread = new std::thread(swapWindowBuffers, info.id);
+
 
     wl_surface_commit(info.surface);
 
     
     wl_callback *cb = wl_surface_frame(info.surface);
     wl_callback_add_listener(cb, &wlSurfaceFrameListener, new windowId(id));
+    
     
     return id;
 }
@@ -563,9 +558,9 @@ void linuxWindowAPI::unsetRenderEventListeners(windowId winId)
     windowsInfo[index].renderListeners = {};
 }
 
-
 void linuxWindowAPI::renderWindow(windowId win)
 {
+    ZoneScoped;
     int64_t index = getIndexFromId(win);
     if(index == -1)
         return;
@@ -574,6 +569,8 @@ void linuxWindowAPI::renderWindow(windowId win)
     std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
 
     do {
+        ZoneScoped;
+
         std::chrono::duration<double, std::milli> time_span = t2 - t1;
         t1 = std::chrono::high_resolution_clock::now();
         
@@ -581,7 +578,6 @@ void linuxWindowAPI::renderWindow(windowId win)
         int elpased = time_span.count();
 
         windowInfo& temp = windowsInfo[index];
-        std::shared_lock lk{*temp.renderMutex.get()};
 
         int stride = temp.width * 4;
         int bufferSize = stride * temp.height;
@@ -601,6 +597,8 @@ void linuxWindowAPI::renderWindow(windowId win)
         temp.freeBuffer = temp.bufferToRender;
         temp.bufferToRender = tempBufferIndex;
         
+        temp.renderFinshedBool = true;
+        std::shared_lock lk{*temp.renderMutex.get()};
         temp.renderFinshed->notify_one();
         
         t2 = std::chrono::high_resolution_clock::now();
