@@ -2,6 +2,8 @@
 
 #include "osAPI.hpp"
 #include "linuxWindowAPI.hpp"
+#include "keyboard.hpp"
+#include "pointer.hpp"
 #include "osEventsData.hpp"
 
 #include "log.hpp"
@@ -72,55 +74,55 @@ std::pair<uint32_t, uint32_t> osAPI::getWindowSize(windowId winId)
 
 
 // ################ set event listener ################################################################
-void osAPI::setKeyPressEventListenrs(windowId winId, std::function<void(const keyData&)> callback)
+void osAPI::setKeyPressEventListeners(windowId winId, std::function<void(const keyData&)> callback)
 {
-    linuxWindowAPI::setKeyPressEventListenrs(winId, callback);
+    keyboard::setKeyPressEventListeners(winId, callback);
 }
-void osAPI::setKeyReleasedEventListenrs(windowId winId, std::function<void(const keyData&)> callback)
+void osAPI::setKeyReleasedEventListeners(windowId winId, std::function<void(const keyData&)> callback)
 {
-    linuxWindowAPI::setKeyReleasedEventListenrs(winId, callback);
+    keyboard::setKeyReleasedEventListeners(winId, callback);
 }
-void osAPI::setKeyRepeatEventListenrs(windowId winId, std::function<void(const keyData&)> callback)
+void osAPI::setKeyRepeatEventListeners(windowId winId, std::function<void(const keyData&)> callback)
 {
-    linuxWindowAPI::setKeyRepeatEventListenrs(winId, callback);
-}
-
-void osAPI::setMouseButtonPressEventListenrs(windowId winId, std::function<void(const mouseButtonData&)> callback)
-{
-    linuxWindowAPI::setMouseButtonPressEventListenrs(winId, callback);
-}
-void osAPI::setMouseButtonReleasedEventListenrs(windowId winId, std::function<void(const mouseButtonData&)> callback)
-{
-    linuxWindowAPI::setMouseButtonReleasedEventListenrs(winId, callback);
+    keyboard::setKeyRepeatEventListeners(winId, callback);
 }
 
-void osAPI::setMouseMovedListenrs(windowId winId, std::function<void(const mouseMoveData&)> callback)
+void osAPI::setMouseButtonPressEventListeners(windowId winId, std::function<void(const mouseButtonData&)> callback)
 {
-    linuxWindowAPI::setMouseMovedListenrs(winId, callback);
+    pointer::setMouseButtonPressEventListeners(winId, callback);
 }
-void osAPI::setMouseScrollListenrs(windowId winId, std::function<void(const mouseScrollData&)> callback)
+void osAPI::setMouseButtonReleasedEventListeners(windowId winId, std::function<void(const mouseButtonData&)> callback)
 {
-    linuxWindowAPI::setMouseScrollListenrs(winId, callback);
-}
-
-void osAPI::setCloseEventeListenrs(windowId winId, std::function<void()> callback)
-{
-    linuxWindowAPI::setCloseEventeListenrs(winId, callback);
+    pointer::setMouseButtonReleasedEventListeners(winId, callback);
 }
 
-void osAPI::setResizeEventeListenrs(windowId winId, std::function<void(const windowResizeData&)> callback)
+void osAPI::setMouseMovedListeners(windowId winId, std::function<void(const mouseMoveData&)> callback)
 {
-    linuxWindowAPI::setResizeEventeListenrs(winId, callback);
+    pointer::setMouseMovedListeners(winId, callback);
+}
+void osAPI::setMouseScrollListeners(windowId winId, std::function<void(const mouseScrollData&)> callback)
+{
+    pointer::setMouseScrollListeners(winId, callback);
+}
+
+void osAPI::setCloseEventeListeners(windowId winId, std::function<void()> callback)
+{
+    linuxWindowAPI::setCloseEventeListeners(winId, callback);
+}
+
+void osAPI::setResizeEventeListeners(windowId winId, std::function<void(const windowResizeData&)> callback)
+{
+    linuxWindowAPI::setResizeEventeListeners(winId, callback);
 }
 
 void osAPI::setGainFocusEventListeners(windowId winId, std::function<void()> callback)
 {
-    linuxWindowAPI::setGainFocusEventListeners(winId, callback);
+    keyboard::setGainFocusEventListeners(winId, callback);
 }
 
 void osAPI::setLostFocusEventListeners(windowId winId, std::function<void()> callback)
 {
-    linuxWindowAPI::setLostFocusEventListeners(winId, callback);
+    keyboard::setLostFocusEventListeners(winId, callback);
 }
 
 void osAPI::setRenderEventListeners(windowId winId, std::function<void(const windowRenderData&)> callback)
@@ -132,56 +134,56 @@ void osAPI::setRenderEventListeners(windowId winId, std::function<void(const win
 
 
 // ################ unset event listener ################################################################
-void osAPI::unsetKeyPressEventListenrs(windowId winId)
+void osAPI::unsetKeyPressEventListeners(windowId winId)
 {
-    linuxWindowAPI::unsetKeyPressEventListenrs(winId);
+    keyboard::unsetKeyPressEventListeners(winId);
 }
-void osAPI::unsetKeyReleasedEventListenrs(windowId winId)
+void osAPI::unsetKeyReleasedEventListeners(windowId winId)
 {
-    linuxWindowAPI::unsetKeyReleasedEventListenrs(winId);
+    keyboard::unsetKeyReleasedEventListeners(winId);
 }
-void osAPI::unsetKeyRepeatEventListenrs(windowId winId)
+void osAPI::unsetKeyRepeatEventListeners(windowId winId)
 {
-    linuxWindowAPI::unsetKeyRepeatEventListenrs(winId);
-}
-
-
-void osAPI::unsetMouseButtonPressEventListenrs(windowId winId)
-{
-    linuxWindowAPI::unsetMouseButtonPressEventListenrs(winId);
-}
-void osAPI::unsetMouseButtonReleasedEventListenrs(windowId winId)
-{
-    linuxWindowAPI::unsetMouseButtonReleasedEventListenrs(winId);
+    keyboard::unsetKeyRepeatEventListeners(winId);
 }
 
-void osAPI::unsetMouseMovedListenrs(windowId winId)
+
+void osAPI::unsetMouseButtonPressEventListeners(windowId winId)
 {
-    linuxWindowAPI::unsetMouseMovedListenrs(winId);
+    pointer::unsetMouseButtonPressEventListeners(winId);
 }
-void osAPI::unsetMouseScrollListenrs(windowId winId)
+void osAPI::unsetMouseButtonReleasedEventListeners(windowId winId)
 {
-    linuxWindowAPI::unsetMouseScrollListenrs(winId);
+    pointer::unsetMouseButtonReleasedEventListeners(winId);
 }
 
-void osAPI::unsetCloseEventeListenrs(windowId winId)
+void osAPI::unsetMouseMovedListeners(windowId winId)
 {
-    linuxWindowAPI::unsetCloseEventeListenrs(winId);
+    pointer::unsetMouseMovedListeners(winId);
+}
+void osAPI::unsetMouseScrollListeners(windowId winId)
+{
+    pointer::unsetMouseScrollListeners(winId);
 }
 
-void osAPI::unsetResizeEventeListenrs(windowId winId)
+void osAPI::unsetCloseEventeListeners(windowId winId)
 {
-    linuxWindowAPI::unsetResizeEventeListenrs(winId);
+    linuxWindowAPI::unsetCloseEventeListeners(winId);
+}
+
+void osAPI::unsetResizeEventeListeners(windowId winId)
+{
+    linuxWindowAPI::unsetResizeEventeListeners(winId);
 }
 
 void osAPI::unsetGainFocusEventListeners(windowId winId)
 {
-    linuxWindowAPI::unsetGainFocusEventListeners(winId);
+    keyboard::unsetGainFocusEventListeners(winId);
 }
 
 void osAPI::unsetLostFocusEventListeners(windowId winId)
 {
-    linuxWindowAPI::unsetLostFocusEventListeners(winId);
+    keyboard::unsetLostFocusEventListeners(winId);
 }
 
 void osAPI::unsetRenderEventListeners(windowId winId)

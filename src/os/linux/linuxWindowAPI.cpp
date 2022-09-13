@@ -4,6 +4,7 @@
 #include "toplevelDecoration.hpp"
 #include "seat.hpp"
 #include "keyboard.hpp"
+#include "pointer.hpp"
 
 #include <sstream>
 #include <utility>
@@ -108,8 +109,8 @@ void linuxWindowAPI::xdgTopLevelConfigure(void *data, xdg_toplevel *xdgToplevel,
     
 
     reallocateWindowCpuPool(temp);
-    if(temp.resizeListenrs)
-        std::thread(temp.resizeListenrs, windowResizeData{height, width, activeState}).detach();
+    if(temp.resizeListeners)
+        std::thread(temp.resizeListeners, windowResizeData{height, width, activeState}).detach();
 }
 
 void linuxWindowAPI::xdgTopLevelClose(void *data, xdg_toplevel *xdgToplevel)
@@ -120,8 +121,8 @@ void linuxWindowAPI::xdgTopLevelClose(void *data, xdg_toplevel *xdgToplevel)
         return;
 
     windowInfo& temp = windowsInfo[index];
-    if(temp.closeListenrs)
-        temp.closeListenrs();
+    if(temp.closeListeners)
+        temp.closeListeners();
 
     closeWindow(id);
 }
@@ -204,7 +205,7 @@ windowId linuxWindowAPI::createWindow(const windowSpec& windowToCreate)
         LOG_INFO("slot " <<freeSlots.front() << " slot gen " << idToIndex[freeSlots.front()].gen)
         id = {
             .gen = idToIndex[freeSlots.front()].gen,
-            .index = freeSlots.front()
+            .index = (uint8_t)freeSlots.front()
         };
         freeSlots.pop_front();
     }
@@ -213,14 +214,14 @@ windowId linuxWindowAPI::createWindow(const windowSpec& windowToCreate)
         LOG_INFO("slot " << hightestId << " slot gen " << idToIndex[hightestId].gen)
         id = {
             .gen = idToIndex[hightestId].gen,
-            .index = (uint32_t)hightestId
+            .index = (uint8_t)hightestId
         };
         hightestId++;
     }
     else{
         return {
-            .gen    = (uint32_t)-1,
-            .index  = (uint32_t)-1
+            .gen    = (uint8_t)-1,
+            .index  = (uint8_t)-1
         };
     }
     info.id = id;
@@ -243,13 +244,16 @@ windowId linuxWindowAPI::createWindow(const windowSpec& windowToCreate)
     zxdg_toplevel_decoration_v1_add_listener(info.topLevelDecoration, &toplevelDecoration::toplevelDecorationListener, new windowId(id));
     
     allocateWindowCpuPool(info);
+    allocateWindowCpuPool(info);
 
     idToIndex[id.index].index = windowsInfoSize;
     windowsInfo[windowsInfoSize] = info;
     windowsInfoSize++;
 
+    keyboard::allocateWindowEvents(id);
+    pointer::allocateWindowEvents(id);
+
     windowsInfo[windowsInfoSize].renderThread = new std::thread(renderWindow, info.id);
-    // windowsInfo[windowsInfoSize].swapBuffersThread = new std::thread(swapWindowBuffers, info.id);
 
 
     wl_surface_commit(info.surface);
@@ -271,6 +275,7 @@ void linuxWindowAPI::closeWindow(windowId winId)
     
     if(winId.index == smallestWindowId)
         smallestWindowId = INT32_MAX;
+    keyboard::deallocateWindowEvents(winId);
 
     idToIndex[winId.index].gen++;
     windowInfo last = windowsInfo[windowsInfoSize - 1];
@@ -317,110 +322,21 @@ std::pair<uint32_t, uint32_t> linuxWindowAPI::getWindowSize(windowId winId)
         
 
 // ################ set event listener ################################################################
-void linuxWindowAPI::setKeyPressEventListenrs(windowId winId, std::function<void(const keyData&)> callback)
-{
+void linuxWindowAPI::setCloseEventeListeners(windowId winId, std::function<void()> callback){
     int64_t index = getIndexFromId(winId);
     if(index == -1)
         return;
 
-    windowsInfo[index].keyPressEventListenrs = callback;
-}
-
-void linuxWindowAPI::setKeyReleasedEventListenrs(windowId winId, std::function<void(const keyData&)> callback)
-{
-    int64_t index = getIndexFromId(winId);
-    if(index == -1)
-        return;
-
-    windowsInfo[index].keyReleasedEventListenrs = callback;
+    windowsInfo[index].closeListeners = callback;
 
 }
 
-void linuxWindowAPI::setKeyRepeatEventListenrs(windowId winId, std::function<void(const keyData&)> callback)
-{
+void linuxWindowAPI::setResizeEventeListeners(windowId winId, std::function<void(const windowResizeData&)> callback){
     int64_t index = getIndexFromId(winId);
     if(index == -1)
         return;
 
-    windowsInfo[index].keyRepeatEventListenrs = callback;
-
-}
-
-
-void linuxWindowAPI::setMouseButtonPressEventListenrs(windowId winId, std::function<void(const mouseButtonData&)> callback)
-{
-    int64_t index = getIndexFromId(winId);
-    if(index == -1)
-        return;
-
-    windowsInfo[index].mouseButtonPressEventListenrs = callback;
-
-}
-
-void linuxWindowAPI::setMouseButtonReleasedEventListenrs(windowId winId, std::function<void(const mouseButtonData&)> callback)
-{
-    int64_t index = getIndexFromId(winId);
-    if(index == -1)
-        return;
-
-    windowsInfo[index].mouseButtonReleasedEventListenrs = callback;
-
-}
-
-
-void linuxWindowAPI::setMouseMovedListenrs(windowId winId, std::function<void(const mouseMoveData&)> callback)
-{
-    int64_t index = getIndexFromId(winId);
-    if(index == -1)
-        return;
-
-    windowsInfo[index].mouseMovedListenrs = callback;
-
-}
-
-void linuxWindowAPI::setMouseScrollListenrs(windowId winId, std::function<void(const mouseScrollData&)> callback)
-{
-    int64_t index = getIndexFromId(winId);
-    if(index == -1)
-        return;
-
-    windowsInfo[index].mouseScrollListenrs = callback;
-
-}
-
-void linuxWindowAPI::setCloseEventeListenrs(windowId winId, std::function<void()> callback){
-    int64_t index = getIndexFromId(winId);
-    if(index == -1)
-        return;
-
-    windowsInfo[index].closeListenrs = callback;
-
-}
-
-void linuxWindowAPI::setResizeEventeListenrs(windowId winId, std::function<void(const windowResizeData&)> callback){
-    int64_t index = getIndexFromId(winId);
-    if(index == -1)
-        return;
-
-    windowsInfo[index].resizeListenrs = callback;
-
-}
-
-void linuxWindowAPI::setGainFocusEventListeners(windowId winId, std::function<void()> callback){
-    int64_t index = getIndexFromId(winId);
-    if(index == -1)
-        return;
-
-    windowsInfo[index].gainFocusListeners = callback;
-
-}
-
-void linuxWindowAPI::setLostFocusEventListeners(windowId winId, std::function<void()> callback){
-    int64_t index = getIndexFromId(winId);
-    if(index == -1)
-        return;
-
-    windowsInfo[index].lostFocusListeners = callback;
+    windowsInfo[index].resizeListeners = callback;
 
 }
 
@@ -431,121 +347,29 @@ void linuxWindowAPI::setRenderEventListeners(windowId winId, std::function<void(
 
     windowsInfo[index].renderListeners = callback;
 
-}
-
-        
+}     
 
 
 // ################ unset event listener ################################################################
-void linuxWindowAPI::unsetKeyPressEventListenrs(windowId winId)
+
+void linuxWindowAPI::unsetCloseEventeListeners(windowId winId)
 {
+
     int64_t index = getIndexFromId(winId);
     if(index == -1)
         return;
 
-    windowsInfo[index].keyPressEventListenrs = {};
-
+    windowsInfo[index].closeListeners = {};
 }
 
-void linuxWindowAPI::unsetKeyReleasedEventListenrs(windowId winId)
-{
-    int64_t index = getIndexFromId(winId);
-    if(index == -1)
-        return;
-
-    windowsInfo[index].keyReleasedEventListenrs = {};
-
-}
-
-void linuxWindowAPI::unsetKeyRepeatEventListenrs(windowId winId)
+void linuxWindowAPI::unsetResizeEventeListeners(windowId winId)
 {
 
     int64_t index = getIndexFromId(winId);
     if(index == -1)
         return;
 
-    windowsInfo[index].keyRepeatEventListenrs = {};
-}
-
-
-void linuxWindowAPI::unsetMouseButtonPressEventListenrs(windowId winId)
-{
-    int64_t index = getIndexFromId(winId);
-    if(index == -1)
-        return;
-
-    windowsInfo[index].mouseButtonPressEventListenrs = {};
-}
-
-void linuxWindowAPI::unsetMouseButtonReleasedEventListenrs(windowId winId)
-{
-
-    int64_t index = getIndexFromId(winId);
-    if(index == -1)
-        return;
-
-    windowsInfo[index].mouseButtonReleasedEventListenrs = {};
-}
-
-
-void linuxWindowAPI::unsetMouseMovedListenrs(windowId winId)
-{
-
-    int64_t index = getIndexFromId(winId);
-    if(index == -1)
-        return;
-
-    windowsInfo[index].mouseMovedListenrs = {};
-}
-
-void linuxWindowAPI::unsetMouseScrollListenrs(windowId winId)
-{
-
-    int64_t index = getIndexFromId(winId);
-    if(index == -1)
-        return;
-
-    windowsInfo[index].mouseScrollListenrs = {};
-}
-
-void linuxWindowAPI::unsetCloseEventeListenrs(windowId winId)
-{
-
-    int64_t index = getIndexFromId(winId);
-    if(index == -1)
-        return;
-
-    windowsInfo[index].closeListenrs = {};
-}
-
-void linuxWindowAPI::unsetResizeEventeListenrs(windowId winId)
-{
-
-    int64_t index = getIndexFromId(winId);
-    if(index == -1)
-        return;
-
-    windowsInfo[index].resizeListenrs = {};
-}
-
-void linuxWindowAPI::unsetGainFocusEventListeners(windowId winId)
-{
-
-    int64_t index = getIndexFromId(winId);
-    if(index == -1)
-        return;
-
-    windowsInfo[index].gainFocusListeners = {};
-}
-
-void linuxWindowAPI::unsetLostFocusEventListeners(windowId winId)
-{
-
-    int64_t index = getIndexFromId(winId);
-    if(index == -1)
-        return;
-
-    windowsInfo[index].lostFocusListeners = {};
+    windowsInfo[index].resizeListeners = {};
 }
 
 void linuxWindowAPI::unsetRenderEventListeners(windowId winId)

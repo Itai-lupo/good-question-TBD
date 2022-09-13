@@ -13,13 +13,13 @@ bool run = true;
 
 void keyListener(windowId winId, const keyData& sendor)
 {
-    // LOG_INFO(winId.index << ", " << sendor.utf8Buffer << ", " << keyCodeToString(sendor.value) << "(" << (int)sendor.value << ")");
+    LOG_INFO(winId.index << ", " << sendor.utf8Buffer << ", " << keyCodeToString(sendor.value) << "(" << (int)sendor.value << ")");
 }
 
 
 void mouseMove(windowId winId, const mouseMoveData& sendor)
 {
-    // LOG_INFO("pointer motion (" << a->getWindowTitle(winId) <<"): "<< sendor.x << ", " << sendor.y);
+    LOG_INFO("pointer motion (" << a->getWindowTitle(winId) <<"): "<< sendor.x << ", " << sendor.y);
 }
 
 void mousePress(windowId winId, const mouseButtonData& sendor)
@@ -52,7 +52,7 @@ void windowClose(windowId winId)
 }
 void focusSwap(windowId winId)
 {
-    // LOG_INFO("focus swap window(" << a->getWindowTitle(winId) <<")")
+    LOG_INFO("focus swap window(" << a->getWindowTitle(winId) <<")")
 }
 
 void cpuRender(double *offset, uint32_t size, const windowRenderData& sendor)
@@ -117,15 +117,15 @@ int main()
 
     for(auto& id: winowsIds)
     {
-        a->setKeyPressEventListenrs(id, std::bind(keyListener, id, std::placeholders::_1));
-        a->setKeyReleasedEventListenrs(id, std::bind(keyListener, id, std::placeholders::_1));
-        a->setKeyRepeatEventListenrs(id, std::bind(keyListener, id, std::placeholders::_1));
-        a->setMouseMovedListenrs(id, std::bind(mouseMove, id, std::placeholders::_1));
-        a->setMouseButtonPressEventListenrs(id, std::bind(mousePress, id, std::placeholders::_1));
-        a->setMouseButtonReleasedEventListenrs(id, std::bind(mouseReleased, id, std::placeholders::_1));
-        a->setMouseScrollListenrs(id, std::bind(mouseScroll, id, std::placeholders::_1));
-        a->setResizeEventeListenrs(id, std::bind(windowResize, id, std::placeholders::_1));
-        a->setCloseEventeListenrs(id, std::bind(windowClose, id));
+        a->setKeyPressEventListeners(id, std::bind(keyListener, id, std::placeholders::_1));
+        a->setKeyReleasedEventListeners(id, std::bind(keyListener, id, std::placeholders::_1));
+        a->setKeyRepeatEventListeners(id, std::bind(keyListener, id, std::placeholders::_1));
+        a->setMouseMovedListeners(id, std::bind(mouseMove, id, std::placeholders::_1));
+        a->setMouseButtonPressEventListeners(id, std::bind(mousePress, id, std::placeholders::_1));
+        a->setMouseButtonReleasedEventListeners(id, std::bind(mouseReleased, id, std::placeholders::_1));
+        a->setMouseScrollListeners(id, std::bind(mouseScroll, id, std::placeholders::_1));
+        a->setResizeEventeListeners(id, std::bind(windowResize, id, std::placeholders::_1));
+        a->setCloseEventeListeners(id, std::bind(windowClose, id));
         a->setGainFocusEventListeners(id, std::bind(focusSwap, id));
         a->setLostFocusEventListeners(id, std::bind(focusSwap, id));
         double *temp =  new double(0);

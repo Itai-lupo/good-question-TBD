@@ -21,5 +21,5 @@ var structpointer_1_1input_buffer =
     [ "time", "da/dbc/structpointer_1_1input_buffer.html#a7132212ebb77eea19b45ee41d5e5b349", null ],
     [ "valid", "da/dbc/structpointer_1_1input_buffer.html#af63bfcae041cb8023f9c512ee9059c19", null ],
     [ "value", "da/dbc/structpointer_1_1input_buffer.html#afa38b67ce9bbffff458de3bf1232c300", null ],
-    [ "windowIndex", "da/dbc/structpointer_1_1input_buffer.html#abd7f265fd56e8bcf97cc962a8e10db94", null ]
+    [ "winId", "da/dbc/structpointer_1_1input_buffer.html#ae0326bdbd17bc14e47983ae2905fc93a", null ]
 ];

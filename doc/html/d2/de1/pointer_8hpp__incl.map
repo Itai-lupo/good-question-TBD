@@ -1,4 +1,13 @@
 <map id="include/os/linux/waylandStaticHandlers/pointer.hpp" name="include/os/linux/waylandStaticHandlers/pointer.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,180,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="35,95,150,121"/>
+<area shape="rect" id="node1" title=" " alt="" coords="278,5,453,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,95,120,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="144,95,203,121"/>
+<area shape="rect" id="node4" title=" " alt="" coords="227,95,306,121"/>
+<area shape="rect" id="node5" href="$da/d47/core_8hpp.html" title=" " alt="" coords="330,95,401,121"/>
+<area shape="rect" id="node7" href="$d0/d5f/mouse_button_data_8hpp.html" title=" " alt="" coords="425,95,575,121"/>
+<area shape="rect" id="node10" href="$db/d1b/mouse_move_data_8hpp.html" title=" " alt="" coords="600,95,744,121"/>
+<area shape="rect" id="node11" href="$da/db3/mouse_scroll_data_8hpp.html" title=" " alt="" coords="769,95,914,121"/>
+<area shape="rect" id="node6" title=" " alt="" coords="335,169,396,196"/>
+<area shape="rect" id="node8" href="$d5/dde/mouse_format_8hpp.html" title=" " alt="" coords="607,169,734,196"/>
+<area shape="rect" id="node9" title=" " alt="" coords="643,244,698,271"/>
 </map>

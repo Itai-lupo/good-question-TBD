@@ -85,6 +85,7 @@ $(document).ready(function(){initNavTree('d1/d4e/classkeyboard.html','../../'); 
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="../../d5/d35/classkeyboard-members.html">List of all members</a>  </div>
@@ -93,7 +94,21 @@ $(document).ready(function(){initNavTree('d1/d4e/classkeyboard.html','../../'); 
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="../../dd/d39/keyboard_8hpp_source.html">keyboard.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for keyboard:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/d81/classkeyboard__coll__graph.png" border="0" usemap="#akeyboard_coll__map" alt="Collaboration graph"/></div>
+<map name="akeyboard_coll__map" id="akeyboard_coll__map">
+<area shape="rect" title=" " alt="" coords="7,95,81,121"/>
+<area shape="rect" href="../../dd/d6c/structwindow_id.html" title=" " alt="" coords="5,5,83,32"/>
+</map>
+<center><span class="legend">[<a target="top" href="../../graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d9a/structkeyboard_1_1id_tp_key_event_indexes.html">idTpKeyEventIndexes</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:aedabfdaed2d9b8ce6c973fbee0618ceb"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#aedabfdaed2d9b8ce6c973fbee0618ceb">wlKeymap</a> (void *data, wl_keyboard *wl_keyboard, uint32_t format, int32_t fd, uint32_t size)</td></tr>
@@ -110,6 +125,30 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:aad09d90d608df860eb684b97591b9d91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a947a38365b055910ca94ae5c18277c31"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#a947a38365b055910ca94ae5c18277c31">keyListener</a> (uint32_t key)</td></tr>
 <tr class="separator:a947a38365b055910ca94ae5c18277c31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54612c438c9a9b6907437f3bdd7f8438"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#a54612c438c9a9b6907437f3bdd7f8438">allocateWindowEvents</a> (<a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a> winId)</td></tr>
+<tr class="separator:a54612c438c9a9b6907437f3bdd7f8438"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae264f9009a53249cbfd3a398c729846b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#ae264f9009a53249cbfd3a398c729846b">setKeyPressEventListeners</a> (<a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a> winId, std::function&lt; void(const <a class="el" href="../../dc/da2/structkey_data.html">keyData</a> &amp;)&gt; callback)</td></tr>
+<tr class="separator:ae264f9009a53249cbfd3a398c729846b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a461efcfdc44386dd1842a3bc209c6ca2"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#a461efcfdc44386dd1842a3bc209c6ca2">setKeyReleasedEventListeners</a> (<a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a> winId, std::function&lt; void(const <a class="el" href="../../dc/da2/structkey_data.html">keyData</a> &amp;)&gt; callback)</td></tr>
+<tr class="separator:a461efcfdc44386dd1842a3bc209c6ca2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44905ed6af32c7207110d643d5fcd6b2"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#a44905ed6af32c7207110d643d5fcd6b2">setKeyRepeatEventListeners</a> (<a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a> winId, std::function&lt; void(const <a class="el" href="../../dc/da2/structkey_data.html">keyData</a> &amp;)&gt; callback)</td></tr>
+<tr class="separator:a44905ed6af32c7207110d643d5fcd6b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60708e8e371901efbb02be45a0135980"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#a60708e8e371901efbb02be45a0135980">setGainFocusEventListeners</a> (<a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a> winId, std::function&lt; void()&gt; callback)</td></tr>
+<tr class="separator:a60708e8e371901efbb02be45a0135980"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cc26051f0f4454793f481571e65388d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#a6cc26051f0f4454793f481571e65388d">setLostFocusEventListeners</a> (<a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a> winId, std::function&lt; void()&gt; callback)</td></tr>
+<tr class="separator:a6cc26051f0f4454793f481571e65388d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a199d14a43dd211d8e0455cccba6f97cf"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#a199d14a43dd211d8e0455cccba6f97cf">deallocateWindowEvents</a> (<a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a> winId)</td></tr>
+<tr class="separator:a199d14a43dd211d8e0455cccba6f97cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34da5f51461bdb1db5d8755ab7f0c6e2"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#a34da5f51461bdb1db5d8755ab7f0c6e2">unsetKeyPressEventListeners</a> (<a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a> winId)</td></tr>
+<tr class="separator:a34da5f51461bdb1db5d8755ab7f0c6e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad881fd85b1b981d940f483d637483fc9"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#ad881fd85b1b981d940f483d637483fc9">unsetKeyReleasedEventListeners</a> (<a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a> winId)</td></tr>
+<tr class="separator:ad881fd85b1b981d940f483d637483fc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a154aff4069c82f88d60f9fa50bf15f59"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#a154aff4069c82f88d60f9fa50bf15f59">unsetKeyRepeatEventListeners</a> (<a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a> winId)</td></tr>
+<tr class="separator:a154aff4069c82f88d60f9fa50bf15f59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a832df6e943f47debb5184c531512d7b6"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#a832df6e943f47debb5184c531512d7b6">unsetGainFocusEventListeners</a> (<a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a> winId)</td></tr>
+<tr class="separator:a832df6e943f47debb5184c531512d7b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af46637f33b480b9fecde924f416e7423"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#af46637f33b480b9fecde924f416e7423">unsetLostFocusEventListeners</a> (<a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a> winId)</td></tr>
+<tr class="separator:af46637f33b480b9fecde924f416e7423"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -125,16 +164,90 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:a85d39861eae47d109dfb3447d42d1c3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a1a474f1f8cb9f6db80b326f4e135d8"><td class="memItemLeft" align="right" valign="top">static int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#a8a1a474f1f8cb9f6db80b326f4e135d8">keyRepeatdelay</a></td></tr>
 <tr class="separator:a8a1a474f1f8cb9f6db80b326f4e135d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af62af5c8f535fa2980661884a53e0c0c"><td class="memItemLeft" align="right" valign="top">static int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#af62af5c8f535fa2980661884a53e0c0c">activeWindow</a> = -1</td></tr>
-<tr class="separator:af62af5c8f535fa2980661884a53e0c0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a07a79a6862cede4a568f0dfbdfb9cd"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#a5a07a79a6862cede4a568f0dfbdfb9cd">activeWindow</a> {(uint8_t)-1, (uint8_t)-1}</td></tr>
+<tr class="separator:a5a07a79a6862cede4a568f0dfbdfb9cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aceaa9d1cad75a40f656e03f36ecf654d"><td class="memItemLeft" align="right" valign="top">static std::map&lt; <a class="el" href="../../d7/d0b/keycodes_8hpp.html#a69877ab2ad01f176a4e2f2095fd3213b">keycodes</a>, bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#aceaa9d1cad75a40f656e03f36ecf654d">isKeyPressed</a></td></tr>
 <tr class="separator:aceaa9d1cad75a40f656e03f36ecf654d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a1560f25cc7056503c7f3be9104a8bf"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::function&lt; void(const <a class="el" href="../../dc/da2/structkey_data.html">keyData</a> &amp;)&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#a7a1560f25cc7056503c7f3be9104a8bf">keyPressEventListeners</a></td></tr>
+<tr class="separator:a7a1560f25cc7056503c7f3be9104a8bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcb4fffadd80da65cf3799ccede89304"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; <a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#afcb4fffadd80da65cf3799ccede89304">keyPressEventId</a></td></tr>
+<tr class="separator:afcb4fffadd80da65cf3799ccede89304"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95f2d93534450498e379d265ca38dae9"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::function&lt; void(const <a class="el" href="../../dc/da2/structkey_data.html">keyData</a> &amp;)&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#a95f2d93534450498e379d265ca38dae9">keyReleasedEventListeners</a></td></tr>
+<tr class="separator:a95f2d93534450498e379d265ca38dae9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7643c38d2c5a6869d2abecdd6260426c"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; <a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#a7643c38d2c5a6869d2abecdd6260426c">keyReleasedEventId</a></td></tr>
+<tr class="separator:a7643c38d2c5a6869d2abecdd6260426c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f523b2b353fc2c8cbf7b3d3e8acb391"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::function&lt; void(const <a class="el" href="../../dc/da2/structkey_data.html">keyData</a> &amp;)&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#a4f523b2b353fc2c8cbf7b3d3e8acb391">keyRepeatEventListeners</a></td></tr>
+<tr class="separator:a4f523b2b353fc2c8cbf7b3d3e8acb391"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ff2003f0c60cacaf804f3dab07ec0a9"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; <a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#a4ff2003f0c60cacaf804f3dab07ec0a9">keyRepeatEventId</a></td></tr>
+<tr class="separator:a4ff2003f0c60cacaf804f3dab07ec0a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b4297fbb97d02c6246bb99046e84765"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::function&lt; void()&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#a1b4297fbb97d02c6246bb99046e84765">gainFocusEventListeners</a></td></tr>
+<tr class="separator:a1b4297fbb97d02c6246bb99046e84765"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeba1aa57fad2d8307ca8939b48edf753"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; <a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#aeba1aa57fad2d8307ca8939b48edf753">gainFocusEventId</a></td></tr>
+<tr class="separator:aeba1aa57fad2d8307ca8939b48edf753"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfd306e78d3d6b3e4853831d2625368d"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::function&lt; void()&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#adfd306e78d3d6b3e4853831d2625368d">lostFocusEventListeners</a></td></tr>
+<tr class="separator:adfd306e78d3d6b3e4853831d2625368d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe2c111222772416e771546db053631a"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; <a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#abe2c111222772416e771546db053631a">lostFocusEventId</a></td></tr>
+<tr class="separator:abe2c111222772416e771546db053631a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af90f5b581136fbd992c61cc17ea2e2b2"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; <a class="el" href="../../d6/d9a/structkeyboard_1_1id_tp_key_event_indexes.html">idTpKeyEventIndexes</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#af90f5b581136fbd992c61cc17ea2e2b2">idToIndex</a></td></tr>
+<tr class="separator:af90f5b581136fbd992c61cc17ea2e2b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5abaa0a89ae0f4a72c9c0adb67d8107"><td class="memItemLeft" align="right" valign="top">static constexpr wl_keyboard_listener&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#ac5abaa0a89ae0f4a72c9c0adb67d8107">wlKeyboardListener</a></td></tr>
 <tr class="separator:ac5abaa0a89ae0f4a72c9c0adb67d8107"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad29915cb7ccecfcefa72ca7768b0dff5"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="../../d7/d0b/keycodes_8hpp.html#a69877ab2ad01f176a4e2f2095fd3213b">keycodes</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d4e/classkeyboard.html#ad29915cb7ccecfcefa72ca7768b0dff5">keycodeFromScaneCode</a> []</td></tr>
 <tr class="separator:ad29915cb7ccecfcefa72ca7768b0dff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a54612c438c9a9b6907437f3bdd7f8438" name="a54612c438c9a9b6907437f3bdd7f8438"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54612c438c9a9b6907437f3bdd7f8438">&#9670;&nbsp;</a></span>allocateWindowEvents()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void keyboard::allocateWindowEvents </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a199d14a43dd211d8e0455cccba6f97cf" name="a199d14a43dd211d8e0455cccba6f97cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a199d14a43dd211d8e0455cccba6f97cf">&#9670;&nbsp;</a></span>deallocateWindowEvents()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void keyboard::deallocateWindowEvents </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a947a38365b055910ca94ae5c18277c31" name="a947a38365b055910ca94ae5c18277c31"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a947a38365b055910ca94ae5c18277c31">&#9670;&nbsp;</a></span>keyListener()</h2>
 
@@ -149,6 +262,316 @@ Static Public Attributes</h2></td></tr>
           <td>(</td>
           <td class="paramtype">uint32_t&#160;</td>
           <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a60708e8e371901efbb02be45a0135980" name="a60708e8e371901efbb02be45a0135980"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60708e8e371901efbb02be45a0135980">&#9670;&nbsp;</a></span>setGainFocusEventListeners()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void keyboard::setGainFocusEventListeners </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void()&gt;&#160;</td>
+          <td class="paramname"><em>callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae264f9009a53249cbfd3a398c729846b" name="ae264f9009a53249cbfd3a398c729846b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae264f9009a53249cbfd3a398c729846b">&#9670;&nbsp;</a></span>setKeyPressEventListeners()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void keyboard::setKeyPressEventListeners </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(const <a class="el" href="../../dc/da2/structkey_data.html">keyData</a> &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a461efcfdc44386dd1842a3bc209c6ca2" name="a461efcfdc44386dd1842a3bc209c6ca2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a461efcfdc44386dd1842a3bc209c6ca2">&#9670;&nbsp;</a></span>setKeyReleasedEventListeners()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void keyboard::setKeyReleasedEventListeners </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(const <a class="el" href="../../dc/da2/structkey_data.html">keyData</a> &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a44905ed6af32c7207110d643d5fcd6b2" name="a44905ed6af32c7207110d643d5fcd6b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44905ed6af32c7207110d643d5fcd6b2">&#9670;&nbsp;</a></span>setKeyRepeatEventListeners()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void keyboard::setKeyRepeatEventListeners </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(const <a class="el" href="../../dc/da2/structkey_data.html">keyData</a> &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6cc26051f0f4454793f481571e65388d" name="a6cc26051f0f4454793f481571e65388d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cc26051f0f4454793f481571e65388d">&#9670;&nbsp;</a></span>setLostFocusEventListeners()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void keyboard::setLostFocusEventListeners </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void()&gt;&#160;</td>
+          <td class="paramname"><em>callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a832df6e943f47debb5184c531512d7b6" name="a832df6e943f47debb5184c531512d7b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a832df6e943f47debb5184c531512d7b6">&#9670;&nbsp;</a></span>unsetGainFocusEventListeners()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void keyboard::unsetGainFocusEventListeners </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a34da5f51461bdb1db5d8755ab7f0c6e2" name="a34da5f51461bdb1db5d8755ab7f0c6e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34da5f51461bdb1db5d8755ab7f0c6e2">&#9670;&nbsp;</a></span>unsetKeyPressEventListeners()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void keyboard::unsetKeyPressEventListeners </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad881fd85b1b981d940f483d637483fc9" name="ad881fd85b1b981d940f483d637483fc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad881fd85b1b981d940f483d637483fc9">&#9670;&nbsp;</a></span>unsetKeyReleasedEventListeners()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void keyboard::unsetKeyReleasedEventListeners </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a154aff4069c82f88d60f9fa50bf15f59" name="a154aff4069c82f88d60f9fa50bf15f59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a154aff4069c82f88d60f9fa50bf15f59">&#9670;&nbsp;</a></span>unsetKeyRepeatEventListeners()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void keyboard::unsetKeyRepeatEventListeners </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af46637f33b480b9fecde924f416e7423" name="af46637f33b480b9fecde924f416e7423"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af46637f33b480b9fecde924f416e7423">&#9670;&nbsp;</a></span>unsetLostFocusEventListeners()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void keyboard::unsetLostFocusEventListeners </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -492,8 +915,8 @@ Static Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="af62af5c8f535fa2980661884a53e0c0c" name="af62af5c8f535fa2980661884a53e0c0c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af62af5c8f535fa2980661884a53e0c0c">&#9670;&nbsp;</a></span>activeWindow</h2>
+<a id="a5a07a79a6862cede4a568f0dfbdfb9cd" name="a5a07a79a6862cede4a568f0dfbdfb9cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a07a79a6862cede4a568f0dfbdfb9cd">&#9670;&nbsp;</a></span>activeWindow</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -502,7 +925,73 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t keyboard::activeWindow = -1</td>
+          <td class="memname"><a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a> keyboard::activeWindow {(uint8_t)-1, (uint8_t)-1}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeba1aa57fad2d8307ca8939b48edf753" name="aeba1aa57fad2d8307ca8939b48edf753"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeba1aa57fad2d8307ca8939b48edf753">&#9670;&nbsp;</a></span>gainFocusEventId</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a>&gt; keyboard::gainFocusEventId</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1b4297fbb97d02c6246bb99046e84765" name="a1b4297fbb97d02c6246bb99046e84765"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b4297fbb97d02c6246bb99046e84765">&#9670;&nbsp;</a></span>gainFocusEventListeners</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::function&lt;void()&gt; &gt; keyboard::gainFocusEventListeners</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af90f5b581136fbd992c61cc17ea2e2b2" name="af90f5b581136fbd992c61cc17ea2e2b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af90f5b581136fbd992c61cc17ea2e2b2">&#9670;&nbsp;</a></span>idToIndex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="../../d6/d9a/structkeyboard_1_1id_tp_key_event_indexes.html">idTpKeyEventIndexes</a>&gt; keyboard::idToIndex</td>
         </tr>
       </table>
   </td>
@@ -580,6 +1069,94 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="afcb4fffadd80da65cf3799ccede89304" name="afcb4fffadd80da65cf3799ccede89304"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcb4fffadd80da65cf3799ccede89304">&#9670;&nbsp;</a></span>keyPressEventId</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a>&gt; keyboard::keyPressEventId</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7a1560f25cc7056503c7f3be9104a8bf" name="a7a1560f25cc7056503c7f3be9104a8bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a1560f25cc7056503c7f3be9104a8bf">&#9670;&nbsp;</a></span>keyPressEventListeners</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::function&lt;void(const <a class="el" href="../../dc/da2/structkey_data.html">keyData</a>&amp;)&gt; &gt; keyboard::keyPressEventListeners</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7643c38d2c5a6869d2abecdd6260426c" name="a7643c38d2c5a6869d2abecdd6260426c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7643c38d2c5a6869d2abecdd6260426c">&#9670;&nbsp;</a></span>keyReleasedEventId</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a>&gt; keyboard::keyReleasedEventId</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a95f2d93534450498e379d265ca38dae9" name="a95f2d93534450498e379d265ca38dae9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95f2d93534450498e379d265ca38dae9">&#9670;&nbsp;</a></span>keyReleasedEventListeners</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::function&lt;void(const <a class="el" href="../../dc/da2/structkey_data.html">keyData</a>&amp;)&gt; &gt; keyboard::keyReleasedEventListeners</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a8a1a474f1f8cb9f6db80b326f4e135d8" name="a8a1a474f1f8cb9f6db80b326f4e135d8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8a1a474f1f8cb9f6db80b326f4e135d8">&#9670;&nbsp;</a></span>keyRepeatdelay</h2>
 
@@ -602,6 +1179,50 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a4ff2003f0c60cacaf804f3dab07ec0a9" name="a4ff2003f0c60cacaf804f3dab07ec0a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ff2003f0c60cacaf804f3dab07ec0a9">&#9670;&nbsp;</a></span>keyRepeatEventId</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a>&gt; keyboard::keyRepeatEventId</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4f523b2b353fc2c8cbf7b3d3e8acb391" name="a4f523b2b353fc2c8cbf7b3d3e8acb391"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f523b2b353fc2c8cbf7b3d3e8acb391">&#9670;&nbsp;</a></span>keyRepeatEventListeners</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::function&lt;void(const <a class="el" href="../../dc/da2/structkey_data.html">keyData</a>&amp;)&gt; &gt; keyboard::keyRepeatEventListeners</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a85d39861eae47d109dfb3447d42d1c3f" name="a85d39861eae47d109dfb3447d42d1c3f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a85d39861eae47d109dfb3447d42d1c3f">&#9670;&nbsp;</a></span>keyRepeatRate</h2>
 
@@ -613,6 +1234,50 @@ Static Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">int32_t keyboard::keyRepeatRate</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abe2c111222772416e771546db053631a" name="abe2c111222772416e771546db053631a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe2c111222772416e771546db053631a">&#9670;&nbsp;</a></span>lostFocusEventId</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a>&gt; keyboard::lostFocusEventId</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adfd306e78d3d6b3e4853831d2625368d" name="adfd306e78d3d6b3e4853831d2625368d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfd306e78d3d6b3e4853831d2625368d">&#9670;&nbsp;</a></span>lostFocusEventListeners</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::function&lt;void()&gt; &gt; keyboard::lostFocusEventListeners</td>
         </tr>
       </table>
   </td>

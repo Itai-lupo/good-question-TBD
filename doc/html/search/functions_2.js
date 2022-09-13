@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['focusswap_0',['focusSwap',['../df/d0a/main_8cpp.html#ae472d9a3fc22c31a0bb52156bdc0b4e5',1,'main.cpp']]]
+  ['deallocatewindowevents_0',['deallocateWindowEvents',['../d1/d4e/classkeyboard.html#a199d14a43dd211d8e0455cccba6f97cf',1,'keyboard::deallocateWindowEvents()'],['../d4/df3/classpointer.html#a0cfb49b9e885283f849fc646340a7053',1,'pointer::deallocateWindowEvents()']]]
 ];

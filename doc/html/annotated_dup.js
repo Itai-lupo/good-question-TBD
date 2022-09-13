@@ -1,7 +1,6 @@
 var annotated_dup =
 [
-    [ "genericHandle", "d6/d98/structgeneric_handle.html", "d6/d98/structgeneric_handle" ],
-    [ "keyboard", "d1/d4e/classkeyboard.html", null ],
+    [ "keyboard", "d1/d4e/classkeyboard.html", "d1/d4e/classkeyboard" ],
     [ "keyData", "dc/da2/structkey_data.html", "dc/da2/structkey_data" ],
     [ "linuxWindowAPI", "de/d8e/classlinux_window_a_p_i.html", "de/d8e/classlinux_window_a_p_i" ],
     [ "logger", "dc/d37/classlogger.html", null ],
@@ -13,6 +12,7 @@ var annotated_dup =
     [ "sceneLoader", "d8/deb/classscene_loader.html", "d8/deb/classscene_loader" ],
     [ "seat", "d5/d3d/classseat.html", null ],
     [ "toplevelDecoration", "d1/dc4/classtoplevel_decoration.html", null ],
+    [ "windowId", "dd/d6c/structwindow_id.html", "dd/d6c/structwindow_id" ],
     [ "windowRenderData", "d0/df1/structwindow_render_data.html", "d0/df1/structwindow_render_data" ],
     [ "windowResizeData", "d4/d95/structwindow_resize_data.html", "d4/d95/structwindow_resize_data" ],
     [ "windowSpec", "d7/d7e/structwindow_spec.html", "d7/d7e/structwindow_spec" ]

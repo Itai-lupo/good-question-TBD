@@ -86,17 +86,29 @@ class linuxWindowAPI
 
         struct windowInfo
         {
-            wl_surface *surface;
-            xdg_surface *xdgSurface;
             xdg_toplevel *xdgToplevel;
             zxdg_toplevel_decoration_v1 *topLevelDecoration;
+            std::string title;
+            xdg_surface *xdgSurface; // to do add child windows support as well as popup support
+            wl_surface *surface;
+            int width, height;
             
+            //to do add sub-surface system
+            
+
+
+            //to do move into a mouse system
+
+            //to do move into a window events system
+            std::function<void()> closeListeners;
+            std::function<void(const windowResizeData&)> resizeListeners;
+            std::function<void(const windowRenderData&)> renderListeners;
+        
+            windowId id;
+
+            //to do move into a cpu rendering system
             int fd;
             wl_shm_pool *pool;
-
-            std::string title;
-            int width, height;
-            uint32_t lastFrame;
             uint32_t memoryPoolSize;
             uint8_t bufferInRender;
             uint8_t bufferToRender;
@@ -104,34 +116,14 @@ class linuxWindowAPI
             uint32_t *buffer;
             int bufferSize;
 
-            std::function<void(const keyData&)> keyPressEventListenrs;
-            std::function<void(const keyData&)> keyReleasedEventListenrs;
-            std::function<void(const keyData&)> keyRepeatEventListenrs;
-
-            std::function<void(const mouseButtonData&)> mouseButtonPressEventListenrs;
-            std::function<void(const mouseButtonData&)> mouseButtonReleasedEventListenrs;
-
-            std::function<void(const mouseMoveData&)> mouseMovedListenrs;
-            std::function<void(const mouseScrollData&)> mouseScrollListenrs;
-
-            std::function<void()> closeListenrs;
-            std::function<void(const windowResizeData&)> resizeListenrs;
-            std::function<void()> gainFocusListeners;
-            std::function<void()> lostFocusListeners;
-            std::function<void(const windowRenderData&)> renderListeners;
-        
-            windowId id;
-
             std::thread *renderThread;
-            std::thread *swapBuffersThread;
-
 
             std::shared_ptr<std::shared_mutex> renderMutex{};
             std::shared_ptr<std::condition_variable_any> renderFinshed{};
             bool renderFinshedBool;
 
 
-            windowInfo(): lastFrame(0), bufferInRender(0), bufferToRender(1), freeBuffer(2), 
+            windowInfo(): bufferInRender(0), bufferToRender(1), freeBuffer(2), 
                 renderMutex(std::make_shared<std::shared_mutex>()), 
                 renderFinshed(std::make_shared<std::condition_variable_any>())
             {}
@@ -144,13 +136,13 @@ class linuxWindowAPI
 
         struct idIndexes
         {
-            uint32_t gen: 24;
-            uint32_t index: 8;
-            uint32_t renderIndex: 8;
+            uint8_t gen;
+            uint8_t index;
+            uint8_t renderIndex;
         };
         
 
-        static inline std::array<idIndexes, 254> idToIndex;  
+        static inline std::array<idIndexes, 31> idToIndex;  
         static inline std::list<uint32_t> freeSlots;
         static inline int hightestId = 0;
 
@@ -185,6 +177,8 @@ class linuxWindowAPI
 		static void randname(char *buf);
         static int create_shm_file(void);
         static int allocate_shm_file(size_t size);
+
+
     public:
         static void init();
         static void closeApi();
@@ -201,36 +195,12 @@ class linuxWindowAPI
 
 
         // ################ set event listener ################################################################
-        static void setKeyPressEventListenrs(windowId winId, std::function<void(const keyData&)> callback);
-        static void setKeyReleasedEventListenrs(windowId winId, std::function<void(const keyData&)> callback);
-        static void setKeyRepeatEventListenrs(windowId winId, std::function<void(const keyData&)> callback);
-        
-        static void setMouseButtonPressEventListenrs(windowId winId, std::function<void(const mouseButtonData&)> callback);
-        static void setMouseButtonReleasedEventListenrs(windowId winId, std::function<void(const mouseButtonData&)> callback);
-        
-        static void setMouseMovedListenrs(windowId winId, std::function<void(const mouseMoveData&)> callback);
-        static void setMouseScrollListenrs(windowId winId, std::function<void(const mouseScrollData&)> callback);
-
-        static void setCloseEventeListenrs(windowId winId, std::function<void()> callback);
-        static void setResizeEventeListenrs(windowId winId, std::function<void(const windowResizeData&)> callback);
-        static void setGainFocusEventListeners(windowId winId, std::function<void()> callback);
-        static void setLostFocusEventListeners(windowId winId, std::function<void()> callback);
+        static void setCloseEventeListeners(windowId winId, std::function<void()> callback);
+        static void setResizeEventeListeners(windowId winId, std::function<void(const windowResizeData&)> callback);
         static void setRenderEventListeners(windowId winId, std::function<void(const windowRenderData&)> callback);
         
         // ################ unset event listener ################################################################
-        static void unsetKeyPressEventListenrs(windowId winId);
-        static void unsetKeyReleasedEventListenrs(windowId winId);
-        static void unsetKeyRepeatEventListenrs(windowId winId);
-
-        static void unsetMouseButtonPressEventListenrs(windowId winId);
-        static void unsetMouseButtonReleasedEventListenrs(windowId winId);
-        
-        static void unsetMouseMovedListenrs(windowId winId);
-        static void unsetMouseScrollListenrs(windowId winId);
-
-        static void unsetCloseEventeListenrs(windowId winId);
-        static void unsetResizeEventeListenrs(windowId winId);
-        static void unsetGainFocusEventListeners(windowId winId);
-        static void unsetLostFocusEventListeners(windowId winId);
+        static void unsetCloseEventeListeners(windowId winId);
+        static void unsetResizeEventeListeners(windowId winId);
         static void unsetRenderEventListeners(windowId winId);
 };

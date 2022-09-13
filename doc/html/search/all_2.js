@@ -2,7 +2,7 @@ var searchData=
 [
   ['close_0',['close',['../dc/d37/classlogger.html#ad0973f5782961630972e85adbed14b07',1,'logger']]],
   ['closeapi_1',['closeApi',['../de/d8e/classlinux_window_a_p_i.html#ad0da3db853ade046c96c79d653942690',1,'linuxWindowAPI']]],
-  ['closelistenrs_2',['closeListenrs',['../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#aa422960312d8a87114f251e2f6b54b4d',1,'linuxWindowAPI::windowInfo']]],
+  ['closelisteners_2',['closeListeners',['../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a2a31ee323f41b02bf18147cb965c3034',1,'linuxWindowAPI::windowInfo']]],
   ['closewindow_3',['closeWindow',['../de/d8e/classlinux_window_a_p_i.html#a2f04da4be5a56c081477fabbcec802ed',1,'linuxWindowAPI::closeWindow()'],['../d5/d6a/classos_a_p_i.html#acad316dd14987374a79961de24e01a0f',1,'osAPI::closeWindow()']]],
   ['compositor_4',['compositor',['../de/d8e/classlinux_window_a_p_i.html#a173a66211fb62270f01845dd69567ca9',1,'linuxWindowAPI']]],
   ['condtion_5flog_5ferror_5',['CONDTION_LOG_ERROR',['../d4/d3d/log_8hpp.html#aa5cb7dfa3e9b0342f4636511a6218416',1,'log.hpp']]],

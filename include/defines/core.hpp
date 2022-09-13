@@ -1,13 +1,8 @@
 #pragma once
 #include <cstdint>
 
-template <std::size_t genSize, std::size_t idSize>
-struct genericHandle
+struct windowId
 {
-    uint32_t gen: genSize;
-    uint32_t index: idSize;
+    uint8_t gen;
+    uint8_t index;
 };
-
-
-
-using windowId = genericHandle<24, 8>;

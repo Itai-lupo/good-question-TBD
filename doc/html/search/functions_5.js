@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['keydata_0',['keyData',['../dc/da2/structkey_data.html#aa3170704158b082c3ba955829b05bd9f',1,'keyData']]],
-  ['keylistener_1',['keyListener',['../d1/d4e/classkeyboard.html#a947a38365b055910ca94ae5c18277c31',1,'keyboard::keyListener()'],['../df/d0a/main_8cpp.html#a93574e814003e4ab0dc4c0a74f91f2f9',1,'keyListener():&#160;main.cpp']]]
+  ['init_0',['init',['../de/d8e/classlinux_window_a_p_i.html#a0eb40c7e97c16c95ee3c259b69d001be',1,'linuxWindowAPI::init()'],['../dc/d37/classlogger.html#a55fa1aad396cc494aa03de1c2e2026af',1,'logger::init()']]],
+  ['iswindowopen_1',['isWindowOpen',['../de/d8e/classlinux_window_a_p_i.html#aad0e3a102d3fe6b92a3f617799ff7ff7',1,'linuxWindowAPI::isWindowOpen()'],['../d5/d6a/classos_a_p_i.html#af428baf543977fcb1ec52be933d9edb0',1,'osAPI::isWindowOpen()']]]
 ];

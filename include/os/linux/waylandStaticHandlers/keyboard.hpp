@@ -5,8 +5,11 @@
 
 #include <map>
 #include <thread>
+#include <functional>
 
 #include "keycodes.hpp"
+#include "core.hpp"
+#include "keyData.hpp"
 
 class keyboard
 {
@@ -19,7 +22,7 @@ class keyboard
         static inline int32_t keyRepeatRate; 
         static inline int32_t keyRepeatdelay;
         
-        static inline int32_t activeWindow = -1; 
+        static inline windowId activeWindow{(uint8_t)-1, (uint8_t)-1}; 
         static inline std::map<keycodes, bool> isKeyPressed;
         
         static void wlKeymap(void *data, wl_keyboard *wl_keyboard, uint32_t format, int32_t fd, uint32_t size);
@@ -30,6 +33,34 @@ class keyboard
         static void wlRepeatInfo(void *data, wl_keyboard *wl_keyboard, int32_t rate, int32_t delay);
         static void keyListener(uint32_t key);
 
+
+        static inline std::vector<std::function<void(const keyData&)>> keyPressEventListeners;
+        static inline std::vector<windowId> keyPressEventId;
+
+        static inline std::vector<std::function<void(const keyData&)>> keyReleasedEventListeners;
+        static inline std::vector<windowId> keyReleasedEventId;
+        
+        static inline std::vector<std::function<void(const keyData&)>> keyRepeatEventListeners;
+        static inline std::vector<windowId> keyRepeatEventId;
+
+        static inline std::vector<std::function<void()>> gainFocusEventListeners;
+        static inline std::vector<windowId> gainFocusEventId;
+
+        static inline std::vector<std::function<void()>> lostFocusEventListeners;
+        static inline std::vector<windowId> lostFocusEventId;
+
+        struct idTpKeyEventIndexes
+        {
+            uint8_t gen;
+            uint8_t pressEventIndex = -1;
+            uint8_t releaseEventIndex = -1;
+            uint8_t repeatEventIndex = -1;
+            uint8_t gainFocusEventIndex = -1;
+            uint8_t lostFocusEventIndex = -1;
+        };
+        
+        static inline std::vector<idTpKeyEventIndexes> idToIndex;  
+        
         static constexpr wl_keyboard_listener wlKeyboardListener = {
             .keymap = wlKeymap,
             .enter = wlEnter,
@@ -165,4 +196,21 @@ class keyboard
                 [KEY_KPENTER]    =   keycodes::keyKpEnter,
                 [KEY_102ND]  =   keycodes::keyWorld2,
         };
+
+
+        static void allocateWindowEvents(windowId winId);
+        static void setKeyPressEventListeners(windowId winId, std::function<void(const keyData&)> callback);
+        static void setKeyReleasedEventListeners(windowId winId, std::function<void(const keyData&)> callback);
+        static void setKeyRepeatEventListeners(windowId winId, std::function<void(const keyData&)> callback);
+        static void setGainFocusEventListeners(windowId winId, std::function<void()> callback);
+        static void setLostFocusEventListeners(windowId winId, std::function<void()> callback);
+        
+
+        static void deallocateWindowEvents(windowId winId);
+        static void unsetKeyPressEventListeners(windowId winId);
+        static void unsetKeyReleasedEventListeners(windowId winId);
+        static void unsetKeyRepeatEventListeners(windowId winId);
+        static void unsetGainFocusEventListeners(windowId winId);
+        static void unsetLostFocusEventListeners(windowId winId);
+        
 };

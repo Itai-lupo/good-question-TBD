@@ -99,13 +99,16 @@ Collaboration diagram for pointer:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../d9/d93/classpointer__coll__graph.png" border="0" usemap="#apointer_coll__map" alt="Collaboration graph"/></div>
 <map name="apointer_coll__map" id="apointer_coll__map">
-<area shape="rect" title=" " alt="" coords="39,95,101,121"/>
-<area shape="rect" href="../../da/dbc/structpointer_1_1input_buffer.html" title=" " alt="" coords="5,5,135,32"/>
+<area shape="rect" title=" " alt="" coords="39,184,101,211"/>
+<area shape="rect" href="../../da/dbc/structpointer_1_1input_buffer.html" title=" " alt="" coords="5,95,135,121"/>
+<area shape="rect" href="../../dd/d6c/structwindow_id.html" title=" " alt="" coords="31,5,109,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="../../graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d49/structpointer_1_1id_to_pointer_event_indexes.html">idToPointerEventIndexes</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dbc/structpointer_1_1input_buffer.html">inputBuffer</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -129,6 +132,26 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:aea3a403268567d9e5a1008290d74200d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9af51be0918c8c4065f4662f12af2c39"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/df3/classpointer.html#a9af51be0918c8c4065f4662f12af2c39">wlPointerAxisDiscrete</a> (void *data, wl_pointer *wlPointer, uint32_t axis, int32_t discrete)</td></tr>
 <tr class="separator:a9af51be0918c8c4065f4662f12af2c39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c36b0d95b551f8aa957afa5dcfa5157"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/df3/classpointer.html#a8c36b0d95b551f8aa957afa5dcfa5157">allocateWindowEvents</a> (<a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a> winId)</td></tr>
+<tr class="separator:a8c36b0d95b551f8aa957afa5dcfa5157"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2944b7622027691a57268432d0c24cb"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/df3/classpointer.html#af2944b7622027691a57268432d0c24cb">setMouseButtonPressEventListeners</a> (<a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a> winId, std::function&lt; void(const <a class="el" href="../../db/de8/structmouse_button_data.html">mouseButtonData</a> &amp;)&gt; callback)</td></tr>
+<tr class="separator:af2944b7622027691a57268432d0c24cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1008447cfd73f8ebf0ded4eec8e5821d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/df3/classpointer.html#a1008447cfd73f8ebf0ded4eec8e5821d">setMouseButtonReleasedEventListeners</a> (<a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a> winId, std::function&lt; void(const <a class="el" href="../../db/de8/structmouse_button_data.html">mouseButtonData</a> &amp;)&gt; callback)</td></tr>
+<tr class="separator:a1008447cfd73f8ebf0ded4eec8e5821d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a582b790189c198f1d8eaad004b74dd3c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/df3/classpointer.html#a582b790189c198f1d8eaad004b74dd3c">setMouseMovedListeners</a> (<a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a> winId, std::function&lt; void(const <a class="el" href="../../d9/d38/structmouse_move_data.html">mouseMoveData</a> &amp;)&gt; callback)</td></tr>
+<tr class="separator:a582b790189c198f1d8eaad004b74dd3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac54e62cccb242478d2d9faac57c9f3d8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/df3/classpointer.html#ac54e62cccb242478d2d9faac57c9f3d8">setMouseScrollListeners</a> (<a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a> winId, std::function&lt; void(const <a class="el" href="../../da/d46/structmouse_scroll_data.html">mouseScrollData</a> &amp;)&gt; callback)</td></tr>
+<tr class="separator:ac54e62cccb242478d2d9faac57c9f3d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cfb49b9e885283f849fc646340a7053"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/df3/classpointer.html#a0cfb49b9e885283f849fc646340a7053">deallocateWindowEvents</a> (<a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a> winId)</td></tr>
+<tr class="separator:a0cfb49b9e885283f849fc646340a7053"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ffe5d3c3971005299ae5402c0500c86"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/df3/classpointer.html#a6ffe5d3c3971005299ae5402c0500c86">unsetMouseButtonPressEventListeners</a> (<a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a> winId)</td></tr>
+<tr class="separator:a6ffe5d3c3971005299ae5402c0500c86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63ad949f94d23f8ba197c49adeae30c2"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/df3/classpointer.html#a63ad949f94d23f8ba197c49adeae30c2">unsetMouseButtonReleasedEventListeners</a> (<a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a> winId)</td></tr>
+<tr class="separator:a63ad949f94d23f8ba197c49adeae30c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a619d86520085cf8876ed8d7cd4dc9b27"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/df3/classpointer.html#a619d86520085cf8876ed8d7cd4dc9b27">unsetMouseMovedListeners</a> (<a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a> winId)</td></tr>
+<tr class="separator:a619d86520085cf8876ed8d7cd4dc9b27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4e1f5b40e5d7040d741b94af81e25c9"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/df3/classpointer.html#aa4e1f5b40e5d7040d741b94af81e25c9">unsetMouseScrollListeners</a> (<a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a> winId)</td></tr>
+<tr class="separator:aa4e1f5b40e5d7040d741b94af81e25c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -136,10 +159,328 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:a4a77206ad078089f077ed7bc4348c33e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abee9e244abd82bac8edcef3afc719e3f"><td class="memItemLeft" align="right" valign="top">static constexpr wl_pointer_listener&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/df3/classpointer.html#abee9e244abd82bac8edcef3afc719e3f">wlPointerListener</a></td></tr>
 <tr class="separator:abee9e244abd82bac8edcef3afc719e3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7d58df000d3892461bb18e1d3023163"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; <a class="el" href="../../d7/d49/structpointer_1_1id_to_pointer_event_indexes.html">idToPointerEventIndexes</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/df3/classpointer.html#ae7d58df000d3892461bb18e1d3023163">idToIndex</a></td></tr>
+<tr class="separator:ae7d58df000d3892461bb18e1d3023163"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1799e6af3a0b61869a31575272279852"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../da/dbc/structpointer_1_1input_buffer.html">inputBuffer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/df3/classpointer.html#a1799e6af3a0b61869a31575272279852">inputFrameData</a></td></tr>
 <tr class="separator:a1799e6af3a0b61869a31575272279852"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a311329ffc7367c95c083252f4f0c9555"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::function&lt; void(const <a class="el" href="../../db/de8/structmouse_button_data.html">mouseButtonData</a> &amp;)&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/df3/classpointer.html#a311329ffc7367c95c083252f4f0c9555">mouseButtonPressEventListeners</a></td></tr>
+<tr class="separator:a311329ffc7367c95c083252f4f0c9555"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91a7dbd1ee81c23a0cfc88bbe7fa3f75"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; <a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/df3/classpointer.html#a91a7dbd1ee81c23a0cfc88bbe7fa3f75">mouseButtonPressEventId</a></td></tr>
+<tr class="separator:a91a7dbd1ee81c23a0cfc88bbe7fa3f75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2de3d473cd7d90aa4b67e2fbe6fe6690"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::function&lt; void(const <a class="el" href="../../db/de8/structmouse_button_data.html">mouseButtonData</a> &amp;)&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/df3/classpointer.html#a2de3d473cd7d90aa4b67e2fbe6fe6690">mouseButtonReleasedEventListeners</a></td></tr>
+<tr class="separator:a2de3d473cd7d90aa4b67e2fbe6fe6690"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28efd27662ffe05f4bda67c8a480de3f"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; <a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/df3/classpointer.html#a28efd27662ffe05f4bda67c8a480de3f">mouseButtonReleasedEventId</a></td></tr>
+<tr class="separator:a28efd27662ffe05f4bda67c8a480de3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54bd1436d79189ea6a9fbde61ea9b356"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::function&lt; void(const <a class="el" href="../../d9/d38/structmouse_move_data.html">mouseMoveData</a> &amp;)&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/df3/classpointer.html#a54bd1436d79189ea6a9fbde61ea9b356">mouseMovedEventListeners</a></td></tr>
+<tr class="separator:a54bd1436d79189ea6a9fbde61ea9b356"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0939159791c4de741fa9444e3401598d"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; <a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/df3/classpointer.html#a0939159791c4de741fa9444e3401598d">mouseMovedEventId</a></td></tr>
+<tr class="separator:a0939159791c4de741fa9444e3401598d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d974d75a7fc1fb09113003d8e66e6bc"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::function&lt; void(const <a class="el" href="../../da/d46/structmouse_scroll_data.html">mouseScrollData</a> &amp;)&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/df3/classpointer.html#a8d974d75a7fc1fb09113003d8e66e6bc">mouseScrollEventListeners</a></td></tr>
+<tr class="separator:a8d974d75a7fc1fb09113003d8e66e6bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf7d5264da23b504954dd3a98d4764a3"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; <a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/df3/classpointer.html#aaf7d5264da23b504954dd3a98d4764a3">mouseScrollEventId</a></td></tr>
+<tr class="separator:aaf7d5264da23b504954dd3a98d4764a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a8c36b0d95b551f8aa957afa5dcfa5157" name="a8c36b0d95b551f8aa957afa5dcfa5157"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c36b0d95b551f8aa957afa5dcfa5157">&#9670;&nbsp;</a></span>allocateWindowEvents()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void pointer::allocateWindowEvents </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0cfb49b9e885283f849fc646340a7053" name="a0cfb49b9e885283f849fc646340a7053"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cfb49b9e885283f849fc646340a7053">&#9670;&nbsp;</a></span>deallocateWindowEvents()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void pointer::deallocateWindowEvents </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af2944b7622027691a57268432d0c24cb" name="af2944b7622027691a57268432d0c24cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2944b7622027691a57268432d0c24cb">&#9670;&nbsp;</a></span>setMouseButtonPressEventListeners()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void pointer::setMouseButtonPressEventListeners </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(const <a class="el" href="../../db/de8/structmouse_button_data.html">mouseButtonData</a> &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1008447cfd73f8ebf0ded4eec8e5821d" name="a1008447cfd73f8ebf0ded4eec8e5821d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1008447cfd73f8ebf0ded4eec8e5821d">&#9670;&nbsp;</a></span>setMouseButtonReleasedEventListeners()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void pointer::setMouseButtonReleasedEventListeners </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(const <a class="el" href="../../db/de8/structmouse_button_data.html">mouseButtonData</a> &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a582b790189c198f1d8eaad004b74dd3c" name="a582b790189c198f1d8eaad004b74dd3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a582b790189c198f1d8eaad004b74dd3c">&#9670;&nbsp;</a></span>setMouseMovedListeners()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void pointer::setMouseMovedListeners </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(const <a class="el" href="../../d9/d38/structmouse_move_data.html">mouseMoveData</a> &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac54e62cccb242478d2d9faac57c9f3d8" name="ac54e62cccb242478d2d9faac57c9f3d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac54e62cccb242478d2d9faac57c9f3d8">&#9670;&nbsp;</a></span>setMouseScrollListeners()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void pointer::setMouseScrollListeners </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(const <a class="el" href="../../da/d46/structmouse_scroll_data.html">mouseScrollData</a> &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6ffe5d3c3971005299ae5402c0500c86" name="a6ffe5d3c3971005299ae5402c0500c86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ffe5d3c3971005299ae5402c0500c86">&#9670;&nbsp;</a></span>unsetMouseButtonPressEventListeners()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void pointer::unsetMouseButtonPressEventListeners </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a63ad949f94d23f8ba197c49adeae30c2" name="a63ad949f94d23f8ba197c49adeae30c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63ad949f94d23f8ba197c49adeae30c2">&#9670;&nbsp;</a></span>unsetMouseButtonReleasedEventListeners()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void pointer::unsetMouseButtonReleasedEventListeners </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a619d86520085cf8876ed8d7cd4dc9b27" name="a619d86520085cf8876ed8d7cd4dc9b27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a619d86520085cf8876ed8d7cd4dc9b27">&#9670;&nbsp;</a></span>unsetMouseMovedListeners()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void pointer::unsetMouseMovedListeners </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa4e1f5b40e5d7040d741b94af81e25c9" name="aa4e1f5b40e5d7040d741b94af81e25c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4e1f5b40e5d7040d741b94af81e25c9">&#9670;&nbsp;</a></span>unsetMouseScrollListeners()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void pointer::unsetMouseScrollListeners </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a>&#160;</td>
+          <td class="paramname"><em>winId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a96dc05b2ca9622c0cdaa9784d95c0e07" name="a96dc05b2ca9622c0cdaa9784d95c0e07"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a96dc05b2ca9622c0cdaa9784d95c0e07">&#9670;&nbsp;</a></span>wlPointerAxis()</h2>
 
@@ -591,6 +932,28 @@ Static Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="ae7d58df000d3892461bb18e1d3023163" name="ae7d58df000d3892461bb18e1d3023163"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7d58df000d3892461bb18e1d3023163">&#9670;&nbsp;</a></span>idToIndex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="../../d7/d49/structpointer_1_1id_to_pointer_event_indexes.html">idToPointerEventIndexes</a>&gt; pointer::idToIndex</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a1799e6af3a0b61869a31575272279852" name="a1799e6af3a0b61869a31575272279852"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1799e6af3a0b61869a31575272279852">&#9670;&nbsp;</a></span>inputFrameData</h2>
 
@@ -602,6 +965,182 @@ Static Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="../../da/dbc/structpointer_1_1input_buffer.html">inputBuffer</a> pointer::inputFrameData</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a91a7dbd1ee81c23a0cfc88bbe7fa3f75" name="a91a7dbd1ee81c23a0cfc88bbe7fa3f75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91a7dbd1ee81c23a0cfc88bbe7fa3f75">&#9670;&nbsp;</a></span>mouseButtonPressEventId</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a>&gt; pointer::mouseButtonPressEventId</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a311329ffc7367c95c083252f4f0c9555" name="a311329ffc7367c95c083252f4f0c9555"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a311329ffc7367c95c083252f4f0c9555">&#9670;&nbsp;</a></span>mouseButtonPressEventListeners</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::function&lt;void(const <a class="el" href="../../db/de8/structmouse_button_data.html">mouseButtonData</a>&amp;)&gt; &gt; pointer::mouseButtonPressEventListeners</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a28efd27662ffe05f4bda67c8a480de3f" name="a28efd27662ffe05f4bda67c8a480de3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28efd27662ffe05f4bda67c8a480de3f">&#9670;&nbsp;</a></span>mouseButtonReleasedEventId</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a>&gt; pointer::mouseButtonReleasedEventId</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2de3d473cd7d90aa4b67e2fbe6fe6690" name="a2de3d473cd7d90aa4b67e2fbe6fe6690"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2de3d473cd7d90aa4b67e2fbe6fe6690">&#9670;&nbsp;</a></span>mouseButtonReleasedEventListeners</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::function&lt;void(const <a class="el" href="../../db/de8/structmouse_button_data.html">mouseButtonData</a>&amp;)&gt; &gt; pointer::mouseButtonReleasedEventListeners</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0939159791c4de741fa9444e3401598d" name="a0939159791c4de741fa9444e3401598d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0939159791c4de741fa9444e3401598d">&#9670;&nbsp;</a></span>mouseMovedEventId</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a>&gt; pointer::mouseMovedEventId</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a54bd1436d79189ea6a9fbde61ea9b356" name="a54bd1436d79189ea6a9fbde61ea9b356"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54bd1436d79189ea6a9fbde61ea9b356">&#9670;&nbsp;</a></span>mouseMovedEventListeners</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::function&lt;void(const <a class="el" href="../../d9/d38/structmouse_move_data.html">mouseMoveData</a>&amp;)&gt; &gt; pointer::mouseMovedEventListeners</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaf7d5264da23b504954dd3a98d4764a3" name="aaf7d5264da23b504954dd3a98d4764a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf7d5264da23b504954dd3a98d4764a3">&#9670;&nbsp;</a></span>mouseScrollEventId</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a>&gt; pointer::mouseScrollEventId</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8d974d75a7fc1fb09113003d8e66e6bc" name="a8d974d75a7fc1fb09113003d8e66e6bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d974d75a7fc1fb09113003d8e66e6bc">&#9670;&nbsp;</a></span>mouseScrollEventListeners</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::function&lt;void(const <a class="el" href="../../da/d46/structmouse_scroll_data.html">mouseScrollData</a>&amp;)&gt; &gt; pointer::mouseScrollEventListeners</td>
         </tr>
       </table>
   </td>

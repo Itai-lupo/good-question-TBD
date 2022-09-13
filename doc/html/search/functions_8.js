@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['randname_0',['randname',['../de/d8e/classlinux_window_a_p_i.html#a2715e529c12e28b13bf2ccdbe22948fd',1,'linuxWindowAPI']]],
-  ['reallocatewindowcpupool_1',['reallocateWindowCpuPool',['../de/d8e/classlinux_window_a_p_i.html#a3e98dc6bf2c69771068ab3816e6994cd',1,'linuxWindowAPI']]],
-  ['renderwindow_2',['renderWindow',['../de/d8e/classlinux_window_a_p_i.html#a674936194dcb3b11aef31ec0d441d651',1,'linuxWindowAPI']]]
+  ['operator_3d_0',['operator=',['../d8/deb/classscene_loader.html#afa3568e1099b76003952817a4d53268a',1,'sceneLoader::operator=(const sceneLoader &amp;)'],['../d8/deb/classscene_loader.html#acdc798efac623cd099dac66f681f5305',1,'sceneLoader::operator=(sceneLoader &amp;&amp;)']]],
+  ['osapi_1',['osAPI',['../d5/d6a/classos_a_p_i.html#ace1df979b9e38bdc5be2753cf16f1a13',1,'osAPI']]]
 ];

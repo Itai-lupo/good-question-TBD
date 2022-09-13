@@ -40,35 +40,35 @@ class osAPI
 
         
         // ################ set event listener ################################################################
-        void setKeyPressEventListenrs(windowId winId, std::function<void(const keyData&)> callback);
-        void setKeyReleasedEventListenrs(windowId winId, std::function<void(const keyData&)> callback);
-        void setKeyRepeatEventListenrs(windowId winId, std::function<void(const keyData&)> callback);
+        void setKeyPressEventListeners(windowId winId, std::function<void(const keyData&)> callback);
+        void setKeyReleasedEventListeners(windowId winId, std::function<void(const keyData&)> callback);
+        void setKeyRepeatEventListeners(windowId winId, std::function<void(const keyData&)> callback);
 
-        void setMouseButtonPressEventListenrs(windowId winId, std::function<void(const mouseButtonData&)> callback);
-        void setMouseButtonReleasedEventListenrs(windowId winId, std::function<void(const mouseButtonData&)> callback);
+        void setMouseButtonPressEventListeners(windowId winId, std::function<void(const mouseButtonData&)> callback);
+        void setMouseButtonReleasedEventListeners(windowId winId, std::function<void(const mouseButtonData&)> callback);
         
-        void setMouseMovedListenrs(windowId winId, std::function<void(const mouseMoveData&)> callback);
-        void setMouseScrollListenrs(windowId winId, std::function<void(const mouseScrollData&)> callback);
+        void setMouseMovedListeners(windowId winId, std::function<void(const mouseMoveData&)> callback);
+        void setMouseScrollListeners(windowId winId, std::function<void(const mouseScrollData&)> callback);
 
-        void setCloseEventeListenrs(windowId winId, std::function<void()> callback);
-        void setResizeEventeListenrs(windowId winId, std::function<void(const windowResizeData&)> callback);
+        void setCloseEventeListeners(windowId winId, std::function<void()> callback);
+        void setResizeEventeListeners(windowId winId, std::function<void(const windowResizeData&)> callback);
         void setGainFocusEventListeners(windowId winId, std::function<void()> callback);
         void setLostFocusEventListeners(windowId winId, std::function<void()> callback);
         void setRenderEventListeners(windowId winId, std::function<void(const windowRenderData&)> callback);
         
         // ################ unset event listener ################################################################
-        void unsetKeyPressEventListenrs(windowId winId);
-        void unsetKeyReleasedEventListenrs(windowId winId);
-        void unsetKeyRepeatEventListenrs(windowId winId);
+        void unsetKeyPressEventListeners(windowId winId);
+        void unsetKeyReleasedEventListeners(windowId winId);
+        void unsetKeyRepeatEventListeners(windowId winId);
 
-        void unsetMouseButtonPressEventListenrs(windowId winId);
-        void unsetMouseButtonReleasedEventListenrs(windowId winId);
+        void unsetMouseButtonPressEventListeners(windowId winId);
+        void unsetMouseButtonReleasedEventListeners(windowId winId);
         
-        void unsetMouseMovedListenrs(windowId winId);
-        void unsetMouseScrollListenrs(windowId winId);
+        void unsetMouseMovedListeners(windowId winId);
+        void unsetMouseScrollListeners(windowId winId);
 
-        void unsetCloseEventeListenrs(windowId winId);
-        void unsetResizeEventeListenrs(windowId winId);
+        void unsetCloseEventeListeners(windowId winId);
+        void unsetResizeEventeListeners(windowId winId);
         void unsetGainFocusEventListeners(windowId winId);
         void unsetLostFocusEventListeners(windowId winId);
         void unsetRenderEventListeners(windowId winId);

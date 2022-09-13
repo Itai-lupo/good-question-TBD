@@ -1,5 +1,10 @@
 var searchData=
 [
-  ['init_0',['init',['../de/d8e/classlinux_window_a_p_i.html#a0eb40c7e97c16c95ee3c259b69d001be',1,'linuxWindowAPI::init()'],['../dc/d37/classlogger.html#a55fa1aad396cc494aa03de1c2e2026af',1,'logger::init()']]],
-  ['iswindowopen_1',['isWindowOpen',['../de/d8e/classlinux_window_a_p_i.html#aad0e3a102d3fe6b92a3f617799ff7ff7',1,'linuxWindowAPI::isWindowOpen()'],['../d5/d6a/classos_a_p_i.html#af428baf543977fcb1ec52be933d9edb0',1,'osAPI::isWindowOpen()']]]
+  ['getcurrentcontextwindowid_0',['getCurrentContextWindowId',['../d5/d6a/classos_a_p_i.html#a345196727562c28dc772c7feced3434d',1,'osAPI']]],
+  ['getdisplay_1',['getDisplay',['../de/d8e/classlinux_window_a_p_i.html#af59dd775510002887bcf799677acda0a',1,'linuxWindowAPI']]],
+  ['getindexfromid_2',['getIndexFromId',['../de/d8e/classlinux_window_a_p_i.html#a638311f054c35cf47945415e8c41bf54',1,'linuxWindowAPI']]],
+  ['getprocaddress_3',['getProcAddress',['../d5/d6a/classos_a_p_i.html#a0a043b6f3c663ac880a51d1859d26fb9',1,'osAPI']]],
+  ['getrenderindexfromid_4',['getRenderIndexFromId',['../de/d8e/classlinux_window_a_p_i.html#ac16f884497ac88141d59e5d84327a2ec',1,'linuxWindowAPI']]],
+  ['getwindowsize_5',['getWindowSize',['../de/d8e/classlinux_window_a_p_i.html#a7f23427a1972cbc832f46fb5f57c31f2',1,'linuxWindowAPI::getWindowSize()'],['../d5/d6a/classos_a_p_i.html#a9caf3fe186334a588232d26d1c7de477',1,'osAPI::getWindowSize()']]],
+  ['getwindowtitle_6',['getWindowTitle',['../de/d8e/classlinux_window_a_p_i.html#a205e956259c73996025bcce00ad8f5f2',1,'linuxWindowAPI::getWindowTitle()'],['../d5/d6a/classos_a_p_i.html#a2a07fd40f7bdad0a1a2dc511e71a1758',1,'osAPI::getWindowTitle()']]]
 ];

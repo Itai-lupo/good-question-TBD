@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['generichandle_0',['genericHandle',['../d6/d98/structgeneric_handle.html',1,'']]],
-  ['generichandle_3c_2024_2c_208_20_3e_1',['genericHandle&lt; 24, 8 &gt;',['../d6/d98/structgeneric_handle.html',1,'']]]
+  ['idindexes_0',['idIndexes',['../db/d92/structlinux_window_a_p_i_1_1id_indexes.html',1,'linuxWindowAPI']]],
+  ['idtopointereventindexes_1',['idToPointerEventIndexes',['../d7/d49/structpointer_1_1id_to_pointer_event_indexes.html',1,'pointer']]],
+  ['idtpkeyeventindexes_2',['idTpKeyEventIndexes',['../d6/d9a/structkeyboard_1_1id_tp_key_event_indexes.html',1,'keyboard']]],
+  ['inputbuffer_3',['inputBuffer',['../da/dbc/structpointer_1_1input_buffer.html',1,'pointer']]]
 ];
