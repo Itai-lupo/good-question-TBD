@@ -2,19 +2,21 @@
 
 #include "pointer.hpp"
 #include "log.hpp"
-#include "linuxWindowAPI.hpp"
+#include "window.hpp"
 
 
 #include <linux/input.h>
+#include <thread>
+
 
 void pointer::wlPointerEnter(void *data, struct wl_pointer *wl_pointer, uint32_t serial, struct wl_surface *surface, wl_fixed_t surface_x, wl_fixed_t surface_y)
 {    
-    for (size_t i = 0; i < linuxWindowAPI::windowsInfo.size(); i++)
+    for (size_t i = 0; i < window::windows.size(); i++)
     {
-        if(linuxWindowAPI::windowsInfo[i].surface == surface)
+        if(window::windows[i].surface == surface)
         {
             inputFrameData.eventTypes.pointerEnter = true;
-            inputFrameData.winId = linuxWindowAPI::windowsInfo[i].id;
+            inputFrameData.winId = window::windows[i].id;
             inputFrameData.surface_x = surface_x;
             inputFrameData.surface_y = surface_y;
             inputFrameData.serial = serial;

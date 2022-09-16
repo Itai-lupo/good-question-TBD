@@ -5,6 +5,8 @@
 #include "keyboard.hpp"
 #include "pointer.hpp"
 #include "osEventsData.hpp"
+#include "window.hpp"
+#include "cpuRendering.hpp"
 
 #include "log.hpp"
 #include "Tracy.hpp"
@@ -63,12 +65,12 @@ void* osAPI::getProcAddress()
 
 std::string osAPI::getWindowTitle(windowId winId)
 {
-    return linuxWindowAPI::getWindowTitle(winId);
+    return window::getWindowTitle(winId);
 }
 
 std::pair<uint32_t, uint32_t> osAPI::getWindowSize(windowId winId)
 {
-    return linuxWindowAPI::getWindowSize(winId);
+    return {window::getWindowWidth(winId), window::getWindowHeight(winId)};
 
 }
 
@@ -107,12 +109,12 @@ void osAPI::setMouseScrollListeners(windowId winId, std::function<void(const mou
 
 void osAPI::setCloseEventeListeners(windowId winId, std::function<void()> callback)
 {
-    linuxWindowAPI::setCloseEventeListeners(winId, callback);
+    window::setCloseEventListener(winId, callback);
 }
 
 void osAPI::setResizeEventeListeners(windowId winId, std::function<void(const windowResizeData&)> callback)
 {
-    linuxWindowAPI::setResizeEventeListeners(winId, callback);
+    window::setResizeEventListener(winId, callback);
 }
 
 void osAPI::setGainFocusEventListeners(windowId winId, std::function<void()> callback)
@@ -127,7 +129,7 @@ void osAPI::setLostFocusEventListeners(windowId winId, std::function<void()> cal
 
 void osAPI::setRenderEventListeners(windowId winId, std::function<void(const windowRenderData&)> callback)
 {
-    linuxWindowAPI::setRenderEventListeners(winId, callback);
+    cpuRendering::setRenderEventListeners(winId, callback);
 }
 
         
@@ -168,12 +170,12 @@ void osAPI::unsetMouseScrollListeners(windowId winId)
 
 void osAPI::unsetCloseEventeListeners(windowId winId)
 {
-    linuxWindowAPI::unsetCloseEventeListeners(winId);
+    window::unsetCloseEventListener(winId);
 }
 
 void osAPI::unsetResizeEventeListeners(windowId winId)
 {
-    linuxWindowAPI::unsetResizeEventeListeners(winId);
+    window::unsetResizeEventListener(winId);
 }
 
 void osAPI::unsetGainFocusEventListeners(windowId winId)
@@ -188,7 +190,7 @@ void osAPI::unsetLostFocusEventListeners(windowId winId)
 
 void osAPI::unsetRenderEventListeners(windowId winId)
 {
-    linuxWindowAPI::unsetRenderEventListeners(winId);
+    cpuRendering::unsetRenderEventListeners(winId);
 }
 
 

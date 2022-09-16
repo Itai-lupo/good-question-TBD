@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['fd_0',['fd',['../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a6b2bef00ec35a1201c83e179c23eea25',1,'linuxWindowAPI::windowInfo']]],
-  ['freebuffer_1',['freeBuffer',['../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#a048a64e56961002fdb46215370f93f42',1,'linuxWindowAPI::windowInfo']]],
+  ['fd_0',['fd',['../d2/d65/structcpu_rendering_1_1render_info.html#a30fc453aafa780585afe3f45c9fccbbf',1,'cpuRendering::renderInfo']]],
+  ['freebuffer_1',['freeBuffer',['../d2/d65/structcpu_rendering_1_1render_info.html#ac59bf245d7a46c1a86c9887bbca0dd87',1,'cpuRendering::renderInfo']]],
   ['freeslots_2',['freeSlots',['../de/d8e/classlinux_window_a_p_i.html#abb647fbf77fa7e62f94b587b57d84118',1,'linuxWindowAPI']]]
 ];

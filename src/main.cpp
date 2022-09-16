@@ -19,7 +19,7 @@ void keyListener(windowId winId, const keyData& sendor)
 
 void mouseMove(windowId winId, const mouseMoveData& sendor)
 {
-    LOG_INFO("pointer motion (" << a->getWindowTitle(winId) <<"): "<< sendor.x << ", " << sendor.y);
+    // LOG_INFO("pointer motion (" << a->getWindowTitle(winId) <<"): "<< sendor.x << ", " << sendor.y);
 }
 
 void mousePress(windowId winId, const mouseButtonData& sendor)

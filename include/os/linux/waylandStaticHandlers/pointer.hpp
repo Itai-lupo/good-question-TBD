@@ -68,11 +68,11 @@ class pointer
 
         struct idToPointerEventIndexes
         {
-            uint32_t gen: 8;
-            uint32_t mouseButtonPressEventIndex: 8 = -1;
-            uint32_t mouseButtonReleasedEventIndex: 8 = -1;
-            uint32_t mouseMovedEventIndex: 8 = -1;
-            uint32_t mouseScrollEventIndex: 8 = -1;
+            uint8_t gen;
+            uint8_t mouseButtonPressEventIndex = -1;
+            uint8_t mouseButtonReleasedEventIndex = -1;
+            uint8_t mouseMovedEventIndex = -1;
+            uint8_t mouseScrollEventIndex = -1;
         };
         
         static inline std::vector<idToPointerEventIndexes> idToIndex;  

@@ -1,12 +1,14 @@
 #ifdef __linux__
 #include "keyboard.hpp"
 #include "log.hpp"
-#include "linuxWindowAPI.hpp"
+#include "window.hpp"
 
 
 #include <sys/prctl.h>
 #include <sys/mman.h>
 #include <assert.h>
+#include <Tracy.hpp>
+#include <thread>
 
 void keyboard::wlKeymap(void *data, wl_keyboard *wl_keyboard, uint32_t format, int32_t fd, uint32_t size)
 {
@@ -32,11 +34,11 @@ void keyboard::wlKeymap(void *data, wl_keyboard *wl_keyboard, uint32_t format, i
 
 void keyboard::wlEnter(void *data, wl_keyboard *wl_keyboard, uint32_t serial, wl_surface *surface, wl_array *keys)
 {
-    for (int i = 0; i < linuxWindowAPI::windowsInfo.size(); i++)
+    for (int i = 0; i < window::windows.size(); i++)
     {
-        if(linuxWindowAPI::windowsInfo[i].surface == surface)
+        if(window::windows[i].surface == surface)
         {
-            activeWindow = linuxWindowAPI::windowsInfo[i].id;
+            activeWindow = window::windows[i].id;
         }
     }
 

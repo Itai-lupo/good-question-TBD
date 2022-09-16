@@ -1,8 +1,9 @@
 <map id="include/os/eventsData/mouseMoveData.hpp" name="include/os/eventsData/mouseMoveData.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="171,5,322,47"/>
-<area shape="rect" id="node2" href="$de/d7c/os_events_data_8hpp.html" title=" " alt="" coords="78,95,229,136"/>
-<area shape="rect" id="node6" href="$d2/d17/pointer_8hpp.html" title=" " alt="" coords="253,95,427,136"/>
+<area shape="rect" id="node1" title=" " alt="" coords="219,5,370,47"/>
+<area shape="rect" id="node2" href="$de/d7c/os_events_data_8hpp.html" title=" " alt="" coords="126,95,277,136"/>
+<area shape="rect" id="node7" href="$d2/d17/pointer_8hpp.html" title=" " alt="" coords="301,95,475,136"/>
 <area shape="rect" id="node3" href="$d1/d9a/linux_window_a_p_i_8hpp.html" title=" " alt="" coords="5,259,192,300"/>
-<area shape="rect" id="node4" href="$d6/dcb/os_a_p_i_8hpp.html" title=" " alt="" coords="137,184,282,211"/>
-<area shape="rect" id="node5" href="$df/d0a/main_8cpp.html" title=" " alt="" coords="216,266,312,293"/>
+<area shape="rect" id="node4" href="$d6/dcb/os_a_p_i_8hpp.html" title=" " alt="" coords="209,184,354,211"/>
+<area shape="rect" id="node5" href="$d2/d5a/window_8hpp.html" title=" " alt="" coords="217,259,397,300"/>
+<area shape="rect" id="node6" href="$df/d0a/main_8cpp.html" title=" " alt="" coords="421,266,517,293"/>
 </map>

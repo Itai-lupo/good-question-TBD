@@ -1,5 +1,6 @@
 var annotated_dup =
 [
+    [ "cpuRendering", "d7/dc2/classcpu_rendering.html", "d7/dc2/classcpu_rendering" ],
     [ "keyboard", "d1/d4e/classkeyboard.html", "d1/d4e/classkeyboard" ],
     [ "keyData", "dc/da2/structkey_data.html", "dc/da2/structkey_data" ],
     [ "linuxWindowAPI", "de/d8e/classlinux_window_a_p_i.html", "de/d8e/classlinux_window_a_p_i" ],
@@ -11,7 +12,7 @@ var annotated_dup =
     [ "pointer", "d4/df3/classpointer.html", "d4/df3/classpointer" ],
     [ "sceneLoader", "d8/deb/classscene_loader.html", "d8/deb/classscene_loader" ],
     [ "seat", "d5/d3d/classseat.html", null ],
-    [ "toplevelDecoration", "d1/dc4/classtoplevel_decoration.html", null ],
+    [ "window", "d0/d4e/classwindow.html", "d0/d4e/classwindow" ],
     [ "windowId", "dd/d6c/structwindow_id.html", "dd/d6c/structwindow_id" ],
     [ "windowRenderData", "d0/df1/structwindow_render_data.html", "d0/df1/structwindow_render_data" ],
     [ "windowResizeData", "d4/d95/structwindow_resize_data.html", "d4/d95/structwindow_resize_data" ],
