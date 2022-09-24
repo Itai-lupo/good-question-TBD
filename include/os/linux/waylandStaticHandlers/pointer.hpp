@@ -4,6 +4,7 @@
 #include <functional>
 
 #include "core.hpp"
+#include "surface.hpp"
 #include "mouseButtonData.hpp"
 #include "mouseMoveData.hpp"
 #include "mouseScrollData.hpp"
@@ -52,7 +53,7 @@ class pointer
                 uint8_t eventTypesReg;
             };
 
-            windowId winId;
+            surfaceId id;
             wl_fixed_t surface_x, surface_y;
             uint32_t button, state;
             uint32_t time;
@@ -80,26 +81,26 @@ class pointer
         static inline  inputBuffer inputFrameData;
         
         static inline std::vector<std::function<void(const mouseButtonData&)>> mouseButtonPressEventListeners;
-        static inline std::vector<windowId> mouseButtonPressEventId;
+        static inline std::vector<surfaceId> mouseButtonPressEventId;
 
         static inline std::vector<std::function<void(const mouseButtonData&)>> mouseButtonReleasedEventListeners;
-        static inline std::vector<windowId> mouseButtonReleasedEventId;
+        static inline std::vector<surfaceId> mouseButtonReleasedEventId;
 
         static inline std::vector<std::function<void(const mouseMoveData&)>> mouseMovedEventListeners;
-        static inline std::vector<windowId> mouseMovedEventId;
+        static inline std::vector<surfaceId> mouseMovedEventId;
 
         static inline std::vector<std::function<void(const mouseScrollData&)>> mouseScrollEventListeners;
-        static inline std::vector<windowId> mouseScrollEventId;
+        static inline std::vector<surfaceId> mouseScrollEventId;
         
-        static void allocateWindowEvents(windowId winId);
-        static void setMouseButtonPressEventListeners(windowId winId, std::function<void(const mouseButtonData&)> callback);
-        static void setMouseButtonReleasedEventListeners(windowId winId, std::function<void(const mouseButtonData&)> callback);
-        static void setMouseMovedListeners(windowId winId, std::function<void(const mouseMoveData&)> callback);
-        static void setMouseScrollListeners(windowId winId, std::function<void(const mouseScrollData&)> callback);
+        static void allocateWindowEvents(surfaceId id);
+        static void setMouseButtonPressEventListeners(surfaceId id, std::function<void(const mouseButtonData&)> callback);
+        static void setMouseButtonReleasedEventListeners(surfaceId id, std::function<void(const mouseButtonData&)> callback);
+        static void setMouseMovedListeners(surfaceId id, std::function<void(const mouseMoveData&)> callback);
+        static void setMouseScrollListeners(surfaceId id, std::function<void(const mouseScrollData&)> callback);
 
-        static void deallocateWindowEvents(windowId winId);
-        static void unsetMouseButtonPressEventListeners(windowId winId);
-        static void unsetMouseButtonReleasedEventListeners(windowId winId);        
-        static void unsetMouseMovedListeners(windowId winId);
-        static void unsetMouseScrollListeners(windowId winId);
+        static void deallocateWindowEvents(surfaceId id);
+        static void unsetMouseButtonPressEventListeners(surfaceId id);
+        static void unsetMouseButtonReleasedEventListeners(surfaceId id);        
+        static void unsetMouseMovedListeners(surfaceId id);
+        static void unsetMouseScrollListeners(surfaceId id);
 };

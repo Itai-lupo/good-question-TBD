@@ -31,12 +31,12 @@ INC_DIRS := $(foreach dir,$(INCLUDE_DIR),$(call rwildcardDir,$(dir)))
 TEST_INC_DIRS := $(foreach dir,$(INCLUDE_DIR),$(call rwildcardDir,$(dir)))
 INC_FLAGS := $(addprefix -I,$(INC_DIRS) $(LIB_DIR))
 
-CPPFLAGS ?=   -std=c++20
-# CFLAGS :=
+CPPFLAGS ?=   -std=c++20 -Wno-c99-designator
+CFLAGS ?= -std=c99
 
 CXXFLAGS += $(INC_FLAGS)  -MMD -MP -g -pthread -O0 -ggdb3 -DTRACY_ENABLE
 
-LDFLAGS =  -lstdc++ -lgflags -lglog -lGL -lglfw -lrt -lm -ldl  -lwayland-client -lxkbcommon
+LDFLAGS =  -lstdc++ -lgflags -lglog -lGL -lglfw -lrt -lm -ldl  -lwayland-client -lxkbcommon -lpulse -lEGL -lwayland-egl
 TEST_LDFLAGS = -lgtest -lgtest_main -lgmock  
 
 

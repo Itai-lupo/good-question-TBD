@@ -2,6 +2,7 @@ var classos_a_p_i =
 [
     [ "osAPI", "d5/d6a/classos_a_p_i.html#ace1df979b9e38bdc5be2753cf16f1a13", null ],
     [ "~osAPI", "d5/d6a/classos_a_p_i.html#afc58aad2c57b4642f05b2e598cb500cc", null ],
+    [ "attachSubSurfaceToWindow", "d5/d6a/classos_a_p_i.html#a6ec19963881ae78db8a3c0703850b8eb", null ],
     [ "closeWindow", "d5/d6a/classos_a_p_i.html#acad316dd14987374a79961de24e01a0f", null ],
     [ "createWindow", "d5/d6a/classos_a_p_i.html#aa717d13e65be64bc00998eb5e7d5e263", null ],
     [ "getCurrentContextWindowId", "d5/d6a/classos_a_p_i.html#a345196727562c28dc772c7feced3434d", null ],
@@ -22,6 +23,7 @@ var classos_a_p_i =
     [ "setMouseScrollListeners", "d5/d6a/classos_a_p_i.html#a3fe81d21cf891f665f34874e9f83cf22", null ],
     [ "setRenderEventListeners", "d5/d6a/classos_a_p_i.html#aafc91fb7503b1eaa99dddc361098b70d", null ],
     [ "setResizeEventeListeners", "d5/d6a/classos_a_p_i.html#a7ac8e5600354c44a63676d9d3f45a48e", null ],
+    [ "setsubSurfaceRenderEventListeners", "d5/d6a/classos_a_p_i.html#af7f630b327aebb6b76f7a6d4858960f0", null ],
     [ "setVSyncForCurrentContext", "d5/d6a/classos_a_p_i.html#a9ced3b00e4ba0cacca29e4cffba96073", null ],
     [ "swapBuffers", "d5/d6a/classos_a_p_i.html#ab8e45221b92555e589445671a24e3801", null ],
     [ "unsetCloseEventeListeners", "d5/d6a/classos_a_p_i.html#aae7ee37ffcc8851b163d887a51bcfe91", null ],
@@ -35,5 +37,6 @@ var classos_a_p_i =
     [ "unsetMouseMovedListeners", "d5/d6a/classos_a_p_i.html#a0acc49bbf0f9d66fcdc0b59c681aec33", null ],
     [ "unsetMouseScrollListeners", "d5/d6a/classos_a_p_i.html#ae3140d615ee8d91c77908e626ad706ad", null ],
     [ "unsetRenderEventListeners", "d5/d6a/classos_a_p_i.html#a66745c678ca03a4495d9dcbfd01a0d74", null ],
-    [ "unsetResizeEventeListeners", "d5/d6a/classos_a_p_i.html#a73a6f9af7d4077679548c86a3100dedf", null ]
+    [ "unsetResizeEventeListeners", "d5/d6a/classos_a_p_i.html#a73a6f9af7d4077679548c86a3100dedf", null ],
+    [ "unsetsubSurfaceRenderEventListeners", "d5/d6a/classos_a_p_i.html#a41594cfff25c877243c5f387c010ab82", null ]
 ];

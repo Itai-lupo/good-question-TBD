@@ -6,8 +6,14 @@ var searchData=
   ['shm_3',['shm',['../d7/dc2/classcpu_rendering.html#a3b5d181ca4ebfa34e2083c309d0896a7',1,'cpuRendering']]],
   ['smallestwindowid_4',['smallestWindowId',['../de/d8e/classlinux_window_a_p_i.html#aa67602586325210ff8f7e47fb6a2694e',1,'linuxWindowAPI']]],
   ['state_5',['state',['../d4/d95/structwindow_resize_data.html#ad6cb4d3c51d4323db844c2fea5eb449b',1,'windowResizeData::state()'],['../da/dbc/structpointer_1_1input_buffer.html#a32b3a8b9e5fcfb2a17f91a0ece4fdaee',1,'pointer::inputBuffer::state()']]],
-  ['surface_6',['surface',['../da/da1/structwindow_1_1window_data.html#a8008ed347be217fce290851a4bc90d77',1,'window::windowData']]],
-  ['surface_5fx_7',['surface_x',['../da/dbc/structpointer_1_1input_buffer.html#a4b2a9c2583b2f2fcd5ccc20585bf7089',1,'pointer::inputBuffer']]],
-  ['surface_5fy_8',['surface_y',['../da/dbc/structpointer_1_1input_buffer.html#aa6656a72315a010d5a138bbf649c58a1',1,'pointer::inputBuffer']]],
-  ['surfacestorender_9',['surfacesToRender',['../d7/dc2/classcpu_rendering.html#a0741f39fff71916162cc937c2a75e725',1,'cpuRendering']]]
+  ['subcompositor_6',['subcompositor',['../d1/dfe/classsubsurface.html#a72d781e9252aee30b6cc590326d24e7e',1,'subsurface']]],
+  ['subsurface_7',['subsurface',['../df/dbf/structsubsurface_1_1subsurface_info.html#a617bd844ab1d78297079f9bb1daaa9da',1,'subsurface::subsurfaceInfo']]],
+  ['subsurfaces_8',['subsurfaces',['../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#ae17292b5a31dcd1a90cec1ff416cdb27',1,'linuxWindowAPI::windowInfo']]],
+  ['subsurfaceslot_9',['subSurfaceSlot',['../d8/dd4/structsub_surface_spec.html#a77ccf7641195741003b107ade1322fb5',1,'subSurfaceSpec']]],
+  ['surface_10',['surface',['../de/dfc/structsurface_1_1surface_data.html#a88282a529588e77716aa425188ac3c78',1,'surface::surfaceData']]],
+  ['surface_5fx_11',['surface_x',['../da/dbc/structpointer_1_1input_buffer.html#a4b2a9c2583b2f2fcd5ccc20585bf7089',1,'pointer::inputBuffer']]],
+  ['surface_5fy_12',['surface_y',['../da/dbc/structpointer_1_1input_buffer.html#aa6656a72315a010d5a138bbf649c58a1',1,'pointer::inputBuffer']]],
+  ['surfacedataindex_13',['surfaceDataIndex',['../dc/d28/structsurface_1_1id_to_surface_data_indexes.html#aac02da226d02703d2f6bbf2fe40eff3d',1,'surface::idToSurfaceDataIndexes']]],
+  ['surfaces_14',['surfaces',['../d5/d88/classsurface.html#ad3bc103e5e0643309344d07a0b4c9b38',1,'surface']]],
+  ['surfacestorender_15',['surfacesToRender',['../d7/dc2/classcpu_rendering.html#a0741f39fff71916162cc937c2a75e725',1,'cpuRendering']]]
 ];

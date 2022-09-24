@@ -6,6 +6,7 @@ var dir_7b371d9fdb0359ac564866f88df60f77 =
     [ "mouseFormat.hpp", "d5/dde/mouse_format_8hpp.html", "d5/dde/mouse_format_8hpp" ],
     [ "osAPI.hpp", "d6/dcb/os_a_p_i_8hpp.html", [
       [ "windowSpec", "d7/d7e/structwindow_spec.html", "d7/d7e/structwindow_spec" ],
+      [ "subSurfaceSpec", "d8/dd4/structsub_surface_spec.html", "d8/dd4/structsub_surface_spec" ],
       [ "osAPI", "d5/d6a/classos_a_p_i.html", "d5/d6a/classos_a_p_i" ]
     ] ],
     [ "windowState.hpp", "d5/dd7/window_state_8hpp.html", "d5/dd7/window_state_8hpp" ]

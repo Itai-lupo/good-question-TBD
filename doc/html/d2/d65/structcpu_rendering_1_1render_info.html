@@ -99,7 +99,7 @@ Collaboration diagram for cpuRendering::renderInfo:</div>
 <div class="center"><img src="../../dd/d4c/structcpu_rendering_1_1render_info__coll__graph.png" border="0" usemap="#acpu_rendering_1_1render_info_coll__map" alt="Collaboration graph"/></div>
 <map name="acpu_rendering_1_1render_info_coll__map" id="acpu_rendering_1_1render_info_coll__map">
 <area shape="rect" title=" " alt="" coords="5,95,171,121"/>
-<area shape="rect" href="../../dd/d6c/structwindow_id.html" title=" " alt="" coords="49,5,127,32"/>
+<area shape="rect" href="../../d1/db5/structsurface_id.html" title=" " alt="" coords="50,5,126,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="../../graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -110,8 +110,8 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:af760b58ae8e75798a3bb5c016789dbbd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d65/structcpu_rendering_1_1render_info.html#af760b58ae8e75798a3bb5c016789dbbd">id</a></td></tr>
-<tr class="separator:af760b58ae8e75798a3bb5c016789dbbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c5edab1d1e101a4202fcd0ae65ec279"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/db5/structsurface_id.html">surfaceId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d65/structcpu_rendering_1_1render_info.html#a4c5edab1d1e101a4202fcd0ae65ec279">id</a></td></tr>
+<tr class="separator:a4c5edab1d1e101a4202fcd0ae65ec279"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30fc453aafa780585afe3f45c9fccbbf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d65/structcpu_rendering_1_1render_info.html#a30fc453aafa780585afe3f45c9fccbbf">fd</a></td></tr>
 <tr class="separator:a30fc453aafa780585afe3f45c9fccbbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0d75fae5fbd3896cabbd7bb0567ec77"><td class="memItemLeft" align="right" valign="top">wl_shm_pool *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d65/structcpu_rendering_1_1render_info.html#ac0d75fae5fbd3896cabbd7bb0567ec77">pool</a></td></tr>
@@ -160,15 +160,15 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   62</span>                        : <a class="code hl_variable" href="../../d2/d65/structcpu_rendering_1_1render_info.html#a6d88c34012c5966b4ce0bf8bbab51fb2">bufferInRender</a>(0), <a class="code hl_variable" href="../../d2/d65/structcpu_rendering_1_1render_info.html#ae6f6a19306e6cfb4368c2b4314c96b6d">bufferToRender</a>(1), <a class="code hl_variable" href="../../d2/d65/structcpu_rendering_1_1render_info.html#ac59bf245d7a46c1a86c9887bbca0dd87">freeBuffer</a>(2), </div>
-<div class="line"><span class="lineno">   63</span>                <a class="code hl_variable" href="../../d2/d65/structcpu_rendering_1_1render_info.html#a1fa0961b230709d6e36c3f8077421138">renderMutex</a>(std::make_shared&lt;std::shared_mutex&gt;()), </div>
-<div class="line"><span class="lineno">   64</span>                <a class="code hl_variable" href="../../d2/d65/structcpu_rendering_1_1render_info.html#a9a7385f0b386bd0b07ecc65caed32bf6">renderFinshed</a>(std::make_shared&lt;std::condition_variable_any&gt;())</div>
-<div class="line"><span class="lineno">   65</span>            {}</div>
-<div class="ttc" id="astructcpu_rendering_1_1render_info_html_a1fa0961b230709d6e36c3f8077421138"><div class="ttname"><a href="../../d2/d65/structcpu_rendering_1_1render_info.html#a1fa0961b230709d6e36c3f8077421138">cpuRendering::renderInfo::renderMutex</a></div><div class="ttdeci">std::shared_ptr&lt; std::shared_mutex &gt; renderMutex</div><div class="ttdef"><b>Definition:</b> cpuRendering.hpp:58</div></div>
-<div class="ttc" id="astructcpu_rendering_1_1render_info_html_a6d88c34012c5966b4ce0bf8bbab51fb2"><div class="ttname"><a href="../../d2/d65/structcpu_rendering_1_1render_info.html#a6d88c34012c5966b4ce0bf8bbab51fb2">cpuRendering::renderInfo::bufferInRender</a></div><div class="ttdeci">uint8_t bufferInRender</div><div class="ttdef"><b>Definition:</b> cpuRendering.hpp:50</div></div>
-<div class="ttc" id="astructcpu_rendering_1_1render_info_html_a9a7385f0b386bd0b07ecc65caed32bf6"><div class="ttname"><a href="../../d2/d65/structcpu_rendering_1_1render_info.html#a9a7385f0b386bd0b07ecc65caed32bf6">cpuRendering::renderInfo::renderFinshed</a></div><div class="ttdeci">std::shared_ptr&lt; std::condition_variable_any &gt; renderFinshed</div><div class="ttdef"><b>Definition:</b> cpuRendering.hpp:59</div></div>
-<div class="ttc" id="astructcpu_rendering_1_1render_info_html_ac59bf245d7a46c1a86c9887bbca0dd87"><div class="ttname"><a href="../../d2/d65/structcpu_rendering_1_1render_info.html#ac59bf245d7a46c1a86c9887bbca0dd87">cpuRendering::renderInfo::freeBuffer</a></div><div class="ttdeci">uint8_t freeBuffer</div><div class="ttdef"><b>Definition:</b> cpuRendering.hpp:52</div></div>
-<div class="ttc" id="astructcpu_rendering_1_1render_info_html_ae6f6a19306e6cfb4368c2b4314c96b6d"><div class="ttname"><a href="../../d2/d65/structcpu_rendering_1_1render_info.html#ae6f6a19306e6cfb4368c2b4314c96b6d">cpuRendering::renderInfo::bufferToRender</a></div><div class="ttdeci">uint8_t bufferToRender</div><div class="ttdef"><b>Definition:</b> cpuRendering.hpp:51</div></div>
+<div class="fragment"><div class="line"><span class="lineno">   63</span>                        : <a class="code hl_variable" href="../../d2/d65/structcpu_rendering_1_1render_info.html#a6d88c34012c5966b4ce0bf8bbab51fb2">bufferInRender</a>(0), <a class="code hl_variable" href="../../d2/d65/structcpu_rendering_1_1render_info.html#ae6f6a19306e6cfb4368c2b4314c96b6d">bufferToRender</a>(1), <a class="code hl_variable" href="../../d2/d65/structcpu_rendering_1_1render_info.html#ac59bf245d7a46c1a86c9887bbca0dd87">freeBuffer</a>(2), </div>
+<div class="line"><span class="lineno">   64</span>                <a class="code hl_variable" href="../../d2/d65/structcpu_rendering_1_1render_info.html#a1fa0961b230709d6e36c3f8077421138">renderMutex</a>(std::make_shared&lt;std::shared_mutex&gt;()), </div>
+<div class="line"><span class="lineno">   65</span>                <a class="code hl_variable" href="../../d2/d65/structcpu_rendering_1_1render_info.html#a9a7385f0b386bd0b07ecc65caed32bf6">renderFinshed</a>(std::make_shared&lt;std::condition_variable_any&gt;())</div>
+<div class="line"><span class="lineno">   66</span>            {}</div>
+<div class="ttc" id="astructcpu_rendering_1_1render_info_html_a1fa0961b230709d6e36c3f8077421138"><div class="ttname"><a href="../../d2/d65/structcpu_rendering_1_1render_info.html#a1fa0961b230709d6e36c3f8077421138">cpuRendering::renderInfo::renderMutex</a></div><div class="ttdeci">std::shared_ptr&lt; std::shared_mutex &gt; renderMutex</div><div class="ttdef"><b>Definition:</b> cpuRendering.hpp:59</div></div>
+<div class="ttc" id="astructcpu_rendering_1_1render_info_html_a6d88c34012c5966b4ce0bf8bbab51fb2"><div class="ttname"><a href="../../d2/d65/structcpu_rendering_1_1render_info.html#a6d88c34012c5966b4ce0bf8bbab51fb2">cpuRendering::renderInfo::bufferInRender</a></div><div class="ttdeci">uint8_t bufferInRender</div><div class="ttdef"><b>Definition:</b> cpuRendering.hpp:51</div></div>
+<div class="ttc" id="astructcpu_rendering_1_1render_info_html_a9a7385f0b386bd0b07ecc65caed32bf6"><div class="ttname"><a href="../../d2/d65/structcpu_rendering_1_1render_info.html#a9a7385f0b386bd0b07ecc65caed32bf6">cpuRendering::renderInfo::renderFinshed</a></div><div class="ttdeci">std::shared_ptr&lt; std::condition_variable_any &gt; renderFinshed</div><div class="ttdef"><b>Definition:</b> cpuRendering.hpp:60</div></div>
+<div class="ttc" id="astructcpu_rendering_1_1render_info_html_ac59bf245d7a46c1a86c9887bbca0dd87"><div class="ttname"><a href="../../d2/d65/structcpu_rendering_1_1render_info.html#ac59bf245d7a46c1a86c9887bbca0dd87">cpuRendering::renderInfo::freeBuffer</a></div><div class="ttdeci">uint8_t freeBuffer</div><div class="ttdef"><b>Definition:</b> cpuRendering.hpp:53</div></div>
+<div class="ttc" id="astructcpu_rendering_1_1render_info_html_ae6f6a19306e6cfb4368c2b4314c96b6d"><div class="ttname"><a href="../../d2/d65/structcpu_rendering_1_1render_info.html#ae6f6a19306e6cfb4368c2b4314c96b6d">cpuRendering::renderInfo::bufferToRender</a></div><div class="ttdeci">uint8_t bufferToRender</div><div class="ttdef"><b>Definition:</b> cpuRendering.hpp:52</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -257,14 +257,14 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="af760b58ae8e75798a3bb5c016789dbbd" name="af760b58ae8e75798a3bb5c016789dbbd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af760b58ae8e75798a3bb5c016789dbbd">&#9670;&nbsp;</a></span>id</h2>
+<a id="a4c5edab1d1e101a4202fcd0ae65ec279" name="a4c5edab1d1e101a4202fcd0ae65ec279"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c5edab1d1e101a4202fcd0ae65ec279">&#9670;&nbsp;</a></span>id</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../dd/d6c/structwindow_id.html">windowId</a> cpuRendering::renderInfo::id</td>
+          <td class="memname"><a class="el" href="../../d1/db5/structsurface_id.html">surfaceId</a> cpuRendering::renderInfo::id</td>
         </tr>
       </table>
 </div><div class="memdoc">

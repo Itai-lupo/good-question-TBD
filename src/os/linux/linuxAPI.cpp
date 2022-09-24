@@ -5,8 +5,10 @@
 #include "keyboard.hpp"
 #include "pointer.hpp"
 #include "osEventsData.hpp"
-#include "window.hpp"
+#include "surface.hpp"
 #include "cpuRendering.hpp"
+#include "toplevel.hpp"
+#include "layer.hpp"
 
 #include "log.hpp"
 #include "Tracy.hpp"
@@ -25,6 +27,20 @@ windowId osAPI::createWindow(const windowSpec& windowToCreate)
 {
     return linuxWindowAPI::createWindow(windowToCreate);
 }
+
+void osAPI::attachSubSurfaceToWindow(windowId id,  const subSurfaceSpec& subSurfaceToAttach)
+{
+    linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[id.index].index].subsurfaces[subSurfaceToAttach.subSurfaceSlot] = 
+        surface::allocateSurface(id, {
+            surfaceRule::subsurface,
+            subSurfaceToAttach.width,
+            subSurfaceToAttach.height,
+            subSurfaceToAttach.x,
+            subSurfaceToAttach.y,
+            .parentSurface = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[id.index].index].topLevelSurface
+        });    
+}
+
 
 bool osAPI::isWindowOpen(windowId winId)
 {
@@ -65,12 +81,14 @@ void* osAPI::getProcAddress()
 
 std::string osAPI::getWindowTitle(windowId winId)
 {
-    return window::getWindowTitle(winId);
+    surfaceId id = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[winId.index].index].topLevelSurface;
+    return layer::getWindowTitle(id);
 }
 
 std::pair<uint32_t, uint32_t> osAPI::getWindowSize(windowId winId)
 {
-    return {window::getWindowWidth(winId), window::getWindowHeight(winId)};
+    surfaceId id = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[winId.index].index].topLevelSurface;
+    return {surface::getWindowWidth(id), surface::getWindowHeight(id)};
 
 }
 
@@ -78,121 +96,153 @@ std::pair<uint32_t, uint32_t> osAPI::getWindowSize(windowId winId)
 // ################ set event listener ################################################################
 void osAPI::setKeyPressEventListeners(windowId winId, std::function<void(const keyData&)> callback)
 {
-    keyboard::setKeyPressEventListeners(winId, callback);
+    surfaceId id = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[winId.index].index].topLevelSurface;
+    keyboard::setKeyPressEventListeners(id, callback);
 }
 void osAPI::setKeyReleasedEventListeners(windowId winId, std::function<void(const keyData&)> callback)
 {
-    keyboard::setKeyReleasedEventListeners(winId, callback);
+    surfaceId id = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[winId.index].index].topLevelSurface;
+    keyboard::setKeyReleasedEventListeners(id, callback);
 }
 void osAPI::setKeyRepeatEventListeners(windowId winId, std::function<void(const keyData&)> callback)
 {
-    keyboard::setKeyRepeatEventListeners(winId, callback);
+    surfaceId id = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[winId.index].index].topLevelSurface;
+    keyboard::setKeyRepeatEventListeners(id, callback);
 }
 
 void osAPI::setMouseButtonPressEventListeners(windowId winId, std::function<void(const mouseButtonData&)> callback)
 {
-    pointer::setMouseButtonPressEventListeners(winId, callback);
+    surfaceId id = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[winId.index].index].topLevelSurface;
+    pointer::setMouseButtonPressEventListeners(id, callback);
 }
 void osAPI::setMouseButtonReleasedEventListeners(windowId winId, std::function<void(const mouseButtonData&)> callback)
 {
-    pointer::setMouseButtonReleasedEventListeners(winId, callback);
+    surfaceId id = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[winId.index].index].topLevelSurface;
+    pointer::setMouseButtonReleasedEventListeners(id, callback);
 }
 
 void osAPI::setMouseMovedListeners(windowId winId, std::function<void(const mouseMoveData&)> callback)
 {
-    pointer::setMouseMovedListeners(winId, callback);
+    surfaceId id = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[winId.index].index].topLevelSurface;
+    pointer::setMouseMovedListeners(id, callback);
 }
 void osAPI::setMouseScrollListeners(windowId winId, std::function<void(const mouseScrollData&)> callback)
 {
-    pointer::setMouseScrollListeners(winId, callback);
+    surfaceId id = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[winId.index].index].topLevelSurface;
+    pointer::setMouseScrollListeners(id, callback);
 }
 
 void osAPI::setCloseEventeListeners(windowId winId, std::function<void()> callback)
 {
-    window::setCloseEventListener(winId, callback);
+    surfaceId id = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[winId.index].index].topLevelSurface;
+    layer::setCloseEventListener(id, callback);
 }
 
 void osAPI::setResizeEventeListeners(windowId winId, std::function<void(const windowResizeData&)> callback)
 {
-    window::setResizeEventListener(winId, callback);
+    surfaceId id = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[winId.index].index].topLevelSurface;
+    layer::setResizeEventListener(id, callback);
 }
 
 void osAPI::setGainFocusEventListeners(windowId winId, std::function<void()> callback)
 {
-    keyboard::setGainFocusEventListeners(winId, callback);
+    surfaceId id = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[winId.index].index].topLevelSurface;
+    keyboard::setGainFocusEventListeners(id, callback);
 }
 
 void osAPI::setLostFocusEventListeners(windowId winId, std::function<void()> callback)
 {
-    keyboard::setLostFocusEventListeners(winId, callback);
+    surfaceId id = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[winId.index].index].topLevelSurface;
+    keyboard::setLostFocusEventListeners(id, callback);
 }
 
 void osAPI::setRenderEventListeners(windowId winId, std::function<void(const windowRenderData&)> callback)
 {
-    cpuRendering::setRenderEventListeners(winId, callback);
+    surfaceId id = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[winId.index].index].topLevelSurface;
+    cpuRendering::setRenderEventListeners(id, callback);
 }
 
-        
+void osAPI::setsubSurfaceRenderEventListeners(windowId winId, int subSurfaceSlot, std::function<void(const windowRenderData&)> callback)
+{
+    surfaceId id = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[winId.index].index].subsurfaces[subSurfaceSlot];
+    cpuRendering::setRenderEventListeners(id, callback);
+}  
 
 
 // ################ unset event listener ################################################################
 void osAPI::unsetKeyPressEventListeners(windowId winId)
 {
-    keyboard::unsetKeyPressEventListeners(winId);
+    surfaceId id = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[winId.index].index].topLevelSurface;
+    keyboard::unsetKeyPressEventListeners(id);
 }
 void osAPI::unsetKeyReleasedEventListeners(windowId winId)
 {
-    keyboard::unsetKeyReleasedEventListeners(winId);
+    surfaceId id = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[winId.index].index].topLevelSurface;
+    keyboard::unsetKeyReleasedEventListeners(id);
 }
 void osAPI::unsetKeyRepeatEventListeners(windowId winId)
 {
-    keyboard::unsetKeyRepeatEventListeners(winId);
+    surfaceId id = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[winId.index].index].topLevelSurface;
+    keyboard::unsetKeyRepeatEventListeners(id);
 }
 
 
 void osAPI::unsetMouseButtonPressEventListeners(windowId winId)
 {
-    pointer::unsetMouseButtonPressEventListeners(winId);
+    surfaceId id = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[winId.index].index].topLevelSurface;
+    pointer::unsetMouseButtonPressEventListeners(id);
 }
 void osAPI::unsetMouseButtonReleasedEventListeners(windowId winId)
 {
-    pointer::unsetMouseButtonReleasedEventListeners(winId);
+    surfaceId id = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[winId.index].index].topLevelSurface;
+    pointer::unsetMouseButtonReleasedEventListeners(id);
 }
 
 void osAPI::unsetMouseMovedListeners(windowId winId)
 {
-    pointer::unsetMouseMovedListeners(winId);
+    surfaceId id = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[winId.index].index].topLevelSurface;
+    pointer::unsetMouseMovedListeners(id);
 }
 void osAPI::unsetMouseScrollListeners(windowId winId)
 {
-    pointer::unsetMouseScrollListeners(winId);
+    surfaceId id = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[winId.index].index].topLevelSurface;
+    pointer::unsetMouseScrollListeners(id);
 }
 
 void osAPI::unsetCloseEventeListeners(windowId winId)
 {
-    window::unsetCloseEventListener(winId);
+    surfaceId id = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[winId.index].index].topLevelSurface;
+    layer::unsetCloseEventListener(id);
 }
 
 void osAPI::unsetResizeEventeListeners(windowId winId)
 {
-    window::unsetResizeEventListener(winId);
+    surfaceId id = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[winId.index].index].topLevelSurface;
+    layer::unsetResizeEventListener(id);
 }
 
 void osAPI::unsetGainFocusEventListeners(windowId winId)
 {
-    keyboard::unsetGainFocusEventListeners(winId);
+    surfaceId id = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[winId.index].index].topLevelSurface;
+    keyboard::unsetGainFocusEventListeners(id);
 }
 
 void osAPI::unsetLostFocusEventListeners(windowId winId)
 {
-    keyboard::unsetLostFocusEventListeners(winId);
+    surfaceId id = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[winId.index].index].topLevelSurface;
+    keyboard::unsetLostFocusEventListeners(id);
 }
 
 void osAPI::unsetRenderEventListeners(windowId winId)
 {
-    cpuRendering::unsetRenderEventListeners(winId);
+    surfaceId id = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[winId.index].index].topLevelSurface;
+    cpuRendering::unsetRenderEventListeners(id);
 }
 
-
+void osAPI::unsetsubSurfaceRenderEventListeners(windowId winId, int subSurfaceSlot)
+{
+    surfaceId id = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[winId.index].index].subsurfaces[subSurfaceSlot];
+    cpuRendering::unsetRenderEventListeners(id);
+}
 
 #endif

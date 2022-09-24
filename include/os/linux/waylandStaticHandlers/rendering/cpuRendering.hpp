@@ -1,6 +1,7 @@
 #pragma once
 #include "core.hpp"
 #include "windowRenderData.hpp"
+#include "surface.hpp"
 
 #include <thread>
 #include <functional>
@@ -16,9 +17,9 @@ class cpuRendering
         static void randname(char *buf);
         static int create_shm_file(void);
         static int allocate_shm_file(size_t size);
-        static void allocateWindowCpuPool(windowId winId);
+        static void allocateWindowCpuPool(surfaceId winId);
         
-        static uint32_t *mapWindowCpuBuffer(windowId winId, uint32_t offset);
+        static uint32_t *mapWindowCpuBuffer(surfaceId winId, uint32_t offset);
 
 
 		static void wl_buffer_release(void *data, struct wl_buffer *wl_buffer);
@@ -36,12 +37,12 @@ class cpuRendering
 
 
     public:
-        static wl_buffer *allocateWindowBuffer(const windowId winId, uint32_t offset);
+        static wl_buffer *allocateWindowBuffer(const surfaceId winId, uint32_t offset);
         static inline wl_shm *shm;
 
         struct renderInfo
         {
-            windowId id;
+            surfaceId id;
 
             //to do move into a cpu rendering system
             int fd;
@@ -78,18 +79,18 @@ class cpuRendering
         static inline std::vector<renderInfo> surfacesToRender;
 
         static inline std::vector< std::function<void(const windowRenderData&)>> renderEventListeners;
-        static inline std::vector<windowId> renderEventId;
+        static inline std::vector<surfaceId> renderEventId;
 
     
-        static void renderWindow(windowId win); 
+        static void renderWindow(surfaceId win); 
 
-        static void reallocateWindowCpuPool(windowId winId);
+        static void reallocateWindowCpuPool(surfaceId winId);
 
 
-        static void allocateSurfaceToRender(windowId winId);
-        static void setRenderEventListeners(windowId winId, std::function<void(const windowRenderData&)> callback);
+        static void allocateSurfaceToRender(surfaceId winId);
+        static void setRenderEventListeners(surfaceId winId, std::function<void(const windowRenderData&)> callback);
         
-        static void deallocateSurfaceToRender(windowId winId);        
-        static void unsetRenderEventListeners(windowId winId);
+        static void deallocateSurfaceToRender(surfaceId winId);        
+        static void unsetRenderEventListeners(surfaceId winId);
 
 };

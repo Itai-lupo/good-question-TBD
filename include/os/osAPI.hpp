@@ -16,6 +16,13 @@ struct windowSpec
 	std::string title;
 };
 
+struct subSurfaceSpec
+{
+    uint8_t subSurfaceSlot;
+    int x, y;
+    int width, height;
+};
+
 
 class osAPI
 {
@@ -23,6 +30,7 @@ class osAPI
 		osAPI();
 		~osAPI();
 		windowId createWindow(const windowSpec& windowToCreate);
+        void attachSubSurfaceToWindow(windowId id,  const subSurfaceSpec& subSurfaceToAttach);
 		
         bool isWindowOpen(windowId winId);
         void setVSyncForCurrentContext(bool enabled);
@@ -55,7 +63,7 @@ class osAPI
         void setGainFocusEventListeners(windowId winId, std::function<void()> callback);
         void setLostFocusEventListeners(windowId winId, std::function<void()> callback);
         void setRenderEventListeners(windowId winId, std::function<void(const windowRenderData&)> callback);
-        
+        void setsubSurfaceRenderEventListeners(windowId winId, int subSurfaceSlot, std::function<void(const windowRenderData&)> callback);
         // ################ unset event listener ################################################################
         void unsetKeyPressEventListeners(windowId winId);
         void unsetKeyReleasedEventListeners(windowId winId);
@@ -72,6 +80,6 @@ class osAPI
         void unsetGainFocusEventListeners(windowId winId);
         void unsetLostFocusEventListeners(windowId winId);
         void unsetRenderEventListeners(windowId winId);
-
+        void unsetsubSurfaceRenderEventListeners(windowId winId, int subSurfaceSlot);
 };
 

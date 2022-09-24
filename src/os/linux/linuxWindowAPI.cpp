@@ -4,25 +4,28 @@
 #include "seat.hpp"
 #include "keyboard.hpp"
 #include "pointer.hpp"
-#include "window.hpp"
 #include "cpuRendering.hpp"
+#include "toplevel.hpp"
+#include "subsurface.hpp"
+#include "layer.hpp"
 
 #include <sstream>
 #include <utility>
 #include <sys/prctl.h>
 #include <condition_variable>
+#include <xdg-decoration-client-protocol.h>
 
 void linuxWindowAPI::global_registry_handler(void *data, wl_registry *registry, uint32_t id, const char *interface, uint32_t version)
 {
     // LOG_INFO(interface)
     if (strcmp(interface, "wl_compositor") == 0)
-        window::compositor = (wl_compositor *)wl_registry_bind(registry, id, &wl_compositor_interface, 5);
+        surface::compositor = (wl_compositor *)wl_registry_bind(registry, id, &wl_compositor_interface, 5);
     else if (strcmp(interface, "wl_shm") == 0)
             cpuRendering::shm = (wl_shm *)wl_registry_bind(registry, id, &wl_shm_interface, 1);
                 
     else if (strcmp(interface, xdg_wm_base_interface.name) == 0) {
-        window::xdgWmBase = (xdg_wm_base *)wl_registry_bind(registry, id, &xdg_wm_base_interface, 4);
-        xdg_wm_base_add_listener(window::xdgWmBase, &xdg_wm_base_listener, data);
+        toplevel::xdgWmBase = (xdg_wm_base *)wl_registry_bind(registry, id, &xdg_wm_base_interface, 4);
+        xdg_wm_base_add_listener(toplevel::xdgWmBase, &xdg_wm_base_listener, data);
     }
     else if (strcmp(interface, wl_seat_interface.name) == 0) {
         seat::seatHandle = (wl_seat *)wl_registry_bind(registry, id, &wl_seat_interface, 7);
@@ -30,7 +33,14 @@ void linuxWindowAPI::global_registry_handler(void *data, wl_registry *registry, 
     }
     else if(strcmp(interface, zxdg_decoration_manager_v1_interface.name) == 0)
     {
-        window::decorationManger = (zxdg_decoration_manager_v1 *)wl_registry_bind(registry, id, &zxdg_decoration_manager_v1_interface, 1);
+        toplevel::decorationManger = (zxdg_decoration_manager_v1 *)wl_registry_bind(registry, id, &zxdg_decoration_manager_v1_interface, 1);
+    }
+    else if(strcmp(interface, wl_subcompositor_interface.name) == 0)
+    {
+        subsurface::subcompositor = (wl_subcompositor *)wl_registry_bind(registry, id, &wl_subcompositor_interface, 1);
+    }
+    else if (!strcmp(interface, zwlr_layer_shell_v1_interface.name)) {
+        layer::wlrLayerShell = (zwlr_layer_shell_v1 *)wl_registry_bind (registry, id, &zwlr_layer_shell_v1_interface, 1);
     }
 }
 
@@ -46,6 +56,11 @@ void linuxWindowAPI::xdg_wm_base_ping(void *data, struct xdg_wm_base *xdg_wm_bas
 
 void linuxWindowAPI::closeApi()
 {
+    for (auto& win: windowsInfo)
+    {
+        closeWindow(win.id);
+    }
+    
     wl_display_disconnect(display);
 }
 
@@ -71,8 +86,8 @@ void linuxWindowAPI::init()
 
     wl_display_roundtrip(display);
 
-    // CONDTION_LOG_FATAL("can't find compositor", compositor == NULL);
-    // CONDTION_LOG_ERROR("can't find decoration manger", decorationManger == NULL);
+    CONDTION_LOG_FATAL("can't find compositor", surface::compositor == NULL);
+    CONDTION_LOG_ERROR("can't find decoration manger", toplevel::decorationManger == NULL);
 
     eventListenr = new std::thread(windowEventListener);
 }
@@ -108,16 +123,16 @@ windowId linuxWindowAPI::createWindow(const windowSpec& windowToCreate)
     windowInfo info;
     info.id = id;
 
-    keyboard::allocateWindowEvents(id);
-    pointer::allocateWindowEvents(id);
-    window::allocateWindow(id, windowToCreate);
-    cpuRendering::allocateSurfaceToRender(id);
+    info.topLevelSurface = surface::allocateSurface(id, {
+        surfaceRule::topLevel,
+        windowToCreate.w,
+        windowToCreate.h,
+        .title = windowToCreate.title,
+    });
 
-    idToIndex[id.index].index = windowsInfoSize;
-    windowsInfo[windowsInfoSize] = info;
-    windowsInfoSize++;
+    idToIndex[id.index].index = windowsInfo.size();
+    windowsInfo.push_back(info);
 
-    wl_surface_commit(window::getSurface(id));
     return id;
 }
 
@@ -130,17 +145,14 @@ void linuxWindowAPI::closeWindow(windowId winId)
     
     if(winId.index == smallestWindowId)
         smallestWindowId = INT32_MAX;
-    keyboard::deallocateWindowEvents(winId);
-    pointer::deallocateWindowEvents(winId);
-    window::deallocateWindow(winId);
+    surface::deallocateSurface(temp.topLevelSurface);
 
     idToIndex[winId.index].gen++;
-    windowInfo last = windowsInfo[windowsInfoSize - 1];
+    windowInfo last = windowsInfo[windowsInfo.size() - 1];
     windowsInfo[idToIndex[winId.index].index] = last;
     idToIndex[last.id.index].index = idToIndex[winId.index].index;
-    
-    windowsInfoSize--;
 
+    windowsInfo.pop_back();
     idToIndex[winId.index].index = -1;
     freeSlots.push_back(winId.index);
 }
@@ -149,7 +161,5 @@ bool linuxWindowAPI::isWindowOpen(windowId winId)
 {
     return getIndexFromId(winId) != -1;
 }
-
-
 
 #endif

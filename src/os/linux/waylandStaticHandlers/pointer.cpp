@@ -2,7 +2,7 @@
 
 #include "pointer.hpp"
 #include "log.hpp"
-#include "window.hpp"
+#include "surface.hpp"
 
 
 #include <linux/input.h>
@@ -11,12 +11,12 @@
 
 void pointer::wlPointerEnter(void *data, struct wl_pointer *wl_pointer, uint32_t serial, struct wl_surface *surface, wl_fixed_t surface_x, wl_fixed_t surface_y)
 {    
-    for (size_t i = 0; i < window::windows.size(); i++)
+    for (size_t i = 0; i < surface::surfaces.size(); i++)
     {
-        if(window::windows[i].surface == surface)
+        if(surface::surfaces[i].surface == surface)
         {
             inputFrameData.eventTypes.pointerEnter = true;
-            inputFrameData.winId = window::windows[i].id;
+            inputFrameData.id = surface::surfaces[i].id;
             inputFrameData.surface_x = surface_x;
             inputFrameData.surface_y = surface_y;
             inputFrameData.serial = serial;
@@ -78,7 +78,7 @@ void pointer::wlPointerFrame(void *data, wl_pointer *wlPointer)
 {
     inputBuffer& frameData = inputFrameData;
     
-    if(frameData.winId.index == -1 || frameData.winId.gen != idToIndex[frameData.winId.index].gen)
+    if(frameData.id.index == (uint8_t)-1 || frameData.id.gen != idToIndex[frameData.id.index].gen)
         return;
 
     if(frameData.eventTypes.pointerEnter)
@@ -86,10 +86,10 @@ void pointer::wlPointerFrame(void *data, wl_pointer *wlPointer)
         
     }
 
-    int index = idToIndex[frameData.winId.index].mouseMovedEventIndex;
+    int index = idToIndex[frameData.id.index].mouseMovedEventIndex;
     if(frameData.eventTypes.pointerMotion)
     {    
-        if(index != -1)
+        if(index != (uint8_t)-1)
             std::thread(
                 mouseMovedEventListeners[index], 
                 mouseMoveData{wl_fixed_to_int(frameData.surface_x), wl_fixed_to_int(frameData.surface_y)}).detach();
@@ -97,23 +97,23 @@ void pointer::wlPointerFrame(void *data, wl_pointer *wlPointer)
 
     if(frameData.eventTypes.pointerButton)
     {
-        index = idToIndex[frameData.winId.index].mouseButtonPressEventIndex;
-        if(frameData.state == 1 && index != -1)
+        index = idToIndex[frameData.id.index].mouseButtonPressEventIndex;
+        if(frameData.state == 1 && index != (uint8_t)-1)
             std::thread(
                 mouseButtonPressEventListeners[index], 
                 mouseButtonData{mouseButtons(frameData.button - BTN_MOUSE)}).detach();
 
 
-        index = idToIndex[frameData.winId.index].mouseButtonReleasedEventIndex;
-        if(frameData.state == 0 && index != -1)
+        index = idToIndex[frameData.id.index].mouseButtonReleasedEventIndex;
+        if(frameData.state == 0 && index != (uint8_t)-1)
             std::thread(
                 mouseButtonReleasedEventListeners[index], 
                 mouseButtonData{mouseButtons(frameData.button - BTN_MOUSE)}).detach();
     }
 
 
-    index = idToIndex[frameData.winId.index].mouseScrollEventIndex;
-    if(frameData.eventTypes.pointerAxis && index != -1)
+    index = idToIndex[frameData.id.index].mouseScrollEventIndex;
+    if(frameData.eventTypes.pointerAxis && index != (uint8_t)-1)
         for (size_t i = 0; i < 2; i++)
         {
             if(frameData.axes[i].valid)
@@ -131,105 +131,105 @@ void pointer::wlPointerFrame(void *data, wl_pointer *wlPointer)
 }
 
 
-void pointer::allocateWindowEvents(windowId winId)
+void pointer::allocateWindowEvents(surfaceId id)
 {
-    if(winId.index >= idToIndex.size())
-        idToIndex.resize(winId.index + 1);
+    if(id.index >= idToIndex.size())
+        idToIndex.resize(id.index + 1);
 
-    idToIndex[winId.index].gen = winId.gen;
+    idToIndex[id.index].gen = id.gen;
 }
 
-void pointer::setMouseButtonPressEventListeners(windowId winId, std::function<void(const mouseButtonData&)> callback)
+void pointer::setMouseButtonPressEventListeners(surfaceId id, std::function<void(const mouseButtonData&)> callback)
 {
-    uint32_t index = idToIndex[winId.index].mouseButtonPressEventIndex;
-    if(idToIndex[winId.index].gen != winId.gen)
+    uint32_t index = idToIndex[id.index].mouseButtonPressEventIndex;
+    if(idToIndex[id.index].gen != id.gen)
         return;
 
     if(index != (uint8_t)-1)
     {    
         mouseButtonPressEventListeners[index] = callback;
-        mouseButtonPressEventId[index] = winId;
+        mouseButtonPressEventId[index] = id;
         return;
     }
 
-    idToIndex[winId.index].mouseButtonPressEventIndex = mouseButtonPressEventListeners.size();
+    idToIndex[id.index].mouseButtonPressEventIndex = mouseButtonPressEventListeners.size();
     mouseButtonPressEventListeners.push_back(callback);
-    mouseButtonPressEventId.push_back(winId);
+    mouseButtonPressEventId.push_back(id);
 }
 
-void pointer::setMouseButtonReleasedEventListeners(windowId winId, std::function<void(const mouseButtonData&)> callback)
+void pointer::setMouseButtonReleasedEventListeners(surfaceId id, std::function<void(const mouseButtonData&)> callback)
 {
-    uint32_t index = idToIndex[winId.index].mouseButtonReleasedEventIndex;
-    if(idToIndex[winId.index].gen != winId.gen)
+    uint32_t index = idToIndex[id.index].mouseButtonReleasedEventIndex;
+    if(idToIndex[id.index].gen != id.gen)
         return;
 
     if(index != (uint8_t)-1)
     {    
         mouseButtonReleasedEventListeners[index] = callback;
-        mouseButtonReleasedEventId[index] = winId;
+        mouseButtonReleasedEventId[index] = id;
         return;
     }
 
-    idToIndex[winId.index].mouseButtonReleasedEventIndex = mouseButtonReleasedEventListeners.size();
+    idToIndex[id.index].mouseButtonReleasedEventIndex = mouseButtonReleasedEventListeners.size();
     mouseButtonReleasedEventListeners.push_back(callback);
-    mouseButtonReleasedEventId.push_back(winId);
+    mouseButtonReleasedEventId.push_back(id);
 }
 
-void pointer::setMouseMovedListeners(windowId winId, std::function<void(const mouseMoveData&)> callback)
+void pointer::setMouseMovedListeners(surfaceId id, std::function<void(const mouseMoveData&)> callback)
 {
-    uint32_t index = idToIndex[winId.index].mouseMovedEventIndex;
-    if(idToIndex[winId.index].gen != winId.gen)
+    uint32_t index = idToIndex[id.index].mouseMovedEventIndex;
+    if(idToIndex[id.index].gen != id.gen)
         return;
 
     if(index != (uint8_t)-1)
     {    
         mouseMovedEventListeners[index] = callback;
-        mouseMovedEventId[index] = winId;
+        mouseMovedEventId[index] = id;
         return;
     }
 
-    idToIndex[winId.index].mouseMovedEventIndex = mouseMovedEventListeners.size();
+    idToIndex[id.index].mouseMovedEventIndex = mouseMovedEventListeners.size();
     mouseMovedEventListeners.push_back(callback);
-    mouseMovedEventId.push_back(winId);
+    mouseMovedEventId.push_back(id);
 }
 
-void pointer::setMouseScrollListeners(windowId winId, std::function<void(const mouseScrollData&)> callback)
+void pointer::setMouseScrollListeners(surfaceId id, std::function<void(const mouseScrollData&)> callback)
 {
-    uint32_t index = idToIndex[winId.index].mouseScrollEventIndex;
-    if(idToIndex[winId.index].gen != winId.gen)
+    uint32_t index = idToIndex[id.index].mouseScrollEventIndex;
+    if(idToIndex[id.index].gen != id.gen)
         return;
 
     if(index != (uint8_t)-1)
     {    
         mouseScrollEventListeners[index] = callback;
-        mouseScrollEventId[index] = winId;
+        mouseScrollEventId[index] = id;
         return;
     }
 
-    idToIndex[winId.index].mouseScrollEventIndex = mouseScrollEventListeners.size();
+    idToIndex[id.index].mouseScrollEventIndex = mouseScrollEventListeners.size();
     mouseScrollEventListeners.push_back(callback);
-    mouseScrollEventId.push_back(winId);
+    mouseScrollEventId.push_back(id);
 }
 
 
 
-void pointer::deallocateWindowEvents(windowId winId)
+void pointer::deallocateWindowEvents(surfaceId id)
 {
-    if(idToIndex[winId.index].gen != winId.gen)
+    if(idToIndex[id.index].gen != id.gen)
         return;
 
-    unsetMouseButtonPressEventListeners(winId);
-    unsetMouseButtonReleasedEventListeners(winId);
-    unsetMouseMovedListeners(winId);
-    unsetMouseScrollListeners(winId);
+    unsetMouseButtonPressEventListeners(id);
+    unsetMouseButtonReleasedEventListeners(id);
+    unsetMouseMovedListeners(id);
+    unsetMouseScrollListeners(id);
 
-    idToIndex[winId.index].gen = -1;
+    idToIndex[id.index].gen = -1;
 }
 
-void pointer::unsetMouseButtonPressEventListeners(windowId winId)
+void pointer::unsetMouseButtonPressEventListeners(surfaceId id)
 {
-    uint32_t index = idToIndex[winId.index].mouseButtonPressEventIndex;
-    if(idToIndex[winId.index].gen != winId.gen || index == -1)
+    uint32_t index = idToIndex[id.index].mouseButtonPressEventIndex;
+    if(idToIndex[id.index].gen != id.gen || index == -1)
         return;
 
     uint32_t lastIndex = mouseButtonPressEventListeners.size() - 1;
@@ -240,13 +240,13 @@ void pointer::unsetMouseButtonPressEventListeners(windowId winId)
     mouseButtonPressEventListeners.pop_back();
     mouseButtonPressEventId.pop_back();
 
-    idToIndex[winId.index].mouseButtonPressEventIndex = -1;
+    idToIndex[id.index].mouseButtonPressEventIndex = -1;
 }
 
-void pointer::unsetMouseButtonReleasedEventListeners(windowId winId)
+void pointer::unsetMouseButtonReleasedEventListeners(surfaceId id)
 {
-    uint32_t index = idToIndex[winId.index].mouseButtonReleasedEventIndex;
-    if(idToIndex[winId.index].gen != winId.gen || index == -1)
+    uint32_t index = idToIndex[id.index].mouseButtonReleasedEventIndex;
+    if(idToIndex[id.index].gen != id.gen || index == -1)
         return;
 
     uint32_t lastIndex = mouseButtonReleasedEventListeners.size() - 1;
@@ -257,13 +257,13 @@ void pointer::unsetMouseButtonReleasedEventListeners(windowId winId)
     mouseButtonReleasedEventListeners.pop_back();
     mouseButtonReleasedEventId.pop_back();
 
-    idToIndex[winId.index].mouseButtonReleasedEventIndex = -1;
+    idToIndex[id.index].mouseButtonReleasedEventIndex = -1;
 }  
 
-void pointer::unsetMouseMovedListeners(windowId winId)
+void pointer::unsetMouseMovedListeners(surfaceId id)
 {
-    uint32_t index = idToIndex[winId.index].mouseMovedEventIndex;
-    if(idToIndex[winId.index].gen != winId.gen || index == -1)
+    uint32_t index = idToIndex[id.index].mouseMovedEventIndex;
+    if(idToIndex[id.index].gen != id.gen || index == -1)
         return;
 
     uint32_t lastIndex = mouseMovedEventListeners.size() - 1;
@@ -274,13 +274,13 @@ void pointer::unsetMouseMovedListeners(windowId winId)
     mouseMovedEventListeners.pop_back();
     mouseMovedEventId.pop_back();
 
-    idToIndex[winId.index].mouseMovedEventIndex = -1;
+    idToIndex[id.index].mouseMovedEventIndex = -1;
 }
 
-void pointer::unsetMouseScrollListeners(windowId winId)
+void pointer::unsetMouseScrollListeners(surfaceId id)
 {
-    uint32_t index = idToIndex[winId.index].mouseScrollEventIndex;
-    if(idToIndex[winId.index].gen != winId.gen || index == -1)
+    uint32_t index = idToIndex[id.index].mouseScrollEventIndex;
+    if(idToIndex[id.index].gen != id.gen || index == -1)
         return;
 
     uint32_t lastIndex = mouseScrollEventListeners.size() - 1;
@@ -291,7 +291,7 @@ void pointer::unsetMouseScrollListeners(windowId winId)
     mouseScrollEventListeners.pop_back();
     mouseScrollEventId.pop_back();
 
-    idToIndex[winId.index].mouseScrollEventIndex = -1;
+    idToIndex[id.index].mouseScrollEventIndex = -1;
 }
 
 

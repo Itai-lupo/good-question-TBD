@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['reallocatewindowcpupool_0',['reallocateWindowCpuPool',['../d7/dc2/classcpu_rendering.html#a14e0e04ac419153e8d64a3f4988b2639',1,'cpuRendering']]],
-  ['registry_1',['registry',['../de/d8e/classlinux_window_a_p_i.html#a787a5b914acdc4c6f53f090dc700eef3',1,'linuxWindowAPI::registry()'],['../d0/d4e/classwindow.html#adf365e05aef503d92da2ce98da2be5dc',1,'window::registry()']]],
+  ['reallocatewindowcpupool_0',['reallocateWindowCpuPool',['../d7/dc2/classcpu_rendering.html#a58eb404e2bde9045dc1b981cd94bf47d',1,'cpuRendering']]],
+  ['registry_1',['registry',['../de/d8e/classlinux_window_a_p_i.html#a787a5b914acdc4c6f53f090dc700eef3',1,'linuxWindowAPI::registry()'],['../d5/d88/classsurface.html#a8dc1934c13bc754ee7b46fce77b4208e',1,'surface::registry()']]],
   ['reizing_2',['reizing',['../d5/dd7/window_state_8hpp.html#a0a6548decdad99284bc439e3f40fdb76a63c281d5384ad08cdaf0209d6d13dff5',1,'windowState.hpp']]],
   ['releaseeventindex_3',['releaseEventIndex',['../d6/d9a/structkeyboard_1_1id_tp_key_event_indexes.html#ad2f1ffd6a6799218e4c1294f83610c66',1,'keyboard::idTpKeyEventIndexes']]],
   ['renderdataindex_4',['renderDataIndex',['../d4/db9/structcpu_rendering_1_1id_to_render_info_event_indexes.html#ac3451fb6a6cf0296bfcddf67d8d092a6',1,'cpuRendering::idToRenderInfoEventIndexes']]],
-  ['rendereventid_5',['renderEventId',['../d7/dc2/classcpu_rendering.html#ade706b8a2a3297843b4e14bf86129adb',1,'cpuRendering']]],
+  ['rendereventid_5',['renderEventId',['../d7/dc2/classcpu_rendering.html#a4044529605a3fc905f012f4c5a0fb504',1,'cpuRendering']]],
   ['rendereventindex_6',['renderEventIndex',['../d4/db9/structcpu_rendering_1_1id_to_render_info_event_indexes.html#a5586605cd4807d71773fbb6b8be61d99',1,'cpuRendering::idToRenderInfoEventIndexes']]],
   ['rendereventlisteners_7',['renderEventListeners',['../d7/dc2/classcpu_rendering.html#a85ff708007cdc36fc895e6f2eb136d24',1,'cpuRendering']]],
   ['renderfinshed_8',['renderFinshed',['../d2/d65/structcpu_rendering_1_1render_info.html#a9a7385f0b386bd0b07ecc65caed32bf6',1,'cpuRendering::renderInfo']]],
@@ -14,11 +14,12 @@ var searchData=
   ['renderinfo_11',['renderInfo',['../d2/d65/structcpu_rendering_1_1render_info.html',1,'cpuRendering::renderInfo'],['../d2/d65/structcpu_rendering_1_1render_info.html#a2f7f7ca176ddadbf607d05be0831cc6c',1,'cpuRendering::renderInfo::renderInfo()']]],
   ['rendermutex_12',['renderMutex',['../d2/d65/structcpu_rendering_1_1render_info.html#a1fa0961b230709d6e36c3f8077421138',1,'cpuRendering::renderInfo']]],
   ['renderthread_13',['renderThread',['../d2/d65/structcpu_rendering_1_1render_info.html#a5dc068aad60d0ac1173a2760a73306b8',1,'cpuRendering::renderInfo']]],
-  ['renderwindow_14',['renderWindow',['../d7/dc2/classcpu_rendering.html#a2311cb7edd278815fbac24eb97ce5a49',1,'cpuRendering']]],
+  ['renderwindow_14',['renderWindow',['../d7/dc2/classcpu_rendering.html#a9abd75826f8c129132d007617aab8c7d',1,'cpuRendering']]],
   ['repeateventindex_15',['repeatEventIndex',['../d6/d9a/structkeyboard_1_1id_tp_key_event_indexes.html#a176843c051be9d960eb5ea3c00f92936',1,'keyboard::idTpKeyEventIndexes']]],
-  ['resizeeventid_16',['resizeEventId',['../d0/d4e/classwindow.html#af4f0d57b78c805344209052edc32c36f',1,'window']]],
-  ['resizeeventindex_17',['resizeEventIndex',['../d4/ddc/structwindow_1_1id_to_window_data_indexes.html#a350f078768e4f2e9dd8d038c13df68b5',1,'window::idToWindowDataIndexes']]],
-  ['resizeeventlisteners_18',['resizeEventListeners',['../d0/d4e/classwindow.html#a2baa6923eb3d0d99b6bd4bb4142a911f',1,'window']]],
+  ['resizeeventid_16',['resizeEventId',['../d2/d36/classlayer.html#a948cef828bc4103e72f1e5f0d92872e2',1,'layer::resizeEventId()'],['../da/d41/classtoplevel.html#a0726b6b50666c990f9199c47e25e49bb',1,'toplevel::resizeEventId()']]],
+  ['resizeeventindex_17',['resizeEventIndex',['../d9/d3e/structlayer_1_1id_to_surface_data_indexes.html#a044b7053a5b2c9a8146bc54c54eb1790',1,'layer::idToSurfaceDataIndexes::resizeEventIndex()'],['../d0/d6e/structtoplevel_1_1id_to_surface_data_indexes.html#ab076ba5a79ee2bec033d7aa241d1075a',1,'toplevel::idToSurfaceDataIndexes::resizeEventIndex()']]],
+  ['resizeeventlisteners_18',['resizeEventListeners',['../d2/d36/classlayer.html#a4ad5c88f0d7043d92fab460cc22e485c',1,'layer::resizeEventListeners()'],['../da/d41/classtoplevel.html#a47ad002f9b3085b80c98a9c197ea33ad',1,'toplevel::resizeEventListeners()']]],
   ['right_19',['right',['../d5/dde/mouse_format_8hpp.html#aba307b55c0889ec7a6bdcebefe2638d8a7c4f29407893c334a6cb7a87bf045c0d',1,'mouseFormat.hpp']]],
-  ['run_20',['run',['../df/d0a/main_8cpp.html#a3e6f76368abfbc8709f4c1346dfa6a20',1,'main.cpp']]]
+  ['rule_20',['rule',['../d0/d01/structsurface_spec.html#a743dc5c118e07dd19bc64c21fe07812d',1,'surfaceSpec::rule()'],['../de/dfc/structsurface_1_1surface_data.html#a16e3f6360d3b9fb15b8e304ef999715d',1,'surface::surfaceData::rule()']]],
+  ['run_21',['run',['../df/d0a/main_8cpp.html#a3e6f76368abfbc8709f4c1346dfa6a20',1,'main.cpp']]]
 ];

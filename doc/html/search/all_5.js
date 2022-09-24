@@ -5,6 +5,6 @@ var searchData=
   ['focusswap_2',['focusSwap',['../df/d0a/main_8cpp.html#ae472d9a3fc22c31a0bb52156bdc0b4e5',1,'main.cpp']]],
   ['forward_3',['forward',['../d5/dde/mouse_format_8hpp.html#aba307b55c0889ec7a6bdcebefe2638d8a965dbaac085fc891bfbbd4f9d145bbc8',1,'mouseFormat.hpp']]],
   ['freebuffer_4',['freeBuffer',['../d2/d65/structcpu_rendering_1_1render_info.html#ac59bf245d7a46c1a86c9887bbca0dd87',1,'cpuRendering::renderInfo']]],
-  ['freeslots_5',['freeSlots',['../de/d8e/classlinux_window_a_p_i.html#abb647fbf77fa7e62f94b587b57d84118',1,'linuxWindowAPI']]],
+  ['freeslots_5',['freeSlots',['../de/d8e/classlinux_window_a_p_i.html#abb647fbf77fa7e62f94b587b57d84118',1,'linuxWindowAPI::freeSlots()'],['../d5/d88/classsurface.html#a4c7388f252223b635ee343e3b73056d3',1,'surface::freeSlots()']]],
   ['fullscreen_6',['fullscreen',['../d5/dd7/window_state_8hpp.html#a0a6548decdad99284bc439e3f40fdb76a74ba0736dad9b7236e2c7db4f4f4b874',1,'windowState.hpp']]]
 ];

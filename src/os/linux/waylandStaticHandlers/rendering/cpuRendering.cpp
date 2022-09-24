@@ -1,8 +1,10 @@
 #ifdef __linux__
 
 #include "cpuRendering.hpp"
-#include "window.hpp"
+#include "surface.hpp"
 #include "log.hpp"
+#include "toplevel.hpp"
+#include "layer.hpp"
 
 #include <sys/mman.h>
 #include <sstream>
@@ -12,14 +14,18 @@
 #include <utility>
 #include <Tracy.hpp>
 
-void cpuRendering::renderWindow(windowId win)
+void cpuRendering::renderWindow(surfaceId win)
 {
+
     ZoneScoped;
     
     uint32_t index = idToIndex[win.index].renderEventIndex;
     if(idToIndex[win.index].gen != win.gen || index == -1)
         return;
 
+    std::string thradNameA = "render " + layer::getWindowTitle(win);
+    prctl(PR_SET_NAME, thradNameA.c_str());
+    
     std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
     std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
 
@@ -34,27 +40,27 @@ void cpuRendering::renderWindow(windowId win)
 
         renderInfo& temp = surfacesToRender[idToIndex[win.index].renderDataIndex];
 
-        int stride = window::getWindowWidth(win) * 4;
-        int bufferSize = stride * window::getWindowHeight(win);
-        temp.bufferSize = bufferSize;
+        int stride = surface::getWindowWidth(win) * 4;
+        int bufferSize = stride * surface::getWindowHeight(win);
+        surfacesToRender[idToIndex[win.index].renderDataIndex].bufferSize = bufferSize;
 
-        int bufferIndex = temp.freeBuffer;
+        int bufferIndex = surfacesToRender[idToIndex[win.index].renderDataIndex].freeBuffer;
 
-        uint32_t *frameData = mapWindowCpuBuffer(win, temp.freeBuffer);
+        uint32_t *frameData = mapWindowCpuBuffer(win, surfacesToRender[idToIndex[win.index].renderDataIndex].freeBuffer);
         if(frameData)
-            renderEventListeners[index](windowRenderData{window::getWindowWidth(win), window::getWindowHeight(win), frameData, elpased});
+            renderEventListeners[index](windowRenderData{surface::getWindowWidth(win), surface::getWindowHeight(win), frameData, elpased});
         
         
-        int ret = munmap(temp.buffer, temp.bufferSize);
+        int ret = munmap(surfacesToRender[idToIndex[win.index].renderDataIndex].buffer, surfacesToRender[idToIndex[win.index].renderDataIndex].bufferSize);
         CONDTION_LOG_ERROR(ret, ret != 0)
 
-        uint8_t tempBufferIndex = temp.freeBuffer;
-        temp.freeBuffer = temp.bufferToRender;
-        temp.bufferToRender = tempBufferIndex;
+        uint8_t tempBufferIndex = surfacesToRender[idToIndex[win.index].renderDataIndex].freeBuffer;
+        surfacesToRender[idToIndex[win.index].renderDataIndex].freeBuffer = surfacesToRender[idToIndex[win.index].renderDataIndex].bufferToRender;
+        surfacesToRender[idToIndex[win.index].renderDataIndex].bufferToRender = tempBufferIndex;
         
-        temp.renderFinshedBool = true;
-        std::shared_lock lk{*temp.renderMutex.get()};
-        temp.renderFinshed->notify_one();
+        surfacesToRender[idToIndex[win.index].renderDataIndex].renderFinshedBool = true;
+        std::shared_lock lk{*surfacesToRender[idToIndex[win.index].renderDataIndex].renderMutex.get()};
+        surfacesToRender[idToIndex[win.index].renderDataIndex].renderFinshed->notify_one();
         
         t2 = std::chrono::high_resolution_clock::now();
         uint32_t index = idToIndex[win.index].renderEventIndex;
@@ -67,7 +73,7 @@ void cpuRendering::wlSurfaceFrameDone(void *data, wl_callback *cb, uint32_t time
 {
     ZoneScoped;
     wl_callback_destroy(cb);
-    windowId id = *(windowId*)data;
+    surfaceId id = *(surfaceId*)data;
     
     
     uint32_t index = idToIndex[id.index].renderDataIndex;
@@ -77,21 +83,25 @@ void cpuRendering::wlSurfaceFrameDone(void *data, wl_callback *cb, uint32_t time
     renderInfo& temp = surfacesToRender[index];
     
 
-    cb = wl_surface_frame(window::getSurface(id));
+    cb = wl_surface_frame(surface::getSurface(id));
     wl_callback_add_listener(cb, &wlSurfaceFrameListener, data);
     
-    std::unique_lock lk2{*temp.renderMutex.get()};
-    temp.renderFinshed->wait(lk2, [&](){ return temp.renderFinshedBool;} );
-    temp.renderFinshedBool = false;
+    if(idToIndex[id.index].renderEventIndex != (uint8_t)-1)
+    {
+        std::unique_lock lk2{*temp.renderMutex.get()};
+        temp.renderFinshed->wait(lk2, [&](){ return temp.renderFinshedBool;} );
+        temp.renderFinshedBool = false;
+    }
+
     struct wl_buffer *buffer = allocateWindowBuffer(id, temp.bufferToRender);
     int tempBuffer = temp.bufferToRender;
     temp.bufferToRender = temp.bufferInRender;
     temp.bufferInRender = tempBuffer;
 
-    wl_surface_attach(window::getSurface(id), buffer, 0, 0);
-    wl_surface_damage_buffer(window::getSurface(id), 0, 0, window::getWindowWidth(id), window::getWindowHeight(id));
-    wl_surface_commit(window::getSurface(id));
-    FrameMarkNamed( window::getWindowTitle(id).c_str());
+    wl_surface_attach(surface::getSurface(id), buffer, 0, 0);
+    wl_surface_damage_buffer(surface::getSurface(id), 0, 0, surface::getWindowWidth(id), surface::getWindowHeight(id));
+    wl_surface_commit(surface::getSurface(id));
+    FrameMarkNamed( layer::getWindowTitle(id).c_str());
 
 }
 
@@ -102,10 +112,10 @@ void cpuRendering::wl_buffer_release(void *data, struct wl_buffer *wl_buffer)
 }
 
 
-void cpuRendering::allocateWindowCpuPool(windowId winId)
+void cpuRendering::allocateWindowCpuPool(surfaceId winId)
 {
-    int stride = window::getWindowWidth(winId)* 4;
-    int size = stride * window::getWindowHeight(winId);
+    int stride = surface::getWindowWidth(winId)* 4;
+    int size = stride * surface::getWindowHeight(winId);
     size += sysconf(_SC_PAGE_SIZE) - size % sysconf(_SC_PAGE_SIZE);
     size *= 3;
     
@@ -128,15 +138,15 @@ void cpuRendering::allocateWindowCpuPool(windowId winId)
     info.memoryPoolSize = size;
 }
 
-void cpuRendering::reallocateWindowCpuPool(windowId winId)
+void cpuRendering::reallocateWindowCpuPool(surfaceId winId)
 {
     int64_t index = idToIndex[winId.index].renderDataIndex;
     if(index == -1 || idToIndex[winId.index].gen != winId.gen)
         return;
 
     renderInfo& info = surfacesToRender[index];
-    int stride = window::getWindowWidth(winId) * 4;
-    int size = stride * window::getWindowHeight(winId);
+    int stride = surface::getWindowWidth(winId) * 4;
+    int size = stride * surface::getWindowHeight(winId);
     size += sysconf(_SC_PAGE_SIZE) - size % sysconf(_SC_PAGE_SIZE);
     size *= 3;
 
@@ -157,24 +167,24 @@ void cpuRendering::reallocateWindowCpuPool(windowId winId)
 }
 
 
-wl_buffer *cpuRendering::allocateWindowBuffer(const windowId winId, uint32_t offset)
+wl_buffer *cpuRendering::allocateWindowBuffer(const surfaceId winId, uint32_t offset)
 {
-    int stride = window::getWindowWidth(winId) * 4;
-    int size = stride * window::getWindowHeight(winId);
+    int stride = surface::getWindowWidth(winId) * 4;
+    int size = stride * surface::getWindowHeight(winId);
     int temp = size + (sysconf(_SC_PAGE_SIZE) - size % sysconf(_SC_PAGE_SIZE));
     temp *= offset;
     
     
-    wl_buffer *buffer = wl_shm_pool_create_buffer(surfacesToRender[idToIndex[winId.index].renderDataIndex].pool, temp, window::getWindowWidth(winId), window::getWindowHeight(winId), stride, WL_SHM_FORMAT_ARGB8888);
+    wl_buffer *buffer = wl_shm_pool_create_buffer(surfacesToRender[idToIndex[winId.index].renderDataIndex].pool, temp, surface::getWindowWidth(winId), surface::getWindowHeight(winId), stride, WL_SHM_FORMAT_ARGB8888);
 
     wl_buffer_add_listener(buffer, &wl_buffer_listener, NULL);
     return buffer;
 }
 
-uint32_t *cpuRendering::mapWindowCpuBuffer(windowId winId, uint32_t offset)
+uint32_t *cpuRendering::mapWindowCpuBuffer(surfaceId winId, uint32_t offset)
 {
-    int stride = window::getWindowWidth(winId) * 4;
-    int size = stride * window::getWindowHeight(winId);
+    int stride = surface::getWindowWidth(winId) * 4;
+    int size = stride * surface::getWindowHeight(winId);
     int temp = size + (sysconf(_SC_PAGE_SIZE) - size % sysconf(_SC_PAGE_SIZE));
     temp *= offset;
     
@@ -238,7 +248,7 @@ int cpuRendering::allocate_shm_file(size_t size)
 }
 
 
-void cpuRendering::allocateSurfaceToRender(windowId winId)
+void cpuRendering::allocateSurfaceToRender(surfaceId winId)
 {
     if(winId.index >= idToIndex.size())
         idToIndex.resize(winId.index + 1);
@@ -254,12 +264,12 @@ void cpuRendering::allocateSurfaceToRender(windowId winId)
     allocateWindowCpuPool(winId);
 
 
-    wl_callback *cb = wl_surface_frame(window::getSurface(winId));
-    wl_callback_add_listener(cb, &wlSurfaceFrameListener, new windowId(winId));
+    wl_callback *cb = wl_surface_frame(surface::getSurface(winId));
+    wl_callback_add_listener(cb, &wlSurfaceFrameListener, new surfaceId(winId));
 }
 
 
-void cpuRendering::setRenderEventListeners(windowId winId, std::function<void(const windowRenderData&)> callback){
+void cpuRendering::setRenderEventListeners(surfaceId winId, std::function<void(const windowRenderData&)> callback){
     uint32_t index = idToIndex[winId.index].renderEventIndex;
     if(idToIndex[winId.index].gen != winId.gen)
         return;
@@ -281,7 +291,7 @@ void cpuRendering::setRenderEventListeners(windowId winId, std::function<void(co
 
 
 
-void cpuRendering::deallocateSurfaceToRender(windowId winId)
+void cpuRendering::deallocateSurfaceToRender(surfaceId winId)
 {
     if(idToIndex[winId.index].gen != winId.gen)
         return;
@@ -294,7 +304,7 @@ void cpuRendering::deallocateSurfaceToRender(windowId winId)
 }
 
 
-void cpuRendering::unsetRenderEventListeners(windowId winId)
+void cpuRendering::unsetRenderEventListeners(surfaceId winId)
 {
 
     uint32_t index = idToIndex[winId.index].renderEventIndex;
@@ -310,9 +320,6 @@ void cpuRendering::unsetRenderEventListeners(windowId winId)
     renderEventId.pop_back();
 
     idToIndex[winId.index].renderEventIndex = -1;
-
-    if(surfacesToRender[idToIndex[winId.index].renderDataIndex].renderThread->joinable())
-        surfacesToRender[idToIndex[winId.index].renderDataIndex].renderThread->join();
 }
 
 #endif

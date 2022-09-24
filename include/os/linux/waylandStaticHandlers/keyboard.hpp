@@ -10,6 +10,7 @@
 #include "keycodes.hpp"
 #include "core.hpp"
 #include "keyData.hpp"
+#include "surface.hpp"
 
 class keyboard
 {
@@ -22,7 +23,7 @@ class keyboard
         static inline int32_t keyRepeatRate; 
         static inline int32_t keyRepeatdelay;
         
-        static inline windowId activeWindow{(uint8_t)-1, (uint8_t)-1}; 
+        static inline surfaceId activeWindow{(uint16_t)-1, (uint16_t)-1}; 
         static inline std::map<keycodes, bool> isKeyPressed;
         
         static void wlKeymap(void *data, wl_keyboard *wl_keyboard, uint32_t format, int32_t fd, uint32_t size);
@@ -35,19 +36,19 @@ class keyboard
 
 
         static inline std::vector<std::function<void(const keyData&)>> keyPressEventListeners;
-        static inline std::vector<windowId> keyPressEventId;
+        static inline std::vector<surfaceId> keyPressEventId;
 
         static inline std::vector<std::function<void(const keyData&)>> keyReleasedEventListeners;
-        static inline std::vector<windowId> keyReleasedEventId;
+        static inline std::vector<surfaceId> keyReleasedEventId;
         
         static inline std::vector<std::function<void(const keyData&)>> keyRepeatEventListeners;
-        static inline std::vector<windowId> keyRepeatEventId;
+        static inline std::vector<surfaceId> keyRepeatEventId;
 
         static inline std::vector<std::function<void()>> gainFocusEventListeners;
-        static inline std::vector<windowId> gainFocusEventId;
+        static inline std::vector<surfaceId> gainFocusEventId;
 
         static inline std::vector<std::function<void()>> lostFocusEventListeners;
-        static inline std::vector<windowId> lostFocusEventId;
+        static inline std::vector<surfaceId> lostFocusEventId;
 
         struct idTpKeyEventIndexes
         {
@@ -198,19 +199,19 @@ class keyboard
         };
 
 
-        static void allocateWindowEvents(windowId winId);
-        static void setKeyPressEventListeners(windowId winId, std::function<void(const keyData&)> callback);
-        static void setKeyReleasedEventListeners(windowId winId, std::function<void(const keyData&)> callback);
-        static void setKeyRepeatEventListeners(windowId winId, std::function<void(const keyData&)> callback);
-        static void setGainFocusEventListeners(windowId winId, std::function<void()> callback);
-        static void setLostFocusEventListeners(windowId winId, std::function<void()> callback);
+        static void allocateWindowEvents(surfaceId surfaceId);
+        static void setKeyPressEventListeners(surfaceId surfaceId, std::function<void(const keyData&)> callback);
+        static void setKeyReleasedEventListeners(surfaceId surfaceId, std::function<void(const keyData&)> callback);
+        static void setKeyRepeatEventListeners(surfaceId surfaceId, std::function<void(const keyData&)> callback);
+        static void setGainFocusEventListeners(surfaceId surfaceId, std::function<void()> callback);
+        static void setLostFocusEventListeners(surfaceId surfaceId, std::function<void()> callback);
         
 
-        static void deallocateWindowEvents(windowId winId);
-        static void unsetKeyPressEventListeners(windowId winId);
-        static void unsetKeyReleasedEventListeners(windowId winId);
-        static void unsetKeyRepeatEventListeners(windowId winId);
-        static void unsetGainFocusEventListeners(windowId winId);
-        static void unsetLostFocusEventListeners(windowId winId);
+        static void deallocateWindowEvents(surfaceId surfaceId);
+        static void unsetKeyPressEventListeners(surfaceId surfaceId);
+        static void unsetKeyReleasedEventListeners(surfaceId surfaceId);
+        static void unsetKeyRepeatEventListeners(surfaceId surfaceId);
+        static void unsetGainFocusEventListeners(surfaceId surfaceId);
+        static void unsetLostFocusEventListeners(surfaceId surfaceId);
         
 };

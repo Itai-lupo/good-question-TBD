@@ -1,6 +1,7 @@
 #pragma once
 #include "osAPI.hpp"
 #include "log.hpp"
+#include "surface.hpp"
 
 #include <errno.h>
 #include <fcntl.h>
@@ -11,7 +12,6 @@
 
 
 #include <wayland-client.h>
-#include <xdg-decoration-client-protocol.h>
 #include <xdg-shell-client-protocol.h>
 #include <xkbcommon/xkbcommon.h>
 
@@ -53,20 +53,18 @@ class linuxWindowAPI
         struct windowInfo
         {
             windowId id;
+            surfaceId topLevelSurface;
+            std::array<surfaceId, 12> subsurfaces;
         };
 
-
-        static inline std::array<windowInfo, 254> windowsInfo;
-        static inline int windowsInfoSize = 0;
-
+        static inline std::vector<windowInfo> windowsInfo;
 
         struct idIndexes
         {
             uint8_t gen;
             uint8_t index;
             uint8_t renderIndex;
-        };
-        
+        };        
 
         static inline std::array<idIndexes, 31> idToIndex;  
         static inline std::list<uint32_t> freeSlots;

@@ -1,7 +1,7 @@
 #ifdef __linux__
 #include "keyboard.hpp"
 #include "log.hpp"
-#include "window.hpp"
+#include "surface.hpp"
 
 
 #include <sys/prctl.h>
@@ -34,11 +34,11 @@ void keyboard::wlKeymap(void *data, wl_keyboard *wl_keyboard, uint32_t format, i
 
 void keyboard::wlEnter(void *data, wl_keyboard *wl_keyboard, uint32_t serial, wl_surface *surface, wl_array *keys)
 {
-    for (int i = 0; i < window::windows.size(); i++)
+    for (int i = 0; i < surface::surfaces.size(); i++)
     {
-        if(window::windows[i].surface == surface)
+        if(surface::surfaces[i].surface == surface)
         {
-            activeWindow = window::windows[i].id;
+            activeWindow = surface::surfaces[i].id;
         }
     }
 
@@ -152,7 +152,7 @@ void keyboard::keyListener(uint32_t key)
     }    
 }
 
-void keyboard::allocateWindowEvents(windowId winId)
+void keyboard::allocateWindowEvents(surfaceId winId)
 {
     if(winId.index >= idToIndex.size())
         idToIndex.resize(winId.index + 1);
@@ -160,7 +160,7 @@ void keyboard::allocateWindowEvents(windowId winId)
     idToIndex[winId.index].gen = winId.gen;
 }
 
-void keyboard::setKeyPressEventListeners(windowId winId, const std::function<void(const keyData&)> callback)
+void keyboard::setKeyPressEventListeners(surfaceId winId, const std::function<void(const keyData&)> callback)
 {    
     uint32_t index = idToIndex[winId.index].pressEventIndex;
     if(idToIndex[winId.index].gen != winId.gen)
@@ -180,7 +180,7 @@ void keyboard::setKeyPressEventListeners(windowId winId, const std::function<voi
     keyPressEventId.push_back(winId);
 }
 
-void keyboard::setKeyReleasedEventListeners(windowId winId, const std::function<void(const keyData&)> callback)
+void keyboard::setKeyReleasedEventListeners(surfaceId winId, const std::function<void(const keyData&)> callback)
 {
     uint32_t index = idToIndex[winId.index].releaseEventIndex;
     if(idToIndex[winId.index].gen != winId.gen)
@@ -200,7 +200,7 @@ void keyboard::setKeyReleasedEventListeners(windowId winId, const std::function<
 
 }
 
-void keyboard::setKeyRepeatEventListeners(windowId winId, const std::function<void(const keyData&)> callback)
+void keyboard::setKeyRepeatEventListeners(surfaceId winId, const std::function<void(const keyData&)> callback)
 {
     uint32_t index = idToIndex[winId.index].repeatEventIndex;
     if(idToIndex[winId.index].gen != winId.gen)
@@ -218,7 +218,7 @@ void keyboard::setKeyRepeatEventListeners(windowId winId, const std::function<vo
     keyRepeatEventId.push_back(winId);
 }
 
-void keyboard::setGainFocusEventListeners(windowId winId, std::function<void()> callback)
+void keyboard::setGainFocusEventListeners(surfaceId winId, std::function<void()> callback)
 {
     uint32_t index = idToIndex[winId.index].gainFocusEventIndex;
     if(idToIndex[winId.index].gen != winId.gen)
@@ -236,7 +236,7 @@ void keyboard::setGainFocusEventListeners(windowId winId, std::function<void()> 
     gainFocusEventId.push_back(winId);
 }
 
-void keyboard::setLostFocusEventListeners(windowId winId, std::function<void()> callback)
+void keyboard::setLostFocusEventListeners(surfaceId winId, std::function<void()> callback)
 {
     uint32_t index = idToIndex[winId.index].lostFocusEventIndex;
     if(idToIndex[winId.index].gen != winId.gen)
@@ -254,7 +254,7 @@ void keyboard::setLostFocusEventListeners(windowId winId, std::function<void()> 
     lostFocusEventId.push_back(winId);
 }
 
-void keyboard::deallocateWindowEvents(windowId winId)
+void keyboard::deallocateWindowEvents(surfaceId winId)
 {
     if(idToIndex[winId.index].gen != winId.gen)
         return;
@@ -269,7 +269,7 @@ void keyboard::deallocateWindowEvents(windowId winId)
 
 }
 
-void keyboard::unsetKeyPressEventListeners(windowId winId)
+void keyboard::unsetKeyPressEventListeners(surfaceId winId)
 {
     uint32_t index = idToIndex[winId.index].pressEventIndex;
     if(idToIndex[winId.index].gen != winId.gen || index == -1)
@@ -286,7 +286,7 @@ void keyboard::unsetKeyPressEventListeners(windowId winId)
     idToIndex[winId.index].pressEventIndex = -1;
 }
 
-void keyboard::unsetKeyReleasedEventListeners(windowId winId)
+void keyboard::unsetKeyReleasedEventListeners(surfaceId winId)
 {
     
     uint32_t index = idToIndex[winId.index].releaseEventIndex;
@@ -305,7 +305,7 @@ void keyboard::unsetKeyReleasedEventListeners(windowId winId)
 
 }
 
-void keyboard::unsetKeyRepeatEventListeners(windowId winId)
+void keyboard::unsetKeyRepeatEventListeners(surfaceId winId)
 {
     uint32_t index = idToIndex[winId.index].repeatEventIndex;
     if(idToIndex[winId.index].gen != winId.gen || index == -1)
@@ -322,7 +322,7 @@ void keyboard::unsetKeyRepeatEventListeners(windowId winId)
     idToIndex[winId.index].repeatEventIndex = -1;
 }
 
-void keyboard::unsetGainFocusEventListeners(windowId winId)
+void keyboard::unsetGainFocusEventListeners(surfaceId winId)
 {
     uint32_t index = idToIndex[winId.index].gainFocusEventIndex;
     if(idToIndex[winId.index].gen != winId.gen || index == -1)
@@ -339,7 +339,7 @@ void keyboard::unsetGainFocusEventListeners(windowId winId)
     idToIndex[winId.index].gainFocusEventIndex = -1;
 }
 
-void keyboard::unsetLostFocusEventListeners(windowId winId)
+void keyboard::unsetLostFocusEventListeners(surfaceId winId)
 {
     uint32_t index = idToIndex[winId.index].lostFocusEventIndex;
     if(idToIndex[winId.index].gen != winId.gen || index == -1)
