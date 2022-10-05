@@ -1,6 +1,7 @@
 #ifdef __linux__
 #include "surface.hpp"
 #include "cpuRendering.hpp"
+#include "openGLRendering.hpp"
 #include "linuxWindowAPI.hpp"
 #include "log.hpp"
 #include "toplevel.hpp"
@@ -17,7 +18,6 @@ surfaceId surface::allocateSurface(windowId winId, const surfaceSpec& surfaceDat
     surfaceId id;
     if(!freeSlots.empty())
     {
-        LOG_INFO("slot " << freeSlots.front() << " slot gen " << idToIndex[freeSlots.front()].gen)
         id = {
             .gen = idToIndex[freeSlots.front()].gen,
             .index = (uint16_t)freeSlots.front()
@@ -26,7 +26,6 @@ surfaceId surface::allocateSurface(windowId winId, const surfaceSpec& surfaceDat
     }
     else
     {
-        LOG_INFO("slot " << (uint16_t)idToIndex.size() << " slot gen " << 0)
         id = {
             .gen = 0,
             .index = (uint16_t)idToIndex.size()
@@ -49,20 +48,25 @@ surfaceId surface::allocateSurface(windowId winId, const surfaceSpec& surfaceDat
 
     switch (info.rule)
     {
-    case surfaceRule::topLevel:
-        // toplevel::allocateTopLevel(id, info.surface, surfaceDataSpec);
+    case surfaceRule::layer:
         layer::allocateLayer(id, info.surface, surfaceDataSpec);
+        break;
+
+    case surfaceRule::topLevel:
+        openGLRendering::allocateSurfaceToRender(id);
+        toplevel::allocateTopLevel(id, info.surface, surfaceDataSpec);
 
         break;
     
     case surfaceRule::subsurface:
         subsurface::allocateSubsurface(id, info.surface, surfaceDataSpec);
+        cpuRendering::allocateSurfaceToRender(id);
+        
         break;
     default:
         break;
     }
     
-    cpuRendering::allocateSurfaceToRender(id);
     keyboard::allocateWindowEvents(id);
     pointer::allocateWindowEvents(id);
     wl_surface_commit(info.surface);
@@ -82,7 +86,7 @@ void surface::deallocateSurface(surfaceId winId)
     cpuRendering::deallocateSurfaceToRender(winId);
 
     surfaceData& temp = surfaces[index];
-    // toplevel::deallocateTopLevel(winId);
+    toplevel::deallocateTopLevel(winId);
     layer::deallocateLayer(winId);
     wl_surface_destroy(temp.surface);
 

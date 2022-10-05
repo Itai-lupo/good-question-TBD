@@ -19,6 +19,7 @@ struct surfaceId
 
 enum class surfaceRule
 {
+    layer,
     topLevel,
     popup,
     subsurface

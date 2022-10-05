@@ -31,9 +31,11 @@ class layer
             uint8_t layerDataIndex = -1;
             uint8_t resizeEventIndex = -1;
             uint8_t closeEventIndex = -1;
+            idToSurfaceDataIndexes(): layerDataIndex(-1), resizeEventIndex(-1), closeEventIndex(-1){}
+
         };
         
-        static inline std::vector<idToSurfaceDataIndexes> idToIndex;  
+        static inline std::array<idToSurfaceDataIndexes, 255> idToIndex;  
 
         struct layerSurfaceInfo
         {

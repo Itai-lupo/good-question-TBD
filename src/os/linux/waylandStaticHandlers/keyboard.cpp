@@ -141,7 +141,7 @@ void keyboard::keyListener(uint32_t key)
     prctl(PR_SET_NAME, thradNameA.c_str());
     
     std::this_thread::sleep_for(std::chrono::milliseconds(keyRepeatdelay));
-    while (index != -1 && idToIndex[activeWindow.index].gen == activeWindow.gen && isKeyPressed[keycodeFromScaneCode[key]])
+    while (isKeyPressed[keycodeFromScaneCode[key]] && index != -1 && idToIndex[activeWindow.index].gen == activeWindow.gen )
     {
         xkb_state_key_get_utf8(xkbState, key + 8, buf2, sizeof(buf2));
         std::thread(keyRepeatEventListeners[index], keyData{buf2, keycodeFromScaneCode[key], key}).detach();

@@ -8,5 +8,7 @@ var searchData=
   ['getwindowheight_5',['getWindowHeight',['../d5/d88/classsurface.html#a48100a926232db36409df8d9e2be4973',1,'surface']]],
   ['getwindowsize_6',['getWindowSize',['../d5/d6a/classos_a_p_i.html#a9caf3fe186334a588232d26d1c7de477',1,'osAPI']]],
   ['getwindowtitle_7',['getWindowTitle',['../d2/d36/classlayer.html#aaf93f88098e81d9f9ebc71633480e869',1,'layer::getWindowTitle()'],['../da/d41/classtoplevel.html#a4ffe85ecb0bd2149f22797365748fa40',1,'toplevel::getWindowTitle()'],['../d5/d6a/classos_a_p_i.html#a2a07fd40f7bdad0a1a2dc511e71a1758',1,'osAPI::getWindowTitle()']]],
-  ['getwindowwidth_8',['getWindowWidth',['../d5/d88/classsurface.html#aeef37731dfb9cd22ec6f1f7ad8175cec',1,'surface']]]
+  ['getwindowwidth_8',['getWindowWidth',['../d5/d88/classsurface.html#aeef37731dfb9cd22ec6f1f7ad8175cec',1,'surface']]],
+  ['glcheckerror_9',['GLCheckError',['../d3/d01/classopengl_context.html#a7ffb34d987e73f4bbfe155836546abb8',1,'openglContext']]],
+  ['glclearerrors_10',['GLClearErrors',['../d3/d01/classopengl_context.html#a268ecf605b7ab251926bc61e1b21c8b7',1,'openglContext']]]
 ];

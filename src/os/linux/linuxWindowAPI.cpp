@@ -8,6 +8,7 @@
 #include "toplevel.hpp"
 #include "subsurface.hpp"
 #include "layer.hpp"
+#include "openGLRendering.hpp"
 
 #include <sstream>
 #include <utility>
@@ -69,6 +70,7 @@ void linuxWindowAPI::windowEventListener()
     std::string thradNameA = "Event listener";
     prctl(PR_SET_NAME, thradNameA.c_str());
     
+    openGLRendering::init();
     while (wl_display_dispatch(display)) {}
 }
 
@@ -88,7 +90,7 @@ void linuxWindowAPI::init()
 
     CONDTION_LOG_FATAL("can't find compositor", surface::compositor == NULL);
     CONDTION_LOG_ERROR("can't find decoration manger", toplevel::decorationManger == NULL);
-
+    
     eventListenr = new std::thread(windowEventListener);
 }
 
@@ -97,7 +99,6 @@ windowId linuxWindowAPI::createWindow(const windowSpec& windowToCreate)
     windowId id;
     if(!freeSlots.empty())
     {
-        LOG_INFO("slot " << freeSlots.front() << " slot gen " << idToIndex[freeSlots.front()].gen)
         id = {
             .gen = idToIndex[freeSlots.front()].gen,
             .index = (uint8_t)freeSlots.front()
@@ -106,7 +107,6 @@ windowId linuxWindowAPI::createWindow(const windowSpec& windowToCreate)
     }
     else if(hightestId < idToIndex.size()) 
     {
-        LOG_INFO("slot " << hightestId << " slot gen " << idToIndex[hightestId].gen)
         id = {
             .gen = idToIndex[hightestId].gen,
             .index = (uint8_t)hightestId

@@ -23,7 +23,7 @@ void cpuRendering::renderWindow(surfaceId win)
     if(idToIndex[win.index].gen != win.gen || index == -1)
         return;
 
-    std::string thradNameA = "render " + layer::getWindowTitle(win);
+    std::string thradNameA = "render " + toplevel::getWindowTitle(win);
     prctl(PR_SET_NAME, thradNameA.c_str());
     
     std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
@@ -101,7 +101,7 @@ void cpuRendering::wlSurfaceFrameDone(void *data, wl_callback *cb, uint32_t time
     wl_surface_attach(surface::getSurface(id), buffer, 0, 0);
     wl_surface_damage_buffer(surface::getSurface(id), 0, 0, surface::getWindowWidth(id), surface::getWindowHeight(id));
     wl_surface_commit(surface::getSurface(id));
-    FrameMarkNamed( layer::getWindowTitle(id).c_str());
+    FrameMarkNamed( toplevel::getWindowTitle(id).c_str());
 
 }
 

@@ -125,8 +125,8 @@ Static Public Member Functions</h2></td></tr>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:abf843dd5f8993617c2c0c8c485be4ece"><td class="memItemLeft" align="right" valign="top">static zwlr_layer_shell_v1 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d36/classlayer.html#abf843dd5f8993617c2c0c8c485be4ece">wlrLayerShell</a></td></tr>
 <tr class="separator:abf843dd5f8993617c2c0c8c485be4ece"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae4213e6caa67368ab4b04bf871619de"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; <a class="el" href="../../d9/d3e/structlayer_1_1id_to_surface_data_indexes.html">idToSurfaceDataIndexes</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d36/classlayer.html#aae4213e6caa67368ab4b04bf871619de">idToIndex</a></td></tr>
-<tr class="separator:aae4213e6caa67368ab4b04bf871619de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a7edb23d19795cb37ae7d83266f4d9f"><td class="memItemLeft" align="right" valign="top">static std::array&lt; <a class="el" href="../../d9/d3e/structlayer_1_1id_to_surface_data_indexes.html">idToSurfaceDataIndexes</a>, 255 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d36/classlayer.html#a9a7edb23d19795cb37ae7d83266f4d9f">idToIndex</a></td></tr>
+<tr class="separator:a9a7edb23d19795cb37ae7d83266f4d9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa99614f1922b2373a10f9e93ddcc5fcc"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; <a class="el" href="../../d4/ddf/structlayer_1_1layer_surface_info.html">layerSurfaceInfo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d36/classlayer.html#aa99614f1922b2373a10f9e93ddcc5fcc">layerSurfaces</a></td></tr>
 <tr class="separator:aa99614f1922b2373a10f9e93ddcc5fcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5541921a322a8337be4a9eff01a397d1"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::function&lt; void()&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d36/classlayer.html#a5541921a322a8337be4a9eff01a397d1">closeEventListeners</a></td></tr>
@@ -188,18 +188,17 @@ Static Public Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  159</span>    zwlr_layer_surface_v1_add_listener(info.layerSurface, &amp;layerSurfaceListener, <span class="keyword">new</span> <a class="code hl_struct" href="../../d1/db5/structsurface_id.html">surfaceId</a>(<span class="keywordtype">id</span>));</div>
 <div class="line"><span class="lineno">  160</span>    </div>
 <div class="line"><span class="lineno">  161</span>    </div>
-<div class="line"><span class="lineno">  162</span>    <a class="code hl_variable" href="../../d2/d36/classlayer.html#aae4213e6caa67368ab4b04bf871619de">idToIndex</a>.push_back({0});</div>
-<div class="line"><span class="lineno">  163</span>    <a class="code hl_variable" href="../../d2/d36/classlayer.html#aae4213e6caa67368ab4b04bf871619de">idToIndex</a>[<span class="keywordtype">id</span>.index].gen = <span class="keywordtype">id</span>.gen;</div>
-<div class="line"><span class="lineno">  164</span>    <a class="code hl_variable" href="../../d2/d36/classlayer.html#aae4213e6caa67368ab4b04bf871619de">idToIndex</a>[<span class="keywordtype">id</span>.index].layerDataIndex = <a class="code hl_variable" href="../../d2/d36/classlayer.html#aa99614f1922b2373a10f9e93ddcc5fcc">layerSurfaces</a>.size();</div>
-<div class="line"><span class="lineno">  165</span>    <a class="code hl_variable" href="../../d2/d36/classlayer.html#aa99614f1922b2373a10f9e93ddcc5fcc">layerSurfaces</a>.push_back(info);</div>
-<div class="line"><span class="lineno">  166</span>}</div>
-<div class="ttc" id="aclasslayer_html_aa99614f1922b2373a10f9e93ddcc5fcc"><div class="ttname"><a href="../../d2/d36/classlayer.html#aa99614f1922b2373a10f9e93ddcc5fcc">layer::layerSurfaces</a></div><div class="ttdeci">static std::vector&lt; layerSurfaceInfo &gt; layerSurfaces</div><div class="ttdef"><b>Definition:</b> layer.hpp:48</div></div>
-<div class="ttc" id="aclasslayer_html_aae4213e6caa67368ab4b04bf871619de"><div class="ttname"><a href="../../d2/d36/classlayer.html#aae4213e6caa67368ab4b04bf871619de">layer::idToIndex</a></div><div class="ttdeci">static std::vector&lt; idToSurfaceDataIndexes &gt; idToIndex</div><div class="ttdef"><b>Definition:</b> layer.hpp:36</div></div>
+<div class="line"><span class="lineno">  162</span>    <a class="code hl_variable" href="../../d2/d36/classlayer.html#a9a7edb23d19795cb37ae7d83266f4d9f">idToIndex</a>[<span class="keywordtype">id</span>.index].gen = <span class="keywordtype">id</span>.gen;</div>
+<div class="line"><span class="lineno">  163</span>    <a class="code hl_variable" href="../../d2/d36/classlayer.html#a9a7edb23d19795cb37ae7d83266f4d9f">idToIndex</a>[<span class="keywordtype">id</span>.index].layerDataIndex = <a class="code hl_variable" href="../../d2/d36/classlayer.html#aa99614f1922b2373a10f9e93ddcc5fcc">layerSurfaces</a>.size();</div>
+<div class="line"><span class="lineno">  164</span>    <a class="code hl_variable" href="../../d2/d36/classlayer.html#aa99614f1922b2373a10f9e93ddcc5fcc">layerSurfaces</a>.push_back(info);</div>
+<div class="line"><span class="lineno">  165</span>}</div>
+<div class="ttc" id="aclasslayer_html_a9a7edb23d19795cb37ae7d83266f4d9f"><div class="ttname"><a href="../../d2/d36/classlayer.html#a9a7edb23d19795cb37ae7d83266f4d9f">layer::idToIndex</a></div><div class="ttdeci">static std::array&lt; idToSurfaceDataIndexes, 255 &gt; idToIndex</div><div class="ttdef"><b>Definition:</b> layer.hpp:38</div></div>
+<div class="ttc" id="aclasslayer_html_aa99614f1922b2373a10f9e93ddcc5fcc"><div class="ttname"><a href="../../d2/d36/classlayer.html#aa99614f1922b2373a10f9e93ddcc5fcc">layer::layerSurfaces</a></div><div class="ttdeci">static std::vector&lt; layerSurfaceInfo &gt; layerSurfaces</div><div class="ttdef"><b>Definition:</b> layer.hpp:50</div></div>
 <div class="ttc" id="aclasslayer_html_abf843dd5f8993617c2c0c8c485be4ece"><div class="ttname"><a href="../../d2/d36/classlayer.html#abf843dd5f8993617c2c0c8c485be4ece">layer::wlrLayerShell</a></div><div class="ttdeci">static zwlr_layer_shell_v1 * wlrLayerShell</div><div class="ttdef"><b>Definition:</b> layer.hpp:26</div></div>
 <div class="ttc" id="astructsurface_id_html"><div class="ttname"><a href="../../d1/db5/structsurface_id.html">surfaceId</a></div><div class="ttdef"><b>Definition:</b> surface.hpp:15</div></div>
-<div class="ttc" id="astructsurface_spec_html_a8caa2e04670db0c1eb92fb06a631ad59"><div class="ttname"><a href="../../d0/d01/structsurface_spec.html#a8caa2e04670db0c1eb92fb06a631ad59">surfaceSpec::height</a></div><div class="ttdeci">int height</div><div class="ttdef"><b>Definition:</b> surface.hpp:30</div></div>
-<div class="ttc" id="astructsurface_spec_html_acc36bf254b5dcf0b4dcf74ab678d1727"><div class="ttname"><a href="../../d0/d01/structsurface_spec.html#acc36bf254b5dcf0b4dcf74ab678d1727">surfaceSpec::title</a></div><div class="ttdeci">std::string title</div><div class="ttdef"><b>Definition:</b> surface.hpp:33</div></div>
-<div class="ttc" id="astructsurface_spec_html_ad8c977eca9fe6456518c520d542cb6fc"><div class="ttname"><a href="../../d0/d01/structsurface_spec.html#ad8c977eca9fe6456518c520d542cb6fc">surfaceSpec::width</a></div><div class="ttdeci">int width</div><div class="ttdef"><b>Definition:</b> surface.hpp:30</div></div>
+<div class="ttc" id="astructsurface_spec_html_a8caa2e04670db0c1eb92fb06a631ad59"><div class="ttname"><a href="../../d0/d01/structsurface_spec.html#a8caa2e04670db0c1eb92fb06a631ad59">surfaceSpec::height</a></div><div class="ttdeci">int height</div><div class="ttdef"><b>Definition:</b> surface.hpp:31</div></div>
+<div class="ttc" id="astructsurface_spec_html_acc36bf254b5dcf0b4dcf74ab678d1727"><div class="ttname"><a href="../../d0/d01/structsurface_spec.html#acc36bf254b5dcf0b4dcf74ab678d1727">surfaceSpec::title</a></div><div class="ttdeci">std::string title</div><div class="ttdef"><b>Definition:</b> surface.hpp:34</div></div>
+<div class="ttc" id="astructsurface_spec_html_ad8c977eca9fe6456518c520d542cb6fc"><div class="ttname"><a href="../../d0/d01/structsurface_spec.html#ad8c977eca9fe6456518c520d542cb6fc">surfaceSpec::width</a></div><div class="ttdeci">int width</div><div class="ttdef"><b>Definition:</b> surface.hpp:31</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -226,18 +225,18 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  169</span>{</div>
-<div class="line"><span class="lineno">  170</span>    uint8_t index = <a class="code hl_variable" href="../../d2/d36/classlayer.html#aae4213e6caa67368ab4b04bf871619de">idToIndex</a>[winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a1e5009a26dfcc3b82706d2f35d4b7405">index</a>].layerDataIndex;</div>
-<div class="line"><span class="lineno">  171</span>    <span class="keywordflow">if</span>(<a class="code hl_variable" href="../../d2/d36/classlayer.html#aae4213e6caa67368ab4b04bf871619de">idToIndex</a>[winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a1e5009a26dfcc3b82706d2f35d4b7405">index</a>].gen != winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a0271a9d1e6449618d1803df72307cbef">gen</a> || index == (uint8_t)-1)</div>
-<div class="line"><span class="lineno">  172</span>        <span class="keywordflow">return</span>;</div>
+<div class="fragment"><div class="line"><span class="lineno">  168</span>{</div>
+<div class="line"><span class="lineno">  169</span>    uint8_t index = <a class="code hl_variable" href="../../d2/d36/classlayer.html#a9a7edb23d19795cb37ae7d83266f4d9f">idToIndex</a>[winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a1e5009a26dfcc3b82706d2f35d4b7405">index</a>].layerDataIndex;</div>
+<div class="line"><span class="lineno">  170</span>    <span class="keywordflow">if</span>(<a class="code hl_variable" href="../../d2/d36/classlayer.html#a9a7edb23d19795cb37ae7d83266f4d9f">idToIndex</a>[winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a1e5009a26dfcc3b82706d2f35d4b7405">index</a>].gen != winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a0271a9d1e6449618d1803df72307cbef">gen</a> || index == (uint8_t)-1)</div>
+<div class="line"><span class="lineno">  171</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  172</span> </div>
 <div class="line"><span class="lineno">  173</span> </div>
-<div class="line"><span class="lineno">  174</span> </div>
-<div class="line"><span class="lineno">  175</span>    layerSurfaceInfo&amp; temp = <a class="code hl_variable" href="../../d2/d36/classlayer.html#aa99614f1922b2373a10f9e93ddcc5fcc">layerSurfaces</a>[index];</div>
-<div class="line"><span class="lineno">  176</span>    zwlr_layer_surface_v1_destroy(temp.layerSurface);</div>
-<div class="line"><span class="lineno">  177</span> </div>
-<div class="line"><span class="lineno">  178</span>    <a class="code hl_function" href="../../d2/d36/classlayer.html#ad62bbcceba3450aafad719665daf56eb">unsetCloseEventListener</a>(winId);</div>
-<div class="line"><span class="lineno">  179</span>    <a class="code hl_function" href="../../d2/d36/classlayer.html#aec074db011cf570c12e8477db967f6e9">unsetResizeEventListener</a>(winId);</div>
-<div class="line"><span class="lineno">  180</span>}</div>
+<div class="line"><span class="lineno">  174</span>    layerSurfaceInfo&amp; temp = <a class="code hl_variable" href="../../d2/d36/classlayer.html#aa99614f1922b2373a10f9e93ddcc5fcc">layerSurfaces</a>[index];</div>
+<div class="line"><span class="lineno">  175</span>    zwlr_layer_surface_v1_destroy(temp.layerSurface);</div>
+<div class="line"><span class="lineno">  176</span> </div>
+<div class="line"><span class="lineno">  177</span>    <a class="code hl_function" href="../../d2/d36/classlayer.html#ad62bbcceba3450aafad719665daf56eb">unsetCloseEventListener</a>(winId);</div>
+<div class="line"><span class="lineno">  178</span>    <a class="code hl_function" href="../../d2/d36/classlayer.html#aec074db011cf570c12e8477db967f6e9">unsetResizeEventListener</a>(winId);</div>
+<div class="line"><span class="lineno">  179</span>}</div>
 <div class="ttc" id="aclasslayer_html_ad62bbcceba3450aafad719665daf56eb"><div class="ttname"><a href="../../d2/d36/classlayer.html#ad62bbcceba3450aafad719665daf56eb">layer::unsetCloseEventListener</a></div><div class="ttdeci">static void unsetCloseEventListener(surfaceId winId)</div><div class="ttdef"><b>Definition:</b> layer.cpp:100</div></div>
 <div class="ttc" id="aclasslayer_html_aec074db011cf570c12e8477db967f6e9"><div class="ttname"><a href="../../d2/d36/classlayer.html#aec074db011cf570c12e8477db967f6e9">layer::unsetResizeEventListener</a></div><div class="ttdeci">static void unsetResizeEventListener(surfaceId winId)</div><div class="ttdef"><b>Definition:</b> layer.cpp:117</div></div>
 <div class="ttc" id="astructsurface_id_html_a0271a9d1e6449618d1803df72307cbef"><div class="ttname"><a href="../../d1/db5/structsurface_id.html#a0271a9d1e6449618d1803df72307cbef">surfaceId::gen</a></div><div class="ttdeci">uint16_t gen</div><div class="ttdef"><b>Definition:</b> surface.hpp:16</div></div>
@@ -279,8 +278,8 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 <div class="fragment"><div class="line"><span class="lineno">  144</span>{</div>
-<div class="line"><span class="lineno">  145</span>    <span class="keywordflow">if</span>(<a class="code hl_variable" href="../../d2/d36/classlayer.html#aae4213e6caa67368ab4b04bf871619de">idToIndex</a>[<span class="keywordtype">id</span>.index].layerDataIndex != (uint8_t)-1 &amp;&amp; <span class="keywordtype">id</span>.gen == <a class="code hl_variable" href="../../d2/d36/classlayer.html#aae4213e6caa67368ab4b04bf871619de">idToIndex</a>[<span class="keywordtype">id</span>.index].gen)</div>
-<div class="line"><span class="lineno">  146</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d2/d36/classlayer.html#aa99614f1922b2373a10f9e93ddcc5fcc">layerSurfaces</a>[<a class="code hl_variable" href="../../d2/d36/classlayer.html#aae4213e6caa67368ab4b04bf871619de">idToIndex</a>[<span class="keywordtype">id</span>.index].layerDataIndex].title;</div>
+<div class="line"><span class="lineno">  145</span>    <span class="keywordflow">if</span>(<a class="code hl_variable" href="../../d2/d36/classlayer.html#a9a7edb23d19795cb37ae7d83266f4d9f">idToIndex</a>[<span class="keywordtype">id</span>.index].layerDataIndex != (uint8_t)-1 &amp;&amp; <span class="keywordtype">id</span>.gen == <a class="code hl_variable" href="../../d2/d36/classlayer.html#a9a7edb23d19795cb37ae7d83266f4d9f">idToIndex</a>[<span class="keywordtype">id</span>.index].gen)</div>
+<div class="line"><span class="lineno">  146</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d2/d36/classlayer.html#aa99614f1922b2373a10f9e93ddcc5fcc">layerSurfaces</a>[<a class="code hl_variable" href="../../d2/d36/classlayer.html#a9a7edb23d19795cb37ae7d83266f4d9f">idToIndex</a>[<span class="keywordtype">id</span>.index].layerDataIndex].title;</div>
 <div class="line"><span class="lineno">  147</span> </div>
 <div class="line"><span class="lineno">  148</span>    <span class="keywordflow">return</span> <span class="stringliteral">&quot;error window with id: &quot;</span> + std::to_string((<span class="keywordtype">id</span>.gen &lt;&lt; 8) + <span class="keywordtype">id</span>.index) + <span class="stringliteral">&quot; was&#39;nt found&quot;</span>;</div>
 <div class="line"><span class="lineno">  149</span>}</div>
@@ -321,8 +320,8 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 <div class="fragment"><div class="line"><span class="lineno">   63</span>{</div>
-<div class="line"><span class="lineno">   64</span>    uint32_t index = <a class="code hl_variable" href="../../d2/d36/classlayer.html#aae4213e6caa67368ab4b04bf871619de">idToIndex</a>[winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a1e5009a26dfcc3b82706d2f35d4b7405">index</a>].closeEventIndex;</div>
-<div class="line"><span class="lineno">   65</span>    <span class="keywordflow">if</span>(<a class="code hl_variable" href="../../d2/d36/classlayer.html#aae4213e6caa67368ab4b04bf871619de">idToIndex</a>[winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a1e5009a26dfcc3b82706d2f35d4b7405">index</a>].gen != winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a0271a9d1e6449618d1803df72307cbef">gen</a>)</div>
+<div class="line"><span class="lineno">   64</span>    uint32_t index = <a class="code hl_variable" href="../../d2/d36/classlayer.html#a9a7edb23d19795cb37ae7d83266f4d9f">idToIndex</a>[winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a1e5009a26dfcc3b82706d2f35d4b7405">index</a>].closeEventIndex;</div>
+<div class="line"><span class="lineno">   65</span>    <span class="keywordflow">if</span>(<a class="code hl_variable" href="../../d2/d36/classlayer.html#a9a7edb23d19795cb37ae7d83266f4d9f">idToIndex</a>[winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a1e5009a26dfcc3b82706d2f35d4b7405">index</a>].gen != winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a0271a9d1e6449618d1803df72307cbef">gen</a>)</div>
 <div class="line"><span class="lineno">   66</span>        <span class="keywordflow">return</span>;</div>
 <div class="line"><span class="lineno">   67</span> </div>
 <div class="line"><span class="lineno">   68</span>    <span class="keywordflow">if</span>(index != (uint8_t)-1)</div>
@@ -332,12 +331,12 @@ Here is the call graph for this function:</div>
 <div class="line"><span class="lineno">   72</span>        <span class="keywordflow">return</span>;</div>
 <div class="line"><span class="lineno">   73</span>    }</div>
 <div class="line"><span class="lineno">   74</span> </div>
-<div class="line"><span class="lineno">   75</span>    <a class="code hl_variable" href="../../d2/d36/classlayer.html#aae4213e6caa67368ab4b04bf871619de">idToIndex</a>[winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a1e5009a26dfcc3b82706d2f35d4b7405">index</a>].closeEventIndex = <a class="code hl_variable" href="../../d2/d36/classlayer.html#a5541921a322a8337be4a9eff01a397d1">closeEventListeners</a>.size();</div>
+<div class="line"><span class="lineno">   75</span>    <a class="code hl_variable" href="../../d2/d36/classlayer.html#a9a7edb23d19795cb37ae7d83266f4d9f">idToIndex</a>[winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a1e5009a26dfcc3b82706d2f35d4b7405">index</a>].closeEventIndex = <a class="code hl_variable" href="../../d2/d36/classlayer.html#a5541921a322a8337be4a9eff01a397d1">closeEventListeners</a>.size();</div>
 <div class="line"><span class="lineno">   76</span>    <a class="code hl_variable" href="../../d2/d36/classlayer.html#a5541921a322a8337be4a9eff01a397d1">closeEventListeners</a>.push_back(callback);</div>
 <div class="line"><span class="lineno">   77</span>    <a class="code hl_variable" href="../../d2/d36/classlayer.html#ab7674b99474721f9d5f5d8a4f594657e">closeEventId</a>.push_back(winId);</div>
 <div class="line"><span class="lineno">   78</span>}</div>
-<div class="ttc" id="aclasslayer_html_a5541921a322a8337be4a9eff01a397d1"><div class="ttname"><a href="../../d2/d36/classlayer.html#a5541921a322a8337be4a9eff01a397d1">layer::closeEventListeners</a></div><div class="ttdeci">static std::vector&lt; std::function&lt; void()&gt; &gt; closeEventListeners</div><div class="ttdef"><b>Definition:</b> layer.hpp:49</div></div>
-<div class="ttc" id="aclasslayer_html_ab7674b99474721f9d5f5d8a4f594657e"><div class="ttname"><a href="../../d2/d36/classlayer.html#ab7674b99474721f9d5f5d8a4f594657e">layer::closeEventId</a></div><div class="ttdeci">static std::vector&lt; surfaceId &gt; closeEventId</div><div class="ttdef"><b>Definition:</b> layer.hpp:50</div></div>
+<div class="ttc" id="aclasslayer_html_a5541921a322a8337be4a9eff01a397d1"><div class="ttname"><a href="../../d2/d36/classlayer.html#a5541921a322a8337be4a9eff01a397d1">layer::closeEventListeners</a></div><div class="ttdeci">static std::vector&lt; std::function&lt; void()&gt; &gt; closeEventListeners</div><div class="ttdef"><b>Definition:</b> layer.hpp:51</div></div>
+<div class="ttc" id="aclasslayer_html_ab7674b99474721f9d5f5d8a4f594657e"><div class="ttname"><a href="../../d2/d36/classlayer.html#ab7674b99474721f9d5f5d8a4f594657e">layer::closeEventId</a></div><div class="ttdeci">static std::vector&lt; surfaceId &gt; closeEventId</div><div class="ttdef"><b>Definition:</b> layer.hpp:52</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -375,8 +374,8 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 <div class="fragment"><div class="line"><span class="lineno">   81</span>{</div>
-<div class="line"><span class="lineno">   82</span>    uint32_t index = <a class="code hl_variable" href="../../d2/d36/classlayer.html#aae4213e6caa67368ab4b04bf871619de">idToIndex</a>[winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a1e5009a26dfcc3b82706d2f35d4b7405">index</a>].resizeEventIndex;</div>
-<div class="line"><span class="lineno">   83</span>    <span class="keywordflow">if</span>(<a class="code hl_variable" href="../../d2/d36/classlayer.html#aae4213e6caa67368ab4b04bf871619de">idToIndex</a>[winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a1e5009a26dfcc3b82706d2f35d4b7405">index</a>].gen != winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a0271a9d1e6449618d1803df72307cbef">gen</a>)</div>
+<div class="line"><span class="lineno">   82</span>    uint32_t index = <a class="code hl_variable" href="../../d2/d36/classlayer.html#a9a7edb23d19795cb37ae7d83266f4d9f">idToIndex</a>[winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a1e5009a26dfcc3b82706d2f35d4b7405">index</a>].resizeEventIndex;</div>
+<div class="line"><span class="lineno">   83</span>    <span class="keywordflow">if</span>(<a class="code hl_variable" href="../../d2/d36/classlayer.html#a9a7edb23d19795cb37ae7d83266f4d9f">idToIndex</a>[winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a1e5009a26dfcc3b82706d2f35d4b7405">index</a>].gen != winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a0271a9d1e6449618d1803df72307cbef">gen</a>)</div>
 <div class="line"><span class="lineno">   84</span>        <span class="keywordflow">return</span>;</div>
 <div class="line"><span class="lineno">   85</span> </div>
 <div class="line"><span class="lineno">   86</span>    <span class="keywordflow">if</span>(index != (uint8_t)-1)</div>
@@ -386,12 +385,12 @@ Here is the call graph for this function:</div>
 <div class="line"><span class="lineno">   90</span>        <span class="keywordflow">return</span>;</div>
 <div class="line"><span class="lineno">   91</span>    }</div>
 <div class="line"><span class="lineno">   92</span> </div>
-<div class="line"><span class="lineno">   93</span>    <a class="code hl_variable" href="../../d2/d36/classlayer.html#aae4213e6caa67368ab4b04bf871619de">idToIndex</a>[winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a1e5009a26dfcc3b82706d2f35d4b7405">index</a>].resizeEventIndex = <a class="code hl_variable" href="../../d2/d36/classlayer.html#a4ad5c88f0d7043d92fab460cc22e485c">resizeEventListeners</a>.size();</div>
+<div class="line"><span class="lineno">   93</span>    <a class="code hl_variable" href="../../d2/d36/classlayer.html#a9a7edb23d19795cb37ae7d83266f4d9f">idToIndex</a>[winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a1e5009a26dfcc3b82706d2f35d4b7405">index</a>].resizeEventIndex = <a class="code hl_variable" href="../../d2/d36/classlayer.html#a4ad5c88f0d7043d92fab460cc22e485c">resizeEventListeners</a>.size();</div>
 <div class="line"><span class="lineno">   94</span>    <a class="code hl_variable" href="../../d2/d36/classlayer.html#a4ad5c88f0d7043d92fab460cc22e485c">resizeEventListeners</a>.push_back(callback);</div>
 <div class="line"><span class="lineno">   95</span>    <a class="code hl_variable" href="../../d2/d36/classlayer.html#a948cef828bc4103e72f1e5f0d92872e2">resizeEventId</a>.push_back(winId);</div>
 <div class="line"><span class="lineno">   96</span>}</div>
-<div class="ttc" id="aclasslayer_html_a4ad5c88f0d7043d92fab460cc22e485c"><div class="ttname"><a href="../../d2/d36/classlayer.html#a4ad5c88f0d7043d92fab460cc22e485c">layer::resizeEventListeners</a></div><div class="ttdeci">static std::vector&lt; std::function&lt; void(const windowResizeData &amp;)&gt; &gt; resizeEventListeners</div><div class="ttdef"><b>Definition:</b> layer.hpp:52</div></div>
-<div class="ttc" id="aclasslayer_html_a948cef828bc4103e72f1e5f0d92872e2"><div class="ttname"><a href="../../d2/d36/classlayer.html#a948cef828bc4103e72f1e5f0d92872e2">layer::resizeEventId</a></div><div class="ttdeci">static std::vector&lt; surfaceId &gt; resizeEventId</div><div class="ttdef"><b>Definition:</b> layer.hpp:53</div></div>
+<div class="ttc" id="aclasslayer_html_a4ad5c88f0d7043d92fab460cc22e485c"><div class="ttname"><a href="../../d2/d36/classlayer.html#a4ad5c88f0d7043d92fab460cc22e485c">layer::resizeEventListeners</a></div><div class="ttdeci">static std::vector&lt; std::function&lt; void(const windowResizeData &amp;)&gt; &gt; resizeEventListeners</div><div class="ttdef"><b>Definition:</b> layer.hpp:54</div></div>
+<div class="ttc" id="aclasslayer_html_a948cef828bc4103e72f1e5f0d92872e2"><div class="ttname"><a href="../../d2/d36/classlayer.html#a948cef828bc4103e72f1e5f0d92872e2">layer::resizeEventId</a></div><div class="ttdeci">static std::vector&lt; surfaceId &gt; resizeEventId</div><div class="ttdef"><b>Definition:</b> layer.hpp:55</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -429,9 +428,9 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 <div class="fragment"><div class="line"><span class="lineno">  135</span>{</div>
-<div class="line"><span class="lineno">  136</span>    <span class="keywordflow">if</span>(<a class="code hl_variable" href="../../d2/d36/classlayer.html#aae4213e6caa67368ab4b04bf871619de">idToIndex</a>[<span class="keywordtype">id</span>.index].layerDataIndex != (uint8_t)-1 &amp;&amp; <span class="keywordtype">id</span>.gen == <a class="code hl_variable" href="../../d2/d36/classlayer.html#aae4213e6caa67368ab4b04bf871619de">idToIndex</a>[<span class="keywordtype">id</span>.index].gen){</div>
+<div class="line"><span class="lineno">  136</span>    <span class="keywordflow">if</span>(<a class="code hl_variable" href="../../d2/d36/classlayer.html#a9a7edb23d19795cb37ae7d83266f4d9f">idToIndex</a>[<span class="keywordtype">id</span>.index].layerDataIndex != (uint8_t)-1 &amp;&amp; <span class="keywordtype">id</span>.gen == <a class="code hl_variable" href="../../d2/d36/classlayer.html#a9a7edb23d19795cb37ae7d83266f4d9f">idToIndex</a>[<span class="keywordtype">id</span>.index].gen){</div>
 <div class="line"><span class="lineno">  137</span>        <span class="comment">// xdg_toplevel_set_title(layerSurfaces[idToIndex[id.index].layerDataIndex].layerSurface, layerSurfaces[idToIndex[id.index].layerDataIndex].title.c_str());</span></div>
-<div class="line"><span class="lineno">  138</span>        <a class="code hl_variable" href="../../d2/d36/classlayer.html#aa99614f1922b2373a10f9e93ddcc5fcc">layerSurfaces</a>[<a class="code hl_variable" href="../../d2/d36/classlayer.html#aae4213e6caa67368ab4b04bf871619de">idToIndex</a>[<span class="keywordtype">id</span>.index].layerDataIndex].title = title;</div>
+<div class="line"><span class="lineno">  138</span>        <a class="code hl_variable" href="../../d2/d36/classlayer.html#aa99614f1922b2373a10f9e93ddcc5fcc">layerSurfaces</a>[<a class="code hl_variable" href="../../d2/d36/classlayer.html#a9a7edb23d19795cb37ae7d83266f4d9f">idToIndex</a>[<span class="keywordtype">id</span>.index].layerDataIndex].title = title;</div>
 <div class="line"><span class="lineno">  139</span>    }</div>
 <div class="line"><span class="lineno">  140</span>}</div>
 </div><!-- fragment -->
@@ -461,19 +460,19 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 <div class="fragment"><div class="line"><span class="lineno">  101</span>{</div>
-<div class="line"><span class="lineno">  102</span>    uint32_t index = <a class="code hl_variable" href="../../d2/d36/classlayer.html#aae4213e6caa67368ab4b04bf871619de">idToIndex</a>[winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a1e5009a26dfcc3b82706d2f35d4b7405">index</a>].closeEventIndex;</div>
-<div class="line"><span class="lineno">  103</span>    <span class="keywordflow">if</span>(<a class="code hl_variable" href="../../d2/d36/classlayer.html#aae4213e6caa67368ab4b04bf871619de">idToIndex</a>[winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a1e5009a26dfcc3b82706d2f35d4b7405">index</a>].gen != winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a0271a9d1e6449618d1803df72307cbef">gen</a> || index == -1)</div>
+<div class="line"><span class="lineno">  102</span>    uint32_t index = <a class="code hl_variable" href="../../d2/d36/classlayer.html#a9a7edb23d19795cb37ae7d83266f4d9f">idToIndex</a>[winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a1e5009a26dfcc3b82706d2f35d4b7405">index</a>].closeEventIndex;</div>
+<div class="line"><span class="lineno">  103</span>    <span class="keywordflow">if</span>(<a class="code hl_variable" href="../../d2/d36/classlayer.html#a9a7edb23d19795cb37ae7d83266f4d9f">idToIndex</a>[winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a1e5009a26dfcc3b82706d2f35d4b7405">index</a>].gen != winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a0271a9d1e6449618d1803df72307cbef">gen</a> || index == -1)</div>
 <div class="line"><span class="lineno">  104</span>        <span class="keywordflow">return</span>;</div>
 <div class="line"><span class="lineno">  105</span> </div>
 <div class="line"><span class="lineno">  106</span>    uint32_t lastIndex = <a class="code hl_variable" href="../../d2/d36/classlayer.html#a5541921a322a8337be4a9eff01a397d1">closeEventListeners</a>.size() - 1;</div>
-<div class="line"><span class="lineno">  107</span>    <a class="code hl_variable" href="../../d2/d36/classlayer.html#aae4213e6caa67368ab4b04bf871619de">idToIndex</a>[<a class="code hl_variable" href="../../d2/d36/classlayer.html#ab7674b99474721f9d5f5d8a4f594657e">closeEventId</a>[lastIndex].index].closeEventIndex = index;</div>
+<div class="line"><span class="lineno">  107</span>    <a class="code hl_variable" href="../../d2/d36/classlayer.html#a9a7edb23d19795cb37ae7d83266f4d9f">idToIndex</a>[<a class="code hl_variable" href="../../d2/d36/classlayer.html#ab7674b99474721f9d5f5d8a4f594657e">closeEventId</a>[lastIndex].index].closeEventIndex = index;</div>
 <div class="line"><span class="lineno">  108</span>    <a class="code hl_variable" href="../../d2/d36/classlayer.html#a5541921a322a8337be4a9eff01a397d1">closeEventListeners</a>[index] = <a class="code hl_variable" href="../../d2/d36/classlayer.html#a5541921a322a8337be4a9eff01a397d1">closeEventListeners</a>[lastIndex];</div>
 <div class="line"><span class="lineno">  109</span>    <a class="code hl_variable" href="../../d2/d36/classlayer.html#ab7674b99474721f9d5f5d8a4f594657e">closeEventId</a>[index] = <a class="code hl_variable" href="../../d2/d36/classlayer.html#ab7674b99474721f9d5f5d8a4f594657e">closeEventId</a>[lastIndex];</div>
 <div class="line"><span class="lineno">  110</span> </div>
 <div class="line"><span class="lineno">  111</span>    <a class="code hl_variable" href="../../d2/d36/classlayer.html#a5541921a322a8337be4a9eff01a397d1">closeEventListeners</a>.pop_back();</div>
 <div class="line"><span class="lineno">  112</span>    <a class="code hl_variable" href="../../d2/d36/classlayer.html#ab7674b99474721f9d5f5d8a4f594657e">closeEventId</a>.pop_back();</div>
 <div class="line"><span class="lineno">  113</span> </div>
-<div class="line"><span class="lineno">  114</span>    <a class="code hl_variable" href="../../d2/d36/classlayer.html#aae4213e6caa67368ab4b04bf871619de">idToIndex</a>[winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a1e5009a26dfcc3b82706d2f35d4b7405">index</a>].closeEventIndex = -1;</div>
+<div class="line"><span class="lineno">  114</span>    <a class="code hl_variable" href="../../d2/d36/classlayer.html#a9a7edb23d19795cb37ae7d83266f4d9f">idToIndex</a>[winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a1e5009a26dfcc3b82706d2f35d4b7405">index</a>].closeEventIndex = -1;</div>
 <div class="line"><span class="lineno">  115</span>}  </div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -511,19 +510,19 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 <div class="fragment"><div class="line"><span class="lineno">  118</span>{</div>
-<div class="line"><span class="lineno">  119</span>    uint32_t index = <a class="code hl_variable" href="../../d2/d36/classlayer.html#aae4213e6caa67368ab4b04bf871619de">idToIndex</a>[winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a1e5009a26dfcc3b82706d2f35d4b7405">index</a>].resizeEventIndex;</div>
-<div class="line"><span class="lineno">  120</span>    <span class="keywordflow">if</span>(<a class="code hl_variable" href="../../d2/d36/classlayer.html#aae4213e6caa67368ab4b04bf871619de">idToIndex</a>[winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a1e5009a26dfcc3b82706d2f35d4b7405">index</a>].gen != winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a0271a9d1e6449618d1803df72307cbef">gen</a> || index == -1)</div>
+<div class="line"><span class="lineno">  119</span>    uint32_t index = <a class="code hl_variable" href="../../d2/d36/classlayer.html#a9a7edb23d19795cb37ae7d83266f4d9f">idToIndex</a>[winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a1e5009a26dfcc3b82706d2f35d4b7405">index</a>].resizeEventIndex;</div>
+<div class="line"><span class="lineno">  120</span>    <span class="keywordflow">if</span>(<a class="code hl_variable" href="../../d2/d36/classlayer.html#a9a7edb23d19795cb37ae7d83266f4d9f">idToIndex</a>[winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a1e5009a26dfcc3b82706d2f35d4b7405">index</a>].gen != winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a0271a9d1e6449618d1803df72307cbef">gen</a> || index == -1)</div>
 <div class="line"><span class="lineno">  121</span>        <span class="keywordflow">return</span>;</div>
 <div class="line"><span class="lineno">  122</span> </div>
 <div class="line"><span class="lineno">  123</span>    uint32_t lastIndex = <a class="code hl_variable" href="../../d2/d36/classlayer.html#a4ad5c88f0d7043d92fab460cc22e485c">resizeEventListeners</a>.size() - 1;</div>
-<div class="line"><span class="lineno">  124</span>    <a class="code hl_variable" href="../../d2/d36/classlayer.html#aae4213e6caa67368ab4b04bf871619de">idToIndex</a>[<a class="code hl_variable" href="../../d2/d36/classlayer.html#a948cef828bc4103e72f1e5f0d92872e2">resizeEventId</a>[lastIndex].index].resizeEventIndex = index;</div>
+<div class="line"><span class="lineno">  124</span>    <a class="code hl_variable" href="../../d2/d36/classlayer.html#a9a7edb23d19795cb37ae7d83266f4d9f">idToIndex</a>[<a class="code hl_variable" href="../../d2/d36/classlayer.html#a948cef828bc4103e72f1e5f0d92872e2">resizeEventId</a>[lastIndex].index].resizeEventIndex = index;</div>
 <div class="line"><span class="lineno">  125</span>    <a class="code hl_variable" href="../../d2/d36/classlayer.html#a4ad5c88f0d7043d92fab460cc22e485c">resizeEventListeners</a>[index] = <a class="code hl_variable" href="../../d2/d36/classlayer.html#a4ad5c88f0d7043d92fab460cc22e485c">resizeEventListeners</a>[lastIndex];</div>
 <div class="line"><span class="lineno">  126</span>    <a class="code hl_variable" href="../../d2/d36/classlayer.html#a948cef828bc4103e72f1e5f0d92872e2">resizeEventId</a>[index] = <a class="code hl_variable" href="../../d2/d36/classlayer.html#a948cef828bc4103e72f1e5f0d92872e2">resizeEventId</a>[lastIndex];</div>
 <div class="line"><span class="lineno">  127</span> </div>
 <div class="line"><span class="lineno">  128</span>    <a class="code hl_variable" href="../../d2/d36/classlayer.html#a4ad5c88f0d7043d92fab460cc22e485c">resizeEventListeners</a>.pop_back();</div>
 <div class="line"><span class="lineno">  129</span>    <a class="code hl_variable" href="../../d2/d36/classlayer.html#a948cef828bc4103e72f1e5f0d92872e2">resizeEventId</a>.pop_back();</div>
 <div class="line"><span class="lineno">  130</span> </div>
-<div class="line"><span class="lineno">  131</span>    <a class="code hl_variable" href="../../d2/d36/classlayer.html#aae4213e6caa67368ab4b04bf871619de">idToIndex</a>[winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a1e5009a26dfcc3b82706d2f35d4b7405">index</a>].resizeEventIndex = -1;</div>
+<div class="line"><span class="lineno">  131</span>    <a class="code hl_variable" href="../../d2/d36/classlayer.html#a9a7edb23d19795cb37ae7d83266f4d9f">idToIndex</a>[winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a1e5009a26dfcc3b82706d2f35d4b7405">index</a>].resizeEventIndex = -1;</div>
 <div class="line"><span class="lineno">  132</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -582,8 +581,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="aae4213e6caa67368ab4b04bf871619de" name="aae4213e6caa67368ab4b04bf871619de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aae4213e6caa67368ab4b04bf871619de">&#9670;&nbsp;</a></span>idToIndex</h2>
+<a id="a9a7edb23d19795cb37ae7d83266f4d9f" name="a9a7edb23d19795cb37ae7d83266f4d9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a7edb23d19795cb37ae7d83266f4d9f">&#9670;&nbsp;</a></span>idToIndex</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -592,7 +591,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="../../d9/d3e/structlayer_1_1id_to_surface_data_indexes.html">idToSurfaceDataIndexes</a>&gt; layer::idToIndex</td>
+          <td class="memname">std::array&lt;<a class="el" href="../../d9/d3e/structlayer_1_1id_to_surface_data_indexes.html">idToSurfaceDataIndexes</a>, 255&gt; layer::idToIndex</td>
         </tr>
       </table>
   </td>

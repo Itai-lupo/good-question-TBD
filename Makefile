@@ -36,7 +36,7 @@ CFLAGS ?= -std=c99
 
 CXXFLAGS += $(INC_FLAGS)  -MMD -MP -g -pthread -O0 -ggdb3 -DTRACY_ENABLE
 
-LDFLAGS =  -lstdc++ -lgflags -lglog -lGL -lglfw -lrt -lm -ldl  -lwayland-client -lxkbcommon -lpulse -lEGL -lwayland-egl
+LDFLAGS =  -lstdc++ -lgflags -lglog -lGL -lrt -lm -ldl  -lwayland-client -lxkbcommon -lpulse -lEGL -lwayland-egl
 TEST_LDFLAGS = -lgtest -lgtest_main -lgmock  
 
 

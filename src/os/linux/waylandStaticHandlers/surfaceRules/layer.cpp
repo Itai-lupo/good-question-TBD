@@ -159,7 +159,6 @@ void layer::allocateLayer(surfaceId id, wl_surface *s, const surfaceSpec& surfac
     zwlr_layer_surface_v1_add_listener(info.layerSurface, &layerSurfaceListener, new surfaceId(id));
     
     
-    idToIndex.push_back({0});
     idToIndex[id.index].gen = id.gen;
     idToIndex[id.index].layerDataIndex = layerSurfaces.size();
     layerSurfaces.push_back(info);

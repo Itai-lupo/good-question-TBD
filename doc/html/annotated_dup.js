@@ -9,6 +9,8 @@ var annotated_dup =
     [ "mouseButtonData", "db/de8/structmouse_button_data.html", "db/de8/structmouse_button_data" ],
     [ "mouseMoveData", "d9/d38/structmouse_move_data.html", "d9/d38/structmouse_move_data" ],
     [ "mouseScrollData", "da/d46/structmouse_scroll_data.html", "da/d46/structmouse_scroll_data" ],
+    [ "openglContext", "d3/d01/classopengl_context.html", "d3/d01/classopengl_context" ],
+    [ "openGLRendering", "d5/db4/classopen_g_l_rendering.html", "d5/db4/classopen_g_l_rendering" ],
     [ "osAPI", "d5/d6a/classos_a_p_i.html", "d5/d6a/classos_a_p_i" ],
     [ "pointer", "d4/df3/classpointer.html", "d4/df3/classpointer" ],
     [ "sceneLoader", "d8/deb/classscene_loader.html", "d8/deb/classscene_loader" ],

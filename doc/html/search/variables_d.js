@@ -1,20 +1,16 @@
 var searchData=
 [
-  ['registry_0',['registry',['../d5/d88/classsurface.html#a8dc1934c13bc754ee7b46fce77b4208e',1,'surface::registry()'],['../de/d8e/classlinux_window_a_p_i.html#a787a5b914acdc4c6f53f090dc700eef3',1,'linuxWindowAPI::registry()']]],
-  ['releaseeventindex_1',['releaseEventIndex',['../d6/d9a/structkeyboard_1_1id_tp_key_event_indexes.html#ad2f1ffd6a6799218e4c1294f83610c66',1,'keyboard::idTpKeyEventIndexes']]],
-  ['renderdataindex_2',['renderDataIndex',['../d4/db9/structcpu_rendering_1_1id_to_render_info_event_indexes.html#ac3451fb6a6cf0296bfcddf67d8d092a6',1,'cpuRendering::idToRenderInfoEventIndexes']]],
-  ['rendereventid_3',['renderEventId',['../d7/dc2/classcpu_rendering.html#a4044529605a3fc905f012f4c5a0fb504',1,'cpuRendering']]],
-  ['rendereventindex_4',['renderEventIndex',['../d4/db9/structcpu_rendering_1_1id_to_render_info_event_indexes.html#a5586605cd4807d71773fbb6b8be61d99',1,'cpuRendering::idToRenderInfoEventIndexes']]],
-  ['rendereventlisteners_5',['renderEventListeners',['../d7/dc2/classcpu_rendering.html#a85ff708007cdc36fc895e6f2eb136d24',1,'cpuRendering']]],
-  ['renderfinshed_6',['renderFinshed',['../d2/d65/structcpu_rendering_1_1render_info.html#a9a7385f0b386bd0b07ecc65caed32bf6',1,'cpuRendering::renderInfo']]],
-  ['renderfinshedbool_7',['renderFinshedBool',['../d2/d65/structcpu_rendering_1_1render_info.html#aa5e9a83440c0d7ae5b8a98cdc7298305',1,'cpuRendering::renderInfo']]],
-  ['renderindex_8',['renderIndex',['../db/d92/structlinux_window_a_p_i_1_1id_indexes.html#a38a78c02c64ee1807726efae25bc7b1d',1,'linuxWindowAPI::idIndexes']]],
-  ['rendermutex_9',['renderMutex',['../d2/d65/structcpu_rendering_1_1render_info.html#a1fa0961b230709d6e36c3f8077421138',1,'cpuRendering::renderInfo']]],
-  ['renderthread_10',['renderThread',['../d2/d65/structcpu_rendering_1_1render_info.html#a5dc068aad60d0ac1173a2760a73306b8',1,'cpuRendering::renderInfo']]],
-  ['repeateventindex_11',['repeatEventIndex',['../d6/d9a/structkeyboard_1_1id_tp_key_event_indexes.html#a176843c051be9d960eb5ea3c00f92936',1,'keyboard::idTpKeyEventIndexes']]],
-  ['resizeeventid_12',['resizeEventId',['../d2/d36/classlayer.html#a948cef828bc4103e72f1e5f0d92872e2',1,'layer::resizeEventId()'],['../da/d41/classtoplevel.html#a0726b6b50666c990f9199c47e25e49bb',1,'toplevel::resizeEventId()']]],
-  ['resizeeventindex_13',['resizeEventIndex',['../d9/d3e/structlayer_1_1id_to_surface_data_indexes.html#a044b7053a5b2c9a8146bc54c54eb1790',1,'layer::idToSurfaceDataIndexes::resizeEventIndex()'],['../d0/d6e/structtoplevel_1_1id_to_surface_data_indexes.html#ab076ba5a79ee2bec033d7aa241d1075a',1,'toplevel::idToSurfaceDataIndexes::resizeEventIndex()']]],
-  ['resizeeventlisteners_14',['resizeEventListeners',['../d2/d36/classlayer.html#a4ad5c88f0d7043d92fab460cc22e485c',1,'layer::resizeEventListeners()'],['../da/d41/classtoplevel.html#a47ad002f9b3085b80c98a9c197ea33ad',1,'toplevel::resizeEventListeners()']]],
-  ['rule_15',['rule',['../d0/d01/structsurface_spec.html#a743dc5c118e07dd19bc64c21fe07812d',1,'surfaceSpec::rule()'],['../de/dfc/structsurface_1_1surface_data.html#a16e3f6360d3b9fb15b8e304ef999715d',1,'surface::surfaceData::rule()']]],
-  ['run_16',['run',['../df/d0a/main_8cpp.html#a3e6f76368abfbc8709f4c1346dfa6a20',1,'main.cpp']]]
+  ['parentsurface_0',['parentSurface',['../d0/d01/structsurface_spec.html#a11831adc847a1ab9da09bd273dbf9434',1,'surfaceSpec']]],
+  ['parentwindowid_1',['parentWindowId',['../de/dfc/structsurface_1_1surface_data.html#aa546f5a3ad2c95c730a950e396a7b86b',1,'surface::surfaceData']]],
+  ['pointeraxis_2',['pointerAxis',['../da/dbc/structpointer_1_1input_buffer.html#a732109e4f4d4c350cd027bfad92ba0f9',1,'pointer::inputBuffer']]],
+  ['pointeraxisdiscrete_3',['pointerAxisDiscrete',['../da/dbc/structpointer_1_1input_buffer.html#a6d7e2df414b0cbcbfde7012873bb94d6',1,'pointer::inputBuffer']]],
+  ['pointeraxissource_4',['pointerAxisSource',['../da/dbc/structpointer_1_1input_buffer.html#a6170048a4ae347294000adda01e16c6d',1,'pointer::inputBuffer']]],
+  ['pointeraxisstop_5',['pointerAxisStop',['../da/dbc/structpointer_1_1input_buffer.html#a1b7324e44d6c7bebf47482da176db2c2',1,'pointer::inputBuffer']]],
+  ['pointerbutton_6',['pointerButton',['../da/dbc/structpointer_1_1input_buffer.html#acf002e80c01ae749285a3257f40eed1c',1,'pointer::inputBuffer']]],
+  ['pointerenter_7',['pointerEnter',['../da/dbc/structpointer_1_1input_buffer.html#a786d228c1e4504f23317b33ce76857c2',1,'pointer::inputBuffer']]],
+  ['pointerhandler_8',['pointerHandler',['../d4/df3/classpointer.html#a4a77206ad078089f077ed7bc4348c33e',1,'pointer']]],
+  ['pointerleave_9',['pointerLeave',['../da/dbc/structpointer_1_1input_buffer.html#a6420ba3fe5f227b9d7a59da069a09189',1,'pointer::inputBuffer']]],
+  ['pointermotion_10',['pointerMotion',['../da/dbc/structpointer_1_1input_buffer.html#a3c2c738b4194cbbc4e6db40aaeb38781',1,'pointer::inputBuffer']]],
+  ['pool_11',['pool',['../d2/d65/structcpu_rendering_1_1render_info.html#ac0d75fae5fbd3896cabbd7bb0567ec77',1,'cpuRendering::renderInfo']]],
+  ['presseventindex_12',['pressEventIndex',['../d6/d9a/structkeyboard_1_1id_tp_key_event_indexes.html#aacef9a60aa3b514c6a2f88b644fdd834',1,'keyboard::idTpKeyEventIndexes']]]
 ];

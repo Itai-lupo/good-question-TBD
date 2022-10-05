@@ -11,7 +11,8 @@
                 "${workspaceFolder}/include/**",
                 "${workspaceFolder}/vendor/**",
                 "${workspaceFolder}/vendor/waylandExtensions/",
-                "${workspaceFolder}/submodules/tracy/public/tracy"
+                "${workspaceFolder}/submodules/tracy/public/tracy",
+                "${workspaceFolder}/vendor/glad/include"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/clang",

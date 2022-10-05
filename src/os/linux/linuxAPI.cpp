@@ -82,7 +82,8 @@ void* osAPI::getProcAddress()
 std::string osAPI::getWindowTitle(windowId winId)
 {
     surfaceId id = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[winId.index].index].topLevelSurface;
-    return layer::getWindowTitle(id);
+    toplevel::getWindowTitle(id);return 
+    layer::getWindowTitle(id);
 }
 
 std::pair<uint32_t, uint32_t> osAPI::getWindowSize(windowId winId)
@@ -135,12 +136,14 @@ void osAPI::setMouseScrollListeners(windowId winId, std::function<void(const mou
 void osAPI::setCloseEventeListeners(windowId winId, std::function<void()> callback)
 {
     surfaceId id = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[winId.index].index].topLevelSurface;
+    toplevel::setCloseEventListener(id, callback);
     layer::setCloseEventListener(id, callback);
 }
 
 void osAPI::setResizeEventeListeners(windowId winId, std::function<void(const windowResizeData&)> callback)
 {
     surfaceId id = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[winId.index].index].topLevelSurface;
+    toplevel::setResizeEventListener(id, callback);
     layer::setResizeEventListener(id, callback);
 }
 
@@ -212,12 +215,14 @@ void osAPI::unsetMouseScrollListeners(windowId winId)
 void osAPI::unsetCloseEventeListeners(windowId winId)
 {
     surfaceId id = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[winId.index].index].topLevelSurface;
+    toplevel::unsetCloseEventListener(id);
     layer::unsetCloseEventListener(id);
 }
 
 void osAPI::unsetResizeEventeListeners(windowId winId)
 {
     surfaceId id = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[winId.index].index].topLevelSurface;
+    toplevel::unsetResizeEventListener(id);
     layer::unsetResizeEventListener(id);
 }
 

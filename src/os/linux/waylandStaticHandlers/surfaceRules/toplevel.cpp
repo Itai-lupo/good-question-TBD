@@ -1,6 +1,15 @@
 #include "toplevel.hpp"
 #include "cpuRendering.hpp"
 #include "linuxWindowAPI.hpp"
+#include "openGLRendering.hpp"
+
+#include <glad/gl.h>
+#include <EGL/egl.h>
+
+#include <stb_image.h>
+
+
+
 
 void toplevel::xdgTopLevelConfigure(void *data, xdg_toplevel *xdgToplevel, int32_t width, int32_t height, wl_array *states)
 {
@@ -37,8 +46,12 @@ void toplevel::xdgTopLevelConfigure(void *data, xdg_toplevel *xdgToplevel, int32
     temp.height = height;
     temp.width = width;
     LOG_INFO(width << ", " << height)
+    index = openGLRendering::idToIndex[id.index].renderDataIndex;
+    openGLRendering::renderInfo& tempR = openGLRendering::surfacesToRender[index];
 
-    cpuRendering::reallocateWindowCpuPool(id);
+    wl_egl_window_resize (tempR.eglWindow, width, height, 0, 0);
+
+    // cpuRendering::reallocateWindowCpuPool(id);
 
     index = idToIndex[id.index].resizeEventIndex;
     if(index != (uint8_t)-1)
@@ -65,17 +78,51 @@ void toplevel::xdg_surface_configure(void *data, struct xdg_surface *xdg_surface
 
 
     xdg_surface_ack_configure(xdg_surface, serial);
-    index = cpuRendering::idToIndex[id.index].renderDataIndex;
-    cpuRendering::renderInfo& tempR = cpuRendering::surfacesToRender[index];
+
+    index = openGLRendering::idToIndex[id.index].renderDataIndex;
+    openGLRendering::renderInfo& temp = openGLRendering::surfacesToRender[index];
 
 
-    struct wl_buffer *buffer = cpuRendering::allocateWindowBuffer(id, tempR.bufferToRender);
+    // struct wl_buffer *buffer = cpuRendering::allocateWindowBuffer(id, tempR.bufferToRender);
     
-    int tempBuffer = tempR.bufferToRender;
-    tempR.bufferToRender = tempR.bufferInRender;
-    tempR.bufferInRender = tempBuffer;
+    // int tempBuffer = tempR.bufferToRender;
+    // tempR.bufferToRender = tempR.bufferInRender;
+    // tempR.bufferInRender = tempBuffer;
 
-    wl_surface_attach(surface::getSurface(id), buffer, 0, 0);
+    // wl_surface_attach(surface::getSurface(id), buffer, 0, 0);
+    if(temp.eglWindow == NULL){
+        
+        temp.eglWindow = wl_egl_window_create (surface::getSurface(id), surface::getWindowWidth(id), surface::getWindowHeight(id));
+        temp.eglSurface = eglCreateWindowSurface (openGLRendering::context->eglDisplay, openGLRendering::context->eglConfig, (EGLNativeWindowType)temp.eglWindow, NULL);
+        
+        openGLRendering::context->makeCurrent(temp.eglSurface, temp.eglSurface);
+
+        GL_CALL(openGLRendering::context, PixelStorei(GL_UNPACK_ALIGNMENT, 1));
+        GL_CALL(openGLRendering::context, GenTextures(1, &temp.textureBufferId));  
+        GL_CALL(openGLRendering::context, BindTexture(GL_TEXTURE_2D, temp.textureBufferId));  
+
+    
+        GL_CALL(openGLRendering::context, TexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT));	
+        GL_CALL(openGLRendering::context, TexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT));
+        GL_CALL(openGLRendering::context, TexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR));
+        GL_CALL(openGLRendering::context, TexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR));
+    
+        uint8_t *data = new uint8_t[surface::getWindowWidth(id) * surface::getWindowHeight(id) * 4];
+
+        for (size_t i = 0; i < surface::getWindowWidth(temp.id) * surface::getWindowHeight(temp.id) * 4; i += 4)
+        {
+            data[i + 0] = 0xFF;
+            data[i + 1] = 0x00;
+            data[i + 2] = 0x00;
+            data[i + 3] = 0xFF;
+        }
+
+        GL_CALL(openGLRendering::context, TexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, surface::getWindowWidth(id), surface::getWindowHeight(id) , 0, GL_RGBA, GL_UNSIGNED_BYTE, data));
+        GL_CALL(openGLRendering::context, GenerateMipmap(GL_TEXTURE_2D));
+        GL_CALL(openGLRendering::context, BindTexture(GL_TEXTURE_2D, 0)); 
+    }
+
+    openGLRendering::context->swapBuffers(temp.eglSurface);
     wl_surface_commit(surface::getSurface(id));
 }
 
@@ -121,7 +168,7 @@ void toplevel::setResizeEventListener(surfaceId winId, std::function<void(const 
 
 
 void toplevel::unsetCloseEventListener(surfaceId winId)
-{
+{        
     uint32_t index = idToIndex[winId.index].closeEventIndex;
     if(idToIndex[winId.index].gen != winId.gen || index == -1)
         return;
@@ -138,7 +185,7 @@ void toplevel::unsetCloseEventListener(surfaceId winId)
 }  
 
 void toplevel::unsetResizeEventListener(surfaceId winId)
-{
+{        
     uint32_t index = idToIndex[winId.index].resizeEventIndex;
     if(idToIndex[winId.index].gen != winId.gen || index == -1)
         return;
@@ -155,7 +202,7 @@ void toplevel::unsetResizeEventListener(surfaceId winId)
 }
 
 void toplevel::setWindowTitle(surfaceId id, const std::string& title)
-{
+{        
     if(idToIndex[id.index].toplevelDataIndex != (uint8_t)-1 && id.gen == idToIndex[id.index].gen){
         xdg_toplevel_set_title(topLevelSurfaces[idToIndex[id.index].toplevelDataIndex].xdgToplevel, topLevelSurfaces[idToIndex[id.index].toplevelDataIndex].title.c_str());
         topLevelSurfaces[idToIndex[id.index].toplevelDataIndex].title = title;
@@ -183,13 +230,12 @@ void toplevel::allocateTopLevel(surfaceId id, wl_surface *s, const surfaceSpec& 
     info.xdgToplevel = xdg_surface_get_toplevel(info.xdgSurface);
     xdg_toplevel_add_listener(info.xdgToplevel, &xdgTopLevelListener, new surfaceId(id));
     xdg_toplevel_set_title(info.xdgToplevel, info.title.c_str());
-    
+    xdg_toplevel_set_app_id(info.xdgToplevel, "new tale game engine");
     
     info.topLevelDecoration = zxdg_decoration_manager_v1_get_toplevel_decoration(decorationManger, info.xdgToplevel);
     zxdg_toplevel_decoration_v1_set_mode(info.topLevelDecoration, 2);
     zxdg_toplevel_decoration_v1_add_listener(info.topLevelDecoration, &toplevelDecorationListener, new surfaceId(id));
     
-    idToIndex.push_back({0});
     idToIndex[id.index].gen = id.gen;
     idToIndex[id.index].toplevelDataIndex = topLevelSurfaces.size();
     topLevelSurfaces.push_back(info);

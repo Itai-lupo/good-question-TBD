@@ -42,12 +42,13 @@ class toplevel
         struct idToSurfaceDataIndexes
         {
             uint8_t gen;
-            uint8_t toplevelDataIndex = -1;
-            uint8_t resizeEventIndex = -1;
-            uint8_t closeEventIndex = -1;
+            uint8_t toplevelDataIndex;
+            uint8_t resizeEventIndex;
+            uint8_t closeEventIndex;
+            idToSurfaceDataIndexes(): toplevelDataIndex(-1), resizeEventIndex(-1), closeEventIndex(-1){}
         };
         
-        static inline std::vector<idToSurfaceDataIndexes> idToIndex;  
+        static inline std::array<idToSurfaceDataIndexes, 255> idToIndex;  
 
         struct toplevelSurfaceInfo
         {
