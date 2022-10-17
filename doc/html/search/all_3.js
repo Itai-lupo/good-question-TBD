@@ -1,14 +1,22 @@
 var searchData=
 [
-  ['data_0',['data',['../d0/df1/structwindow_render_data.html#adf6e95514e11774ae974b65568e5b25c',1,'windowRenderData']]],
-  ['deallocatelayer_1',['deallocateLayer',['../d2/d36/classlayer.html#a27b9d34d45467309041dd261d7bc37e4',1,'layer']]],
-  ['deallocatesurface_2',['deallocateSurface',['../d5/d88/classsurface.html#a81b9938686ebd2eb7e51ffc73d06bb4d',1,'surface']]],
-  ['deallocatesurfacetorender_3',['deallocateSurfaceToRender',['../d7/dc2/classcpu_rendering.html#a07416e3ae40c4b492c18857268f467a6',1,'cpuRendering::deallocateSurfaceToRender()'],['../d5/db4/classopen_g_l_rendering.html#a131b72e5f759188ce1c3f38f04fc5c2f',1,'openGLRendering::deallocateSurfaceToRender()']]],
-  ['deallocatetoplevel_4',['deallocateTopLevel',['../d1/dfe/classsubsurface.html#a875f411aafacb25729864837ce89f238',1,'subsurface::deallocateTopLevel()'],['../da/d41/classtoplevel.html#a0dab81d35190e78877d45997b7c44b94',1,'toplevel::deallocateTopLevel()']]],
-  ['deallocatewindowevents_5',['deallocateWindowEvents',['../d1/d4e/classkeyboard.html#adba7d5c64ed0387654f138725dda637e',1,'keyboard::deallocateWindowEvents()'],['../d4/df3/classpointer.html#acc8f9fcc11c9dde8ddeb8dca59de19f9',1,'pointer::deallocateWindowEvents()']]],
-  ['decorationmanger_6',['decorationManger',['../da/d41/classtoplevel.html#a082d07e56e3ae480d6313141dd8937de',1,'toplevel']]],
-  ['deltatime_7',['deltaTime',['../d0/df1/structwindow_render_data.html#a87657d58fb1c02219a73277e2f69218e',1,'windowRenderData']]],
-  ['discrete_8',['discrete',['../da/dbc/structpointer_1_1input_buffer.html#a385534f34fa4fd7304d7abee7af358c2',1,'pointer::inputBuffer']]],
-  ['discretevalue_9',['discreteValue',['../da/d46/structmouse_scroll_data.html#a264889e9001ad1a1724a97f971ed8587',1,'mouseScrollData']]],
-  ['display_10',['display',['../de/d8e/classlinux_window_a_p_i.html#a247a787973f65fac0f132e6af2faf28e',1,'linuxWindowAPI']]]
+  ['data_0',['data',['../d0/df1/structwindow_render_data.html#adf6e95514e11774ae974b65568e5b25c',1,'windowRenderData::data()'],['../d5/d49/struct_v_b_o_spec.html#a606042ff6deb00c1e0b1ee74be6eb731',1,'VBOSpec::data()'],['../d7/d87/structvertex_array_manger_1_1_v_a_o_info_1_1_v_b_o.html#a0685630e736abf6c23894e6b84236798',1,'vertexArrayManger::VAOInfo::VBO::data()']]],
+  ['datatype_1',['dataType',['../d5/d49/struct_v_b_o_spec.html#a174d6457168c55aab4e99549cac6f251',1,'VBOSpec::dataType()'],['../d8/d28/structvertex_array_manger_1_1_v_a_o_info_1_1_v_b_o_attacment.html#a2b2a06f3a3a8d44c2c0e1bdd7fe217d8',1,'vertexArrayManger::VAOInfo::VBOAttacment::dataType()']]],
+  ['deallocatelayer_2',['deallocateLayer',['../d2/d36/classlayer.html#a27b9d34d45467309041dd261d7bc37e4',1,'layer']]],
+  ['deallocatesurface_3',['deallocateSurface',['../d5/d88/classsurface.html#a81b9938686ebd2eb7e51ffc73d06bb4d',1,'surface']]],
+  ['deallocatesurfacetorender_4',['deallocateSurfaceToRender',['../d7/dc2/classcpu_rendering.html#a07416e3ae40c4b492c18857268f467a6',1,'cpuRendering::deallocateSurfaceToRender()'],['../d5/db4/classopen_g_l_rendering.html#a131b72e5f759188ce1c3f38f04fc5c2f',1,'openGLRendering::deallocateSurfaceToRender()']]],
+  ['deallocatetoplevel_5',['deallocateTopLevel',['../d1/dfe/classsubsurface.html#a875f411aafacb25729864837ce89f238',1,'subsurface::deallocateTopLevel()'],['../da/d41/classtoplevel.html#a0dab81d35190e78877d45997b7c44b94',1,'toplevel::deallocateTopLevel()']]],
+  ['deallocatewindowevents_6',['deallocateWindowEvents',['../d1/d4e/classkeyboard.html#adba7d5c64ed0387654f138725dda637e',1,'keyboard::deallocateWindowEvents()'],['../d4/df3/classpointer.html#acc8f9fcc11c9dde8ddeb8dca59de19f9',1,'pointer::deallocateWindowEvents()']]],
+  ['decorationmanger_7',['decorationManger',['../da/d41/classtoplevel.html#a082d07e56e3ae480d6313141dd8937de',1,'toplevel']]],
+  ['deleteframebuffer_8',['deleteFrameBuffer',['../df/dfa/classframe_buffers_manger.html#a9dde77566720a259ca2d14664d01fa5c',1,'frameBuffersManger']]],
+  ['deletetexture_9',['deleteTexture',['../d6/d26/classtexture_manger.html#addc4e66cd62ba22fb537f9cb37e091b2',1,'textureManger']]],
+  ['deltatime_10',['deltaTime',['../d0/df1/structwindow_render_data.html#a87657d58fb1c02219a73277e2f69218e',1,'windowRenderData']]],
+  ['depth_11',['Depth',['../da/d6d/texture_manger_8hpp.html#ae83337823de7c2229be74d296e709024a675056ad1441b6375b2c5abd48c27ef1',1,'textureManger.hpp']]],
+  ['depth24stencil8_12',['DEPTH24STENCIL8',['../da/d6d/texture_manger_8hpp.html#ae83337823de7c2229be74d296e709024a7ca3e26e4e5c35e4408bd49c1e32e9a3',1,'textureManger.hpp']]],
+  ['discrete_13',['discrete',['../da/dbc/structpointer_1_1input_buffer.html#a385534f34fa4fd7304d7abee7af358c2',1,'pointer::inputBuffer']]],
+  ['discretevalue_14',['discreteValue',['../da/d46/structmouse_scroll_data.html#a264889e9001ad1a1724a97f971ed8587',1,'mouseScrollData']]],
+  ['display_15',['display',['../de/d8e/classlinux_window_a_p_i.html#a247a787973f65fac0f132e6af2faf28e',1,'linuxWindowAPI']]],
+  ['dots_16',['dots',['../d0/d92/open_g_l_renderer_8hpp.html#af8d4f5b763081475bc51b404e276bab5ae9c6cfa16d8958cb7752450883950ab8',1,'openGLRenderer.hpp']]],
+  ['drawcalldata_17',['drawCallData',['../d5/db3/structrender_request_info_1_1draw_call_data.html',1,'renderRequestInfo']]],
+  ['drawcalls_18',['drawCalls',['../d3/da2/structrender_request_info.html#af4d37691c373f0f5f97bf7e79616b886',1,'renderRequestInfo']]]
 ];

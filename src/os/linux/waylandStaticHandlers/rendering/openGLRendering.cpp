@@ -23,118 +23,86 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
-class Shader
+
+void checkCompileErrors(unsigned int shader, std::string type)
 {
-public:
-    unsigned int ID;
-    // constructor generates the shader on the fly
-    // ------------------------------------------------------------------------
-    Shader(const char* vertexPath, const char* fragmentPath)
+    int success;
+    char infoLog[1024];
+    if (type != "PROGRAM")
     {
-        // 1. retrieve the vertex/fragment source code from filePath
-        std::string vertexCode;
-        std::string fragmentCode;
-        std::ifstream vShaderFile;
-        std::ifstream fShaderFile;
-        // ensure ifstream objects can throw exceptions:
-        vShaderFile.exceptions (std::ifstream::failbit | std::ifstream::badbit);
-        fShaderFile.exceptions (std::ifstream::failbit | std::ifstream::badbit);
-        try 
+        GL_CALL(openGLRendering::context, GetShaderiv(shader, GL_COMPILE_STATUS, &success));
+        if (!success)
         {
-            // open files
-            vShaderFile.open(vertexPath);
-            fShaderFile.open(fragmentPath);
-            std::stringstream vShaderStream, fShaderStream;
-            // read file's buffer contents into streams
-            vShaderStream << vShaderFile.rdbuf();
-            fShaderStream << fShaderFile.rdbuf();
-            // close file handlers
-            vShaderFile.close();
-            fShaderFile.close();
-            // convert stream into string
-            vertexCode   = vShaderStream.str();
-            fragmentCode = fShaderStream.str();
+            GL_CALL(openGLRendering::context, GetShaderInfoLog(shader, 1024, NULL, infoLog));
+            LOG_FATAL("ERROR::SHADER_COMPILATION_ERROR of type: " << type << "\n" << infoLog);
         }
-        catch (std::ifstream::failure& e)
-        {
-            std::cout << "ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ: " << e.what() << std::endl;
-        }
-        const char* vShaderCode = vertexCode.c_str();
-        const char * fShaderCode = fragmentCode.c_str();
-        // 2. compile shaders
-        unsigned int vertex, fragment;
-        // vertex shader
-        vertex = openGLRendering::context->openGLAPI->CreateShader(GL_VERTEX_SHADER);
-        GL_CALL(openGLRendering::context, ShaderSource(vertex, 1, &vShaderCode, NULL));
-        GL_CALL(openGLRendering::context, CompileShader(vertex));
-        checkCompileErrors(vertex, "VERTEX");
-        // fragment Shader
-        fragment = openGLRendering::context->openGLAPI->CreateShader(GL_FRAGMENT_SHADER);
-        GL_CALL(openGLRendering::context, ShaderSource(fragment, 1, &fShaderCode, NULL));
-        GL_CALL(openGLRendering::context, CompileShader(fragment));
-        checkCompileErrors(fragment, "FRAGMENT");
-        // shader Program
-        ID = openGLRendering::context->openGLAPI->CreateProgram();
-        GL_CALL(openGLRendering::context, AttachShader(ID, vertex));
-        GL_CALL(openGLRendering::context, AttachShader(ID, fragment));
-        GL_CALL(openGLRendering::context, LinkProgram(ID));
-        checkCompileErrors(ID, "PROGRAM");
-        // delete the shaders as they're linked into our program now and no longer necessary
-        GL_CALL(openGLRendering::context, DeleteShader(vertex));
-        GL_CALL(openGLRendering::context, DeleteShader(fragment));
     }
-    // activate the shader
-    // ------------------------------------------------------------------------
-    void use() 
-    { 
-        GL_CALL(openGLRendering::context, UseProgram(ID)); 
-    }
-    // utility uniform functions
-    // ------------------------------------------------------------------------
-    void setBool(const std::string &name, bool value) const
-    {         
-        GL_CALL(openGLRendering::context, Uniform1i(openGLRendering::context->openGLAPI->GetUniformLocation(ID, name.c_str()), (int)value)); 
-    }
-    // ------------------------------------------------------------------------
-    void setInt(const std::string &name, int value) const
-    { 
-        GL_CALL(openGLRendering::context, Uniform1i(openGLRendering::context->openGLAPI->GetUniformLocation(ID, name.c_str()), value)); 
-    }
-    // ------------------------------------------------------------------------
-    void setFloat(const std::string &name, float value) const
-    { 
-        GL_CALL(openGLRendering::context, Uniform1f(openGLRendering::context->openGLAPI->GetUniformLocation(ID, name.c_str()), value)); 
-    }
-
-private:
-    // utility function for checking shader compilation/linking errors.
-    // ------------------------------------------------------------------------
-    void checkCompileErrors(unsigned int shader, std::string type)
+    else
     {
-        int success;
-        char infoLog[1024];
-        if (type != "PROGRAM")
+        GL_CALL(openGLRendering::context, GetProgramiv(shader, GL_LINK_STATUS, &success));
+        if (!success)
         {
-            GL_CALL(openGLRendering::context, GetShaderiv(shader, GL_COMPILE_STATUS, &success));
-            if (!success)
-            {
-                GL_CALL(openGLRendering::context, GetShaderInfoLog(shader, 1024, NULL, infoLog));
-                std::cout << "ERROR::SHADER_COMPILATION_ERROR of type: " << type << "\n" << infoLog << "\n -- --------------------------------------------------- -- " << std::endl;
-            }
-        }
-        else
-        {
-            GL_CALL(openGLRendering::context, GetProgramiv(shader, GL_LINK_STATUS, &success));
-            if (!success)
-            {
-                GL_CALL(openGLRendering::context, GetProgramInfoLog(shader, 1024, NULL, infoLog));
-                std::cout << "ERROR::PROGRAM_LINKING_ERROR of type: " << type << "\n" << infoLog << "\n -- --------------------------------------------------- -- " << std::endl;
-            }
+            GL_CALL(openGLRendering::context, GetProgramInfoLog(shader, 1024, NULL, infoLog));
+            LOG_FATAL("ERROR::PROGRAM_LINKING_ERROR of type: " << type << "\n" << infoLog);
         }
     }
-};
+}
 
-static float red = 0.0;
+
+void initTextureShader()
+{
+    std::string vertexCode;
+    std::string fragmentCode;
+    
+    constexpr char* fShaderCode = 
+        "#version 460 core\n"
+        "out vec4 FragColor;\n"
+        "in vec2 TexCoord;\n"
+        "uniform sampler2D ourTexture;\n"
+        "void main()\n"
+        "{\n"
+            "FragColor = texture(ourTexture, TexCoord);\n"
+        "}\n";
+
+    constexpr char * vShaderCode = 
+        "#version 460 core\n"
+        "layout (location = 0) in vec3 pos;\n"
+        "layout (location = 1) in vec2 texCoord;\n"
+        "out vec2 TexCoord;\n"
+        "void main()\n"
+        "{\n"
+        "    gl_Position = vec4(pos, 1.0);\n"
+        "    TexCoord = texCoord;\n"
+        "}\n";
+
+    unsigned int vertex, fragment;
+
+    unsigned int shaderID;
+
+    vertex = openGLRendering::context->openGLAPI->CreateShader(GL_VERTEX_SHADER);
+    GL_CALL(openGLRendering::context, ShaderSource(vertex, 1, &vShaderCode, NULL));
+    GL_CALL(openGLRendering::context, CompileShader(vertex));
+    checkCompileErrors(vertex, "VERTEX");
+
+    fragment = openGLRendering::context->openGLAPI->CreateShader(GL_FRAGMENT_SHADER);
+    GL_CALL(openGLRendering::context, ShaderSource(fragment, 1, &fShaderCode, NULL));
+    GL_CALL(openGLRendering::context, CompileShader(fragment));
+    checkCompileErrors(fragment, "FRAGMENT");
+    
+    shaderID = openGLRendering::context->openGLAPI->CreateProgram();
+    GL_CALL(openGLRendering::context, AttachShader(shaderID, vertex));
+    GL_CALL(openGLRendering::context, AttachShader(shaderID, fragment));
+    GL_CALL(openGLRendering::context, LinkProgram(shaderID));
+    checkCompileErrors(shaderID, "PROGRAM");
+    
+    GL_CALL(openGLRendering::context, DeleteShader(vertex));
+    GL_CALL(openGLRendering::context, DeleteShader(fragment));
+    GL_CALL(openGLRendering::context, UseProgram(shaderID)); 
+
+    GL_CALL(openGLRendering::context, Uniform1i(openGLRendering::context->openGLAPI->GetUniformLocation(shaderID, "texture"), 0)); 
+}
+
+
 
 void shit(uint8_t index)
 {
@@ -156,16 +124,13 @@ void shit(uint8_t index)
     GL_CALL(context, BlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
     GL_CALL(context, AlphaFunc(GL_GREATER, 0));
 
-    
+
     int red = 0;
     while (true)
     {
         red++;
         FrameMarkNamed( "red");
-        ZoneScoped;
-
-        
-        
+        ZoneScoped;        
 
         int width = surface::getWindowWidth(temp.id), height = surface::getWindowHeight(temp.id);
         uint8_t *data = new uint8_t[ width * height * 4];
@@ -174,18 +139,18 @@ void shit(uint8_t index)
             data[i + 0] = (i + red);
             data[i + 1] = 0;
             data[i + 2] = 0;
-            data[i + 3] = 0xff;
+            data[i + 3] = 0xFF;
         }
-        {
-        ZoneScopedN("open gl shit");
+        
         
         GL_CALL(context, BindTexture(GL_TEXTURE_2D, temp.textureBufferId));  
 
         GL_CALL(context, TexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height , 0, GL_RGBA, GL_UNSIGNED_BYTE, data));
         GL_CALL(context, GenerateMipmap(GL_TEXTURE_2D));
-        }
+        
 
         delete[] data;
+        std::this_thread::sleep_for(std::chrono::milliseconds(1));
     }    
 }
 
@@ -213,8 +178,7 @@ void openGLRendering::wlSurfaceFrameDone(void *data, wl_callback *cb, uint32_t t
     }
     
     
-    red = (red + 0.005f) < 1.0f? (red + 0.001f): 0 ;
-
+    
     cb = wl_surface_frame(surface::getSurface(id));
     wl_callback_add_listener(cb, &wlSurfaceFrameListener, data);
     
@@ -224,9 +188,12 @@ void openGLRendering::wlSurfaceFrameDone(void *data, wl_callback *cb, uint32_t t
     GL_CALL(context, ClearColor (0.0f, 0.0f, 0.0f, 0.0f));
     GL_CALL(context, Clear (GL_COLOR_BUFFER_BIT));
     
-    GL_CALL(context, ActiveTexture(GL_TEXTURE0));
-    GL_CALL(context, BindTexture(GL_TEXTURE_2D, temp.textureBufferId));
+    void *pixels = malloc(renderer->textures->getWidth(temp.bufferInRenderTex) * renderer->textures->getHight(temp.bufferInRenderTex) * 4);
+    GL_CALL(context, 
+    GetTextureImage(renderer->textures->getRenderId(temp.bufferInRenderTex), 0, GL_RGBA, GL_UNSIGNED_BYTE, renderer->textures->getWidth(temp.bufferInRenderTex) * renderer->textures->getHight(temp.bufferInRenderTex) * 4, pixels));  
 
+    GL_CALL(context, BindTextureUnit(0, renderer->textures->getRenderId(temp.bufferInRenderTex)));
+    
     GL_CALL(context, DrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr));
     GL_CALL(context, BindTexture(GL_TEXTURE_2D, 0));
 
@@ -259,19 +226,20 @@ void openGLRendering::init()
     };  
     unsigned int VBO, VAO;
     
-    GL_CALL(context, GenVertexArrays(1, &VAO));
-    GL_CALL(context, GenBuffers(1, &VBO));
-    GL_CALL(context, BindVertexArray(VAO));
-
-    GL_CALL(context, BindBuffer(GL_ARRAY_BUFFER, VBO));  
-    GL_CALL(context, BufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW));
+    GL_CALL(context, CreateVertexArrays(1, &VAO));
+    GL_CALL(context, CreateBuffers(1, &VBO));
+    
+    GL_CALL(context, NamedBufferData(VBO, sizeof(vertices), vertices, GL_STATIC_DRAW));
 
 
-    GL_CALL(context, VertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0));
-    GL_CALL(context, EnableVertexAttribArray(0));
+    GL_CALL(context, EnableVertexArrayAttrib(VAO, 0));
+    GL_CALL(context, VertexArrayAttribBinding(VAO, 0, 0));
+    GL_CALL(context, VertexArrayAttribFormat(VAO, 0, 3, GL_FLOAT, GL_FALSE, 0));
 
-    GL_CALL(context, VertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float))));
-    GL_CALL(context, EnableVertexAttribArray(1));
+    GL_CALL(context, EnableVertexArrayAttrib(VAO, 1));
+    GL_CALL(context, VertexArrayAttribBinding(VAO, 1, 0));
+    GL_CALL(context, VertexArrayAttribFormat(VAO, 1, 2, GL_FLOAT, GL_FALSE, 3 * sizeof(float)));
+    GL_CALL(context, VertexArrayVertexBuffer(VAO, 0, VBO, 0, 5 * sizeof(GLfloat)));
 
     constexpr uint32_t indcies[] = {
         0, 1, 2,
@@ -279,14 +247,17 @@ void openGLRendering::init()
     };
 
     uint32_t IBO;
-    GL_CALL(context, GenBuffers(1, &IBO));
-    GL_CALL(context, BindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO));
-    GL_CALL(context, BufferData(GL_ELEMENT_ARRAY_BUFFER, 6 * sizeof(unsigned int), indcies, GL_STATIC_DRAW));
+    GL_CALL(context, CreateBuffers(1, &IBO));
+    // GL_CALL(context, BindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO));
 
+    GL_CALL(context, NamedBufferData(IBO, 6 * sizeof(unsigned int), indcies, GL_STATIC_DRAW));
+    GL_CALL(context, VertexArrayElementBuffer(VAO, IBO));
 
-    textureShader = new Shader("assets/shaders/texture.vert", "assets/shaders/texture.frag");
-    textureShader->use();
-    textureShader->setInt("texture", 0);
+    GL_CALL(context, BindVertexArray(VAO));
+
+    initTextureShader();
+
+    renderer = new openGLRenderer(context);
 }
 
 
@@ -304,7 +275,8 @@ void openGLRendering::allocateSurfaceToRender(surfaceId winId)
     idToIndex[winId.index].renderDataIndex = surfacesToRender.size();
     surfacesToRender.push_back(info);
 
-    std::thread(shit, idToIndex[winId.index].renderDataIndex).detach();
+
+    // std::thread(shit, idToIndex[winId.index].renderDataIndex).detach();
 
 
     wl_callback *cb = wl_surface_frame(surface::getSurface(winId));

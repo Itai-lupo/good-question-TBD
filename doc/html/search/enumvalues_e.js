@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['wheel_0',['wheel',['../d5/dde/mouse_format_8hpp.html#a188e4554ed3b3db425c617c2f47a07c9a5eda0ea98768e91b815fa6667e4f0178',1,'mouseFormat.hpp']]],
-  ['wheeltilt_1',['wheelTilt',['../d5/dde/mouse_format_8hpp.html#a188e4554ed3b3db425c617c2f47a07c9a60595d77b1c2cbc68676efbd37957139',1,'mouseFormat.hpp']]]
+  ['undefined_0',['undefined',['../d5/dd7/window_state_8hpp.html#a0a6548decdad99284bc439e3f40fdb76a5e543256c480ac577d30f76f9120eb74',1,'windowState.hpp']]]
 ];

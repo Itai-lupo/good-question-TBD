@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['openglcontext_0',['openglContext',['../d3/d01/classopengl_context.html#ad28a108d8be8421cbb04fea3505e4160',1,'openglContext']]],
-  ['operator_3d_1',['operator=',['../d8/deb/classscene_loader.html#afa3568e1099b76003952817a4d53268a',1,'sceneLoader::operator=(const sceneLoader &amp;)'],['../d8/deb/classscene_loader.html#acdc798efac623cd099dac66f681f5305',1,'sceneLoader::operator=(sceneLoader &amp;&amp;)']]],
-  ['osapi_2',['osAPI',['../d5/d6a/classos_a_p_i.html#ace1df979b9e38bdc5be2753cf16f1a13',1,'osAPI']]]
+  ['keydata_0',['keyData',['../dc/da2/structkey_data.html#aa3170704158b082c3ba955829b05bd9f',1,'keyData']]],
+  ['keylistener_1',['keyListener',['../d1/d4e/classkeyboard.html#a947a38365b055910ca94ae5c18277c31',1,'keyboard::keyListener()'],['../df/d0a/main_8cpp.html#a93574e814003e4ab0dc4c0a74f91f2f9',1,'keyListener():&#160;main.cpp']]]
 ];

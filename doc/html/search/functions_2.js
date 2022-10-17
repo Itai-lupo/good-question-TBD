@@ -1,8 +1,12 @@
 var searchData=
 [
-  ['deallocatelayer_0',['deallocateLayer',['../d2/d36/classlayer.html#a27b9d34d45467309041dd261d7bc37e4',1,'layer']]],
-  ['deallocatesurface_1',['deallocateSurface',['../d5/d88/classsurface.html#a81b9938686ebd2eb7e51ffc73d06bb4d',1,'surface']]],
-  ['deallocatesurfacetorender_2',['deallocateSurfaceToRender',['../d7/dc2/classcpu_rendering.html#a07416e3ae40c4b492c18857268f467a6',1,'cpuRendering::deallocateSurfaceToRender()'],['../d5/db4/classopen_g_l_rendering.html#a131b72e5f759188ce1c3f38f04fc5c2f',1,'openGLRendering::deallocateSurfaceToRender()']]],
-  ['deallocatetoplevel_3',['deallocateTopLevel',['../d1/dfe/classsubsurface.html#a875f411aafacb25729864837ce89f238',1,'subsurface::deallocateTopLevel()'],['../da/d41/classtoplevel.html#a0dab81d35190e78877d45997b7c44b94',1,'toplevel::deallocateTopLevel()']]],
-  ['deallocatewindowevents_4',['deallocateWindowEvents',['../d1/d4e/classkeyboard.html#adba7d5c64ed0387654f138725dda637e',1,'keyboard::deallocateWindowEvents()'],['../d4/df3/classpointer.html#acc8f9fcc11c9dde8ddeb8dca59de19f9',1,'pointer::deallocateWindowEvents()']]]
+  ['close_0',['close',['../dc/d37/classlogger.html#ad0973f5782961630972e85adbed14b07',1,'logger']]],
+  ['closeapi_1',['closeApi',['../de/d8e/classlinux_window_a_p_i.html#ad0da3db853ade046c96c79d653942690',1,'linuxWindowAPI']]],
+  ['closewindow_2',['closeWindow',['../de/d8e/classlinux_window_a_p_i.html#a2f04da4be5a56c081477fabbcec802ed',1,'linuxWindowAPI::closeWindow()'],['../d5/d6a/classos_a_p_i.html#acad316dd14987374a79961de24e01a0f',1,'osAPI::closeWindow()']]],
+  ['consolekeywait_3',['consoleKeyWait',['../df/d0a/main_8cpp.html#a3de3a19b0f80e4d82b2bf426608a04bf',1,'main.cpp']]],
+  ['cpurender_4',['cpuRender',['../df/d0a/main_8cpp.html#acbe657e6f7ea64cf3a13f9776212c53b',1,'main.cpp']]],
+  ['createframebuffer_5',['createFrameBuffer',['../df/dfa/classframe_buffers_manger.html#afbdfaca95753e018f05cd174e127cda2',1,'frameBuffersManger']]],
+  ['createtexture_6',['createTexture',['../d6/d26/classtexture_manger.html#a5850fc6be5e00c86fdcf8de8623f631f',1,'textureManger']]],
+  ['createvao_7',['createVao',['../de/d2c/classvertex_array_manger.html#a4b4777f5514213394d05cd6bc8faf355',1,'vertexArrayManger']]],
+  ['createwindow_8',['createWindow',['../de/d8e/classlinux_window_a_p_i.html#abb81b26381d2ec33289e37960cca04ac',1,'linuxWindowAPI::createWindow()'],['../d5/d6a/classos_a_p_i.html#aa717d13e65be64bc00998eb5e7d5e263',1,'osAPI::createWindow()']]]
 ];

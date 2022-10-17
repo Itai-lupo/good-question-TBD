@@ -85,7 +85,8 @@ $(document).ready(function(){initNavTree('d5/d93/opengl_context_8cpp.html','../.
 
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">openglContext.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -113,6 +114,17 @@ Include dependency graph for openglContext.cpp:</div>
 Macros</h2></td></tr>
 <tr class="memitem:a119dead70172ae659f2a278e62cdf7cc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d93/opengl_context_8cpp.html#a119dead70172ae659f2a278e62cdf7cc">GL_ERROR_TRANSLATE</a>(e)&#160;&#160;&#160;case e: return #e;</td></tr>
 <tr class="separator:a119dead70172ae659f2a278e62cdf7cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a76259e93488aa188c59d8b8a80517f74"><td class="memItemLeft" align="right" valign="top">void GLAPIENTRY&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d93/opengl_context_8cpp.html#a76259e93488aa188c59d8b8a80517f74">MessageCallback</a> (GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar *message, const void *userParam)</td></tr>
+<tr class="separator:a76259e93488aa188c59d8b8a80517f74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb632c14e183d96bf08539da581e9e14"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d93/opengl_context_8cpp.html#afb632c14e183d96bf08539da581e9e14">GL_TranslateError</a> (GLenum error)</td></tr>
+<tr class="separator:afb632c14e183d96bf08539da581e9e14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ceddd3817d51d589039f13ce45c3074"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d93/opengl_context_8cpp.html#a9ceddd3817d51d589039f13ce45c3074">GL_TranslateSeverity</a> (GLenum error)</td></tr>
+<tr class="separator:a9ceddd3817d51d589039f13ce45c3074"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06b6e035498fc8c02342bd52bfb9f967"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d93/opengl_context_8cpp.html#a06b6e035498fc8c02342bd52bfb9f967">GL_TranslateType</a> (GLenum error)</td></tr>
+<tr class="separator:a06b6e035498fc8c02342bd52bfb9f967"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a119dead70172ae659f2a278e62cdf7cc" name="a119dead70172ae659f2a278e62cdf7cc"></a>
@@ -130,6 +142,209 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="afb632c14e183d96bf08539da581e9e14" name="afb632c14e183d96bf08539da581e9e14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb632c14e183d96bf08539da581e9e14">&#9670;&nbsp;</a></span>GL_TranslateError()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string GL_TranslateError </td>
+          <td>(</td>
+          <td class="paramtype">GLenum&#160;</td>
+          <td class="paramname"><em>error</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><span class="lineno">   85</span>{</div>
+<div class="line"><span class="lineno">   86</span>    <span class="keywordflow">switch</span> (error) {</div>
+<div class="line"><span class="lineno">   87</span>        <a class="code hl_define" href="../../d5/d93/opengl_context_8cpp.html#a119dead70172ae659f2a278e62cdf7cc">GL_ERROR_TRANSLATE</a>(GL_INVALID_ENUM)</div>
+<div class="line"><span class="lineno">   88</span>        <a class="code hl_define" href="../../d5/d93/opengl_context_8cpp.html#a119dead70172ae659f2a278e62cdf7cc">GL_ERROR_TRANSLATE</a>(GL_INVALID_VALUE)</div>
+<div class="line"><span class="lineno">   89</span>        <a class="code hl_define" href="../../d5/d93/opengl_context_8cpp.html#a119dead70172ae659f2a278e62cdf7cc">GL_ERROR_TRANSLATE</a>(GL_INVALID_OPERATION)</div>
+<div class="line"><span class="lineno">   90</span>        <a class="code hl_define" href="../../d5/d93/opengl_context_8cpp.html#a119dead70172ae659f2a278e62cdf7cc">GL_ERROR_TRANSLATE</a>(GL_OUT_OF_MEMORY)</div>
+<div class="line"><span class="lineno">   91</span>        <a class="code hl_define" href="../../d5/d93/opengl_context_8cpp.html#a119dead70172ae659f2a278e62cdf7cc">GL_ERROR_TRANSLATE</a>(GL_NO_ERROR)</div>
+<div class="line"><span class="lineno">   92</span>        <a class="code hl_define" href="../../d5/d93/opengl_context_8cpp.html#a119dead70172ae659f2a278e62cdf7cc">GL_ERROR_TRANSLATE</a>(GL_STACK_OVERFLOW)</div>
+<div class="line"><span class="lineno">   93</span>        <a class="code hl_define" href="../../d5/d93/opengl_context_8cpp.html#a119dead70172ae659f2a278e62cdf7cc">GL_ERROR_TRANSLATE</a>(GL_STACK_UNDERFLOW) </div>
+<div class="line"><span class="lineno">   94</span>        <a class="code hl_define" href="../../d5/d93/opengl_context_8cpp.html#a119dead70172ae659f2a278e62cdf7cc">GL_ERROR_TRANSLATE</a>(GL_INVALID_FRAMEBUFFER_OPERATION)</div>
+<div class="line"><span class="lineno">   95</span>        <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">   96</span>            <span class="keywordflow">return</span> <span class="stringliteral">&quot;UNKNOWN&quot;</span>;</div>
+<div class="line"><span class="lineno">   97</span>    }</div>
+<div class="line"><span class="lineno">   98</span>}</div>
+<div class="ttc" id="aopengl_context_8cpp_html_a119dead70172ae659f2a278e62cdf7cc"><div class="ttname"><a href="../../d5/d93/opengl_context_8cpp.html#a119dead70172ae659f2a278e62cdf7cc">GL_ERROR_TRANSLATE</a></div><div class="ttdeci">#define GL_ERROR_TRANSLATE(e)</div><div class="ttdef"><b>Definition:</b> openglContext.cpp:9</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a9ceddd3817d51d589039f13ce45c3074" name="a9ceddd3817d51d589039f13ce45c3074"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ceddd3817d51d589039f13ce45c3074">&#9670;&nbsp;</a></span>GL_TranslateSeverity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string GL_TranslateSeverity </td>
+          <td>(</td>
+          <td class="paramtype">GLenum&#160;</td>
+          <td class="paramname"><em>error</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><span class="lineno">  101</span>{</div>
+<div class="line"><span class="lineno">  102</span>    <span class="keywordflow">switch</span> (error) {</div>
+<div class="line"><span class="lineno">  103</span>        <a class="code hl_define" href="../../d5/d93/opengl_context_8cpp.html#a119dead70172ae659f2a278e62cdf7cc">GL_ERROR_TRANSLATE</a>(GL_DEBUG_SEVERITY_HIGH)</div>
+<div class="line"><span class="lineno">  104</span>        <a class="code hl_define" href="../../d5/d93/opengl_context_8cpp.html#a119dead70172ae659f2a278e62cdf7cc">GL_ERROR_TRANSLATE</a>(GL_DEBUG_SEVERITY_LOW)</div>
+<div class="line"><span class="lineno">  105</span>        <a class="code hl_define" href="../../d5/d93/opengl_context_8cpp.html#a119dead70172ae659f2a278e62cdf7cc">GL_ERROR_TRANSLATE</a>(GL_DEBUG_SEVERITY_MEDIUM)</div>
+<div class="line"><span class="lineno">  106</span>        <a class="code hl_define" href="../../d5/d93/opengl_context_8cpp.html#a119dead70172ae659f2a278e62cdf7cc">GL_ERROR_TRANSLATE</a>(GL_DEBUG_SEVERITY_NOTIFICATION)</div>
+<div class="line"><span class="lineno">  107</span>        <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">  108</span>            <span class="keywordflow">return</span> <span class="stringliteral">&quot;UNKNOWN&quot;</span>;</div>
+<div class="line"><span class="lineno">  109</span>    }</div>
+<div class="line"><span class="lineno">  110</span>}</div>
+</div><!-- fragment --><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d5/d93/opengl_context_8cpp_a9ceddd3817d51d589039f13ce45c3074_icgraph.png" border="0" usemap="#ad5/d93/opengl_context_8cpp_a9ceddd3817d51d589039f13ce45c3074_icgraph" alt=""/></div>
+<map name="ad5/d93/opengl_context_8cpp_a9ceddd3817d51d589039f13ce45c3074_icgraph" id="ad5/d93/opengl_context_8cpp_a9ceddd3817d51d589039f13ce45c3074_icgraph">
+<area shape="rect" title=" " alt="" coords="419,5,567,32"/>
+<area shape="rect" href="../../d5/d93/opengl_context_8cpp.html#a76259e93488aa188c59d8b8a80517f74" title=" " alt="" coords="245,5,371,32"/>
+<area shape="rect" href="../../d3/d01/classopengl_context.html#ad28a108d8be8421cbb04fea3505e4160" title=" " alt="" coords="5,5,197,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a06b6e035498fc8c02342bd52bfb9f967" name="a06b6e035498fc8c02342bd52bfb9f967"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06b6e035498fc8c02342bd52bfb9f967">&#9670;&nbsp;</a></span>GL_TranslateType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string GL_TranslateType </td>
+          <td>(</td>
+          <td class="paramtype">GLenum&#160;</td>
+          <td class="paramname"><em>error</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><span class="lineno">  113</span>{</div>
+<div class="line"><span class="lineno">  114</span>    <span class="keywordflow">switch</span> (error) {</div>
+<div class="line"><span class="lineno">  115</span>            <a class="code hl_define" href="../../d5/d93/opengl_context_8cpp.html#a119dead70172ae659f2a278e62cdf7cc">GL_ERROR_TRANSLATE</a>(GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR)</div>
+<div class="line"><span class="lineno">  116</span>            <a class="code hl_define" href="../../d5/d93/opengl_context_8cpp.html#a119dead70172ae659f2a278e62cdf7cc">GL_ERROR_TRANSLATE</a>(GL_DEBUG_TYPE_ERROR)</div>
+<div class="line"><span class="lineno">  117</span>            <a class="code hl_define" href="../../d5/d93/opengl_context_8cpp.html#a119dead70172ae659f2a278e62cdf7cc">GL_ERROR_TRANSLATE</a>(GL_DEBUG_TYPE_MARKER)</div>
+<div class="line"><span class="lineno">  118</span>            <a class="code hl_define" href="../../d5/d93/opengl_context_8cpp.html#a119dead70172ae659f2a278e62cdf7cc">GL_ERROR_TRANSLATE</a>(GL_DEBUG_TYPE_OTHER)</div>
+<div class="line"><span class="lineno">  119</span>            <a class="code hl_define" href="../../d5/d93/opengl_context_8cpp.html#a119dead70172ae659f2a278e62cdf7cc">GL_ERROR_TRANSLATE</a>(GL_DEBUG_TYPE_PERFORMANCE)</div>
+<div class="line"><span class="lineno">  120</span>            <a class="code hl_define" href="../../d5/d93/opengl_context_8cpp.html#a119dead70172ae659f2a278e62cdf7cc">GL_ERROR_TRANSLATE</a>(GL_DEBUG_TYPE_POP_GROUP)</div>
+<div class="line"><span class="lineno">  121</span>            <a class="code hl_define" href="../../d5/d93/opengl_context_8cpp.html#a119dead70172ae659f2a278e62cdf7cc">GL_ERROR_TRANSLATE</a>(GL_DEBUG_TYPE_PORTABILITY)</div>
+<div class="line"><span class="lineno">  122</span>            <a class="code hl_define" href="../../d5/d93/opengl_context_8cpp.html#a119dead70172ae659f2a278e62cdf7cc">GL_ERROR_TRANSLATE</a>(GL_DEBUG_TYPE_PUSH_GROUP)</div>
+<div class="line"><span class="lineno">  123</span>            <a class="code hl_define" href="../../d5/d93/opengl_context_8cpp.html#a119dead70172ae659f2a278e62cdf7cc">GL_ERROR_TRANSLATE</a>(GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR)</div>
+<div class="line"><span class="lineno">  124</span>        <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">  125</span>            <span class="keywordflow">return</span> <span class="stringliteral">&quot;UNKNOWN&quot;</span>;</div>
+<div class="line"><span class="lineno">  126</span>    }</div>
+<div class="line"><span class="lineno">  127</span>}</div>
+</div><!-- fragment --><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d5/d93/opengl_context_8cpp_a06b6e035498fc8c02342bd52bfb9f967_icgraph.png" border="0" usemap="#ad5/d93/opengl_context_8cpp_a06b6e035498fc8c02342bd52bfb9f967_icgraph" alt=""/></div>
+<map name="ad5/d93/opengl_context_8cpp_a06b6e035498fc8c02342bd52bfb9f967_icgraph" id="ad5/d93/opengl_context_8cpp_a06b6e035498fc8c02342bd52bfb9f967_icgraph">
+<area shape="rect" title=" " alt="" coords="419,5,548,32"/>
+<area shape="rect" href="../../d5/d93/opengl_context_8cpp.html#a76259e93488aa188c59d8b8a80517f74" title=" " alt="" coords="245,5,371,32"/>
+<area shape="rect" href="../../d3/d01/classopengl_context.html#ad28a108d8be8421cbb04fea3505e4160" title=" " alt="" coords="5,5,197,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a76259e93488aa188c59d8b8a80517f74" name="a76259e93488aa188c59d8b8a80517f74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76259e93488aa188c59d8b8a80517f74">&#9670;&nbsp;</a></span>MessageCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GLAPIENTRY MessageCallback </td>
+          <td>(</td>
+          <td class="paramtype">GLenum&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GLenum&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GLuint&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GLenum&#160;</td>
+          <td class="paramname"><em>severity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GLsizei&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const GLchar *&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>userParam</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><span class="lineno">  138</span>{</div>
+<div class="line"><span class="lineno">  139</span>    std::string debugTypeMsg = (type == GL_DEBUG_TYPE_ERROR) ? <span class="stringliteral">&quot;** GL ERROR **&quot;</span> : <span class="stringliteral">&quot;&quot;</span>; </div>
+<div class="line"><span class="lineno">  140</span>    <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#aa5cb7dfa3e9b0342f4636511a6218416">CONDTION_LOG_ERROR</a>(</div>
+<div class="line"><span class="lineno">  141</span>        <span class="stringliteral">&quot;\n\t\t\t GL CALLBACK: &lt;&lt;&quot;</span>  &lt;&lt; debugTypeMsg &lt;&lt;</div>
+<div class="line"><span class="lineno">  142</span>        <span class="stringliteral">&quot;\n\t\t\t type(&quot;</span> &lt;&lt; <a class="code hl_function" href="../../d5/d93/opengl_context_8cpp.html#a06b6e035498fc8c02342bd52bfb9f967">GL_TranslateType</a>(type) &lt;&lt; <span class="stringliteral">&quot;: 0x&quot;</span> &lt;&lt; std::hex &lt;&lt; type &lt;&lt;</div>
+<div class="line"><span class="lineno">  143</span>        <span class="stringliteral">&quot;)\n\t\t\t severity(&quot;</span> &lt;&lt; <a class="code hl_function" href="../../d5/d93/opengl_context_8cpp.html#a9ceddd3817d51d589039f13ce45c3074">GL_TranslateSeverity</a>(severity) &lt;&lt;  <span class="stringliteral">&quot;: 0x&quot;</span> &lt;&lt; std::hex &lt;&lt; severity &lt;&lt; </div>
+<div class="line"><span class="lineno">  144</span>        <span class="stringliteral">&quot;)\n\t\t\t message = &quot;</span> &lt;&lt; message, severity != GL_DEBUG_SEVERITY_NOTIFICATION);</div>
+<div class="line"><span class="lineno">  145</span>}</div>
+<div class="ttc" id="alog_8hpp_html_aa5cb7dfa3e9b0342f4636511a6218416"><div class="ttname"><a href="../../d4/d3d/log_8hpp.html#aa5cb7dfa3e9b0342f4636511a6218416">CONDTION_LOG_ERROR</a></div><div class="ttdeci">#define CONDTION_LOG_ERROR(toLog, condition)</div><div class="ttdef"><b>Definition:</b> log.hpp:12</div></div>
+<div class="ttc" id="aopengl_context_8cpp_html_a06b6e035498fc8c02342bd52bfb9f967"><div class="ttname"><a href="../../d5/d93/opengl_context_8cpp.html#a06b6e035498fc8c02342bd52bfb9f967">GL_TranslateType</a></div><div class="ttdeci">std::string GL_TranslateType(GLenum error)</div><div class="ttdef"><b>Definition:</b> openglContext.cpp:112</div></div>
+<div class="ttc" id="aopengl_context_8cpp_html_a9ceddd3817d51d589039f13ce45c3074"><div class="ttname"><a href="../../d5/d93/opengl_context_8cpp.html#a9ceddd3817d51d589039f13ce45c3074">GL_TranslateSeverity</a></div><div class="ttdeci">std::string GL_TranslateSeverity(GLenum error)</div><div class="ttdef"><b>Definition:</b> openglContext.cpp:100</div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d5/d93/opengl_context_8cpp_a76259e93488aa188c59d8b8a80517f74_cgraph.png" border="0" usemap="#ad5/d93/opengl_context_8cpp_a76259e93488aa188c59d8b8a80517f74_cgraph" alt=""/></div>
+<map name="ad5/d93/opengl_context_8cpp_a76259e93488aa188c59d8b8a80517f74_cgraph" id="ad5/d93/opengl_context_8cpp_a76259e93488aa188c59d8b8a80517f74_cgraph">
+<area shape="rect" title=" " alt="" coords="5,31,131,57"/>
+<area shape="rect" href="../../d5/d93/opengl_context_8cpp.html#a9ceddd3817d51d589039f13ce45c3074" title=" " alt="" coords="179,5,327,32"/>
+<area shape="rect" href="../../d5/d93/opengl_context_8cpp.html#a06b6e035498fc8c02342bd52bfb9f967" title=" " alt="" coords="188,56,317,83"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d5/d93/opengl_context_8cpp_a76259e93488aa188c59d8b8a80517f74_icgraph.png" border="0" usemap="#ad5/d93/opengl_context_8cpp_a76259e93488aa188c59d8b8a80517f74_icgraph" alt=""/></div>
+<map name="ad5/d93/opengl_context_8cpp_a76259e93488aa188c59d8b8a80517f74_icgraph" id="ad5/d93/opengl_context_8cpp_a76259e93488aa188c59d8b8a80517f74_icgraph">
+<area shape="rect" title=" " alt="" coords="245,5,371,32"/>
+<area shape="rect" href="../../d3/d01/classopengl_context.html#ad28a108d8be8421cbb04fea3505e4160" title=" " alt="" coords="5,5,197,32"/>
+</map>
+</div>
 
 </div>
 </div>

@@ -8,6 +8,14 @@
 
 #define GL_ERROR_TRANSLATE(e) case e: return #e;
 
+void GLAPIENTRY
+MessageCallback(GLenum source,
+                GLenum type,
+                GLuint id,
+                GLenum severity,
+                GLsizei length,
+                const GLchar* message,
+                const void* userParam );
 
 openglContext::openglContext(EGLContext sharedContext)
 {
@@ -18,8 +26,8 @@ openglContext::openglContext(EGLContext sharedContext)
         EGL_RED_SIZE, 8,
         EGL_GREEN_SIZE, 8,
         EGL_BLUE_SIZE, 8,
-        EGL_RENDERABLE_TYPE, EGL_OPENGL_BIT,
         EGL_ALPHA_SIZE, 8,
+        EGL_RENDERABLE_TYPE, EGL_OPENGL_BIT,
         EGL_NONE
     };
     EGLint num_config;
@@ -37,6 +45,8 @@ openglContext::openglContext(EGLContext sharedContext)
     
     LOG_INFO("Loaded OpenGL " << GLAD_VERSION_MAJOR(version) << "." << GLAD_VERSION_MINOR(version) );
     
+    openGLAPI->Enable( GL_DEBUG_OUTPUT );
+    openGLAPI->DebugMessageCallback( MessageCallback, 0 );
 }
 
 void openglContext::GLClearErrors()
@@ -69,4 +79,67 @@ void openglContext::GLCheckError(const char *function, const char *file, int lin
             "[OpenGL error] (" << GL_TranslateError(error) << ": " << error << "): " << function << " " << file <<  ":" << line);
     }
     
+}
+
+std::string GL_TranslateError (GLenum error)
+{
+    switch (error) {
+        GL_ERROR_TRANSLATE(GL_INVALID_ENUM)
+        GL_ERROR_TRANSLATE(GL_INVALID_VALUE)
+        GL_ERROR_TRANSLATE(GL_INVALID_OPERATION)
+        GL_ERROR_TRANSLATE(GL_OUT_OF_MEMORY)
+        GL_ERROR_TRANSLATE(GL_NO_ERROR)
+        GL_ERROR_TRANSLATE(GL_STACK_OVERFLOW)
+        GL_ERROR_TRANSLATE(GL_STACK_UNDERFLOW) 
+        GL_ERROR_TRANSLATE(GL_INVALID_FRAMEBUFFER_OPERATION)
+        default:
+            return "UNKNOWN";
+    }
+}
+
+std::string GL_TranslateSeverity (GLenum error)
+{
+    switch (error) {
+        GL_ERROR_TRANSLATE(GL_DEBUG_SEVERITY_HIGH)
+        GL_ERROR_TRANSLATE(GL_DEBUG_SEVERITY_LOW)
+        GL_ERROR_TRANSLATE(GL_DEBUG_SEVERITY_MEDIUM)
+        GL_ERROR_TRANSLATE(GL_DEBUG_SEVERITY_NOTIFICATION)
+        default:
+            return "UNKNOWN";
+    }
+}
+
+std::string GL_TranslateType (GLenum error)
+{
+    switch (error) {
+            GL_ERROR_TRANSLATE(GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR)
+            GL_ERROR_TRANSLATE(GL_DEBUG_TYPE_ERROR)
+            GL_ERROR_TRANSLATE(GL_DEBUG_TYPE_MARKER)
+            GL_ERROR_TRANSLATE(GL_DEBUG_TYPE_OTHER)
+            GL_ERROR_TRANSLATE(GL_DEBUG_TYPE_PERFORMANCE)
+            GL_ERROR_TRANSLATE(GL_DEBUG_TYPE_POP_GROUP)
+            GL_ERROR_TRANSLATE(GL_DEBUG_TYPE_PORTABILITY)
+            GL_ERROR_TRANSLATE(GL_DEBUG_TYPE_PUSH_GROUP)
+            GL_ERROR_TRANSLATE(GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR)
+        default:
+            return "UNKNOWN";
+    }
+}
+
+
+void GLAPIENTRY
+MessageCallback(GLenum source,
+                GLenum type,
+                GLuint id,
+                GLenum severity,
+                GLsizei length,
+                const GLchar* message,
+                const void* userParam )
+{
+    std::string debugTypeMsg = (type == GL_DEBUG_TYPE_ERROR) ? "** GL ERROR **" : ""; 
+    CONDTION_LOG_ERROR(
+        "\n\t\t\t GL CALLBACK: <<"  << debugTypeMsg <<
+        "\n\t\t\t type(" << GL_TranslateType(type) << ": 0x" << std::hex << type <<
+        ")\n\t\t\t severity(" << GL_TranslateSeverity(severity) <<  ": 0x" << std::hex << severity << 
+        ")\n\t\t\t message = " << message, severity != GL_DEBUG_SEVERITY_NOTIFICATION);
 }

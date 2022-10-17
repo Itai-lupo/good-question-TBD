@@ -4,7 +4,6 @@
 
 #include "log.hpp"
 
-
 class openglContext
 {
     private:

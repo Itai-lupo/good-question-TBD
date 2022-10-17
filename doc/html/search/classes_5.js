@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['openglcontext_0',['openglContext',['../d3/d01/classopengl_context.html',1,'']]],
-  ['openglrendering_1',['openGLRendering',['../d5/db4/classopen_g_l_rendering.html',1,'']]],
-  ['osapi_2',['osAPI',['../d5/d6a/classos_a_p_i.html',1,'']]]
+  ['layer_0',['layer',['../d2/d36/classlayer.html',1,'']]],
+  ['layersurfaceinfo_1',['layerSurfaceInfo',['../d4/ddf/structlayer_1_1layer_surface_info.html',1,'layer']]],
+  ['linuxwindowapi_2',['linuxWindowAPI',['../de/d8e/classlinux_window_a_p_i.html',1,'']]],
+  ['logger_3',['logger',['../dc/d37/classlogger.html',1,'']]]
 ];

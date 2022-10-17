@@ -3,6 +3,8 @@
 #include "windowRenderData.hpp"
 #include "surface.hpp"
 #include "openglContext.hpp"
+#include "openGLRenderer.hpp"
+
 
 #include <thread>
 #include <functional>
@@ -31,14 +33,20 @@ class openGLRendering
         static inline bool wasInit = false;
         static inline Shader *textureShader;
         static inline openglContext *context;
+        static inline openGLRenderer *renderer;
 
         struct renderInfo
         {
             surfaceId id;
 
-            uint8_t bufferInRender;
-            uint8_t bufferToRender;
-            uint8_t freeBuffer;
+            textureId bufferInRenderTex;
+            textureId bufferToRenderTex;
+            textureId freeBufferTex;
+            
+            framebufferId freeBuffer;
+            framebufferId bufferToRender;
+            framebufferId bufferInRender;
+            
             int bufferSize;
 
             std::thread *renderThread;
@@ -49,7 +57,7 @@ class openGLRendering
             
             unsigned int textureBufferId = 0;
 
-            renderInfo(): bufferInRender(0), bufferToRender(1), freeBuffer(2), 
+            renderInfo():
                 renderMutex(std::make_shared<std::shared_mutex>()), 
                 renderFinshed(std::make_shared<std::condition_variable_any>())
             {}

@@ -112,18 +112,47 @@ void toplevel::xdg_surface_configure(void *data, struct xdg_surface *xdg_surface
         for (size_t i = 0; i < surface::getWindowWidth(temp.id) * surface::getWindowHeight(temp.id) * 4; i += 4)
         {
             data[i + 0] = 0xFF;
-            data[i + 1] = 0x00;
-            data[i + 2] = 0x00;
+            data[i + 1] = 0x10;
+            data[i + 2] = 0xFF;
             data[i + 3] = 0xFF;
         }
 
-        GL_CALL(openGLRendering::context, TexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, surface::getWindowWidth(id), surface::getWindowHeight(id) , 0, GL_RGBA, GL_UNSIGNED_BYTE, data));
-        GL_CALL(openGLRendering::context, GenerateMipmap(GL_TEXTURE_2D));
-        GL_CALL(openGLRendering::context, BindTexture(GL_TEXTURE_2D, 0)); 
+        // GL_CALL(openGLRendering::context, TexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, surface::getWindowWidth(id), surface::getWindowHeight(id) , 0, GL_RGBA, GL_UNSIGNED_BYTE, data));
+        // GL_CALL(openGLRendering::context, GenerateMipmap(GL_TEXTURE_2D));
+        // GL_CALL(openGLRendering::context, BindTexture(GL_TEXTURE_2D, 0)); 
+
+        temp.bufferInRenderTex = openGLRendering::renderer->textures->createTexture(textureFormat::RGBA8, surface::getWindowWidth(id), surface::getWindowHeight(id));
+        temp.bufferToRenderTex = openGLRendering::renderer->textures->createTexture(textureFormat::RGBA8, surface::getWindowWidth(id), surface::getWindowHeight(id));
+        temp.freeBufferTex = openGLRendering::renderer->textures->createTexture(textureFormat::RGBA8, surface::getWindowWidth(id), surface::getWindowHeight(id));
+        
+        openGLRendering::renderer->textures->loadBuffer(temp.bufferInRenderTex, 0, 0, surface::getWindowWidth(id), surface::getWindowHeight(id), textureFormat::RGBA8, GL_UNSIGNED_BYTE, data);
+
+
+        temp.bufferInRender = openGLRendering::renderer->frameBuffers->createFrameBuffer(surface::getWindowWidth(id), surface::getWindowHeight(id));
+        temp.bufferToRender = openGLRendering::renderer->frameBuffers->createFrameBuffer(surface::getWindowWidth(id), surface::getWindowHeight(id));
+        temp.freeBuffer = openGLRendering::renderer->frameBuffers->createFrameBuffer(surface::getWindowWidth(id), surface::getWindowHeight(id));
+        
+        openGLRendering::renderer->frameBuffers->attachColorRenderTarget(temp.bufferInRender, temp.bufferInRenderTex, 0);
+        openGLRendering::renderer->frameBuffers->attachColorRenderTarget(temp.bufferToRender, temp.bufferToRenderTex, 0);
+        openGLRendering::renderer->frameBuffers->attachColorRenderTarget(temp.freeBuffer, temp.freeBufferTex, 0);
+
+        openGLRendering::renderer->renderRequest({
+            temp.bufferInRender, { {0, {255, 16777215}, {[0 ... 31] = {255, 16777215}}, renderMode::triangles} }
+        });
+        openGLRendering::renderer->renderRequest({
+            temp.bufferInRender, { {0, {255, 16777215}, {[0 ... 31] = {255, 16777215}}, renderMode::triangles} }
+        });
+        openGLRendering::renderer->renderRequest({
+            temp.bufferInRender, { {0, {255, 16777215}, {[0 ... 31] = {255, 16777215}}, renderMode::triangles} }
+        });
+        
+        openGLRendering::context->swapBuffers(temp.eglSurface);
+        wl_surface_commit(surface::getSurface(id));
     }
 
-    openGLRendering::context->swapBuffers(temp.eglSurface);
-    wl_surface_commit(surface::getSurface(id));
+        openGLRendering::renderer->renderRequest({
+            temp.bufferInRender, { {0, {255, 16777215}, {[0 ... 31] = {255, 16777215}}, renderMode::triangles} }
+        });
 }
 
 
