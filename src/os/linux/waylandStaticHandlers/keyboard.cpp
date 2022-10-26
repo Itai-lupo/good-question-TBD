@@ -10,12 +10,19 @@
 #include <Tracy.hpp>
 #include <thread>
 
+
+#include <fcntl.h>
+
 void keyboard::wlKeymap(void *data, wl_keyboard *wl_keyboard, uint32_t format, int32_t fd, uint32_t size)
 {
+    ZoneScoped;
+
     assert(format == WL_KEYBOARD_KEYMAP_FORMAT_XKB_V1);
 
         
-    char *map_shm = (char *)mmap(NULL, size, PROT_READ, MAP_SHARED, fd, 0);
+    char filePath[255];
+    
+    char *map_shm = (char *)mmap(NULL, size, PROT_READ, MAP_PRIVATE, fd, 0);
     assert(map_shm != MAP_FAILED);
     
     xkb_state *xkbStateTemp = NULL;
@@ -34,6 +41,7 @@ void keyboard::wlKeymap(void *data, wl_keyboard *wl_keyboard, uint32_t format, i
 
 void keyboard::wlEnter(void *data, wl_keyboard *wl_keyboard, uint32_t serial, wl_surface *surface, wl_array *keys)
 {
+    ZoneScoped;
     for (int i = 0; i < surface::surfaces.size(); i++)
     {
         if(surface::surfaces[i].surface == surface)
@@ -68,6 +76,7 @@ void keyboard::wlEnter(void *data, wl_keyboard *wl_keyboard, uint32_t serial, wl
 
 void keyboard::wlLeave(void *data, wl_keyboard *wl_keyboard, uint32_t serial, wl_surface *surface)
 {
+    ZoneScoped;
     uint32_t index = idToIndex[activeWindow.index].lostFocusEventIndex;
     if( index != 255 && idToIndex[activeWindow.index].gen == activeWindow.gen)             
             std::thread(lostFocusEventListeners[index]).detach();
@@ -80,6 +89,7 @@ void keyboard::wlLeave(void *data, wl_keyboard *wl_keyboard, uint32_t serial, wl
 
 void keyboard::wlKey(void *data, wl_keyboard *wl_keyboard, uint32_t serial, uint32_t time, uint32_t key, uint32_t state)
 {
+    ZoneScoped;
     char buf1[128];  
     char buf2[128];
 
@@ -111,6 +121,7 @@ void keyboard::wlKey(void *data, wl_keyboard *wl_keyboard, uint32_t serial, uint
 void keyboard::wlModifiers(void *data, wl_keyboard *wl_keyboard, uint32_t serial, uint32_t mods_depressed, uint32_t mods_latched, uint32_t mods_locked, uint32_t group)
 {
     
+    ZoneScoped;
     xkb_state_update_mask(xkbState,
         mods_depressed, mods_latched, mods_locked, 0, 0, group);
 
@@ -118,6 +129,7 @@ void keyboard::wlModifiers(void *data, wl_keyboard *wl_keyboard, uint32_t serial
 
 void keyboard::wlRepeatInfo(void *data, wl_keyboard *wl_keyboard, int32_t rate, int32_t delay)
 {
+    ZoneScoped;
     keyRepeatRate = rate;
     keyRepeatdelay = delay;
 }

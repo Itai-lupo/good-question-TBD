@@ -3,9 +3,14 @@
 #include "seat.hpp"
 #include "keyboard.hpp"
 #include "pointer.hpp"
+#include "log.hpp"
+
+#include <Tracy.hpp>
+
 
 void seat::wl_seat_capabilities (void *data, wl_seat *seat, uint32_t capabilities)
 {
+    ZoneScoped;
     if(capabilities & wl_seat_capability::WL_SEAT_CAPABILITY_KEYBOARD &&  keyboard::keyboardHandle == NULL)
     {
         keyboard::keyboardHandle = wl_seat_get_keyboard(seatHandle);
@@ -37,7 +42,7 @@ void seat::wl_seat_capabilities (void *data, wl_seat *seat, uint32_t capabilitie
 
 void seat::wl_seat_name(void *data, struct wl_seat *seat, const char *name)
 {
-
+    ZoneScoped;
 }
 
 #endif

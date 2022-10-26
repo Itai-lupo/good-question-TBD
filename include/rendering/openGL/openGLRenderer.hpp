@@ -24,7 +24,7 @@ struct renderRequestInfo
     framebufferId frameBufferId;
     struct drawCallData
     {
-        uint32_t shaderId;
+        shaderId shader;
         vaoId vertexArrayId;
         textureId texturesIds[32] ;
         renderMode mode;

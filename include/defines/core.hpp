@@ -26,7 +26,8 @@ struct vaoId
     uint32_t index: 24;
 };
 
-struct vboId
+
+struct shaderId
 {
     uint32_t gen: 8;
     uint32_t index: 24;

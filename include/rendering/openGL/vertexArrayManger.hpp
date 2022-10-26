@@ -14,8 +14,8 @@ struct VBOSpec
     const void *data;
     uint32_t size; 
     uint32_t stride;
-    uint32_t dataType = GL_FLOAT; 
     uint32_t offset = 0;
+    uint32_t dataType = GL_FLOAT; 
 };
 
 
@@ -83,7 +83,6 @@ class vertexArrayManger
             int max;
             GL_CALL(context, GetIntegerv(GL_MAX_VERTEX_ATTRIBS, &max));
             GL_CALL(context, GetIntegerv(GL_MAX_VERTEX_ATTRIB_BINDINGS, &max));
-            LOG_INFO(max)
         }
         
         vaoId createVao();

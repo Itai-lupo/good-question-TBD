@@ -46,7 +46,10 @@ openglContext::openglContext(EGLContext sharedContext)
     LOG_INFO("Loaded OpenGL " << GLAD_VERSION_MAJOR(version) << "." << GLAD_VERSION_MINOR(version) );
     
     openGLAPI->Enable( GL_DEBUG_OUTPUT );
+    openGLAPI->Enable( GL_DEBUG_OUTPUT_SYNCHRONOUS );
     openGLAPI->DebugMessageCallback( MessageCallback, 0 );
+    openGLAPI->DebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, GL_TRUE);
+
 }
 
 void openglContext::GLClearErrors()
@@ -73,6 +76,7 @@ std::string openglContext::GL_TranslateError (GLenum error)
 void openglContext::GLCheckError(const char *function, const char *file, int line)
 {
     GLenum error;
+    return;
     while((error = openGLAPI->GetError()) != GL_NO_ERROR)
     {
         LOG_INFO(
@@ -126,6 +130,22 @@ std::string GL_TranslateType (GLenum error)
     }
 }
 
+std::string GL_TranslateSource (GLenum error)
+{
+    switch (error) {
+            GL_ERROR_TRANSLATE(GL_DEBUG_SOURCE_API)
+            GL_ERROR_TRANSLATE(GL_DEBUG_SOURCE_WINDOW_SYSTEM)
+            GL_ERROR_TRANSLATE(GL_DEBUG_SOURCE_SHADER_COMPILER)
+            GL_ERROR_TRANSLATE(GL_DEBUG_SOURCE_THIRD_PARTY)
+            GL_ERROR_TRANSLATE(GL_DEBUG_SOURCE_APPLICATION)
+            GL_ERROR_TRANSLATE(GL_DEBUG_SOURCE_OTHER)
+        default:
+            return "UNKNOWN";
+    }
+}
+
+
+
 
 void GLAPIENTRY
 MessageCallback(GLenum source,
@@ -136,10 +156,10 @@ MessageCallback(GLenum source,
                 const GLchar* message,
                 const void* userParam )
 {
-    std::string debugTypeMsg = (type == GL_DEBUG_TYPE_ERROR) ? "** GL ERROR **" : ""; 
-    CONDTION_LOG_ERROR(
-        "\n\t\t\t GL CALLBACK: <<"  << debugTypeMsg <<
-        "\n\t\t\t type(" << GL_TranslateType(type) << ": 0x" << std::hex << type <<
-        ")\n\t\t\t severity(" << GL_TranslateSeverity(severity) <<  ": 0x" << std::hex << severity << 
-        ")\n\t\t\t message = " << message, severity != GL_DEBUG_SEVERITY_NOTIFICATION);
+    std::string debugTypeMsg = (type == GL_DEBUG_TYPE_ERROR) ? "GL ERROR" : "GL CALLBACK"; 
+    CONDTION_LOG_ERROR( debugTypeMsg << ": "
+        "\n\t\tSource: " << GL_TranslateSource(source) << 
+        "\n\t\tType: " << GL_TranslateType(type) << " = 0x" << std::hex << type <<
+        "\n\t\tSeverity: " << GL_TranslateSeverity(severity) <<  " = 0x" << std::hex << severity << 
+        "\n\t\tMessage = " << message, severity != GL_DEBUG_SEVERITY_NOTIFICATION);
 }

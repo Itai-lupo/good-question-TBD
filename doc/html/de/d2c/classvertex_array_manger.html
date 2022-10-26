@@ -140,9 +140,7 @@ Public Member Functions</h2></td></tr>
 <div class="line"><span class="lineno">   83</span>            <span class="keywordtype">int</span> max;</div>
 <div class="line"><span class="lineno">   84</span>            <a class="code hl_define" href="../../db/d4c/opengl_context_8hpp.html#a70415707146204b62e5f7d4403f10f3a">GL_CALL</a>(context, GetIntegerv(GL_MAX_VERTEX_ATTRIBS, &amp;max));</div>
 <div class="line"><span class="lineno">   85</span>            <a class="code hl_define" href="../../db/d4c/opengl_context_8hpp.html#a70415707146204b62e5f7d4403f10f3a">GL_CALL</a>(context, GetIntegerv(GL_MAX_VERTEX_ATTRIB_BINDINGS, &amp;max));</div>
-<div class="line"><span class="lineno">   86</span>            <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#abba4f33d5caf52c17ab95053b60f76d7">LOG_INFO</a>(max)</div>
-<div class="line"><span class="lineno">   87</span>        }</div>
-<div class="ttc" id="alog_8hpp_html_abba4f33d5caf52c17ab95053b60f76d7"><div class="ttname"><a href="../../d4/d3d/log_8hpp.html#abba4f33d5caf52c17ab95053b60f76d7">LOG_INFO</a></div><div class="ttdeci">#define LOG_INFO(toLog)</div><div class="ttdef"><b>Definition:</b> log.hpp:6</div></div>
+<div class="line"><span class="lineno">   86</span>        }</div>
 <div class="ttc" id="aopengl_context_8hpp_html_a70415707146204b62e5f7d4403f10f3a"><div class="ttname"><a href="../../db/d4c/opengl_context_8hpp.html#a70415707146204b62e5f7d4403f10f3a">GL_CALL</a></div><div class="ttdeci">#define GL_CALL(context, call)</div><div class="ttdef"><b>Definition:</b> openglContext.hpp:42</div></div>
 </div><!-- fragment -->
 </div>
@@ -255,7 +253,7 @@ Public Member Functions</h2></td></tr>
 <div class="ttc" id="astruct_v_b_o_spec_html_a606042ff6deb00c1e0b1ee74be6eb731"><div class="ttname"><a href="../../d5/d49/struct_v_b_o_spec.html#a606042ff6deb00c1e0b1ee74be6eb731">VBOSpec::data</a></div><div class="ttdeci">const void * data</div><div class="ttdef"><b>Definition:</b> vertexArrayManger.hpp:14</div></div>
 <div class="ttc" id="astruct_v_b_o_spec_html_aa16f35e4de4e1584c9ee5257772e4216"><div class="ttname"><a href="../../d5/d49/struct_v_b_o_spec.html#aa16f35e4de4e1584c9ee5257772e4216">VBOSpec::size</a></div><div class="ttdeci">uint32_t size</div><div class="ttdef"><b>Definition:</b> vertexArrayManger.hpp:15</div></div>
 <div class="ttc" id="astruct_v_b_o_spec_html_ae63d63a3b9061826345263bf971cab81"><div class="ttname"><a href="../../d5/d49/struct_v_b_o_spec.html#ae63d63a3b9061826345263bf971cab81">VBOSpec::stride</a></div><div class="ttdeci">uint32_t stride</div><div class="ttdef"><b>Definition:</b> vertexArrayManger.hpp:16</div></div>
-<div class="ttc" id="astruct_v_b_o_spec_html_af24fd6ff2b89083310d6a7ea464e41b7"><div class="ttname"><a href="../../d5/d49/struct_v_b_o_spec.html#af24fd6ff2b89083310d6a7ea464e41b7">VBOSpec::offset</a></div><div class="ttdeci">uint32_t offset</div><div class="ttdef"><b>Definition:</b> vertexArrayManger.hpp:18</div></div>
+<div class="ttc" id="astruct_v_b_o_spec_html_af24fd6ff2b89083310d6a7ea464e41b7"><div class="ttname"><a href="../../d5/d49/struct_v_b_o_spec.html#af24fd6ff2b89083310d6a7ea464e41b7">VBOSpec::offset</a></div><div class="ttdeci">uint32_t offset</div><div class="ttdef"><b>Definition:</b> vertexArrayManger.hpp:17</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -333,9 +331,9 @@ Public Member Functions</h2></td></tr>
 <div class="line"><span class="lineno">   93</span>        uint8_t binding = toHandle.rebuildBinding.front();</div>
 <div class="line"><span class="lineno">   94</span> </div>
 <div class="line"><span class="lineno">   95</span>        </div>
-<div class="line"><span class="lineno">   96</span>        <a class="code hl_define" href="../../db/d4c/opengl_context_8hpp.html#a70415707146204b62e5f7d4403f10f3a">GL_CALL</a>(context, CreateBuffers(1, &amp;temp.bindingsSlots[0].renderId));</div>
-<div class="line"><span class="lineno">   97</span>        <a class="code hl_define" href="../../db/d4c/opengl_context_8hpp.html#a70415707146204b62e5f7d4403f10f3a">GL_CALL</a>(context, NamedBufferData(temp.bindingsSlots[0].renderId, temp.bindingsSlots[0].size, temp.bindingsSlots[0].data, GL_DYNAMIC_DRAW));</div>
-<div class="line"><span class="lineno">   98</span>        <a class="code hl_define" href="../../db/d4c/opengl_context_8hpp.html#a70415707146204b62e5f7d4403f10f3a">GL_CALL</a>(context, VertexArrayVertexBuffer(temp.VAO, binding, temp.bindingsSlots[0].renderId, temp.bindingsSlots[0].offset, temp.bindingsSlots[0].stride));</div>
+<div class="line"><span class="lineno">   96</span>        <a class="code hl_define" href="../../db/d4c/opengl_context_8hpp.html#a70415707146204b62e5f7d4403f10f3a">GL_CALL</a>(context, CreateBuffers(1, &amp;temp.bindingsSlots[binding].renderId));</div>
+<div class="line"><span class="lineno">   97</span>        <a class="code hl_define" href="../../db/d4c/opengl_context_8hpp.html#a70415707146204b62e5f7d4403f10f3a">GL_CALL</a>(context, NamedBufferData(temp.bindingsSlots[binding].renderId, temp.bindingsSlots[binding].size, temp.bindingsSlots[binding].data, GL_DYNAMIC_DRAW));</div>
+<div class="line"><span class="lineno">   98</span>        <a class="code hl_define" href="../../db/d4c/opengl_context_8hpp.html#a70415707146204b62e5f7d4403f10f3a">GL_CALL</a>(context, VertexArrayVertexBuffer(temp.VAO, binding, temp.bindingsSlots[binding].renderId, temp.bindingsSlots[binding].offset, temp.bindingsSlots[binding].stride));</div>
 <div class="line"><span class="lineno">   99</span> </div>
 <div class="line"><span class="lineno">  100</span>        toHandle.rebuildBinding.pop();</div>
 <div class="line"><span class="lineno">  101</span>    }</div>

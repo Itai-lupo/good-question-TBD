@@ -11,14 +11,15 @@ var searchData=
   ['getrenderindexfromid_8',['getRenderIndexFromId',['../de/d8e/classlinux_window_a_p_i.html#ac16f884497ac88141d59e5d84327a2ec',1,'linuxWindowAPI']]],
   ['getsurface_9',['getSurface',['../d5/d88/classsurface.html#adfb4a3648842f5870fb0162c8bb3400c',1,'surface']]],
   ['gettextureformat_10',['getTextureFormat',['../d6/d26/classtexture_manger.html#a0a200eee67e3d6b54fd69b4c4ac3f66e',1,'textureManger']]],
-  ['getwidth_11',['getWidth',['../df/dfa/classframe_buffers_manger.html#a452bc8aa491a839df8aa31fe6efbb959',1,'frameBuffersManger::getWidth()'],['../d6/d26/classtexture_manger.html#a8a6b5777dd326b52e5a4b1a4c892838e',1,'textureManger::getWidth()']]],
+  ['getwidth_11',['getWidth',['../d6/d26/classtexture_manger.html#a8a6b5777dd326b52e5a4b1a4c892838e',1,'textureManger::getWidth()'],['../df/dfa/classframe_buffers_manger.html#a452bc8aa491a839df8aa31fe6efbb959',1,'frameBuffersManger::getWidth()']]],
   ['getwindowheight_12',['getWindowHeight',['../d5/d88/classsurface.html#a48100a926232db36409df8d9e2be4973',1,'surface']]],
   ['getwindowsize_13',['getWindowSize',['../d5/d6a/classos_a_p_i.html#a9caf3fe186334a588232d26d1c7de477',1,'osAPI']]],
   ['getwindowtitle_14',['getWindowTitle',['../d2/d36/classlayer.html#aaf93f88098e81d9f9ebc71633480e869',1,'layer::getWindowTitle()'],['../da/d41/classtoplevel.html#a4ffe85ecb0bd2149f22797365748fa40',1,'toplevel::getWindowTitle()'],['../d5/d6a/classos_a_p_i.html#a2a07fd40f7bdad0a1a2dc511e71a1758',1,'osAPI::getWindowTitle()']]],
   ['getwindowwidth_15',['getWindowWidth',['../d5/d88/classsurface.html#aeef37731dfb9cd22ec6f1f7ad8175cec',1,'surface']]],
   ['gl_5ftranslateerror_16',['GL_TranslateError',['../d5/d93/opengl_context_8cpp.html#afb632c14e183d96bf08539da581e9e14',1,'openglContext.cpp']]],
   ['gl_5ftranslateseverity_17',['GL_TranslateSeverity',['../d5/d93/opengl_context_8cpp.html#a9ceddd3817d51d589039f13ce45c3074',1,'openglContext.cpp']]],
-  ['gl_5ftranslatetype_18',['GL_TranslateType',['../d5/d93/opengl_context_8cpp.html#a06b6e035498fc8c02342bd52bfb9f967',1,'openglContext.cpp']]],
-  ['glcheckerror_19',['GLCheckError',['../d3/d01/classopengl_context.html#a7ffb34d987e73f4bbfe155836546abb8',1,'openglContext']]],
-  ['glclearerrors_20',['GLClearErrors',['../d3/d01/classopengl_context.html#a268ecf605b7ab251926bc61e1b21c8b7',1,'openglContext']]]
+  ['gl_5ftranslatesource_18',['GL_TranslateSource',['../d5/d93/opengl_context_8cpp.html#aa8cf2164a53f93c025b03094754998ca',1,'openglContext.cpp']]],
+  ['gl_5ftranslatetype_19',['GL_TranslateType',['../d5/d93/opengl_context_8cpp.html#a06b6e035498fc8c02342bd52bfb9f967',1,'openglContext.cpp']]],
+  ['glcheckerror_20',['GLCheckError',['../d3/d01/classopengl_context.html#a7ffb34d987e73f4bbfe155836546abb8',1,'openglContext']]],
+  ['glclearerrors_21',['GLClearErrors',['../d3/d01/classopengl_context.html#a268ecf605b7ab251926bc61e1b21c8b7',1,'openglContext']]]
 ];

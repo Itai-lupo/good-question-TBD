@@ -11,8 +11,9 @@ void textureManger::rebuild(textureId id)
         rebuild(temp);
 
     temp.needToRebuild = false;
-    void *pixels = malloc(temp.width * temp.hight * 4);
-    GL_CALL(context, GetTextureImage(temp.renderId, 0, GL_RGBA, GL_UNSIGNED_BYTE, temp.width * temp.hight * 4, pixels));  
+    void *pixels = malloc(temp.width * temp.hight * temp.channels);
+    GL_CALL(context, GetTextureImage(temp.renderId, 0, GL_RGBA, GL_UNSIGNED_BYTE, temp.width * temp.hight * temp.channels, pixels));  
+    free(pixels);
 }
 
 
@@ -41,9 +42,10 @@ void textureManger::rebuild(textureInfo& tex)
         GL_CALL(context, TextureStorage2D(tex.renderId, 1, textureFormatToOpenGlFormat(tex.format), tex.width, tex.hight));
         if(tex.pixels != nullptr){
             
-            GL_CALL(context, TextureSubImage2D(tex.renderId, 0, tex.temp.x, tex.temp.y, tex.temp.width, tex.temp.hight, textureFormatToOpenGlDataFormat(tex.temp.format), tex.temp.type, tex.temp.pixels));  
-            
-            GL_CALL(context, GetTextureImage(tex.renderId, 0, GL_RGBA, GL_UNSIGNED_BYTE, tex.width * tex.hight * 4, tex.temp.pixels)); 
+            tex.channels = textureFormatToChannelsCount(tex.temp.format);
+            GL_CALL(context, 
+            TextureSubImage2D(tex.renderId, 0, tex.temp.x, tex.temp.y, tex.temp.width, tex.temp.hight, 
+                        textureFormatToOpenGlDataFormat(tex.temp.format), tex.temp.type, tex.temp.pixels));  
         }
     }
 }
@@ -58,14 +60,15 @@ void textureManger::handleRequsets()
             continue;
 
         textureInfo& tempInfo = textures[idToIndex[temp.id.index].index];
-        if(tempInfo.needToRebuild)
-            rebuild(tempInfo);
-            
-        tempInfo.needToRebuild = false;
         tempInfo.temp = temp;
         tempInfo.pixels = temp.pixels;
+            
+        if(tempInfo.needToRebuild)
+            rebuild(tempInfo);
+        tempInfo.needToRebuild = false;
 
-        GL_CALL(context, TextureSubImage2D(tempInfo.renderId, 0, temp.x, temp.y, temp.width, temp.hight, textureFormatToOpenGlDataFormat(temp.format), temp.type, temp.pixels));  
+        // GL_CALL(context, TextureSubImage2D(tempInfo.renderId, 0, temp.x, temp.y, temp.width, temp.hight, textureFormatToOpenGlDataFormat(temp.format), temp.type, temp.pixels));  
+        
     }
 
     while (!toDelete.empty())
@@ -241,6 +244,24 @@ uint32_t textureManger::textureFormatToOpenGlDataFormat(textureFormat formatToCo
         case(textureFormat::R8): 				return GL_R;	break; 
 
         case(textureFormat::DEPTH24STENCIL8): 	return GL_DEPTH24_STENCIL8;	break; 
+    }
+
+    return 0;
+}
+
+uint32_t textureManger::textureFormatToChannelsCount(textureFormat formatToConvert)
+{
+    switch (formatToConvert)
+    {
+        case(textureFormat::None): 				return 0;	break; 
+
+        case(textureFormat::RGBA8): 			return 4;	break; 
+        case(textureFormat::RED_INTEGER): 		return 1;	break; 
+        case(textureFormat::RGB8): 				return 3;	break; 
+        case(textureFormat::RG8): 				return 2;	break; 
+        case(textureFormat::R8): 				return 1;	break; 
+
+        case(textureFormat::DEPTH24STENCIL8): 	return 4;	break; 
     }
 
     return 0;

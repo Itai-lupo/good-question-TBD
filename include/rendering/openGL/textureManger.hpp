@@ -44,7 +44,7 @@ class textureManger
 
         struct textureInfo
         {
-            uint32_t renderId;
+            uint32_t renderId = 0;
             textureId id;
 
             int channels = 4;
@@ -73,6 +73,7 @@ class textureManger
         void rebuild(textureInfo& fbo);
         uint32_t textureFormatToOpenGlFormat(textureFormat formatToConvert);
         uint32_t textureFormatToOpenGlDataFormat(textureFormat formatToConvert);
+        uint32_t textureFormatToChannelsCount(textureFormat formatToConvert);
 
     public:
         textureManger(openglContext *context): context(context){}

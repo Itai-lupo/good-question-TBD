@@ -13,8 +13,11 @@ BUILD_DIR ?= ./build
 OUTPUT_DIR ?= ./output
 INCLUDE_DIR ?= ./include ./vendor ./submodules/tracy/public/tracy
 SRC_DIRS ?= ./src/ ./vendor
+SHADERS_DIRS ?= ./assets/shaders/fragment ./assets/shaders/vertex
 TEST_DIR ?= ./tests
 
+SHADERS = $(call rwildcard,$(SHADERS_DIRS[0]),*.frag) $(call rwildcard,$(SHADERS_DIRS[1]),*.vert)
+SHADERS_BINARY = $(foreach  shader,$(SHADERS),$(shader).spv) 
 SRCS += $(foreach  dir,$(SRC_DIRS),$(call rwildcard,$(dir),*.c*)) submodules/tracy/public/TracyClient.cpp
 OBJS :=  $(SRCS:%=$(BUILD_DIR)/%.o)
 DEPS := $(OBJS:.o=.d)
@@ -40,15 +43,17 @@ LDFLAGS =  -lstdc++ -lgflags -lglog -lGL -lrt -lm -ldl  -lwayland-client -lxkbco
 TEST_LDFLAGS = -lgtest -lgtest_main -lgmock  
 
 
-$(OUTPUT_DIR)/$(TARGET_EXEC): $(OBJS)
+$(OUTPUT_DIR)/$(TARGET_EXEC): $(OBJS) $(SHADERS_BINARY)
 	mkdir -p output
 	$(CC) $(CXXFLAGS) $(OBJS)  -o $@ $(LDFLAGS)
 
-print:
-	@echo ./include/ $(wildcard ./include/*/) $(wildcard ./include/*/*/) $(wildcard ./include/*/*/*/) $(wildcard ./include/*/*/*/*/)
-	@echo $(call rwildcardDir,./include)
 
-	
+print:
+	@echo $(call wildcard,$(SHADERS),*.frag)
+	@echo $(call rwildcard,*.frag)
+
+%.spv: %
+	glslangValidator -G $< -o $@ --quiet
 
 # c++ source
 $(BUILD_DIR)/%.cpp.o: %.cpp

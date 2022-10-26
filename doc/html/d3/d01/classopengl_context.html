@@ -174,24 +174,28 @@ Static Public Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   46</span>    <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#abba4f33d5caf52c17ab95053b60f76d7">LOG_INFO</a>(<span class="stringliteral">&quot;Loaded OpenGL &quot;</span> &lt;&lt; GLAD_VERSION_MAJOR(version) &lt;&lt; <span class="stringliteral">&quot;.&quot;</span> &lt;&lt; GLAD_VERSION_MINOR(version) );</div>
 <div class="line"><span class="lineno">   47</span>    </div>
 <div class="line"><span class="lineno">   48</span>    <a class="code hl_variable" href="../../d3/d01/classopengl_context.html#a2e33865c7f75a29f2e7f48930654343e">openGLAPI</a>-&gt;Enable( GL_DEBUG_OUTPUT );</div>
-<div class="line"><span class="lineno">   49</span>    <a class="code hl_variable" href="../../d3/d01/classopengl_context.html#a2e33865c7f75a29f2e7f48930654343e">openGLAPI</a>-&gt;DebugMessageCallback( <a class="code hl_function" href="../../d5/d93/opengl_context_8cpp.html#a76259e93488aa188c59d8b8a80517f74">MessageCallback</a>, 0 );</div>
-<div class="line"><span class="lineno">   50</span>}</div>
+<div class="line"><span class="lineno">   49</span>    <a class="code hl_variable" href="../../d3/d01/classopengl_context.html#a2e33865c7f75a29f2e7f48930654343e">openGLAPI</a>-&gt;Enable( GL_DEBUG_OUTPUT_SYNCHRONOUS );</div>
+<div class="line"><span class="lineno">   50</span>    <a class="code hl_variable" href="../../d3/d01/classopengl_context.html#a2e33865c7f75a29f2e7f48930654343e">openGLAPI</a>-&gt;DebugMessageCallback( <a class="code hl_function" href="../../d5/d93/opengl_context_8cpp.html#a76259e93488aa188c59d8b8a80517f74">MessageCallback</a>, 0 );</div>
+<div class="line"><span class="lineno">   51</span>    <a class="code hl_variable" href="../../d3/d01/classopengl_context.html#a2e33865c7f75a29f2e7f48930654343e">openGLAPI</a>-&gt;DebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, <span class="keyword">nullptr</span>, GL_TRUE);</div>
+<div class="line"><span class="lineno">   52</span> </div>
+<div class="line"><span class="lineno">   53</span>}</div>
 <div class="ttc" id="aclassopengl_context_html_a128fd932e7dc9482b6057a12f3ddedd9"><div class="ttname"><a href="../../d3/d01/classopengl_context.html#a128fd932e7dc9482b6057a12f3ddedd9">openglContext::eglConfig</a></div><div class="ttdeci">EGLConfig eglConfig</div><div class="ttdef"><b>Definition:</b> openglContext.hpp:14</div></div>
 <div class="ttc" id="aclassopengl_context_html_a2e33865c7f75a29f2e7f48930654343e"><div class="ttname"><a href="../../d3/d01/classopengl_context.html#a2e33865c7f75a29f2e7f48930654343e">openglContext::openGLAPI</a></div><div class="ttdeci">GladGLContext * openGLAPI</div><div class="ttdef"><b>Definition:</b> openglContext.hpp:16</div></div>
 <div class="ttc" id="aclassopengl_context_html_a5f7b2f7033e943d8375c27247b06c060"><div class="ttname"><a href="../../d3/d01/classopengl_context.html#a5f7b2f7033e943d8375c27247b06c060">openglContext::eglDisplay</a></div><div class="ttdeci">static EGLDisplay eglDisplay</div><div class="ttdef"><b>Definition:</b> openglContext.hpp:13</div></div>
 <div class="ttc" id="aclassopengl_context_html_a73855b35c394c66661f9a6eb234ea2e6"><div class="ttname"><a href="../../d3/d01/classopengl_context.html#a73855b35c394c66661f9a6eb234ea2e6">openglContext::eglContext</a></div><div class="ttdeci">EGLContext eglContext</div><div class="ttdef"><b>Definition:</b> openglContext.hpp:15</div></div>
 <div class="ttc" id="alog_8hpp_html_a1ab0ffe082dd546a0c479ac3999b6e9f"><div class="ttname"><a href="../../d4/d3d/log_8hpp.html#a1ab0ffe082dd546a0c479ac3999b6e9f">CONDTION_LOG_FATAL</a></div><div class="ttdeci">#define CONDTION_LOG_FATAL(toLog, condition)</div><div class="ttdef"><b>Definition:</b> log.hpp:13</div></div>
 <div class="ttc" id="alog_8hpp_html_abba4f33d5caf52c17ab95053b60f76d7"><div class="ttname"><a href="../../d4/d3d/log_8hpp.html#abba4f33d5caf52c17ab95053b60f76d7">LOG_INFO</a></div><div class="ttdeci">#define LOG_INFO(toLog)</div><div class="ttdef"><b>Definition:</b> log.hpp:6</div></div>
-<div class="ttc" id="aopengl_context_8cpp_html_a76259e93488aa188c59d8b8a80517f74"><div class="ttname"><a href="../../d5/d93/opengl_context_8cpp.html#a76259e93488aa188c59d8b8a80517f74">MessageCallback</a></div><div class="ttdeci">void GLAPIENTRY MessageCallback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar *message, const void *userParam)</div><div class="ttdef"><b>Definition:</b> openglContext.cpp:131</div></div>
+<div class="ttc" id="aopengl_context_8cpp_html_a76259e93488aa188c59d8b8a80517f74"><div class="ttname"><a href="../../d5/d93/opengl_context_8cpp.html#a76259e93488aa188c59d8b8a80517f74">MessageCallback</a></div><div class="ttdeci">void GLAPIENTRY MessageCallback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar *message, const void *userParam)</div><div class="ttdef"><b>Definition:</b> openglContext.cpp:151</div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../d3/d01/classopengl_context_ad28a108d8be8421cbb04fea3505e4160_cgraph.png" border="0" usemap="#ad3/d01/classopengl_context_ad28a108d8be8421cbb04fea3505e4160_cgraph" alt=""/></div>
 <map name="ad3/d01/classopengl_context_ad28a108d8be8421cbb04fea3505e4160_cgraph" id="ad3/d01/classopengl_context_ad28a108d8be8421cbb04fea3505e4160_cgraph">
-<area shape="rect" title=" " alt="" coords="5,31,197,57"/>
-<area shape="rect" href="../../d5/d93/opengl_context_8cpp.html#a76259e93488aa188c59d8b8a80517f74" title=" " alt="" coords="245,31,371,57"/>
+<area shape="rect" title=" " alt="" coords="5,56,197,83"/>
+<area shape="rect" href="../../d5/d93/opengl_context_8cpp.html#a76259e93488aa188c59d8b8a80517f74" title=" " alt="" coords="245,56,371,83"/>
 <area shape="rect" href="../../d5/d93/opengl_context_8cpp.html#a9ceddd3817d51d589039f13ce45c3074" title=" " alt="" coords="419,5,567,32"/>
-<area shape="rect" href="../../d5/d93/opengl_context_8cpp.html#a06b6e035498fc8c02342bd52bfb9f967" title=" " alt="" coords="428,56,557,83"/>
+<area shape="rect" href="../../d5/d93/opengl_context_8cpp.html#aa8cf2164a53f93c025b03094754998ca" title=" " alt="" coords="421,56,564,83"/>
+<area shape="rect" href="../../d5/d93/opengl_context_8cpp.html#a06b6e035498fc8c02342bd52bfb9f967" title=" " alt="" coords="428,107,557,133"/>
 </map>
 </div>
 
@@ -246,15 +250,16 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   74</span>{</div>
-<div class="line"><span class="lineno">   75</span>    GLenum error;</div>
-<div class="line"><span class="lineno">   76</span>    <span class="keywordflow">while</span>((error = <a class="code hl_variable" href="../../d3/d01/classopengl_context.html#a2e33865c7f75a29f2e7f48930654343e">openGLAPI</a>-&gt;GetError()) != GL_NO_ERROR)</div>
-<div class="line"><span class="lineno">   77</span>    {</div>
-<div class="line"><span class="lineno">   78</span>        <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#abba4f33d5caf52c17ab95053b60f76d7">LOG_INFO</a>(</div>
-<div class="line"><span class="lineno">   79</span>            <span class="stringliteral">&quot;[OpenGL error] (&quot;</span> &lt;&lt; GL_TranslateError(error) &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; error &lt;&lt; <span class="stringliteral">&quot;): &quot;</span> &lt;&lt; function &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; file &lt;&lt;  <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; line);</div>
-<div class="line"><span class="lineno">   80</span>    }</div>
-<div class="line"><span class="lineno">   81</span>    </div>
-<div class="line"><span class="lineno">   82</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   77</span>{</div>
+<div class="line"><span class="lineno">   78</span>    GLenum error;</div>
+<div class="line"><span class="lineno">   79</span>    <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   80</span>    <span class="keywordflow">while</span>((error = <a class="code hl_variable" href="../../d3/d01/classopengl_context.html#a2e33865c7f75a29f2e7f48930654343e">openGLAPI</a>-&gt;GetError()) != GL_NO_ERROR)</div>
+<div class="line"><span class="lineno">   81</span>    {</div>
+<div class="line"><span class="lineno">   82</span>        <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#abba4f33d5caf52c17ab95053b60f76d7">LOG_INFO</a>(</div>
+<div class="line"><span class="lineno">   83</span>            <span class="stringliteral">&quot;[OpenGL error] (&quot;</span> &lt;&lt; GL_TranslateError(error) &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; error &lt;&lt; <span class="stringliteral">&quot;): &quot;</span> &lt;&lt; function &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; file &lt;&lt;  <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; line);</div>
+<div class="line"><span class="lineno">   84</span>    }</div>
+<div class="line"><span class="lineno">   85</span>    </div>
+<div class="line"><span class="lineno">   86</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -272,9 +277,9 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   53</span>{</div>
-<div class="line"><span class="lineno">   54</span>    <span class="keywordflow">while</span>(<a class="code hl_variable" href="../../d3/d01/classopengl_context.html#a2e33865c7f75a29f2e7f48930654343e">openGLAPI</a>-&gt;GetError() != GL_NO_ERROR);</div>
-<div class="line"><span class="lineno">   55</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   56</span>{</div>
+<div class="line"><span class="lineno">   57</span>    <span class="keywordflow">while</span>(<a class="code hl_variable" href="../../d3/d01/classopengl_context.html#a2e33865c7f75a29f2e7f48930654343e">openGLAPI</a>-&gt;GetError() != GL_NO_ERROR);</div>
+<div class="line"><span class="lineno">   58</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>

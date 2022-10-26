@@ -85,6 +85,7 @@ $(document).ready(function(){initNavTree('d4/df4/classshader_manger.html','../..
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="../../dc/dc2/classshader_manger-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">shaderManger Class Reference</div></div>
@@ -99,6 +100,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:afce60d8e2a3b74550a08ac320967420d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af21b600054839a0e48da92ebabae68cc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/df4/classshader_manger.html#af21b600054839a0e48da92ebabae68cc">~shaderManger</a> ()</td></tr>
 <tr class="separator:af21b600054839a0e48da92ebabae68cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c7af69318c5f8d19426ad0c96f37e42"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/dc4/structshader_id.html">shaderId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/df4/classshader_manger.html#a7c7af69318c5f8d19426ad0c96f37e42">createProgram</a> (const std::string &amp;vertexPath, const std::string &amp;fragmentPath)</td></tr>
+<tr class="separator:a7c7af69318c5f8d19426ad0c96f37e42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20cdc3d09dafba815e355614c1b4919c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/df4/classshader_manger.html#a20cdc3d09dafba815e355614c1b4919c">bind</a> (<a class="el" href="../../d3/dc4/structshader_id.html">shaderId</a> id)</td></tr>
+<tr class="separator:a20cdc3d09dafba815e355614c1b4919c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="afce60d8e2a3b74550a08ac320967420d" name="afce60d8e2a3b74550a08ac320967420d"></a>
@@ -124,7 +129,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   11</span>: context(context){}</div>
+<div class="fragment"><div class="line"><span class="lineno">   44</span>: context(context){}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -145,8 +150,101 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a20cdc3d09dafba815e355614c1b4919c" name="a20cdc3d09dafba815e355614c1b4919c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20cdc3d09dafba815e355614c1b4919c">&#9670;&nbsp;</a></span>bind()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void shaderManger::bind </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/dc4/structshader_id.html">shaderId</a>&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><span class="lineno">  121</span>{</div>
+<div class="line"><span class="lineno">  122</span> </div>
+<div class="line"><span class="lineno">  123</span>    <span class="keywordflow">if</span>(idToIndex[<span class="keywordtype">id</span>.index].gen != <span class="keywordtype">id</span>.gen)</div>
+<div class="line"><span class="lineno">  124</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  125</span> </div>
+<div class="line"><span class="lineno">  126</span>    shaderInfo&amp; temp = shaders[idToIndex[<span class="keywordtype">id</span>.index].index];</div>
+<div class="line"><span class="lineno">  127</span>    <span class="keywordflow">if</span>(temp.programId == 0)</div>
+<div class="line"><span class="lineno">  128</span>    {</div>
+<div class="line"><span class="lineno">  129</span>        compileVertexShader(temp);</div>
+<div class="line"><span class="lineno">  130</span>        compileFrgmentShader(temp);</div>
+<div class="line"><span class="lineno">  131</span>        linkProgram(temp);</div>
+<div class="line"><span class="lineno">  132</span>    }</div>
+<div class="line"><span class="lineno">  133</span>    context-&gt;<a class="code hl_variable" href="../../d3/d01/classopengl_context.html#a2e33865c7f75a29f2e7f48930654343e">openGLAPI</a>-&gt;UseProgram(temp.programId);</div>
+<div class="line"><span class="lineno">  134</span>}</div>
+<div class="ttc" id="aclassopengl_context_html_a2e33865c7f75a29f2e7f48930654343e"><div class="ttname"><a href="../../d3/d01/classopengl_context.html#a2e33865c7f75a29f2e7f48930654343e">openglContext::openGLAPI</a></div><div class="ttdeci">GladGLContext * openGLAPI</div><div class="ttdef"><b>Definition:</b> openglContext.hpp:16</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a7c7af69318c5f8d19426ad0c96f37e42" name="a7c7af69318c5f8d19426ad0c96f37e42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c7af69318c5f8d19426ad0c96f37e42">&#9670;&nbsp;</a></span>createProgram()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/dc4/structshader_id.html">shaderId</a> shaderManger::createProgram </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>vertexPath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>fragmentPath</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><span class="lineno">    6</span>{</div>
+<div class="line"><span class="lineno">    7</span>    <a class="code hl_struct" href="../../d3/dc4/structshader_id.html">shaderId</a> id;</div>
+<div class="line"><span class="lineno">    8</span>    <span class="keywordflow">if</span>(!freeSlots.empty())</div>
+<div class="line"><span class="lineno">    9</span>    {</div>
+<div class="line"><span class="lineno">   10</span>        <span class="keywordtype">id</span> = {</div>
+<div class="line"><span class="lineno">   11</span>            .<a class="code hl_variable" href="../../d3/dc4/structshader_id.html#a8845849221f74790e44ceac1f06e6dba">gen</a> = idToIndex[freeSlots.front()].gen,</div>
+<div class="line"><span class="lineno">   12</span>            .index = freeSlots.front()</div>
+<div class="line"><span class="lineno">   13</span>        };</div>
+<div class="line"><span class="lineno">   14</span>        freeSlots.pop_front();</div>
+<div class="line"><span class="lineno">   15</span>    }</div>
+<div class="line"><span class="lineno">   16</span>    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">   17</span>    {</div>
+<div class="line"><span class="lineno">   18</span>        <span class="keywordtype">id</span> = {</div>
+<div class="line"><span class="lineno">   19</span>            .gen = 0,</div>
+<div class="line"><span class="lineno">   20</span>            .index = (uint32_t)idToIndex.size()</div>
+<div class="line"><span class="lineno">   21</span>        };</div>
+<div class="line"><span class="lineno">   22</span>        idToIndex.push_back({0, (uint32_t)shaders.size()});</div>
+<div class="line"><span class="lineno">   23</span>    }</div>
+<div class="line"><span class="lineno">   24</span> </div>
+<div class="line"><span class="lineno">   25</span>    shaderInfo info;</div>
+<div class="line"><span class="lineno">   26</span>    info.id = id;</div>
+<div class="line"><span class="lineno">   27</span>    info.vertexPath = vertex;</div>
+<div class="line"><span class="lineno">   28</span>    info.fragmentPath = fragment;</div>
+<div class="line"><span class="lineno">   29</span> </div>
+<div class="line"><span class="lineno">   30</span>    idToIndex[<span class="keywordtype">id</span>.index].index = shaders.size();</div>
+<div class="line"><span class="lineno">   31</span>    shaders.push_back(info);</div>
+<div class="line"><span class="lineno">   32</span>    <span class="keywordflow">return</span> id;</div>
+<div class="line"><span class="lineno">   33</span>}</div>
+<div class="ttc" id="astructshader_id_html"><div class="ttname"><a href="../../d3/dc4/structshader_id.html">shaderId</a></div><div class="ttdef"><b>Definition:</b> core.hpp:31</div></div>
+<div class="ttc" id="astructshader_id_html_a8845849221f74790e44ceac1f06e6dba"><div class="ttname"><a href="../../d3/dc4/structshader_id.html#a8845849221f74790e44ceac1f06e6dba">shaderId::gen</a></div><div class="ttdeci">uint32_t gen</div><div class="ttdef"><b>Definition:</b> core.hpp:32</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/rendering/openGL/<a class="el" href="../../dd/d0f/shader_manger_8hpp_source.html">shaderManger.hpp</a></li>
+<li>src/os/linux/waylandStaticHandlers/rendering/<a class="el" href="../../da/d69/shader_manger_8cpp.html">shaderManger.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

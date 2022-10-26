@@ -93,9 +93,9 @@ void vertexArrayManger::bind(vaoId id)
         uint8_t binding = toHandle.rebuildBinding.front();
 
         
-        GL_CALL(context, CreateBuffers(1, &temp.bindingsSlots[0].renderId));
-        GL_CALL(context, NamedBufferData(temp.bindingsSlots[0].renderId, temp.bindingsSlots[0].size, temp.bindingsSlots[0].data, GL_DYNAMIC_DRAW));
-        GL_CALL(context, VertexArrayVertexBuffer(temp.VAO, binding, temp.bindingsSlots[0].renderId, temp.bindingsSlots[0].offset, temp.bindingsSlots[0].stride));
+        GL_CALL(context, CreateBuffers(1, &temp.bindingsSlots[binding].renderId));
+        GL_CALL(context, NamedBufferData(temp.bindingsSlots[binding].renderId, temp.bindingsSlots[binding].size, temp.bindingsSlots[binding].data, GL_DYNAMIC_DRAW));
+        GL_CALL(context, VertexArrayVertexBuffer(temp.VAO, binding, temp.bindingsSlots[binding].renderId, temp.bindingsSlots[binding].offset, temp.bindingsSlots[binding].stride));
 
         toHandle.rebuildBinding.pop();
     }

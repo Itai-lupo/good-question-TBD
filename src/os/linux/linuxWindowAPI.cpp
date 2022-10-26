@@ -18,6 +18,7 @@
 
 void linuxWindowAPI::global_registry_handler(void *data, wl_registry *registry, uint32_t id, const char *interface, uint32_t version)
 {
+    ZoneScoped;
     // LOG_INFO(interface)
     if (strcmp(interface, "wl_compositor") == 0)
         surface::compositor = (wl_compositor *)wl_registry_bind(registry, id, &wl_compositor_interface, 5);
@@ -47,11 +48,13 @@ void linuxWindowAPI::global_registry_handler(void *data, wl_registry *registry, 
 
 void linuxWindowAPI::global_registry_remover(void *data, struct wl_registry *registry, uint32_t id)
 {
+    ZoneScoped;
     LOG_INFO("Got a registry losing event for " << id);
 }
 
 void linuxWindowAPI::xdg_wm_base_ping(void *data, struct xdg_wm_base *xdg_wm_base, uint32_t serial)
 {
+    ZoneScoped;
     xdg_wm_base_pong(xdg_wm_base, serial);
 }
 
@@ -69,16 +72,24 @@ void linuxWindowAPI::windowEventListener()
 {
     std::string thradNameA = "Event listener";
     prctl(PR_SET_NAME, thradNameA.c_str());
+    tracy::SetThreadName("Event listener");
+
     
     openGLRendering::init();
-    while (wl_display_dispatch(display)) {}
+    int a = 1;
+    while (a != -1) 
+    {
+        ZoneScoped;
+        a = wl_display_dispatch(display);
+    }
+    LOG_FATAL("thats realy realy bad " << a)
 }
 
 void linuxWindowAPI::init()
 {
     display = wl_display_connect(NULL);
 
-    CONDTION_LOG_FATAL("can't open window", display == NULL);
+    CONDTION_LOG_FATAL("can't open window: " << display, display == NULL);
     LOG_INFO("connected to display")
 
     wl_registry *registry = wl_display_get_registry(display);

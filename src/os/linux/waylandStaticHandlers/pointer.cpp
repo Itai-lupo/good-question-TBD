@@ -7,10 +7,12 @@
 
 #include <linux/input.h>
 #include <thread>
+#include <Tracy.hpp>
 
 
 void pointer::wlPointerEnter(void *data, struct wl_pointer *wl_pointer, uint32_t serial, struct wl_surface *surface, wl_fixed_t surface_x, wl_fixed_t surface_y)
 {    
+    ZoneScoped;
     for (size_t i = 0; i < surface::surfaces.size(); i++)
     {
         if(surface::surfaces[i].surface == surface)
@@ -26,12 +28,14 @@ void pointer::wlPointerEnter(void *data, struct wl_pointer *wl_pointer, uint32_t
 
 void pointer::wlPointerLeave(void *data, wl_pointer *wlPointer, uint32_t serial, struct wl_surface *surface)
 {
+    ZoneScoped;
     inputFrameData.eventTypes.pointerLeave = true;
     inputFrameData.serial = serial;
 }
 
 void pointer::wlPointerMotion(void *data, wl_pointer *wlPointer, uint32_t time, wl_fixed_t surface_x, wl_fixed_t surface_y)
 {
+    ZoneScoped;
     inputFrameData.eventTypes.pointerMotion = true;
     inputFrameData.time = time;
     inputFrameData.surface_x = surface_x;
@@ -40,6 +44,7 @@ void pointer::wlPointerMotion(void *data, wl_pointer *wlPointer, uint32_t time, 
 
 void pointer::wlPointerButton(void *data, wl_pointer *wlPointer, uint32_t serial, uint32_t time, uint32_t button, uint32_t state)
 {
+    ZoneScoped;
     inputFrameData.eventTypes.pointerButton = true;
     inputFrameData.time = time;
     inputFrameData.button = button;
@@ -49,6 +54,7 @@ void pointer::wlPointerButton(void *data, wl_pointer *wlPointer, uint32_t serial
 
 void pointer::wlPointerAxis(void *data, wl_pointer *wlPointer, uint32_t time, uint32_t axis, wl_fixed_t value)
 {
+    ZoneScoped;
     inputFrameData.eventTypes.pointerAxis = true;
     inputFrameData.time = time;
     inputFrameData.axes[axis].valid = true;
@@ -57,12 +63,14 @@ void pointer::wlPointerAxis(void *data, wl_pointer *wlPointer, uint32_t time, ui
 
 void pointer::wlPointerAxisSource(void *data, wl_pointer *wlPointer, uint32_t axis_source)
 {   
+    ZoneScoped;
     inputFrameData.eventTypes.pointerAxisSource = true;
     inputFrameData.axis_source = axis_source;
 }
 
 void pointer::wlPointerAxisStop(void *data, wl_pointer *wlPointer, uint32_t time, uint32_t axis)
 {
+    ZoneScoped;
     inputFrameData.eventTypes.pointerAxisStop = true;
     inputFrameData.time = time;
     inputFrameData.axes[axis].valid = true;
@@ -70,12 +78,14 @@ void pointer::wlPointerAxisStop(void *data, wl_pointer *wlPointer, uint32_t time
 
 void pointer::wlPointerAxisDiscrete(void *data, wl_pointer *wlPointer, uint32_t axis, int32_t discrete)
 {
+    ZoneScoped;
     inputFrameData.eventTypes.pointerAxisDiscrete = true;
     inputFrameData.axes[axis].discrete = discrete;
 }
 
 void pointer::wlPointerFrame(void *data, wl_pointer *wlPointer)
 {
+    ZoneScoped;
     inputBuffer& frameData = inputFrameData;
     
     if(frameData.id.index == (uint8_t)-1 || frameData.id.gen != idToIndex[frameData.id.index].gen)

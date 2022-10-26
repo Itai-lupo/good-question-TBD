@@ -13,6 +13,8 @@
 
 void toplevel::xdgTopLevelConfigure(void *data, xdg_toplevel *xdgToplevel, int32_t width, int32_t height, wl_array *states)
 {
+    ZoneScoped;
+
     if(width == 0 || height == 0)
         return;
 
@@ -60,6 +62,8 @@ void toplevel::xdgTopLevelConfigure(void *data, xdg_toplevel *xdgToplevel, int32
 
 void toplevel::xdgTopLevelClose(void *data, xdg_toplevel *xdgToplevel)
 {
+    ZoneScoped;
+
     surfaceId id = *(surfaceId*)data;
 
     uint8_t index = idToIndex[id.index].closeEventIndex;
@@ -71,6 +75,8 @@ void toplevel::xdgTopLevelClose(void *data, xdg_toplevel *xdgToplevel)
 
 void toplevel::xdg_surface_configure(void *data, struct xdg_surface *xdg_surface, uint32_t serial)
 {
+    ZoneScoped;
+
     surfaceId id = *(surfaceId*)data;
     uint8_t index = surface::idToIndex[id.index].surfaceDataIndex;
     if(index == (uint8_t)-1 || id.gen != idToIndex[id.index].gen)
@@ -117,10 +123,6 @@ void toplevel::xdg_surface_configure(void *data, struct xdg_surface *xdg_surface
             data[i + 3] = 0xFF;
         }
 
-        // GL_CALL(openGLRendering::context, TexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, surface::getWindowWidth(id), surface::getWindowHeight(id) , 0, GL_RGBA, GL_UNSIGNED_BYTE, data));
-        // GL_CALL(openGLRendering::context, GenerateMipmap(GL_TEXTURE_2D));
-        // GL_CALL(openGLRendering::context, BindTexture(GL_TEXTURE_2D, 0)); 
-
         temp.bufferInRenderTex = openGLRendering::renderer->textures->createTexture(textureFormat::RGBA8, surface::getWindowWidth(id), surface::getWindowHeight(id));
         temp.bufferToRenderTex = openGLRendering::renderer->textures->createTexture(textureFormat::RGBA8, surface::getWindowWidth(id), surface::getWindowHeight(id));
         temp.freeBufferTex = openGLRendering::renderer->textures->createTexture(textureFormat::RGBA8, surface::getWindowWidth(id), surface::getWindowHeight(id));
@@ -137,13 +139,13 @@ void toplevel::xdg_surface_configure(void *data, struct xdg_surface *xdg_surface
         openGLRendering::renderer->frameBuffers->attachColorRenderTarget(temp.freeBuffer, temp.freeBufferTex, 0);
 
         openGLRendering::renderer->renderRequest({
-            temp.bufferInRender, { {0, {255, 16777215}, {[0 ... 31] = {255, 16777215}}, renderMode::triangles} }
+            temp.bufferInRender, { {{255, 16777215}, {255, 16777215}, {[0 ... 31] = {255, 16777215}}, renderMode::triangles} }
         });
         openGLRendering::renderer->renderRequest({
-            temp.bufferInRender, { {0, {255, 16777215}, {[0 ... 31] = {255, 16777215}}, renderMode::triangles} }
+            temp.bufferInRender, { {{255, 16777215}, {255, 16777215}, {[0 ... 31] = {255, 16777215}}, renderMode::triangles} }
         });
         openGLRendering::renderer->renderRequest({
-            temp.bufferInRender, { {0, {255, 16777215}, {[0 ... 31] = {255, 16777215}}, renderMode::triangles} }
+            temp.bufferInRender, { {{255, 16777215}, {255, 16777215}, {[0 ... 31] = {255, 16777215}}, renderMode::triangles} }
         });
         
         openGLRendering::context->swapBuffers(temp.eglSurface);
@@ -151,7 +153,7 @@ void toplevel::xdg_surface_configure(void *data, struct xdg_surface *xdg_surface
     }
 
         openGLRendering::renderer->renderRequest({
-            temp.bufferInRender, { {0, {255, 16777215}, {[0 ... 31] = {255, 16777215}}, renderMode::triangles} }
+            temp.bufferInRender, { {{255, 16777215}, {255, 16777215}, {[0 ... 31] = {255, 16777215}}, renderMode::triangles} }
         });
 }
 

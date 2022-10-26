@@ -24,6 +24,7 @@ void cpuRendering::renderWindow(surfaceId win)
         return;
 
     std::string thradNameA = "render " + toplevel::getWindowTitle(win);
+    tracy::SetThreadName(thradNameA.c_str());
     prctl(PR_SET_NAME, thradNameA.c_str());
     
     std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();

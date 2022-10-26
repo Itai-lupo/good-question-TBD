@@ -149,9 +149,9 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">    4</span>{</div>
-<div class="line"><span class="lineno">    5</span>    renderThread = <span class="keyword">new</span> std::thread(&amp;openGLRenderer::renderHandle, <span class="keyword">this</span>, shared);</div>
-<div class="line"><span class="lineno">    6</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">    8</span>{</div>
+<div class="line"><span class="lineno">    9</span>    renderThread = <span class="keyword">new</span> std::thread(&amp;openGLRenderer::renderHandle, <span class="keyword">this</span>, shared);</div>
+<div class="line"><span class="lineno">   10</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -169,9 +169,9 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">    9</span>{</div>
-<div class="line"><span class="lineno">   10</span>    </div>
-<div class="line"><span class="lineno">   11</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   13</span>{</div>
+<div class="line"><span class="lineno">   14</span>    </div>
+<div class="line"><span class="lineno">   15</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -191,9 +191,9 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   14</span>{</div>
-<div class="line"><span class="lineno">   15</span>    requests.push(dataToRender);</div>
-<div class="line"><span class="lineno">   16</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   18</span>{</div>
+<div class="line"><span class="lineno">   19</span>    requests.push(dataToRender);</div>
+<div class="line"><span class="lineno">   20</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>

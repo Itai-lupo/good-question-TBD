@@ -188,10 +188,6 @@ void openGLRendering::wlSurfaceFrameDone(void *data, wl_callback *cb, uint32_t t
     GL_CALL(context, ClearColor (0.0f, 0.0f, 0.0f, 0.0f));
     GL_CALL(context, Clear (GL_COLOR_BUFFER_BIT));
     
-    void *pixels = malloc(renderer->textures->getWidth(temp.bufferInRenderTex) * renderer->textures->getHight(temp.bufferInRenderTex) * 4);
-    GL_CALL(context, 
-    GetTextureImage(renderer->textures->getRenderId(temp.bufferInRenderTex), 0, GL_RGBA, GL_UNSIGNED_BYTE, renderer->textures->getWidth(temp.bufferInRenderTex) * renderer->textures->getHight(temp.bufferInRenderTex) * 4, pixels));  
-
     GL_CALL(context, BindTextureUnit(0, renderer->textures->getRenderId(temp.bufferInRenderTex)));
     
     GL_CALL(context, DrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr));
@@ -200,7 +196,7 @@ void openGLRendering::wlSurfaceFrameDone(void *data, wl_callback *cb, uint32_t t
     context->swapBuffers(temp.eglSurface);
     wl_surface_commit(surface::getSurface(id));
     
-
+    
     FrameMarkNamed( toplevel::getWindowTitle(id).c_str());
 
 }
