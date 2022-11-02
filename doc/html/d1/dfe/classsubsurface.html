@@ -158,28 +158,28 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">    8</span>{</div>
-<div class="line"><span class="lineno">    9</span>    subsurfaceInfo info;</div>
-<div class="line"><span class="lineno">   10</span>    info.id = id;</div>
-<div class="line"><span class="lineno">   11</span>    info.x = surfaceData.<a class="code hl_variable" href="../../d0/d01/structsurface_spec.html#af7ead4fbd606eb246645379a98d5e0fb">x</a>;</div>
-<div class="line"><span class="lineno">   12</span>    info.y = surfaceData.<a class="code hl_variable" href="../../d0/d01/structsurface_spec.html#a2b7e390abfdae0be3420908978ab9a59">y</a>;</div>
-<div class="line"><span class="lineno">   13</span> </div>
-<div class="line"><span class="lineno">   14</span>    info.subsurface = wl_subcompositor_get_subsurface(<a class="code hl_variable" href="../../d1/dfe/classsubsurface.html#a72d781e9252aee30b6cc590326d24e7e">subcompositor</a>,  s, <a class="code hl_function" href="../../d5/d88/classsurface.html#adfb4a3648842f5870fb0162c8bb3400c">surface::getSurface</a>(surfaceData.<a class="code hl_variable" href="../../d0/d01/structsurface_spec.html#a11831adc847a1ab9da09bd273dbf9434">parentSurface</a>));</div>
-<div class="line"><span class="lineno">   15</span>    wl_subsurface_set_desync(info.subsurface);</div>
-<div class="line"><span class="lineno">   16</span>    wl_subsurface_set_position(info.subsurface, info.x, info.y);</div>
-<div class="line"><span class="lineno">   17</span> </div>
-<div class="line"><span class="lineno">   18</span>    <a class="code hl_variable" href="../../d1/dfe/classsubsurface.html#aa84666c6d6b896e9d2cc44d834ae4045">idToIndex</a>.push_back({0});</div>
-<div class="line"><span class="lineno">   19</span>    <a class="code hl_variable" href="../../d1/dfe/classsubsurface.html#aa84666c6d6b896e9d2cc44d834ae4045">idToIndex</a>[<span class="keywordtype">id</span>.index].gen = <span class="keywordtype">id</span>.gen;</div>
-<div class="line"><span class="lineno">   20</span>    <a class="code hl_variable" href="../../d1/dfe/classsubsurface.html#aa84666c6d6b896e9d2cc44d834ae4045">idToIndex</a>[<span class="keywordtype">id</span>.index].index = <a class="code hl_variable" href="../../d1/dfe/classsubsurface.html#af6bf4c73a674525594efac6c1835ffb4">topLevelSurfaces</a>.size();</div>
-<div class="line"><span class="lineno">   21</span>    <a class="code hl_variable" href="../../d1/dfe/classsubsurface.html#af6bf4c73a674525594efac6c1835ffb4">topLevelSurfaces</a>.push_back(info);</div>
-<div class="line"><span class="lineno">   22</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">    7</span>{</div>
+<div class="line"><span class="lineno">    8</span>    subsurfaceInfo info;</div>
+<div class="line"><span class="lineno">    9</span>    info.id = id;</div>
+<div class="line"><span class="lineno">   10</span>    info.x = surfaceData.<a class="code hl_variable" href="../../d0/d01/structsurface_spec.html#af7ead4fbd606eb246645379a98d5e0fb">x</a>;</div>
+<div class="line"><span class="lineno">   11</span>    info.y = surfaceData.<a class="code hl_variable" href="../../d0/d01/structsurface_spec.html#a2b7e390abfdae0be3420908978ab9a59">y</a>;</div>
+<div class="line"><span class="lineno">   12</span> </div>
+<div class="line"><span class="lineno">   13</span>    info.subsurface = wl_subcompositor_get_subsurface(<a class="code hl_variable" href="../../d1/dfe/classsubsurface.html#a72d781e9252aee30b6cc590326d24e7e">subcompositor</a>,  s, <a class="code hl_function" href="../../d5/d88/classsurface.html#adfb4a3648842f5870fb0162c8bb3400c">surface::getSurface</a>(surfaceData.<a class="code hl_variable" href="../../d0/d01/structsurface_spec.html#a11831adc847a1ab9da09bd273dbf9434">parentSurface</a>));</div>
+<div class="line"><span class="lineno">   14</span>    wl_subsurface_set_desync(info.subsurface);</div>
+<div class="line"><span class="lineno">   15</span>    wl_subsurface_set_position(info.subsurface, info.x, info.y);</div>
+<div class="line"><span class="lineno">   16</span> </div>
+<div class="line"><span class="lineno">   17</span>    <a class="code hl_variable" href="../../d1/dfe/classsubsurface.html#aa84666c6d6b896e9d2cc44d834ae4045">idToIndex</a>.push_back({0});</div>
+<div class="line"><span class="lineno">   18</span>    <a class="code hl_variable" href="../../d1/dfe/classsubsurface.html#aa84666c6d6b896e9d2cc44d834ae4045">idToIndex</a>[<span class="keywordtype">id</span>.index].gen = <span class="keywordtype">id</span>.gen;</div>
+<div class="line"><span class="lineno">   19</span>    <a class="code hl_variable" href="../../d1/dfe/classsubsurface.html#aa84666c6d6b896e9d2cc44d834ae4045">idToIndex</a>[<span class="keywordtype">id</span>.index].index = <a class="code hl_variable" href="../../d1/dfe/classsubsurface.html#af6bf4c73a674525594efac6c1835ffb4">topLevelSurfaces</a>.size();</div>
+<div class="line"><span class="lineno">   20</span>    <a class="code hl_variable" href="../../d1/dfe/classsubsurface.html#af6bf4c73a674525594efac6c1835ffb4">topLevelSurfaces</a>.push_back(info);</div>
+<div class="line"><span class="lineno">   21</span>}</div>
 <div class="ttc" id="aclasssubsurface_html_a72d781e9252aee30b6cc590326d24e7e"><div class="ttname"><a href="../../d1/dfe/classsubsurface.html#a72d781e9252aee30b6cc590326d24e7e">subsurface::subcompositor</a></div><div class="ttdeci">static wl_subcompositor * subcompositor</div><div class="ttdef"><b>Definition:</b> subsurface.hpp:19</div></div>
 <div class="ttc" id="aclasssubsurface_html_aa84666c6d6b896e9d2cc44d834ae4045"><div class="ttname"><a href="../../d1/dfe/classsubsurface.html#aa84666c6d6b896e9d2cc44d834ae4045">subsurface::idToIndex</a></div><div class="ttdeci">static std::vector&lt; idToSurfaceDataIndexes &gt; idToIndex</div><div class="ttdef"><b>Definition:</b> subsurface.hpp:27</div></div>
 <div class="ttc" id="aclasssubsurface_html_af6bf4c73a674525594efac6c1835ffb4"><div class="ttname"><a href="../../d1/dfe/classsubsurface.html#af6bf4c73a674525594efac6c1835ffb4">subsurface::topLevelSurfaces</a></div><div class="ttdeci">static std::vector&lt; subsurfaceInfo &gt; topLevelSurfaces</div><div class="ttdef"><b>Definition:</b> subsurface.hpp:38</div></div>
-<div class="ttc" id="aclasssurface_html_adfb4a3648842f5870fb0162c8bb3400c"><div class="ttname"><a href="../../d5/d88/classsurface.html#adfb4a3648842f5870fb0162c8bb3400c">surface::getSurface</a></div><div class="ttdeci">static wl_surface * getSurface(surfaceId id)</div><div class="ttdef"><b>Definition:</b> surface.hpp:79</div></div>
-<div class="ttc" id="astructsurface_spec_html_a11831adc847a1ab9da09bd273dbf9434"><div class="ttname"><a href="../../d0/d01/structsurface_spec.html#a11831adc847a1ab9da09bd273dbf9434">surfaceSpec::parentSurface</a></div><div class="ttdeci">surfaceId parentSurface</div><div class="ttdef"><b>Definition:</b> surface.hpp:35</div></div>
-<div class="ttc" id="astructsurface_spec_html_a2b7e390abfdae0be3420908978ab9a59"><div class="ttname"><a href="../../d0/d01/structsurface_spec.html#a2b7e390abfdae0be3420908978ab9a59">surfaceSpec::y</a></div><div class="ttdeci">int y</div><div class="ttdef"><b>Definition:</b> surface.hpp:32</div></div>
-<div class="ttc" id="astructsurface_spec_html_af7ead4fbd606eb246645379a98d5e0fb"><div class="ttname"><a href="../../d0/d01/structsurface_spec.html#af7ead4fbd606eb246645379a98d5e0fb">surfaceSpec::x</a></div><div class="ttdeci">int x</div><div class="ttdef"><b>Definition:</b> surface.hpp:32</div></div>
+<div class="ttc" id="aclasssurface_html_adfb4a3648842f5870fb0162c8bb3400c"><div class="ttname"><a href="../../d5/d88/classsurface.html#adfb4a3648842f5870fb0162c8bb3400c">surface::getSurface</a></div><div class="ttdeci">static wl_surface * getSurface(surfaceId id)</div><div class="ttdef"><b>Definition:</b> surface.hpp:83</div></div>
+<div class="ttc" id="astructsurface_spec_html_a11831adc847a1ab9da09bd273dbf9434"><div class="ttname"><a href="../../d0/d01/structsurface_spec.html#a11831adc847a1ab9da09bd273dbf9434">surfaceSpec::parentSurface</a></div><div class="ttdeci">surfaceId parentSurface</div><div class="ttdef"><b>Definition:</b> surface.hpp:36</div></div>
+<div class="ttc" id="astructsurface_spec_html_a2b7e390abfdae0be3420908978ab9a59"><div class="ttname"><a href="../../d0/d01/structsurface_spec.html#a2b7e390abfdae0be3420908978ab9a59">surfaceSpec::y</a></div><div class="ttdeci">int y</div><div class="ttdef"><b>Definition:</b> surface.hpp:33</div></div>
+<div class="ttc" id="astructsurface_spec_html_af7ead4fbd606eb246645379a98d5e0fb"><div class="ttname"><a href="../../d0/d01/structsurface_spec.html#af7ead4fbd606eb246645379a98d5e0fb">surfaceSpec::x</a></div><div class="ttdeci">int x</div><div class="ttdef"><b>Definition:</b> surface.hpp:33</div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -215,15 +215,15 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   25</span>{</div>
-<div class="line"><span class="lineno">   26</span>    uint8_t index = <a class="code hl_variable" href="../../d1/dfe/classsubsurface.html#aa84666c6d6b896e9d2cc44d834ae4045">idToIndex</a>[winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a1e5009a26dfcc3b82706d2f35d4b7405">index</a>].index;</div>
-<div class="line"><span class="lineno">   27</span>    <span class="keywordflow">if</span>(<a class="code hl_variable" href="../../d1/dfe/classsubsurface.html#aa84666c6d6b896e9d2cc44d834ae4045">idToIndex</a>[winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a1e5009a26dfcc3b82706d2f35d4b7405">index</a>].gen != winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a0271a9d1e6449618d1803df72307cbef">gen</a> || index == (uint8_t)-1)</div>
-<div class="line"><span class="lineno">   28</span>        <span class="keywordflow">return</span>;</div>
+<div class="fragment"><div class="line"><span class="lineno">   24</span>{</div>
+<div class="line"><span class="lineno">   25</span>    uint8_t index = <a class="code hl_variable" href="../../d1/dfe/classsubsurface.html#aa84666c6d6b896e9d2cc44d834ae4045">idToIndex</a>[winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a1e5009a26dfcc3b82706d2f35d4b7405">index</a>].index;</div>
+<div class="line"><span class="lineno">   26</span>    <span class="keywordflow">if</span>(<a class="code hl_variable" href="../../d1/dfe/classsubsurface.html#aa84666c6d6b896e9d2cc44d834ae4045">idToIndex</a>[winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a1e5009a26dfcc3b82706d2f35d4b7405">index</a>].gen != winId.<a class="code hl_variable" href="../../d1/db5/structsurface_id.html#a0271a9d1e6449618d1803df72307cbef">gen</a> || index == (uint8_t)-1)</div>
+<div class="line"><span class="lineno">   27</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   28</span> </div>
 <div class="line"><span class="lineno">   29</span> </div>
-<div class="line"><span class="lineno">   30</span> </div>
-<div class="line"><span class="lineno">   31</span>    subsurfaceInfo&amp; temp = <a class="code hl_variable" href="../../d1/dfe/classsubsurface.html#af6bf4c73a674525594efac6c1835ffb4">topLevelSurfaces</a>[index];</div>
-<div class="line"><span class="lineno">   32</span>    wl_subsurface_destroy(temp.subsurface);</div>
-<div class="line"><span class="lineno">   33</span>}</div>
+<div class="line"><span class="lineno">   30</span>    subsurfaceInfo&amp; temp = <a class="code hl_variable" href="../../d1/dfe/classsubsurface.html#af6bf4c73a674525594efac6c1835ffb4">topLevelSurfaces</a>[index];</div>
+<div class="line"><span class="lineno">   31</span>    wl_subsurface_destroy(temp.subsurface);</div>
+<div class="line"><span class="lineno">   32</span>}</div>
 <div class="ttc" id="astructsurface_id_html_a0271a9d1e6449618d1803df72307cbef"><div class="ttname"><a href="../../d1/db5/structsurface_id.html#a0271a9d1e6449618d1803df72307cbef">surfaceId::gen</a></div><div class="ttdeci">uint16_t gen</div><div class="ttdef"><b>Definition:</b> surface.hpp:16</div></div>
 <div class="ttc" id="astructsurface_id_html_a1e5009a26dfcc3b82706d2f35d4b7405"><div class="ttname"><a href="../../d1/db5/structsurface_id.html#a1e5009a26dfcc3b82706d2f35d4b7405">surfaceId::index</a></div><div class="ttdeci">uint16_t index</div><div class="ttdef"><b>Definition:</b> surface.hpp:17</div></div>
 </div><!-- fragment -->

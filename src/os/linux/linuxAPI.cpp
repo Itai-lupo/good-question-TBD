@@ -33,6 +33,7 @@ void osAPI::attachSubSurfaceToWindow(windowId id,  const subSurfaceSpec& subSurf
     linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[id.index].index].subsurfaces[subSurfaceToAttach.subSurfaceSlot] = 
         surface::allocateSurface(id, {
             surfaceRule::subsurface,
+            subSurfaceToAttach.renderAPI,
             subSurfaceToAttach.width,
             subSurfaceToAttach.height,
             subSurfaceToAttach.x,

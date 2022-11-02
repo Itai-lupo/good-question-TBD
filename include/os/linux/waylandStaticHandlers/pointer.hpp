@@ -69,7 +69,7 @@ class pointer
 
         struct idToPointerEventIndexes
         {
-            uint8_t gen;
+            uint8_t gen = -1;
             uint8_t mouseButtonPressEventIndex = -1;
             uint8_t mouseButtonReleasedEventIndex = -1;
             uint8_t mouseMovedEventIndex = -1;

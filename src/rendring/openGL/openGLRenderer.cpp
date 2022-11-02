@@ -93,10 +93,10 @@ void openGLRenderer::renderHandle(openglContext *shared)
     stbi_set_flip_vertically_on_load(1);
     stbi_uc* data = nullptr;
     
-    int width, hight, channels;
-    data = stbi_load("assets/textures/preview-simple-dungeon-crawler-set1.png", &width, &hight, &channels, 0);
-    textureId testTexture = textures->createTexture(textureFormat::RGB8, width, hight);
-    textures->loadBuffer(testTexture, 0, 0, width, hight, textureFormat::RGB8, GL_UNSIGNED_BYTE, data);
+    int width, height, channels;
+    data = stbi_load("assets/textures/preview-simple-dungeon-crawler-set1.png", &width, &height, &channels, 0);
+    textureId testTexture = textures->createTexture(textureFormat::RGB8, width, height);
+    textures->loadBuffer(testTexture, 0, 0, width, height, textureFormat::RGB8, GL_UNSIGNED_BYTE, data);
         
 
     while (context)
@@ -116,8 +116,8 @@ void openGLRenderer::renderHandle(openglContext *shared)
             auto fboStatus = context->openGLAPI->CheckFramebufferStatus(GL_FRAMEBUFFER);
             CONDTION_LOG_ERROR("Framebuffer is incomplete!: " << std::hex << fboStatus,  fboStatus != GL_FRAMEBUFFER_COMPLETE)
             
-            GL_CALL(context, Viewport(0, 0, frameBuffers->getWidth(dataToRender.frameBufferId), frameBuffers->getHight(dataToRender.frameBufferId)));
-            GL_CALL(context, ClearColor (0.0f, 0.0f, 0.0f, 1.0f));
+            GL_CALL(context, Viewport(0, 0, frameBuffers->getWidth(dataToRender.frameBufferId), frameBuffers->getheight(dataToRender.frameBufferId)));
+            GL_CALL(context, ClearColor (0.2f, 0.2f, 0.2f, 1.0f));
             GL_CALL(context, Clear (GL_COLOR_BUFFER_BIT));
             
             ZoneValue(dataToRender.frameBufferId.gen << 24 + dataToRender.frameBufferId.index);
@@ -134,6 +134,7 @@ void openGLRenderer::renderHandle(openglContext *shared)
                 drawCallData.texturesIds[0] = testTexture;
                 for (size_t i = 0; i < 32; i++)
                 {
+                    ZoneScopedN("texture bind");
                     if(drawCallData.texturesIds[i].gen != 255)
                         textures->bind(drawCallData.texturesIds[i], i);
                 }
@@ -144,7 +145,6 @@ void openGLRenderer::renderHandle(openglContext *shared)
                 
                 textures->rebuild(frameBuffers->getColorAttachmens(dataToRender.frameBufferId)[0]);
             }
-            
             requests.pop();
         }
         std::this_thread::sleep_for(std::chrono::milliseconds(1));   

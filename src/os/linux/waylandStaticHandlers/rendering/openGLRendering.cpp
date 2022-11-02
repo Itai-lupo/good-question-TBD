@@ -206,6 +206,7 @@ void openGLRendering::init()
     openglContext::setDisplay(eglGetDisplay(linuxWindowAPI::display));
 
     context = new openglContext();
+    renderer = new openGLRenderer(context);
     
     GL_CALL(context, Enable(GL_BLEND));
     GL_CALL(context, Enable(GL_DEPTH_TEST));
@@ -253,7 +254,6 @@ void openGLRendering::init()
 
     initTextureShader();
 
-    renderer = new openGLRenderer(context);
 }
 
 
@@ -329,5 +329,63 @@ void openGLRendering::unsetRenderEventListeners(surfaceId winId)
 
     idToIndex[winId.index].renderEventIndex = -1;
 }
+
+
+void openGLRendering::resize(surfaceId id, int width, int height)
+{
+
+    uint8_t index = idToIndex[id.index].renderDataIndex;
+    renderInfo& temp = surfacesToRender[index];
+
+    if(temp.eglWindow == NULL){
+        
+        temp.eglWindow = wl_egl_window_create (surface::getSurface(id), width, height);
+        temp.eglSurface = eglCreateWindowSurface (context->eglDisplay, context->eglConfig, (EGLNativeWindowType)temp.eglWindow, NULL);
+        
+        context->makeCurrent(temp.eglSurface, temp.eglSurface);
+
+        GL_CALL(context, PixelStorei(GL_UNPACK_ALIGNMENT, 1));
+        GL_CALL(context, GenTextures(1, &temp.textureBufferId));  
+        GL_CALL(context, BindTexture(GL_TEXTURE_2D, temp.textureBufferId));  
+
+    
+        GL_CALL(context, TexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT));	
+        GL_CALL(context, TexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT));
+        GL_CALL(context, TexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR));
+        GL_CALL(context, TexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR));
+    
+        uint8_t *data = new uint8_t[width * height * 4];
+
+        temp.bufferInRenderTex = renderer->textures->createTexture(textureFormat::RGBA8, width, height);
+        temp.bufferToRenderTex = renderer->textures->createTexture(textureFormat::RGBA8, width, height);
+        temp.freeBufferTex = renderer->textures->createTexture(textureFormat::RGBA8, width, height);
+        
+        // renderer->textures->loadBuffer(temp.bufferInRenderTex, 0, 0, width, height, textureFormat::RGBA8, GL_UNSIGNED_BYTE, data);
+
+
+        temp.bufferInRender = renderer->frameBuffers->createFrameBuffer(width, height);
+        temp.bufferToRender = renderer->frameBuffers->createFrameBuffer(width, height);
+        temp.freeBuffer = renderer->frameBuffers->createFrameBuffer(width, height);
+        
+        renderer->frameBuffers->attachColorRenderTarget(temp.bufferInRender, temp.bufferInRenderTex, 0);
+        renderer->frameBuffers->attachColorRenderTarget(temp.bufferToRender, temp.bufferToRenderTex, 0);
+        renderer->frameBuffers->attachColorRenderTarget(temp.freeBuffer, temp.freeBufferTex, 0);
+
+        context->swapBuffers(temp.eglSurface);
+    }
+
+    wl_egl_window_resize (temp.eglWindow, width, height, 0, 0);
+
+    renderer->frameBuffers->resize(temp.bufferInRender, width, height);
+    renderer->frameBuffers->resize(temp.bufferToRender, width, height);
+    renderer->frameBuffers->resize(temp.freeBuffer, width, height);
+    
+
+    renderer->renderRequest({
+        temp.bufferInRender, { {{255, 16777215}, {255, 16777215}, {[0 ... 31] = {255, 16777215}}, renderMode::triangles} }
+    });
+    
+}
+
 
 #endif

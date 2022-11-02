@@ -52,7 +52,7 @@ class keyboard
 
         struct idTpKeyEventIndexes
         {
-            uint8_t gen;
+            uint8_t gen = -1;
             uint8_t pressEventIndex = -1;
             uint8_t releaseEventIndex = -1;
             uint8_t repeatEventIndex = -1;

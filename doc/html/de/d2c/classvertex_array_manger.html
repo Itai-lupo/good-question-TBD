@@ -195,19 +195,19 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   54</span>{</div>
-<div class="line"><span class="lineno">   55</span>    <span class="keywordflow">if</span>(idToIndex[<span class="keywordtype">id</span>.index].gen != <span class="keywordtype">id</span>.gen)</div>
-<div class="line"><span class="lineno">   56</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">   57</span> </div>
-<div class="line"><span class="lineno">   58</span>    VAOInfo&amp; temp = buffers[idToIndex[<span class="keywordtype">id</span>.index].index];</div>
-<div class="line"><span class="lineno">   59</span>    </div>
-<div class="line"><span class="lineno">   60</span>    temp.attributes[slot].bindingSlot = binding;</div>
-<div class="line"><span class="lineno">   61</span>    temp.attributes[slot].size = size;</div>
-<div class="line"><span class="lineno">   62</span>    temp.attributes[slot].offset = offset;</div>
-<div class="line"><span class="lineno">   63</span>    temp.attributes[slot].dataType = dataType;</div>
-<div class="line"><span class="lineno">   64</span> </div>
-<div class="line"><span class="lineno">   65</span>    requstes[idToIndex[<span class="keywordtype">id</span>.index].index].rebuildAttacment.push(slot);</div>
-<div class="line"><span class="lineno">   66</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   55</span>{</div>
+<div class="line"><span class="lineno">   56</span>    <span class="keywordflow">if</span>(idToIndex[<span class="keywordtype">id</span>.index].gen != <span class="keywordtype">id</span>.gen)</div>
+<div class="line"><span class="lineno">   57</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   58</span> </div>
+<div class="line"><span class="lineno">   59</span>    VAOInfo&amp; temp = buffers[idToIndex[<span class="keywordtype">id</span>.index].index];</div>
+<div class="line"><span class="lineno">   60</span>    </div>
+<div class="line"><span class="lineno">   61</span>    temp.attributes[slot].bindingSlot = binding;</div>
+<div class="line"><span class="lineno">   62</span>    temp.attributes[slot].size = size;</div>
+<div class="line"><span class="lineno">   63</span>    temp.attributes[slot].offset = offset;</div>
+<div class="line"><span class="lineno">   64</span>    temp.attributes[slot].dataType = dataType;</div>
+<div class="line"><span class="lineno">   65</span> </div>
+<div class="line"><span class="lineno">   66</span>    requstes[idToIndex[<span class="keywordtype">id</span>.index].index].rebuildAttacment.push(slot);</div>
+<div class="line"><span class="lineno">   67</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -236,19 +236,19 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   39</span>{</div>
-<div class="line"><span class="lineno">   40</span>    <span class="keywordflow">if</span>(idToIndex[<span class="keywordtype">id</span>.index].gen != <span class="keywordtype">id</span>.gen)</div>
-<div class="line"><span class="lineno">   41</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">   42</span> </div>
-<div class="line"><span class="lineno">   43</span>    VAOInfo&amp; temp = buffers[idToIndex[<span class="keywordtype">id</span>.index].index];</div>
-<div class="line"><span class="lineno">   44</span>    </div>
-<div class="line"><span class="lineno">   45</span>    temp.bindingsSlots[data.<a class="code hl_variable" href="../../d5/d49/struct_v_b_o_spec.html#a18334059564461a11f945a55dbb56a6b">bindingSlot</a>].data = data.<a class="code hl_variable" href="../../d5/d49/struct_v_b_o_spec.html#a606042ff6deb00c1e0b1ee74be6eb731">data</a>;</div>
-<div class="line"><span class="lineno">   46</span>    temp.bindingsSlots[data.<a class="code hl_variable" href="../../d5/d49/struct_v_b_o_spec.html#a18334059564461a11f945a55dbb56a6b">bindingSlot</a>].offset = data.<a class="code hl_variable" href="../../d5/d49/struct_v_b_o_spec.html#af24fd6ff2b89083310d6a7ea464e41b7">offset</a>;</div>
-<div class="line"><span class="lineno">   47</span>    temp.bindingsSlots[data.<a class="code hl_variable" href="../../d5/d49/struct_v_b_o_spec.html#a18334059564461a11f945a55dbb56a6b">bindingSlot</a>].size = data.<a class="code hl_variable" href="../../d5/d49/struct_v_b_o_spec.html#aa16f35e4de4e1584c9ee5257772e4216">size</a>;</div>
-<div class="line"><span class="lineno">   48</span>    temp.bindingsSlots[data.<a class="code hl_variable" href="../../d5/d49/struct_v_b_o_spec.html#a18334059564461a11f945a55dbb56a6b">bindingSlot</a>].stride = data.<a class="code hl_variable" href="../../d5/d49/struct_v_b_o_spec.html#ae63d63a3b9061826345263bf971cab81">stride</a>;</div>
-<div class="line"><span class="lineno">   49</span> </div>
-<div class="line"><span class="lineno">   50</span>    requstes[idToIndex[<span class="keywordtype">id</span>.index].index].rebuildBinding.push(data.<a class="code hl_variable" href="../../d5/d49/struct_v_b_o_spec.html#a18334059564461a11f945a55dbb56a6b">bindingSlot</a>);</div>
-<div class="line"><span class="lineno">   51</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   40</span>{</div>
+<div class="line"><span class="lineno">   41</span>    <span class="keywordflow">if</span>(idToIndex[<span class="keywordtype">id</span>.index].gen != <span class="keywordtype">id</span>.gen)</div>
+<div class="line"><span class="lineno">   42</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   43</span> </div>
+<div class="line"><span class="lineno">   44</span>    VAOInfo&amp; temp = buffers[idToIndex[<span class="keywordtype">id</span>.index].index];</div>
+<div class="line"><span class="lineno">   45</span>    </div>
+<div class="line"><span class="lineno">   46</span>    temp.bindingsSlots[data.<a class="code hl_variable" href="../../d5/d49/struct_v_b_o_spec.html#a18334059564461a11f945a55dbb56a6b">bindingSlot</a>].data = data.<a class="code hl_variable" href="../../d5/d49/struct_v_b_o_spec.html#a606042ff6deb00c1e0b1ee74be6eb731">data</a>;</div>
+<div class="line"><span class="lineno">   47</span>    temp.bindingsSlots[data.<a class="code hl_variable" href="../../d5/d49/struct_v_b_o_spec.html#a18334059564461a11f945a55dbb56a6b">bindingSlot</a>].offset = data.<a class="code hl_variable" href="../../d5/d49/struct_v_b_o_spec.html#af24fd6ff2b89083310d6a7ea464e41b7">offset</a>;</div>
+<div class="line"><span class="lineno">   48</span>    temp.bindingsSlots[data.<a class="code hl_variable" href="../../d5/d49/struct_v_b_o_spec.html#a18334059564461a11f945a55dbb56a6b">bindingSlot</a>].size = data.<a class="code hl_variable" href="../../d5/d49/struct_v_b_o_spec.html#aa16f35e4de4e1584c9ee5257772e4216">size</a>;</div>
+<div class="line"><span class="lineno">   49</span>    temp.bindingsSlots[data.<a class="code hl_variable" href="../../d5/d49/struct_v_b_o_spec.html#a18334059564461a11f945a55dbb56a6b">bindingSlot</a>].stride = data.<a class="code hl_variable" href="../../d5/d49/struct_v_b_o_spec.html#ae63d63a3b9061826345263bf971cab81">stride</a>;</div>
+<div class="line"><span class="lineno">   50</span> </div>
+<div class="line"><span class="lineno">   51</span>    requstes[idToIndex[<span class="keywordtype">id</span>.index].index].rebuildBinding.push(data.<a class="code hl_variable" href="../../d5/d49/struct_v_b_o_spec.html#a18334059564461a11f945a55dbb56a6b">bindingSlot</a>);</div>
+<div class="line"><span class="lineno">   52</span>}</div>
 <div class="ttc" id="astruct_v_b_o_spec_html_a18334059564461a11f945a55dbb56a6b"><div class="ttname"><a href="../../d5/d49/struct_v_b_o_spec.html#a18334059564461a11f945a55dbb56a6b">VBOSpec::bindingSlot</a></div><div class="ttdeci">uint32_t bindingSlot</div><div class="ttdef"><b>Definition:</b> vertexArrayManger.hpp:13</div></div>
 <div class="ttc" id="astruct_v_b_o_spec_html_a606042ff6deb00c1e0b1ee74be6eb731"><div class="ttname"><a href="../../d5/d49/struct_v_b_o_spec.html#a606042ff6deb00c1e0b1ee74be6eb731">VBOSpec::data</a></div><div class="ttdeci">const void * data</div><div class="ttdef"><b>Definition:</b> vertexArrayManger.hpp:14</div></div>
 <div class="ttc" id="astruct_v_b_o_spec_html_aa16f35e4de4e1584c9ee5257772e4216"><div class="ttname"><a href="../../d5/d49/struct_v_b_o_spec.html#aa16f35e4de4e1584c9ee5257772e4216">VBOSpec::size</a></div><div class="ttdeci">uint32_t size</div><div class="ttdef"><b>Definition:</b> vertexArrayManger.hpp:15</div></div>
@@ -288,14 +288,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   69</span>{</div>
-<div class="line"><span class="lineno">   70</span>    <span class="keywordflow">if</span>(idToIndex[<span class="keywordtype">id</span>.index].gen != <span class="keywordtype">id</span>.gen)</div>
-<div class="line"><span class="lineno">   71</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">   72</span> </div>
-<div class="line"><span class="lineno">   73</span>    requstes[idToIndex[<span class="keywordtype">id</span>.index].index].IBOToBuild = IBO;</div>
-<div class="line"><span class="lineno">   74</span>    requstes[idToIndex[<span class="keywordtype">id</span>.index].index].IBOsize = size;</div>
-<div class="line"><span class="lineno">   75</span> </div>
-<div class="line"><span class="lineno">   76</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   70</span>{</div>
+<div class="line"><span class="lineno">   71</span>    <span class="keywordflow">if</span>(idToIndex[<span class="keywordtype">id</span>.index].gen != <span class="keywordtype">id</span>.gen)</div>
+<div class="line"><span class="lineno">   72</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   73</span> </div>
+<div class="line"><span class="lineno">   74</span>    requstes[idToIndex[<span class="keywordtype">id</span>.index].index].IBOToBuild = IBO;</div>
+<div class="line"><span class="lineno">   75</span>    requstes[idToIndex[<span class="keywordtype">id</span>.index].index].IBOsize = size;</div>
+<div class="line"><span class="lineno">   76</span> </div>
+<div class="line"><span class="lineno">   77</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -314,57 +314,59 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   79</span>{</div>
-<div class="line"><span class="lineno">   80</span>    <span class="keywordflow">if</span>(idToIndex[<span class="keywordtype">id</span>.index].gen != <span class="keywordtype">id</span>.gen)</div>
-<div class="line"><span class="lineno">   81</span>        <span class="keywordflow">return</span>;</div>
+<div class="fragment"><div class="line"><span class="lineno">   80</span>{</div>
+<div class="line"><span class="lineno">   81</span>    ZoneScopedN(<span class="stringliteral">&quot;bind shape&quot;</span>);</div>
 <div class="line"><span class="lineno">   82</span> </div>
-<div class="line"><span class="lineno">   83</span>    VAOInfo&amp; temp = buffers[idToIndex[<span class="keywordtype">id</span>.index].index];</div>
-<div class="line"><span class="lineno">   84</span>    VAORequstes&amp; toHandle = requstes[idToIndex[<span class="keywordtype">id</span>.index].index];</div>
+<div class="line"><span class="lineno">   83</span>    <span class="keywordflow">if</span>(idToIndex[<span class="keywordtype">id</span>.index].gen != <span class="keywordtype">id</span>.gen)</div>
+<div class="line"><span class="lineno">   84</span>        <span class="keywordflow">return</span>;</div>
 <div class="line"><span class="lineno">   85</span> </div>
-<div class="line"><span class="lineno">   86</span>    <span class="keywordflow">if</span>(temp.VAO == 0)</div>
-<div class="line"><span class="lineno">   87</span>    {</div>
-<div class="line"><span class="lineno">   88</span>        <a class="code hl_define" href="../../db/d4c/opengl_context_8hpp.html#a70415707146204b62e5f7d4403f10f3a">GL_CALL</a>(context, CreateVertexArrays(1, &amp;temp.VAO));</div>
-<div class="line"><span class="lineno">   89</span>    }</div>
-<div class="line"><span class="lineno">   90</span> </div>
-<div class="line"><span class="lineno">   91</span>    <span class="keywordflow">while</span> (!toHandle.rebuildBinding.empty())</div>
-<div class="line"><span class="lineno">   92</span>    {</div>
-<div class="line"><span class="lineno">   93</span>        uint8_t binding = toHandle.rebuildBinding.front();</div>
-<div class="line"><span class="lineno">   94</span> </div>
-<div class="line"><span class="lineno">   95</span>        </div>
-<div class="line"><span class="lineno">   96</span>        <a class="code hl_define" href="../../db/d4c/opengl_context_8hpp.html#a70415707146204b62e5f7d4403f10f3a">GL_CALL</a>(context, CreateBuffers(1, &amp;temp.bindingsSlots[binding].renderId));</div>
-<div class="line"><span class="lineno">   97</span>        <a class="code hl_define" href="../../db/d4c/opengl_context_8hpp.html#a70415707146204b62e5f7d4403f10f3a">GL_CALL</a>(context, NamedBufferData(temp.bindingsSlots[binding].renderId, temp.bindingsSlots[binding].size, temp.bindingsSlots[binding].data, GL_DYNAMIC_DRAW));</div>
-<div class="line"><span class="lineno">   98</span>        <a class="code hl_define" href="../../db/d4c/opengl_context_8hpp.html#a70415707146204b62e5f7d4403f10f3a">GL_CALL</a>(context, VertexArrayVertexBuffer(temp.VAO, binding, temp.bindingsSlots[binding].renderId, temp.bindingsSlots[binding].offset, temp.bindingsSlots[binding].stride));</div>
-<div class="line"><span class="lineno">   99</span> </div>
-<div class="line"><span class="lineno">  100</span>        toHandle.rebuildBinding.pop();</div>
-<div class="line"><span class="lineno">  101</span>    }</div>
+<div class="line"><span class="lineno">   86</span>    VAOInfo&amp; temp = buffers[idToIndex[<span class="keywordtype">id</span>.index].index];</div>
+<div class="line"><span class="lineno">   87</span>    VAORequstes&amp; toHandle = requstes[idToIndex[<span class="keywordtype">id</span>.index].index];</div>
+<div class="line"><span class="lineno">   88</span> </div>
+<div class="line"><span class="lineno">   89</span>    <span class="keywordflow">if</span>(temp.VAO == 0)</div>
+<div class="line"><span class="lineno">   90</span>    {</div>
+<div class="line"><span class="lineno">   91</span>        <a class="code hl_define" href="../../db/d4c/opengl_context_8hpp.html#a70415707146204b62e5f7d4403f10f3a">GL_CALL</a>(context, CreateVertexArrays(1, &amp;temp.VAO));</div>
+<div class="line"><span class="lineno">   92</span>    }</div>
+<div class="line"><span class="lineno">   93</span> </div>
+<div class="line"><span class="lineno">   94</span>    <span class="keywordflow">while</span> (!toHandle.rebuildBinding.empty())</div>
+<div class="line"><span class="lineno">   95</span>    {</div>
+<div class="line"><span class="lineno">   96</span>        uint8_t binding = toHandle.rebuildBinding.front();</div>
+<div class="line"><span class="lineno">   97</span> </div>
+<div class="line"><span class="lineno">   98</span>        </div>
+<div class="line"><span class="lineno">   99</span>        <a class="code hl_define" href="../../db/d4c/opengl_context_8hpp.html#a70415707146204b62e5f7d4403f10f3a">GL_CALL</a>(context, CreateBuffers(1, &amp;temp.bindingsSlots[binding].renderId));</div>
+<div class="line"><span class="lineno">  100</span>        <a class="code hl_define" href="../../db/d4c/opengl_context_8hpp.html#a70415707146204b62e5f7d4403f10f3a">GL_CALL</a>(context, NamedBufferData(temp.bindingsSlots[binding].renderId, temp.bindingsSlots[binding].size, temp.bindingsSlots[binding].data, GL_DYNAMIC_DRAW));</div>
+<div class="line"><span class="lineno">  101</span>        <a class="code hl_define" href="../../db/d4c/opengl_context_8hpp.html#a70415707146204b62e5f7d4403f10f3a">GL_CALL</a>(context, VertexArrayVertexBuffer(temp.VAO, binding, temp.bindingsSlots[binding].renderId, temp.bindingsSlots[binding].offset, temp.bindingsSlots[binding].stride));</div>
 <div class="line"><span class="lineno">  102</span> </div>
-<div class="line"><span class="lineno">  103</span>    <span class="keywordflow">while</span> (!toHandle.rebuildAttacment.empty())</div>
-<div class="line"><span class="lineno">  104</span>    {</div>
-<div class="line"><span class="lineno">  105</span>        uint8_t attrib = toHandle.rebuildAttacment.front();</div>
-<div class="line"><span class="lineno">  106</span> </div>
-<div class="line"><span class="lineno">  107</span>        </div>
-<div class="line"><span class="lineno">  108</span>        <a class="code hl_define" href="../../db/d4c/opengl_context_8hpp.html#a70415707146204b62e5f7d4403f10f3a">GL_CALL</a>(context, EnableVertexArrayAttrib(temp.VAO, attrib));</div>
-<div class="line"><span class="lineno">  109</span>        <a class="code hl_define" href="../../db/d4c/opengl_context_8hpp.html#a70415707146204b62e5f7d4403f10f3a">GL_CALL</a>(context, VertexArrayAttribBinding(temp.VAO, attrib, temp.attributes[attrib].bindingSlot));</div>
-<div class="line"><span class="lineno">  110</span>        <a class="code hl_define" href="../../db/d4c/opengl_context_8hpp.html#a70415707146204b62e5f7d4403f10f3a">GL_CALL</a>(context, VertexArrayAttribFormat(temp.VAO, attrib, temp.attributes[attrib].size, temp.attributes[attrib].dataType, GL_FALSE, temp.attributes[attrib].offset));</div>
-<div class="line"><span class="lineno">  111</span> </div>
-<div class="line"><span class="lineno">  112</span>        toHandle.rebuildAttacment.pop();</div>
-<div class="line"><span class="lineno">  113</span>    }</div>
+<div class="line"><span class="lineno">  103</span>        toHandle.rebuildBinding.pop();</div>
+<div class="line"><span class="lineno">  104</span>    }</div>
+<div class="line"><span class="lineno">  105</span> </div>
+<div class="line"><span class="lineno">  106</span>    <span class="keywordflow">while</span> (!toHandle.rebuildAttacment.empty())</div>
+<div class="line"><span class="lineno">  107</span>    {</div>
+<div class="line"><span class="lineno">  108</span>        uint8_t attrib = toHandle.rebuildAttacment.front();</div>
+<div class="line"><span class="lineno">  109</span> </div>
+<div class="line"><span class="lineno">  110</span>        </div>
+<div class="line"><span class="lineno">  111</span>        <a class="code hl_define" href="../../db/d4c/opengl_context_8hpp.html#a70415707146204b62e5f7d4403f10f3a">GL_CALL</a>(context, EnableVertexArrayAttrib(temp.VAO, attrib));</div>
+<div class="line"><span class="lineno">  112</span>        <a class="code hl_define" href="../../db/d4c/opengl_context_8hpp.html#a70415707146204b62e5f7d4403f10f3a">GL_CALL</a>(context, VertexArrayAttribBinding(temp.VAO, attrib, temp.attributes[attrib].bindingSlot));</div>
+<div class="line"><span class="lineno">  113</span>        <a class="code hl_define" href="../../db/d4c/opengl_context_8hpp.html#a70415707146204b62e5f7d4403f10f3a">GL_CALL</a>(context, VertexArrayAttribFormat(temp.VAO, attrib, temp.attributes[attrib].size, temp.attributes[attrib].dataType, GL_FALSE, temp.attributes[attrib].offset));</div>
 <div class="line"><span class="lineno">  114</span> </div>
-<div class="line"><span class="lineno">  115</span>    <span class="keywordflow">if</span>(toHandle.IBOToBuild)</div>
-<div class="line"><span class="lineno">  116</span>    {</div>
-<div class="line"><span class="lineno">  117</span>        <a class="code hl_define" href="../../db/d4c/opengl_context_8hpp.html#a70415707146204b62e5f7d4403f10f3a">GL_CALL</a>(context, CreateBuffers(1, &amp;temp.IBO));</div>
-<div class="line"><span class="lineno">  118</span> </div>
-<div class="line"><span class="lineno">  119</span>        <a class="code hl_define" href="../../db/d4c/opengl_context_8hpp.html#a70415707146204b62e5f7d4403f10f3a">GL_CALL</a>(context, NamedBufferData(temp.IBO, toHandle.IBOsize * <span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>), toHandle.IBOToBuild, GL_DYNAMIC_DRAW));</div>
-<div class="line"><span class="lineno">  120</span>        <a class="code hl_define" href="../../db/d4c/opengl_context_8hpp.html#a70415707146204b62e5f7d4403f10f3a">GL_CALL</a>(context, VertexArrayElementBuffer(temp.VAO, temp.IBO));</div>
-<div class="line"><span class="lineno">  121</span>        temp.count = toHandle.IBOsize;</div>
-<div class="line"><span class="lineno">  122</span>        </div>
-<div class="line"><span class="lineno">  123</span>        toHandle.IBOToBuild = <span class="keyword">nullptr</span>;</div>
-<div class="line"><span class="lineno">  124</span>        toHandle.IBOsize = 0;</div>
-<div class="line"><span class="lineno">  125</span>    }</div>
-<div class="line"><span class="lineno">  126</span> </div>
-<div class="line"><span class="lineno">  127</span>    <a class="code hl_define" href="../../db/d4c/opengl_context_8hpp.html#a70415707146204b62e5f7d4403f10f3a">GL_CALL</a>(context, BindVertexArray(temp.VAO));</div>
-<div class="line"><span class="lineno">  128</span>    </div>
-<div class="line"><span class="lineno">  129</span>}</div>
+<div class="line"><span class="lineno">  115</span>        toHandle.rebuildAttacment.pop();</div>
+<div class="line"><span class="lineno">  116</span>    }</div>
+<div class="line"><span class="lineno">  117</span> </div>
+<div class="line"><span class="lineno">  118</span>    <span class="keywordflow">if</span>(toHandle.IBOToBuild)</div>
+<div class="line"><span class="lineno">  119</span>    {</div>
+<div class="line"><span class="lineno">  120</span>        <a class="code hl_define" href="../../db/d4c/opengl_context_8hpp.html#a70415707146204b62e5f7d4403f10f3a">GL_CALL</a>(context, CreateBuffers(1, &amp;temp.IBO));</div>
+<div class="line"><span class="lineno">  121</span> </div>
+<div class="line"><span class="lineno">  122</span>        <a class="code hl_define" href="../../db/d4c/opengl_context_8hpp.html#a70415707146204b62e5f7d4403f10f3a">GL_CALL</a>(context, NamedBufferData(temp.IBO, toHandle.IBOsize * <span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>), toHandle.IBOToBuild, GL_DYNAMIC_DRAW));</div>
+<div class="line"><span class="lineno">  123</span>        <a class="code hl_define" href="../../db/d4c/opengl_context_8hpp.html#a70415707146204b62e5f7d4403f10f3a">GL_CALL</a>(context, VertexArrayElementBuffer(temp.VAO, temp.IBO));</div>
+<div class="line"><span class="lineno">  124</span>        temp.count = toHandle.IBOsize;</div>
+<div class="line"><span class="lineno">  125</span>        </div>
+<div class="line"><span class="lineno">  126</span>        toHandle.IBOToBuild = <span class="keyword">nullptr</span>;</div>
+<div class="line"><span class="lineno">  127</span>        toHandle.IBOsize = 0;</div>
+<div class="line"><span class="lineno">  128</span>    }</div>
+<div class="line"><span class="lineno">  129</span> </div>
+<div class="line"><span class="lineno">  130</span>    <a class="code hl_define" href="../../db/d4c/opengl_context_8hpp.html#a70415707146204b62e5f7d4403f10f3a">GL_CALL</a>(context, BindVertexArray(temp.VAO));</div>
+<div class="line"><span class="lineno">  131</span>    </div>
+<div class="line"><span class="lineno">  132</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -382,39 +384,39 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">    4</span>{</div>
-<div class="line"><span class="lineno">    5</span>    <a class="code hl_struct" href="../../d6/d4d/structvao_id.html">vaoId</a> id;</div>
-<div class="line"><span class="lineno">    6</span>    <span class="keywordflow">if</span>(!freeSlots.empty())</div>
-<div class="line"><span class="lineno">    7</span>    {</div>
-<div class="line"><span class="lineno">    8</span>        <span class="keywordtype">id</span> = {</div>
-<div class="line"><span class="lineno">    9</span>            .<a class="code hl_variable" href="../../d6/d4d/structvao_id.html#a079fd1b80a768776a006e25236f811f6">gen</a> = idToIndex[freeSlots.front()].gen,</div>
-<div class="line"><span class="lineno">   10</span>            .index = freeSlots.front()</div>
-<div class="line"><span class="lineno">   11</span>        };</div>
-<div class="line"><span class="lineno">   12</span>        freeSlots.pop_front();</div>
-<div class="line"><span class="lineno">   13</span>    }</div>
-<div class="line"><span class="lineno">   14</span>    <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">   15</span>    {</div>
-<div class="line"><span class="lineno">   16</span>        <span class="keywordtype">id</span> = {</div>
-<div class="line"><span class="lineno">   17</span>            .gen = 0,</div>
-<div class="line"><span class="lineno">   18</span>            .index = (uint32_t)idToIndex.size()</div>
-<div class="line"><span class="lineno">   19</span>        };</div>
-<div class="line"><span class="lineno">   20</span>        idToIndex.push_back({0, (uint32_t)buffers.size()});</div>
-<div class="line"><span class="lineno">   21</span>    }</div>
-<div class="line"><span class="lineno">   22</span> </div>
-<div class="line"><span class="lineno">   23</span>    idToIndex[<span class="keywordtype">id</span>.index].index = buffers.size();</div>
-<div class="line"><span class="lineno">   24</span>    </div>
-<div class="line"><span class="lineno">   25</span>    VAOInfo info;</div>
-<div class="line"><span class="lineno">   26</span>    info.id = id;</div>
-<div class="line"><span class="lineno">   27</span>    buffers.push_back(info);</div>
-<div class="line"><span class="lineno">   28</span> </div>
-<div class="line"><span class="lineno">   29</span>    VAORequstes handle;  </div>
-<div class="line"><span class="lineno">   30</span>    handle.id = id;</div>
-<div class="line"><span class="lineno">   31</span>    requstes.push_back(handle);</div>
-<div class="line"><span class="lineno">   32</span>    </div>
+<div class="fragment"><div class="line"><span class="lineno">    5</span>{</div>
+<div class="line"><span class="lineno">    6</span>    <a class="code hl_struct" href="../../d6/d4d/structvao_id.html">vaoId</a> id;</div>
+<div class="line"><span class="lineno">    7</span>    <span class="keywordflow">if</span>(!freeSlots.empty())</div>
+<div class="line"><span class="lineno">    8</span>    {</div>
+<div class="line"><span class="lineno">    9</span>        <span class="keywordtype">id</span> = {</div>
+<div class="line"><span class="lineno">   10</span>            .<a class="code hl_variable" href="../../d6/d4d/structvao_id.html#a079fd1b80a768776a006e25236f811f6">gen</a> = idToIndex[freeSlots.front()].gen,</div>
+<div class="line"><span class="lineno">   11</span>            .index = freeSlots.front()</div>
+<div class="line"><span class="lineno">   12</span>        };</div>
+<div class="line"><span class="lineno">   13</span>        freeSlots.pop_front();</div>
+<div class="line"><span class="lineno">   14</span>    }</div>
+<div class="line"><span class="lineno">   15</span>    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">   16</span>    {</div>
+<div class="line"><span class="lineno">   17</span>        <span class="keywordtype">id</span> = {</div>
+<div class="line"><span class="lineno">   18</span>            .gen = 0,</div>
+<div class="line"><span class="lineno">   19</span>            .index = (uint32_t)idToIndex.size()</div>
+<div class="line"><span class="lineno">   20</span>        };</div>
+<div class="line"><span class="lineno">   21</span>        idToIndex.push_back({0, (uint32_t)buffers.size()});</div>
+<div class="line"><span class="lineno">   22</span>    }</div>
+<div class="line"><span class="lineno">   23</span> </div>
+<div class="line"><span class="lineno">   24</span>    idToIndex[<span class="keywordtype">id</span>.index].index = buffers.size();</div>
+<div class="line"><span class="lineno">   25</span>    </div>
+<div class="line"><span class="lineno">   26</span>    VAOInfo info;</div>
+<div class="line"><span class="lineno">   27</span>    info.id = id;</div>
+<div class="line"><span class="lineno">   28</span>    buffers.push_back(info);</div>
+<div class="line"><span class="lineno">   29</span> </div>
+<div class="line"><span class="lineno">   30</span>    VAORequstes handle;  </div>
+<div class="line"><span class="lineno">   31</span>    handle.id = id;</div>
+<div class="line"><span class="lineno">   32</span>    requstes.push_back(handle);</div>
 <div class="line"><span class="lineno">   33</span>    </div>
-<div class="line"><span class="lineno">   34</span>    <span class="keywordflow">return</span> id;</div>
-<div class="line"><span class="lineno">   35</span> </div>
-<div class="line"><span class="lineno">   36</span>}</div>
+<div class="line"><span class="lineno">   34</span>    </div>
+<div class="line"><span class="lineno">   35</span>    <span class="keywordflow">return</span> id;</div>
+<div class="line"><span class="lineno">   36</span> </div>
+<div class="line"><span class="lineno">   37</span>}</div>
 <div class="ttc" id="astructvao_id_html"><div class="ttname"><a href="../../d6/d4d/structvao_id.html">vaoId</a></div><div class="ttdef"><b>Definition:</b> core.hpp:24</div></div>
 <div class="ttc" id="astructvao_id_html_a079fd1b80a768776a006e25236f811f6"><div class="ttname"><a href="../../d6/d4d/structvao_id.html#a079fd1b80a768776a006e25236f811f6">vaoId::gen</a></div><div class="ttdeci">uint32_t gen</div><div class="ttdef"><b>Definition:</b> core.hpp:25</div></div>
 </div><!-- fragment -->
@@ -435,14 +437,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  132</span>{</div>
-<div class="line"><span class="lineno">  133</span>    <span class="keywordflow">if</span>(idToIndex[<span class="keywordtype">id</span>.index].gen != <span class="keywordtype">id</span>.gen)</div>
-<div class="line"><span class="lineno">  134</span>        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">  135</span> </div>
-<div class="line"><span class="lineno">  136</span>    VAOInfo&amp; temp = buffers[idToIndex[<span class="keywordtype">id</span>.index].index];</div>
-<div class="line"><span class="lineno">  137</span> </div>
-<div class="line"><span class="lineno">  138</span>    <span class="keywordflow">return</span> temp.count;</div>
-<div class="line"><span class="lineno">  139</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">  135</span>{</div>
+<div class="line"><span class="lineno">  136</span>    <span class="keywordflow">if</span>(idToIndex[<span class="keywordtype">id</span>.index].gen != <span class="keywordtype">id</span>.gen)</div>
+<div class="line"><span class="lineno">  137</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  138</span> </div>
+<div class="line"><span class="lineno">  139</span>    VAOInfo&amp; temp = buffers[idToIndex[<span class="keywordtype">id</span>.index].index];</div>
+<div class="line"><span class="lineno">  140</span> </div>
+<div class="line"><span class="lineno">  141</span>    <span class="keywordflow">return</span> temp.count;</div>
+<div class="line"><span class="lineno">  142</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>

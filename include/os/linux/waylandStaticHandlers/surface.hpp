@@ -28,6 +28,7 @@ enum class surfaceRule
 struct surfaceSpec
 {
     surfaceRule rule;
+    surfaceRenderAPI rendererType;
 	int width, height;
 	int x, y;
 	
@@ -47,7 +48,7 @@ class surface
         static inline wl_registry *registry;
         struct idToSurfaceDataIndexes
         {
-            uint8_t gen;
+            uint8_t gen = -1;
             uint8_t surfaceDataIndex = -1;
         };
         
@@ -57,6 +58,8 @@ class surface
         struct surfaceData
         {
             surfaceRule rule;
+            surfaceRenderAPI rendererType;
+
             wl_surface *surface;
             int width, height;
             surfaceId id;
@@ -67,8 +70,9 @@ class surface
         static inline std::vector<surfaceData> surfaces;
         
         static surfaceId allocateSurface(windowId winId, const surfaceSpec& surfaceData);
-
         static void deallocateSurface(surfaceId winId);       
+
+        static void resize(surfaceId id, int width, int height);
 
         static void setWindowHeight(surfaceId id, int height);
         static int getWindowHeight(surfaceId id);

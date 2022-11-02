@@ -38,33 +38,48 @@ surfaceId surface::allocateSurface(windowId winId, const surfaceSpec& surfaceDat
     info.height = surfaceDataSpec.height;
     info.width = surfaceDataSpec.width;
     info.rule = surfaceDataSpec.rule;
+    info.rendererType = surfaceDataSpec.rendererType;
     info.id = id;
     info.parentWindowId = winId;
-
     info.surface = wl_compositor_create_surface(compositor);
+
     CONDTION_LOG_FATAL("can't  create surface", info.surface == NULL);
     idToIndex[id.index].surfaceDataIndex = surfaces.size();
     surfaces.push_back(info);
 
+
     switch (info.rule)
     {
-    case surfaceRule::layer:
-        layer::allocateLayer(id, info.surface, surfaceDataSpec);
-        break;
+        case surfaceRule::layer:
+            layer::allocateLayer(id, info.surface, surfaceDataSpec);
+            break;
 
-    case surfaceRule::topLevel:
-        openGLRendering::allocateSurfaceToRender(id);
-        toplevel::allocateTopLevel(id, info.surface, surfaceDataSpec);
+        case surfaceRule::topLevel:
+            toplevel::allocateTopLevel(id, info.surface, surfaceDataSpec);
 
-        break;
-    
-    case surfaceRule::subsurface:
-        subsurface::allocateSubsurface(id, info.surface, surfaceDataSpec);
-        cpuRendering::allocateSurfaceToRender(id);
+            break;
         
-        break;
-    default:
-        break;
+        case surfaceRule::subsurface:
+            subsurface::allocateSubsurface(id, info.surface, surfaceDataSpec);
+            break;
+        default:
+            LOG_FATAL("need to set valid window rule")
+            break;
+    }
+
+    switch (info.rendererType)
+    {
+        case surfaceRenderAPI::openGL:        
+            openGLRendering::allocateSurfaceToRender(id);
+            break;
+
+        case surfaceRenderAPI::cpu:        
+            cpuRendering::allocateSurfaceToRender(id);
+            break;
+    
+        default:
+            LOG_FATAL("need to set with render api")
+            break;
     }
     
     keyboard::allocateWindowEvents(id);
@@ -94,10 +109,37 @@ void surface::deallocateSurface(surfaceId winId)
     idToIndex[winId.index].gen = -1;
 }
 
+void surface::resize(surfaceId id, int width, int height)
+{
+    uint8_t index = idToIndex[id.index].surfaceDataIndex;
+    if(idToIndex[id.index].gen != id.gen || index == (uint8_t)-1)
+        return;
+
+    surfaceData& temp = surfaces[index];
+    temp.width = width;
+    temp.height = height;
+
+    switch (temp.rendererType)
+    {
+        case surfaceRenderAPI::openGL:        
+            openGLRendering::resize(id, width, height);
+            break;
+
+        case surfaceRenderAPI::cpu:        
+            cpuRendering::resize(id, width, height);
+            break;
+    
+        default:
+            LOG_FATAL("need to set with render api")
+            break;
+    }
+}
+
 void surface::setWindowHeight(surfaceId id, int height)
 {
     if(idToIndex[id.index].surfaceDataIndex != (uint8_t)-1 && id.gen == idToIndex[id.index].gen)
-        surfaces[idToIndex[id.index].surfaceDataIndex].height = height;
+        resize(id, surfaces[idToIndex[id.index].surfaceDataIndex].width, height);
+    
 }
 
 
@@ -112,7 +154,7 @@ int surface::getWindowHeight(surfaceId id)
 void surface::setWindowWidth(surfaceId id, int width)
 {
     if(idToIndex[id.index].surfaceDataIndex != (uint8_t)-1 && id.gen == idToIndex[id.index].gen)
-        surfaces[idToIndex[id.index].surfaceDataIndex].width = width;
+        resize(id, width, surfaces[idToIndex[id.index].surfaceDataIndex].height);
 }
 
 

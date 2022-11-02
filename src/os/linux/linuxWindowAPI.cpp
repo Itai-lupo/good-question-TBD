@@ -116,13 +116,13 @@ windowId linuxWindowAPI::createWindow(const windowSpec& windowToCreate)
         };
         freeSlots.pop_front();
     }
-    else if(hightestId < idToIndex.size()) 
+    else if(heightestId < idToIndex.size()) 
     {
         id = {
-            .gen = idToIndex[hightestId].gen,
-            .index = (uint8_t)hightestId
+            .gen = idToIndex[heightestId].gen,
+            .index = (uint8_t)heightestId
         };
-        hightestId++;
+        heightestId++;
     }
     else{
         return {
@@ -136,6 +136,7 @@ windowId linuxWindowAPI::createWindow(const windowSpec& windowToCreate)
 
     info.topLevelSurface = surface::allocateSurface(id, {
         surfaceRule::topLevel,
+        windowToCreate.renderAPI,
         windowToCreate.w,
         windowToCreate.h,
         .title = windowToCreate.title,

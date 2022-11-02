@@ -108,6 +108,8 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a983ed9e30e7ac16ec8faec1c6bb6daba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81b9938686ebd2eb7e51ffc73d06bb4d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d88/classsurface.html#a81b9938686ebd2eb7e51ffc73d06bb4d">deallocateSurface</a> (<a class="el" href="../../d1/db5/structsurface_id.html">surfaceId</a> winId)</td></tr>
 <tr class="separator:a81b9938686ebd2eb7e51ffc73d06bb4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add6f34fc4da8cff2054092fc1ef11d82"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d88/classsurface.html#add6f34fc4da8cff2054092fc1ef11d82">resize</a> (<a class="el" href="../../d1/db5/structsurface_id.html">surfaceId</a> id, int width, int height)</td></tr>
+<tr class="separator:add6f34fc4da8cff2054092fc1ef11d82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45aaecfb0de37f4ad5fa80039063b7de"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d88/classsurface.html#a45aaecfb0de37f4ad5fa80039063b7de">setWindowHeight</a> (<a class="el" href="../../d1/db5/structsurface_id.html">surfaceId</a> id, int height)</td></tr>
 <tr class="separator:a45aaecfb0de37f4ad5fa80039063b7de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48100a926232db36409df8d9e2be4973"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d88/classsurface.html#a48100a926232db36409df8d9e2be4973">getWindowHeight</a> (<a class="el" href="../../d1/db5/structsurface_id.html">surfaceId</a> id)</td></tr>
@@ -218,14 +220,14 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   80</span>        {</div>
-<div class="line"><span class="lineno">   81</span>            <span class="keywordflow">if</span>(<a class="code hl_variable" href="../../d5/d88/classsurface.html#adf94c828982921b894219c49807d1996">idToIndex</a>[<span class="keywordtype">id</span>.index].surfaceDataIndex != (uint8_t)-1 &amp;&amp; <span class="keywordtype">id</span>.gen == <a class="code hl_variable" href="../../d5/d88/classsurface.html#adf94c828982921b894219c49807d1996">idToIndex</a>[<span class="keywordtype">id</span>.index].gen)</div>
-<div class="line"><span class="lineno">   82</span>                <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d5/d88/classsurface.html#ad3bc103e5e0643309344d07a0b4c9b38">surfaces</a>[<a class="code hl_variable" href="../../d5/d88/classsurface.html#adf94c828982921b894219c49807d1996">idToIndex</a>[<span class="keywordtype">id</span>.index].surfaceDataIndex].surface;</div>
-<div class="line"><span class="lineno">   83</span>    </div>
-<div class="line"><span class="lineno">   84</span>            <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
-<div class="line"><span class="lineno">   85</span>        }</div>
-<div class="ttc" id="aclasssurface_html_ad3bc103e5e0643309344d07a0b4c9b38"><div class="ttname"><a href="../../d5/d88/classsurface.html#ad3bc103e5e0643309344d07a0b4c9b38">surface::surfaces</a></div><div class="ttdeci">static std::vector&lt; surfaceData &gt; surfaces</div><div class="ttdef"><b>Definition:</b> surface.hpp:67</div></div>
-<div class="ttc" id="aclasssurface_html_adf94c828982921b894219c49807d1996"><div class="ttname"><a href="../../d5/d88/classsurface.html#adf94c828982921b894219c49807d1996">surface::idToIndex</a></div><div class="ttdeci">static std::vector&lt; idToSurfaceDataIndexes &gt; idToIndex</div><div class="ttdef"><b>Definition:</b> surface.hpp:54</div></div>
+<div class="fragment"><div class="line"><span class="lineno">   84</span>        {</div>
+<div class="line"><span class="lineno">   85</span>            <span class="keywordflow">if</span>(<a class="code hl_variable" href="../../d5/d88/classsurface.html#adf94c828982921b894219c49807d1996">idToIndex</a>[<span class="keywordtype">id</span>.index].surfaceDataIndex != (uint8_t)-1 &amp;&amp; <span class="keywordtype">id</span>.gen == <a class="code hl_variable" href="../../d5/d88/classsurface.html#adf94c828982921b894219c49807d1996">idToIndex</a>[<span class="keywordtype">id</span>.index].gen)</div>
+<div class="line"><span class="lineno">   86</span>                <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d5/d88/classsurface.html#ad3bc103e5e0643309344d07a0b4c9b38">surfaces</a>[<a class="code hl_variable" href="../../d5/d88/classsurface.html#adf94c828982921b894219c49807d1996">idToIndex</a>[<span class="keywordtype">id</span>.index].surfaceDataIndex].surface;</div>
+<div class="line"><span class="lineno">   87</span>    </div>
+<div class="line"><span class="lineno">   88</span>            <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><span class="lineno">   89</span>        }</div>
+<div class="ttc" id="aclasssurface_html_ad3bc103e5e0643309344d07a0b4c9b38"><div class="ttname"><a href="../../d5/d88/classsurface.html#ad3bc103e5e0643309344d07a0b4c9b38">surface::surfaces</a></div><div class="ttdeci">static std::vector&lt; surfaceData &gt; surfaces</div><div class="ttdef"><b>Definition:</b> surface.hpp:70</div></div>
+<div class="ttc" id="aclasssurface_html_adf94c828982921b894219c49807d1996"><div class="ttname"><a href="../../d5/d88/classsurface.html#adf94c828982921b894219c49807d1996">surface::idToIndex</a></div><div class="ttdeci">static std::vector&lt; idToSurfaceDataIndexes &gt; idToIndex</div><div class="ttdef"><b>Definition:</b> surface.hpp:55</div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -279,6 +281,48 @@ Here is the caller graph for this function:</div>
           <td class="paramtype"><a class="el" href="../../d1/db5/structsurface_id.html">surfaceId</a>&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="add6f34fc4da8cff2054092fc1ef11d82" name="add6f34fc4da8cff2054092fc1ef11d82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add6f34fc4da8cff2054092fc1ef11d82">&#9670;&nbsp;</a></span>resize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void surface::resize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d1/db5/structsurface_id.html">surfaceId</a>&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>

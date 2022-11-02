@@ -27,7 +27,7 @@ class layer
 
         struct idToSurfaceDataIndexes
         {
-            uint8_t gen;
+            uint8_t gen = -1;
             uint8_t layerDataIndex = -1;
             uint8_t resizeEventIndex = -1;
             uint8_t closeEventIndex = -1;

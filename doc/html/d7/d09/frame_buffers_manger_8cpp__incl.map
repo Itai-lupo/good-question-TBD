@@ -1,6 +1,7 @@
 <map id="src/os/linux/waylandStaticHandlers/rendering/frameBuffersManger.cpp" name="src/os/linux/waylandStaticHandlers/rendering/frameBuffersManger.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="277,5,487,61"/>
+<area shape="rect" id="node1" title=" " alt="" coords="349,5,559,61"/>
 <area shape="rect" id="node2" href="$d8/d20/frame_buffers_manger_8hpp.html" title=" " alt="" coords="301,109,463,136"/>
+<area shape="rect" id="node16" title=" " alt="" coords="488,109,567,136"/>
 <area shape="rect" id="node3" href="$db/d4c/opengl_context_8hpp.html" title=" " alt="" coords="103,259,231,285"/>
 <area shape="rect" id="node9" href="$da/d6d/texture_manger_8hpp.html" title=" " alt="" coords="318,184,446,211"/>
 <area shape="rect" id="node10" href="$da/d47/core_8hpp.html" title=" " alt="" coords="256,259,327,285"/>

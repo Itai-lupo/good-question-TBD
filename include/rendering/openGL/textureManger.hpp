@@ -34,7 +34,7 @@ class textureManger
         struct loadTextureRequst{
             textureId id;
             uint32_t x, y;
-            uint32_t width, hight;
+            uint32_t width, height;
             textureFormat format;
             uint32_t type;
             void* pixels;
@@ -49,7 +49,7 @@ class textureManger
 
             int channels = 4;
             int samples = 1;
-            uint32_t width, hight;
+            uint32_t width, height;
             
             textureFormat format = textureFormat::RGBA8;
             uint32_t type;
@@ -63,7 +63,7 @@ class textureManger
 
         struct idIndexes
         {
-            uint32_t gen: 8;
+            uint32_t gen: 8 = -1;
             uint32_t index: 24;
         };        
 
@@ -85,15 +85,15 @@ class textureManger
         void setRenderId(textureId id, uint32_t renderId);
 
 
-        textureId createTexture(textureFormat format, uint32_t width, uint32_t hight);
+        textureId createTexture(textureFormat format, uint32_t width, uint32_t height);
 
-        void resize(textureId id, uint32_t width, uint32_t hight);
-        void loadBuffer(textureId id, uint32_t x, uint32_t y, uint32_t width, uint32_t hight, textureFormat format, uint32_t type, void* pixels);
+        void resize(textureId id, uint32_t width, uint32_t height);
+        void loadBuffer(textureId id, uint32_t x, uint32_t y, uint32_t width, uint32_t height, textureFormat format, uint32_t type, void* pixels);
 
         void deleteTexture(textureId id);
         
         uint32_t getWidth(textureId id);
-        uint32_t getHight(textureId id);
+        uint32_t getheight(textureId id);
 
         textureFormat getTextureFormat(textureId id);
 };

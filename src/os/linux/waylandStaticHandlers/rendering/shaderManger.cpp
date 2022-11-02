@@ -1,6 +1,7 @@
 #include "shaderManger.hpp"
 
 #include <fstream>
+#include <Tracy.hpp>
 
 shaderId shaderManger::createProgram(const std::string& vertex, const std::string& fragment)
 {
@@ -119,6 +120,7 @@ void shaderManger::linkProgram(shaderInfo& shader)
 
 void shaderManger::bind(shaderId id)
 {
+    ZoneScopedN("bind program");
 
     if(idToIndex[id.index].gen != id.gen)
         return;

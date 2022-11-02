@@ -41,7 +41,7 @@ class toplevel
 
         struct idToSurfaceDataIndexes
         {
-            uint8_t gen;
+            uint8_t gen = -1;
             uint8_t toplevelDataIndex;
             uint8_t resizeEventIndex;
             uint8_t closeEventIndex;
@@ -56,6 +56,7 @@ class toplevel
             surfaceId id;
             std::string title;
 
+            int width, height;
 
             xdg_surface *xdgSurface; // to do add child windows support as well as popup support
             xdg_toplevel *xdgToplevel;

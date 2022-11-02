@@ -39,29 +39,30 @@ void cpuRendering::renderWindow(surfaceId win)
 
         int elpased = time_span.count();
 
-        renderInfo& temp = surfacesToRender[idToIndex[win.index].renderDataIndex];
+        index = idToIndex[win.index].renderDataIndex;
+        renderInfo& temp = surfacesToRender[index];
 
         int stride = surface::getWindowWidth(win) * 4;
         int bufferSize = stride * surface::getWindowHeight(win);
-        surfacesToRender[idToIndex[win.index].renderDataIndex].bufferSize = bufferSize;
+        surfacesToRender[index].bufferSize = bufferSize;
 
-        int bufferIndex = surfacesToRender[idToIndex[win.index].renderDataIndex].freeBuffer;
+        int bufferIndex = surfacesToRender[index].freeBuffer;
 
-        uint32_t *frameData = mapWindowCpuBuffer(win, surfacesToRender[idToIndex[win.index].renderDataIndex].freeBuffer);
+        uint32_t *frameData = mapWindowCpuBuffer(win, surfacesToRender[index].freeBuffer);
         if(frameData)
             renderEventListeners[index](windowRenderData{surface::getWindowWidth(win), surface::getWindowHeight(win), frameData, elpased});
         
         
-        int ret = munmap(surfacesToRender[idToIndex[win.index].renderDataIndex].buffer, surfacesToRender[idToIndex[win.index].renderDataIndex].bufferSize);
+        int ret = munmap(surfacesToRender[index].buffer, surfacesToRender[index].bufferSize);
         CONDTION_LOG_ERROR(ret, ret != 0)
 
-        uint8_t tempBufferIndex = surfacesToRender[idToIndex[win.index].renderDataIndex].freeBuffer;
-        surfacesToRender[idToIndex[win.index].renderDataIndex].freeBuffer = surfacesToRender[idToIndex[win.index].renderDataIndex].bufferToRender;
-        surfacesToRender[idToIndex[win.index].renderDataIndex].bufferToRender = tempBufferIndex;
+        uint8_t tempBufferIndex = surfacesToRender[index].freeBuffer;
+        surfacesToRender[index].freeBuffer = surfacesToRender[index].bufferToRender;
+        surfacesToRender[index].bufferToRender = tempBufferIndex;
         
-        surfacesToRender[idToIndex[win.index].renderDataIndex].renderFinshedBool = true;
-        std::shared_lock lk{*surfacesToRender[idToIndex[win.index].renderDataIndex].renderMutex.get()};
-        surfacesToRender[idToIndex[win.index].renderDataIndex].renderFinshed->notify_one();
+        surfacesToRender[index].renderFinshedBool = true;
+        std::shared_lock lk{*surfacesToRender[index].renderMutex.get()};
+        surfacesToRender[index].renderFinshed->notify_one();
         
         t2 = std::chrono::high_resolution_clock::now();
         uint32_t index = idToIndex[win.index].renderEventIndex;
@@ -272,7 +273,7 @@ void cpuRendering::allocateSurfaceToRender(surfaceId winId)
 
 void cpuRendering::setRenderEventListeners(surfaceId winId, std::function<void(const windowRenderData&)> callback){
     uint32_t index = idToIndex[winId.index].renderEventIndex;
-    if(idToIndex[winId.index].gen != winId.gen)
+    if(winId.index >= idToIndex.size() || idToIndex[winId.index].gen != winId.gen)
         return;
 
     if(index != (uint8_t)-1)
@@ -321,6 +322,17 @@ void cpuRendering::unsetRenderEventListeners(surfaceId winId)
     renderEventId.pop_back();
 
     idToIndex[winId.index].renderEventIndex = -1;
+}
+
+void cpuRendering::resize(surfaceId id, int width, int height)
+{
+    reallocateWindowCpuPool(id);
+    wl_callback *cb = wl_surface_frame(surface::getSurface(id));
+
+    wl_callback_add_listener(cb, &wlSurfaceFrameListener, new surfaceId(id));
+
+    struct wl_buffer *buffer = cpuRendering::allocateWindowBuffer(id, 0);
+    wl_surface_attach(surface::getSurface(id), buffer, 0, 0);
 }
 
 #endif

@@ -29,7 +29,7 @@ class shaderManger
 
         struct idIndexes
         {
-            uint32_t gen: 8;
+            uint32_t gen: 8 = -1;
             uint32_t index: 24;
         };        
 

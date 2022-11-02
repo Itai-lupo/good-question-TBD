@@ -4,7 +4,7 @@ var searchData=
   ['getcount_1',['getCount',['../de/d2c/classvertex_array_manger.html#abd64d5541e8dbb5c7bc03462adacb48e',1,'vertexArrayManger']]],
   ['getcurrentcontextwindowid_2',['getCurrentContextWindowId',['../d5/d6a/classos_a_p_i.html#a345196727562c28dc772c7feced3434d',1,'osAPI']]],
   ['getdepthattachmenid_3',['getDepthAttachmenId',['../df/dfa/classframe_buffers_manger.html#a05663c579ee747182a5f16597caf5901',1,'frameBuffersManger']]],
-  ['gethight_4',['getHight',['../df/dfa/classframe_buffers_manger.html#a8af9d8de504038b27f204dfbb7a87a78',1,'frameBuffersManger::getHight()'],['../d6/d26/classtexture_manger.html#a2b708177fcd0f7c75f1b4cbf8bdabc33',1,'textureManger::getHight()']]],
+  ['getheight_4',['getheight',['../df/dfa/classframe_buffers_manger.html#afc994072b2ab26e2159a6addff4cd8cd',1,'frameBuffersManger::getheight()'],['../d6/d26/classtexture_manger.html#ae9d39a39ba5dd292c2d330558a69227e',1,'textureManger::getheight()']]],
   ['getindexfromid_5',['getIndexFromId',['../de/d8e/classlinux_window_a_p_i.html#a638311f054c35cf47945415e8c41bf54',1,'linuxWindowAPI']]],
   ['getprocaddress_6',['getProcAddress',['../d5/d6a/classos_a_p_i.html#a0a043b6f3c663ac880a51d1859d26fb9',1,'osAPI']]],
   ['getrenderid_7',['getRenderId',['../d6/d26/classtexture_manger.html#afb1ccfc42409ce1958f5a92b91c69b15',1,'textureManger']]],

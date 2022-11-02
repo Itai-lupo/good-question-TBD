@@ -68,7 +68,7 @@ class linuxWindowAPI
 
         static inline std::array<idIndexes, 31> idToIndex;  
         static inline std::list<uint32_t> freeSlots;
-        static inline int hightestId = 0;
+        static inline int heightestId = 0;
 
         static int64_t getIndexFromId(windowId id)
         {

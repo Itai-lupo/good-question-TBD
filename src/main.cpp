@@ -92,7 +92,7 @@ int main()
     std::vector<windowId> winowsIds;
     std::vector<double *> offsets;
     
-    winowsIds.push_back(a->createWindow({"test 3", 64*7, 64*11}));
+    winowsIds.push_back(a->createWindow({"test 3", 64*7, 64*11, surfaceRenderAPI::cpu}));
     winowsIds.push_back(a->createWindow({"test 4", 64*9, 64*11}));
     // winowsIds.push_back(a->createWindow({"test 5", 1025, 1025}));
     // for (size_t i = 0; i < 10; i++)
@@ -132,7 +132,7 @@ int main()
         a->setLostFocusEventListeners(id, std::bind(focusSwap, id));
         double *temp =  new double(0);
         
-        // a->setRenderEventListeners(id, [=]( const windowRenderData& sendor){cpuRender(temp, (id.index + 1) * 16, sendor);});
+        a->setRenderEventListeners(id, [=]( const windowRenderData& sendor){cpuRender(temp, (id.index + 1) * 16, sendor);});
         a->attachSubSurfaceToWindow(id, {0, 200, 200, 100, 100});
         a->setsubSurfaceRenderEventListeners(id, 0, [=]( const windowRenderData& sendor){cpuRender(temp, (id.index + 1) * 16, sendor);});
         

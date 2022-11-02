@@ -166,20 +166,21 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  121</span>{</div>
-<div class="line"><span class="lineno">  122</span> </div>
-<div class="line"><span class="lineno">  123</span>    <span class="keywordflow">if</span>(idToIndex[<span class="keywordtype">id</span>.index].gen != <span class="keywordtype">id</span>.gen)</div>
-<div class="line"><span class="lineno">  124</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  125</span> </div>
-<div class="line"><span class="lineno">  126</span>    shaderInfo&amp; temp = shaders[idToIndex[<span class="keywordtype">id</span>.index].index];</div>
-<div class="line"><span class="lineno">  127</span>    <span class="keywordflow">if</span>(temp.programId == 0)</div>
-<div class="line"><span class="lineno">  128</span>    {</div>
-<div class="line"><span class="lineno">  129</span>        compileVertexShader(temp);</div>
-<div class="line"><span class="lineno">  130</span>        compileFrgmentShader(temp);</div>
-<div class="line"><span class="lineno">  131</span>        linkProgram(temp);</div>
-<div class="line"><span class="lineno">  132</span>    }</div>
-<div class="line"><span class="lineno">  133</span>    context-&gt;<a class="code hl_variable" href="../../d3/d01/classopengl_context.html#a2e33865c7f75a29f2e7f48930654343e">openGLAPI</a>-&gt;UseProgram(temp.programId);</div>
-<div class="line"><span class="lineno">  134</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">  122</span>{</div>
+<div class="line"><span class="lineno">  123</span>    ZoneScopedN(<span class="stringliteral">&quot;bind program&quot;</span>);</div>
+<div class="line"><span class="lineno">  124</span> </div>
+<div class="line"><span class="lineno">  125</span>    <span class="keywordflow">if</span>(idToIndex[<span class="keywordtype">id</span>.index].gen != <span class="keywordtype">id</span>.gen)</div>
+<div class="line"><span class="lineno">  126</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  127</span> </div>
+<div class="line"><span class="lineno">  128</span>    shaderInfo&amp; temp = shaders[idToIndex[<span class="keywordtype">id</span>.index].index];</div>
+<div class="line"><span class="lineno">  129</span>    <span class="keywordflow">if</span>(temp.programId == 0)</div>
+<div class="line"><span class="lineno">  130</span>    {</div>
+<div class="line"><span class="lineno">  131</span>        compileVertexShader(temp);</div>
+<div class="line"><span class="lineno">  132</span>        compileFrgmentShader(temp);</div>
+<div class="line"><span class="lineno">  133</span>        linkProgram(temp);</div>
+<div class="line"><span class="lineno">  134</span>    }</div>
+<div class="line"><span class="lineno">  135</span>    context-&gt;<a class="code hl_variable" href="../../d3/d01/classopengl_context.html#a2e33865c7f75a29f2e7f48930654343e">openGLAPI</a>-&gt;UseProgram(temp.programId);</div>
+<div class="line"><span class="lineno">  136</span>}</div>
 <div class="ttc" id="aclassopengl_context_html_a2e33865c7f75a29f2e7f48930654343e"><div class="ttname"><a href="../../d3/d01/classopengl_context.html#a2e33865c7f75a29f2e7f48930654343e">openglContext::openGLAPI</a></div><div class="ttdeci">GladGLContext * openGLAPI</div><div class="ttdef"><b>Definition:</b> openglContext.hpp:16</div></div>
 </div><!-- fragment -->
 </div>
@@ -209,34 +210,34 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">    6</span>{</div>
-<div class="line"><span class="lineno">    7</span>    <a class="code hl_struct" href="../../d3/dc4/structshader_id.html">shaderId</a> id;</div>
-<div class="line"><span class="lineno">    8</span>    <span class="keywordflow">if</span>(!freeSlots.empty())</div>
-<div class="line"><span class="lineno">    9</span>    {</div>
-<div class="line"><span class="lineno">   10</span>        <span class="keywordtype">id</span> = {</div>
-<div class="line"><span class="lineno">   11</span>            .<a class="code hl_variable" href="../../d3/dc4/structshader_id.html#a8845849221f74790e44ceac1f06e6dba">gen</a> = idToIndex[freeSlots.front()].gen,</div>
-<div class="line"><span class="lineno">   12</span>            .index = freeSlots.front()</div>
-<div class="line"><span class="lineno">   13</span>        };</div>
-<div class="line"><span class="lineno">   14</span>        freeSlots.pop_front();</div>
-<div class="line"><span class="lineno">   15</span>    }</div>
-<div class="line"><span class="lineno">   16</span>    <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">   17</span>    {</div>
-<div class="line"><span class="lineno">   18</span>        <span class="keywordtype">id</span> = {</div>
-<div class="line"><span class="lineno">   19</span>            .gen = 0,</div>
-<div class="line"><span class="lineno">   20</span>            .index = (uint32_t)idToIndex.size()</div>
-<div class="line"><span class="lineno">   21</span>        };</div>
-<div class="line"><span class="lineno">   22</span>        idToIndex.push_back({0, (uint32_t)shaders.size()});</div>
-<div class="line"><span class="lineno">   23</span>    }</div>
-<div class="line"><span class="lineno">   24</span> </div>
-<div class="line"><span class="lineno">   25</span>    shaderInfo info;</div>
-<div class="line"><span class="lineno">   26</span>    info.id = id;</div>
-<div class="line"><span class="lineno">   27</span>    info.vertexPath = vertex;</div>
-<div class="line"><span class="lineno">   28</span>    info.fragmentPath = fragment;</div>
-<div class="line"><span class="lineno">   29</span> </div>
-<div class="line"><span class="lineno">   30</span>    idToIndex[<span class="keywordtype">id</span>.index].index = shaders.size();</div>
-<div class="line"><span class="lineno">   31</span>    shaders.push_back(info);</div>
-<div class="line"><span class="lineno">   32</span>    <span class="keywordflow">return</span> id;</div>
-<div class="line"><span class="lineno">   33</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">    7</span>{</div>
+<div class="line"><span class="lineno">    8</span>    <a class="code hl_struct" href="../../d3/dc4/structshader_id.html">shaderId</a> id;</div>
+<div class="line"><span class="lineno">    9</span>    <span class="keywordflow">if</span>(!freeSlots.empty())</div>
+<div class="line"><span class="lineno">   10</span>    {</div>
+<div class="line"><span class="lineno">   11</span>        <span class="keywordtype">id</span> = {</div>
+<div class="line"><span class="lineno">   12</span>            .<a class="code hl_variable" href="../../d3/dc4/structshader_id.html#a8845849221f74790e44ceac1f06e6dba">gen</a> = idToIndex[freeSlots.front()].gen,</div>
+<div class="line"><span class="lineno">   13</span>            .index = freeSlots.front()</div>
+<div class="line"><span class="lineno">   14</span>        };</div>
+<div class="line"><span class="lineno">   15</span>        freeSlots.pop_front();</div>
+<div class="line"><span class="lineno">   16</span>    }</div>
+<div class="line"><span class="lineno">   17</span>    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">   18</span>    {</div>
+<div class="line"><span class="lineno">   19</span>        <span class="keywordtype">id</span> = {</div>
+<div class="line"><span class="lineno">   20</span>            .gen = 0,</div>
+<div class="line"><span class="lineno">   21</span>            .index = (uint32_t)idToIndex.size()</div>
+<div class="line"><span class="lineno">   22</span>        };</div>
+<div class="line"><span class="lineno">   23</span>        idToIndex.push_back({0, (uint32_t)shaders.size()});</div>
+<div class="line"><span class="lineno">   24</span>    }</div>
+<div class="line"><span class="lineno">   25</span> </div>
+<div class="line"><span class="lineno">   26</span>    shaderInfo info;</div>
+<div class="line"><span class="lineno">   27</span>    info.id = id;</div>
+<div class="line"><span class="lineno">   28</span>    info.vertexPath = vertex;</div>
+<div class="line"><span class="lineno">   29</span>    info.fragmentPath = fragment;</div>
+<div class="line"><span class="lineno">   30</span> </div>
+<div class="line"><span class="lineno">   31</span>    idToIndex[<span class="keywordtype">id</span>.index].index = shaders.size();</div>
+<div class="line"><span class="lineno">   32</span>    shaders.push_back(info);</div>
+<div class="line"><span class="lineno">   33</span>    <span class="keywordflow">return</span> id;</div>
+<div class="line"><span class="lineno">   34</span>}</div>
 <div class="ttc" id="astructshader_id_html"><div class="ttname"><a href="../../d3/dc4/structshader_id.html">shaderId</a></div><div class="ttdef"><b>Definition:</b> core.hpp:31</div></div>
 <div class="ttc" id="astructshader_id_html_a8845849221f74790e44ceac1f06e6dba"><div class="ttname"><a href="../../d3/dc4/structshader_id.html#a8845849221f74790e44ceac1f06e6dba">shaderId::gen</a></div><div class="ttdeci">uint32_t gen</div><div class="ttdef"><b>Definition:</b> core.hpp:32</div></div>
 </div><!-- fragment -->

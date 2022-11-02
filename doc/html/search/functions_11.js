@@ -3,7 +3,7 @@ var searchData=
   ['windowclose_0',['windowClose',['../df/d0a/main_8cpp.html#ad30c208ce4812b95ef2f77e4ae4a43f1',1,'main.cpp']]],
   ['windoweventlistener_1',['windowEventListener',['../de/d8e/classlinux_window_a_p_i.html#a0d44ad65c757f398ad8ff31e21ff1aca',1,'linuxWindowAPI']]],
   ['windowresize_2',['windowResize',['../df/d0a/main_8cpp.html#af6b5fe1b468bb5e4c3a2d9b883586c2f',1,'main.cpp']]],
-  ['windowspec_3',['windowSpec',['../d7/d7e/structwindow_spec.html#a00c3f9db06d2f9dec249548dfc6d9258',1,'windowSpec']]],
+  ['windowspec_3',['windowSpec',['../d7/d7e/structwindow_spec.html#a1019e90a4ea63941d4eacf88f3999c8e',1,'windowSpec']]],
   ['wl_5fseat_5fcapabilities_4',['wl_seat_capabilities',['../d5/d3d/classseat.html#a4d7613ee255e3b07e4a2e8250d0a4675',1,'seat']]],
   ['wl_5fseat_5fname_5',['wl_seat_name',['../d5/d3d/classseat.html#a61d4646607939a09a10b7612f10fca44',1,'seat']]],
   ['wlenter_6',['wlEnter',['../d1/d4e/classkeyboard.html#af3a559369a8ad3a7611349b91161e51d',1,'keyboard']]],

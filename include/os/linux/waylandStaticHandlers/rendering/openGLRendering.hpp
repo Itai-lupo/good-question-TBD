@@ -70,7 +70,7 @@ class openGLRendering
 
         struct idToRenderInfoEventIndexes
         {
-            uint8_t gen;
+            uint8_t gen = -1;
             uint8_t renderDataIndex = -1;
             uint8_t renderEventIndex = -1;
         };
@@ -89,5 +89,7 @@ class openGLRendering
         
         static void deallocateSurfaceToRender(surfaceId winId);        
         static void unsetRenderEventListeners(surfaceId winId);
+
+        static void resize(surfaceId id, int width, int height);
 
 };

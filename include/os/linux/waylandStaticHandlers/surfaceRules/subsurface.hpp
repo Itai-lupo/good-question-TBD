@@ -20,7 +20,7 @@ class subsurface
 
         struct idToSurfaceDataIndexes
         {
-            uint8_t gen;
+            uint8_t gen = -1;
             uint8_t index = -1;
         };
         

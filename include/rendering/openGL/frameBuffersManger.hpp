@@ -20,13 +20,15 @@ class frameBuffersManger
 
         struct frameBufferInfo
         {
+            frameBufferInfo(framebufferId id, uint32_t width, uint32_t height): id(id), width(width), height(height){}
+            
             uint32_t renderId;
             framebufferId id;
 
-            textureId *colorAttachmens;
-            textureId depthAttachmen;
-            uint32_t width, hight;
-            bool needToRebuild;
+            textureId colorAttachmens[8]{[0 ... 7] = (uint32_t)-1, (uint32_t)-1};
+            textureId depthAttachmen{(uint32_t)-1, (uint32_t)-1};
+            uint32_t width, height;
+            bool needToRebuild = true;
         };
 
 
@@ -34,7 +36,7 @@ class frameBuffersManger
 
         struct idIndexes
         {
-            uint32_t gen: 8;
+            uint32_t gen: 8 = -1;
             uint32_t index: 24;
         };        
 
@@ -49,16 +51,16 @@ class frameBuffersManger
         void bind(framebufferId FBOId);
 
 
-        framebufferId createFrameBuffer(uint32_t width, uint32_t hight);
+        framebufferId createFrameBuffer(uint32_t width, uint32_t height);
 
         void attachColorRenderTarget(framebufferId FBOId, textureId attachmentId, uint32_t attachmentSlot);
         void setDepthRenderTarget(framebufferId FBOId, textureId attachmentId);
-        void resize(framebufferId FBOId, uint32_t width, uint32_t hight);
+        void resize(framebufferId FBOId, uint32_t width, uint32_t height);
 
         void deleteFrameBuffer(framebufferId FBOId);
         
         uint32_t getWidth(framebufferId FBOId);
-        uint32_t getHight(framebufferId FBOId);
+        uint32_t getheight(framebufferId FBOId);
 
         textureId *getColorAttachmens(framebufferId FBOId);
         textureId getDepthAttachmenId(framebufferId FBOId);

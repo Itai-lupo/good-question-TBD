@@ -1,8 +1,11 @@
 #include "textureManger.hpp"
+#include <Tracy.hpp>
 
 
 void textureManger::rebuild(textureId id)
 {
+    ZoneScopedN("texture rebuild");
+
     if(idToIndex[id.index].gen != id.gen)
         return;
 
@@ -11,9 +14,13 @@ void textureManger::rebuild(textureId id)
         rebuild(temp);
 
     temp.needToRebuild = false;
-    void *pixels = malloc(temp.width * temp.hight * temp.channels);
-    GL_CALL(context, GetTextureImage(temp.renderId, 0, GL_RGBA, GL_UNSIGNED_BYTE, temp.width * temp.hight * temp.channels, pixels));  
-    free(pixels);
+    {
+        ZoneScopedN("WERID FIX");
+
+        void *pixels = malloc(4);
+        GL_CALL(context, GetTextureSubImage(temp.renderId, 0, 0, 0, 0, 1, 1, 1, GL_RGBA, GL_UNSIGNED_BYTE, 4, pixels));  
+        free(pixels);
+    }
 }
 
 
@@ -26,7 +33,7 @@ void textureManger::rebuild(textureInfo& tex)
     if (tex.samples > 1)
     {
         GL_CALL(context, CreateTextures(GL_TEXTURE_2D_MULTISAMPLE, 1, &tex.renderId));
-        GL_CALL(context, TextureStorage2DMultisample(tex.renderId, tex.samples, textureFormatToOpenGlFormat(tex.format), tex.width, tex.hight, GL_FALSE));
+        GL_CALL(context, TextureStorage2DMultisample(tex.renderId, tex.samples, textureFormatToOpenGlFormat(tex.format), tex.width, tex.height, GL_FALSE));
     }
     else
     {
@@ -39,13 +46,15 @@ void textureManger::rebuild(textureInfo& tex)
         GL_CALL(context, TextureParameteri(tex.renderId , GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE));
         GL_CALL(context, TextureParameteri(tex.renderId , GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE));
 
-        GL_CALL(context, TextureStorage2D(tex.renderId, 1, textureFormatToOpenGlFormat(tex.format), tex.width, tex.hight));
+        GL_CALL(context, TextureStorage2D(tex.renderId, 1, textureFormatToOpenGlFormat(tex.format), tex.width, tex.height));
         if(tex.pixels != nullptr){
+            ZoneScopedN("load texture data");
             
             tex.channels = textureFormatToChannelsCount(tex.temp.format);
             GL_CALL(context, 
-            TextureSubImage2D(tex.renderId, 0, tex.temp.x, tex.temp.y, tex.temp.width, tex.temp.hight, 
+            TextureSubImage2D(tex.renderId, 0, tex.temp.x, tex.temp.y, tex.temp.width, tex.temp.height, 
                         textureFormatToOpenGlDataFormat(tex.temp.format), tex.temp.type, tex.temp.pixels));  
+                        
         }
     }
 }
@@ -67,7 +76,7 @@ void textureManger::handleRequsets()
             rebuild(tempInfo);
         tempInfo.needToRebuild = false;
 
-        // GL_CALL(context, TextureSubImage2D(tempInfo.renderId, 0, temp.x, temp.y, temp.width, temp.hight, textureFormatToOpenGlDataFormat(temp.format), temp.type, temp.pixels));  
+        // GL_CALL(context, TextureSubImage2D(tempInfo.renderId, 0, temp.x, temp.y, temp.width, temp.height, textureFormatToOpenGlDataFormat(temp.format), temp.type, temp.pixels));  
         
     }
 
@@ -113,7 +122,7 @@ void textureManger::setRenderId(textureId id, uint32_t renderId)
     temp.renderId = renderId;
 }
 
-textureId textureManger::createTexture(textureFormat format, uint32_t width, uint32_t hight)
+textureId textureManger::createTexture(textureFormat format, uint32_t width, uint32_t height)
 {
     textureId id;
     if(!freeSlots.empty())
@@ -137,7 +146,7 @@ textureId textureManger::createTexture(textureFormat format, uint32_t width, uin
     info.id = id;
     info.needToRebuild = true;
     info.width = width;
-    info.hight = hight;
+    info.height = height;
     info.format = format;
     
     idToIndex[id.index].index = textures.size();
@@ -147,26 +156,26 @@ textureId textureManger::createTexture(textureFormat format, uint32_t width, uin
 }
 
 
-void textureManger::resize(textureId texId, uint32_t width, uint32_t hight)
+void textureManger::resize(textureId texId, uint32_t width, uint32_t height)
 {
     if(idToIndex[texId.index].gen != texId.gen)
         return;
 
     textureInfo& temp = textures[idToIndex[texId.index].index];
     temp.width = width;
-    temp.hight = hight;
+    temp.height = height;
     temp.needToRebuild = true;
 
 }
 
-void textureManger::loadBuffer(textureId id, uint32_t x, uint32_t y, uint32_t width, uint32_t hight, textureFormat format, uint32_t type, void* pixels)
+void textureManger::loadBuffer(textureId id, uint32_t x, uint32_t y, uint32_t width, uint32_t height, textureFormat format, uint32_t type, void* pixels)
 {
     if(idToIndex[id.index].gen != id.gen)
         return;
 
     textureInfo& temp = textures[idToIndex[id.index].index];
     toLoad.push({
-        id, x, y, width, hight, format, type, pixels
+        id, x, y, width, height, format, type, pixels
     });
 
     temp.needToRebuild = true;
@@ -203,13 +212,13 @@ uint32_t textureManger::getWidth(textureId texId)
     return temp.width;
 }
 
-uint32_t textureManger::getHight(textureId texId)
+uint32_t textureManger::getheight(textureId texId)
 {
     if(idToIndex[texId.index].gen != texId.gen)
         return -1;
 
     textureInfo& temp = textures[idToIndex[texId.index].index];
-    return temp.hight;
+    return temp.height;
 }
 
 uint32_t textureManger::textureFormatToOpenGlFormat(textureFormat formatToConvert)

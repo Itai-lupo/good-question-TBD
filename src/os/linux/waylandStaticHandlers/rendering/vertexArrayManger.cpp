@@ -1,4 +1,5 @@
 #include "vertexArrayManger.hpp"
+#include <Tracy.hpp>
 
 vaoId vertexArrayManger::createVao()
 {
@@ -77,6 +78,8 @@ void vertexArrayManger::attachIndexBuffer(vaoId id, const uint32_t *IBO, uint32_
 
 void vertexArrayManger::bind(vaoId id)
 {
+    ZoneScopedN("bind shape");
+
     if(idToIndex[id.index].gen != id.gen)
         return;
 

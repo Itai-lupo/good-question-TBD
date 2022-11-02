@@ -1,12 +1,7 @@
 #include "toplevel.hpp"
-#include "cpuRendering.hpp"
 #include "linuxWindowAPI.hpp"
 #include "openGLRendering.hpp"
 
-#include <glad/gl.h>
-#include <EGL/egl.h>
-
-#include <stb_image.h>
 
 
 
@@ -14,16 +9,15 @@
 void toplevel::xdgTopLevelConfigure(void *data, xdg_toplevel *xdgToplevel, int32_t width, int32_t height, wl_array *states)
 {
     ZoneScoped;
-
-    if(width == 0 || height == 0)
-        return;
-
+    
     surfaceId id = *(surfaceId*)data;
-    uint8_t index = surface::idToIndex[id.index].surfaceDataIndex;
+    uint8_t index = idToIndex[id.index].toplevelDataIndex;
+
     if(index == (uint8_t)-1 || id.gen != idToIndex[id.index].gen)
         return;
 
-    surface::surfaceData& temp = surface::surfaces[index];
+    toplevelSurfaceInfo& temp = topLevelSurfaces[index];
+
     windowSizeState activeState = windowSizeState::undefined;
 
     for (size_t i = 0; i < states->size; i+=4)
@@ -42,18 +36,13 @@ void toplevel::xdgTopLevelConfigure(void *data, xdg_toplevel *xdgToplevel, int32
         if(((uint32_t*)states->data)[i] == xdg_toplevel_state::XDG_TOPLEVEL_STATE_MAXIMIZED)
             activeState = windowSizeState::maximized;
         
-    }    
+    }   
+    
     if(activeState == windowSizeState::undefined)
         return;
-    temp.height = height;
+
     temp.width = width;
-    LOG_INFO(width << ", " << height)
-    index = openGLRendering::idToIndex[id.index].renderDataIndex;
-    openGLRendering::renderInfo& tempR = openGLRendering::surfacesToRender[index];
-
-    wl_egl_window_resize (tempR.eglWindow, width, height, 0, 0);
-
-    // cpuRendering::reallocateWindowCpuPool(id);
+    temp.height = height;
 
     index = idToIndex[id.index].resizeEventIndex;
     if(index != (uint8_t)-1)
@@ -67,7 +56,7 @@ void toplevel::xdgTopLevelClose(void *data, xdg_toplevel *xdgToplevel)
     surfaceId id = *(surfaceId*)data;
 
     uint8_t index = idToIndex[id.index].closeEventIndex;
-    if(index != (uint8_t)-1 || id.gen == idToIndex[id.index].gen)
+    if(index != (uint8_t)-1 && id.gen == idToIndex[id.index].gen)
         closeEventListeners[index]();
         
     linuxWindowAPI::closeWindow(surface::surfaces[surface::idToIndex[id.index].surfaceDataIndex].parentWindowId);
@@ -76,85 +65,20 @@ void toplevel::xdgTopLevelClose(void *data, xdg_toplevel *xdgToplevel)
 void toplevel::xdg_surface_configure(void *data, struct xdg_surface *xdg_surface, uint32_t serial)
 {
     ZoneScoped;
+    xdg_surface_ack_configure(xdg_surface, serial);
+
 
     surfaceId id = *(surfaceId*)data;
-    uint8_t index = surface::idToIndex[id.index].surfaceDataIndex;
+    uint8_t index = idToIndex[id.index].toplevelDataIndex;
+
     if(index == (uint8_t)-1 || id.gen != idToIndex[id.index].gen)
         return;
 
+    toplevelSurfaceInfo& temp = topLevelSurfaces[index];
 
-    xdg_surface_ack_configure(xdg_surface, serial);
+    surface::resize(id, temp.width, temp.height);
 
-    index = openGLRendering::idToIndex[id.index].renderDataIndex;
-    openGLRendering::renderInfo& temp = openGLRendering::surfacesToRender[index];
-
-
-    // struct wl_buffer *buffer = cpuRendering::allocateWindowBuffer(id, tempR.bufferToRender);
-    
-    // int tempBuffer = tempR.bufferToRender;
-    // tempR.bufferToRender = tempR.bufferInRender;
-    // tempR.bufferInRender = tempBuffer;
-
-    // wl_surface_attach(surface::getSurface(id), buffer, 0, 0);
-    if(temp.eglWindow == NULL){
-        
-        temp.eglWindow = wl_egl_window_create (surface::getSurface(id), surface::getWindowWidth(id), surface::getWindowHeight(id));
-        temp.eglSurface = eglCreateWindowSurface (openGLRendering::context->eglDisplay, openGLRendering::context->eglConfig, (EGLNativeWindowType)temp.eglWindow, NULL);
-        
-        openGLRendering::context->makeCurrent(temp.eglSurface, temp.eglSurface);
-
-        GL_CALL(openGLRendering::context, PixelStorei(GL_UNPACK_ALIGNMENT, 1));
-        GL_CALL(openGLRendering::context, GenTextures(1, &temp.textureBufferId));  
-        GL_CALL(openGLRendering::context, BindTexture(GL_TEXTURE_2D, temp.textureBufferId));  
-
-    
-        GL_CALL(openGLRendering::context, TexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT));	
-        GL_CALL(openGLRendering::context, TexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT));
-        GL_CALL(openGLRendering::context, TexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR));
-        GL_CALL(openGLRendering::context, TexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR));
-    
-        uint8_t *data = new uint8_t[surface::getWindowWidth(id) * surface::getWindowHeight(id) * 4];
-
-        for (size_t i = 0; i < surface::getWindowWidth(temp.id) * surface::getWindowHeight(temp.id) * 4; i += 4)
-        {
-            data[i + 0] = 0xFF;
-            data[i + 1] = 0x10;
-            data[i + 2] = 0xFF;
-            data[i + 3] = 0xFF;
-        }
-
-        temp.bufferInRenderTex = openGLRendering::renderer->textures->createTexture(textureFormat::RGBA8, surface::getWindowWidth(id), surface::getWindowHeight(id));
-        temp.bufferToRenderTex = openGLRendering::renderer->textures->createTexture(textureFormat::RGBA8, surface::getWindowWidth(id), surface::getWindowHeight(id));
-        temp.freeBufferTex = openGLRendering::renderer->textures->createTexture(textureFormat::RGBA8, surface::getWindowWidth(id), surface::getWindowHeight(id));
-        
-        openGLRendering::renderer->textures->loadBuffer(temp.bufferInRenderTex, 0, 0, surface::getWindowWidth(id), surface::getWindowHeight(id), textureFormat::RGBA8, GL_UNSIGNED_BYTE, data);
-
-
-        temp.bufferInRender = openGLRendering::renderer->frameBuffers->createFrameBuffer(surface::getWindowWidth(id), surface::getWindowHeight(id));
-        temp.bufferToRender = openGLRendering::renderer->frameBuffers->createFrameBuffer(surface::getWindowWidth(id), surface::getWindowHeight(id));
-        temp.freeBuffer = openGLRendering::renderer->frameBuffers->createFrameBuffer(surface::getWindowWidth(id), surface::getWindowHeight(id));
-        
-        openGLRendering::renderer->frameBuffers->attachColorRenderTarget(temp.bufferInRender, temp.bufferInRenderTex, 0);
-        openGLRendering::renderer->frameBuffers->attachColorRenderTarget(temp.bufferToRender, temp.bufferToRenderTex, 0);
-        openGLRendering::renderer->frameBuffers->attachColorRenderTarget(temp.freeBuffer, temp.freeBufferTex, 0);
-
-        openGLRendering::renderer->renderRequest({
-            temp.bufferInRender, { {{255, 16777215}, {255, 16777215}, {[0 ... 31] = {255, 16777215}}, renderMode::triangles} }
-        });
-        openGLRendering::renderer->renderRequest({
-            temp.bufferInRender, { {{255, 16777215}, {255, 16777215}, {[0 ... 31] = {255, 16777215}}, renderMode::triangles} }
-        });
-        openGLRendering::renderer->renderRequest({
-            temp.bufferInRender, { {{255, 16777215}, {255, 16777215}, {[0 ... 31] = {255, 16777215}}, renderMode::triangles} }
-        });
-        
-        openGLRendering::context->swapBuffers(temp.eglSurface);
-        wl_surface_commit(surface::getSurface(id));
-    }
-
-        openGLRendering::renderer->renderRequest({
-            temp.bufferInRender, { {{255, 16777215}, {255, 16777215}, {[0 ... 31] = {255, 16777215}}, renderMode::triangles} }
-        });
+    wl_surface_commit(surface::getSurface(id));
 }
 
 
@@ -254,6 +178,8 @@ void toplevel::allocateTopLevel(surfaceId id, wl_surface *s, const surfaceSpec& 
     toplevelSurfaceInfo info;
     info.title = surfaceData.title;
     info.id = id;
+    info.width = surfaceData.width;
+    info.height = surfaceData.height;
 
     info.xdgSurface = xdg_wm_base_get_xdg_surface(xdgWmBase, s);
     xdg_surface_add_listener(info.xdgSurface, &xdg_surface_listener, new surfaceId(id));

@@ -1,6 +1,7 @@
 <map id="src/os/linux/waylandStaticHandlers/rendering/textureManger.cpp" name="src/os/linux/waylandStaticHandlers/rendering/textureManger.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="305,5,547,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="369,5,611,47"/>
 <area shape="rect" id="node2" href="$da/d6d/texture_manger_8hpp.html" title=" " alt="" coords="362,95,490,121"/>
+<area shape="rect" id="node15" title=" " alt="" coords="515,95,593,121"/>
 <area shape="rect" id="node3" href="$db/d4c/opengl_context_8hpp.html" title=" " alt="" coords="103,169,231,196"/>
 <area shape="rect" id="node9" href="$da/d47/core_8hpp.html" title=" " alt="" coords="271,169,341,196"/>
 <area shape="rect" id="node11" title=" " alt="" coords="366,169,417,196"/>

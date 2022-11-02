@@ -9,11 +9,20 @@
 #include <functional>
 
 
+enum class surfaceRenderAPI
+{
+    cpu,
+    openGL
+};
+
+
 struct windowSpec
 {
-	windowSpec(std::string title, int w, int h): w(w), h(h), title(title){}
-	int w, h;
+	windowSpec(std::string title, int w, int h, surfaceRenderAPI renderAPI = surfaceRenderAPI::openGL): w(w), h(h), title(title), renderAPI(renderAPI){}
+	
+    int w, h;
 	std::string title;
+    surfaceRenderAPI renderAPI;
 };
 
 struct subSurfaceSpec
@@ -21,6 +30,7 @@ struct subSurfaceSpec
     uint8_t subSurfaceSlot;
     int x, y;
     int width, height;
+    surfaceRenderAPI renderAPI = surfaceRenderAPI::cpu;
 };
 
 
