@@ -1,5 +1,5 @@
 <map id="include/os/eventsData/mouseButtonData.hpp" name="include/os/eventsData/mouseButtonData.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,160,47"/>
-<area shape="rect" id="node2" href="$d5/dde/mouse_format_8hpp.html" title=" " alt="" coords="19,95,146,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="55,169,110,196"/>
+<area shape="rect" id="node1" title=" " coords="5,5,160,45"/>
+<area shape="rect" id="node2" href="$d5/dde/mouse_format_8hpp.html" title=" " coords="19,93,146,119"/>
+<area shape="rect" id="node3" title=" " coords="55,167,110,192"/>
 </map>

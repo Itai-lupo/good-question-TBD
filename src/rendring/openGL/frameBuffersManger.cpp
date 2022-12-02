@@ -91,7 +91,6 @@ framebufferId frameBuffersManger::createFrameBuffer(uint32_t width, uint32_t hei
     }
 
     frameBufferInfo info(id, width, height);
-    
     idToIndex[id.index].index = frameBuffers.size();
     frameBuffers.push_back(info);
     return id;
@@ -105,7 +104,6 @@ void frameBuffersManger::attachColorRenderTarget(framebufferId FBOId, textureId 
     frameBufferInfo& temp = frameBuffers[idToIndex[FBOId.index].index];
     temp.colorAttachmens[attachmentSlot] = attachmentId;
     temp.needToRebuild = true;
-
 }
 
 void frameBuffersManger::setDepthRenderTarget(framebufferId FBOId, textureId attachmentId)

@@ -28,6 +28,7 @@ class openGLRendering
             .done = wlSurfaceFrameDone
         };
 
+        static void renderWindow(surfaceId id);
 
     public:
         static inline bool wasInit = false;
@@ -91,5 +92,6 @@ class openGLRendering
         static void unsetRenderEventListeners(surfaceId winId);
 
         static void resize(surfaceId id, int width, int height);
+
 
 };

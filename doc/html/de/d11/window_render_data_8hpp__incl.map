@@ -1,0 +1,21 @@
+<map id="include/os/eventsData/windowRenderData.hpp" name="include/os/eventsData/windowRenderData.hpp">
+<area shape="rect" id="node1" title=" " coords="381,5,543,45"/>
+<area shape="rect" id="node2" href="$d0/d92/open_g_l_renderer_8hpp.html" title=" " coords="390,93,534,119"/>
+<area shape="rect" id="node3" href="$db/d4c/opengl_context_8hpp.html" title=" " coords="158,313,286,339"/>
+<area shape="rect" id="node9" href="$da/d6d/texture_manger_8hpp.html" title=" " coords="415,240,543,265"/>
+<area shape="rect" id="node12" title=" " coords="658,313,709,339"/>
+<area shape="rect" id="node14" title=" " coords="15,313,74,339"/>
+<area shape="rect" id="node15" title=" " coords="525,313,583,339"/>
+<area shape="rect" id="node16" href="$d8/dcf/vertex_array_manger_8hpp.html" title=" " coords="34,240,189,265"/>
+<area shape="rect" id="node17" href="$dd/d0f/shader_manger_8hpp.html" title=" " coords="263,240,391,265"/>
+<area shape="rect" id="node18" href="$d8/d20/frame_buffers_manger_8hpp.html" title=" " coords="499,167,662,192"/>
+<area shape="rect" id="node19" title=" " coords="871,167,930,192"/>
+<area shape="rect" id="node4" title=" " coords="119,387,189,412"/>
+<area shape="rect" id="node5" title=" " coords="213,387,292,412"/>
+<area shape="rect" id="node6" href="$d4/d3d/log_8hpp.html" title=" " coords="32,387,95,412"/>
+<area shape="rect" id="node7" title=" " coords="13,460,114,485"/>
+<area shape="rect" id="node8" title=" " coords="220,460,275,485"/>
+<area shape="rect" id="node10" href="$da/d47/core_8hpp.html" title=" " coords="431,313,501,339"/>
+<area shape="rect" id="node13" title=" " coords="368,313,407,339"/>
+<area shape="rect" id="node11" title=" " coords="435,387,497,412"/>
+</map>

@@ -30,6 +30,12 @@ void cpuRendering::renderWindow(surfaceId win)
     std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
     std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
 
+    wl_callback *cb = wl_surface_frame(surface::getSurface(win));
+
+    wl_callback_add_listener(cb, &wlSurfaceFrameListener, new surfaceId(win));
+    struct wl_buffer *buffer = allocateWindowBuffer(win, 0);
+    wl_surface_attach(surface::getSurface(win), buffer, 0, 0);
+
     do {
         ZoneScoped;
 
@@ -326,13 +332,10 @@ void cpuRendering::unsetRenderEventListeners(surfaceId winId)
 
 void cpuRendering::resize(surfaceId id, int width, int height)
 {
+    ZoneScoped;
+
     reallocateWindowCpuPool(id);
-    wl_callback *cb = wl_surface_frame(surface::getSurface(id));
-
-    wl_callback_add_listener(cb, &wlSurfaceFrameListener, new surfaceId(id));
-
-    struct wl_buffer *buffer = cpuRendering::allocateWindowBuffer(id, 0);
-    wl_surface_attach(surface::getSurface(id), buffer, 0, 0);
+    
 }
 
 #endif

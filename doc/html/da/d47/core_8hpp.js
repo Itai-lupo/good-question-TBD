@@ -1,5 +1,8 @@
 var core_8hpp =
 [
-    [ "genericHandle< genSize, idSize >", "d6/d98/structgeneric_handle.html", "d6/d98/structgeneric_handle" ],
-    [ "windowId", "da/d47/core_8hpp.html#ab8d25e9f21f6bfe3b89872c7a3d96a51", null ]
+    [ "windowId", "dd/d6c/structwindow_id.html", "dd/d6c/structwindow_id" ],
+    [ "framebufferId", "de/de2/structframebuffer_id.html", "de/de2/structframebuffer_id" ],
+    [ "textureId", "d8/dd1/structtexture_id.html", "d8/dd1/structtexture_id" ],
+    [ "vaoId", "d6/d4d/structvao_id.html", "d6/d4d/structvao_id" ],
+    [ "shaderId", "d3/dc4/structshader_id.html", "d3/dc4/structshader_id" ]
 ];

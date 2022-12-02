@@ -1,6 +1,6 @@
 <map id="openGLRendering::renderInfo" name="openGLRendering::renderInfo">
-<area shape="rect" id="node1" title=" " alt="" coords="47,124,237,151"/>
-<area shape="rect" id="node2" href="$d1/db5/structsurface_id.html" title=" " alt="" coords="5,5,81,32"/>
-<area shape="rect" id="node3" href="$d8/dd1/structtexture_id.html" title=" " alt="" coords="106,5,178,32"/>
-<area shape="rect" id="node4" href="$de/de2/structframebuffer_id.html" title=" " alt="" coords="233,5,331,32"/>
+<area shape="rect" id="node1" title=" " coords="47,123,237,148"/>
+<area shape="rect" id="node2" href="$d1/db5/structsurface_id.html" title=" " coords="5,5,81,31"/>
+<area shape="rect" id="node3" href="$d8/dd1/structtexture_id.html" title=" " coords="106,5,178,31"/>
+<area shape="rect" id="node4" href="$de/de2/structframebuffer_id.html" title=" " coords="233,5,331,31"/>
 </map>

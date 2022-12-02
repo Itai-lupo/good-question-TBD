@@ -1,15 +1,31 @@
 <map id="include/os/eventsData/osEventsData.hpp" name="include/os/eventsData/osEventsData.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="414,5,565,47"/>
-<area shape="rect" id="node2" href="$d3/d71/key_data_8hpp.html" title=" " alt="" coords="40,95,133,121"/>
-<area shape="rect" id="node7" href="$d0/d5f/mouse_button_data_8hpp.html" title=" " alt="" coords="158,95,309,121"/>
-<area shape="rect" id="node9" href="$db/d1b/mouse_move_data_8hpp.html" title=" " alt="" coords="333,95,477,121"/>
-<area shape="rect" id="node10" href="$da/db3/mouse_scroll_data_8hpp.html" title=" " alt="" coords="502,95,647,121"/>
-<area shape="rect" id="node11" href="$dd/d8e/window_resize_data_8hpp.html" title=" " alt="" coords="671,95,827,121"/>
-<area shape="rect" id="node13" href="$d6/d89/window_render_data_8hpp.html" title=" " alt="" coords="851,95,1010,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,169,69,196"/>
-<area shape="rect" id="node4" href="$d7/d0b/keycodes_8hpp.html" title=" " alt="" coords="93,169,195,196"/>
-<area shape="rect" id="node5" title=" " alt="" coords="113,244,175,271"/>
-<area shape="rect" id="node6" title=" " alt="" coords="227,244,282,271"/>
-<area shape="rect" id="node8" href="$d5/dde/mouse_format_8hpp.html" title=" " alt="" coords="219,169,346,196"/>
-<area shape="rect" id="node12" href="$d5/dd7/window_state_8hpp.html" title=" " alt="" coords="689,169,810,196"/>
+<area shape="rect" id="node1" title=" " coords="899,5,1050,45"/>
+<area shape="rect" id="node2" href="$d3/d71/key_data_8hpp.html" title=" " coords="5,313,99,339"/>
+<area shape="rect" id="node7" href="$d0/d5f/mouse_button_data_8hpp.html" title=" " coords="814,93,965,119"/>
+<area shape="rect" id="node9" href="$db/d1b/mouse_move_data_8hpp.html" title=" " coords="1159,93,1303,119"/>
+<area shape="rect" id="node10" href="$da/db3/mouse_scroll_data_8hpp.html" title=" " coords="989,93,1134,119"/>
+<area shape="rect" id="node11" href="$dd/d8e/window_resize_data_8hpp.html" title=" " coords="1327,93,1483,119"/>
+<area shape="rect" id="node13" href="$d6/d89/window_render_data_8hpp.html" title=" " coords="631,93,790,119"/>
+<area shape="rect" id="node3" title=" " coords="20,387,84,412"/>
+<area shape="rect" id="node4" href="$d7/d0b/keycodes_8hpp.html" title=" " coords="160,387,261,412"/>
+<area shape="rect" id="node5" title=" " coords="331,460,392,485"/>
+<area shape="rect" id="node6" title=" " coords="573,533,627,559"/>
+<area shape="rect" id="node8" href="$d5/dde/mouse_format_8hpp.html" title=" " coords="998,167,1125,192"/>
+<area shape="rect" id="node12" href="$d5/dd7/window_state_8hpp.html" title=" " coords="1345,167,1466,192"/>
+<area shape="rect" id="node14" href="$d0/d92/open_g_l_renderer_8hpp.html" title=" " coords="639,167,783,192"/>
+<area shape="rect" id="node15" href="$db/d4c/opengl_context_8hpp.html" title=" " coords="672,387,800,412"/>
+<area shape="rect" id="node20" href="$da/d6d/texture_manger_8hpp.html" title=" " coords="528,313,656,339"/>
+<area shape="rect" id="node22" title=" " coords="285,387,336,412"/>
+<area shape="rect" id="node24" title=" " coords="360,387,419,412"/>
+<area shape="rect" id="node25" title=" " coords="875,387,933,412"/>
+<area shape="rect" id="node26" href="$d8/dcf/vertex_array_manger_8hpp.html" title=" " coords="781,313,936,339"/>
+<area shape="rect" id="node27" href="$dd/d0f/shader_manger_8hpp.html" title=" " coords="325,313,453,339"/>
+<area shape="rect" id="node28" href="$d8/d20/frame_buffers_manger_8hpp.html" title=" " coords="511,240,673,265"/>
+<area shape="rect" id="node29" title=" " coords="1087,240,1145,265"/>
+<area shape="rect" id="node16" title=" " coords="701,460,771,485"/>
+<area shape="rect" id="node17" title=" " coords="598,460,677,485"/>
+<area shape="rect" id="node18" href="$d4/d3d/log_8hpp.html" title=" " coords="795,460,858,485"/>
+<area shape="rect" id="node19" title=" " coords="776,533,877,559"/>
+<area shape="rect" id="node21" href="$da/d47/core_8hpp.html" title=" " coords="494,387,565,412"/>
+<area shape="rect" id="node23" title=" " coords="595,387,634,412"/>
 </map>

@@ -1,20 +1,20 @@
 <map id="include/rendering/openGL/openGLRenderer.hpp" name="include/rendering/openGL/openGLRenderer.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="376,5,547,47"/>
-<area shape="rect" id="node2" href="$db/d4c/opengl_context_8hpp.html" title=" " alt="" coords="157,244,285,271"/>
-<area shape="rect" id="node8" href="$da/d6d/texture_manger_8hpp.html" title=" " alt="" coords="415,169,543,196"/>
-<area shape="rect" id="node11" title=" " alt="" coords="657,244,708,271"/>
-<area shape="rect" id="node13" title=" " alt="" coords="15,244,73,271"/>
-<area shape="rect" id="node14" title=" " alt="" coords="525,244,582,271"/>
-<area shape="rect" id="node15" href="$d8/dcf/vertex_array_manger_8hpp.html" title=" " alt="" coords="33,169,188,196"/>
-<area shape="rect" id="node16" href="$dd/d0f/shader_manger_8hpp.html" title=" " alt="" coords="263,169,391,196"/>
-<area shape="rect" id="node17" href="$d8/d20/frame_buffers_manger_8hpp.html" title=" " alt="" coords="499,95,661,121"/>
-<area shape="rect" id="node18" title=" " alt="" coords="871,95,929,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="118,319,189,345"/>
-<area shape="rect" id="node4" title=" " alt="" coords="213,319,291,345"/>
-<area shape="rect" id="node5" href="$d4/d3d/log_8hpp.html" title=" " alt="" coords="31,319,94,345"/>
-<area shape="rect" id="node6" title=" " alt="" coords="12,393,113,420"/>
-<area shape="rect" id="node7" title=" " alt="" coords="219,393,274,420"/>
-<area shape="rect" id="node9" href="$da/d47/core_8hpp.html" title=" " alt="" coords="430,244,501,271"/>
-<area shape="rect" id="node12" title=" " alt="" coords="367,244,406,271"/>
-<area shape="rect" id="node10" title=" " alt="" coords="435,319,496,345"/>
+<area shape="rect" id="node1" title=" " coords="377,5,547,45"/>
+<area shape="rect" id="node2" href="$db/d4c/opengl_context_8hpp.html" title=" " coords="158,240,286,265"/>
+<area shape="rect" id="node8" href="$da/d6d/texture_manger_8hpp.html" title=" " coords="415,167,543,192"/>
+<area shape="rect" id="node11" title=" " coords="658,240,709,265"/>
+<area shape="rect" id="node13" title=" " coords="15,240,74,265"/>
+<area shape="rect" id="node14" title=" " coords="525,240,583,265"/>
+<area shape="rect" id="node15" href="$d8/dcf/vertex_array_manger_8hpp.html" title=" " coords="34,167,189,192"/>
+<area shape="rect" id="node16" href="$dd/d0f/shader_manger_8hpp.html" title=" " coords="263,167,391,192"/>
+<area shape="rect" id="node17" href="$d8/d20/frame_buffers_manger_8hpp.html" title=" " coords="499,93,662,119"/>
+<area shape="rect" id="node18" title=" " coords="871,93,930,119"/>
+<area shape="rect" id="node3" title=" " coords="119,313,189,339"/>
+<area shape="rect" id="node4" title=" " coords="213,313,292,339"/>
+<area shape="rect" id="node5" href="$d4/d3d/log_8hpp.html" title=" " coords="32,313,95,339"/>
+<area shape="rect" id="node6" title=" " coords="13,387,114,412"/>
+<area shape="rect" id="node7" title=" " coords="220,387,275,412"/>
+<area shape="rect" id="node9" href="$da/d47/core_8hpp.html" title=" " coords="431,240,501,265"/>
+<area shape="rect" id="node12" title=" " coords="368,240,407,265"/>
+<area shape="rect" id="node10" title=" " coords="435,313,497,339"/>
 </map>

@@ -1,7 +1,7 @@
 var searchData=
 [
   ['bindingslot_0',['bindingSlot',['../d5/d49/struct_v_b_o_spec.html#a18334059564461a11f945a55dbb56a6b',1,'VBOSpec::bindingSlot()'],['../d8/d28/structvertex_array_manger_1_1_v_a_o_info_1_1_v_b_o_attacment.html#a0f486437713e0bc2834dda5a1727c631',1,'vertexArrayManger::VAOInfo::VBOAttacment::bindingSlot()']]],
-  ['buffer_1',['buffer',['../d2/d65/structcpu_rendering_1_1render_info.html#acc70ce4c8c7732de99aa72bfd3ce976b',1,'cpuRendering::renderInfo']]],
+  ['buffer_1',['buffer',['../d0/df1/structwindow_render_data.html#ab0de95a381deff041f713cf07cf927c9',1,'windowRenderData::buffer()'],['../d2/d65/structcpu_rendering_1_1render_info.html#acc70ce4c8c7732de99aa72bfd3ce976b',1,'cpuRendering::renderInfo::buffer()']]],
   ['bufferinrender_2',['bufferInRender',['../d2/d65/structcpu_rendering_1_1render_info.html#a6d88c34012c5966b4ce0bf8bbab51fb2',1,'cpuRendering::renderInfo::bufferInRender()'],['../d8/d8d/structopen_g_l_rendering_1_1render_info.html#a1f1feeab65079b62051b918e580f083b',1,'openGLRendering::renderInfo::bufferInRender()']]],
   ['bufferinrendertex_3',['bufferInRenderTex',['../d8/d8d/structopen_g_l_rendering_1_1render_info.html#a64b5ebd7ccf793f48a227559a9773087',1,'openGLRendering::renderInfo']]],
   ['buffersize_4',['bufferSize',['../d2/d65/structcpu_rendering_1_1render_info.html#a29968a090fa3054435418763a08fdfa1',1,'cpuRendering::renderInfo::bufferSize()'],['../d8/d8d/structopen_g_l_rendering_1_1render_info.html#a3de49bfa411473d34668a37edb26f738',1,'openGLRendering::renderInfo::bufferSize()']]],

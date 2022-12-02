@@ -103,57 +103,6 @@ void initTextureShader()
 }
 
 
-
-void shit(uint8_t index)
-{
-    std::string thradNameA = "open gl";
-    prctl(PR_SET_NAME, thradNameA.c_str());
-    ZoneScoped;
-    openGLRendering::renderInfo& temp = openGLRendering::surfacesToRender[index];
-    
-
-    while (!temp.textureBufferId)
-    {
-        std::this_thread::sleep_for(std::chrono::milliseconds(1));
-    }
-    
-    openglContext *context = new openglContext(openGLRendering::context->eglContext);
-    GL_CALL(context, Enable(GL_BLEND));
-    GL_CALL(context, Enable(GL_DEPTH_TEST));
-    GL_CALL(context, Enable(GL_ALPHA_TEST));
-    GL_CALL(context, BlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
-    GL_CALL(context, AlphaFunc(GL_GREATER, 0));
-
-
-    int red = 0;
-    while (true)
-    {
-        red++;
-        FrameMarkNamed( "red");
-        ZoneScoped;        
-
-        int width = surface::getWindowWidth(temp.id), height = surface::getWindowHeight(temp.id);
-        uint8_t *data = new uint8_t[ width * height * 4];
-        for (size_t i = 0; i < width * height * 4; i += 4)
-        {
-            data[i + 0] = (i + red);
-            data[i + 1] = 0;
-            data[i + 2] = 0;
-            data[i + 3] = 0xFF;
-        }
-        
-        
-        GL_CALL(context, BindTexture(GL_TEXTURE_2D, temp.textureBufferId));  
-
-        GL_CALL(context, TexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height , 0, GL_RGBA, GL_UNSIGNED_BYTE, data));
-        GL_CALL(context, GenerateMipmap(GL_TEXTURE_2D));
-        
-
-        delete[] data;
-        std::this_thread::sleep_for(std::chrono::milliseconds(1));
-    }    
-}
-
 void openGLRendering::wlSurfaceFrameDone(void *data, wl_callback *cb, uint32_t time)
 {
 
@@ -172,9 +121,9 @@ void openGLRendering::wlSurfaceFrameDone(void *data, wl_callback *cb, uint32_t t
     
     if(idToIndex[id.index].renderEventIndex != (uint8_t)-1)
     {
-        // std::unique_lock lk2{*temp.renderMutex.get()};
-        // temp.renderFinshed->wait(lk2, [&](){ return temp.renderFinshedBool;} );
-        // temp.renderFinshedBool = false;
+        std::unique_lock lk2{*temp.renderMutex.get()};
+        temp.renderFinshed->wait(lk2, [&](){ return temp.renderFinshedBool;} );
+        temp.renderFinshedBool = false;
     }
     
     
@@ -188,17 +137,25 @@ void openGLRendering::wlSurfaceFrameDone(void *data, wl_callback *cb, uint32_t t
     GL_CALL(context, ClearColor (0.0f, 0.0f, 0.0f, 0.0f));
     GL_CALL(context, Clear (GL_COLOR_BUFFER_BIT));
     
-    GL_CALL(context, BindTextureUnit(0, renderer->textures->getRenderId(temp.bufferInRenderTex)));
+    GL_CALL(context, BindTextureUnit(0, renderer->textures->getRenderId(temp.bufferToRenderTex)));
     
     GL_CALL(context, DrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr));
     GL_CALL(context, BindTexture(GL_TEXTURE_2D, 0));
 
     context->swapBuffers(temp.eglSurface);
     wl_surface_commit(surface::getSurface(id));
+        
+    framebufferId tempBufferIndex = temp.bufferInRender;
+    temp.bufferInRender = temp.bufferToRender;
+    temp.bufferToRender = tempBufferIndex;
+
+    textureId tempTexIndex = temp.bufferInRenderTex;
+    temp.bufferInRenderTex = temp.bufferToRenderTex;
+    temp.bufferToRenderTex = tempTexIndex;
+        
     
     
     FrameMarkNamed( toplevel::getWindowTitle(id).c_str());
-
 }
 
 void openGLRendering::init()
@@ -271,10 +228,6 @@ void openGLRendering::allocateSurfaceToRender(surfaceId winId)
     idToIndex[winId.index].renderDataIndex = surfacesToRender.size();
     surfacesToRender.push_back(info);
 
-
-    // std::thread(shit, idToIndex[winId.index].renderDataIndex).detach();
-
-
     wl_callback *cb = wl_surface_frame(surface::getSurface(winId));
     wl_callback_add_listener(cb, &wlSurfaceFrameListener, new surfaceId(winId));
 }
@@ -295,6 +248,9 @@ void openGLRendering::setRenderEventListeners(surfaceId winId, std::function<voi
     idToIndex[winId.index].renderEventIndex = renderEventListeners.size();
     renderEventListeners.push_back(callback);
     renderEventId.push_back(winId);
+
+    surfacesToRender[idToIndex[winId.index].renderDataIndex].renderThread = new std::thread(renderWindow, winId);
+
 }     
 
 
@@ -359,9 +315,6 @@ void openGLRendering::resize(surfaceId id, int width, int height)
         temp.bufferInRenderTex = renderer->textures->createTexture(textureFormat::RGBA8, width, height);
         temp.bufferToRenderTex = renderer->textures->createTexture(textureFormat::RGBA8, width, height);
         temp.freeBufferTex = renderer->textures->createTexture(textureFormat::RGBA8, width, height);
-        
-        // renderer->textures->loadBuffer(temp.bufferInRenderTex, 0, 0, width, height, textureFormat::RGBA8, GL_UNSIGNED_BYTE, data);
-
 
         temp.bufferInRender = renderer->frameBuffers->createFrameBuffer(width, height);
         temp.bufferToRender = renderer->frameBuffers->createFrameBuffer(width, height);
@@ -379,11 +332,66 @@ void openGLRendering::resize(surfaceId id, int width, int height)
     renderer->frameBuffers->resize(temp.bufferInRender, width, height);
     renderer->frameBuffers->resize(temp.bufferToRender, width, height);
     renderer->frameBuffers->resize(temp.freeBuffer, width, height);
+}
+
+void openGLRendering::renderWindow(surfaceId id)
+{
+
+    ZoneScoped;
+    
+    uint32_t index = idToIndex[id.index].renderEventIndex;
+    if(idToIndex[id.index].gen != id.gen || index == -1)
+        return;
+
+    std::string thradNameA = "render " + toplevel::getWindowTitle(id);
+    tracy::SetThreadName(thradNameA.c_str());
+    prctl(PR_SET_NAME, thradNameA.c_str());
+    
+    std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
+    std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
+
+    while (renderer == NULL)
+    {
+        std::this_thread::sleep_for(std::chrono::milliseconds(1));
+    }
     
 
-    renderer->renderRequest({
-        temp.bufferInRender, { {{255, 16777215}, {255, 16777215}, {[0 ... 31] = {255, 16777215}}, renderMode::triangles} }
-    });
+    while(surfacesToRender[index].freeBuffer.gen == 255)
+        std::this_thread::sleep_for(std::chrono::milliseconds(1));
+
+    do {
+        ZoneScoped;
+
+        std::chrono::duration<double, std::milli> time_span = t2 - t1;
+        t1 = std::chrono::high_resolution_clock::now();
+        
+
+        int elpased = time_span.count();
+
+        index = idToIndex[id.index].renderDataIndex;
+        renderInfo& temp = surfacesToRender[index];
+
+        framebufferId bufferIndex = temp.freeBuffer;
+
+        renderEventListeners[index](windowRenderData{surface::getWindowWidth(id), surface::getWindowHeight(id), renderer, elpased, bufferIndex});
+        
+        
+        framebufferId tempBufferIndex = temp.freeBuffer;
+        temp.freeBuffer = temp.bufferToRender;
+        temp.bufferToRender = tempBufferIndex;
+
+        textureId tempTexIndex = temp.freeBufferTex;
+        temp.freeBufferTex = temp.bufferToRenderTex;
+        temp.bufferToRenderTex = tempTexIndex;
+        
+        
+        temp.renderFinshedBool = true;
+        std::shared_lock lk{*temp.renderMutex.get()};
+        temp.renderFinshed->notify_one();
+        
+        t2 = std::chrono::high_resolution_clock::now();
+        uint32_t index = idToIndex[id.index].renderEventIndex;
+    } while (idToIndex[id.index].gen == id.gen && index != -1);
     
 }
 

@@ -190,7 +190,7 @@ void textureManger::deleteTexture(textureId texId)
     textureInfo temp = textures[idToIndex[texId.index].index];
     
     toDelete.push(temp.renderId);
-    delete[] temp.pixels;
+    free(temp.pixels);
 
     idToIndex[texId.index].gen++;
     

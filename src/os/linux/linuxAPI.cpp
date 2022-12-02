@@ -7,6 +7,7 @@
 #include "osEventsData.hpp"
 #include "surface.hpp"
 #include "cpuRendering.hpp"
+#include "openGLRendering.hpp"
 #include "toplevel.hpp"
 #include "layer.hpp"
 
@@ -163,7 +164,19 @@ void osAPI::setLostFocusEventListeners(windowId winId, std::function<void()> cal
 void osAPI::setRenderEventListeners(windowId winId, std::function<void(const windowRenderData&)> callback)
 {
     surfaceId id = linuxWindowAPI::windowsInfo[linuxWindowAPI::idToIndex[winId.index].index].topLevelSurface;
-    cpuRendering::setRenderEventListeners(id, callback);
+    switch (surface::surfaces[surface::idToIndex[id.index].surfaceDataIndex].rendererType)
+    {
+        case surfaceRenderAPI::openGL:
+            openGLRendering::setRenderEventListeners(id, callback);
+            break;
+
+        case surfaceRenderAPI::cpu:
+            cpuRendering::setRenderEventListeners(id, callback);
+            break;
+        
+        default:
+            break;
+    }
 }
 
 void osAPI::setsubSurfaceRenderEventListeners(windowId winId, int subSurfaceSlot, std::function<void(const windowRenderData&)> callback)

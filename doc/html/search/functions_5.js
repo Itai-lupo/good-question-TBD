@@ -21,5 +21,6 @@ var searchData=
   ['gl_5ftranslatesource_18',['GL_TranslateSource',['../d5/d93/opengl_context_8cpp.html#aa8cf2164a53f93c025b03094754998ca',1,'openglContext.cpp']]],
   ['gl_5ftranslatetype_19',['GL_TranslateType',['../d5/d93/opengl_context_8cpp.html#a06b6e035498fc8c02342bd52bfb9f967',1,'openglContext.cpp']]],
   ['glcheckerror_20',['GLCheckError',['../d3/d01/classopengl_context.html#a7ffb34d987e73f4bbfe155836546abb8',1,'openglContext']]],
-  ['glclearerrors_21',['GLClearErrors',['../d3/d01/classopengl_context.html#a268ecf605b7ab251926bc61e1b21c8b7',1,'openglContext']]]
+  ['glclearerrors_21',['GLClearErrors',['../d3/d01/classopengl_context.html#a268ecf605b7ab251926bc61e1b21c8b7',1,'openglContext']]],
+  ['gpurender_22',['gpuRender',['../df/d0a/main_8cpp.html#a2fc4f2e1d06701bb23ba76ae90ae8d03',1,'main.cpp']]]
 ];
