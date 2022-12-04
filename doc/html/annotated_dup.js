@@ -1,6 +1,9 @@
 var annotated_dup =
 [
+    [ "componentType", "db/d0a/classcomponent_type.html", "db/d0a/classcomponent_type" ],
     [ "cpuRendering", "d7/dc2/classcpu_rendering.html", "d7/dc2/classcpu_rendering" ],
+    [ "entityId", "df/d3a/structentity_id.html", "df/d3a/structentity_id" ],
+    [ "entityPool", "dc/d2b/classentity_pool.html", "dc/d2b/classentity_pool" ],
     [ "framebufferId", "de/de2/structframebuffer_id.html", "de/de2/structframebuffer_id" ],
     [ "frameBuffersManger", "df/dfa/classframe_buffers_manger.html", "df/dfa/classframe_buffers_manger" ],
     [ "keyboard", "d1/d4e/classkeyboard.html", "d1/d4e/classkeyboard" ],

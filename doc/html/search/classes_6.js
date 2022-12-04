@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['mousebuttondata_0',['mouseButtonData',['../db/de8/structmouse_button_data.html',1,'']]],
-  ['mousemovedata_1',['mouseMoveData',['../d9/d38/structmouse_move_data.html',1,'']]],
-  ['mousescrolldata_2',['mouseScrollData',['../da/d46/structmouse_scroll_data.html',1,'']]]
+  ['layer_0',['layer',['../d2/d36/classlayer.html',1,'']]],
+  ['layersurfaceinfo_1',['layerSurfaceInfo',['../d4/ddf/structlayer_1_1layer_surface_info.html',1,'layer']]],
+  ['linuxwindowapi_2',['linuxWindowAPI',['../de/d8e/classlinux_window_a_p_i.html',1,'']]],
+  ['logger_3',['logger',['../dc/d37/classlogger.html',1,'']]]
 ];

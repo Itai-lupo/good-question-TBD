@@ -1,6 +1,13 @@
 #pragma once
 #include <cstdint>
 
+
+struct entityId
+{
+    uint32_t index;
+    uint8_t gen;
+};
+
 struct windowId
 {
     uint8_t gen;

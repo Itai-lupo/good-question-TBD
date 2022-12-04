@@ -10,8 +10,9 @@ var searchData=
   ['framebuffersmanger_7',['frameBuffersManger',['../df/dfa/classframe_buffers_manger.html',1,'frameBuffersManger'],['../df/dfa/classframe_buffers_manger.html#af05335aaec13b4b8512d316537f1f263',1,'frameBuffersManger::frameBuffersManger()']]],
   ['framebuffersmanger_2ecpp_8',['frameBuffersManger.cpp',['../de/d70/frame_buffers_manger_8cpp.html',1,'']]],
   ['framebuffersmanger_2ehpp_9',['frameBuffersManger.hpp',['../d8/d20/frame_buffers_manger_8hpp.html',1,'']]],
-  ['freebuffer_10',['freeBuffer',['../d2/d65/structcpu_rendering_1_1render_info.html#ac59bf245d7a46c1a86c9887bbca0dd87',1,'cpuRendering::renderInfo::freeBuffer()'],['../d8/d8d/structopen_g_l_rendering_1_1render_info.html#ae31046e52bbdc5d12d35ae4527e3ffa5',1,'openGLRendering::renderInfo::freeBuffer()']]],
+  ['freebuffer_10',['freeBuffer',['../d8/d8d/structopen_g_l_rendering_1_1render_info.html#ae31046e52bbdc5d12d35ae4527e3ffa5',1,'openGLRendering::renderInfo::freeBuffer()'],['../d2/d65/structcpu_rendering_1_1render_info.html#ac59bf245d7a46c1a86c9887bbca0dd87',1,'cpuRendering::renderInfo::freeBuffer()']]],
   ['freebuffertex_11',['freeBufferTex',['../d8/d8d/structopen_g_l_rendering_1_1render_info.html#acd71fdff9200d14e6c7b5084cfe2b79c',1,'openGLRendering::renderInfo']]],
-  ['freeslots_12',['freeSlots',['../d5/d88/classsurface.html#a4c7388f252223b635ee343e3b73056d3',1,'surface::freeSlots()'],['../de/d8e/classlinux_window_a_p_i.html#abb647fbf77fa7e62f94b587b57d84118',1,'linuxWindowAPI::freeSlots()']]],
-  ['fullscreen_13',['fullscreen',['../d5/dd7/window_state_8hpp.html#a0a6548decdad99284bc439e3f40fdb76a74ba0736dad9b7236e2c7db4f4f4b874',1,'windowState.hpp']]]
+  ['freeentity_12',['freeEntity',['../dc/d2b/classentity_pool.html#a12796e0235799e9936afd1a9b7dc798d',1,'entityPool']]],
+  ['freeslots_13',['freeSlots',['../de/d8e/classlinux_window_a_p_i.html#abb647fbf77fa7e62f94b587b57d84118',1,'linuxWindowAPI::freeSlots()'],['../d5/d88/classsurface.html#a4c7388f252223b635ee343e3b73056d3',1,'surface::freeSlots()']]],
+  ['fullscreen_14',['fullscreen',['../d5/dd7/window_state_8hpp.html#a0a6548decdad99284bc439e3f40fdb76a74ba0736dad9b7236e2c7db4f4f4b874',1,'windowState.hpp']]]
 ];

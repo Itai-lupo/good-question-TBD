@@ -9,7 +9,8 @@ var searchData=
   ['allocatetoplevel_6',['allocateTopLevel',['../da/d41/classtoplevel.html#a070dfa65dd958eed471d88eae9852231',1,'toplevel']]],
   ['allocatewindowbuffer_7',['allocateWindowBuffer',['../d7/dc2/classcpu_rendering.html#a0eb947f467c9fc156fab13db4d22c061',1,'cpuRendering']]],
   ['allocatewindowevents_8',['allocateWindowEvents',['../d1/d4e/classkeyboard.html#a6054f0f7ec822344fa1d77417574ce18',1,'keyboard::allocateWindowEvents()'],['../d4/df3/classpointer.html#a718ae5635998668ce30076d114435b8d',1,'pointer::allocateWindowEvents()']]],
-  ['attachcolorrendertarget_9',['attachColorRenderTarget',['../df/dfa/classframe_buffers_manger.html#a20125e40418b07706550e8b9a8a2dc64',1,'frameBuffersManger']]],
-  ['attachindexbuffer_10',['attachIndexBuffer',['../de/d2c/classvertex_array_manger.html#aa20cf1f6a066380204e9fc695bf0d6fe',1,'vertexArrayManger']]],
-  ['attachsubsurfacetowindow_11',['attachSubSurfaceToWindow',['../d5/d6a/classos_a_p_i.html#a6ec19963881ae78db8a3c0703850b8eb',1,'osAPI']]]
+  ['allocentity_9',['allocEntity',['../dc/d2b/classentity_pool.html#ad4fb0df84c544348a0da6b6d0e20ccce',1,'entityPool']]],
+  ['attachcolorrendertarget_10',['attachColorRenderTarget',['../df/dfa/classframe_buffers_manger.html#a20125e40418b07706550e8b9a8a2dc64',1,'frameBuffersManger']]],
+  ['attachindexbuffer_11',['attachIndexBuffer',['../de/d2c/classvertex_array_manger.html#aa20cf1f6a066380204e9fc695bf0d6fe',1,'vertexArrayManger']]],
+  ['attachsubsurfacetowindow_12',['attachSubSurfaceToWindow',['../d5/d6a/classos_a_p_i.html#a6ec19963881ae78db8a3c0703850b8eb',1,'osAPI']]]
 ];

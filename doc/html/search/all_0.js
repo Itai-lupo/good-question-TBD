@@ -11,12 +11,13 @@ var searchData=
   ['allocatetoplevel_8',['allocateTopLevel',['../da/d41/classtoplevel.html#a070dfa65dd958eed471d88eae9852231',1,'toplevel']]],
   ['allocatewindowbuffer_9',['allocateWindowBuffer',['../d7/dc2/classcpu_rendering.html#a0eb947f467c9fc156fab13db4d22c061',1,'cpuRendering']]],
   ['allocatewindowevents_10',['allocateWindowEvents',['../d1/d4e/classkeyboard.html#a6054f0f7ec822344fa1d77417574ce18',1,'keyboard::allocateWindowEvents()'],['../d4/df3/classpointer.html#a718ae5635998668ce30076d114435b8d',1,'pointer::allocateWindowEvents()']]],
-  ['api_11',['api',['../d0/df1/structwindow_render_data.html#a51401ec20c14e92d7af7a6039283ada2',1,'windowRenderData']]],
-  ['attachcolorrendertarget_12',['attachColorRenderTarget',['../df/dfa/classframe_buffers_manger.html#a20125e40418b07706550e8b9a8a2dc64',1,'frameBuffersManger']]],
-  ['attachindexbuffer_13',['attachIndexBuffer',['../de/d2c/classvertex_array_manger.html#aa20cf1f6a066380204e9fc695bf0d6fe',1,'vertexArrayManger']]],
-  ['attachsubsurfacetowindow_14',['attachSubSurfaceToWindow',['../d5/d6a/classos_a_p_i.html#a6ec19963881ae78db8a3c0703850b8eb',1,'osAPI']]],
-  ['axes_15',['axes',['../da/dbc/structpointer_1_1input_buffer.html#addb201724fe3b253759c198feb1748bb',1,'pointer::inputBuffer']]],
-  ['axis_16',['axis',['../da/d46/structmouse_scroll_data.html#a7d7d2ed129e51c37c1265a05ce0cc49a',1,'mouseScrollData']]],
-  ['axis_5fsource_17',['axis_source',['../da/dbc/structpointer_1_1input_buffer.html#af8999f68d7df120484934238d4498d71',1,'pointer::inputBuffer']]],
-  ['axissource_18',['axisSource',['../da/d46/structmouse_scroll_data.html#a5b79beeb14aa1decbc267de528ab5c80',1,'mouseScrollData']]]
+  ['allocentity_11',['allocEntity',['../dc/d2b/classentity_pool.html#ad4fb0df84c544348a0da6b6d0e20ccce',1,'entityPool']]],
+  ['api_12',['api',['../d0/df1/structwindow_render_data.html#a51401ec20c14e92d7af7a6039283ada2',1,'windowRenderData']]],
+  ['attachcolorrendertarget_13',['attachColorRenderTarget',['../df/dfa/classframe_buffers_manger.html#a20125e40418b07706550e8b9a8a2dc64',1,'frameBuffersManger']]],
+  ['attachindexbuffer_14',['attachIndexBuffer',['../de/d2c/classvertex_array_manger.html#aa20cf1f6a066380204e9fc695bf0d6fe',1,'vertexArrayManger']]],
+  ['attachsubsurfacetowindow_15',['attachSubSurfaceToWindow',['../d5/d6a/classos_a_p_i.html#a6ec19963881ae78db8a3c0703850b8eb',1,'osAPI']]],
+  ['axes_16',['axes',['../da/dbc/structpointer_1_1input_buffer.html#addb201724fe3b253759c198feb1748bb',1,'pointer::inputBuffer']]],
+  ['axis_17',['axis',['../da/d46/structmouse_scroll_data.html#a7d7d2ed129e51c37c1265a05ce0cc49a',1,'mouseScrollData']]],
+  ['axis_5fsource_18',['axis_source',['../da/dbc/structpointer_1_1input_buffer.html#af8999f68d7df120484934238d4498d71',1,'pointer::inputBuffer']]],
+  ['axissource_19',['axisSource',['../da/d46/structmouse_scroll_data.html#a5b79beeb14aa1decbc267de528ab5c80',1,'mouseScrollData']]]
 ];
