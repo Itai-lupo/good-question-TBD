@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['typecallback_0',['typeCallback',['../d7/d3e/entity_pool_8hpp.html#a6c201d7aa001acc3b47db196e4d2c3ee',1,'entityPool.hpp']]]
+  ['closecallback_0',['closeCallback',['../da/d5a/window_close_callback_component_8hpp.html#a4630206a09eb75687f6e0bfac3ab2010',1,'windowCloseCallbackComponent.hpp']]]
 ];

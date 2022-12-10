@@ -128,16 +128,16 @@ textureId textureManger::createTexture(textureFormat format, uint32_t width, uin
     if(!freeSlots.empty())
     {
         id = {
-            .gen = idToIndex[freeSlots.front()].gen,
-            .index = freeSlots.front()
+            .index = freeSlots.front(),
+            .gen = idToIndex[freeSlots.front()].gen
         };
         freeSlots.pop_front();
     }
     else
     {
         id = {
-            .gen = 0,
-            .index = (uint32_t)idToIndex.size()
+            .index = (uint32_t)idToIndex.size(),
+            .gen = 0
         };
         idToIndex.push_back({0, (uint32_t)textures.size()});
     }

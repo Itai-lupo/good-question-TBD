@@ -3,5 +3,6 @@
 
 struct mouseButtonData
 {
+    surfaceId id;
     mouseButtons value;  
 };

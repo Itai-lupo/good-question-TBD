@@ -1,5 +1,4 @@
 #include "layer.hpp"
-#include "cpuRendering.hpp"
 #include "linuxWindowAPI.hpp"
 #include <EGL/egl.h>
 #include <wayland-egl.h>
@@ -12,138 +11,71 @@ void layer::layerConfigure(void *data, zwlr_layer_surface_v1 *wlrLayer, uint32_t
         return;
 
     surfaceId id = *(surfaceId*)data;
-    uint8_t index = surface::idToIndex[id.index].surfaceDataIndex;
-    if(index == (uint8_t)-1 || id.gen != idToIndex[id.index].gen)
+    
+    surfaceData *temp = surface::surfacesInfo->getComponent(id);
+    if(!temp)
         return;
 
-    surface::surfaceData& temp = surface::surfaces[index];
     windowSizeState activeState = windowSizeState::undefined;
 
-    temp.height = height;
-    temp.width = width;
-    cpuRendering::reallocateWindowCpuPool(id);
+    temp->height = height;
+    temp->width = width;
 
-    index = idToIndex[id.index].resizeEventIndex;
-    if(index != (uint8_t)-1)
-        std::thread(resizeEventListeners[index], windowResizeData{(int)height, (int)width, activeState}).detach();
-    
-    
-    index = cpuRendering::idToIndex[id.index].renderDataIndex;
-    cpuRendering::renderInfo& tempR = cpuRendering::surfacesToRender[index];
-
-
-    struct wl_buffer *buffer = cpuRendering::allocateWindowBuffer(id, tempR.bufferToRender);
-    
-    int tempBuffer = tempR.bufferToRender;
-    tempR.bufferToRender = tempR.bufferInRender;
-    tempR.bufferInRender = tempBuffer;
-
-    wl_surface_attach(surface::getSurface(id), buffer, 0, 0);
-    wl_surface_commit(surface::getSurface(id));
-
-    
-    index = idToIndex[id.index].layerDataIndex;
-    layerSurfaces[index].canRender = true;
+    surface::resize(id, width, height);
+    void(*tempCallback)(const windowResizeData&) =  resizeCallbacks->getCallback(id);
+    if(tempCallback)
+        std::thread(*tempCallback, windowResizeData{id, (int)height, (int)width, activeState}).detach();
 }
 
 void layer::layerClose(void *data, zwlr_layer_surface_v1 *wlrLayer)
 {
     surfaceId id = *(surfaceId*)data;
-
-    uint8_t index = idToIndex[id.index].closeEventIndex;
-    if(index != (uint8_t)-1 || id.gen == idToIndex[id.index].gen)
-        closeEventListeners[index]();
+    closeCallback temp =  closeCallbacks->getCallback(id);
+    
+    if(temp)
+        temp(id);
         
-    linuxWindowAPI::closeWindow(surface::surfaces[surface::idToIndex[id.index].surfaceDataIndex].parentWindowId);
+    linuxWindowAPI::closeWindow(surface::surfacesInfo->getComponent(id)->parentWindowId);
 }
 
 
 
-void layer::setCloseEventListener(surfaceId winId, std::function<void()> callback)
+void layer::setCloseEventListener(surfaceId winId, void(*callback)(surfaceId id) )
 {
-    uint32_t index = idToIndex[winId.index].closeEventIndex;
-    if(idToIndex[winId.index].gen != winId.gen)
-        return;
-
-    if(index != (uint8_t)-1)
-    {    
-        closeEventListeners[index] = callback;
-        closeEventId[index] = winId;
-        return;
-    }
-
-    idToIndex[winId.index].closeEventIndex = closeEventListeners.size();
-    closeEventListeners.push_back(callback);
-    closeEventId.push_back(winId);
+    closeCallbacks->setCallback(winId, callback);
 }
 
-void layer::setResizeEventListener(surfaceId winId, std::function<void(const windowResizeData&)> callback)
+void layer::setResizeEventListener(surfaceId winId, void(*callback)(const windowResizeData&) )
 {
-    uint32_t index = idToIndex[winId.index].resizeEventIndex;
-    if(idToIndex[winId.index].gen != winId.gen)
-        return;
+    resizeCallbacks->setCallback(winId, callback);
 
-    if(index != (uint8_t)-1)
-    {    
-        resizeEventListeners[index] = callback;
-        resizeEventId[index] = winId;
-        return;
-    }
-
-    idToIndex[winId.index].resizeEventIndex = resizeEventListeners.size();
-    resizeEventListeners.push_back(callback);
-    resizeEventId.push_back(winId);
 }
-
-
 
 void layer::unsetCloseEventListener(surfaceId winId)
 {
-    uint32_t index = idToIndex[winId.index].closeEventIndex;
-    if(idToIndex[winId.index].gen != winId.gen || index == -1)
-        return;
-
-    uint32_t lastIndex = closeEventListeners.size() - 1;
-    idToIndex[closeEventId[lastIndex].index].closeEventIndex = index;
-    closeEventListeners[index] = closeEventListeners[lastIndex];
-    closeEventId[index] = closeEventId[lastIndex];
-
-    closeEventListeners.pop_back();
-    closeEventId.pop_back();
-
-    idToIndex[winId.index].closeEventIndex = -1;
+    closeCallbacks->deleteComponent(winId);
 }  
 
 void layer::unsetResizeEventListener(surfaceId winId)
 {
-    uint32_t index = idToIndex[winId.index].resizeEventIndex;
-    if(idToIndex[winId.index].gen != winId.gen || index == -1)
-        return;
-
-    uint32_t lastIndex = resizeEventListeners.size() - 1;
-    idToIndex[resizeEventId[lastIndex].index].resizeEventIndex = index;
-    resizeEventListeners[index] = resizeEventListeners[lastIndex];
-    resizeEventId[index] = resizeEventId[lastIndex];
-
-    resizeEventListeners.pop_back();
-    resizeEventId.pop_back();
-
-    idToIndex[winId.index].resizeEventIndex = -1;
+    resizeCallbacks->deleteComponent(winId);
 }
 
 void layer::setWindowTitle(surfaceId id, const std::string& title)
 {
-    if(idToIndex[id.index].layerDataIndex != (uint8_t)-1 && id.gen == idToIndex[id.index].gen){
-        // xdg_toplevel_set_title(layerSurfaces[idToIndex[id.index].layerDataIndex].layerSurface, layerSurfaces[idToIndex[id.index].layerDataIndex].title.c_str());
-        layerSurfaces[idToIndex[id.index].layerDataIndex].title = title;
-    }
+    layerSurfaceInfo *temp = layers->getComponent(id);
+
+    if(temp)
+        temp->title = title;
 }
 
 
 std::string layer::getWindowTitle(surfaceId id)
 {
-    if(idToIndex[id.index].layerDataIndex != (uint8_t)-1 && id.gen == idToIndex[id.index].gen)
-        return layerSurfaces[idToIndex[id.index].layerDataIndex].title;
+    layerSurfaceInfo *temp = layers->getComponent(id);
+
+    if(temp)
+        return temp->title;
 
     return "error window with id: " + std::to_string((id.gen << 8) + id.index) + " was'nt found";
 }
@@ -158,22 +90,12 @@ void layer::allocateLayer(surfaceId id, wl_surface *s, const surfaceSpec& surfac
     zwlr_layer_surface_v1_set_size(info.layerSurface, surfaceData.width, surfaceData.height);
     zwlr_layer_surface_v1_add_listener(info.layerSurface, &layerSurfaceListener, new surfaceId(id));
     
-    
-    idToIndex[id.index].gen = id.gen;
-    idToIndex[id.index].layerDataIndex = layerSurfaces.size();
-    layerSurfaces.push_back(info);
+    layers->setComponent(id, info);
 }
 
 void layer::deallocateLayer(surfaceId winId)
 {
-    uint8_t index = idToIndex[winId.index].layerDataIndex;
-    if(idToIndex[winId.index].gen != winId.gen || index == (uint8_t)-1)
-        return;
-
-
-    layerSurfaceInfo& temp = layerSurfaces[index];
-    zwlr_layer_surface_v1_destroy(temp.layerSurface);
-
-    unsetCloseEventListener(winId);
-    unsetResizeEventListener(winId);
+    layers->deleteComponent(winId);
+    closeCallbacks->deleteComponent(winId);
+    resizeCallbacks->deleteComponent(winId);
 }

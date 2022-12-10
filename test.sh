@@ -15,6 +15,8 @@ filePath=output/test.out
 make -j 14 $filePath || exit 1
 
 clear
+# heaptrack -o profileData $filePath
+
 $filePath
 
 echo "program exited with code $?"

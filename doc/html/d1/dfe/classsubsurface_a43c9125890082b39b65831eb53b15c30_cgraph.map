@@ -1,4 +1,6 @@
 <map id="subsurface::allocateSubsurface" name="subsurface::allocateSubsurface">
-<area shape="rect" id="node1" title=" " coords="5,5,208,31"/>
-<area shape="rect" id="node2" href="$d5/d88/classsurface.html#adfb4a3648842f5870fb0162c8bb3400c" title=" " coords="256,5,391,31"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,13,208,38"/>
+<area shape="rect" id="node2" href="$d5/d88/classsurface.html#adfb4a3648842f5870fb0162c8bb3400c" title=" " alt="" coords="256,13,391,38"/>
+<area shape="rect" id="node3" href="$d3/da0/classsurface_info_component.html#ae92a763c47e11c1ece6c0a1ffd951d26" title=" " alt="" coords="439,5,592,45"/>
+<area shape="rect" id="node4" href="$dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d" title=" " alt="" coords="640,13,775,38"/>
 </map>

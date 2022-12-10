@@ -1,52 +1,52 @@
 <map id="src/os/linux/waylandStaticHandlers/surfaceRules/toplevel.cpp" name="src/os/linux/waylandStaticHandlers/surfaceRules/toplevel.cpp">
-<area shape="rect" id="node1" title=" " coords="1409,5,1636,45"/>
-<area shape="rect" id="node2" href="$da/d9d/toplevel_8hpp.html" title=" " coords="412,93,503,119"/>
-<area shape="rect" id="node36" href="$d1/d9a/linux_window_a_p_i_8hpp.html" title=" " coords="1453,93,1593,119"/>
-<area shape="rect" id="node48" href="$de/d1c/open_g_l_rendering_8hpp.html" title=" " coords="2451,93,2602,119"/>
-<area shape="rect" id="node3" title=" " coords="5,167,147,207"/>
-<area shape="rect" id="node4" title=" " coords="373,174,541,199"/>
-<area shape="rect" id="node5" title=" " coords="1369,255,1484,280"/>
-<area shape="rect" id="node6" title=" " coords="258,841,313,867"/>
-<area shape="rect" id="node7" title=" " coords="1515,695,1573,720"/>
-<area shape="rect" id="node8" title=" " coords="1111,328,1190,353"/>
-<area shape="rect" id="node9" href="$da/d47/core_8hpp.html" title=" " coords="1681,695,1751,720"/>
-<area shape="rect" id="node11" href="$d1/dd4/surface_8hpp.html" title=" " coords="617,174,706,199"/>
-<area shape="rect" id="node10" title=" " coords="1685,768,1747,793"/>
-<area shape="rect" id="node12" href="$dd/d8e/window_resize_data_8hpp.html" title=" " coords="745,401,901,427"/>
-<area shape="rect" id="node13" href="$d6/dcb/os_a_p_i_8hpp.html" title=" " coords="563,255,645,280"/>
-<area shape="rect" id="node29" title=" " coords="1875,695,1914,720"/>
-<area shape="rect" id="node14" href="$de/d7c/os_events_data_8hpp.html" title=" " coords="909,328,1035,353"/>
-<area shape="rect" id="node35" title=" " coords="526,328,618,353"/>
-<area shape="rect" id="node15" href="$d3/d71/key_data_8hpp.html" title=" " coords="925,401,1019,427"/>
-<area shape="rect" id="node17" href="$d0/d5f/mouse_button_data_8hpp.html" title=" " coords="1213,401,1363,427"/>
-<area shape="rect" id="node18" href="$db/d1b/mouse_move_data_8hpp.html" title=" " coords="1388,401,1532,427"/>
-<area shape="rect" id="node19" href="$da/db3/mouse_scroll_data_8hpp.html" title=" " coords="1043,401,1189,427"/>
-<area shape="rect" id="node20" href="$d6/d89/window_render_data_8hpp.html" title=" " coords="2151,401,2310,427"/>
-<area shape="rect" id="node16" title=" " coords="1179,475,1243,500"/>
-<area shape="rect" id="node21" href="$d0/d92/open_g_l_renderer_8hpp.html" title=" " coords="2159,475,2303,500"/>
-<area shape="rect" id="node22" href="$db/d4c/opengl_context_8hpp.html" title=" " coords="2280,695,2408,720"/>
-<area shape="rect" id="node27" href="$da/d6d/texture_manger_8hpp.html" title=" " coords="1961,621,2089,647"/>
-<area shape="rect" id="node28" title=" " coords="2051,695,2101,720"/>
-<area shape="rect" id="node30" title=" " coords="2198,695,2255,720"/>
-<area shape="rect" id="node31" href="$d8/dcf/vertex_array_manger_8hpp.html" title=" " coords="2265,621,2420,647"/>
-<area shape="rect" id="node32" href="$dd/d0f/shader_manger_8hpp.html" title=" " coords="1759,621,1887,647"/>
-<area shape="rect" id="node33" href="$d8/d20/frame_buffers_manger_8hpp.html" title=" " coords="1977,548,2140,573"/>
-<area shape="rect" id="node34" title=" " coords="2596,548,2655,573"/>
-<area shape="rect" id="node23" title=" " coords="2211,768,2282,793"/>
-<area shape="rect" id="node24" title=" " coords="2306,768,2385,793"/>
-<area shape="rect" id="node25" href="$d4/d3d/log_8hpp.html" title=" " coords="2411,768,2474,793"/>
-<area shape="rect" id="node26" title=" " coords="2392,841,2493,867"/>
-<area shape="rect" id="node37" title=" " coords="883,174,944,199"/>
-<area shape="rect" id="node38" title=" " coords="969,174,1026,199"/>
-<area shape="rect" id="node39" title=" " coords="1050,174,1113,199"/>
-<area shape="rect" id="node40" title=" " coords="1137,174,1212,199"/>
-<area shape="rect" id="node41" title=" " coords="1237,174,1329,199"/>
-<area shape="rect" id="node42" title=" " coords="1353,174,1410,199"/>
-<area shape="rect" id="node43" title=" " coords="1435,174,1611,199"/>
-<area shape="rect" id="node44" title=" " coords="1635,174,1701,199"/>
-<area shape="rect" id="node45" title=" " coords="2134,174,2237,199"/>
-<area shape="rect" id="node46" title=" " coords="2261,174,2387,199"/>
-<area shape="rect" id="node47" title=" " coords="1726,174,1805,199"/>
-<area shape="rect" id="node49" title=" " coords="2767,174,2835,199"/>
-<area shape="rect" id="node50" title=" " coords="2859,174,2959,199"/>
+<area shape="rect" id="node1" title=" " alt="" coords="1466,5,1693,45"/>
+<area shape="rect" id="node2" href="$da/d9d/toplevel_8hpp.html" title=" " alt="" coords="648,93,738,119"/>
+<area shape="rect" id="node35" href="$d1/d9a/linux_window_a_p_i_8hpp.html" title=" " alt="" coords="2736,93,2876,119"/>
+<area shape="rect" id="node48" href="$de/d1c/open_g_l_rendering_8hpp.html" title=" " alt="" coords="1504,93,1655,119"/>
+<area shape="rect" id="node3" title=" " alt="" coords="57,313,198,353"/>
+<area shape="rect" id="node4" title=" " alt="" coords="476,321,644,346"/>
+<area shape="rect" id="node5" title=" " alt="" coords="972,321,1086,346"/>
+<area shape="rect" id="node6" title=" " alt="" coords="1567,768,1622,793"/>
+<area shape="rect" id="node7" title=" " alt="" coords="1370,621,1429,647"/>
+<area shape="rect" id="node8" title=" " alt="" coords="1143,401,1222,427"/>
+<area shape="rect" id="node9" href="$da/d47/core_8hpp.html" title=" " alt="" coords="1070,548,1140,573"/>
+<area shape="rect" id="node11" href="$d1/dd4/surface_8hpp.html" title=" " alt="" coords="1494,167,1583,192"/>
+<area shape="rect" id="node32" href="$da/d5a/window_close_callback_component_8hpp.html" title=" " alt="" coords="255,401,494,427"/>
+<area shape="rect" id="node33" href="$d5/d67/window_resize_callback_component_8hpp.html" title=" " alt="" coords="569,401,814,427"/>
+<area shape="rect" id="node34" href="$d3/db8/toplevel_info_componenet_8hpp.html" title=" " alt="" coords="294,240,481,265"/>
+<area shape="rect" id="node10" title=" " alt="" coords="1074,621,1136,647"/>
+<area shape="rect" id="node12" href="$dd/d8e/window_resize_data_8hpp.html" title=" " alt="" coords="708,475,864,500"/>
+<area shape="rect" id="node13" href="$d6/dcb/os_a_p_i_8hpp.html" title=" " alt="" coords="1606,321,1689,346"/>
+<area shape="rect" id="node28" href="$d7/d3e/entity_pool_8hpp.html" title=" " alt="" coords="1423,475,1526,500"/>
+<area shape="rect" id="node29" title=" " alt="" coords="1703,548,1742,573"/>
+<area shape="rect" id="node31" href="$dd/dc1/surface_info_component_8hpp.html" title=" " alt="" coords="1364,240,1542,265"/>
+<area shape="rect" id="node14" href="$de/d7c/os_events_data_8hpp.html" title=" " alt="" coords="2175,401,2302,427"/>
+<area shape="rect" id="node27" title=" " alt="" coords="1602,401,1694,427"/>
+<area shape="rect" id="node15" href="$d3/d71/key_data_8hpp.html" title=" " alt="" coords="2098,475,2192,500"/>
+<area shape="rect" id="node17" href="$d0/d5f/mouse_button_data_8hpp.html" title=" " alt="" coords="2386,475,2536,500"/>
+<area shape="rect" id="node18" href="$db/d1b/mouse_move_data_8hpp.html" title=" " alt="" coords="2561,475,2705,500"/>
+<area shape="rect" id="node19" href="$da/db3/mouse_scroll_data_8hpp.html" title=" " alt="" coords="2216,475,2362,500"/>
+<area shape="rect" id="node20" href="$d6/d89/window_render_data_8hpp.html" title=" " alt="" coords="1915,475,2074,500"/>
+<area shape="rect" id="node16" title=" " alt="" coords="2113,548,2177,573"/>
+<area shape="rect" id="node21" href="$d0/d92/open_g_l_renderer_8hpp.html" title=" " alt="" coords="1868,548,2012,573"/>
+<area shape="rect" id="node22" href="$db/d4c/opengl_context_8hpp.html" title=" " alt="" coords="1817,621,1945,647"/>
+<area shape="rect" id="node25" title=" " alt="" coords="1577,621,1628,647"/>
+<area shape="rect" id="node26" title=" " alt="" coords="2950,621,3009,647"/>
+<area shape="rect" id="node23" href="$d4/d3d/log_8hpp.html" title=" " alt="" coords="1322,695,1384,720"/>
+<area shape="rect" id="node24" title=" " alt="" coords="1302,768,1404,793"/>
+<area shape="rect" id="node30" title=" " alt="" coords="1463,548,1526,573"/>
+<area shape="rect" id="node36" href="$da/d8a/linux_windows_info_component_8hpp.html" title=" " alt="" coords="2542,401,2756,427"/>
+<area shape="rect" id="node37" title=" " alt="" coords="2920,167,2981,192"/>
+<area shape="rect" id="node38" title=" " alt="" coords="3006,167,3063,192"/>
+<area shape="rect" id="node39" title=" " alt="" coords="3087,167,3150,192"/>
+<area shape="rect" id="node40" title=" " alt="" coords="3174,167,3249,192"/>
+<area shape="rect" id="node41" title=" " alt="" coords="3274,167,3366,192"/>
+<area shape="rect" id="node42" title=" " alt="" coords="3390,167,3447,192"/>
+<area shape="rect" id="node43" title=" " alt="" coords="3472,167,3648,192"/>
+<area shape="rect" id="node44" title=" " alt="" coords="3672,167,3738,192"/>
+<area shape="rect" id="node45" title=" " alt="" coords="1811,167,1914,192"/>
+<area shape="rect" id="node46" title=" " alt="" coords="1938,167,2064,192"/>
+<area shape="rect" id="node47" title=" " alt="" coords="3763,167,3842,192"/>
+<area shape="rect" id="node49" title=" " alt="" coords="1278,167,1346,192"/>
+<area shape="rect" id="node50" title=" " alt="" coords="1370,167,1470,192"/>
 </map>

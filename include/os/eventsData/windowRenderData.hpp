@@ -3,6 +3,7 @@
 
 struct windowRenderData
 {
+    surfaceId id;
     int width;
     int height;
     uint32_t *data;
@@ -10,8 +11,9 @@ struct windowRenderData
     openGLRenderer* api;
     framebufferId buffer;
 
-    windowRenderData(int width, int height, uint32_t *data, int deltaTime): 
-        width(width), height(height), data(data), deltaTime(deltaTime) {}
-    windowRenderData(int width, int height, openGLRenderer* api, int deltaTime, framebufferId buffer): 
-        width(width), height(height), api(api), deltaTime(deltaTime), buffer(buffer) {}
+    windowRenderData(surfaceId id, int width, int height, uint32_t *data, int deltaTime): 
+        id(id), width(width), height(height), data(data), deltaTime(deltaTime) {}
+        
+    windowRenderData(surfaceId id, int width, int height, openGLRenderer* api, int deltaTime, framebufferId buffer): 
+        id(id), width(width), height(height), api(api), deltaTime(deltaTime), buffer(buffer) {}
 };

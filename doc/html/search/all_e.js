@@ -1,7 +1,7 @@
 var searchData=
 [
   ['parentsurface_0',['parentSurface',['../d0/d01/structsurface_spec.html#a11831adc847a1ab9da09bd273dbf9434',1,'surfaceSpec']]],
-  ['parentwindowid_1',['parentWindowId',['../de/dfc/structsurface_1_1surface_data.html#aa546f5a3ad2c95c730a950e396a7b86b',1,'surface::surfaceData']]],
+  ['parentwindowid_1',['parentWindowId',['../d9/d9f/structsurface_data.html#aa034b84eb4cd9a6b90fd8fecc2a31880',1,'surfaceData']]],
   ['pointer_2',['pointer',['../d4/df3/classpointer.html',1,'']]],
   ['pointer_2ecpp_3',['pointer.cpp',['../de/d0e/pointer_8cpp.html',1,'']]],
   ['pointer_2ehpp_4',['pointer.hpp',['../d2/d17/pointer_8hpp.html',1,'']]],
@@ -15,6 +15,6 @@ var searchData=
   ['pointerleave_12',['pointerLeave',['../da/dbc/structpointer_1_1input_buffer.html#a6420ba3fe5f227b9d7a59da069a09189',1,'pointer::inputBuffer']]],
   ['pointermotion_13',['pointerMotion',['../da/dbc/structpointer_1_1input_buffer.html#a3c2c738b4194cbbc4e6db40aaeb38781',1,'pointer::inputBuffer']]],
   ['pool_14',['pool',['../d2/d65/structcpu_rendering_1_1render_info.html#ac0d75fae5fbd3896cabbd7bb0567ec77',1,'cpuRendering::renderInfo']]],
-  ['popup_15',['popup',['../d1/dd4/surface_8hpp.html#a24a2eb66f4ca0a9b88be855260e316d0a8eff3617002e9a854b9704717f35f7aa',1,'surface.hpp']]],
+  ['popup_15',['popup',['../dd/dc1/surface_info_component_8hpp.html#a24a2eb66f4ca0a9b88be855260e316d0a8eff3617002e9a854b9704717f35f7aa',1,'surfaceInfoComponent.hpp']]],
   ['presseventindex_16',['pressEventIndex',['../d6/d9a/structkeyboard_1_1id_tp_key_event_indexes.html#aacef9a60aa3b514c6a2f88b644fdd834',1,'keyboard::idTpKeyEventIndexes']]]
 ];

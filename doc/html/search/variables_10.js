@@ -1,13 +1,23 @@
 var searchData=
 [
-  ['texturebufferid_0',['textureBufferId',['../d8/d8d/structopen_g_l_rendering_1_1render_info.html#adb08d2e3a9daab97d2c16cd128d6afb0',1,'openGLRendering::renderInfo']]],
-  ['textures_1',['textures',['../de/d40/classopen_g_l_renderer.html#a91480e1fe69aa89e329d8c296611cdca',1,'openGLRenderer']]],
-  ['textureshader_2',['textureShader',['../d5/db4/classopen_g_l_rendering.html#a0c7ad45174832a05a5ca3e667046a30a',1,'openGLRendering']]],
-  ['texturesids_3',['texturesIds',['../d5/db3/structrender_request_info_1_1draw_call_data.html#a06f3fd698d50e06e4aa3cb3320729b28',1,'renderRequestInfo::drawCallData']]],
-  ['time_4',['time',['../da/dbc/structpointer_1_1input_buffer.html#a7132212ebb77eea19b45ee41d5e5b349',1,'pointer::inputBuffer']]],
-  ['title_5',['title',['../d0/d01/structsurface_spec.html#acc36bf254b5dcf0b4dcf74ab678d1727',1,'surfaceSpec::title()'],['../d4/ddf/structlayer_1_1layer_surface_info.html#ae23bab2b3e7735db0a15b18d721ed8c1',1,'layer::layerSurfaceInfo::title()'],['../d2/df1/structtoplevel_1_1toplevel_surface_info.html#a3cdd15cc3b2fc9275e7649b9aa884f96',1,'toplevel::toplevelSurfaceInfo::title()'],['../d7/d7e/structwindow_spec.html#ae830786c27bda3999a2763b539bd8a73',1,'windowSpec::title()']]],
-  ['topleveldataindex_6',['toplevelDataIndex',['../d0/d6e/structtoplevel_1_1id_to_surface_data_indexes.html#adb237449e3832ac25cbe2de317937f7f',1,'toplevel::idToSurfaceDataIndexes']]],
-  ['topleveldecoration_7',['topLevelDecoration',['../d2/df1/structtoplevel_1_1toplevel_surface_info.html#a15ae4b5981102f98247eb6907fcaac01',1,'toplevel::toplevelSurfaceInfo']]],
-  ['toplevelsurface_8',['topLevelSurface',['../d5/dfb/structlinux_window_a_p_i_1_1window_info.html#aa7e25879f19fe361b0ccd826ba4c287b',1,'linuxWindowAPI::windowInfo']]],
-  ['toplevelsurfaces_9',['topLevelSurfaces',['../d1/dfe/classsubsurface.html#af6bf4c73a674525594efac6c1835ffb4',1,'subsurface::topLevelSurfaces()'],['../da/d41/classtoplevel.html#ab00949188aa1788985eed335032108db',1,'toplevel::topLevelSurfaces()']]]
+  ['scancode_0',['scanCode',['../dc/da2/structkey_data.html#a7e65421d985b319ff349c405cef0d9c2',1,'keyData']]],
+  ['seathandle_1',['seatHandle',['../d5/d3d/classseat.html#a4482c7aebf1b70151e8cda4ae4d9e46b',1,'seat']]],
+  ['serial_2',['serial',['../da/dbc/structpointer_1_1input_buffer.html#a5888a60efcdb005e7fa461ca147cad11',1,'pointer::inputBuffer']]],
+  ['shader_3',['shader',['../d5/db3/structrender_request_info_1_1draw_call_data.html#a5adb3e86f1c9b329d955d958704e184a',1,'renderRequestInfo::drawCallData']]],
+  ['shaders_4',['shaders',['../de/d40/classopen_g_l_renderer.html#a33b1fd6879cf0e49e1c6e871b29279e4',1,'openGLRenderer']]],
+  ['shapes_5',['shapes',['../de/d40/classopen_g_l_renderer.html#a175f983fe19230469a3ed69c4369c2bd',1,'openGLRenderer']]],
+  ['shm_6',['shm',['../d7/dc2/classcpu_rendering.html#a3b5d181ca4ebfa34e2083c309d0896a7',1,'cpuRendering']]],
+  ['size_7',['size',['../d5/d49/struct_v_b_o_spec.html#aa16f35e4de4e1584c9ee5257772e4216',1,'VBOSpec::size()'],['../d7/d87/structvertex_array_manger_1_1_v_a_o_info_1_1_v_b_o.html#a43f4df515494298b7b4998bf872f5be4',1,'vertexArrayManger::VAOInfo::VBO::size()'],['../d8/d28/structvertex_array_manger_1_1_v_a_o_info_1_1_v_b_o_attacment.html#a43db5c89f8a22aa3f499223993c43da3',1,'vertexArrayManger::VAOInfo::VBOAttacment::size()']]],
+  ['state_8',['state',['../d4/d95/structwindow_resize_data.html#ad6cb4d3c51d4323db844c2fea5eb449b',1,'windowResizeData::state()'],['../da/dbc/structpointer_1_1input_buffer.html#a32b3a8b9e5fcfb2a17f91a0ece4fdaee',1,'pointer::inputBuffer::state()']]],
+  ['stride_9',['stride',['../d5/d49/struct_v_b_o_spec.html#ae63d63a3b9061826345263bf971cab81',1,'VBOSpec::stride()'],['../d7/d87/structvertex_array_manger_1_1_v_a_o_info_1_1_v_b_o.html#a024ecd16cfd5812e73374b2417b1aeab',1,'vertexArrayManger::VAOInfo::VBO::stride()']]],
+  ['subcompositor_10',['subcompositor',['../d1/dfe/classsubsurface.html#a72d781e9252aee30b6cc590326d24e7e',1,'subsurface']]],
+  ['subsurface_11',['subsurface',['../df/dbf/structsubsurface_1_1subsurface_info.html#a617bd844ab1d78297079f9bb1daaa9da',1,'subsurface::subsurfaceInfo']]],
+  ['subsurfaces_12',['subsurfaces',['../de/d14/structwindow_info.html#aeb3942b1fafb33661b0a748577ef5cd4',1,'windowInfo']]],
+  ['subsurfaceslot_13',['subSurfaceSlot',['../d8/dd4/structsub_surface_spec.html#a77ccf7641195741003b107ade1322fb5',1,'subSurfaceSpec']]],
+  ['surface_14',['surface',['../d9/d9f/structsurface_data.html#af196551e5a01a4afbb5d06d057606706',1,'surfaceData']]],
+  ['surface_5fx_15',['surface_x',['../da/dbc/structpointer_1_1input_buffer.html#a4b2a9c2583b2f2fcd5ccc20585bf7089',1,'pointer::inputBuffer']]],
+  ['surface_5fy_16',['surface_y',['../da/dbc/structpointer_1_1input_buffer.html#aa6656a72315a010d5a138bbf649c58a1',1,'pointer::inputBuffer']]],
+  ['surfacepool_17',['surfacePool',['../d5/d88/classsurface.html#a3c1f1d40a877ee59a9708356ba34c22e',1,'surface']]],
+  ['surfacesinfo_18',['surfacesInfo',['../d5/d88/classsurface.html#a812896aa00fab51393d268dd9e499581',1,'surface']]],
+  ['surfacestorender_19',['surfacesToRender',['../d7/dc2/classcpu_rendering.html#a0741f39fff71916162cc937c2a75e725',1,'cpuRendering::surfacesToRender()'],['../d5/db4/classopen_g_l_rendering.html#a34ea24cd623d42af8251b36803580634',1,'openGLRendering::surfacesToRender()']]]
 ];

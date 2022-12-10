@@ -1,5 +1,9 @@
 <map id="toplevel::deallocateTopLevel" name="toplevel::deallocateTopLevel">
-<area shape="rect" id="node1" title=" " coords="5,45,192,70"/>
-<area shape="rect" id="node2" href="$da/d41/classtoplevel.html#a0b5bf24c3f46b21f922ec86160e1c6d8" title=" " coords="243,5,414,45"/>
-<area shape="rect" id="node3" href="$da/d41/classtoplevel.html#adce0e259eceed263fba051237873260a" title=" " coords="240,69,417,109"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,77,192,102"/>
+<area shape="rect" id="node2" href="$df/d7d/classtoplevel_info_componenet.html#ab78b9254c564c02d803af27216e318ec" title=" " alt="" coords="495,5,657,45"/>
+<area shape="rect" id="node4" href="$da/d41/classtoplevel.html#a0b5bf24c3f46b21f922ec86160e1c6d8" title=" " alt="" coords="243,69,414,109"/>
+<area shape="rect" id="node6" href="$da/d41/classtoplevel.html#adce0e259eceed263fba051237873260a" title=" " alt="" coords="240,133,417,173"/>
+<area shape="rect" id="node3" href="$dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d" title=" " alt="" coords="735,77,869,102"/>
+<area shape="rect" id="node5" href="$db/d39/classwindow_close_callback_component.html#a88a04478e6e45cc024f3b1e75ec6de17" title=" " alt="" coords="469,69,683,109"/>
+<area shape="rect" id="node7" href="$d2/d08/classwindow_resize_callback_component.html#a8cc7a8f718fefaef4c917cffd1d49b1c" title=" " alt="" coords="465,133,687,173"/>
 </map>

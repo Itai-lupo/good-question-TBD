@@ -2,6 +2,7 @@
 
 struct mouseMoveData
 {
+    surfaceId id;
     int x;
     int y;
 };

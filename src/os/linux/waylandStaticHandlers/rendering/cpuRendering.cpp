@@ -56,7 +56,7 @@ void cpuRendering::renderWindow(surfaceId win)
 
         uint32_t *frameData = mapWindowCpuBuffer(win, surfacesToRender[index].freeBuffer);
         if(frameData)
-            renderEventListeners[index](windowRenderData{surface::getWindowWidth(win), surface::getWindowHeight(win), frameData, elpased});
+            renderEventListeners[index](windowRenderData{win, surface::getWindowWidth(win), surface::getWindowHeight(win), frameData, elpased});
         
         
         int ret = munmap(surfacesToRender[index].buffer, surfacesToRender[index].bufferSize);

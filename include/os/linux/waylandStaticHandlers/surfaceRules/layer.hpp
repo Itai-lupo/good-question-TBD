@@ -10,6 +10,11 @@
 #include "core.hpp"
 #include "surface.hpp"
 
+#include "windowCloseCallbackComponent.hpp"
+#include "windowResizeCallbackComponent.hpp"
+#include "layerInfoComponenet.hpp"
+
+
 class layer
 {
     private:
@@ -20,46 +25,33 @@ class layer
             .closed = layerClose
         };	
 
-        
-    
+        static inline windowCloseCallbackComponent *closeCallbacks;
+        static inline windowResizeCallbackComponent *resizeCallbacks;
+        static inline layerInfoComponenet *layers;
+
     public:
         static inline zwlr_layer_shell_v1 *wlrLayerShell;
 
-        struct idToSurfaceDataIndexes
+
+        static inline void init(entityPool *surfacePool)
         {
-            uint8_t gen = -1;
-            uint8_t layerDataIndex = -1;
-            uint8_t resizeEventIndex = -1;
-            uint8_t closeEventIndex = -1;
-            idToSurfaceDataIndexes(): layerDataIndex(-1), resizeEventIndex(-1), closeEventIndex(-1){}
+            closeCallbacks = new windowCloseCallbackComponent(surfacePool);
+            resizeCallbacks = new windowResizeCallbackComponent(surfacePool);
+            layers = new layerInfoComponenet(surfacePool);
+        }
 
-        };
-        
-        static inline std::array<idToSurfaceDataIndexes, 255> idToIndex;  
-
-        struct layerSurfaceInfo
+        static inline void close()
         {
-            /* data */
-            surfaceId id;
-            std::string title;
-            bool canRender;
-
-            zwlr_layer_surface_v1 *layerSurface;
-        };
-
-        static inline std::vector<layerSurfaceInfo> layerSurfaces;
-        static inline std::vector<std::function<void()>> closeEventListeners;
-        static inline std::vector<surfaceId> closeEventId;
-
-        static inline std::vector<std::function<void(const windowResizeData&)>> resizeEventListeners;
-        static inline std::vector<surfaceId> resizeEventId;
-
+            delete closeCallbacks;
+            delete resizeCallbacks;
+            delete layers;
+        }
         static void setWindowTitle(surfaceId id, const std::string& title);
         static std::string getWindowTitle(surfaceId id);
 
         static void allocateLayer(surfaceId winId, wl_surface *s, const surfaceSpec& surfaceData);
-        static void setCloseEventListener(surfaceId winId, std::function<void()> callback);
-        static void setResizeEventListener(surfaceId winId, std::function<void(const windowResizeData&)> callback);
+        static void setCloseEventListener(surfaceId winId, void(*callback)(surfaceId));
+        static void setResizeEventListener(surfaceId winId, void(*callback)(const windowResizeData&) );
 
         static void deallocateLayer(surfaceId winId);        
         static void unsetCloseEventListener(surfaceId winId);

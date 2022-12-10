@@ -3,6 +3,7 @@
 
 struct mouseScrollData
 {
+    surfaceId id;
     mouseAxis axis;
     mouseAxisSource axisSource;
     int value;

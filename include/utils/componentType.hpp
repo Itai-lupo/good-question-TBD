@@ -14,6 +14,7 @@ class componentType
         uint32_t *IdToIndex;  
         entityId *indexToId;  
         
+
         static void deleteCallback(void * data, entityId id)
         {
             componentType *This = static_cast<componentType *>(data);
@@ -90,4 +91,8 @@ void componentType::setComponent(entityId id, void *buffer)
 
 componentType::~componentType()
 {
+    pool->unenlistType(this, IdToIndex);
+    free(data);
+    free(IdToIndex);
+    free(indexToId);
 }

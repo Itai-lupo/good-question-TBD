@@ -60,12 +60,17 @@ void linuxWindowAPI::xdg_wm_base_ping(void *data, struct xdg_wm_base *xdg_wm_bas
 
 void linuxWindowAPI::closeApi()
 {
-    for (auto& win: windowsInfo)
+    for (auto& win: windowsInfo->getData())
     {
         closeWindow(win.id);
     }
     
     wl_display_disconnect(display);
+    surface::close();
+
+    delete windowsInfo;
+    delete windowsPool;
+
 }
 
 void linuxWindowAPI::windowEventListener()
@@ -87,6 +92,7 @@ void linuxWindowAPI::windowEventListener()
 
 void linuxWindowAPI::init()
 {
+
     display = wl_display_connect(NULL);
 
     CONDTION_LOG_FATAL("can't open window: " << display, display == NULL);
@@ -102,34 +108,16 @@ void linuxWindowAPI::init()
     CONDTION_LOG_FATAL("can't find compositor", surface::compositor == NULL);
     CONDTION_LOG_ERROR("can't find decoration manger", toplevel::decorationManger == NULL);
     
+    windowsPool = new entityPool(255);
+    windowsInfo = new windowsInfoComponent(windowsPool);
+
+    surface::init();
     eventListenr = new std::thread(windowEventListener);
 }
 
 windowId linuxWindowAPI::createWindow(const windowSpec& windowToCreate)
 {
-    windowId id;
-    if(!freeSlots.empty())
-    {
-        id = {
-            .gen = idToIndex[freeSlots.front()].gen,
-            .index = (uint8_t)freeSlots.front()
-        };
-        freeSlots.pop_front();
-    }
-    else if(heightestId < idToIndex.size()) 
-    {
-        id = {
-            .gen = idToIndex[heightestId].gen,
-            .index = (uint8_t)heightestId
-        };
-        heightestId++;
-    }
-    else{
-        return {
-            .gen    = (uint8_t)-1,
-            .index  = (uint8_t)-1
-        };
-    }
+    windowId id = windowsPool->allocEntity();
 
     windowInfo info;
     info.id = id;
@@ -142,36 +130,26 @@ windowId linuxWindowAPI::createWindow(const windowSpec& windowToCreate)
         .title = windowToCreate.title,
     });
 
-    idToIndex[id.index].index = windowsInfo.size();
-    windowsInfo.push_back(info);
-
+    windowsInfo->setComponent(id, info);
     return id;
 }
 
 void linuxWindowAPI::closeWindow(windowId winId)
 {
-    if(winId.gen != idToIndex[winId.index].gen)
+    
+    windowInfo *temp = windowsInfo->getComponent(winId);
+    if(!temp)
         return;
 
-    windowInfo temp = windowsInfo[idToIndex[winId.index].index];
     
-    if(winId.index == smallestWindowId)
-        smallestWindowId = INT32_MAX;
-    surface::deallocateSurface(temp.topLevelSurface);
+    surface::deallocateSurface(temp->topLevelSurface);
 
-    idToIndex[winId.index].gen++;
-    windowInfo last = windowsInfo[windowsInfo.size() - 1];
-    windowsInfo[idToIndex[winId.index].index] = last;
-    idToIndex[last.id.index].index = idToIndex[winId.index].index;
-
-    windowsInfo.pop_back();
-    idToIndex[winId.index].index = -1;
-    freeSlots.push_back(winId.index);
+    windowsPool->freeEntity(winId);
 }
 
 bool linuxWindowAPI::isWindowOpen(windowId winId)
 {
-    return getIndexFromId(winId) != -1;
+    return windowsPool->isIdValid(winId);
 }
 
 #endif

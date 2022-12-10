@@ -2,6 +2,8 @@
 #include "osAPI.hpp"
 #include "log.hpp"
 #include "surface.hpp"
+#include "entityPool.hpp"
+#include "linuxWindowsInfoComponent.hpp"
 
 #include <errno.h>
 #include <fcntl.h>
@@ -48,16 +50,7 @@ class linuxWindowAPI
         static inline wl_display *display = NULL;
         static inline wl_registry *registry;
         
-        static inline uint32_t smallestWindowId = 0;
 
-        struct windowInfo
-        {
-            windowId id;
-            surfaceId topLevelSurface;
-            std::array<surfaceId, 12> subsurfaces;
-        };
-
-        static inline std::vector<windowInfo> windowsInfo;
 
         struct idIndexes
         {
@@ -66,30 +59,10 @@ class linuxWindowAPI
             uint8_t renderIndex;
         };        
 
-        static inline std::array<idIndexes, 31> idToIndex;  
-        static inline std::list<uint32_t> freeSlots;
-        static inline int heightestId = 0;
-
-        static int64_t getIndexFromId(windowId id)
-        {
-            if(id.gen == idToIndex[id.index].gen)
-                return idToIndex[id.index].index;
-            LOG_ERROR("no matching window id with index: " << id.index << " and gen: " << id.gen)
-            return -1;
-        }
-
-
-        static int64_t getRenderIndexFromId(windowId id)
-        {
-            if(id.gen == idToIndex[id.index].gen)
-                return idToIndex[id.index].renderIndex;
-            LOG_ERROR("no matching window id with index: " << id.index << " and gen: " << id.gen)
-            return -1;
-        }
-
         static void windowEventListener();
         static inline std::thread *eventListenr;
-        
+        static inline entityPool *windowsPool;
+        static inline windowsInfoComponent *windowsInfo;
         
     public:
         static void init();

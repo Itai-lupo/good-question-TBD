@@ -69,8 +69,8 @@ class vertexArrayManger
 
         struct idIndexes
         {
-            uint32_t gen: 8 = -1;
-            uint32_t index: 24;
+            uint8_t gen = -1;
+            uint32_t index;
         };        
 
         std::vector<idIndexes> idToIndex;  

@@ -9,6 +9,7 @@ int main(int argc, char **argv) {
     std::cout << argv[1] << std::endl; 
     ::testing::InitGoogleTest(&argc, argv); 
     return RUN_ALL_TESTS();
+
 }
 
 TEST(log, log)
@@ -22,6 +23,7 @@ TEST(entityPool, create)
 {
     entityPool test(10);
     componentType testType(&test, 4);
+    componentType *testType2 = new componentType(&test, 4);
 
     entityId testEntitys[15];
     
@@ -68,7 +70,7 @@ TEST(entityPool, create)
         ASSERT_EQ(*(int*)testType.getComponent(testEntitys[i]), i * i) << "value was set to i * i";
     }
     
-
+    delete testType2;
     for(uint8_t j = 1, k = 0; k != 255; j++, k += (j % 2))
     {
         for(int i = 0; i < 15; i++)

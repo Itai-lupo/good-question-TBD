@@ -42,17 +42,17 @@ void keyboard::wlKeymap(void *data, wl_keyboard *wl_keyboard, uint32_t format, i
 void keyboard::wlEnter(void *data, wl_keyboard *wl_keyboard, uint32_t serial, wl_surface *surface, wl_array *keys)
 {
     ZoneScoped;
-    for (int i = 0; i < surface::surfaces.size(); i++)
+    for (int i = 0; i < surface::surfacesInfo->getData().size(); i++)
     {
-        if(surface::surfaces[i].surface == surface)
+        if(surface::surfacesInfo->getData()[i].surface == surface)
         {
-            activeWindow = surface::surfaces[i].id;
+            activeWindow = surface::surfacesInfo->getData()[i].id;
         }
     }
 
     uint32_t index = idToIndex[activeWindow.index].gainFocusEventIndex;
     if( index != 255 && idToIndex[activeWindow.index].gen == activeWindow.gen)         
-            std::thread(gainFocusEventListeners[index]).detach();
+            std::thread(gainFocusEventListeners[index], activeWindow).detach();
 
     char buf1[128];  
     char buf2[128];  
@@ -70,7 +70,7 @@ void keyboard::wlEnter(void *data, wl_keyboard *wl_keyboard, uint32_t serial, wl
         
         uint32_t index = idToIndex[activeWindow.index].pressEventIndex;
         if( index != -1 && idToIndex[activeWindow.index].gen == activeWindow.gen)  
-            std::thread(keyPressEventListeners[index], keyData{buf2, keycodeFromScaneCode[key], key}).detach();
+            std::thread(keyPressEventListeners[index], keyData{activeWindow, buf2, keycodeFromScaneCode[key], key}).detach();
     }
 }
 
@@ -79,7 +79,7 @@ void keyboard::wlLeave(void *data, wl_keyboard *wl_keyboard, uint32_t serial, wl
     ZoneScoped;
     uint32_t index = idToIndex[activeWindow.index].lostFocusEventIndex;
     if( index != 255 && idToIndex[activeWindow.index].gen == activeWindow.gen)             
-            std::thread(lostFocusEventListeners[index]).detach();
+            std::thread(lostFocusEventListeners[index], activeWindow).detach();
 
     isKeyPressed.clear();
 
@@ -110,12 +110,12 @@ void keyboard::wlKey(void *data, wl_keyboard *wl_keyboard, uint32_t serial, uint
 
     uint32_t index = idToIndex[activeWindow.index].pressEventIndex;
     if(index != (uint32_t)-1 && state == WL_KEYBOARD_KEY_STATE_PRESSED)
-        std::thread(keyPressEventListeners[index], keyData{buf2,  keycodeFromScaneCode[key], key}).detach();
+        std::thread(keyPressEventListeners[index], keyData{activeWindow, buf2,  keycodeFromScaneCode[key], key}).detach();
 
 
     index = idToIndex[activeWindow.index].releaseEventIndex;
     if(index != (uint32_t)-1 && state == WL_KEYBOARD_KEY_STATE_PRESSED)
-        std::thread(keyReleasedEventListeners[index], keyData{buf2,  keycodeFromScaneCode[key], key}).detach();
+        std::thread(keyReleasedEventListeners[index], keyData{activeWindow, buf2,  keycodeFromScaneCode[key], key}).detach();
 }
 
 void keyboard::wlModifiers(void *data, wl_keyboard *wl_keyboard, uint32_t serial, uint32_t mods_depressed, uint32_t mods_latched, uint32_t mods_locked, uint32_t group)
@@ -156,7 +156,7 @@ void keyboard::keyListener(uint32_t key)
     while (isKeyPressed[keycodeFromScaneCode[key]] && index != -1 && idToIndex[activeWindow.index].gen == activeWindow.gen )
     {
         xkb_state_key_get_utf8(xkbState, key + 8, buf2, sizeof(buf2));
-        std::thread(keyRepeatEventListeners[index], keyData{buf2, keycodeFromScaneCode[key], key}).detach();
+        std::thread(keyRepeatEventListeners[index], keyData{activeWindow, buf2, keycodeFromScaneCode[key], key}).detach();
 
         std::this_thread::sleep_for(std::chrono::milliseconds(keyRepeatRate));
         
@@ -230,7 +230,7 @@ void keyboard::setKeyRepeatEventListeners(surfaceId winId, const std::function<v
     keyRepeatEventId.push_back(winId);
 }
 
-void keyboard::setGainFocusEventListeners(surfaceId winId, std::function<void()> callback)
+void keyboard::setGainFocusEventListeners(surfaceId winId, std::function<void(surfaceId winId)> callback)
 {
     uint32_t index = idToIndex[winId.index].gainFocusEventIndex;
     if(idToIndex[winId.index].gen != winId.gen)
@@ -248,7 +248,7 @@ void keyboard::setGainFocusEventListeners(surfaceId winId, std::function<void()>
     gainFocusEventId.push_back(winId);
 }
 
-void keyboard::setLostFocusEventListeners(surfaceId winId, std::function<void()> callback)
+void keyboard::setLostFocusEventListeners(surfaceId winId, std::function<void(surfaceId winId)> callback)
 {
     uint32_t index = idToIndex[winId.index].lostFocusEventIndex;
     if(idToIndex[winId.index].gen != winId.gen)

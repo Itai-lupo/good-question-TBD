@@ -1,5 +1,7 @@
 <map id="layer::deallocateLayer" name="layer::deallocateLayer">
-<area shape="rect" id="node1" title=" " coords="5,31,152,56"/>
-<area shape="rect" id="node2" href="$d2/d36/classlayer.html#ad62bbcceba3450aafad719665daf56eb" title=" " coords="203,5,403,31"/>
-<area shape="rect" id="node3" href="$d2/d36/classlayer.html#aec074db011cf570c12e8477db967f6e9" title=" " coords="200,55,407,80"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,77,152,102"/>
+<area shape="rect" id="node2" href="$da/db6/classlayer_info_componenet.html#aab831387a29e70934664c492a02d2384" title=" " alt="" coords="239,5,383,45"/>
+<area shape="rect" id="node4" href="$db/d39/classwindow_close_callback_component.html#a88a04478e6e45cc024f3b1e75ec6de17" title=" " alt="" coords="203,69,418,109"/>
+<area shape="rect" id="node5" href="$d2/d08/classwindow_resize_callback_component.html#a8cc7a8f718fefaef4c917cffd1d49b1c" title=" " alt="" coords="200,133,421,173"/>
+<area shape="rect" id="node3" href="$dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d" title=" " alt="" coords="469,77,604,102"/>
 </map>

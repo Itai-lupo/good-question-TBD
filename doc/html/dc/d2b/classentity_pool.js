@@ -6,5 +6,6 @@ var classentity_pool =
     [ "enlistType", "dc/d2b/classentity_pool.html#ac8104a6775101947de2e9cdceddaaaa4", null ],
     [ "freeEntity", "dc/d2b/classentity_pool.html#a12796e0235799e9936afd1a9b7dc798d", null ],
     [ "getIdBufferMaxCount", "dc/d2b/classentity_pool.html#a1bbde64e155748e51b6056d2bd25f6c9", null ],
-    [ "isIdValid", "dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d", null ]
+    [ "isIdValid", "dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d", null ],
+    [ "unenlistType", "dc/d2b/classentity_pool.html#ab91f97c5b47b5dd789884c33990da5e4", null ]
 ];

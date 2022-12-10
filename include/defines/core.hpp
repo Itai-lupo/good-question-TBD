@@ -4,38 +4,13 @@
 
 struct entityId
 {
-    uint32_t index;
-    uint8_t gen;
+    uint32_t index = (uint32_t)-1;
+    uint8_t gen = (uint8_t)-1;
 };
 
-struct windowId
-{
-    uint8_t gen;
-    uint8_t index;
-};
-
-
-struct framebufferId
-{
-    uint32_t gen: 8 = (uint32_t)-1;
-    uint32_t index: 24 = (uint32_t)-1;
-};
-
-struct textureId
-{
-    uint32_t gen: 8 = (uint32_t)-1; 
-    uint32_t index: 24 = (uint32_t)-1;
-};
-
-struct vaoId
-{
-    uint32_t gen: 8 = (uint32_t)-1;
-    uint32_t index: 24 = (uint32_t)-1;
-};
-
-
-struct shaderId
-{
-    uint32_t gen: 8 = (uint32_t)-1;
-    uint32_t index: 24 = (uint32_t)-1;
-};
+using windowId = entityId;
+using framebufferId = entityId;
+using textureId = entityId;
+using vaoId = entityId;
+using shaderId = entityId;
+using surfaceId = entityId;

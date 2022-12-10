@@ -11,12 +11,11 @@ void toplevel::xdgTopLevelConfigure(void *data, xdg_toplevel *xdgToplevel, int32
     ZoneScoped;
     
     surfaceId id = *(surfaceId*)data;
-    uint8_t index = idToIndex[id.index].toplevelDataIndex;
+    
+    toplevelSurfaceInfo *temp = topLevelSurfaces->getComponent(id);
 
-    if(index == (uint8_t)-1 || id.gen != idToIndex[id.index].gen)
+    if(!temp)
         return;
-
-    toplevelSurfaceInfo& temp = topLevelSurfaces[index];
 
     windowSizeState activeState = windowSizeState::undefined;
 
@@ -25,7 +24,7 @@ void toplevel::xdgTopLevelConfigure(void *data, xdg_toplevel *xdgToplevel, int32
         if(((uint32_t*)states->data)[i] == xdg_toplevel_state::XDG_TOPLEVEL_STATE_RESIZING )
             activeState = windowSizeState::reizing;
 
-        if (((uint32_t*)states->data)[i] == xdg_toplevel_state::XDG_TOPLEVEL_STATE_ACTIVATED && temp.height != height && temp.width != width)
+        if (((uint32_t*)states->data)[i] == xdg_toplevel_state::XDG_TOPLEVEL_STATE_ACTIVATED && temp->height != height && temp->width != width)
             activeState = windowSizeState::reizing;
 
         
@@ -41,12 +40,13 @@ void toplevel::xdgTopLevelConfigure(void *data, xdg_toplevel *xdgToplevel, int32
     if(activeState == windowSizeState::undefined)
         return;
 
-    temp.width = width;
-    temp.height = height;
+    temp->width = width;
+    temp->height = height;
 
-    index = idToIndex[id.index].resizeEventIndex;
-    if(index != (uint8_t)-1)
-        std::thread(resizeEventListeners[index], windowResizeData{height, width, activeState}).detach();
+    resizeCallback tempCallback = resizeCallbacks->getCallback(id);
+
+    if(tempCallback)
+        std::thread(tempCallback, windowResizeData{id, height, width, activeState}).detach();
 }
 
 void toplevel::xdgTopLevelClose(void *data, xdg_toplevel *xdgToplevel)
@@ -55,11 +55,11 @@ void toplevel::xdgTopLevelClose(void *data, xdg_toplevel *xdgToplevel)
 
     surfaceId id = *(surfaceId*)data;
 
-    uint8_t index = idToIndex[id.index].closeEventIndex;
-    if(index != (uint8_t)-1 && id.gen == idToIndex[id.index].gen)
-        closeEventListeners[index]();
+    closeCallback temp = closeCallbacks->getCallback(id);
+    if(temp)
+        temp(id);
         
-    linuxWindowAPI::closeWindow(surface::surfaces[surface::idToIndex[id.index].surfaceDataIndex].parentWindowId);
+    linuxWindowAPI::closeWindow(surface::surfacesInfo->getComponent(id)->parentWindowId);
 }
 
 void toplevel::xdg_surface_configure(void *data, struct xdg_surface *xdg_surface, uint32_t serial)
@@ -69,14 +69,12 @@ void toplevel::xdg_surface_configure(void *data, struct xdg_surface *xdg_surface
 
 
     surfaceId id = *(surfaceId*)data;
-    uint8_t index = idToIndex[id.index].toplevelDataIndex;
 
-    if(index == (uint8_t)-1 || id.gen != idToIndex[id.index].gen)
+    toplevelSurfaceInfo *temp = topLevelSurfaces->getComponent(id);
+    if(!temp)
         return;
 
-    toplevelSurfaceInfo& temp = topLevelSurfaces[index];
-
-    surface::resize(id, temp.width, temp.height);
+    surface::resize(id, temp->width, temp->height);
 
     wl_surface_commit(surface::getSurface(id));
 }
@@ -84,91 +82,46 @@ void toplevel::xdg_surface_configure(void *data, struct xdg_surface *xdg_surface
 
 
 
-void toplevel::setCloseEventListener(surfaceId winId, std::function<void()> callback)
+void toplevel::setCloseEventListener(surfaceId winId, void(*callback)(surfaceId winId))
 {
-    uint32_t index = idToIndex[winId.index].closeEventIndex;
-    if(idToIndex[winId.index].gen != winId.gen)
-        return;
+    closeCallbacks->setCallback(winId, callback);
 
-    if(index != (uint8_t)-1)
-    {    
-        closeEventListeners[index] = callback;
-        closeEventId[index] = winId;
-        return;
-    }
-
-    idToIndex[winId.index].closeEventIndex = closeEventListeners.size();
-    closeEventListeners.push_back(callback);
-    closeEventId.push_back(winId);
 }
 
-void toplevel::setResizeEventListener(surfaceId winId, std::function<void(const windowResizeData&)> callback)
+void toplevel::setResizeEventListener(surfaceId winId, void(*callback)(const windowResizeData&))
 {
-    uint32_t index = idToIndex[winId.index].resizeEventIndex;
-    if(idToIndex[winId.index].gen != winId.gen)
-        return;
-
-    if(index != (uint8_t)-1)
-    {    
-        resizeEventListeners[index] = callback;
-        resizeEventId[index] = winId;
-        return;
-    }
-
-    idToIndex[winId.index].resizeEventIndex = resizeEventListeners.size();
-    resizeEventListeners.push_back(callback);
-    resizeEventId.push_back(winId);
+    resizeCallbacks->setCallback(winId, callback);
 }
 
 
 
 void toplevel::unsetCloseEventListener(surfaceId winId)
 {        
-    uint32_t index = idToIndex[winId.index].closeEventIndex;
-    if(idToIndex[winId.index].gen != winId.gen || index == -1)
-        return;
-
-    uint32_t lastIndex = closeEventListeners.size() - 1;
-    idToIndex[closeEventId[lastIndex].index].closeEventIndex = index;
-    closeEventListeners[index] = closeEventListeners[lastIndex];
-    closeEventId[index] = closeEventId[lastIndex];
-
-    closeEventListeners.pop_back();
-    closeEventId.pop_back();
-
-    idToIndex[winId.index].closeEventIndex = -1;
-}  
+    closeCallbacks->deleteComponent(winId);
+}
 
 void toplevel::unsetResizeEventListener(surfaceId winId)
 {        
-    uint32_t index = idToIndex[winId.index].resizeEventIndex;
-    if(idToIndex[winId.index].gen != winId.gen || index == -1)
-        return;
-
-    uint32_t lastIndex = resizeEventListeners.size() - 1;
-    idToIndex[resizeEventId[lastIndex].index].resizeEventIndex = index;
-    resizeEventListeners[index] = resizeEventListeners[lastIndex];
-    resizeEventId[index] = resizeEventId[lastIndex];
-
-    resizeEventListeners.pop_back();
-    resizeEventId.pop_back();
-
-    idToIndex[winId.index].resizeEventIndex = -1;
+    resizeCallbacks->deleteComponent(winId);
 }
 
 void toplevel::setWindowTitle(surfaceId id, const std::string& title)
 {        
-    if(idToIndex[id.index].toplevelDataIndex != (uint8_t)-1 && id.gen == idToIndex[id.index].gen){
-        xdg_toplevel_set_title(topLevelSurfaces[idToIndex[id.index].toplevelDataIndex].xdgToplevel, topLevelSurfaces[idToIndex[id.index].toplevelDataIndex].title.c_str());
-        topLevelSurfaces[idToIndex[id.index].toplevelDataIndex].title = title;
+    toplevelSurfaceInfo *temp = topLevelSurfaces->getComponent(id);
+
+    if(temp){
+        xdg_toplevel_set_title(temp->xdgToplevel, temp->title.c_str());
+        temp->title = title;
     }
 }
 
 
 std::string toplevel::getWindowTitle(surfaceId id)
 {
-    if(idToIndex[id.index].toplevelDataIndex != (uint8_t)-1 && id.gen == idToIndex[id.index].gen)
-        return topLevelSurfaces[idToIndex[id.index].toplevelDataIndex].title;
+    toplevelSurfaceInfo *temp = topLevelSurfaces->getComponent(id);
+
+    if(temp)
+        return temp->title;
 
     return "error window with id: " + std::to_string((id.gen << 8) + id.index) + " was'nt found";
 }
@@ -193,23 +146,14 @@ void toplevel::allocateTopLevel(surfaceId id, wl_surface *s, const surfaceSpec& 
     zxdg_toplevel_decoration_v1_set_mode(info.topLevelDecoration, 2);
     zxdg_toplevel_decoration_v1_add_listener(info.topLevelDecoration, &toplevelDecorationListener, new surfaceId(id));
     
-    idToIndex[id.index].gen = id.gen;
-    idToIndex[id.index].toplevelDataIndex = topLevelSurfaces.size();
-    topLevelSurfaces.push_back(info);
+    topLevelSurfaces->setComponent(id, info);
 }
 
 void toplevel::deallocateTopLevel(surfaceId winId)
 {
-    uint8_t index = idToIndex[winId.index].toplevelDataIndex;
-    if(idToIndex[winId.index].gen != winId.gen || index == (uint8_t)-1)
+    toplevelSurfaceInfo *temp = topLevelSurfaces->getComponent(winId);
+    if(!temp)
         return;
-
-
-    toplevelSurfaceInfo& temp = topLevelSurfaces[index];
-
-    zxdg_toplevel_decoration_v1_destroy(temp.topLevelDecoration);
-    xdg_toplevel_destroy(temp.xdgToplevel);
-    xdg_surface_destroy(temp.xdgSurface);
 
     unsetCloseEventListener(winId);
     unsetResizeEventListener(winId);

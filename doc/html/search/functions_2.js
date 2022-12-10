@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['close_0',['close',['../dc/d37/classlogger.html#ad0973f5782961630972e85adbed14b07',1,'logger']]],
+  ['close_0',['close',['../d5/d88/classsurface.html#ad9b2ed10c8890cc92d9e56e26516d9fc',1,'surface::close()'],['../d2/d36/classlayer.html#a9e7b06c3de20d2fcc642c84927c777d8',1,'layer::close()'],['../da/d41/classtoplevel.html#ac4d563017911a8251f3fdfc24d25ccfd',1,'toplevel::close()'],['../dc/d37/classlogger.html#ad0973f5782961630972e85adbed14b07',1,'logger::close()']]],
   ['closeapi_1',['closeApi',['../de/d8e/classlinux_window_a_p_i.html#ad0da3db853ade046c96c79d653942690',1,'linuxWindowAPI']]],
   ['closewindow_2',['closeWindow',['../de/d8e/classlinux_window_a_p_i.html#a2f04da4be5a56c081477fabbcec802ed',1,'linuxWindowAPI::closeWindow()'],['../d5/d6a/classos_a_p_i.html#acad316dd14987374a79961de24e01a0f',1,'osAPI::closeWindow()']]],
   ['componenttype_3',['componentType',['../db/d0a/classcomponent_type.html#a6d8d272b45a8870d58ddbe068be36873',1,'componentType']]],
   ['consolekeywait_4',['consoleKeyWait',['../df/d0a/main_8cpp.html#a3de3a19b0f80e4d82b2bf426608a04bf',1,'main.cpp']]],
-  ['cpurender_5',['cpuRender',['../df/d0a/main_8cpp.html#acbe657e6f7ea64cf3a13f9776212c53b',1,'main.cpp']]],
+  ['cpurender_5',['cpuRender',['../df/d0a/main_8cpp.html#aee5125c0ba555e89f6baca7bc81366b9',1,'main.cpp']]],
   ['createframebuffer_6',['createFrameBuffer',['../df/dfa/classframe_buffers_manger.html#a2b01e7f48a639536127afabe0d3deb43',1,'frameBuffersManger']]],
   ['createprogram_7',['createProgram',['../d4/df4/classshader_manger.html#a7c7af69318c5f8d19426ad0c96f37e42',1,'shaderManger']]],
   ['createtexture_8',['createTexture',['../d6/d26/classtexture_manger.html#a40647dc3e0d5f50e5a8ee21411915d2e',1,'textureManger']]],

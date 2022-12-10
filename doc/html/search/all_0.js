@@ -10,7 +10,7 @@ var searchData=
   ['allocatesurfacetorender_7',['allocateSurfaceToRender',['../d7/dc2/classcpu_rendering.html#a05856d539308bd01296afcb6aa6ca859',1,'cpuRendering::allocateSurfaceToRender()'],['../d5/db4/classopen_g_l_rendering.html#ae4b26a3e4e1586316d56e1c44ff515ea',1,'openGLRendering::allocateSurfaceToRender()']]],
   ['allocatetoplevel_8',['allocateTopLevel',['../da/d41/classtoplevel.html#a070dfa65dd958eed471d88eae9852231',1,'toplevel']]],
   ['allocatewindowbuffer_9',['allocateWindowBuffer',['../d7/dc2/classcpu_rendering.html#a0eb947f467c9fc156fab13db4d22c061',1,'cpuRendering']]],
-  ['allocatewindowevents_10',['allocateWindowEvents',['../d1/d4e/classkeyboard.html#a6054f0f7ec822344fa1d77417574ce18',1,'keyboard::allocateWindowEvents()'],['../d4/df3/classpointer.html#a718ae5635998668ce30076d114435b8d',1,'pointer::allocateWindowEvents()']]],
+  ['allocatewindowevents_10',['allocateWindowEvents',['../d1/d4e/classkeyboard.html#ae5c62bc8517f44e3b26e4be88f086f85',1,'keyboard::allocateWindowEvents()'],['../d4/df3/classpointer.html#a718ae5635998668ce30076d114435b8d',1,'pointer::allocateWindowEvents()']]],
   ['allocentity_11',['allocEntity',['../dc/d2b/classentity_pool.html#ad4fb0df84c544348a0da6b6d0e20ccce',1,'entityPool']]],
   ['api_12',['api',['../d0/df1/structwindow_render_data.html#a51401ec20c14e92d7af7a6039283ada2',1,'windowRenderData']]],
   ['attachcolorrendertarget_13',['attachColorRenderTarget',['../df/dfa/classframe_buffers_manger.html#a20125e40418b07706550e8b9a8a2dc64',1,'frameBuffersManger']]],

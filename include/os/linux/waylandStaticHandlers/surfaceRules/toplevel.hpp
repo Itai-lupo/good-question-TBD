@@ -11,6 +11,10 @@
 #include "core.hpp"
 #include "surface.hpp"
 
+#include "windowCloseCallbackComponent.hpp"
+#include "windowResizeCallbackComponent.hpp"
+#include "toplevelInfoComponenet.hpp"
+
 class toplevel
 {
     private:
@@ -35,47 +39,35 @@ class toplevel
         };
 
     
+        static inline windowCloseCallbackComponent *closeCallbacks;
+        static inline windowResizeCallbackComponent *resizeCallbacks;
+        static inline toplevelInfoComponenet *topLevelSurfaces;
+
     public:
         static inline xdg_wm_base *xdgWmBase;
         static inline zxdg_decoration_manager_v1 *decorationManger;
 
-        struct idToSurfaceDataIndexes
-        {
-            uint8_t gen = -1;
-            uint8_t toplevelDataIndex;
-            uint8_t resizeEventIndex;
-            uint8_t closeEventIndex;
-            idToSurfaceDataIndexes(): toplevelDataIndex(-1), resizeEventIndex(-1), closeEventIndex(-1){}
-        };
         
-        static inline std::array<idToSurfaceDataIndexes, 255> idToIndex;  
-
-        struct toplevelSurfaceInfo
+        static inline void init(entityPool *surfacePool)
         {
-            /* data */
-            surfaceId id;
-            std::string title;
+            closeCallbacks = new windowCloseCallbackComponent(surfacePool);
+            resizeCallbacks = new windowResizeCallbackComponent(surfacePool);
+            topLevelSurfaces = new toplevelInfoComponenet(surfacePool);
+        }
 
-            int width, height;
-
-            xdg_surface *xdgSurface; // to do add child windows support as well as popup support
-            xdg_toplevel *xdgToplevel;
-            zxdg_toplevel_decoration_v1 *topLevelDecoration;
-        };
-
-        static inline std::vector<toplevelSurfaceInfo> topLevelSurfaces;
-        static inline std::vector<std::function<void()>> closeEventListeners;
-        static inline std::vector<surfaceId> closeEventId;
-
-        static inline std::vector<std::function<void(const windowResizeData&)>> resizeEventListeners;
-        static inline std::vector<surfaceId> resizeEventId;
+        static inline void close()
+        {
+            delete closeCallbacks;
+            delete resizeCallbacks;
+            delete topLevelSurfaces;
+        }
 
         static void setWindowTitle(surfaceId id, const std::string& title);
         static std::string getWindowTitle(surfaceId id);
 
         static void allocateTopLevel(surfaceId winId, wl_surface *s, const surfaceSpec& surfaceData);
-        static void setCloseEventListener(surfaceId winId, std::function<void()> callback);
-        static void setResizeEventListener(surfaceId winId, std::function<void(const windowResizeData&)> callback);
+        static void setCloseEventListener(surfaceId winId, void(*callback)(surfaceId));
+        static void setResizeEventListener(surfaceId winId, void(*callback)(const windowResizeData&));
 
         static void deallocateTopLevel(surfaceId winId);        
         static void unsetCloseEventListener(surfaceId winId);

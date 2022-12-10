@@ -55,7 +55,7 @@ void initTextureShader()
     std::string fragmentCode;
     
     constexpr char* fShaderCode = 
-        "#version 460 core\n"
+        (char*)"#version 460 core\n"
         "out vec4 FragColor;\n"
         "in vec2 TexCoord;\n"
         "uniform sampler2D ourTexture;\n"
@@ -65,7 +65,7 @@ void initTextureShader()
         "}\n";
 
     constexpr char * vShaderCode = 
-        "#version 460 core\n"
+        (char*)"#version 460 core\n"
         "layout (location = 0) in vec3 pos;\n"
         "layout (location = 1) in vec2 texCoord;\n"
         "out vec2 TexCoord;\n"
@@ -373,7 +373,7 @@ void openGLRendering::renderWindow(surfaceId id)
 
         framebufferId bufferIndex = temp.freeBuffer;
 
-        renderEventListeners[index](windowRenderData{surface::getWindowWidth(id), surface::getWindowHeight(id), renderer, elpased, bufferIndex});
+        renderEventListeners[index](windowRenderData{id, surface::getWindowWidth(id), surface::getWindowHeight(id), renderer, elpased, bufferIndex});
         
         
         framebufferId tempBufferIndex = temp.freeBuffer;

@@ -39,53 +39,57 @@ constexpr uint32_t indcies[] = {
     0, 3, 2
 };
 
-void keyListener(windowId winId, const keyData& sendor)
+void keyListener(const keyData& sendor)
 {
-    LOG_INFO(winId.index << ", " << sendor.utf8Buffer << ", " << keyCodeToString(sendor.value) << "(" << (int)sendor.value << ")");
+    LOG_INFO(sendor.id.index << ", " << sendor.utf8Buffer << ", " << keyCodeToString(sendor.value) << "(" << (int)sendor.value << ")");
 }
 
 
-void mouseMove(windowId winId, const mouseMoveData& sendor)
+void mouseMove(const mouseMoveData& sendor)
 {
     // LOG_INFO("pointer motion (" << a->getWindowTitle(winId) <<"): "<< sendor.x << ", " << sendor.y);
 }
 
-void mousePress(windowId winId, const mouseButtonData& sendor)
+void mousePress(const mouseButtonData& sendor)
 {
-    LOG_INFO("pointer button press (" <<  a->getWindowTitle(winId) << "): " << mouseButtonToString(sendor.value));
+    LOG_INFO("pointer button press (" <<  a->getWindowTitle(sendor.id) << "): " << mouseButtonToString(sendor.value));
 }
 
-void mouseReleased(windowId winId, const mouseButtonData& sendor)
+void mouseReleased(const mouseButtonData& sendor)
 {
-    LOG_INFO("pointer button released (" <<  a->getWindowTitle(winId) <<"): " << mouseButtonToString(sendor.value));
+    LOG_INFO("pointer button released (" <<  a->getWindowTitle(sendor.id) <<"): " << mouseButtonToString(sendor.value));
 }
 
 
-void mouseScroll(windowId winId, const mouseScrollData& sendor)
+void mouseScroll(const mouseScrollData& sendor)
 {
     LOG_INFO("pointer axis " << mouseAxisToString(sendor.axis) << "from source " << mouseAxisSourceToString(sendor.axisSource) << " = " << sendor.discreteValue << " or " << sendor.value);
 }
 
-void windowResize(windowId winId, const windowResizeData& sendor)
+void windowResize(const windowResizeData& sendor)
 {
     // LOG_INFO(sendor.height << ", " << sendor.width << ", " << (int)sendor.state)
 
 }
 
 
-void windowClose(windowId winId)
+void windowClose(surfaceId winId)
 {
     LOG_INFO("close window(" << a->getWindowTitle(winId) <<")")
     run = false;
 }
-void focusSwap(windowId winId)
+
+void focusSwap(surfaceId winId)
 {
     LOG_INFO("focus swap window(" << a->getWindowTitle(winId) <<")")
 }
 
-void cpuRender(double *offset, uint32_t size, const windowRenderData& sendor)
+void cpuRender(const windowRenderData& sendor)
 {
     {
+        static double *offset = new double();
+        static uint32_t size = 16;
+
         ZoneScoped;
         *offset += (sendor.deltaTime / 100.0 * 24);
         for (int y = 0; y < sendor.height; ++y) {
@@ -103,36 +107,44 @@ void cpuRender(double *offset, uint32_t size, const windowRenderData& sendor)
 }
 
 
-void gpuRender(double *offset, uint32_t size, const windowRenderData& sendor)
+void gpuRender(const windowRenderData& sendor)
 {
     {
-        ZoneScoped;
-        vaoId shapeToRender =  sendor.api->shapes->createVao();
-        sendor.api->shapes->attachIndexBuffer(shapeToRender, indcies, 6);
+        static bool temp = false;
+        static vaoId shapeToRender;
+        static shaderId shaderToRender;
+        static textureId testTexture;
+        if(!temp)
+        {
+            shapeToRender =  sendor.api->shapes->createVao();
+            sendor.api->shapes->attachIndexBuffer(shapeToRender, indcies, 6);
 
 
-        sendor.api->shapes->addVertexBufferBinding(shapeToRender, {
-            0,
-            vertices3,
-            sizeof(vertices3),
-            5 * sizeof(GLfloat)
-        });
+            sendor.api->shapes->addVertexBufferBinding(shapeToRender, {
+                0,
+                vertices3,
+                sizeof(vertices3),
+                5 * sizeof(GLfloat)
+            });
 
 
-        sendor.api->shapes->addVertexBufferAttacment(shapeToRender, 0, 0, 3);
-        sendor.api->shapes->addVertexBufferAttacment(shapeToRender, 1, 0, 2, 3 * sizeof(GLfloat));
+            sendor.api->shapes->addVertexBufferAttacment(shapeToRender, 0, 0, 3);
+            sendor.api->shapes->addVertexBufferAttacment(shapeToRender, 1, 0, 2, 3 * sizeof(GLfloat));
 
-        shaderId shaderToRender = sendor.api->shaders->createProgram("assets/shaders/vertex/texture.vert.spv", "assets/shaders/fragment/texture.frag.spv");
+            shaderToRender = sendor.api->shaders->createProgram("assets/shaders/vertex/texture.vert.spv", "assets/shaders/fragment/texture.frag.spv");
+            
+            
+
+            stbi_set_flip_vertically_on_load(1);
+            stbi_uc* data = nullptr;
+            
+            int width, height, channels;
+            data = stbi_load("assets/textures/preview-simple-dungeon-crawler-set1.png", &width, &height, &channels, 0);
+            testTexture = sendor.api->textures->createTexture(textureFormat::RGB8, width, height);
+            sendor.api->textures->loadBuffer(testTexture, 0, 0, width, height, textureFormat::RGB8, GL_UNSIGNED_BYTE, data);
+            temp = true;
+        }
         
-        
-
-        stbi_set_flip_vertically_on_load(1);
-        stbi_uc* data = nullptr;
-        
-        int width, height, channels;
-        data = stbi_load("assets/textures/preview-simple-dungeon-crawler-set1.png", &width, &height, &channels, 0);
-        textureId testTexture = sendor.api->textures->createTexture(textureFormat::RGB8, width, height);
-        sendor.api->textures->loadBuffer(testTexture, 0, 0, width, height, textureFormat::RGB8, GL_UNSIGNED_BYTE, data);
             
         sendor.api->renderRequest({
         .frameBufferId = sendor.buffer, 
@@ -140,12 +152,12 @@ void gpuRender(double *offset, uint32_t size, const windowRenderData& sendor)
                 .shader = shaderToRender, 
                 .vertexArrayId = shapeToRender, 
                 .texturesIds = {[0] = testTexture,
-                                [1 ... 31] = {255, 16777215}}, 
+                                [1 ... 31] = {16777215, 255}}, 
                 .mode = renderMode::triangles} }
     });
     
     }
-    std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    std::this_thread::sleep_for(std::chrono::milliseconds(1));
 }
 
 
@@ -193,24 +205,24 @@ int main()
 
     for(auto& id: winowsIds)
     {
-        a->setKeyPressEventListeners(id, std::bind(keyListener, id, std::placeholders::_1));
-        a->setKeyReleasedEventListeners(id, std::bind(keyListener, id, std::placeholders::_1));
-        a->setKeyRepeatEventListeners(id, std::bind(keyListener, id, std::placeholders::_1));
-        a->setMouseMovedListeners(id, std::bind(mouseMove, id, std::placeholders::_1));
-        a->setMouseButtonPressEventListeners(id, std::bind(mousePress, id, std::placeholders::_1));
-        a->setMouseButtonReleasedEventListeners(id, std::bind(mouseReleased, id, std::placeholders::_1));
-        a->setMouseScrollListeners(id, std::bind(mouseScroll, id, std::placeholders::_1));
-        a->setResizeEventeListeners(id, std::bind(windowResize, id, std::placeholders::_1));
-        a->setCloseEventeListeners(id, std::bind(windowClose, id));
-        a->setGainFocusEventListeners(id, std::bind(focusSwap, id));
-        a->setLostFocusEventListeners(id, std::bind(focusSwap, id));
+        a->setKeyPressEventListeners(id, keyListener);
+        a->setKeyReleasedEventListeners(id, keyListener);
+        a->setKeyRepeatEventListeners(id, keyListener);
+        a->setMouseMovedListeners(id, mouseMove);
+        a->setMouseButtonPressEventListeners(id, mousePress);
+        a->setMouseButtonReleasedEventListeners(id, mouseReleased);
+        a->setMouseScrollListeners(id, mouseScroll);
+        a->setResizeEventeListeners(id, windowResize);
+        a->setCloseEventeListeners(id, windowClose);
+        a->setGainFocusEventListeners(id, focusSwap);
+        a->setLostFocusEventListeners(id, focusSwap);
 
         //to do fix the tearing that is coused from using the same variable for both top level rendring and sub surface
         double *temp =  new double(0);
         
-        a->setRenderEventListeners(id, [=]( const windowRenderData& sendor){gpuRender(temp, (id.index + 1) * 16, sendor);});
+        a->setRenderEventListeners(id, gpuRender);
         a->attachSubSurfaceToWindow(id, {0, 200, 200, 100, 100});
-        a->setsubSurfaceRenderEventListeners(id, 0, [=]( const windowRenderData& sendor){cpuRender(temp, (id.index + 1) * 16, sendor);});
+        a->setsubSurfaceRenderEventListeners(id, 0, cpuRender);
         
     }
     

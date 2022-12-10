@@ -4,6 +4,9 @@
 
 #include "core.hpp"
 
+#include "entityPool.hpp"
+#include "frameBuffersCompontents.hpp"
+
 #include <array>
 #include <list>
 #include <vector>
@@ -18,34 +21,14 @@ class frameBuffersManger
 
         std::queue<uint32_t> toDelete;
 
-        struct frameBufferInfo
-        {
-            frameBufferInfo(framebufferId id, uint32_t width, uint32_t height): id(id), width(width), height(height){}
-            
-            uint32_t renderId;
-            framebufferId id;
 
-            textureId colorAttachmens[8]{[0 ... 7] = (uint32_t)-1, (uint32_t)-1};
-            textureId depthAttachmen{(uint32_t)-1, (uint32_t)-1};
-            uint32_t width, height;
-            bool needToRebuild = true;
-        };
-
-
-        std::vector<frameBufferInfo> frameBuffers;
-
-        struct idIndexes
-        {
-            uint32_t gen: 8 = -1;
-            uint32_t index: 24;
-        };        
-
-        std::vector<idIndexes> idToIndex;  
-        std::list<uint32_t> freeSlots;
-        
-        void rebuild(frameBufferInfo& fbo);
+        entityPool framebuffers;
+        frameBuffersCompontents *framebuffersData;
+        void rebuild(frameBufferInfo* fbo);
     public:
-        frameBuffersManger(openglContext *context, textureManger *textures): context(context), textures(textures){}
+        frameBuffersManger(openglContext *context, textureManger *textures): 
+            context(context), textures(textures), framebuffers(500), framebuffersData(new frameBuffersCompontents(&framebuffers))
+            {}
         
         void handleRequsets();
         void bind(framebufferId FBOId);

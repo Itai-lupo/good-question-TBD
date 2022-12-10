@@ -13,15 +13,16 @@
 void pointer::wlPointerEnter(void *data, struct wl_pointer *wl_pointer, uint32_t serial, struct wl_surface *surface, wl_fixed_t surface_x, wl_fixed_t surface_y)
 {    
     ZoneScoped;
-    for (size_t i = 0; i < surface::surfaces.size(); i++)
+    for (auto& surf: surface::surfacesInfo->getData())
     {
-        if(surface::surfaces[i].surface == surface)
+        if(surf.surface == surface)
         {
             inputFrameData.eventTypes.pointerEnter = true;
-            inputFrameData.id = surface::surfaces[i].id;
+            inputFrameData.id = surf.id;
             inputFrameData.surface_x = surface_x;
             inputFrameData.surface_y = surface_y;
             inputFrameData.serial = serial;
+            return;
         }
     }    
 }
@@ -102,7 +103,7 @@ void pointer::wlPointerFrame(void *data, wl_pointer *wlPointer)
         if(index != (uint8_t)-1)
             std::thread(
                 mouseMovedEventListeners[index], 
-                mouseMoveData{wl_fixed_to_int(frameData.surface_x), wl_fixed_to_int(frameData.surface_y)}).detach();
+                mouseMoveData{frameData.id, wl_fixed_to_int(frameData.surface_x), wl_fixed_to_int(frameData.surface_y)}).detach();
     }
 
     if(frameData.eventTypes.pointerButton)
@@ -111,14 +112,14 @@ void pointer::wlPointerFrame(void *data, wl_pointer *wlPointer)
         if(frameData.state == 1 && index != (uint8_t)-1)
             std::thread(
                 mouseButtonPressEventListeners[index], 
-                mouseButtonData{mouseButtons(frameData.button - BTN_MOUSE)}).detach();
+                mouseButtonData{frameData.id, mouseButtons(frameData.button - BTN_MOUSE)}).detach();
 
 
         index = idToIndex[frameData.id.index].mouseButtonReleasedEventIndex;
         if(frameData.state == 0 && index != (uint8_t)-1)
             std::thread(
                 mouseButtonReleasedEventListeners[index], 
-                mouseButtonData{mouseButtons(frameData.button - BTN_MOUSE)}).detach();
+                mouseButtonData{frameData.id, mouseButtons(frameData.button - BTN_MOUSE)}).detach();
     }
 
 
@@ -129,7 +130,7 @@ void pointer::wlPointerFrame(void *data, wl_pointer *wlPointer)
             if(frameData.axes[i].valid)
                 std::thread(
                     mouseScrollEventListeners[index], 
-                    mouseScrollData{(mouseAxis)i, (mouseAxisSource)frameData.axis_source, wl_fixed_to_int(frameData.axes[i].value), frameData.axes[i].discrete}).detach();
+                    mouseScrollData{frameData.id, (mouseAxis)i, (mouseAxisSource)frameData.axis_source, wl_fixed_to_int(frameData.axes[i].value), frameData.axes[i].discrete}).detach();
         }
 
     if(frameData.eventTypes.pointerLeave)

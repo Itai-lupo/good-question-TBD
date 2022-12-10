@@ -113,6 +113,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a12796e0235799e9936afd1a9b7dc798d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8104a6775101947de2e9cdceddaaaa4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d2b/classentity_pool.html#ac8104a6775101947de2e9cdceddaaaa4">enlistType</a> (void *dataPtr, <a class="el" href="../../d7/d3e/entity_pool_8hpp.html#a6c201d7aa001acc3b47db196e4d2c3ee">typeCallback</a> freeCallback, uint32_t **IdToIndex)</td></tr>
 <tr class="separator:ac8104a6775101947de2e9cdceddaaaa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab91f97c5b47b5dd789884c33990da5e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d2b/classentity_pool.html#ab91f97c5b47b5dd789884c33990da5e4">unenlistType</a> (void *dataPtr, uint32_t *IdToIndex)</td></tr>
+<tr class="separator:ab91f97c5b47b5dd789884c33990da5e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ab2c17f55513cea557b3b5d147a584d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d">isIdValid</a> (<a class="el" href="../../df/d3a/structentity_id.html">entityId</a> id)</td></tr>
 <tr class="separator:a7ab2c17f55513cea557b3b5d147a584d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1bbde64e155748e51b6056d2bd25f6c9"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d2b/classentity_pool.html#a1bbde64e155748e51b6056d2bd25f6c9">getIdBufferMaxCount</a> ()</td></tr>
@@ -134,12 +136,12 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   53</span>                                      : maxSize(maxSize)</div>
-<div class="line"><span class="lineno">   54</span>{</div>
-<div class="line"><span class="lineno">   55</span>    maxId = 10;</div>
-<div class="line"><span class="lineno">   56</span>    gen = <span class="keyword">new</span> uint8_t[maxId];</div>
-<div class="line"><span class="lineno">   57</span>    memset(gen, 255, (maxId));    </div>
-<div class="line"><span class="lineno">   58</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">    3</span>                                      : maxSize(maxSize)</div>
+<div class="line"><span class="lineno">    4</span>{</div>
+<div class="line"><span class="lineno">    5</span>    maxId = 10;</div>
+<div class="line"><span class="lineno">    6</span>    gen = <span class="keyword">new</span> uint8_t[maxId];</div>
+<div class="line"><span class="lineno">    7</span>    memset(gen, 255, (maxId));    </div>
+<div class="line"><span class="lineno">    8</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -157,8 +159,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  124</span>{</div>
-<div class="line"><span class="lineno">  125</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   86</span>{</div>
+<div class="line"><span class="lineno">   87</span>    <span class="keyword">delete</span>[] gen;</div>
+<div class="line"><span class="lineno">   88</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -177,52 +180,53 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   62</span>{</div>
-<div class="line"><span class="lineno">   63</span>    <a class="code hl_struct" href="../../df/d3a/structentity_id.html">entityId</a> id;</div>
-<div class="line"><span class="lineno">   64</span>    <span class="keywordflow">if</span>(!freeSlots.empty())</div>
-<div class="line"><span class="lineno">   65</span>    {</div>
-<div class="line"><span class="lineno">   66</span>        <span class="keywordtype">id</span> = {</div>
-<div class="line"><span class="lineno">   67</span>            .<a class="code hl_variable" href="../../df/d3a/structentity_id.html#ac16b5c9618eaf6b44bbcdb8a515cc7e4">gen</a> = gen[freeSlots.front()],</div>
-<div class="line"><span class="lineno">   68</span>            .index = freeSlots.front()</div>
-<div class="line"><span class="lineno">   69</span>        };</div>
-<div class="line"><span class="lineno">   70</span>        freeSlots.pop_front();</div>
-<div class="line"><span class="lineno">   71</span>    }</div>
-<div class="line"><span class="lineno">   72</span>    <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">   73</span>    {</div>
-<div class="line"><span class="lineno">   74</span>        <span class="keywordtype">id</span> = {</div>
-<div class="line"><span class="lineno">   75</span>            .gen = 0,</div>
-<div class="line"><span class="lineno">   76</span>            .index = maxAllocatedId</div>
-<div class="line"><span class="lineno">   77</span>        };</div>
-<div class="line"><span class="lineno">   78</span> </div>
-<div class="line"><span class="lineno">   79</span>        <span class="keywordflow">if</span>(maxAllocatedId &gt;= maxId)</div>
-<div class="line"><span class="lineno">   80</span>        {</div>
-<div class="line"><span class="lineno">   81</span>            gen = (uint8_t*)realloc(gen, maxId * 2 *<span class="keyword">sizeof</span>(uint8_t));</div>
-<div class="line"><span class="lineno">   82</span>            memset(gen + maxId, 255, maxId);</div>
-<div class="line"><span class="lineno">   83</span> </div>
-<div class="line"><span class="lineno">   84</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; type: listedTypes)</div>
-<div class="line"><span class="lineno">   85</span>            {</div>
-<div class="line"><span class="lineno">   86</span>                *type.IdToIndex = (uint32_t*)realloc(*type.IdToIndex, maxId * 2 * <span class="keyword">sizeof</span>(uint32_t));</div>
-<div class="line"><span class="lineno">   87</span>                memset(*type.IdToIndex + maxId, 255, maxId * <span class="keyword">sizeof</span>(uint32_t));</div>
-<div class="line"><span class="lineno">   88</span>            }</div>
-<div class="line"><span class="lineno">   89</span> </div>
-<div class="line"><span class="lineno">   90</span>            maxId *= 2;</div>
-<div class="line"><span class="lineno">   91</span>        }</div>
-<div class="line"><span class="lineno">   92</span> </div>
-<div class="line"><span class="lineno">   93</span>        gen[maxAllocatedId] = 0; </div>
-<div class="line"><span class="lineno">   94</span>        maxAllocatedId++;</div>
-<div class="line"><span class="lineno">   95</span>    }</div>
-<div class="line"><span class="lineno">   96</span> </div>
-<div class="line"><span class="lineno">   97</span>    <span class="keywordflow">return</span> id;</div>
-<div class="line"><span class="lineno">   98</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   12</span>{</div>
+<div class="line"><span class="lineno">   13</span>    <a class="code hl_struct" href="../../df/d3a/structentity_id.html">entityId</a> id;</div>
+<div class="line"><span class="lineno">   14</span>    <span class="keywordflow">if</span>(!freeSlots.empty())</div>
+<div class="line"><span class="lineno">   15</span>    {</div>
+<div class="line"><span class="lineno">   16</span>        <span class="keywordtype">id</span> = {</div>
+<div class="line"><span class="lineno">   17</span>            .<a class="code hl_variable" href="../../df/d3a/structentity_id.html#a67b238576b68f75f167a5ffcbcc84eb5">index</a> = freeSlots.front(),</div>
+<div class="line"><span class="lineno">   18</span>            .gen = gen[freeSlots.front()]</div>
+<div class="line"><span class="lineno">   19</span>        };</div>
+<div class="line"><span class="lineno">   20</span>        freeSlots.pop_front();</div>
+<div class="line"><span class="lineno">   21</span>    }</div>
+<div class="line"><span class="lineno">   22</span>    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">   23</span>    {</div>
+<div class="line"><span class="lineno">   24</span>        <span class="keywordtype">id</span> = {</div>
+<div class="line"><span class="lineno">   25</span>            .index = maxAllocatedId,</div>
+<div class="line"><span class="lineno">   26</span>            .gen = 0</div>
+<div class="line"><span class="lineno">   27</span>        };</div>
+<div class="line"><span class="lineno">   28</span> </div>
+<div class="line"><span class="lineno">   29</span>        <span class="keywordflow">if</span>(maxAllocatedId &gt;= maxId)</div>
+<div class="line"><span class="lineno">   30</span>        {</div>
+<div class="line"><span class="lineno">   31</span>            gen = (uint8_t*)realloc(gen, maxId * 2 *<span class="keyword">sizeof</span>(uint8_t));</div>
+<div class="line"><span class="lineno">   32</span>            memset(gen + maxId, 255, maxId);</div>
+<div class="line"><span class="lineno">   33</span> </div>
+<div class="line"><span class="lineno">   34</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; type: listedTypes)</div>
+<div class="line"><span class="lineno">   35</span>            {</div>
+<div class="line"><span class="lineno">   36</span>                *type.IdToIndex = (uint32_t*)realloc(*type.IdToIndex, maxId * 2 * <span class="keyword">sizeof</span>(uint32_t));</div>
+<div class="line"><span class="lineno">   37</span>                memset(*type.IdToIndex + maxId, 255, maxId * <span class="keyword">sizeof</span>(uint32_t));</div>
+<div class="line"><span class="lineno">   38</span>            }</div>
+<div class="line"><span class="lineno">   39</span> </div>
+<div class="line"><span class="lineno">   40</span>            maxId *= 2;</div>
+<div class="line"><span class="lineno">   41</span>        }</div>
+<div class="line"><span class="lineno">   42</span> </div>
+<div class="line"><span class="lineno">   43</span>        gen[maxAllocatedId] = 0; </div>
+<div class="line"><span class="lineno">   44</span>        maxAllocatedId++;</div>
+<div class="line"><span class="lineno">   45</span>    }</div>
+<div class="line"><span class="lineno">   46</span> </div>
+<div class="line"><span class="lineno">   47</span>    <span class="keywordflow">return</span> id;</div>
+<div class="line"><span class="lineno">   48</span>}</div>
 <div class="ttc" id="astructentity_id_html"><div class="ttname"><a href="../../df/d3a/structentity_id.html">entityId</a></div><div class="ttdef"><b>Definition:</b> core.hpp:6</div></div>
-<div class="ttc" id="astructentity_id_html_ac16b5c9618eaf6b44bbcdb8a515cc7e4"><div class="ttname"><a href="../../df/d3a/structentity_id.html#ac16b5c9618eaf6b44bbcdb8a515cc7e4">entityId::gen</a></div><div class="ttdeci">uint8_t gen</div><div class="ttdef"><b>Definition:</b> core.hpp:8</div></div>
+<div class="ttc" id="astructentity_id_html_a67b238576b68f75f167a5ffcbcc84eb5"><div class="ttname"><a href="../../df/d3a/structentity_id.html#a67b238576b68f75f167a5ffcbcc84eb5">entityId::index</a></div><div class="ttdeci">uint32_t index</div><div class="ttdef"><b>Definition:</b> core.hpp:7</div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../dc/d2b/classentity_pool_ad4fb0df84c544348a0da6b6d0e20ccce_icgraph.png" border="0" usemap="#adc/d2b/classentity_pool_ad4fb0df84c544348a0da6b6d0e20ccce_icgraph" alt=""/></div>
 <map name="adc/d2b/classentity_pool_ad4fb0df84c544348a0da6b6d0e20ccce_icgraph" id="adc/d2b/classentity_pool_ad4fb0df84c544348a0da6b6d0e20ccce_icgraph">
-<area shape="rect" title=" " coords="108,5,252,31"/>
-<area shape="rect" href="../../de/d7f/main_8test_8cpp.html#a2cb0ebb12485cdba1aa9602fbc3e882d" title=" " coords="5,5,60,31"/>
+<area shape="rect" title=" " alt="" coords="192,42,336,67"/>
+<area shape="rect" href="../../df/dfa/classframe_buffers_manger.html#a2b01e7f48a639536127afabe0d3deb43" title=" " alt="" coords="5,5,144,45"/>
+<area shape="rect" href="../../de/d7f/main_8test_8cpp.html#a2cb0ebb12485cdba1aa9602fbc3e882d" title=" " alt="" coords="47,70,102,95"/>
 </map>
 </div>
 
@@ -259,19 +263,26 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  112</span>{</div>
-<div class="line"><span class="lineno">  113</span>    *IdToIndex =  <span class="keyword">new</span> uint32_t[maxId];</div>
-<div class="line"><span class="lineno">  114</span>    memset(*IdToIndex, 255, <span class="keyword">sizeof</span>(uint32_t) * maxId);      </div>
-<div class="line"><span class="lineno">  115</span> </div>
-<div class="line"><span class="lineno">  116</span>    listedTypes.push_back({dataPtr, freeCallback, IdToIndex});</div>
-<div class="line"><span class="lineno">  117</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   62</span>{</div>
+<div class="line"><span class="lineno">   63</span>    *IdToIndex =  <span class="keyword">new</span> uint32_t[maxId];</div>
+<div class="line"><span class="lineno">   64</span>    memset(*IdToIndex, 255, <span class="keyword">sizeof</span>(uint32_t) * maxId);      </div>
+<div class="line"><span class="lineno">   65</span> </div>
+<div class="line"><span class="lineno">   66</span>    listedTypes.push_back({dataPtr, freeCallback, IdToIndex});</div>
+<div class="line"><span class="lineno">   67</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../dc/d2b/classentity_pool_ac8104a6775101947de2e9cdceddaaaa4_icgraph.png" border="0" usemap="#adc/d2b/classentity_pool_ac8104a6775101947de2e9cdceddaaaa4_icgraph" alt=""/></div>
 <map name="adc/d2b/classentity_pool_ac8104a6775101947de2e9cdceddaaaa4_icgraph" id="adc/d2b/classentity_pool_ac8104a6775101947de2e9cdceddaaaa4_icgraph">
-<area shape="rect" title=" " coords="265,5,409,31"/>
-<area shape="rect" href="../../db/d0a/classcomponent_type.html#a6d8d272b45a8870d58ddbe068be36873" title=" " coords="5,5,217,31"/>
+<area shape="rect" title=" " alt="" coords="280,223,424,248"/>
+<area shape="rect" href="../../db/d0a/classcomponent_type.html#a6d8d272b45a8870d58ddbe068be36873" title=" " alt="" coords="13,5,225,31"/>
+<area shape="rect" href="../../d5/da5/classframe_buffers_compontents.html#a5166ce09873b1841c4c03b1ff701c788" title=" " alt="" coords="29,55,208,95"/>
+<area shape="rect" href="../../da/db6/classlayer_info_componenet.html#a5bf5b41875768e846c24cb67f533585f" title=" " alt="" coords="43,119,194,159"/>
+<area shape="rect" href="../../d3/da0/classsurface_info_component.html#a25d933f02b36bf69b23a258b2dfb8639" title=" " alt="" coords="39,183,198,223"/>
+<area shape="rect" href="../../df/d7d/classtoplevel_info_componenet.html#ac3adde83dd2996cf12bfe946a55e639e" title=" " alt="" coords="35,247,203,287"/>
+<area shape="rect" href="../../db/d39/classwindow_close_callback_component.html#afd5525a5fbcd8feee60a62a4ac0d23c0" title=" " alt="" coords="8,311,229,351"/>
+<area shape="rect" href="../../d2/d08/classwindow_resize_callback_component.html#a41ee8f74454c34ebf65809bbe98ef64d" title=" " alt="" coords="5,375,232,415"/>
+<area shape="rect" href="../../dc/d12/classwindows_info_component.html#a7ef05cf4baa8006d9497d9319a5e5826" title=" " alt="" coords="35,439,202,479"/>
 </map>
 </div>
 
@@ -292,21 +303,22 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  102</span>{</div>
-<div class="line"><span class="lineno">  103</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; type: listedTypes)</div>
-<div class="line"><span class="lineno">  104</span>        type.deleteFunc(type.data, <span class="keywordtype">id</span>);</div>
-<div class="line"><span class="lineno">  105</span> </div>
-<div class="line"><span class="lineno">  106</span>    gen[<span class="keywordtype">id</span>.index]++;</div>
-<div class="line"><span class="lineno">  107</span>    freeSlots.push_back(<span class="keywordtype">id</span>.index);</div>
-<div class="line"><span class="lineno">  108</span>    </div>
-<div class="line"><span class="lineno">  109</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   52</span>{</div>
+<div class="line"><span class="lineno">   53</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; type: listedTypes)</div>
+<div class="line"><span class="lineno">   54</span>        type.deleteFunc(type.data, <span class="keywordtype">id</span>);</div>
+<div class="line"><span class="lineno">   55</span> </div>
+<div class="line"><span class="lineno">   56</span>    gen[<span class="keywordtype">id</span>.index]++;</div>
+<div class="line"><span class="lineno">   57</span>    freeSlots.push_back(<span class="keywordtype">id</span>.index);</div>
+<div class="line"><span class="lineno">   58</span>    </div>
+<div class="line"><span class="lineno">   59</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../dc/d2b/classentity_pool_a12796e0235799e9936afd1a9b7dc798d_icgraph.png" border="0" usemap="#adc/d2b/classentity_pool_a12796e0235799e9936afd1a9b7dc798d_icgraph" alt=""/></div>
 <map name="adc/d2b/classentity_pool_a12796e0235799e9936afd1a9b7dc798d_icgraph" id="adc/d2b/classentity_pool_a12796e0235799e9936afd1a9b7dc798d_icgraph">
-<area shape="rect" title=" " coords="108,5,247,31"/>
-<area shape="rect" href="../../de/d7f/main_8test_8cpp.html#a2cb0ebb12485cdba1aa9602fbc3e882d" title=" " coords="5,5,60,31"/>
+<area shape="rect" title=" " alt="" coords="192,42,331,67"/>
+<area shape="rect" href="../../df/dfa/classframe_buffers_manger.html#a9dde77566720a259ca2d14664d01fa5c" title=" " alt="" coords="5,5,144,45"/>
+<area shape="rect" href="../../de/d7f/main_8test_8cpp.html#a2cb0ebb12485cdba1aa9602fbc3e882d" title=" " alt="" coords="47,70,102,95"/>
 </map>
 </div>
 
@@ -334,9 +346,9 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   47</span>        {</div>
-<div class="line"><span class="lineno">   48</span>            <span class="keywordflow">return</span> maxId;</div>
-<div class="line"><span class="lineno">   49</span>        }</div>
+<div class="fragment"><div class="line"><span class="lineno">   48</span>        {</div>
+<div class="line"><span class="lineno">   49</span>            <span class="keywordflow">return</span> maxId;</div>
+<div class="line"><span class="lineno">   50</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -363,26 +375,127 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   42</span>        {</div>
-<div class="line"><span class="lineno">   43</span>            <span class="keywordflow">return</span> !(<span class="keywordtype">id</span>.index &gt; maxAllocatedId || gen[<span class="keywordtype">id</span>.index] != <span class="keywordtype">id</span>.gen);</div>
-<div class="line"><span class="lineno">   44</span>        }</div>
+<div class="fragment"><div class="line"><span class="lineno">   43</span>        {</div>
+<div class="line"><span class="lineno">   44</span>            <span class="keywordflow">return</span> !(<span class="keywordtype">id</span>.index &gt; maxAllocatedId || gen[<span class="keywordtype">id</span>.index] != <span class="keywordtype">id</span>.gen);</div>
+<div class="line"><span class="lineno">   45</span>        }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../dc/d2b/classentity_pool_a7ab2c17f55513cea557b3b5d147a584d_icgraph.png" border="0" usemap="#adc/d2b/classentity_pool_a7ab2c17f55513cea557b3b5d147a584d_icgraph" alt=""/></div>
 <map name="adc/d2b/classentity_pool_a7ab2c17f55513cea557b3b5d147a584d_icgraph" id="adc/d2b/classentity_pool_a7ab2c17f55513cea557b3b5d147a584d_icgraph">
-<area shape="rect" title=" " coords="377,81,512,107"/>
-<area shape="rect" href="../../db/d0a/classcomponent_type.html#a85983f32b6f8c697c3998a9539e0e656" title=" " coords="108,5,329,31"/>
-<area shape="rect" href="../../de/d7f/main_8test_8cpp.html#a2cb0ebb12485cdba1aa9602fbc3e882d" title=" " coords="5,81,60,107"/>
-<area shape="rect" href="../../db/d0a/classcomponent_type.html#ac46128efed5eac8245738bbc00a07785" title=" " coords="117,107,321,132"/>
-<area shape="rect" href="../../db/d0a/classcomponent_type.html#ad17ba72d3b20a049d1f023838aa2030e" title=" " coords="117,156,321,181"/>
+<area shape="rect" title=" " alt="" coords="764,803,899,828"/>
+<area shape="rect" href="../../da/db6/classlayer_info_componenet.html#aab831387a29e70934664c492a02d2384" title=" " alt="" coords="533,125,677,165"/>
+<area shape="rect" href="../../dc/d12/classwindows_info_component.html#a145154b9cab1539c7f3fd31c89a7518d" title=" " alt="" coords="525,338,686,378"/>
+<area shape="rect" href="../../d3/da0/classsurface_info_component.html#a27dd835dd9b55a078f08691d9d702f9c" title=" " alt="" coords="529,402,682,442"/>
+<area shape="rect" href="../../df/d7d/classtoplevel_info_componenet.html#aabe1ff09457fb97f6156172a2cdda6e7" title=" " alt="" coords="524,466,687,506"/>
+<area shape="rect" href="../../db/d39/classwindow_close_callback_component.html#a88a04478e6e45cc024f3b1e75ec6de17" title=" " alt="" coords="498,57,713,97"/>
+<area shape="rect" href="../../d2/d08/classwindow_resize_callback_component.html#a8cc7a8f718fefaef4c917cffd1d49b1c" title=" " alt="" coords="495,195,716,235"/>
+<area shape="rect" href="../../d5/da5/classframe_buffers_compontents.html#afb8a7e762d455e2f06dfee9a390470b4" title=" " alt="" coords="519,530,692,570"/>
+<area shape="rect" href="../../db/d0a/classcomponent_type.html#a85983f32b6f8c697c3998a9539e0e656" title=" " alt="" coords="495,696,716,721"/>
+<area shape="rect" href="../../de/d7f/main_8test_8cpp.html#a2cb0ebb12485cdba1aa9602fbc3e882d" title=" " alt="" coords="316,649,371,675"/>
+<area shape="rect" href="../../db/d39/classwindow_close_callback_component.html#ad93a45d741b1b98d161a6b4f2416f1b2" title=" " alt="" coords="498,795,713,835"/>
+<area shape="rect" href="../../d2/d08/classwindow_resize_callback_component.html#a774589e3454930b222467aacdf09f302" title=" " alt="" coords="495,859,716,899"/>
+<area shape="rect" href="../../da/db6/classlayer_info_componenet.html#a4cae586391a27a64e98b3117fa03cf41" title=" " alt="" coords="533,923,677,963"/>
+<area shape="rect" href="../../dc/d12/classwindows_info_component.html#afe6f38f5048d01f89de55af7c394d901" title=" " alt="" coords="525,987,686,1027"/>
+<area shape="rect" href="../../d3/da0/classsurface_info_component.html#ae92a763c47e11c1ece6c0a1ffd951d26" title=" " alt="" coords="529,1051,682,1091"/>
+<area shape="rect" href="../../df/d7d/classtoplevel_info_componenet.html#ab78b9254c564c02d803af27216e318ec" title=" " alt="" coords="524,274,687,314"/>
+<area shape="rect" href="../../d5/da5/classframe_buffers_compontents.html#a0485b13937e1738ed488b4dbd2c60d93" title=" " alt="" coords="519,1115,692,1155"/>
+<area shape="rect" href="../../db/d0a/classcomponent_type.html#ac46128efed5eac8245738bbc00a07785" title=" " alt="" coords="503,745,707,771"/>
+<area shape="rect" href="../../db/d39/classwindow_close_callback_component.html#ad48dd6e2938e35771cecfba8f073554f" title=" " alt="" coords="498,1179,713,1219"/>
+<area shape="rect" href="../../d2/d08/classwindow_resize_callback_component.html#a638efc8095ecd90784b980ed7d61a2c0" title=" " alt="" coords="495,1243,716,1283"/>
+<area shape="rect" href="../../d5/da5/classframe_buffers_compontents.html#a6ab20792e17de2462dd0076bf300510e" title=" " alt="" coords="519,1307,692,1347"/>
+<area shape="rect" href="../../da/db6/classlayer_info_componenet.html#a5ee21af0f77348da6bfd0b311c9d3217" title=" " alt="" coords="533,1371,677,1411"/>
+<area shape="rect" href="../../d3/da0/classsurface_info_component.html#a211afc72a73ad9cebc9b1dcdc6fc1530" title=" " alt="" coords="529,1435,682,1475"/>
+<area shape="rect" href="../../df/d7d/classtoplevel_info_componenet.html#aa7483f4d7bd45decf9800d46463ab137" title=" " alt="" coords="524,1499,687,1539"/>
+<area shape="rect" href="../../db/d0a/classcomponent_type.html#ad17ba72d3b20a049d1f023838aa2030e" title=" " alt="" coords="503,595,707,620"/>
+<area shape="rect" href="../../dc/d12/classwindows_info_component.html#a587b39bcf4f7f412c6c3bca408782ce3" title=" " alt="" coords="525,1563,686,1603"/>
+<area shape="rect" href="../../d2/d36/classlayer.html#a27b9d34d45467309041dd261d7bc37e4" title=" " alt="" coords="270,120,417,145"/>
+<area shape="rect" href="../../d2/d36/classlayer.html#ad62bbcceba3450aafad719665daf56eb" title=" " alt="" coords="243,5,443,31"/>
+<area shape="rect" href="../../da/d41/classtoplevel.html#a0b5bf24c3f46b21f922ec86160e1c6d8" title=" " alt="" coords="258,55,429,95"/>
+<area shape="rect" href="../../da/d41/classtoplevel.html#a0dab81d35190e78877d45997b7c44b94" title=" " alt="" coords="5,227,192,252"/>
+<area shape="rect" href="../../d2/d36/classlayer.html#aec074db011cf570c12e8477db967f6e9" title=" " alt="" coords="240,169,447,195"/>
+<area shape="rect" href="../../da/d41/classtoplevel.html#adce0e259eceed263fba051237873260a" title=" " alt="" coords="255,219,432,259"/>
+<area shape="rect" href="../../d2/d36/classlayer.html#aaf93f88098e81d9f9ebc71633480e869" title=" " alt="" coords="271,756,415,781"/>
+<area shape="rect" href="../../d2/d36/classlayer.html#ab8b40df8d7c0c819e857bff7cd529d77" title=" " alt="" coords="271,707,415,732"/>
+<area shape="rect" href="../../d5/d88/classsurface.html#adfb4a3648842f5870fb0162c8bb3400c" title=" " alt="" coords="276,805,411,831"/>
+<area shape="rect" href="../../da/d41/classtoplevel.html#a4ffe85ecb0bd2149f22797365748fa40" title=" " alt="" coords="262,384,425,409"/>
+<area shape="rect" href="../../da/d41/classtoplevel.html#a81dfd703b79203ca07b3164d72c89ca6" title=" " alt="" coords="262,335,425,360"/>
+<area shape="rect" href="../../df/dfa/classframe_buffers_manger.html#a20125e40418b07706550e8b9a8a2dc64" title=" " alt="" coords="257,1303,429,1343"/>
+<area shape="rect" href="../../df/dfa/classframe_buffers_manger.html#aa3dc0c2e3966972354e6e0e5e00ee32b" title=" " alt="" coords="274,1367,413,1407"/>
+<area shape="rect" href="../../df/dfa/classframe_buffers_manger.html#a9dde77566720a259ca2d14664d01fa5c" title=" " alt="" coords="274,855,413,895"/>
+<area shape="rect" href="../../df/dfa/classframe_buffers_manger.html#a6199497bf42b7149c795d97c847c41b6" title=" " alt="" coords="270,919,417,959"/>
+<area shape="rect" href="../../df/dfa/classframe_buffers_manger.html#a05663c579ee747182a5f16597caf5901" title=" " alt="" coords="266,983,421,1023"/>
+<area shape="rect" href="../../df/dfa/classframe_buffers_manger.html#afc994072b2ab26e2159a6addff4cd8cd" title=" " alt="" coords="274,1047,413,1087"/>
+<area shape="rect" href="../../df/dfa/classframe_buffers_manger.html#a452bc8aa491a839df8aa31fe6efbb959" title=" " alt="" coords="274,1111,413,1151"/>
+<area shape="rect" href="../../df/dfa/classframe_buffers_manger.html#a4154ca13dd69931a3de2a6248953d9be" title=" " alt="" coords="274,1175,413,1215"/>
+<area shape="rect" href="../../df/dfa/classframe_buffers_manger.html#a1591d6de03f23cfbf5c4218375d809a0" title=" " alt="" coords="264,1239,423,1279"/>
+<area shape="rect" href="../../d2/d36/classlayer.html#a7bb483701e7d1bb7687c93741825c3d1" title=" " alt="" coords="250,1481,437,1507"/>
+<area shape="rect" href="../../da/d41/classtoplevel.html#a9f19f2a256ba5bd205958d558ff51a63" title=" " alt="" coords="241,1432,445,1457"/>
+<area shape="rect" href="../../d2/d36/classlayer.html#a30a01578a1d0cec758837ca4db6b414e" title=" " alt="" coords="247,1596,439,1621"/>
+<area shape="rect" href="../../da/d41/classtoplevel.html#ae09d1f10a3dc7f7a03978e899f2f79fd" title=" " alt="" coords="262,1531,425,1571"/>
 </map>
 </div>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a id="ab91f97c5b47b5dd789884c33990da5e4" name="ab91f97c5b47b5dd789884c33990da5e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab91f97c5b47b5dd789884c33990da5e4">&#9670;&#160;</a></span>unenlistType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void entityPool::unenlistType </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>dataPtr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>IdToIndex</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><span class="lineno">   70</span>{</div>
+<div class="line"><span class="lineno">   71</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; listedTypes.size(); i++)</div>
+<div class="line"><span class="lineno">   72</span>    {</div>
+<div class="line"><span class="lineno">   73</span>        <span class="keywordflow">if</span>(listedTypes[i].data == dataPtr &amp;&amp; *listedTypes[i].IdToIndex == IdToIndex){</div>
+<div class="line"><span class="lineno">   74</span>            listedTypes[i] = *listedTypes.end();</div>
+<div class="line"><span class="lineno">   75</span>            listedTypes.pop_back();</div>
+<div class="line"><span class="lineno">   76</span>        }</div>
+<div class="line"><span class="lineno">   77</span> </div>
+<div class="line"><span class="lineno">   78</span>    }</div>
+<div class="line"><span class="lineno">   79</span>    </div>
+<div class="line"><span class="lineno">   80</span>}</div>
+</div><!-- fragment --><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dc/d2b/classentity_pool_ab91f97c5b47b5dd789884c33990da5e4_icgraph.png" border="0" usemap="#adc/d2b/classentity_pool_ab91f97c5b47b5dd789884c33990da5e4_icgraph" alt=""/></div>
+<map name="adc/d2b/classentity_pool_ab91f97c5b47b5dd789884c33990da5e4_icgraph" id="adc/d2b/classentity_pool_ab91f97c5b47b5dd789884c33990da5e4_icgraph">
+<area shape="rect" title=" " alt="" coords="288,223,447,248"/>
+<area shape="rect" href="../../db/d0a/classcomponent_type.html#a734bc3318456d5b6a2b21374a2e0b2aa" title=" " alt="" coords="13,5,232,31"/>
+<area shape="rect" href="../../d5/da5/classframe_buffers_compontents.html#a3168b0bcbbae5e0dd5726df3c03717b3" title=" " alt="" coords="29,55,216,95"/>
+<area shape="rect" href="../../da/db6/classlayer_info_componenet.html#a855671d56d8128ac6549f8721a7a1da0" title=" " alt="" coords="44,119,201,159"/>
+<area shape="rect" href="../../d3/da0/classsurface_info_component.html#a9a75e083754035750c7441f02f9ea4e1" title=" " alt="" coords="39,183,206,223"/>
+<area shape="rect" href="../../df/d7d/classtoplevel_info_componenet.html#af884c1b477b3a6dc9c542a587cea3d65" title=" " alt="" coords="35,247,210,287"/>
+<area shape="rect" href="../../db/d39/classwindow_close_callback_component.html#aee543e8cb2b300370132700ab83bad47" title=" " alt="" coords="9,311,237,351"/>
+<area shape="rect" href="../../d2/d08/classwindow_resize_callback_component.html#a281c43314bba6fa6e1e4b4664f489c9c" title=" " alt="" coords="5,375,240,415"/>
+<area shape="rect" href="../../dc/d12/classwindows_info_component.html#a8675856a368ef41b7a8a3caeb1d854de" title=" " alt="" coords="35,439,210,479"/>
+</map>
+</div>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/utils/<a class="el" href="../../d7/d3e/entity_pool_8hpp_source.html">entityPool.hpp</a></li>
+<li>src/utls/<a class="el" href="../../da/d36/entity_pool_8cpp.html">entityPool.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

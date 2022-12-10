@@ -12,27 +12,27 @@
 
 #include <thread>
 
+void surface::init()
+{
+    surfacePool = new entityPool(500);
+    surfacesInfo = new surfaceInfoComponent(surfacePool);
+
+    layer::init(surfacePool);
+    toplevel::init(surfacePool);
+}
+
+void surface::close()
+{
+    delete surfacesInfo;
+    delete surfacePool;
+    layer::close();
+    toplevel::close();
+}
+
 surfaceId surface::allocateSurface(windowId winId, const surfaceSpec& surfaceDataSpec)
 {
     
-    surfaceId id;
-    if(!freeSlots.empty())
-    {
-        id = {
-            .gen = idToIndex[freeSlots.front()].gen,
-            .index = (uint16_t)freeSlots.front()
-        };
-        freeSlots.pop_front();
-    }
-    else
-    {
-        id = {
-            .gen = 0,
-            .index = (uint16_t)idToIndex.size()
-        };
-        idToIndex.push_back({0});
-    }
-
+    surfaceId id = surfacePool->allocEntity();
 
     surfaceData info;
     info.height = surfaceDataSpec.height;
@@ -44,9 +44,9 @@ surfaceId surface::allocateSurface(windowId winId, const surfaceSpec& surfaceDat
     info.surface = wl_compositor_create_surface(compositor);
 
     CONDTION_LOG_FATAL("can't  create surface", info.surface == NULL);
-    idToIndex[id.index].surfaceDataIndex = surfaces.size();
-    surfaces.push_back(info);
+    surfacesInfo->setComponent(id, info);
 
+    
 
     switch (info.rule)
     {
@@ -91,35 +91,35 @@ surfaceId surface::allocateSurface(windowId winId, const surfaceSpec& surfaceDat
 
 void surface::deallocateSurface(surfaceId winId)
 {
-    uint8_t index = idToIndex[winId.index].surfaceDataIndex;
-    if(idToIndex[winId.index].gen != winId.gen || index == (uint8_t)-1)
+    if(surfacePool->isIdValid(winId))
         return;
 
 
-    keyboard::deallocateWindowEvents(winId);
-    pointer::deallocateWindowEvents(winId);
-    cpuRendering::deallocateSurfaceToRender(winId);
 
-    surfaceData& temp = surfaces[index];
-    toplevel::deallocateTopLevel(winId);
-    layer::deallocateLayer(winId);
-    wl_surface_destroy(temp.surface);
+    wl_surface *temp = surfacesInfo->getComponent(winId)->surface;
+    
+    //todo: make this pool extensions that auto delete
+    // keyboard::deallocateWindowEvents(winId);
+    // pointer::deallocateWindowEvents(winId);
+    // cpuRendering::deallocateSurfaceToRender(winId);
+    // toplevel::deallocateTopLevel(winId);
+    // layer::deallocateLayer(winId);
+    surfacePool->freeEntity(winId);
+    wl_surface_destroy(temp);
 
-    idToIndex[winId.index].surfaceDataIndex = -1;
-    idToIndex[winId.index].gen = -1;
 }
 
 void surface::resize(surfaceId id, int width, int height)
 {
-    uint8_t index = idToIndex[id.index].surfaceDataIndex;
-    if(idToIndex[id.index].gen != id.gen || index == (uint8_t)-1)
+    
+    surfaceData *temp = surfacesInfo->getComponent(id);
+    if(!temp)
         return;
 
-    surfaceData& temp = surfaces[index];
-    temp.width = width;
-    temp.height = height;
+    temp->width = width;
+    temp->height = height;
 
-    switch (temp.rendererType)
+    switch (temp->rendererType)
     {
         case surfaceRenderAPI::openGL:        
             openGLRendering::resize(id, width, height);
@@ -137,31 +137,39 @@ void surface::resize(surfaceId id, int width, int height)
 
 void surface::setWindowHeight(surfaceId id, int height)
 {
-    if(idToIndex[id.index].surfaceDataIndex != (uint8_t)-1 && id.gen == idToIndex[id.index].gen)
-        resize(id, surfaces[idToIndex[id.index].surfaceDataIndex].width, height);
+    surfaceData *temp = surfacesInfo->getComponent(id);
+
+    if(temp)
+        temp->height = height;
     
 }
 
 
 int surface::getWindowHeight(surfaceId id)
 {
-    if(idToIndex[id.index].surfaceDataIndex != (uint8_t)-1 && id.gen == idToIndex[id.index].gen)
-        return surfaces[idToIndex[id.index].surfaceDataIndex].height;
+    surfaceData *temp = surfacesInfo->getComponent(id);
+
+    if(temp)
+        return temp->height;
         
     return -1;
 }
 
 void surface::setWindowWidth(surfaceId id, int width)
 {
-    if(idToIndex[id.index].surfaceDataIndex != (uint8_t)-1 && id.gen == idToIndex[id.index].gen)
-        resize(id, width, surfaces[idToIndex[id.index].surfaceDataIndex].height);
+    surfaceData *temp = surfacesInfo->getComponent(id);
+
+    if(temp)
+        temp->width = width;
 }
 
 
 int surface::getWindowWidth(surfaceId id)
 {
-    if(idToIndex[id.index].surfaceDataIndex != (uint8_t)-1 && id.gen == idToIndex[id.index].gen)
-        return surfaces[idToIndex[id.index].surfaceDataIndex].width;
+    surfaceData *temp = surfacesInfo->getComponent(id);
+
+    if(temp)
+        return temp->width;
         
     return -1;
 }

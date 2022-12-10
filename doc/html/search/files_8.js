@@ -9,5 +9,7 @@ var searchData=
   ['subsurface_2ecpp_6',['subsurface.cpp',['../d9/d02/subsurface_8cpp.html',1,'']]],
   ['subsurface_2ehpp_7',['subsurface.hpp',['../db/d14/subsurface_8hpp.html',1,'']]],
   ['surface_2ecpp_8',['surface.cpp',['../d7/d13/surface_8cpp.html',1,'']]],
-  ['surface_2ehpp_9',['surface.hpp',['../d1/dd4/surface_8hpp.html',1,'']]]
+  ['surface_2ehpp_9',['surface.hpp',['../d1/dd4/surface_8hpp.html',1,'']]],
+  ['surfaceinfocomponent_2ecpp_10',['surfaceInfoComponent.cpp',['../d7/d89/surface_info_component_8cpp.html',1,'']]],
+  ['surfaceinfocomponent_2ehpp_11',['surfaceInfoComponent.hpp',['../dd/dc1/surface_info_component_8hpp.html',1,'']]]
 ];
