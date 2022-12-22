@@ -2,10 +2,12 @@
 
 #include "core.hpp"
 #include "windowResizeData.hpp"
+#include "cpuRenderData.hpp"
 #include "osAPI.hpp"
 
 #include "entityPool.hpp"
 #include "surfaceInfoComponent.hpp"
+
 
 #include <vector>
 #include <list>
@@ -22,6 +24,9 @@ struct surfaceSpec
 	
     std::string title;
     surfaceId parentSurface;
+
+    void (*cpuRenderFunction)(const cpuRenderData &);
+    void (*gpuRenderFunction)(const gpuRenderData &);
 
 };
 

@@ -18,11 +18,13 @@ enum class surfaceRenderAPI
 
 struct windowSpec
 {
-	windowSpec(std::string title, int w, int h, surfaceRenderAPI renderAPI = surfaceRenderAPI::openGL): w(w), h(h), title(title), renderAPI(renderAPI){}
 	
-    int w, h;
 	std::string title;
-    surfaceRenderAPI renderAPI;
+    int w, h;
+    surfaceRenderAPI renderAPI =  surfaceRenderAPI::openGL;
+
+    void (*cpuRenderFunction)(const cpuRenderData &);
+    void (*gpuRenderFunction)(const gpuRenderData &);
 };
 
 struct subSurfaceSpec
@@ -30,7 +32,10 @@ struct subSurfaceSpec
     uint8_t subSurfaceSlot;
     int x, y;
     int width, height;
+    void (*cpuRenderFunction)(const cpuRenderData &);
+    void (*gpuRenderFunction)(const gpuRenderData &);
     surfaceRenderAPI renderAPI = surfaceRenderAPI::cpu;
+
 };
 
 
@@ -43,12 +48,8 @@ class osAPI
         void attachSubSurfaceToWindow(windowId id,  const subSurfaceSpec& subSurfaceToAttach);
 		
         bool isWindowOpen(windowId winId);
-        void setVSyncForCurrentContext(bool enabled);
-        void makeContextCurrent(windowId winId);
         void closeWindow(windowId winId);
-        void swapBuffers(windowId winId);
-        windowId getCurrentContextWindowId();
-
+        
         void *getProcAddress();
 
         // ################################ get window info #######################
@@ -72,8 +73,10 @@ class osAPI
         void setResizeEventeListeners(windowId winId, void(*callback)(const windowResizeData&));
         void setGainFocusEventListeners(windowId winId, void(*callback)(surfaceId));
         void setLostFocusEventListeners(windowId winId, void(*callback)(surfaceId));
-        void setRenderEventListeners(windowId winId, void(*callback)(const windowRenderData&));
-        void setsubSurfaceRenderEventListeners(windowId winId, int subSurfaceSlot, void(*callback)(const windowRenderData&));
+        void setRenderEventListeners(windowId winId, void(*callback)(const gpuRenderData&));
+        void setRenderEventListeners(windowId winId, void(*callback)(const cpuRenderData&));
+        void setsubSurfaceRenderEventListeners(windowId winId, int subSurfaceSlot, void(*callback)(const gpuRenderData&));
+        void setsubSurfaceRenderEventListeners(windowId winId, int subSurfaceSlot, void(*callback)(const cpuRenderData&));
         // ################ unset event listener ################################################################
         void unsetKeyPressEventListeners(windowId winId);
         void unsetKeyReleasedEventListeners(windowId winId);

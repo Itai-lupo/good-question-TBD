@@ -14,13 +14,66 @@
 #include <utility>
 #include <Tracy.hpp>
 
+
+void cpuRendering::init(entityPool *surfacesPool)
+{
+    renderData = new cpuRenderInfoComponent(surfacesPool);
+}
+
+void cpuRendering::closeRenderer()
+{
+    delete renderData;
+}
+
+
+
+void cpuRendering::allocateSurfaceToRender(surfaceId winId, void(*callback)(const cpuRenderData&))
+{    
+    cpuRenderInfo info(callback);
+    info.id = winId;
+
+    renderData->setComponent(winId, info);
+    
+    allocateWindowCpuPool(winId);
+
+
+    wl_callback *cb = wl_surface_frame(surface::getSurface(winId));
+    wl_callback_add_listener(cb, &wlSurfaceFrameListener, new surfaceId(winId));
+
+
+    renderData->getComponent(winId)->renderThread = new std::thread(renderWindow, winId);
+}
+
+void cpuRendering::deallocateSurfaceToRender(surfaceId winId)
+{
+    if(renderData->getComponent(winId)->renderThread->joinable())
+        renderData->getComponent(winId)->renderThread->join();
+    renderData->deleteComponent(winId);
+}
+
+
+
+void cpuRendering::setRenderEventListeners(surfaceId winId, void(*callback)(const cpuRenderData&))
+{
+    renderData->getComponent(winId)->renderFuncion = callback;
+}     
+
+
+void cpuRendering::resize(surfaceId id, int width, int height)
+{
+    ZoneScoped;
+
+    reallocateWindowCpuPool(id);   
+}
+
+
+
 void cpuRendering::renderWindow(surfaceId win)
 {
-
-    ZoneScoped;
+    ZoneScoped;   
     
-    uint32_t index = idToIndex[win.index].renderEventIndex;
-    if(idToIndex[win.index].gen != win.gen || index == -1)
+    cpuRenderInfo *info = renderData->getComponent(win);
+    if(!info)
         return;
 
     std::string thradNameA = "render " + toplevel::getWindowTitle(win);
@@ -31,8 +84,8 @@ void cpuRendering::renderWindow(surfaceId win)
     std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
 
     wl_callback *cb = wl_surface_frame(surface::getSurface(win));
-
     wl_callback_add_listener(cb, &wlSurfaceFrameListener, new surfaceId(win));
+
     struct wl_buffer *buffer = allocateWindowBuffer(win, 0);
     wl_surface_attach(surface::getSurface(win), buffer, 0, 0);
 
@@ -44,75 +97,78 @@ void cpuRendering::renderWindow(surfaceId win)
         
 
         int elpased = time_span.count();
-
-        index = idToIndex[win.index].renderDataIndex;
-        renderInfo& temp = surfacesToRender[index];
-
         int stride = surface::getWindowWidth(win) * 4;
         int bufferSize = stride * surface::getWindowHeight(win);
-        surfacesToRender[index].bufferSize = bufferSize;
+        
+        info->bufferSize = bufferSize;
+        int bufferIndex = info->freeBuffer;
 
-        int bufferIndex = surfacesToRender[index].freeBuffer;
-
-        uint32_t *frameData = mapWindowCpuBuffer(win, surfacesToRender[index].freeBuffer);
+        uint32_t *frameData = mapWindowCpuBuffer(win, info->freeBuffer);
         if(frameData)
-            renderEventListeners[index](windowRenderData{win, surface::getWindowWidth(win), surface::getWindowHeight(win), frameData, elpased});
+            info->renderFuncion(cpuRenderData{win, surface::getWindowWidth(win), surface::getWindowHeight(win), frameData, elpased});
         
         
-        int ret = munmap(surfacesToRender[index].buffer, surfacesToRender[index].bufferSize);
+        int ret = munmap(info->buffer, info->bufferSize);
         CONDTION_LOG_ERROR(ret, ret != 0)
 
-        uint8_t tempBufferIndex = surfacesToRender[index].freeBuffer;
-        surfacesToRender[index].freeBuffer = surfacesToRender[index].bufferToRender;
-        surfacesToRender[index].bufferToRender = tempBufferIndex;
+        uint8_t tempBufferIndex = info->freeBuffer;
+        info->freeBuffer = info->bufferToRender;
+        info->bufferToRender = tempBufferIndex;        
+        info->renderFinshedBool = true;
         
-        surfacesToRender[index].renderFinshedBool = true;
-        std::shared_lock lk{*surfacesToRender[index].renderMutex.get()};
-        surfacesToRender[index].renderFinshed->notify_one();
-        
-        t2 = std::chrono::high_resolution_clock::now();
-        uint32_t index = idToIndex[win.index].renderEventIndex;
-    } while (idToIndex[win.index].gen == win.gen && index != -1);
-    
+        t2 = std::chrono::high_resolution_clock::now();    
+
+        info = renderData->getComponent(win);
+    } while (info);   
 }
 
 
+
+// wayland callbacks
 void cpuRendering::wlSurfaceFrameDone(void *data, wl_callback *cb, uint32_t time)
 {
     ZoneScoped;
     wl_callback_destroy(cb);
     surfaceId id = *(surfaceId*)data;
     
-    
-    uint32_t index = idToIndex[id.index].renderDataIndex;
-    if(idToIndex[id.index].gen != id.gen || index == -1)
+    cpuRenderInfo *info = renderData->getComponent(id);
+    if(!info)
         return;
-
-    renderInfo& temp = surfacesToRender[index];
     
 
-    cb = wl_surface_frame(surface::getSurface(id));
-    wl_callback_add_listener(cb, &wlSurfaceFrameListener, data);
+    int i = 0;
+    for (i = 0; !info->renderFinshedBool && i < 10; i++)
+        std::this_thread::sleep_for(std::chrono::microseconds(10));
     
-    if(idToIndex[id.index].renderEventIndex != (uint8_t)-1)
+    
+    
+
+    struct wl_buffer *buffer = allocateWindowBuffer(id, info->bufferToRender);
+    
+    if(info->renderFinshedBool)
     {
-        std::unique_lock lk2{*temp.renderMutex.get()};
-        temp.renderFinshed->wait(lk2, [&](){ return temp.renderFinshedBool;} );
-        temp.renderFinshedBool = false;
+        int tempBuffer = info->bufferToRender;
+        info->bufferToRender = info->bufferInRender;
+        info->bufferInRender = tempBuffer;
     }
-
-    struct wl_buffer *buffer = allocateWindowBuffer(id, temp.bufferToRender);
-    int tempBuffer = temp.bufferToRender;
-    temp.bufferToRender = temp.bufferInRender;
-    temp.bufferInRender = tempBuffer;
+    info->renderFinshedBool = false;
 
     wl_surface_attach(surface::getSurface(id), buffer, 0, 0);
     wl_surface_damage_buffer(surface::getSurface(id), 0, 0, surface::getWindowWidth(id), surface::getWindowHeight(id));
     wl_surface_commit(surface::getSurface(id));
-    FrameMarkNamed( toplevel::getWindowTitle(id).c_str());
 
+    cb = wl_surface_frame(surface::getSurface(id));
+    wl_callback_add_listener(cb, &wlSurfaceFrameListener, data);
+    
+    
+#ifdef TRACY_ENABLE
+    TracyMessage((std::string("wait ticks count: ") + std::to_string(i)).c_str(), (std::string("wait ticks count: ") + std::to_string(i)).size());
+    ZoneText(toplevel::getWindowTitle(id).c_str(), toplevel::getWindowTitle(id).size());
+    if(&renderData->getData().back() == info){
+        FrameMarkNamed("cpuRendering");
+    }
+#endif
 }
-
 
 void cpuRendering::wl_buffer_release(void *data, struct wl_buffer *wl_buffer)
 {
@@ -120,110 +176,121 @@ void cpuRendering::wl_buffer_release(void *data, struct wl_buffer *wl_buffer)
 }
 
 
+// memory mangment helper function
 void cpuRendering::allocateWindowCpuPool(surfaceId winId)
 {
-    int stride = surface::getWindowWidth(winId)* 4;
-    int size = stride * surface::getWindowHeight(winId);
-    size += sysconf(_SC_PAGE_SIZE) - size % sysconf(_SC_PAGE_SIZE);
+    int size = caluclateBufferSize(winId);
     size *= 3;
     
-    renderInfo& info = surfacesToRender[idToIndex[winId.index].renderDataIndex];
-    info.fd = allocate_shm_file(size);
-    if (info.fd == -1) {
+    cpuRenderInfo *info = renderData->getComponent(winId);
+    if(!info)
         return;
-    }
+
+    info->fd = allocateShmFile(size);
+    if (info->fd == -1)
+        return;
 
     uint32_t *data = (uint32_t *)mmap(NULL, size,
-            PROT_READ | PROT_WRITE, MAP_SHARED, info.fd, 0);
+            PROT_READ | PROT_WRITE, MAP_SHARED, info->fd, 0);
     if (data == MAP_FAILED) {
         LOG_ERROR("could not get data")
 
-        close(info.fd);
+        close(info->fd);
         return ;
     }
 
-    info.pool = wl_shm_create_pool(shm, info.fd, size);
-    info.memoryPoolSize = size;
+    info->pool = wl_shm_create_pool(shm, info->fd, size);
+    info->memoryPoolSize = size;
 }
 
 void cpuRendering::reallocateWindowCpuPool(surfaceId winId)
 {
-    int64_t index = idToIndex[winId.index].renderDataIndex;
-    if(index == -1 || idToIndex[winId.index].gen != winId.gen)
+    cpuRenderInfo *info = renderData->getComponent(winId);
+    if(!info)
         return;
 
-    renderInfo& info = surfacesToRender[index];
-    int stride = surface::getWindowWidth(winId) * 4;
-    int size = stride * surface::getWindowHeight(winId);
-    size += sysconf(_SC_PAGE_SIZE) - size % sysconf(_SC_PAGE_SIZE);
+    int size = caluclateBufferSize(winId);
     size *= 3;
 
-    if(size < info.memoryPoolSize)
+    if(size < info->memoryPoolSize)
         return;
 
     int ret;
     do {
-        ret = ftruncate(info.fd, size);
+        ret = ftruncate(info->fd, size);
     } while (ret < 0 && errno == EINTR);
+
     if (ret < 0) {
-        close(info.fd);
+        close(info->fd);
         LOG_ERROR("could not resize because: " << strerror(errno))
         return;
     }
-    wl_shm_pool_resize(info.pool, size);
-    info.memoryPoolSize = size;
+
+    wl_shm_pool_resize(info->pool, size);
+    info->memoryPoolSize = size;
 }
 
 
 wl_buffer *cpuRendering::allocateWindowBuffer(const surfaceId winId, uint32_t offset)
 {
     int stride = surface::getWindowWidth(winId) * 4;
-    int size = stride * surface::getWindowHeight(winId);
-    int temp = size + (sysconf(_SC_PAGE_SIZE) - size % sysconf(_SC_PAGE_SIZE));
-    temp *= offset;
+    int temp = caluclateBufferSize(winId);
+    temp *= offset;    
     
-    
-    wl_buffer *buffer = wl_shm_pool_create_buffer(surfacesToRender[idToIndex[winId.index].renderDataIndex].pool, temp, surface::getWindowWidth(winId), surface::getWindowHeight(winId), stride, WL_SHM_FORMAT_ARGB8888);
+    wl_buffer *buffer = wl_shm_pool_create_buffer(renderData->getComponent(winId)->pool, temp, surface::getWindowWidth(winId), surface::getWindowHeight(winId), stride, WL_SHM_FORMAT_ARGB8888);
 
     wl_buffer_add_listener(buffer, &wl_buffer_listener, NULL);
     return buffer;
 }
 
+
 uint32_t *cpuRendering::mapWindowCpuBuffer(surfaceId winId, uint32_t offset)
 {
     int stride = surface::getWindowWidth(winId) * 4;
     int size = stride * surface::getWindowHeight(winId);
-    int temp = size + (sysconf(_SC_PAGE_SIZE) - size % sysconf(_SC_PAGE_SIZE));
-    temp *= offset;
+    int temp = caluclateBufferSize(winId) * offset;
     
-    renderInfo& info = surfacesToRender[idToIndex[winId.index].renderDataIndex];
-    
-    uint32_t *data = (uint32_t *)mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_SHARED, info.fd, temp);
+    cpuRenderInfo *info = renderData->getComponent(winId);
+    uint32_t *data = (uint32_t *)mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_SHARED, info->fd, temp);
     
     if (data == MAP_FAILED) {
-        LOG_ERROR("couldn't map memory at " << info.fd << " of size " << size << " at offset " << offset << "(" << temp << ")" << " from pool of size " << info.memoryPoolSize << " because: " << strerror(errno))
-        close(info.fd);
+        LOG_ERROR("couldn't map memory at " << info->fd << " of size " << size << " at offset " << offset << "(" << temp << ")" << " from pool of size " << info->memoryPoolSize << " because: " << strerror(errno))
+        close(info->fd);
         return NULL;
     }
     
-    info.buffer = data;
-    info.bufferSize = size;
+    info->buffer = data;
+    info->bufferSize = size;
     return data;
 }
 
 
-void cpuRendering::randname(char *buf)
+
+int cpuRendering::caluclateBufferSize(surfaceId winId)
 {
-    struct timespec ts;
-    clock_gettime(CLOCK_REALTIME, &ts);
-    long r = ts.tv_nsec;
-    for (int i = 0; i < 6; ++i) {
-        buf[i] = 'A'+(r&15)+(r&16)*2;
-        r >>= 5;
-    }
+    int stride = surface::getWindowWidth(winId) * 4;
+    int size = stride * surface::getWindowHeight(winId);
+    size += sysconf(_SC_PAGE_SIZE) - size % sysconf(_SC_PAGE_SIZE);
+    return size;
 }
 
-int cpuRendering::create_shm_file()
+int cpuRendering::allocateShmFile(size_t size)
+{
+    int fd = createShmFile();
+    if (fd < 0)
+        return -1;
+    int ret;
+    do {
+        ret = ftruncate(fd, size);
+    } while (ret < 0 && errno == EINTR);
+    if (ret < 0) {
+        close(fd);
+        return -1;
+    }
+    return fd;
+}
+
+int cpuRendering::createShmFile()
 {
     int retries = 100;
     do {
@@ -239,103 +306,16 @@ int cpuRendering::create_shm_file()
     return -1;
 }
 
-int cpuRendering::allocate_shm_file(size_t size)
+void cpuRendering::randname(char *buf)
 {
-    int fd = create_shm_file();
-    if (fd < 0)
-        return -1;
-    int ret;
-    do {
-        ret = ftruncate(fd, size);
-    } while (ret < 0 && errno == EINTR);
-    if (ret < 0) {
-        close(fd);
-        return -1;
+    struct timespec ts;
+    clock_gettime(CLOCK_REALTIME, &ts);
+    long r = ts.tv_nsec;
+    for (int i = 0; i < 6; ++i) {
+        buf[i] = 'A'+(r&15)+(r&16)*2;
+        r >>= 5;
     }
-    return fd;
 }
 
-
-void cpuRendering::allocateSurfaceToRender(surfaceId winId)
-{
-    if(winId.index >= idToIndex.size())
-        idToIndex.resize(winId.index + 1);
-
-    idToIndex[winId.index].gen = winId.gen;
-
-    renderInfo info;
-    info.id = winId;
-
-    idToIndex[winId.index].renderDataIndex = surfacesToRender.size();
-    surfacesToRender.push_back(info);
-
-    allocateWindowCpuPool(winId);
-
-
-    wl_callback *cb = wl_surface_frame(surface::getSurface(winId));
-    wl_callback_add_listener(cb, &wlSurfaceFrameListener, new surfaceId(winId));
-}
-
-
-void cpuRendering::setRenderEventListeners(surfaceId winId, std::function<void(const windowRenderData&)> callback){
-    uint32_t index = idToIndex[winId.index].renderEventIndex;
-    if(winId.index >= idToIndex.size() || idToIndex[winId.index].gen != winId.gen)
-        return;
-
-    if(index != (uint8_t)-1)
-    {    
-        renderEventListeners[index] = callback;
-        renderEventId[index] = winId;
-        return;
-    }
-
-    idToIndex[winId.index].renderEventIndex = renderEventListeners.size();
-    renderEventListeners.push_back(callback);
-    renderEventId.push_back(winId);
-
-    surfacesToRender[idToIndex[winId.index].renderDataIndex].renderThread = new std::thread(renderWindow, winId);
-
-}     
-
-
-
-void cpuRendering::deallocateSurfaceToRender(surfaceId winId)
-{
-    if(idToIndex[winId.index].gen != winId.gen)
-        return;
-
-    unsetRenderEventListeners(winId);
-
-    idToIndex[winId.index].renderDataIndex = -1;
-    idToIndex[winId.index].gen = -1;
-
-}
-
-
-void cpuRendering::unsetRenderEventListeners(surfaceId winId)
-{
-
-    uint32_t index = idToIndex[winId.index].renderEventIndex;
-    if(idToIndex[winId.index].gen != winId.gen || index == -1)
-        return;
-
-    uint32_t lastIndex = renderEventListeners.size() - 1;
-    idToIndex[renderEventId[lastIndex].index].renderEventIndex = index;
-    renderEventListeners[index] = renderEventListeners[lastIndex];
-    renderEventId[index] = renderEventId[lastIndex];
-
-    renderEventListeners.pop_back();
-    renderEventId.pop_back();
-
-    idToIndex[winId.index].renderEventIndex = -1;
-}
-
-void cpuRendering::resize(surfaceId id, int width, int height)
-{
-    ZoneScoped;
-
-    reallocateWindowCpuPool(id);
-    
-}
 
 #endif

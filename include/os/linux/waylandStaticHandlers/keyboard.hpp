@@ -12,6 +12,10 @@
 #include "keyData.hpp"
 #include "surface.hpp"
 
+#include "entityPool.hpp"
+#include "windowSurfaceCallbackComponent.hpp"
+#include "keyCallbackComponent.hpp"
+
 class keyboard
 {
     public:
@@ -34,33 +38,14 @@ class keyboard
         static void wlRepeatInfo(void *data, wl_keyboard *wl_keyboard, int32_t rate, int32_t delay);
         static void keyListener(uint32_t key);
 
-
-        static inline std::vector<std::function<void(const keyData&)>> keyPressEventListeners;
-        static inline std::vector<surfaceId> keyPressEventId;
-
-        static inline std::vector<std::function<void(const keyData&)>> keyReleasedEventListeners;
-        static inline std::vector<surfaceId> keyReleasedEventId;
         
-        static inline std::vector<std::function<void(const keyData&)>> keyRepeatEventListeners;
-        static inline std::vector<surfaceId> keyRepeatEventId;
+        static inline keyCallbackComponent *keyPressEventListeners;
+        static inline keyCallbackComponent *keyReleasedEventListeners;
+        static inline keyCallbackComponent *keyRepeatEventListeners;
 
-        static inline std::vector<std::function<void(surfaceId winId)>> gainFocusEventListeners;
-        static inline std::vector<surfaceId> gainFocusEventId;
-
-        static inline std::vector<std::function<void(surfaceId winId)>> lostFocusEventListeners;
-        static inline std::vector<surfaceId> lostFocusEventId;
-
-        struct idTpKeyEventIndexes
-        {
-            uint8_t gen = -1;
-            uint8_t pressEventIndex = -1;
-            uint8_t releaseEventIndex = -1;
-            uint8_t repeatEventIndex = -1;
-            uint8_t gainFocusEventIndex = -1;
-            uint8_t lostFocusEventIndex = -1;
-        };
+        static inline windowSurfaceCallbackComponent *gainFocusEventListeners;
+        static inline windowSurfaceCallbackComponent *lostFocusEventListeners;
         
-        static inline std::vector<idTpKeyEventIndexes> idToIndex;  
         
         static constexpr wl_keyboard_listener wlKeyboardListener = {
             .keymap = wlKeymap,
@@ -198,16 +183,16 @@ class keyboard
                 [KEY_102ND]  =   keycodes::keyWorld2,
         };
 
+        static void init(entityPool *surfacesPool);
+        static void closeKeyboard();
 
-        static void allocateWindowEvents(surfaceId id);
-        static void setKeyPressEventListeners(surfaceId id, std::function<void(const keyData&)> callback);
-        static void setKeyReleasedEventListeners(surfaceId id, std::function<void(const keyData&)> callback);
-        static void setKeyRepeatEventListeners(surfaceId id, std::function<void(const keyData&)> callback);
-        static void setGainFocusEventListeners(surfaceId id, std::function<void(surfaceId)> callback);
-        static void setLostFocusEventListeners(surfaceId id, std::function<void(surfaceId)> callback);
+        static void setKeyPressEventListeners(surfaceId id, keyCallback callback);
+        static void setKeyReleasedEventListeners(surfaceId id, keyCallback callback);
+        static void setKeyRepeatEventListeners(surfaceId id, keyCallback callback);
+        static void setGainFocusEventListeners(surfaceId id, surfaceCallback callback);
+        static void setLostFocusEventListeners(surfaceId id, surfaceCallback callback);
         
 
-        static void deallocateWindowEvents(surfaceId id);
         static void unsetKeyPressEventListeners(surfaceId id);
         static void unsetKeyReleasedEventListeners(surfaceId id);
         static void unsetKeyRepeatEventListeners(surfaceId id);

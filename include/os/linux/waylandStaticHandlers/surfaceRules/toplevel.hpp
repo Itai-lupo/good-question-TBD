@@ -11,7 +11,7 @@
 #include "core.hpp"
 #include "surface.hpp"
 
-#include "windowCloseCallbackComponent.hpp"
+#include "windowSurfaceCallbackComponent.hpp"
 #include "windowResizeCallbackComponent.hpp"
 #include "toplevelInfoComponenet.hpp"
 
@@ -39,7 +39,7 @@ class toplevel
         };
 
     
-        static inline windowCloseCallbackComponent *closeCallbacks;
+        static inline windowSurfaceCallbackComponent *closeCallbacks;
         static inline windowResizeCallbackComponent *resizeCallbacks;
         static inline toplevelInfoComponenet *topLevelSurfaces;
 
@@ -50,7 +50,7 @@ class toplevel
         
         static inline void init(entityPool *surfacePool)
         {
-            closeCallbacks = new windowCloseCallbackComponent(surfacePool);
+            closeCallbacks = new windowSurfaceCallbackComponent(surfacePool);
             resizeCallbacks = new windowResizeCallbackComponent(surfacePool);
             topLevelSurfaces = new toplevelInfoComponenet(surfacePool);
         }

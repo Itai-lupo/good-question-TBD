@@ -1,143 +1,118 @@
 #include "vertexArrayManger.hpp"
 #include <Tracy.hpp>
 
-vaoId vertexArrayManger::createVao()
+
+
+
+
+namespace openGLRenderEngine
 {
-    vaoId id;
-    if(!freeSlots.empty())
+    void vaos::init(entityPool *vaosPool)
     {
-        id = {
-            .gen = idToIndex[freeSlots.front()].gen,
-            .index = freeSlots.front()
-        };
-        freeSlots.pop_front();
-    }
-    else
-    {
-        id = {
-            .gen = 0,
-            .index = (uint32_t)idToIndex.size()
-        };
-        idToIndex.push_back({0, (uint32_t)buffers.size()});
+        vaosData = new VAOsComponents(vaosPool);
     }
 
-    idToIndex[id.index].index = buffers.size();
-    
-    VAOInfo info;
-    info.id = id;
-    buffers.push_back(info);
-
-    VAORequstes handle;  
-    handle.id = id;
-    requstes.push_back(handle);
-    
-    
-    return id;
-
-}
-
-void vertexArrayManger::addVertexBufferBinding(vaoId id, const VBOSpec& data)
-{
-    if(idToIndex[id.index].gen != id.gen)
-        return;
-
-    VAOInfo& temp = buffers[idToIndex[id.index].index];
-    
-    temp.bindingsSlots[data.bindingSlot].data = data.data;
-    temp.bindingsSlots[data.bindingSlot].offset = data.offset;
-    temp.bindingsSlots[data.bindingSlot].size = data.size;
-    temp.bindingsSlots[data.bindingSlot].stride = data.stride;
-
-    requstes[idToIndex[id.index].index].rebuildBinding.push(data.bindingSlot);
-}
-
-void vertexArrayManger::addVertexBufferAttacment(vaoId id, uint32_t slot, uint32_t binding, uint32_t size, uint32_t offset, uint32_t dataType)
-{
-    if(idToIndex[id.index].gen != id.gen)
-        return;
-
-    VAOInfo& temp = buffers[idToIndex[id.index].index];
-    
-    temp.attributes[slot].bindingSlot = binding;
-    temp.attributes[slot].size = size;
-    temp.attributes[slot].offset = offset;
-    temp.attributes[slot].dataType = dataType;
-
-    requstes[idToIndex[id.index].index].rebuildAttacment.push(slot);
-}
-
-void vertexArrayManger::attachIndexBuffer(vaoId id, const uint32_t *IBO, uint32_t size)
-{
-    if(idToIndex[id.index].gen != id.gen)
-        return;
-
-    requstes[idToIndex[id.index].index].IBOToBuild = IBO;
-    requstes[idToIndex[id.index].index].IBOsize = size;
-
-}
-
-void vertexArrayManger::bind(vaoId id)
-{
-    ZoneScopedN("bind shape");
-
-    if(idToIndex[id.index].gen != id.gen)
-        return;
-
-    VAOInfo& temp = buffers[idToIndex[id.index].index];
-    VAORequstes& toHandle = requstes[idToIndex[id.index].index];
-
-    if(temp.VAO == 0)
+    void vaos::close()
     {
-        GL_CALL(context, CreateVertexArrays(1, &temp.VAO));
+        delete vaosData;
+    }
+    
+    void vaos::setContext(openglContext *context)
+    {
+        vaos::context = context;
     }
 
-    while (!toHandle.rebuildBinding.empty())
+    void vaos::handleRequsets()
     {
-        uint8_t binding = toHandle.rebuildBinding.front();
+        if(toDelete.empty())
+            return;
 
+        uint32_t *vaosToDelete = new uint32_t[toDelete.size()];
+        uint32_t temp = toDelete.size();
+
+        for (size_t i = 0; i < temp; i++)
+        {
+            vaosToDelete[i] = toDelete.front();
+            toDelete.pop();
+        }
         
-        GL_CALL(context, CreateBuffers(1, &temp.bindingsSlots[binding].renderId));
-        GL_CALL(context, NamedBufferData(temp.bindingsSlots[binding].renderId, temp.bindingsSlots[binding].size, temp.bindingsSlots[binding].data, GL_DYNAMIC_DRAW));
-        GL_CALL(context, VertexArrayVertexBuffer(temp.VAO, binding, temp.bindingsSlots[binding].renderId, temp.bindingsSlots[binding].offset, temp.bindingsSlots[binding].stride));
-
-        toHandle.rebuildBinding.pop();
+        GL_CALL(context, DeleteBuffers(temp, vaosToDelete)); 
     }
 
-    while (!toHandle.rebuildAttacment.empty())
+
+    void vaos::setVAOData(VAOInfo info)
     {
-        uint8_t attrib = toHandle.rebuildAttacment.front();
-
-        
-        GL_CALL(context, EnableVertexArrayAttrib(temp.VAO, attrib));
-        GL_CALL(context, VertexArrayAttribBinding(temp.VAO, attrib, temp.attributes[attrib].bindingSlot));
-        GL_CALL(context, VertexArrayAttribFormat(temp.VAO, attrib, temp.attributes[attrib].size, temp.attributes[attrib].dataType, GL_FALSE, temp.attributes[attrib].offset));
-
-        toHandle.rebuildAttacment.pop();
+        vaosData->setComponent(info.id, info);
     }
 
-    if(toHandle.IBOToBuild)
+    VAOInfo *vaos::getVAO(vaoId id)
     {
-        GL_CALL(context, CreateBuffers(1, &temp.IBO));
-
-        GL_CALL(context, NamedBufferData(temp.IBO, toHandle.IBOsize * sizeof(unsigned int), toHandle.IBOToBuild, GL_DYNAMIC_DRAW));
-        GL_CALL(context, VertexArrayElementBuffer(temp.VAO, temp.IBO));
-        temp.count = toHandle.IBOsize;
-        
-        toHandle.IBOToBuild = nullptr;
-        toHandle.IBOsize = 0;
+        return vaosData->getComponent(id);
     }
 
-    GL_CALL(context, BindVertexArray(temp.VAO));
     
+    void vaos::bind(vaoId id)
+    {
+        ZoneScopedN("bind shape");
+        VAOInfo *vao = vaosData->getComponent(id);
+        if(!vao)
+            return;
+
+        if(vao->VAO == 0)
+            GL_CALL(context, CreateVertexArrays(1, &vao->VAO));
+
+
+        for (size_t i = 0; i < 16; i++)
+        {
+            if(vao->bindingSlotsToUpdate[i])
+            {
+                if(vao->bindingsSlots[i])
+                    GL_CALL(context, DeleteBuffers(1, &vao->bindingsSlots[i])); 
+                
+
+                GL_CALL(context, CreateBuffers(1, &vao->bindingsSlots[i]));
+                GL_CALL(context, NamedBufferData(vao->bindingsSlots[i], vao->bindingSlotsToUpdate[i]->size, vao->bindingSlotsToUpdate[i]->data, GL_DYNAMIC_DRAW));
+                GL_CALL(context, VertexArrayVertexBuffer(vao->VAO, i, vao->bindingsSlots[i], vao->bindingSlotsToUpdate[i]->offset, vao->bindingSlotsToUpdate[i]->stride));
+
+                vao->bindingSlotsToUpdate[i]->deleteCallback(vao->bindingSlotsToUpdate[i]);
+                vao->bindingSlotsToUpdate[i] = nullptr;
+            }
+        }
+        
+        for (size_t i = 0; i < 16; i++)
+        {
+
+            if(vao->attacmentsToUpdate[i])
+            {
+                GL_CALL(context, EnableVertexArrayAttrib(vao->VAO, i));
+                GL_CALL(context, VertexArrayAttribBinding(vao->VAO, i, vao->attacmentsToUpdate[i]->bindingSlot));
+                GL_CALL(context, VertexArrayAttribFormat(vao->VAO, i, vao->attacmentsToUpdate[i]->size, vao->attacmentsToUpdate[i]->dataType, GL_FALSE, vao->attacmentsToUpdate[i]->relativeOffset));
+
+                vao->attacmentsToUpdate[i]->deleteCallback(vao->attacmentsToUpdate[i]);
+                vao->attacmentsToUpdate[i] = nullptr;
+            }
+        }
+        
+        if(vao->iboToUpdate)
+        {
+            if(vao->IBO)
+                GL_CALL(context, DeleteBuffers(1, &vao->IBO)); 
+            
+            GL_CALL(context, CreateBuffers(1, &vao->IBO));
+
+            GL_CALL(context, NamedBufferData(vao->IBO, vao->iboToUpdate->count * sizeof(unsigned int), vao->iboToUpdate->data, GL_DYNAMIC_DRAW));
+            GL_CALL(context, VertexArrayElementBuffer(vao->VAO, vao->IBO));
+            vao->count = vao->iboToUpdate->count;
+            
+
+            vao->iboToUpdate->deleteCallback(vao->iboToUpdate);
+            vao->iboToUpdate = nullptr;
+        }
+        
+        GL_CALL(context, BindVertexArray(vao->VAO));
+        GL_CALL(context, BindBuffer(GL_ELEMENT_ARRAY_BUFFER, vao->IBO));
+
+
+    }
+
 }
-
-int vertexArrayManger::getCount(vaoId id)
-{
-    if(idToIndex[id.index].gen != id.gen)
-        return 0;
-
-    VAOInfo& temp = buffers[idToIndex[id.index].index];
-
-    return temp.count;
-}
-

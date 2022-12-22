@@ -1,4 +1,4 @@
 var frame_buffers_manger_8hpp =
 [
-    [ "frameBuffersManger", "df/dfa/classframe_buffers_manger.html", "df/dfa/classframe_buffers_manger" ]
+    [ "openGLRenderEngine::framebuffers", "db/d25/classopen_g_l_render_engine_1_1framebuffers.html", null ]
 ];

@@ -79,15 +79,14 @@ void linuxWindowAPI::windowEventListener()
     prctl(PR_SET_NAME, thradNameA.c_str());
     tracy::SetThreadName("Event listener");
 
+    surface::init();
     
-    openGLRendering::init();
     int a = 1;
     while (a != -1) 
     {
         ZoneScoped;
         a = wl_display_dispatch(display);
     }
-    LOG_FATAL("thats realy realy bad " << a)
 }
 
 void linuxWindowAPI::init()
@@ -111,8 +110,9 @@ void linuxWindowAPI::init()
     windowsPool = new entityPool(255);
     windowsInfo = new windowsInfoComponent(windowsPool);
 
-    surface::init();
     eventListenr = new std::thread(windowEventListener);
+    while(surface::surfacePool == nullptr)
+        std::this_thread::sleep_for(std::chrono::microseconds(1));
 }
 
 windowId linuxWindowAPI::createWindow(const windowSpec& windowToCreate)
@@ -128,6 +128,7 @@ windowId linuxWindowAPI::createWindow(const windowSpec& windowToCreate)
         windowToCreate.w,
         windowToCreate.h,
         .title = windowToCreate.title,
+        .gpuRenderFunction = windowToCreate.gpuRenderFunction
     });
 
     windowsInfo->setComponent(id, info);

@@ -52,6 +52,11 @@ openglContext::openglContext(EGLContext sharedContext)
 
 }
 
+openglContext::~openglContext()
+{
+
+}
+
 void openglContext::GLClearErrors()
 {
     while(openGLAPI->GetError() != GL_NO_ERROR);

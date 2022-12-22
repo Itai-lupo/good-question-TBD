@@ -1,4 +1,3 @@
-#pragma once 
 #include "windowResizeCallbackComponent.hpp"
 
 windowResizeCallbackComponent::windowResizeCallbackComponent(entityPool *pool): 

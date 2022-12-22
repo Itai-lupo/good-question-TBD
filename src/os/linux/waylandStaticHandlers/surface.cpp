@@ -9,24 +9,36 @@
 #include "keyboard.hpp"
 #include "pointer.hpp"
 #include "layer.hpp"
-
+#include "renderApi.hpp"
 #include <thread>
 
 void surface::init()
 {
-    surfacePool = new entityPool(500);
-    surfacesInfo = new surfaceInfoComponent(surfacePool);
+    entityPool *temp = new entityPool(500);
+    surfacesInfo = new surfaceInfoComponent(temp);
+    renderApi *api = new renderApi();
+    layer::init(temp);
+    subsurface::init(temp);
+    toplevel::init(temp);
+    pointer::init(temp);
+    keyboard::init(temp);
+    cpuRendering::init(temp);
+    openGLRendering::init(temp, api);
 
-    layer::init(surfacePool);
-    toplevel::init(surfacePool);
+    surfacePool = temp;
 }
 
 void surface::close()
 {
-    delete surfacesInfo;
-    delete surfacePool;
     layer::close();
     toplevel::close();
+    subsurface::close();
+    pointer::close();
+    keyboard::closeKeyboard();
+    cpuRendering::closeRenderer();
+    openGLRendering::close();
+    delete surfacesInfo;
+    delete surfacePool;
 }
 
 surfaceId surface::allocateSurface(windowId winId, const surfaceSpec& surfaceDataSpec)
@@ -70,11 +82,11 @@ surfaceId surface::allocateSurface(windowId winId, const surfaceSpec& surfaceDat
     switch (info.rendererType)
     {
         case surfaceRenderAPI::openGL:        
-            openGLRendering::allocateSurfaceToRender(id);
+            openGLRendering::allocateSurfaceToRender(id, surfaceDataSpec.gpuRenderFunction);
             break;
 
         case surfaceRenderAPI::cpu:        
-            cpuRendering::allocateSurfaceToRender(id);
+            cpuRendering::allocateSurfaceToRender(id, surfaceDataSpec.cpuRenderFunction);
             break;
     
         default:
@@ -82,8 +94,6 @@ surfaceId surface::allocateSurface(windowId winId, const surfaceSpec& surfaceDat
             break;
     }
     
-    keyboard::allocateWindowEvents(id);
-    pointer::allocateWindowEvents(id);
     wl_surface_commit(info.surface);
 
     return id;
@@ -98,12 +108,6 @@ void surface::deallocateSurface(surfaceId winId)
 
     wl_surface *temp = surfacesInfo->getComponent(winId)->surface;
     
-    //todo: make this pool extensions that auto delete
-    // keyboard::deallocateWindowEvents(winId);
-    // pointer::deallocateWindowEvents(winId);
-    // cpuRendering::deallocateSurfaceToRender(winId);
-    // toplevel::deallocateTopLevel(winId);
-    // layer::deallocateLayer(winId);
     surfacePool->freeEntity(winId);
     wl_surface_destroy(temp);
 

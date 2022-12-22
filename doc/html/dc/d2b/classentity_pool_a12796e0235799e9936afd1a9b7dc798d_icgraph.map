@@ -1,5 +1,8 @@
 <map id="entityPool::freeEntity" name="entityPool::freeEntity">
-<area shape="rect" id="node1" title=" " alt="" coords="192,42,331,67"/>
-<area shape="rect" id="node2" href="$df/dfa/classframe_buffers_manger.html#a9dde77566720a259ca2d14664d01fa5c" title=" " alt="" coords="5,5,144,45"/>
-<area shape="rect" id="node3" href="$de/d7f/main_8test_8cpp.html#a2cb0ebb12485cdba1aa9602fbc3e882d" title=" " alt="" coords="47,70,102,95"/>
+<area shape="rect" id="node1" title=" " alt="" coords="247,104,385,129"/>
+<area shape="rect" id="node2" href="$d7/d09/classrender_api.html#afd14a7a3c8666880106a8217c047936a" title=" " alt="" coords="5,5,199,31"/>
+<area shape="rect" id="node3" href="$d7/d09/classrender_api.html#aed6dc0416e1037098c7c01840f198326" title=" " alt="" coords="19,55,185,80"/>
+<area shape="rect" id="node4" href="$d7/d09/classrender_api.html#a58ff2559de8fe2e0bede18a2d0c90b92" title=" " alt="" coords="19,104,185,129"/>
+<area shape="rect" id="node5" href="$d7/d09/classrender_api.html#ad34b55d25230fafe07789badfe001886" title=" " alt="" coords="29,153,175,179"/>
+<area shape="rect" id="node6" href="$de/d7f/main_8test_8cpp.html#a2cb0ebb12485cdba1aa9602fbc3e882d" title=" " alt="" coords="75,203,129,228"/>
 </map>

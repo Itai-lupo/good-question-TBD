@@ -34,9 +34,11 @@ componentType::componentType(entityPool *pool, uint16_t dataSize):
     pool(pool), 
     dataSize(dataSize), 
     dataMaxAllocated(10), 
-    data( malloc(dataSize * 10)),
+    data( malloc(dataSize * dataMaxAllocated)),
     indexToId(new entityId[dataMaxAllocated])
 {
+    TracyAlloc(data,  dataMaxAllocated * dataSize);
+    TracyAlloc(indexToId, sizeof(entityId) * dataMaxAllocated);
     pool->enlistType((void*)this, deleteCallback, &IdToIndex);
 
 }
@@ -74,13 +76,20 @@ void componentType::setComponent(entityId id, void *buffer)
         IdToIndex[id.index] = dataAllocated;
         if( dataAllocated == dataMaxAllocated)
         {
+            TracyFree(data);
+            TracyFree(indexToId);
+
             dataMaxAllocated *= 2;
             data = realloc(data, dataMaxAllocated * dataSize);
             indexToId = (entityId*)realloc(indexToId, dataMaxAllocated * sizeof(entityId));
+
+            TracyAlloc(data,  dataMaxAllocated * dataSize);
+            TracyAlloc(indexToId, sizeof(entityId) * dataMaxAllocated);
         } 
         memcpy((char *)data + dataAllocated * dataSize, buffer, dataSize);
         indexToId[dataAllocated] = id;
         dataAllocated++;
+        
 
     }
     else
@@ -92,7 +101,9 @@ void componentType::setComponent(entityId id, void *buffer)
 componentType::~componentType()
 {
     pool->unenlistType(this, IdToIndex);
+    
+    TracyFree(data);
     free(data);
-    free(IdToIndex);
+    TracyFree(indexToId);
     free(indexToId);
 }

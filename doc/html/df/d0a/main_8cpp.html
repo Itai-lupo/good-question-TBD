@@ -99,6 +99,7 @@ $(document).ready(function(){initNavTree('df/d0a/main_8cpp.html','../../'); init
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="../../d4/d3d/log_8hpp_source.html">log.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d6/dcb/os_a_p_i_8hpp_source.html">osAPI.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/dca/render_api_8hpp_source.html">renderApi.hpp</a>&quot;</code><br />
 <code>#include &lt;Tracy.hpp&gt;</code><br />
 <code>#include &lt;thread&gt;</code><br />
 <code>#include &lt;functional&gt;</code><br />
@@ -110,46 +111,45 @@ Include dependency graph for main.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../da/dce/main_8cpp__incl.png" border="0" usemap="#asrc_2main_8cpp" alt=""/></div>
 <map name="asrc_2main_8cpp" id="asrc_2main_8cpp">
-<area shape="rect" title=" " alt="" coords="1604,5,1700,31"/>
-<area shape="rect" href="../../d4/d3d/log_8hpp.html" title=" " alt="" coords="583,592,646,617"/>
-<area shape="rect" href="../../d6/dcb/os_a_p_i_8hpp.html" title=" " alt="" coords="1493,79,1576,104"/>
-<area shape="rect" title=" " alt="" coords="492,372,551,397"/>
-<area shape="rect" title=" " alt="" coords="1741,152,1819,177"/>
-<area shape="rect" title=" " alt="" coords="1651,79,1730,104"/>
-<area shape="rect" title=" " alt="" coords="1755,79,1827,104"/>
-<area shape="rect" title=" " alt="" coords="1851,79,1943,104"/>
-<area shape="rect" title=" " alt="" coords="1967,79,2059,104"/>
-<area shape="rect" title=" " alt="" coords="512,665,613,691"/>
-<area shape="rect" title=" " alt="" coords="638,665,693,691"/>
-<area shape="rect" href="../../da/d47/core_8hpp.html" title=" " alt="" coords="465,592,535,617"/>
-<area shape="rect" href="../../de/d7c/os_events_data_8hpp.html" title=" " alt="" coords="831,152,958,177"/>
-<area shape="rect" title=" " alt="" coords="1236,592,1295,617"/>
-<area shape="rect" title=" " alt="" coords="1573,152,1665,177"/>
-<area shape="rect" title=" " alt="" coords="317,665,379,691"/>
-<area shape="rect" href="../../d3/d71/key_data_8hpp.html" title=" " alt="" coords="121,519,215,544"/>
-<area shape="rect" href="../../d0/d5f/mouse_button_data_8hpp.html" title=" " alt="" coords="991,225,1142,251"/>
-<area shape="rect" href="../../db/d1b/mouse_move_data_8hpp.html" title=" " alt="" coords="473,225,617,251"/>
-<area shape="rect" href="../../da/db3/mouse_scroll_data_8hpp.html" title=" " alt="" coords="822,225,967,251"/>
-<area shape="rect" href="../../dd/d8e/window_resize_data_8hpp.html" title=" " alt="" coords="642,225,798,251"/>
-<area shape="rect" href="../../d6/d89/window_render_data_8hpp.html" title=" " alt="" coords="1166,225,1325,251"/>
-<area shape="rect" title=" " alt="" coords="261,592,325,617"/>
-<area shape="rect" href="../../d7/d0b/keycodes_8hpp.html" title=" " alt="" coords="5,592,107,617"/>
-<area shape="rect" href="../../d5/dde/mouse_format_8hpp.html" title=" " alt="" coords="831,299,958,324"/>
-<area shape="rect" href="../../d5/dd7/window_state_8hpp.html" title=" " alt="" coords="659,299,781,324"/>
-<area shape="rect" href="../../d0/d92/open_g_l_renderer_8hpp.html" title=" " alt="" coords="1004,299,1148,324"/>
-<area shape="rect" href="../../db/d4c/opengl_context_8hpp.html" title=" " alt="" coords="847,519,975,544"/>
-<area shape="rect" href="../../da/d6d/texture_manger_8hpp.html" title=" " alt="" coords="1100,445,1228,471"/>
-<area shape="rect" title=" " alt="" coords="620,519,671,544"/>
-<area shape="rect" title=" " alt="" coords="1303,519,1361,544"/>
-<area shape="rect" href="../../d8/dcf/vertex_array_manger_8hpp.html" title=" " alt="" coords="1404,445,1559,471"/>
-<area shape="rect" href="../../dd/d0f/shader_manger_8hpp.html" title=" " alt="" coords="948,445,1076,471"/>
-<area shape="rect" href="../../d8/d20/frame_buffers_manger_8hpp.html" title=" " alt="" coords="745,372,908,397"/>
-<area shape="rect" title=" " alt="" coords="883,592,954,617"/>
-<area shape="rect" title=" " alt="" coords="781,592,859,617"/>
-<area shape="rect" title=" " alt="" coords="986,592,1025,617"/>
-<area shape="rect" href="../../d7/d3e/entity_pool_8hpp.html" title=" " alt="" coords="391,519,494,544"/>
-<area shape="rect" href="../../d1/d33/frame_buffers_compontents_8hpp.html" title=" " alt="" coords="473,445,671,471"/>
-<area shape="rect" title=" " alt="" coords="378,592,441,617"/>
+<area shape="rect" title=" " alt="" coords="1567,5,1663,31"/>
+<area shape="rect" href="../../d4/d3d/log_8hpp.html" title=" " alt="" coords="1113,225,1176,251"/>
+<area shape="rect" href="../../d6/dcb/os_a_p_i_8hpp.html" title=" " alt="" coords="554,79,636,104"/>
+<area shape="rect" title=" " alt="" coords="734,152,813,177"/>
+<area shape="rect" href="../../d0/dca/render_api_8hpp.html" title=" " alt="" coords="1450,79,1551,104"/>
+<area shape="rect" title=" " alt="" coords="1576,79,1654,104"/>
+<area shape="rect" title=" " alt="" coords="1679,79,1738,104"/>
+<area shape="rect" title=" " alt="" coords="1762,79,1834,104"/>
+<area shape="rect" title=" " alt="" coords="1858,79,1950,104"/>
+<area shape="rect" title=" " alt="" coords="1974,79,2066,104"/>
+<area shape="rect" title=" " alt="" coords="1078,299,1179,324"/>
+<area shape="rect" title=" " alt="" coords="380,372,434,397"/>
+<area shape="rect" href="../../da/d47/core_8hpp.html" title=" " alt="" coords="1204,299,1274,324"/>
+<area shape="rect" href="../../de/d7c/os_events_data_8hpp.html" title=" " alt="" coords="532,152,658,177"/>
+<area shape="rect" title=" " alt="" coords="722,299,780,324"/>
+<area shape="rect" title=" " alt="" coords="416,152,508,177"/>
+<area shape="rect" title=" " alt="" coords="887,372,948,397"/>
+<area shape="rect" href="../../d3/d71/key_data_8hpp.html" title=" " alt="" coords="566,225,659,251"/>
+<area shape="rect" href="../../d0/d5f/mouse_button_data_8hpp.html" title=" " alt="" coords="210,225,361,251"/>
+<area shape="rect" href="../../db/d1b/mouse_move_data_8hpp.html" title=" " alt="" coords="683,225,827,251"/>
+<area shape="rect" href="../../da/db3/mouse_scroll_data_8hpp.html" title=" " alt="" coords="41,225,186,251"/>
+<area shape="rect" href="../../dd/d8e/window_resize_data_8hpp.html" title=" " alt="" coords="385,225,541,251"/>
+<area shape="rect" href="../../de/d77/gpu_render_data_8hpp.html" title=" " alt="" coords="1841,225,1976,251"/>
+<area shape="rect" href="../../d2/d0d/cpu_render_data_8hpp.html" title=" " alt="" coords="852,225,986,251"/>
+<area shape="rect" title=" " alt="" coords="971,299,1035,324"/>
+<area shape="rect" href="../../d7/d0b/keycodes_8hpp.html" title=" " alt="" coords="562,299,663,324"/>
+<area shape="rect" href="../../d5/dde/mouse_format_8hpp.html" title=" " alt="" coords="222,299,349,324"/>
+<area shape="rect" href="../../d5/dd7/window_state_8hpp.html" title=" " alt="" coords="402,299,524,324"/>
+<area shape="rect" href="../../d5/d84/supported_render_apis_8hpp.html" title=" " alt="" coords="2038,299,2208,324"/>
+<area shape="rect" title=" " alt="" coords="1956,299,2013,324"/>
+<area shape="rect" title=" " alt="" coords="1869,299,1932,324"/>
+<area shape="rect" href="../../d7/d3e/entity_pool_8hpp.html" title=" " alt="" coords="1252,225,1354,251"/>
+<area shape="rect" href="../../d9/dfc/api_type_components_8hpp.html" title=" " alt="" coords="1710,152,1874,177"/>
+<area shape="rect" href="../../dd/db2/frame_buffers_components_8hpp.html" title=" " alt="" coords="1302,152,1496,177"/>
+<area shape="rect" href="../../df/dad/shaders_components_8hpp.html" title=" " alt="" coords="1520,152,1686,177"/>
+<area shape="rect" href="../../d6/dbd/texture_components_8hpp.html" title=" " alt="" coords="889,152,1048,177"/>
+<area shape="rect" href="../../d8/dc1/_v_a_os_components_8hpp.html" title=" " alt="" coords="1072,152,1227,177"/>
+<area shape="rect" title=" " alt="" coords="1298,299,1337,324"/>
+<area shape="rect" title=" " alt="" coords="1379,225,1430,251"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -171,10 +171,10 @@ Functions</h2></td></tr>
 <tr class="separator:a15ec9e87b70e466c4a35fce0137ff103"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe59de0743f21c646179fec7769b7349"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d0a/main_8cpp.html#abe59de0743f21c646179fec7769b7349">focusSwap</a> (<a class="el" href="../../da/d47/core_8hpp.html#aaf770ef1bf4bd89eb6332eb7c8149883">surfaceId</a> winId)</td></tr>
 <tr class="separator:abe59de0743f21c646179fec7769b7349"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee5125c0ba555e89f6baca7bc81366b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d0a/main_8cpp.html#aee5125c0ba555e89f6baca7bc81366b9">cpuRender</a> (const <a class="el" href="../../d0/df1/structwindow_render_data.html">windowRenderData</a> &amp;sendor)</td></tr>
-<tr class="separator:aee5125c0ba555e89f6baca7bc81366b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4cf4fc72c2443dbbf39be81dc792d8cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d0a/main_8cpp.html#a4cf4fc72c2443dbbf39be81dc792d8cb">gpuRender</a> (const <a class="el" href="../../d0/df1/structwindow_render_data.html">windowRenderData</a> &amp;sendor)</td></tr>
-<tr class="separator:a4cf4fc72c2443dbbf39be81dc792d8cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa221060191780e27305d967bad5bd73"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d0a/main_8cpp.html#afa221060191780e27305d967bad5bd73">cpuRender</a> (const <a class="el" href="../../d4/d29/structcpu_render_data.html">cpuRenderData</a> &amp;sendor)</td></tr>
+<tr class="separator:afa221060191780e27305d967bad5bd73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af90a3c139ab6af569327f67959bfa9dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d0a/main_8cpp.html#af90a3c139ab6af569327f67959bfa9dd">gpuRender</a> (const <a class="el" href="../../db/d9e/structgpu_render_data.html">gpuRenderData</a> &amp;sendor)</td></tr>
+<tr class="separator:af90a3c139ab6af569327f67959bfa9dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3de3a19b0f80e4d82b2bf426608a04bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d0a/main_8cpp.html#a3de3a19b0f80e4d82b2bf426608a04bf">consoleKeyWait</a> ()</td></tr>
 <tr class="separator:a3de3a19b0f80e4d82b2bf426608a04bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
@@ -186,14 +186,14 @@ Variables</h2></td></tr>
 <tr class="separator:a5cf325943b6df784c98ce6e1e2468c46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e6f76368abfbc8709f4c1346dfa6a20"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d0a/main_8cpp.html#a3e6f76368abfbc8709f4c1346dfa6a20">run</a> = true</td></tr>
 <tr class="separator:a3e6f76368abfbc8709f4c1346dfa6a20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0387ba3b16eac05546406437f80d804"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d0a/main_8cpp.html#ad0387ba3b16eac05546406437f80d804">vertices3</a> []</td></tr>
-<tr class="separator:ad0387ba3b16eac05546406437f80d804"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a738fd665e4ed299512d4d27fc7605c90"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d0a/main_8cpp.html#a738fd665e4ed299512d4d27fc7605c90">vertices1</a> []</td></tr>
-<tr class="separator:a738fd665e4ed299512d4d27fc7605c90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7faf18e9e82c0266ee48d4251f12d8ae"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d0a/main_8cpp.html#a7faf18e9e82c0266ee48d4251f12d8ae">vertices2</a> []</td></tr>
-<tr class="separator:a7faf18e9e82c0266ee48d4251f12d8ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad54a84289c6ab064d04879e4ae75d90b"><td class="memItemLeft" align="right" valign="top">constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d0a/main_8cpp.html#ad54a84289c6ab064d04879e4ae75d90b">indcies</a> []</td></tr>
-<tr class="separator:ad54a84289c6ab064d04879e4ae75d90b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b34eba685209067cd19619c10769c83"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d0a/main_8cpp.html#a6b34eba685209067cd19619c10769c83">vertices3</a></td></tr>
+<tr class="separator:a6b34eba685209067cd19619c10769c83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b14c10044443cbf45610ebadcfd30c0"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d0a/main_8cpp.html#a2b14c10044443cbf45610ebadcfd30c0">vertices1</a></td></tr>
+<tr class="separator:a2b14c10044443cbf45610ebadcfd30c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ba9ca0db23fe24e38bb62870e492177"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d0a/main_8cpp.html#a2ba9ca0db23fe24e38bb62870e492177">vertices2</a></td></tr>
+<tr class="separator:a2ba9ca0db23fe24e38bb62870e492177"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0caedc9b2da778190eb007fac43b7ec8"><td class="memItemLeft" align="right" valign="top">uint32_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d0a/main_8cpp.html#a0caedc9b2da778190eb007fac43b7ec8">indcies</a></td></tr>
+<tr class="separator:a0caedc9b2da778190eb007fac43b7ec8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a3de3a19b0f80e4d82b2bf426608a04bf" name="a3de3a19b0f80e4d82b2bf426608a04bf"></a>
@@ -210,11 +210,11 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  166</span>{</div>
-<div class="line"><span class="lineno">  167</span>    std::getchar();</div>
-<div class="line"><span class="lineno">  168</span>    <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a3e6f76368abfbc8709f4c1346dfa6a20">run</a> = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  169</span>}</div>
-<div class="ttc" id="amain_8cpp_html_a3e6f76368abfbc8709f4c1346dfa6a20"><div class="ttname"><a href="../../df/d0a/main_8cpp.html#a3e6f76368abfbc8709f4c1346dfa6a20">run</a></div><div class="ttdeci">bool run</div><div class="ttdef"><b>Definition:</b> main.cpp:14</div></div>
+<div class="fragment"><div class="line"><span class="lineno">  170</span>{</div>
+<div class="line"><span class="lineno">  171</span>    std::getchar();</div>
+<div class="line"><span class="lineno">  172</span>    <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a3e6f76368abfbc8709f4c1346dfa6a20">run</a> = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  173</span>}</div>
+<div class="ttc" id="amain_8cpp_html_a3e6f76368abfbc8709f4c1346dfa6a20"><div class="ttname"><a href="../../df/d0a/main_8cpp.html#a3e6f76368abfbc8709f4c1346dfa6a20">run</a></div><div class="ttdeci">bool run</div><div class="ttdef"><b>Definition:</b> main.cpp:15</div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -227,8 +227,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="aee5125c0ba555e89f6baca7bc81366b9" name="aee5125c0ba555e89f6baca7bc81366b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee5125c0ba555e89f6baca7bc81366b9">&#9670;&#160;</a></span>cpuRender()</h2>
+<a id="afa221060191780e27305d967bad5bd73" name="afa221060191780e27305d967bad5bd73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa221060191780e27305d967bad5bd73">&#9670;&#160;</a></span>cpuRender()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -236,41 +236,41 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">void cpuRender </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d0/df1/structwindow_render_data.html">windowRenderData</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d29/structcpu_render_data.html">cpuRenderData</a> &amp;&#160;</td>
           <td class="paramname"><em>sendor</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   88</span>{</div>
-<div class="line"><span class="lineno">   89</span>    {</div>
-<div class="line"><span class="lineno">   90</span>        <span class="keyword">static</span> <span class="keywordtype">double</span> *offset = <span class="keyword">new</span> double();</div>
-<div class="line"><span class="lineno">   91</span>        <span class="keyword">static</span> uint32_t size = 16;</div>
-<div class="line"><span class="lineno">   92</span> </div>
-<div class="line"><span class="lineno">   93</span>        ZoneScoped;</div>
-<div class="line"><span class="lineno">   94</span>        *offset += (sendor.<a class="code hl_variable" href="../../d0/df1/structwindow_render_data.html#a87657d58fb1c02219a73277e2f69218e">deltaTime</a> / 100.0 * 24);</div>
-<div class="line"><span class="lineno">   95</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> y = 0; y &lt; sendor.<a class="code hl_variable" href="../../d0/df1/structwindow_render_data.html#a4425698af85c54f223a6c15560818996">height</a>; ++y) {</div>
-<div class="line"><span class="lineno">   96</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> x = 0; x &lt; sendor.<a class="code hl_variable" href="../../d0/df1/structwindow_render_data.html#a6eaa6fb18109680c9c8b8a2a96b7fa40">width</a>; x ++) </div>
-<div class="line"><span class="lineno">   97</span>            {</div>
-<div class="line"><span class="lineno">   98</span> </div>
-<div class="line"><span class="lineno">   99</span>                ((uint8_t*)&amp;sendor.<a class="code hl_variable" href="../../d0/df1/structwindow_render_data.html#adf6e95514e11774ae974b65568e5b25c">data</a>[y * sendor.<a class="code hl_variable" href="../../d0/df1/structwindow_render_data.html#a6eaa6fb18109680c9c8b8a2a96b7fa40">width</a> + x])[0] = ((y * sendor.<a class="code hl_variable" href="../../d0/df1/structwindow_render_data.html#a6eaa6fb18109680c9c8b8a2a96b7fa40">width</a> + x)*4 + *offset);</div>
-<div class="line"><span class="lineno">  100</span>                ((uint8_t*)&amp;sendor.<a class="code hl_variable" href="../../d0/df1/structwindow_render_data.html#adf6e95514e11774ae974b65568e5b25c">data</a>[y * sendor.<a class="code hl_variable" href="../../d0/df1/structwindow_render_data.html#a6eaa6fb18109680c9c8b8a2a96b7fa40">width</a> + x])[1] = 0;</div>
-<div class="line"><span class="lineno">  101</span>                ((uint8_t*)&amp;sendor.<a class="code hl_variable" href="../../d0/df1/structwindow_render_data.html#adf6e95514e11774ae974b65568e5b25c">data</a>[y * sendor.<a class="code hl_variable" href="../../d0/df1/structwindow_render_data.html#a6eaa6fb18109680c9c8b8a2a96b7fa40">width</a> + x])[2] = 0;</div>
-<div class="line"><span class="lineno">  102</span>                ((uint8_t*)&amp;sendor.<a class="code hl_variable" href="../../d0/df1/structwindow_render_data.html#adf6e95514e11774ae974b65568e5b25c">data</a>[y * sendor.<a class="code hl_variable" href="../../d0/df1/structwindow_render_data.html#a6eaa6fb18109680c9c8b8a2a96b7fa40">width</a> + x])[3] = 0xFF;</div>
-<div class="line"><span class="lineno">  103</span>            }</div>
-<div class="line"><span class="lineno">  104</span>        }</div>
-<div class="line"><span class="lineno">  105</span>    }</div>
-<div class="line"><span class="lineno">  106</span>    std::this_thread::sleep_for(std::chrono::milliseconds(10));</div>
-<div class="line"><span class="lineno">  107</span>}</div>
-<div class="ttc" id="astructwindow_render_data_html_a4425698af85c54f223a6c15560818996"><div class="ttname"><a href="../../d0/df1/structwindow_render_data.html#a4425698af85c54f223a6c15560818996">windowRenderData::height</a></div><div class="ttdeci">int height</div><div class="ttdef"><b>Definition:</b> windowRenderData.hpp:8</div></div>
-<div class="ttc" id="astructwindow_render_data_html_a6eaa6fb18109680c9c8b8a2a96b7fa40"><div class="ttname"><a href="../../d0/df1/structwindow_render_data.html#a6eaa6fb18109680c9c8b8a2a96b7fa40">windowRenderData::width</a></div><div class="ttdeci">int width</div><div class="ttdef"><b>Definition:</b> windowRenderData.hpp:7</div></div>
-<div class="ttc" id="astructwindow_render_data_html_a87657d58fb1c02219a73277e2f69218e"><div class="ttname"><a href="../../d0/df1/structwindow_render_data.html#a87657d58fb1c02219a73277e2f69218e">windowRenderData::deltaTime</a></div><div class="ttdeci">int deltaTime</div><div class="ttdef"><b>Definition:</b> windowRenderData.hpp:10</div></div>
-<div class="ttc" id="astructwindow_render_data_html_adf6e95514e11774ae974b65568e5b25c"><div class="ttname"><a href="../../d0/df1/structwindow_render_data.html#adf6e95514e11774ae974b65568e5b25c">windowRenderData::data</a></div><div class="ttdeci">uint32_t * data</div><div class="ttdef"><b>Definition:</b> windowRenderData.hpp:9</div></div>
+<div class="fragment"><div class="line"><span class="lineno">   89</span>{</div>
+<div class="line"><span class="lineno">   90</span>    {</div>
+<div class="line"><span class="lineno">   91</span>        <span class="keyword">static</span> <span class="keywordtype">double</span> *offset = <span class="keyword">new</span> double();</div>
+<div class="line"><span class="lineno">   92</span>        <span class="keyword">static</span> uint32_t size = 16;</div>
+<div class="line"><span class="lineno">   93</span> </div>
+<div class="line"><span class="lineno">   94</span>        ZoneScoped;</div>
+<div class="line"><span class="lineno">   95</span>        *offset += (sendor.<a class="code hl_variable" href="../../d4/d29/structcpu_render_data.html#ac2b07a7588ff37a5f1e32198c8cf8cfa">deltaTime</a> / 100.0 * 24);</div>
+<div class="line"><span class="lineno">   96</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> y = 0; y &lt; sendor.<a class="code hl_variable" href="../../d4/d29/structcpu_render_data.html#ae80b62bbe5098921a252d71288b14e66">height</a>; ++y) {</div>
+<div class="line"><span class="lineno">   97</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> x = 0; x &lt; sendor.<a class="code hl_variable" href="../../d4/d29/structcpu_render_data.html#a9e8bb3fc8dd5cd4b494c9ee084059e8f">width</a>; x ++) </div>
+<div class="line"><span class="lineno">   98</span>            {</div>
+<div class="line"><span class="lineno">   99</span> </div>
+<div class="line"><span class="lineno">  100</span>                ((uint8_t*)&amp;sendor.<a class="code hl_variable" href="../../d4/d29/structcpu_render_data.html#ab3dd9119304bb922276c0178b8a80b95">data</a>[y * sendor.<a class="code hl_variable" href="../../d4/d29/structcpu_render_data.html#a9e8bb3fc8dd5cd4b494c9ee084059e8f">width</a> + x])[0] = ((y * sendor.<a class="code hl_variable" href="../../d4/d29/structcpu_render_data.html#a9e8bb3fc8dd5cd4b494c9ee084059e8f">width</a> + x)*4 + *offset);</div>
+<div class="line"><span class="lineno">  101</span>                ((uint8_t*)&amp;sendor.<a class="code hl_variable" href="../../d4/d29/structcpu_render_data.html#ab3dd9119304bb922276c0178b8a80b95">data</a>[y * sendor.<a class="code hl_variable" href="../../d4/d29/structcpu_render_data.html#a9e8bb3fc8dd5cd4b494c9ee084059e8f">width</a> + x])[1] = 0;</div>
+<div class="line"><span class="lineno">  102</span>                ((uint8_t*)&amp;sendor.<a class="code hl_variable" href="../../d4/d29/structcpu_render_data.html#ab3dd9119304bb922276c0178b8a80b95">data</a>[y * sendor.<a class="code hl_variable" href="../../d4/d29/structcpu_render_data.html#a9e8bb3fc8dd5cd4b494c9ee084059e8f">width</a> + x])[2] = 0;</div>
+<div class="line"><span class="lineno">  103</span>                ((uint8_t*)&amp;sendor.<a class="code hl_variable" href="../../d4/d29/structcpu_render_data.html#ab3dd9119304bb922276c0178b8a80b95">data</a>[y * sendor.<a class="code hl_variable" href="../../d4/d29/structcpu_render_data.html#a9e8bb3fc8dd5cd4b494c9ee084059e8f">width</a> + x])[3] = 0xFF;</div>
+<div class="line"><span class="lineno">  104</span>            }</div>
+<div class="line"><span class="lineno">  105</span>        }</div>
+<div class="line"><span class="lineno">  106</span>    }</div>
+<div class="line"><span class="lineno">  107</span>    std::this_thread::sleep_for(std::chrono::milliseconds(15));</div>
+<div class="line"><span class="lineno">  108</span>}</div>
+<div class="ttc" id="astructcpu_render_data_html_a9e8bb3fc8dd5cd4b494c9ee084059e8f"><div class="ttname"><a href="../../d4/d29/structcpu_render_data.html#a9e8bb3fc8dd5cd4b494c9ee084059e8f">cpuRenderData::width</a></div><div class="ttdeci">int width</div><div class="ttdef"><b>Definition:</b> cpuRenderData.hpp:7</div></div>
+<div class="ttc" id="astructcpu_render_data_html_ab3dd9119304bb922276c0178b8a80b95"><div class="ttname"><a href="../../d4/d29/structcpu_render_data.html#ab3dd9119304bb922276c0178b8a80b95">cpuRenderData::data</a></div><div class="ttdeci">uint32_t * data</div><div class="ttdef"><b>Definition:</b> cpuRenderData.hpp:9</div></div>
+<div class="ttc" id="astructcpu_render_data_html_ac2b07a7588ff37a5f1e32198c8cf8cfa"><div class="ttname"><a href="../../d4/d29/structcpu_render_data.html#ac2b07a7588ff37a5f1e32198c8cf8cfa">cpuRenderData::deltaTime</a></div><div class="ttdeci">int deltaTime</div><div class="ttdef"><b>Definition:</b> cpuRenderData.hpp:10</div></div>
+<div class="ttc" id="astructcpu_render_data_html_ae80b62bbe5098921a252d71288b14e66"><div class="ttname"><a href="../../d4/d29/structcpu_render_data.html#ae80b62bbe5098921a252d71288b14e66">cpuRenderData::height</a></div><div class="ttdeci">int height</div><div class="ttdef"><b>Definition:</b> cpuRenderData.hpp:8</div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../df/d0a/main_8cpp_aee5125c0ba555e89f6baca7bc81366b9_icgraph.png" border="0" usemap="#adf/d0a/main_8cpp_aee5125c0ba555e89f6baca7bc81366b9_icgraph" alt=""/></div>
-<map name="adf/d0a/main_8cpp_aee5125c0ba555e89f6baca7bc81366b9_icgraph" id="adf/d0a/main_8cpp_aee5125c0ba555e89f6baca7bc81366b9_icgraph">
+<div class="center"><img src="../../df/d0a/main_8cpp_afa221060191780e27305d967bad5bd73_icgraph.png" border="0" usemap="#adf/d0a/main_8cpp_afa221060191780e27305d967bad5bd73_icgraph" alt=""/></div>
+<map name="adf/d0a/main_8cpp_afa221060191780e27305d967bad5bd73_icgraph" id="adf/d0a/main_8cpp_afa221060191780e27305d967bad5bd73_icgraph">
 <area shape="rect" title=" " alt="" coords="104,5,188,31"/>
 <area shape="rect" href="../../df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,56,31"/>
 </map>
@@ -293,12 +293,12 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   83</span>{</div>
-<div class="line"><span class="lineno">   84</span>    <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#abba4f33d5caf52c17ab95053b60f76d7">LOG_INFO</a>(<span class="stringliteral">&quot;focus swap window(&quot;</span> &lt;&lt; <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#a2a07fd40f7bdad0a1a2dc511e71a1758">getWindowTitle</a>(winId) &lt;&lt;<span class="stringliteral">&quot;)&quot;</span>)</div>
-<div class="line"><span class="lineno">   85</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   84</span>{</div>
+<div class="line"><span class="lineno">   85</span>    <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#abba4f33d5caf52c17ab95053b60f76d7">LOG_INFO</a>(<span class="stringliteral">&quot;focus swap window(&quot;</span> &lt;&lt; <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#a2a07fd40f7bdad0a1a2dc511e71a1758">getWindowTitle</a>(winId) &lt;&lt;<span class="stringliteral">&quot;)&quot;</span>)</div>
+<div class="line"><span class="lineno">   86</span>}</div>
 <div class="ttc" id="aclassos_a_p_i_html_a2a07fd40f7bdad0a1a2dc511e71a1758"><div class="ttname"><a href="../../d5/d6a/classos_a_p_i.html#a2a07fd40f7bdad0a1a2dc511e71a1758">osAPI::getWindowTitle</a></div><div class="ttdeci">std::string getWindowTitle(windowId winId)</div></div>
 <div class="ttc" id="alog_8hpp_html_abba4f33d5caf52c17ab95053b60f76d7"><div class="ttname"><a href="../../d4/d3d/log_8hpp.html#abba4f33d5caf52c17ab95053b60f76d7">LOG_INFO</a></div><div class="ttdeci">#define LOG_INFO(toLog)</div><div class="ttdef"><b>Definition:</b> log.hpp:6</div></div>
-<div class="ttc" id="amain_8cpp_html_a5cf325943b6df784c98ce6e1e2468c46"><div class="ttname"><a href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a></div><div class="ttdeci">osAPI * a</div><div class="ttdef"><b>Definition:</b> main.cpp:13</div></div>
+<div class="ttc" id="amain_8cpp_html_a5cf325943b6df784c98ce6e1e2468c46"><div class="ttname"><a href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a></div><div class="ttdeci">osAPI * a</div><div class="ttdef"><b>Definition:</b> main.cpp:14</div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -320,8 +320,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a4cf4fc72c2443dbbf39be81dc792d8cb" name="a4cf4fc72c2443dbbf39be81dc792d8cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4cf4fc72c2443dbbf39be81dc792d8cb">&#9670;&#160;</a></span>gpuRender()</h2>
+<a id="af90a3c139ab6af569327f67959bfa9dd" name="af90a3c139ab6af569327f67959bfa9dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af90a3c139ab6af569327f67959bfa9dd">&#9670;&#160;</a></span>gpuRender()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -329,102 +329,115 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">void gpuRender </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d0/df1/structwindow_render_data.html">windowRenderData</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="../../db/d9e/structgpu_render_data.html">gpuRenderData</a> &amp;&#160;</td>
           <td class="paramname"><em>sendor</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  111</span>{</div>
-<div class="line"><span class="lineno">  112</span>    {</div>
-<div class="line"><span class="lineno">  113</span>        <span class="keyword">static</span> <span class="keywordtype">bool</span> temp = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  114</span>        <span class="keyword">static</span> <a class="code hl_struct" href="../../df/d3a/structentity_id.html">vaoId</a> shapeToRender;</div>
-<div class="line"><span class="lineno">  115</span>        <span class="keyword">static</span> <a class="code hl_struct" href="../../df/d3a/structentity_id.html">shaderId</a> shaderToRender;</div>
-<div class="line"><span class="lineno">  116</span>        <span class="keyword">static</span> <a class="code hl_struct" href="../../df/d3a/structentity_id.html">textureId</a> testTexture;</div>
-<div class="line"><span class="lineno">  117</span>        <span class="keywordflow">if</span>(!temp)</div>
-<div class="line"><span class="lineno">  118</span>        {</div>
-<div class="line"><span class="lineno">  119</span>            shapeToRender =  sendor.<a class="code hl_variable" href="../../d0/df1/structwindow_render_data.html#a51401ec20c14e92d7af7a6039283ada2">api</a>-&gt;<a class="code hl_variable" href="../../de/d40/classopen_g_l_renderer.html#a175f983fe19230469a3ed69c4369c2bd">shapes</a>-&gt;<a class="code hl_function" href="../../de/d2c/classvertex_array_manger.html#a4b4777f5514213394d05cd6bc8faf355">createVao</a>();</div>
-<div class="line"><span class="lineno">  120</span>            sendor.<a class="code hl_variable" href="../../d0/df1/structwindow_render_data.html#a51401ec20c14e92d7af7a6039283ada2">api</a>-&gt;<a class="code hl_variable" href="../../de/d40/classopen_g_l_renderer.html#a175f983fe19230469a3ed69c4369c2bd">shapes</a>-&gt;<a class="code hl_function" href="../../de/d2c/classvertex_array_manger.html#aa20cf1f6a066380204e9fc695bf0d6fe">attachIndexBuffer</a>(shapeToRender, <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#ad54a84289c6ab064d04879e4ae75d90b">indcies</a>, 6);</div>
+<div class="fragment"><div class="line"><span class="lineno">  112</span>{</div>
+<div class="line"><span class="lineno">  113</span>    {</div>
+<div class="line"><span class="lineno">  114</span>        <span class="keyword">static</span> <span class="keywordtype">bool</span> temp = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  115</span>        <span class="keyword">static</span> <span class="keywordtype">bool</span> tempFinsh = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  116</span>        <span class="keyword">static</span> <a class="code hl_struct" href="../../df/d3a/structentity_id.html">vaoId</a> shapeToRender;</div>
+<div class="line"><span class="lineno">  117</span>        <span class="keyword">static</span> <a class="code hl_struct" href="../../df/d3a/structentity_id.html">shaderId</a> shaderToRender;</div>
+<div class="line"><span class="lineno">  118</span>        <span class="keyword">static</span> <a class="code hl_struct" href="../../df/d3a/structentity_id.html">textureId</a> testTexture;</div>
+<div class="line"><span class="lineno">  119</span>        <span class="keyword">static</span> stbi_uc* data = <span class="keyword">nullptr</span>;</div>
+<div class="line"><span class="lineno">  120</span>        <span class="keyword">static</span> <span class="keywordtype">int</span> width, height, channels;</div>
 <div class="line"><span class="lineno">  121</span> </div>
-<div class="line"><span class="lineno">  122</span> </div>
-<div class="line"><span class="lineno">  123</span>            sendor.<a class="code hl_variable" href="../../d0/df1/structwindow_render_data.html#a51401ec20c14e92d7af7a6039283ada2">api</a>-&gt;<a class="code hl_variable" href="../../de/d40/classopen_g_l_renderer.html#a175f983fe19230469a3ed69c4369c2bd">shapes</a>-&gt;<a class="code hl_function" href="../../de/d2c/classvertex_array_manger.html#a378deaf648d9bb4d6fd944ca342219c1">addVertexBufferBinding</a>(shapeToRender, {</div>
-<div class="line"><span class="lineno">  124</span>                0,</div>
-<div class="line"><span class="lineno">  125</span>                <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#ad0387ba3b16eac05546406437f80d804">vertices3</a>,</div>
-<div class="line"><span class="lineno">  126</span>                <span class="keyword">sizeof</span>(<a class="code hl_variable" href="../../df/d0a/main_8cpp.html#ad0387ba3b16eac05546406437f80d804">vertices3</a>),</div>
-<div class="line"><span class="lineno">  127</span>                5 * <span class="keyword">sizeof</span>(GLfloat)</div>
-<div class="line"><span class="lineno">  128</span>            });</div>
-<div class="line"><span class="lineno">  129</span> </div>
-<div class="line"><span class="lineno">  130</span> </div>
-<div class="line"><span class="lineno">  131</span>            sendor.<a class="code hl_variable" href="../../d0/df1/structwindow_render_data.html#a51401ec20c14e92d7af7a6039283ada2">api</a>-&gt;<a class="code hl_variable" href="../../de/d40/classopen_g_l_renderer.html#a175f983fe19230469a3ed69c4369c2bd">shapes</a>-&gt;<a class="code hl_function" href="../../de/d2c/classvertex_array_manger.html#a58c15e95ade89d87623b26fc837f3dd7">addVertexBufferAttacment</a>(shapeToRender, 0, 0, 3);</div>
-<div class="line"><span class="lineno">  132</span>            sendor.<a class="code hl_variable" href="../../d0/df1/structwindow_render_data.html#a51401ec20c14e92d7af7a6039283ada2">api</a>-&gt;<a class="code hl_variable" href="../../de/d40/classopen_g_l_renderer.html#a175f983fe19230469a3ed69c4369c2bd">shapes</a>-&gt;<a class="code hl_function" href="../../de/d2c/classvertex_array_manger.html#a58c15e95ade89d87623b26fc837f3dd7">addVertexBufferAttacment</a>(shapeToRender, 1, 0, 2, 3 * <span class="keyword">sizeof</span>(GLfloat));</div>
-<div class="line"><span class="lineno">  133</span> </div>
-<div class="line"><span class="lineno">  134</span>            shaderToRender = sendor.<a class="code hl_variable" href="../../d0/df1/structwindow_render_data.html#a51401ec20c14e92d7af7a6039283ada2">api</a>-&gt;<a class="code hl_variable" href="../../de/d40/classopen_g_l_renderer.html#a33b1fd6879cf0e49e1c6e871b29279e4">shaders</a>-&gt;<a class="code hl_function" href="../../d4/df4/classshader_manger.html#a7c7af69318c5f8d19426ad0c96f37e42">createProgram</a>(<span class="stringliteral">&quot;assets/shaders/vertex/texture.vert.spv&quot;</span>, <span class="stringliteral">&quot;assets/shaders/fragment/texture.frag.spv&quot;</span>);</div>
-<div class="line"><span class="lineno">  135</span>            </div>
-<div class="line"><span class="lineno">  136</span>            </div>
+<div class="line"><span class="lineno">  122</span>        <span class="keywordflow">if</span>(!temp)</div>
+<div class="line"><span class="lineno">  123</span>        {</div>
+<div class="line"><span class="lineno">  124</span>            temp = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  125</span> </div>
+<div class="line"><span class="lineno">  126</span>            shapeToRender = sendor.<a class="code hl_variable" href="../../db/d9e/structgpu_render_data.html#adbe5a36bf1000def31e7b1c96daf07f9">api</a>-&gt;<a class="code hl_function" href="../../d7/d09/classrender_api.html#a1d2213423b9d0e13385245d59d295e18">allocVao</a>(sendor.<a class="code hl_variable" href="../../db/d9e/structgpu_render_data.html#a6f75c5fd4fa51f84b05583608eac4e34">apiType</a>);</div>
+<div class="line"><span class="lineno">  127</span>            shaderToRender = sendor.<a class="code hl_variable" href="../../db/d9e/structgpu_render_data.html#adbe5a36bf1000def31e7b1c96daf07f9">api</a>-&gt;<a class="code hl_function" href="../../d7/d09/classrender_api.html#ab602f772843e6c1b63b18422f332891b">allocShader</a>(sendor.<a class="code hl_variable" href="../../db/d9e/structgpu_render_data.html#a6f75c5fd4fa51f84b05583608eac4e34">apiType</a>);</div>
+<div class="line"><span class="lineno">  128</span>            testTexture = sendor.<a class="code hl_variable" href="../../db/d9e/structgpu_render_data.html#adbe5a36bf1000def31e7b1c96daf07f9">api</a>-&gt;<a class="code hl_function" href="../../d7/d09/classrender_api.html#a4b465b892d864f3ad54fc91533202305">allocTexture</a>(sendor.<a class="code hl_variable" href="../../db/d9e/structgpu_render_data.html#a6f75c5fd4fa51f84b05583608eac4e34">apiType</a>);</div>
+<div class="line"><span class="lineno">  129</span>            </div>
+<div class="line"><span class="lineno">  130</span>            sendor.<a class="code hl_variable" href="../../db/d9e/structgpu_render_data.html#adbe5a36bf1000def31e7b1c96daf07f9">api</a>-&gt;<a class="code hl_function" href="../../d7/d09/classrender_api.html#a7680fc57da092cbc8a154ad8d77bdf04">setVao</a>({</div>
+<div class="line"><span class="lineno">  131</span>                shapeToRender,</div>
+<div class="line"><span class="lineno">  132</span>                .iboToUpdate = <span class="keyword">new</span> <a class="code hl_struct" href="../../d5/d45/struct_i_b_o_update_requst.html">IBOUpdateRequst</a>{<a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a0caedc9b2da778190eb007fac43b7ec8">indcies</a>, 6},</div>
+<div class="line"><span class="lineno">  133</span>                .bindingSlotsToUpdate[0] = <span class="keyword">new</span> <a class="code hl_struct" href="../../d4/d82/struct_v_b_o_update_requst.html">VBOUpdateRequst</a>{<a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a6b34eba685209067cd19619c10769c83">vertices3</a>, <span class="keyword">sizeof</span>(<a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a6b34eba685209067cd19619c10769c83">vertices3</a>), 5 * <span class="keyword">sizeof</span>(<span class="keywordtype">float</span>)},</div>
+<div class="line"><span class="lineno">  134</span>                .attacmentsToUpdate[0] = <span class="keyword">new</span> <a class="code hl_struct" href="../../d4/d48/structattacment_update_requst.html">attacmentUpdateRequst</a>{0, 3},</div>
+<div class="line"><span class="lineno">  135</span>                .attacmentsToUpdate[1] = <span class="keyword">new</span> <a class="code hl_struct" href="../../d4/d48/structattacment_update_requst.html">attacmentUpdateRequst</a>{0, 2, 3 * <span class="keyword">sizeof</span>(float)},</div>
+<div class="line"><span class="lineno">  136</span>                });</div>
 <div class="line"><span class="lineno">  137</span> </div>
-<div class="line"><span class="lineno">  138</span>            stbi_set_flip_vertically_on_load(1);</div>
-<div class="line"><span class="lineno">  139</span>            stbi_uc* data = <span class="keyword">nullptr</span>;</div>
+<div class="line"><span class="lineno">  138</span>            sendor.<a class="code hl_variable" href="../../db/d9e/structgpu_render_data.html#adbe5a36bf1000def31e7b1c96daf07f9">api</a>-&gt;<a class="code hl_function" href="../../d7/d09/classrender_api.html#aa223f8d20090545d7b6b4be5f3d7a9d3">setShader</a>({shaderToRender, <span class="stringliteral">&quot;assets/shaders/vertex/texture.vert.spv&quot;</span>, <span class="stringliteral">&quot;assets/shaders/fragment/texture.frag.spv&quot;</span>});</div>
+<div class="line"><span class="lineno">  139</span>            stbi_set_flip_vertically_on_load(1);</div>
 <div class="line"><span class="lineno">  140</span>            </div>
-<div class="line"><span class="lineno">  141</span>            <span class="keywordtype">int</span> width, height, channels;</div>
-<div class="line"><span class="lineno">  142</span>            data = stbi_load(<span class="stringliteral">&quot;assets/textures/preview-simple-dungeon-crawler-set1.png&quot;</span>, &amp;width, &amp;height, &amp;channels, 0);</div>
-<div class="line"><span class="lineno">  143</span>            testTexture = sendor.<a class="code hl_variable" href="../../d0/df1/structwindow_render_data.html#a51401ec20c14e92d7af7a6039283ada2">api</a>-&gt;<a class="code hl_variable" href="../../de/d40/classopen_g_l_renderer.html#a91480e1fe69aa89e329d8c296611cdca">textures</a>-&gt;<a class="code hl_function" href="../../d6/d26/classtexture_manger.html#a40647dc3e0d5f50e5a8ee21411915d2e">createTexture</a>(<a class="code hl_enumvalue" href="../../da/d6d/texture_manger_8hpp.html#ae83337823de7c2229be74d296e709024a165c6379d01617e12de274a3952efa63">textureFormat::RGB8</a>, width, height);</div>
-<div class="line"><span class="lineno">  144</span>            sendor.<a class="code hl_variable" href="../../d0/df1/structwindow_render_data.html#a51401ec20c14e92d7af7a6039283ada2">api</a>-&gt;<a class="code hl_variable" href="../../de/d40/classopen_g_l_renderer.html#a91480e1fe69aa89e329d8c296611cdca">textures</a>-&gt;<a class="code hl_function" href="../../d6/d26/classtexture_manger.html#a4812bf5ae5a3f460a002116a4b27ea3a">loadBuffer</a>(testTexture, 0, 0, width, height, <a class="code hl_enumvalue" href="../../da/d6d/texture_manger_8hpp.html#ae83337823de7c2229be74d296e709024a165c6379d01617e12de274a3952efa63">textureFormat::RGB8</a>, GL_UNSIGNED_BYTE, data);</div>
-<div class="line"><span class="lineno">  145</span>            temp = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  141</span>            data = stbi_load(<span class="stringliteral">&quot;assets/textures/preview-simple-dungeon-crawler-set1.png&quot;</span>, &amp;width, &amp;height, &amp;channels, 0);</div>
+<div class="line"><span class="lineno">  142</span> </div>
+<div class="line"><span class="lineno">  143</span>            sendor.<a class="code hl_variable" href="../../db/d9e/structgpu_render_data.html#adbe5a36bf1000def31e7b1c96daf07f9">api</a>-&gt;<a class="code hl_function" href="../../d7/d09/classrender_api.html#a5b3e6cb76e48084c48afb002ef9261d7">setTexture</a>({testTexture, (uint32_t)width, (uint32_t)height, <a class="code hl_enumvalue" href="../../d6/dbd/texture_components_8hpp.html#ae83337823de7c2229be74d296e709024a165c6379d01617e12de274a3952efa63">textureFormat::RGB8</a>});</div>
+<div class="line"><span class="lineno">  144</span> </div>
+<div class="line"><span class="lineno">  145</span>            tempFinsh = <span class="keyword">true</span>; </div>
 <div class="line"><span class="lineno">  146</span>        }</div>
-<div class="line"><span class="lineno">  147</span>        </div>
-<div class="line"><span class="lineno">  148</span>            </div>
-<div class="line"><span class="lineno">  149</span>        sendor.<a class="code hl_variable" href="../../d0/df1/structwindow_render_data.html#a51401ec20c14e92d7af7a6039283ada2">api</a>-&gt;<a class="code hl_function" href="../../de/d40/classopen_g_l_renderer.html#a6d00f40cddd67381f7577ac0bd6e69bc">renderRequest</a>({</div>
-<div class="line"><span class="lineno">  150</span>        .frameBufferId = sendor.<a class="code hl_variable" href="../../d0/df1/structwindow_render_data.html#ab0de95a381deff041f713cf07cf927c9">buffer</a>, </div>
-<div class="line"><span class="lineno">  151</span>        .drawCalls = {{</div>
-<div class="line"><span class="lineno">  152</span>                .shader = shaderToRender, </div>
-<div class="line"><span class="lineno">  153</span>                .vertexArrayId = shapeToRender, </div>
-<div class="line"><span class="lineno">  154</span>                .texturesIds = {[0] = testTexture,</div>
-<div class="line"><span class="lineno">  155</span>                                [1 ... 31] = {16777215, 255}}, </div>
-<div class="line"><span class="lineno">  156</span>                .mode = <a class="code hl_enumvalue" href="../../d0/d92/open_g_l_renderer_8hpp.html#af8d4f5b763081475bc51b404e276bab5a817d7d587258bac88b24567b17bdda87">renderMode::triangles</a>} }</div>
-<div class="line"><span class="lineno">  157</span>    });</div>
-<div class="line"><span class="lineno">  158</span>    </div>
-<div class="line"><span class="lineno">  159</span>    }</div>
-<div class="line"><span class="lineno">  160</span>    std::this_thread::sleep_for(std::chrono::milliseconds(1));</div>
-<div class="line"><span class="lineno">  161</span>}</div>
-<div class="ttc" id="aclassopen_g_l_renderer_html_a175f983fe19230469a3ed69c4369c2bd"><div class="ttname"><a href="../../de/d40/classopen_g_l_renderer.html#a175f983fe19230469a3ed69c4369c2bd">openGLRenderer::shapes</a></div><div class="ttdeci">vertexArrayManger * shapes</div><div class="ttdef"><b>Definition:</b> openGLRenderer.hpp:46</div></div>
-<div class="ttc" id="aclassopen_g_l_renderer_html_a33b1fd6879cf0e49e1c6e871b29279e4"><div class="ttname"><a href="../../de/d40/classopen_g_l_renderer.html#a33b1fd6879cf0e49e1c6e871b29279e4">openGLRenderer::shaders</a></div><div class="ttdeci">shaderManger * shaders</div><div class="ttdef"><b>Definition:</b> openGLRenderer.hpp:47</div></div>
-<div class="ttc" id="aclassopen_g_l_renderer_html_a6d00f40cddd67381f7577ac0bd6e69bc"><div class="ttname"><a href="../../de/d40/classopen_g_l_renderer.html#a6d00f40cddd67381f7577ac0bd6e69bc">openGLRenderer::renderRequest</a></div><div class="ttdeci">void renderRequest(const renderRequestInfo &amp;dataToRender)</div><div class="ttdef"><b>Definition:</b> openGLRenderer.cpp:16</div></div>
-<div class="ttc" id="aclassopen_g_l_renderer_html_a91480e1fe69aa89e329d8c296611cdca"><div class="ttname"><a href="../../de/d40/classopen_g_l_renderer.html#a91480e1fe69aa89e329d8c296611cdca">openGLRenderer::textures</a></div><div class="ttdeci">textureManger * textures</div><div class="ttdef"><b>Definition:</b> openGLRenderer.hpp:49</div></div>
-<div class="ttc" id="aclassshader_manger_html_a7c7af69318c5f8d19426ad0c96f37e42"><div class="ttname"><a href="../../d4/df4/classshader_manger.html#a7c7af69318c5f8d19426ad0c96f37e42">shaderManger::createProgram</a></div><div class="ttdeci">shaderId createProgram(const std::string &amp;vertexPath, const std::string &amp;fragmentPath)</div><div class="ttdef"><b>Definition:</b> shaderManger.cpp:6</div></div>
-<div class="ttc" id="aclasstexture_manger_html_a40647dc3e0d5f50e5a8ee21411915d2e"><div class="ttname"><a href="../../d6/d26/classtexture_manger.html#a40647dc3e0d5f50e5a8ee21411915d2e">textureManger::createTexture</a></div><div class="ttdeci">textureId createTexture(textureFormat format, uint32_t width, uint32_t height)</div><div class="ttdef"><b>Definition:</b> textureManger.cpp:125</div></div>
-<div class="ttc" id="aclasstexture_manger_html_a4812bf5ae5a3f460a002116a4b27ea3a"><div class="ttname"><a href="../../d6/d26/classtexture_manger.html#a4812bf5ae5a3f460a002116a4b27ea3a">textureManger::loadBuffer</a></div><div class="ttdeci">void loadBuffer(textureId id, uint32_t x, uint32_t y, uint32_t width, uint32_t height, textureFormat format, uint32_t type, void *pixels)</div><div class="ttdef"><b>Definition:</b> textureManger.cpp:171</div></div>
-<div class="ttc" id="aclassvertex_array_manger_html_a378deaf648d9bb4d6fd944ca342219c1"><div class="ttname"><a href="../../de/d2c/classvertex_array_manger.html#a378deaf648d9bb4d6fd944ca342219c1">vertexArrayManger::addVertexBufferBinding</a></div><div class="ttdeci">void addVertexBufferBinding(vaoId id, const VBOSpec &amp;data)</div><div class="ttdef"><b>Definition:</b> vertexArrayManger.cpp:39</div></div>
-<div class="ttc" id="aclassvertex_array_manger_html_a4b4777f5514213394d05cd6bc8faf355"><div class="ttname"><a href="../../de/d2c/classvertex_array_manger.html#a4b4777f5514213394d05cd6bc8faf355">vertexArrayManger::createVao</a></div><div class="ttdeci">vaoId createVao()</div><div class="ttdef"><b>Definition:</b> vertexArrayManger.cpp:4</div></div>
-<div class="ttc" id="aclassvertex_array_manger_html_a58c15e95ade89d87623b26fc837f3dd7"><div class="ttname"><a href="../../de/d2c/classvertex_array_manger.html#a58c15e95ade89d87623b26fc837f3dd7">vertexArrayManger::addVertexBufferAttacment</a></div><div class="ttdeci">void addVertexBufferAttacment(vaoId id, uint32_t slot, uint32_t binding, uint32_t size, uint32_t offset=0, uint32_t dataType=GL_FLOAT)</div><div class="ttdef"><b>Definition:</b> vertexArrayManger.cpp:54</div></div>
-<div class="ttc" id="aclassvertex_array_manger_html_aa20cf1f6a066380204e9fc695bf0d6fe"><div class="ttname"><a href="../../de/d2c/classvertex_array_manger.html#aa20cf1f6a066380204e9fc695bf0d6fe">vertexArrayManger::attachIndexBuffer</a></div><div class="ttdeci">void attachIndexBuffer(vaoId id, const uint32_t *IBO, uint32_t size)</div><div class="ttdef"><b>Definition:</b> vertexArrayManger.cpp:69</div></div>
-<div class="ttc" id="amain_8cpp_html_ad0387ba3b16eac05546406437f80d804"><div class="ttname"><a href="../../df/d0a/main_8cpp.html#ad0387ba3b16eac05546406437f80d804">vertices3</a></div><div class="ttdeci">constexpr float vertices3[]</div><div class="ttdef"><b>Definition:</b> main.cpp:16</div></div>
-<div class="ttc" id="amain_8cpp_html_ad54a84289c6ab064d04879e4ae75d90b"><div class="ttname"><a href="../../df/d0a/main_8cpp.html#ad54a84289c6ab064d04879e4ae75d90b">indcies</a></div><div class="ttdeci">constexpr uint32_t indcies[]</div><div class="ttdef"><b>Definition:</b> main.cpp:37</div></div>
-<div class="ttc" id="aopen_g_l_renderer_8hpp_html_af8d4f5b763081475bc51b404e276bab5a817d7d587258bac88b24567b17bdda87"><div class="ttname"><a href="../../d0/d92/open_g_l_renderer_8hpp.html#af8d4f5b763081475bc51b404e276bab5a817d7d587258bac88b24567b17bdda87">renderMode::triangles</a></div><div class="ttdeci">@ triangles</div></div>
+<div class="line"><span class="lineno">  147</span>        <span class="keywordflow">while</span> (!tempFinsh)</div>
+<div class="line"><span class="lineno">  148</span>        {</div>
+<div class="line"><span class="lineno">  149</span>            std::this_thread::sleep_for(std::chrono::milliseconds(1));</div>
+<div class="line"><span class="lineno">  150</span>        }</div>
+<div class="line"><span class="lineno">  151</span>                </div>
+<div class="line"><span class="lineno">  152</span>            </div>
+<div class="line"><span class="lineno">  153</span>        sendor.<a class="code hl_variable" href="../../db/d9e/structgpu_render_data.html#adbe5a36bf1000def31e7b1c96daf07f9">api</a>-&gt;<a class="code hl_function" href="../../d7/d09/classrender_api.html#af689e72491ed88601188dfb8ecdcd221">renderRequest</a>({</div>
+<div class="line"><span class="lineno">  154</span>        .frameBufferId = sendor.<a class="code hl_variable" href="../../db/d9e/structgpu_render_data.html#ab166022c8f85b9200c04f2f62da4992c">buffer</a>, </div>
+<div class="line"><span class="lineno">  155</span>        .drawCalls = {{</div>
+<div class="line"><span class="lineno">  156</span>                .shader = shaderToRender, </div>
+<div class="line"><span class="lineno">  157</span>                .vertexArrayId = shapeToRender, </div>
+<div class="line"><span class="lineno">  158</span>                .texturesIds = {[0] = testTexture,</div>
+<div class="line"><span class="lineno">  159</span>                                [1 ... 31] = {16777215, 255}}, </div>
+<div class="line"><span class="lineno">  160</span>                .mode = <a class="code hl_enumvalue" href="../../d0/dca/render_api_8hpp.html#af8d4f5b763081475bc51b404e276bab5a817d7d587258bac88b24567b17bdda87">renderMode::triangles</a>} }</div>
+<div class="line"><span class="lineno">  161</span>    });</div>
+<div class="line"><span class="lineno">  162</span>    </div>
+<div class="line"><span class="lineno">  163</span>    }</div>
+<div class="line"><span class="lineno">  164</span>    std::this_thread::sleep_for(std::chrono::milliseconds(15));</div>
+<div class="line"><span class="lineno">  165</span>}</div>
+<div class="ttc" id="aclassrender_api_html_a1d2213423b9d0e13385245d59d295e18"><div class="ttname"><a href="../../d7/d09/classrender_api.html#a1d2213423b9d0e13385245d59d295e18">renderApi::allocVao</a></div><div class="ttdeci">vaoId allocVao(supportedRenderApis apiType)</div><div class="ttdef"><b>Definition:</b> renderApi.cpp:60</div></div>
+<div class="ttc" id="aclassrender_api_html_a4b465b892d864f3ad54fc91533202305"><div class="ttname"><a href="../../d7/d09/classrender_api.html#a4b465b892d864f3ad54fc91533202305">renderApi::allocTexture</a></div><div class="ttdeci">textureId allocTexture(supportedRenderApis apiType)</div><div class="ttdef"><b>Definition:</b> renderApi.cpp:53</div></div>
+<div class="ttc" id="aclassrender_api_html_a5b3e6cb76e48084c48afb002ef9261d7"><div class="ttname"><a href="../../d7/d09/classrender_api.html#a5b3e6cb76e48084c48afb002ef9261d7">renderApi::setTexture</a></div><div class="ttdeci">void setTexture(textureInfo data)</div><div class="ttdef"><b>Definition:</b> renderApi.cpp:109</div></div>
+<div class="ttc" id="aclassrender_api_html_a7680fc57da092cbc8a154ad8d77bdf04"><div class="ttname"><a href="../../d7/d09/classrender_api.html#a7680fc57da092cbc8a154ad8d77bdf04">renderApi::setVao</a></div><div class="ttdeci">void setVao(VAOInfo data)</div><div class="ttdef"><b>Definition:</b> renderApi.cpp:122</div></div>
+<div class="ttc" id="aclassrender_api_html_aa223f8d20090545d7b6b4be5f3d7a9d3"><div class="ttname"><a href="../../d7/d09/classrender_api.html#aa223f8d20090545d7b6b4be5f3d7a9d3">renderApi::setShader</a></div><div class="ttdeci">void setShader(shaderInfo data)</div><div class="ttdef"><b>Definition:</b> renderApi.cpp:135</div></div>
+<div class="ttc" id="aclassrender_api_html_ab602f772843e6c1b63b18422f332891b"><div class="ttname"><a href="../../d7/d09/classrender_api.html#ab602f772843e6c1b63b18422f332891b">renderApi::allocShader</a></div><div class="ttdeci">shaderId allocShader(supportedRenderApis apiType)</div><div class="ttdef"><b>Definition:</b> renderApi.cpp:67</div></div>
+<div class="ttc" id="aclassrender_api_html_af689e72491ed88601188dfb8ecdcd221"><div class="ttname"><a href="../../d7/d09/classrender_api.html#af689e72491ed88601188dfb8ecdcd221">renderApi::renderRequest</a></div><div class="ttdeci">void renderRequest(const renderRequestInfo &amp;data)</div><div class="ttdef"><b>Definition:</b> renderApi.cpp:209</div></div>
+<div class="ttc" id="amain_8cpp_html_a0caedc9b2da778190eb007fac43b7ec8"><div class="ttname"><a href="../../df/d0a/main_8cpp.html#a0caedc9b2da778190eb007fac43b7ec8">indcies</a></div><div class="ttdeci">uint32_t * indcies</div><div class="ttdef"><b>Definition:</b> main.cpp:38</div></div>
+<div class="ttc" id="amain_8cpp_html_a6b34eba685209067cd19619c10769c83"><div class="ttname"><a href="../../df/d0a/main_8cpp.html#a6b34eba685209067cd19619c10769c83">vertices3</a></div><div class="ttdeci">float * vertices3</div><div class="ttdef"><b>Definition:</b> main.cpp:17</div></div>
+<div class="ttc" id="arender_api_8hpp_html_af8d4f5b763081475bc51b404e276bab5a817d7d587258bac88b24567b17bdda87"><div class="ttname"><a href="../../d0/dca/render_api_8hpp.html#af8d4f5b763081475bc51b404e276bab5a817d7d587258bac88b24567b17bdda87">renderMode::triangles</a></div><div class="ttdeci">@ triangles</div></div>
+<div class="ttc" id="astruct_i_b_o_update_requst_html"><div class="ttname"><a href="../../d5/d45/struct_i_b_o_update_requst.html">IBOUpdateRequst</a></div><div class="ttdef"><b>Definition:</b> VAOsComponents.hpp:76</div></div>
+<div class="ttc" id="astruct_v_b_o_update_requst_html"><div class="ttname"><a href="../../d4/d82/struct_v_b_o_update_requst.html">VBOUpdateRequst</a></div><div class="ttdef"><b>Definition:</b> VAOsComponents.hpp:66</div></div>
+<div class="ttc" id="astructattacment_update_requst_html"><div class="ttname"><a href="../../d4/d48/structattacment_update_requst.html">attacmentUpdateRequst</a></div><div class="ttdef"><b>Definition:</b> VAOsComponents.hpp:84</div></div>
 <div class="ttc" id="astructentity_id_html"><div class="ttname"><a href="../../df/d3a/structentity_id.html">entityId</a></div><div class="ttdef"><b>Definition:</b> core.hpp:6</div></div>
-<div class="ttc" id="astructwindow_render_data_html_a51401ec20c14e92d7af7a6039283ada2"><div class="ttname"><a href="../../d0/df1/structwindow_render_data.html#a51401ec20c14e92d7af7a6039283ada2">windowRenderData::api</a></div><div class="ttdeci">openGLRenderer * api</div><div class="ttdef"><b>Definition:</b> windowRenderData.hpp:11</div></div>
-<div class="ttc" id="astructwindow_render_data_html_ab0de95a381deff041f713cf07cf927c9"><div class="ttname"><a href="../../d0/df1/structwindow_render_data.html#ab0de95a381deff041f713cf07cf927c9">windowRenderData::buffer</a></div><div class="ttdeci">framebufferId buffer</div><div class="ttdef"><b>Definition:</b> windowRenderData.hpp:12</div></div>
-<div class="ttc" id="atexture_manger_8hpp_html_ae83337823de7c2229be74d296e709024a165c6379d01617e12de274a3952efa63"><div class="ttname"><a href="../../da/d6d/texture_manger_8hpp.html#ae83337823de7c2229be74d296e709024a165c6379d01617e12de274a3952efa63">textureFormat::RGB8</a></div><div class="ttdeci">@ RGB8</div></div>
+<div class="ttc" id="astructgpu_render_data_html_a6f75c5fd4fa51f84b05583608eac4e34"><div class="ttname"><a href="../../db/d9e/structgpu_render_data.html#a6f75c5fd4fa51f84b05583608eac4e34">gpuRenderData::apiType</a></div><div class="ttdeci">supportedRenderApis apiType</div><div class="ttdef"><b>Definition:</b> gpuRenderData.hpp:19</div></div>
+<div class="ttc" id="astructgpu_render_data_html_ab166022c8f85b9200c04f2f62da4992c"><div class="ttname"><a href="../../db/d9e/structgpu_render_data.html#ab166022c8f85b9200c04f2f62da4992c">gpuRenderData::buffer</a></div><div class="ttdeci">framebufferId buffer</div><div class="ttdef"><b>Definition:</b> gpuRenderData.hpp:17</div></div>
+<div class="ttc" id="astructgpu_render_data_html_adbe5a36bf1000def31e7b1c96daf07f9"><div class="ttname"><a href="../../db/d9e/structgpu_render_data.html#adbe5a36bf1000def31e7b1c96daf07f9">gpuRenderData::api</a></div><div class="ttdeci">renderApi * api</div><div class="ttdef"><b>Definition:</b> gpuRenderData.hpp:18</div></div>
+<div class="ttc" id="atexture_components_8hpp_html_ae83337823de7c2229be74d296e709024a165c6379d01617e12de274a3952efa63"><div class="ttname"><a href="../../d6/dbd/texture_components_8hpp.html#ae83337823de7c2229be74d296e709024a165c6379d01617e12de274a3952efa63">textureFormat::RGB8</a></div><div class="ttdeci">@ RGB8</div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../df/d0a/main_8cpp_a4cf4fc72c2443dbbf39be81dc792d8cb_cgraph.png" border="0" usemap="#adf/d0a/main_8cpp_a4cf4fc72c2443dbbf39be81dc792d8cb_cgraph" alt=""/></div>
-<map name="adf/d0a/main_8cpp_a4cf4fc72c2443dbbf39be81dc792d8cb_cgraph" id="adf/d0a/main_8cpp_a4cf4fc72c2443dbbf39be81dc792d8cb_cgraph">
-<area shape="rect" title=" " alt="" coords="5,223,89,249"/>
-<area shape="rect" href="../../de/d2c/classvertex_array_manger.html#a58c15e95ade89d87623b26fc837f3dd7" title=" " alt="" coords="155,5,330,45"/>
-<area shape="rect" href="../../de/d2c/classvertex_array_manger.html#a378deaf648d9bb4d6fd944ca342219c1" title=" " alt="" coords="164,69,321,109"/>
-<area shape="rect" href="../../de/d2c/classvertex_array_manger.html#aa20cf1f6a066380204e9fc695bf0d6fe" title=" " alt="" coords="175,133,311,173"/>
-<area shape="rect" href="../../d4/df4/classshader_manger.html#a7c7af69318c5f8d19426ad0c96f37e42" title=" " alt="" coords="145,198,340,223"/>
-<area shape="rect" href="../../d6/d26/classtexture_manger.html#a40647dc3e0d5f50e5a8ee21411915d2e" title=" " alt="" coords="148,247,337,273"/>
-<area shape="rect" href="../../de/d2c/classvertex_array_manger.html#a4b4777f5514213394d05cd6bc8faf355" title=" " alt="" coords="175,297,311,337"/>
-<area shape="rect" href="../../d6/d26/classtexture_manger.html#a4812bf5ae5a3f460a002116a4b27ea3a" title=" " alt="" coords="159,362,327,387"/>
-<area shape="rect" href="../../de/d40/classopen_g_l_renderer.html#a6d00f40cddd67381f7577ac0bd6e69bc" title=" " alt="" coords="137,411,348,437"/>
+<div class="center"><img src="../../df/d0a/main_8cpp_af90a3c139ab6af569327f67959bfa9dd_cgraph.png" border="0" usemap="#adf/d0a/main_8cpp_af90a3c139ab6af569327f67959bfa9dd_cgraph" alt=""/></div>
+<map name="adf/d0a/main_8cpp_af90a3c139ab6af569327f67959bfa9dd_cgraph" id="adf/d0a/main_8cpp_af90a3c139ab6af569327f67959bfa9dd_cgraph">
+<area shape="rect" title=" " alt="" coords="5,159,89,185"/>
+<area shape="rect" href="../../d7/d09/classrender_api.html#ab602f772843e6c1b63b18422f332891b" title=" " alt="" coords="145,11,296,37"/>
+<area shape="rect" href="../../d7/d09/classrender_api.html#a4b465b892d864f3ad54fc91533202305" title=" " alt="" coords="144,61,297,86"/>
+<area shape="rect" href="../../d7/d09/classrender_api.html#a1d2213423b9d0e13385245d59d295e18" title=" " alt="" coords="154,110,287,135"/>
+<area shape="rect" href="../../d7/d09/classrender_api.html#af689e72491ed88601188dfb8ecdcd221" title=" " alt="" coords="137,209,304,234"/>
+<area shape="rect" href="../../d7/d09/classrender_api.html#aa223f8d20090545d7b6b4be5f3d7a9d3" title=" " alt="" coords="149,159,292,185"/>
+<area shape="rect" href="../../d7/d09/classrender_api.html#a5b3e6cb76e48084c48afb002ef9261d7" title=" " alt="" coords="149,258,293,283"/>
+<area shape="rect" href="../../d7/d09/classrender_api.html#a7680fc57da092cbc8a154ad8d77bdf04" title=" " alt="" coords="159,307,283,333"/>
+<area shape="rect" href="../../dc/d2b/classentity_pool.html#ad4fb0df84c544348a0da6b6d0e20ccce" title=" " alt="" coords="388,70,532,95"/>
+<area shape="rect" href="../../df/d69/classapi_type_components.html#a322361b2ec965eb2155803c7b7422d36" title=" " alt="" coords="387,5,533,45"/>
+<area shape="rect" href="../../dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d" title=" " alt="" coords="884,255,1019,281"/>
+<area shape="rect" href="../../df/d69/classapi_type_components.html#a42d1e7400f6df8dbeb9ba494fb21dcc0" title=" " alt="" coords="387,248,533,288"/>
+<area shape="rect" href="../../dc/d69/classopen_g_l_render_engine_1_1open_g_l_renderer.html#ab90c7872f7b41adc1cda4c3a8e28980b" title=" " alt="" coords="352,184,568,224"/>
+<area shape="rect" href="../../d7/deb/classopen_g_l_render_engine_1_1shaders.html#a55bf6df165d218c4ed2d2fc8b2920544" title=" " alt="" coords="373,120,547,160"/>
+<area shape="rect" href="../../de/dfd/classshaders_components.html#a15918cbb1e3ab8f5ad256e337df33db3" title=" " alt="" coords="653,156,799,196"/>
+<area shape="rect" href="../../db/da5/classopen_g_l_render_engine_1_1textures.html#a71b554027b606e192aef685507d8bd5d" title=" " alt="" coords="376,312,544,352"/>
+<area shape="rect" href="../../d3/ded/classtexture_components.html#a84661909f58c402a26d868f2f524e4f1" title=" " alt="" coords="656,309,796,349"/>
+<area shape="rect" href="../../d5/d70/classopen_g_l_render_engine_1_1vaos.html#a9a890582ef2f9c0bda339a90f2ae2de5" title=" " alt="" coords="386,376,534,416"/>
+<area shape="rect" href="../../d9/d50/class_v_a_os_components.html#a53e9544a81e954f73fb5f38ea680bd77" title=" " alt="" coords="616,377,836,402"/>
 </map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../df/d0a/main_8cpp_a4cf4fc72c2443dbbf39be81dc792d8cb_icgraph.png" border="0" usemap="#adf/d0a/main_8cpp_a4cf4fc72c2443dbbf39be81dc792d8cb_icgraph" alt=""/></div>
-<map name="adf/d0a/main_8cpp_a4cf4fc72c2443dbbf39be81dc792d8cb_icgraph" id="adf/d0a/main_8cpp_a4cf4fc72c2443dbbf39be81dc792d8cb_icgraph">
+<div class="center"><img src="../../df/d0a/main_8cpp_af90a3c139ab6af569327f67959bfa9dd_icgraph.png" border="0" usemap="#adf/d0a/main_8cpp_af90a3c139ab6af569327f67959bfa9dd_icgraph" alt=""/></div>
+<map name="adf/d0a/main_8cpp_af90a3c139ab6af569327f67959bfa9dd_icgraph" id="adf/d0a/main_8cpp_af90a3c139ab6af569327f67959bfa9dd_icgraph">
 <area shape="rect" title=" " alt="" coords="104,5,188,31"/>
 <area shape="rect" href="../../df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,56,31"/>
 </map>
@@ -447,9 +460,9 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   43</span>{</div>
-<div class="line"><span class="lineno">   44</span>    <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#abba4f33d5caf52c17ab95053b60f76d7">LOG_INFO</a>(sendor.<a class="code hl_variable" href="../../dc/da2/structkey_data.html#a0d5cfdcc3389533e691a62b0576a8b06">id</a>.<a class="code hl_variable" href="../../df/d3a/structentity_id.html#a67b238576b68f75f167a5ffcbcc84eb5">index</a> &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; sendor.<a class="code hl_variable" href="../../dc/da2/structkey_data.html#a5ecb109ce21a7279021d3e107c5ae149">utf8Buffer</a> &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; keyCodeToString(sendor.<a class="code hl_variable" href="../../dc/da2/structkey_data.html#a7d43bb6d37ab93eaa27d445a95c188f7">value</a>) &lt;&lt; <span class="stringliteral">&quot;(&quot;</span> &lt;&lt; (<span class="keywordtype">int</span>)sendor.<a class="code hl_variable" href="../../dc/da2/structkey_data.html#a7d43bb6d37ab93eaa27d445a95c188f7">value</a> &lt;&lt; <span class="stringliteral">&quot;)&quot;</span>);</div>
-<div class="line"><span class="lineno">   45</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   44</span>{</div>
+<div class="line"><span class="lineno">   45</span>    <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#abba4f33d5caf52c17ab95053b60f76d7">LOG_INFO</a>(sendor.<a class="code hl_variable" href="../../dc/da2/structkey_data.html#a0d5cfdcc3389533e691a62b0576a8b06">id</a>.<a class="code hl_variable" href="../../df/d3a/structentity_id.html#a67b238576b68f75f167a5ffcbcc84eb5">index</a> &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; sendor.<a class="code hl_variable" href="../../dc/da2/structkey_data.html#a5ecb109ce21a7279021d3e107c5ae149">utf8Buffer</a> &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; keyCodeToString(sendor.<a class="code hl_variable" href="../../dc/da2/structkey_data.html#a7d43bb6d37ab93eaa27d445a95c188f7">value</a>) &lt;&lt; <span class="stringliteral">&quot;(&quot;</span> &lt;&lt; (<span class="keywordtype">int</span>)sendor.<a class="code hl_variable" href="../../dc/da2/structkey_data.html#a7d43bb6d37ab93eaa27d445a95c188f7">value</a> &lt;&lt; <span class="stringliteral">&quot;)&quot;</span>);</div>
+<div class="line"><span class="lineno">   46</span>}</div>
 <div class="ttc" id="astructentity_id_html_a67b238576b68f75f167a5ffcbcc84eb5"><div class="ttname"><a href="../../df/d3a/structentity_id.html#a67b238576b68f75f167a5ffcbcc84eb5">entityId::index</a></div><div class="ttdeci">uint32_t index</div><div class="ttdef"><b>Definition:</b> core.hpp:7</div></div>
 <div class="ttc" id="astructkey_data_html_a0d5cfdcc3389533e691a62b0576a8b06"><div class="ttname"><a href="../../dc/da2/structkey_data.html#a0d5cfdcc3389533e691a62b0576a8b06">keyData::id</a></div><div class="ttdeci">surfaceId id</div><div class="ttdef"><b>Definition:</b> keyData.hpp:12</div></div>
 <div class="ttc" id="astructkey_data_html_a5ecb109ce21a7279021d3e107c5ae149"><div class="ttname"><a href="../../dc/da2/structkey_data.html#a5ecb109ce21a7279021d3e107c5ae149">keyData::utf8Buffer</a></div><div class="ttdeci">char utf8Buffer[6]</div><div class="ttdef"><b>Definition:</b> keyData.hpp:13</div></div>
@@ -480,146 +493,151 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  172</span>{</div>
-<div class="line"><span class="lineno">  173</span>    ZoneScoped;</div>
-<div class="line"><span class="lineno">  174</span>    <a class="code hl_function" href="../../dc/d37/classlogger.html#a55fa1aad396cc494aa03de1c2e2026af">logger::init</a>(<span class="stringliteral">&quot;./logs/&quot;</span>, <span class="stringliteral">&quot;TBD&quot;</span>);</div>
-<div class="line"><span class="lineno">  175</span>    </div>
-<div class="line"><span class="lineno">  176</span>    <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a> = <span class="keyword">new</span> <a class="code hl_class" href="../../d5/d6a/classos_a_p_i.html">osAPI</a>();</div>
-<div class="line"><span class="lineno">  177</span> </div>
-<div class="line"><span class="lineno">  178</span>    std::vector&lt;windowId&gt; winowsIds;</div>
-<div class="line"><span class="lineno">  179</span>    std::vector&lt;double *&gt; offsets;</div>
-<div class="line"><span class="lineno">  180</span>    </div>
-<div class="line"><span class="lineno">  181</span>    winowsIds.push_back(<a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#aa717d13e65be64bc00998eb5e7d5e263">createWindow</a>({<span class="stringliteral">&quot;test 3&quot;</span>, 64*7, 64*11}));</div>
-<div class="line"><span class="lineno">  182</span>    winowsIds.push_back(<a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#aa717d13e65be64bc00998eb5e7d5e263">createWindow</a>({<span class="stringliteral">&quot;test 4&quot;</span>, 64*9, 64*11}));</div>
-<div class="line"><span class="lineno">  183</span>    <span class="comment">// winowsIds.push_back(a-&gt;createWindow({&quot;test 5&quot;, 1025, 1025}));</span></div>
-<div class="line"><span class="lineno">  184</span>    <span class="comment">// for (size_t i = 0; i &lt; 10; i++)</span></div>
-<div class="line"><span class="lineno">  185</span>    <span class="comment">// {    </span></div>
-<div class="line"><span class="lineno">  186</span>    <span class="comment">//     std::vector&lt;windowId&gt; tempWinowsIds;</span></div>
-<div class="line"><span class="lineno">  187</span>    <span class="comment">//     for (size_t j = 0; j &lt; 10; j++)</span></div>
-<div class="line"><span class="lineno">  188</span>    <span class="comment">//     {</span></div>
-<div class="line"><span class="lineno">  189</span>    <span class="comment">//         tempWinowsIds.push_back(a-&gt;createWindow({&quot;test 2&quot;, 800, 800}));</span></div>
-<div class="line"><span class="lineno">  190</span>    <span class="comment">//     }</span></div>
-<div class="line"><span class="lineno">  191</span>        </div>
-<div class="line"><span class="lineno">  192</span>    <span class="comment">//     for (size_t j = 0; j &lt; 10; j++)</span></div>
-<div class="line"><span class="lineno">  193</span>    <span class="comment">//         a-&gt;closeWindow(tempWinowsIds[j]);</span></div>
-<div class="line"><span class="lineno">  194</span> </div>
-<div class="line"><span class="lineno">  195</span>    <span class="comment">//     std::vector&lt;windowId&gt; tempWinowsIds2;</span></div>
+<div class="fragment"><div class="line"><span class="lineno">  176</span>{</div>
+<div class="line"><span class="lineno">  177</span>    ZoneScoped;</div>
+<div class="line"><span class="lineno">  178</span>    <a class="code hl_function" href="../../dc/d37/classlogger.html#a55fa1aad396cc494aa03de1c2e2026af">logger::init</a>(<span class="stringliteral">&quot;./logs/&quot;</span>, <span class="stringliteral">&quot;TBD&quot;</span>);</div>
+<div class="line"><span class="lineno">  179</span>    </div>
+<div class="line"><span class="lineno">  180</span>    <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a> = <span class="keyword">new</span> <a class="code hl_class" href="../../d5/d6a/classos_a_p_i.html">osAPI</a>();</div>
+<div class="line"><span class="lineno">  181</span> </div>
+<div class="line"><span class="lineno">  182</span>    std::vector&lt;windowId&gt; winowsIds;</div>
+<div class="line"><span class="lineno">  183</span>    std::vector&lt;double *&gt; offsets;</div>
+<div class="line"><span class="lineno">  184</span>    </div>
+<div class="line"><span class="lineno">  185</span>    winowsIds.push_back(<a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#aa717d13e65be64bc00998eb5e7d5e263">createWindow</a>({<span class="stringliteral">&quot;test 3&quot;</span>, 64*7, 64*11, .gpuRenderFunction = gpuRender}));</div>
+<div class="line"><span class="lineno">  186</span>    winowsIds.push_back(<a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#aa717d13e65be64bc00998eb5e7d5e263">createWindow</a>({<span class="stringliteral">&quot;test 4&quot;</span>, 64*9, 64*11, .gpuRenderFunction = gpuRender}));</div>
+<div class="line"><span class="lineno">  187</span>    <span class="comment">// winowsIds.push_back(a-&gt;createWindow({&quot;test 5&quot;, 1025, 1025}));</span></div>
+<div class="line"><span class="lineno">  188</span>    <span class="comment">// for (size_t i = 0; i &lt; 10; i++)</span></div>
+<div class="line"><span class="lineno">  189</span>    <span class="comment">// {    </span></div>
+<div class="line"><span class="lineno">  190</span>    <span class="comment">//     std::vector&lt;windowId&gt; tempWinowsIds;</span></div>
+<div class="line"><span class="lineno">  191</span>    <span class="comment">//     for (size_t j = 0; j &lt; 10; j++)</span></div>
+<div class="line"><span class="lineno">  192</span>    <span class="comment">//     {</span></div>
+<div class="line"><span class="lineno">  193</span>    <span class="comment">//         tempWinowsIds.push_back(a-&gt;createWindow({&quot;test 2&quot;, 800, 800}));</span></div>
+<div class="line"><span class="lineno">  194</span>    <span class="comment">//     }</span></div>
+<div class="line"><span class="lineno">  195</span>        </div>
 <div class="line"><span class="lineno">  196</span>    <span class="comment">//     for (size_t j = 0; j &lt; 10; j++)</span></div>
-<div class="line"><span class="lineno">  197</span>    <span class="comment">//     {</span></div>
-<div class="line"><span class="lineno">  198</span>    <span class="comment">//         tempWinowsIds2.push_back(a-&gt;createWindow({&quot;test 2&quot;, 800, 800}));</span></div>
-<div class="line"><span class="lineno">  199</span>    <span class="comment">//     }</span></div>
-<div class="line"><span class="lineno">  200</span>        </div>
-<div class="line"><span class="lineno">  201</span>    <span class="comment">//     for (int j = 9; j &gt;= 0; j--)</span></div>
-<div class="line"><span class="lineno">  202</span>    <span class="comment">//         a-&gt;closeWindow(tempWinowsIds2[j]);</span></div>
-<div class="line"><span class="lineno">  203</span>    <span class="comment">// }</span></div>
-<div class="line"><span class="lineno">  204</span>    <span class="comment">// winowsIds.push_back(a-&gt;createWindow({&quot;test 2&quot;, 64*5, 64*11}));</span></div>
-<div class="line"><span class="lineno">  205</span> </div>
-<div class="line"><span class="lineno">  206</span>    <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp; <span class="keywordtype">id</span>: winowsIds)</div>
-<div class="line"><span class="lineno">  207</span>    {</div>
-<div class="line"><span class="lineno">  208</span>        <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#a5da5e55f458142847b19525529f1eb91">setKeyPressEventListeners</a>(<span class="keywordtype">id</span>, <a class="code hl_function" href="../../df/d0a/main_8cpp.html#a6bb8ac186730d0c7c40821efb017fae3">keyListener</a>);</div>
-<div class="line"><span class="lineno">  209</span>        <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#a1ceab79da45f6b676d286dedb8e34c5b">setKeyReleasedEventListeners</a>(<span class="keywordtype">id</span>, <a class="code hl_function" href="../../df/d0a/main_8cpp.html#a6bb8ac186730d0c7c40821efb017fae3">keyListener</a>);</div>
-<div class="line"><span class="lineno">  210</span>        <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#ae2e62a2bcb736b01efc4c40a768bc5bd">setKeyRepeatEventListeners</a>(<span class="keywordtype">id</span>, <a class="code hl_function" href="../../df/d0a/main_8cpp.html#a6bb8ac186730d0c7c40821efb017fae3">keyListener</a>);</div>
-<div class="line"><span class="lineno">  211</span>        <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#af589a07900d0c56e0b6a55ebb220c40b">setMouseMovedListeners</a>(<span class="keywordtype">id</span>, <a class="code hl_function" href="../../df/d0a/main_8cpp.html#ab01c0424a8397f2aa644c5e380a79173">mouseMove</a>);</div>
-<div class="line"><span class="lineno">  212</span>        <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#af3ad47fcc373074eadacb36aacb359a9">setMouseButtonPressEventListeners</a>(<span class="keywordtype">id</span>, <a class="code hl_function" href="../../df/d0a/main_8cpp.html#a466f75b6479308daee8cd37813e3bfc9">mousePress</a>);</div>
-<div class="line"><span class="lineno">  213</span>        <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#a208a211e03d728d18454c37e7357675f">setMouseButtonReleasedEventListeners</a>(<span class="keywordtype">id</span>, <a class="code hl_function" href="../../df/d0a/main_8cpp.html#a6e0af683aa7ddd04d0625089533da9bf">mouseReleased</a>);</div>
-<div class="line"><span class="lineno">  214</span>        <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#a4adc91fe87d81b6d6bc80b9d57641f2a">setMouseScrollListeners</a>(<span class="keywordtype">id</span>, <a class="code hl_function" href="../../df/d0a/main_8cpp.html#a29fb177a9564c4c55d336a5b7eb1406f">mouseScroll</a>);</div>
-<div class="line"><span class="lineno">  215</span>        <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#a4db1c6583a751de11d1566ca3b7eb85e">setResizeEventeListeners</a>(<span class="keywordtype">id</span>, <a class="code hl_function" href="../../df/d0a/main_8cpp.html#ad6f7ac7d3224e99fed9bc6bbc3ac0b86">windowResize</a>);</div>
-<div class="line"><span class="lineno">  216</span>        <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#a02d5b9865bb58cb898b5353374f81390">setCloseEventeListeners</a>(<span class="keywordtype">id</span>, <a class="code hl_function" href="../../df/d0a/main_8cpp.html#a15ec9e87b70e466c4a35fce0137ff103">windowClose</a>);</div>
-<div class="line"><span class="lineno">  217</span>        <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#a3f5b01058cbee759ee764b1b3a548625">setGainFocusEventListeners</a>(<span class="keywordtype">id</span>, <a class="code hl_function" href="../../df/d0a/main_8cpp.html#abe59de0743f21c646179fec7769b7349">focusSwap</a>);</div>
-<div class="line"><span class="lineno">  218</span>        <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#aa55a25dabd212ba0be0fae8ebb2bbf1c">setLostFocusEventListeners</a>(<span class="keywordtype">id</span>, <a class="code hl_function" href="../../df/d0a/main_8cpp.html#abe59de0743f21c646179fec7769b7349">focusSwap</a>);</div>
-<div class="line"><span class="lineno">  219</span> </div>
-<div class="line"><span class="lineno">  220</span>        <span class="comment">//to do fix the tearing that is coused from using the same variable for both top level rendring and sub surface</span></div>
-<div class="line"><span class="lineno">  221</span>        <span class="keywordtype">double</span> *temp =  <span class="keyword">new</span> double(0);</div>
-<div class="line"><span class="lineno">  222</span>        </div>
-<div class="line"><span class="lineno">  223</span>        <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#a2415aa443f1ead6fd5606dc4fe96496d">setRenderEventListeners</a>(<span class="keywordtype">id</span>, <a class="code hl_function" href="../../df/d0a/main_8cpp.html#a4cf4fc72c2443dbbf39be81dc792d8cb">gpuRender</a>);</div>
-<div class="line"><span class="lineno">  224</span>        <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#a6ec19963881ae78db8a3c0703850b8eb">attachSubSurfaceToWindow</a>(<span class="keywordtype">id</span>, {0, 200, 200, 100, 100});</div>
-<div class="line"><span class="lineno">  225</span>        <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#a191bf477c12aa566f4cfa73e98ba8312">setsubSurfaceRenderEventListeners</a>(<span class="keywordtype">id</span>, 0, <a class="code hl_function" href="../../df/d0a/main_8cpp.html#aee5125c0ba555e89f6baca7bc81366b9">cpuRender</a>);</div>
-<div class="line"><span class="lineno">  226</span>        </div>
-<div class="line"><span class="lineno">  227</span>    }</div>
-<div class="line"><span class="lineno">  228</span>    </div>
-<div class="line"><span class="lineno">  229</span>    std::thread(<a class="code hl_function" href="../../df/d0a/main_8cpp.html#a3de3a19b0f80e4d82b2bf426608a04bf">consoleKeyWait</a>).detach();</div>
-<div class="line"><span class="lineno">  230</span>    <span class="keywordflow">while</span>(<a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a3e6f76368abfbc8709f4c1346dfa6a20">run</a>){</div>
-<div class="line"><span class="lineno">  231</span>        std::this_thread::sleep_for(std::chrono::milliseconds(100));</div>
-<div class="line"><span class="lineno">  232</span>    }</div>
-<div class="line"><span class="lineno">  233</span>    std::putchar(<span class="charliteral">&#39;a&#39;</span>);</div>
-<div class="line"><span class="lineno">  234</span>    <span class="keyword">delete</span> <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>;</div>
-<div class="line"><span class="lineno">  235</span>    <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#abba4f33d5caf52c17ab95053b60f76d7">LOG_INFO</a>(<span class="stringliteral">&quot;exits&quot;</span>);</div>
-<div class="line"><span class="lineno">  236</span>    </div>
-<div class="line"><span class="lineno">  237</span>    <a class="code hl_function" href="../../dc/d37/classlogger.html#ad0973f5782961630972e85adbed14b07">logger::close</a>();</div>
-<div class="line"><span class="lineno">  238</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">  239</span>}</div>
+<div class="line"><span class="lineno">  197</span>    <span class="comment">//         a-&gt;closeWindow(tempWinowsIds[j]);</span></div>
+<div class="line"><span class="lineno">  198</span> </div>
+<div class="line"><span class="lineno">  199</span>    <span class="comment">//     std::vector&lt;windowId&gt; tempWinowsIds2;</span></div>
+<div class="line"><span class="lineno">  200</span>    <span class="comment">//     for (size_t j = 0; j &lt; 10; j++)</span></div>
+<div class="line"><span class="lineno">  201</span>    <span class="comment">//     {</span></div>
+<div class="line"><span class="lineno">  202</span>    <span class="comment">//         tempWinowsIds2.push_back(a-&gt;createWindow({&quot;test 2&quot;, 800, 800}));</span></div>
+<div class="line"><span class="lineno">  203</span>    <span class="comment">//     }</span></div>
+<div class="line"><span class="lineno">  204</span>        </div>
+<div class="line"><span class="lineno">  205</span>    <span class="comment">//     for (int j = 9; j &gt;= 0; j--)</span></div>
+<div class="line"><span class="lineno">  206</span>    <span class="comment">//         a-&gt;closeWindow(tempWinowsIds2[j]);</span></div>
+<div class="line"><span class="lineno">  207</span>    <span class="comment">// }</span></div>
+<div class="line"><span class="lineno">  208</span>    <span class="comment">// winowsIds.push_back(a-&gt;createWindow({&quot;test 2&quot;, 64*5, 64*11}));</span></div>
+<div class="line"><span class="lineno">  209</span> </div>
+<div class="line"><span class="lineno">  210</span>    <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp; <span class="keywordtype">id</span>: winowsIds)</div>
+<div class="line"><span class="lineno">  211</span>    {</div>
+<div class="line"><span class="lineno">  212</span>        <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#a5da5e55f458142847b19525529f1eb91">setKeyPressEventListeners</a>(<span class="keywordtype">id</span>, <a class="code hl_function" href="../../df/d0a/main_8cpp.html#a6bb8ac186730d0c7c40821efb017fae3">keyListener</a>);</div>
+<div class="line"><span class="lineno">  213</span>        <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#a1ceab79da45f6b676d286dedb8e34c5b">setKeyReleasedEventListeners</a>(<span class="keywordtype">id</span>, <a class="code hl_function" href="../../df/d0a/main_8cpp.html#a6bb8ac186730d0c7c40821efb017fae3">keyListener</a>);</div>
+<div class="line"><span class="lineno">  214</span>        <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#ae2e62a2bcb736b01efc4c40a768bc5bd">setKeyRepeatEventListeners</a>(<span class="keywordtype">id</span>, <a class="code hl_function" href="../../df/d0a/main_8cpp.html#a6bb8ac186730d0c7c40821efb017fae3">keyListener</a>);</div>
+<div class="line"><span class="lineno">  215</span>        <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#af589a07900d0c56e0b6a55ebb220c40b">setMouseMovedListeners</a>(<span class="keywordtype">id</span>, <a class="code hl_function" href="../../df/d0a/main_8cpp.html#ab01c0424a8397f2aa644c5e380a79173">mouseMove</a>);</div>
+<div class="line"><span class="lineno">  216</span>        <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#af3ad47fcc373074eadacb36aacb359a9">setMouseButtonPressEventListeners</a>(<span class="keywordtype">id</span>, <a class="code hl_function" href="../../df/d0a/main_8cpp.html#a466f75b6479308daee8cd37813e3bfc9">mousePress</a>);</div>
+<div class="line"><span class="lineno">  217</span>        <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#a208a211e03d728d18454c37e7357675f">setMouseButtonReleasedEventListeners</a>(<span class="keywordtype">id</span>, <a class="code hl_function" href="../../df/d0a/main_8cpp.html#a6e0af683aa7ddd04d0625089533da9bf">mouseReleased</a>);</div>
+<div class="line"><span class="lineno">  218</span>        <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#a4adc91fe87d81b6d6bc80b9d57641f2a">setMouseScrollListeners</a>(<span class="keywordtype">id</span>, <a class="code hl_function" href="../../df/d0a/main_8cpp.html#a29fb177a9564c4c55d336a5b7eb1406f">mouseScroll</a>);</div>
+<div class="line"><span class="lineno">  219</span>        <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#a4db1c6583a751de11d1566ca3b7eb85e">setResizeEventeListeners</a>(<span class="keywordtype">id</span>, <a class="code hl_function" href="../../df/d0a/main_8cpp.html#ad6f7ac7d3224e99fed9bc6bbc3ac0b86">windowResize</a>);</div>
+<div class="line"><span class="lineno">  220</span>        <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#a02d5b9865bb58cb898b5353374f81390">setCloseEventeListeners</a>(<span class="keywordtype">id</span>, <a class="code hl_function" href="../../df/d0a/main_8cpp.html#a15ec9e87b70e466c4a35fce0137ff103">windowClose</a>);</div>
+<div class="line"><span class="lineno">  221</span>        <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#a3f5b01058cbee759ee764b1b3a548625">setGainFocusEventListeners</a>(<span class="keywordtype">id</span>, <a class="code hl_function" href="../../df/d0a/main_8cpp.html#abe59de0743f21c646179fec7769b7349">focusSwap</a>);</div>
+<div class="line"><span class="lineno">  222</span>        <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#aa55a25dabd212ba0be0fae8ebb2bbf1c">setLostFocusEventListeners</a>(<span class="keywordtype">id</span>, <a class="code hl_function" href="../../df/d0a/main_8cpp.html#abe59de0743f21c646179fec7769b7349">focusSwap</a>);</div>
+<div class="line"><span class="lineno">  223</span> </div>
+<div class="line"><span class="lineno">  224</span>        </div>
+<div class="line"><span class="lineno">  225</span>        <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#aa587319c2ce4513e037c81750590a028">setRenderEventListeners</a>(<span class="keywordtype">id</span>, <a class="code hl_function" href="../../df/d0a/main_8cpp.html#af90a3c139ab6af569327f67959bfa9dd">gpuRender</a>);</div>
+<div class="line"><span class="lineno">  226</span>        <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#a6ec19963881ae78db8a3c0703850b8eb">attachSubSurfaceToWindow</a>(<span class="keywordtype">id</span>, {0, 200, 200, 100, 100, <a class="code hl_function" href="../../df/d0a/main_8cpp.html#afa221060191780e27305d967bad5bd73">cpuRender</a>});</div>
+<div class="line"><span class="lineno">  227</span>        </div>
+<div class="line"><span class="lineno">  228</span>    }</div>
+<div class="line"><span class="lineno">  229</span>    </div>
+<div class="line"><span class="lineno">  230</span>    std::thread(<a class="code hl_function" href="../../df/d0a/main_8cpp.html#a3de3a19b0f80e4d82b2bf426608a04bf">consoleKeyWait</a>).detach();</div>
+<div class="line"><span class="lineno">  231</span>    <span class="keywordflow">while</span>(<a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a3e6f76368abfbc8709f4c1346dfa6a20">run</a>){</div>
+<div class="line"><span class="lineno">  232</span>        std::this_thread::sleep_for(std::chrono::milliseconds(100));</div>
+<div class="line"><span class="lineno">  233</span>    }</div>
+<div class="line"><span class="lineno">  234</span>    std::putchar(<span class="charliteral">&#39;a&#39;</span>);</div>
+<div class="line"><span class="lineno">  235</span>    <span class="keyword">delete</span> <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>;</div>
+<div class="line"><span class="lineno">  236</span>    <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#abba4f33d5caf52c17ab95053b60f76d7">LOG_INFO</a>(<span class="stringliteral">&quot;exits&quot;</span>);</div>
+<div class="line"><span class="lineno">  237</span>    </div>
+<div class="line"><span class="lineno">  238</span>    <a class="code hl_function" href="../../dc/d37/classlogger.html#ad0973f5782961630972e85adbed14b07">logger::close</a>();</div>
+<div class="line"><span class="lineno">  239</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  240</span>}</div>
 <div class="ttc" id="aclasslogger_html_a55fa1aad396cc494aa03de1c2e2026af"><div class="ttname"><a href="../../dc/d37/classlogger.html#a55fa1aad396cc494aa03de1c2e2026af">logger::init</a></div><div class="ttdeci">static void init(const std::string &amp;pathToLogs, const std::string &amp;projectName)</div><div class="ttdef"><b>Definition:</b> log.cpp:6</div></div>
 <div class="ttc" id="aclasslogger_html_ad0973f5782961630972e85adbed14b07"><div class="ttname"><a href="../../dc/d37/classlogger.html#ad0973f5782961630972e85adbed14b07">logger::close</a></div><div class="ttdeci">static void close()</div><div class="ttdef"><b>Definition:</b> log.cpp:20</div></div>
-<div class="ttc" id="aclassos_a_p_i_html"><div class="ttname"><a href="../../d5/d6a/classos_a_p_i.html">osAPI</a></div><div class="ttdef"><b>Definition:</b> osAPI.hpp:38</div></div>
+<div class="ttc" id="aclassos_a_p_i_html"><div class="ttname"><a href="../../d5/d6a/classos_a_p_i.html">osAPI</a></div><div class="ttdef"><b>Definition:</b> osAPI.hpp:43</div></div>
 <div class="ttc" id="aclassos_a_p_i_html_a02d5b9865bb58cb898b5353374f81390"><div class="ttname"><a href="../../d5/d6a/classos_a_p_i.html#a02d5b9865bb58cb898b5353374f81390">osAPI::setCloseEventeListeners</a></div><div class="ttdeci">void setCloseEventeListeners(windowId winId, void(*callback)(surfaceId))</div></div>
-<div class="ttc" id="aclassos_a_p_i_html_a191bf477c12aa566f4cfa73e98ba8312"><div class="ttname"><a href="../../d5/d6a/classos_a_p_i.html#a191bf477c12aa566f4cfa73e98ba8312">osAPI::setsubSurfaceRenderEventListeners</a></div><div class="ttdeci">void setsubSurfaceRenderEventListeners(windowId winId, int subSurfaceSlot, void(*callback)(const windowRenderData &amp;))</div></div>
 <div class="ttc" id="aclassos_a_p_i_html_a1ceab79da45f6b676d286dedb8e34c5b"><div class="ttname"><a href="../../d5/d6a/classos_a_p_i.html#a1ceab79da45f6b676d286dedb8e34c5b">osAPI::setKeyReleasedEventListeners</a></div><div class="ttdeci">void setKeyReleasedEventListeners(windowId winId, void(*callback)(const keyData &amp;))</div></div>
 <div class="ttc" id="aclassos_a_p_i_html_a208a211e03d728d18454c37e7357675f"><div class="ttname"><a href="../../d5/d6a/classos_a_p_i.html#a208a211e03d728d18454c37e7357675f">osAPI::setMouseButtonReleasedEventListeners</a></div><div class="ttdeci">void setMouseButtonReleasedEventListeners(windowId winId, void(*callback)(const mouseButtonData &amp;))</div></div>
-<div class="ttc" id="aclassos_a_p_i_html_a2415aa443f1ead6fd5606dc4fe96496d"><div class="ttname"><a href="../../d5/d6a/classos_a_p_i.html#a2415aa443f1ead6fd5606dc4fe96496d">osAPI::setRenderEventListeners</a></div><div class="ttdeci">void setRenderEventListeners(windowId winId, void(*callback)(const windowRenderData &amp;))</div></div>
 <div class="ttc" id="aclassos_a_p_i_html_a3f5b01058cbee759ee764b1b3a548625"><div class="ttname"><a href="../../d5/d6a/classos_a_p_i.html#a3f5b01058cbee759ee764b1b3a548625">osAPI::setGainFocusEventListeners</a></div><div class="ttdeci">void setGainFocusEventListeners(windowId winId, void(*callback)(surfaceId))</div></div>
 <div class="ttc" id="aclassos_a_p_i_html_a4adc91fe87d81b6d6bc80b9d57641f2a"><div class="ttname"><a href="../../d5/d6a/classos_a_p_i.html#a4adc91fe87d81b6d6bc80b9d57641f2a">osAPI::setMouseScrollListeners</a></div><div class="ttdeci">void setMouseScrollListeners(windowId winId, void(*callback)(const mouseScrollData &amp;))</div></div>
 <div class="ttc" id="aclassos_a_p_i_html_a4db1c6583a751de11d1566ca3b7eb85e"><div class="ttname"><a href="../../d5/d6a/classos_a_p_i.html#a4db1c6583a751de11d1566ca3b7eb85e">osAPI::setResizeEventeListeners</a></div><div class="ttdeci">void setResizeEventeListeners(windowId winId, void(*callback)(const windowResizeData &amp;))</div></div>
 <div class="ttc" id="aclassos_a_p_i_html_a5da5e55f458142847b19525529f1eb91"><div class="ttname"><a href="../../d5/d6a/classos_a_p_i.html#a5da5e55f458142847b19525529f1eb91">osAPI::setKeyPressEventListeners</a></div><div class="ttdeci">void setKeyPressEventListeners(windowId winId, void(*callback)(const keyData &amp;))</div></div>
 <div class="ttc" id="aclassos_a_p_i_html_a6ec19963881ae78db8a3c0703850b8eb"><div class="ttname"><a href="../../d5/d6a/classos_a_p_i.html#a6ec19963881ae78db8a3c0703850b8eb">osAPI::attachSubSurfaceToWindow</a></div><div class="ttdeci">void attachSubSurfaceToWindow(windowId id, const subSurfaceSpec &amp;subSurfaceToAttach)</div></div>
 <div class="ttc" id="aclassos_a_p_i_html_aa55a25dabd212ba0be0fae8ebb2bbf1c"><div class="ttname"><a href="../../d5/d6a/classos_a_p_i.html#aa55a25dabd212ba0be0fae8ebb2bbf1c">osAPI::setLostFocusEventListeners</a></div><div class="ttdeci">void setLostFocusEventListeners(windowId winId, void(*callback)(surfaceId))</div></div>
+<div class="ttc" id="aclassos_a_p_i_html_aa587319c2ce4513e037c81750590a028"><div class="ttname"><a href="../../d5/d6a/classos_a_p_i.html#aa587319c2ce4513e037c81750590a028">osAPI::setRenderEventListeners</a></div><div class="ttdeci">void setRenderEventListeners(windowId winId, void(*callback)(const gpuRenderData &amp;))</div></div>
 <div class="ttc" id="aclassos_a_p_i_html_aa717d13e65be64bc00998eb5e7d5e263"><div class="ttname"><a href="../../d5/d6a/classos_a_p_i.html#aa717d13e65be64bc00998eb5e7d5e263">osAPI::createWindow</a></div><div class="ttdeci">windowId createWindow(const windowSpec &amp;windowToCreate)</div></div>
 <div class="ttc" id="aclassos_a_p_i_html_ae2e62a2bcb736b01efc4c40a768bc5bd"><div class="ttname"><a href="../../d5/d6a/classos_a_p_i.html#ae2e62a2bcb736b01efc4c40a768bc5bd">osAPI::setKeyRepeatEventListeners</a></div><div class="ttdeci">void setKeyRepeatEventListeners(windowId winId, void(*callback)(const keyData &amp;))</div></div>
 <div class="ttc" id="aclassos_a_p_i_html_af3ad47fcc373074eadacb36aacb359a9"><div class="ttname"><a href="../../d5/d6a/classos_a_p_i.html#af3ad47fcc373074eadacb36aacb359a9">osAPI::setMouseButtonPressEventListeners</a></div><div class="ttdeci">void setMouseButtonPressEventListeners(windowId winId, void(*callback)(const mouseButtonData &amp;))</div></div>
 <div class="ttc" id="aclassos_a_p_i_html_af589a07900d0c56e0b6a55ebb220c40b"><div class="ttname"><a href="../../d5/d6a/classos_a_p_i.html#af589a07900d0c56e0b6a55ebb220c40b">osAPI::setMouseMovedListeners</a></div><div class="ttdeci">void setMouseMovedListeners(windowId winId, void(*callback)(const mouseMoveData &amp;))</div></div>
-<div class="ttc" id="amain_8cpp_html_a15ec9e87b70e466c4a35fce0137ff103"><div class="ttname"><a href="../../df/d0a/main_8cpp.html#a15ec9e87b70e466c4a35fce0137ff103">windowClose</a></div><div class="ttdeci">void windowClose(surfaceId winId)</div><div class="ttdef"><b>Definition:</b> main.cpp:76</div></div>
-<div class="ttc" id="amain_8cpp_html_a29fb177a9564c4c55d336a5b7eb1406f"><div class="ttname"><a href="../../df/d0a/main_8cpp.html#a29fb177a9564c4c55d336a5b7eb1406f">mouseScroll</a></div><div class="ttdeci">void mouseScroll(const mouseScrollData &amp;sendor)</div><div class="ttdef"><b>Definition:</b> main.cpp:64</div></div>
-<div class="ttc" id="amain_8cpp_html_a3de3a19b0f80e4d82b2bf426608a04bf"><div class="ttname"><a href="../../df/d0a/main_8cpp.html#a3de3a19b0f80e4d82b2bf426608a04bf">consoleKeyWait</a></div><div class="ttdeci">void consoleKeyWait()</div><div class="ttdef"><b>Definition:</b> main.cpp:165</div></div>
-<div class="ttc" id="amain_8cpp_html_a466f75b6479308daee8cd37813e3bfc9"><div class="ttname"><a href="../../df/d0a/main_8cpp.html#a466f75b6479308daee8cd37813e3bfc9">mousePress</a></div><div class="ttdeci">void mousePress(const mouseButtonData &amp;sendor)</div><div class="ttdef"><b>Definition:</b> main.cpp:53</div></div>
-<div class="ttc" id="amain_8cpp_html_a4cf4fc72c2443dbbf39be81dc792d8cb"><div class="ttname"><a href="../../df/d0a/main_8cpp.html#a4cf4fc72c2443dbbf39be81dc792d8cb">gpuRender</a></div><div class="ttdeci">void gpuRender(const windowRenderData &amp;sendor)</div><div class="ttdef"><b>Definition:</b> main.cpp:110</div></div>
-<div class="ttc" id="amain_8cpp_html_a6bb8ac186730d0c7c40821efb017fae3"><div class="ttname"><a href="../../df/d0a/main_8cpp.html#a6bb8ac186730d0c7c40821efb017fae3">keyListener</a></div><div class="ttdeci">void keyListener(const keyData &amp;sendor)</div><div class="ttdef"><b>Definition:</b> main.cpp:42</div></div>
-<div class="ttc" id="amain_8cpp_html_a6e0af683aa7ddd04d0625089533da9bf"><div class="ttname"><a href="../../df/d0a/main_8cpp.html#a6e0af683aa7ddd04d0625089533da9bf">mouseReleased</a></div><div class="ttdeci">void mouseReleased(const mouseButtonData &amp;sendor)</div><div class="ttdef"><b>Definition:</b> main.cpp:58</div></div>
-<div class="ttc" id="amain_8cpp_html_ab01c0424a8397f2aa644c5e380a79173"><div class="ttname"><a href="../../df/d0a/main_8cpp.html#ab01c0424a8397f2aa644c5e380a79173">mouseMove</a></div><div class="ttdeci">void mouseMove(const mouseMoveData &amp;sendor)</div><div class="ttdef"><b>Definition:</b> main.cpp:48</div></div>
-<div class="ttc" id="amain_8cpp_html_abe59de0743f21c646179fec7769b7349"><div class="ttname"><a href="../../df/d0a/main_8cpp.html#abe59de0743f21c646179fec7769b7349">focusSwap</a></div><div class="ttdeci">void focusSwap(surfaceId winId)</div><div class="ttdef"><b>Definition:</b> main.cpp:82</div></div>
-<div class="ttc" id="amain_8cpp_html_ad6f7ac7d3224e99fed9bc6bbc3ac0b86"><div class="ttname"><a href="../../df/d0a/main_8cpp.html#ad6f7ac7d3224e99fed9bc6bbc3ac0b86">windowResize</a></div><div class="ttdeci">void windowResize(const windowResizeData &amp;sendor)</div><div class="ttdef"><b>Definition:</b> main.cpp:69</div></div>
-<div class="ttc" id="amain_8cpp_html_aee5125c0ba555e89f6baca7bc81366b9"><div class="ttname"><a href="../../df/d0a/main_8cpp.html#aee5125c0ba555e89f6baca7bc81366b9">cpuRender</a></div><div class="ttdeci">void cpuRender(const windowRenderData &amp;sendor)</div><div class="ttdef"><b>Definition:</b> main.cpp:87</div></div>
+<div class="ttc" id="amain_8cpp_html_a15ec9e87b70e466c4a35fce0137ff103"><div class="ttname"><a href="../../df/d0a/main_8cpp.html#a15ec9e87b70e466c4a35fce0137ff103">windowClose</a></div><div class="ttdeci">void windowClose(surfaceId winId)</div><div class="ttdef"><b>Definition:</b> main.cpp:77</div></div>
+<div class="ttc" id="amain_8cpp_html_a29fb177a9564c4c55d336a5b7eb1406f"><div class="ttname"><a href="../../df/d0a/main_8cpp.html#a29fb177a9564c4c55d336a5b7eb1406f">mouseScroll</a></div><div class="ttdeci">void mouseScroll(const mouseScrollData &amp;sendor)</div><div class="ttdef"><b>Definition:</b> main.cpp:65</div></div>
+<div class="ttc" id="amain_8cpp_html_a3de3a19b0f80e4d82b2bf426608a04bf"><div class="ttname"><a href="../../df/d0a/main_8cpp.html#a3de3a19b0f80e4d82b2bf426608a04bf">consoleKeyWait</a></div><div class="ttdeci">void consoleKeyWait()</div><div class="ttdef"><b>Definition:</b> main.cpp:169</div></div>
+<div class="ttc" id="amain_8cpp_html_a466f75b6479308daee8cd37813e3bfc9"><div class="ttname"><a href="../../df/d0a/main_8cpp.html#a466f75b6479308daee8cd37813e3bfc9">mousePress</a></div><div class="ttdeci">void mousePress(const mouseButtonData &amp;sendor)</div><div class="ttdef"><b>Definition:</b> main.cpp:54</div></div>
+<div class="ttc" id="amain_8cpp_html_a6bb8ac186730d0c7c40821efb017fae3"><div class="ttname"><a href="../../df/d0a/main_8cpp.html#a6bb8ac186730d0c7c40821efb017fae3">keyListener</a></div><div class="ttdeci">void keyListener(const keyData &amp;sendor)</div><div class="ttdef"><b>Definition:</b> main.cpp:43</div></div>
+<div class="ttc" id="amain_8cpp_html_a6e0af683aa7ddd04d0625089533da9bf"><div class="ttname"><a href="../../df/d0a/main_8cpp.html#a6e0af683aa7ddd04d0625089533da9bf">mouseReleased</a></div><div class="ttdeci">void mouseReleased(const mouseButtonData &amp;sendor)</div><div class="ttdef"><b>Definition:</b> main.cpp:59</div></div>
+<div class="ttc" id="amain_8cpp_html_ab01c0424a8397f2aa644c5e380a79173"><div class="ttname"><a href="../../df/d0a/main_8cpp.html#ab01c0424a8397f2aa644c5e380a79173">mouseMove</a></div><div class="ttdeci">void mouseMove(const mouseMoveData &amp;sendor)</div><div class="ttdef"><b>Definition:</b> main.cpp:49</div></div>
+<div class="ttc" id="amain_8cpp_html_abe59de0743f21c646179fec7769b7349"><div class="ttname"><a href="../../df/d0a/main_8cpp.html#abe59de0743f21c646179fec7769b7349">focusSwap</a></div><div class="ttdeci">void focusSwap(surfaceId winId)</div><div class="ttdef"><b>Definition:</b> main.cpp:83</div></div>
+<div class="ttc" id="amain_8cpp_html_ad6f7ac7d3224e99fed9bc6bbc3ac0b86"><div class="ttname"><a href="../../df/d0a/main_8cpp.html#ad6f7ac7d3224e99fed9bc6bbc3ac0b86">windowResize</a></div><div class="ttdeci">void windowResize(const windowResizeData &amp;sendor)</div><div class="ttdef"><b>Definition:</b> main.cpp:70</div></div>
+<div class="ttc" id="amain_8cpp_html_af90a3c139ab6af569327f67959bfa9dd"><div class="ttname"><a href="../../df/d0a/main_8cpp.html#af90a3c139ab6af569327f67959bfa9dd">gpuRender</a></div><div class="ttdeci">void gpuRender(const gpuRenderData &amp;sendor)</div><div class="ttdef"><b>Definition:</b> main.cpp:111</div></div>
+<div class="ttc" id="amain_8cpp_html_afa221060191780e27305d967bad5bd73"><div class="ttname"><a href="../../df/d0a/main_8cpp.html#afa221060191780e27305d967bad5bd73">cpuRender</a></div><div class="ttdeci">void cpuRender(const cpuRenderData &amp;sendor)</div><div class="ttdef"><b>Definition:</b> main.cpp:88</div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../df/d0a/main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph.png" border="0" usemap="#adf/d0a/main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph" alt=""/></div>
 <map name="adf/d0a/main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph" id="adf/d0a/main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph">
-<area shape="rect" title=" " alt="" coords="5,691,56,717"/>
+<area shape="rect" title=" " alt="" coords="5,662,56,687"/>
 <area shape="rect" href="../../d5/d6a/classos_a_p_i.html#a6ec19963881ae78db8a3c0703850b8eb" title=" " alt="" coords="125,5,308,45"/>
 <area shape="rect" href="../../dc/d37/classlogger.html#ad0973f5782961630972e85adbed14b07" title=" " alt="" coords="169,70,264,95"/>
 <area shape="rect" href="../../df/d0a/main_8cpp.html#a3de3a19b0f80e4d82b2bf426608a04bf" title=" " alt="" coords="159,119,274,145"/>
-<area shape="rect" href="../../df/d0a/main_8cpp.html#aee5125c0ba555e89f6baca7bc81366b9" title=" " alt="" coords="175,169,259,194"/>
+<area shape="rect" href="../../df/d0a/main_8cpp.html#afa221060191780e27305d967bad5bd73" title=" " alt="" coords="175,169,259,194"/>
 <area shape="rect" href="../../d5/d6a/classos_a_p_i.html#aa717d13e65be64bc00998eb5e7d5e263" title=" " alt="" coords="143,218,290,243"/>
 <area shape="rect" href="../../df/d0a/main_8cpp.html#abe59de0743f21c646179fec7769b7349" title=" " alt="" coords="173,317,260,342"/>
-<area shape="rect" href="../../df/d0a/main_8cpp.html#a4cf4fc72c2443dbbf39be81dc792d8cb" title=" " alt="" coords="175,267,259,293"/>
-<area shape="rect" href="../../dc/d37/classlogger.html#a55fa1aad396cc494aa03de1c2e2026af" title=" " alt="" coords="177,366,257,391"/>
-<area shape="rect" href="../../df/d0a/main_8cpp.html#a6bb8ac186730d0c7c40821efb017fae3" title=" " alt="" coords="172,415,261,441"/>
-<area shape="rect" href="../../df/d0a/main_8cpp.html#ab01c0424a8397f2aa644c5e380a79173" title=" " alt="" coords="170,465,263,490"/>
-<area shape="rect" href="../../df/d0a/main_8cpp.html#a466f75b6479308daee8cd37813e3bfc9" title=" " alt="" coords="169,514,264,539"/>
-<area shape="rect" href="../../df/d0a/main_8cpp.html#a6e0af683aa7ddd04d0625089533da9bf" title=" " alt="" coords="159,563,274,589"/>
-<area shape="rect" href="../../df/d0a/main_8cpp.html#a29fb177a9564c4c55d336a5b7eb1406f" title=" " alt="" coords="169,613,264,638"/>
-<area shape="rect" href="../../d5/d6a/classos_a_p_i.html#a02d5b9865bb58cb898b5353374f81390" title=" " alt="" coords="112,662,321,687"/>
-<area shape="rect" href="../../d5/d6a/classos_a_p_i.html#a3f5b01058cbee759ee764b1b3a548625" title=" " alt="" coords="127,712,306,752"/>
-<area shape="rect" href="../../d5/d6a/classos_a_p_i.html#a5da5e55f458142847b19525529f1eb91" title=" " alt="" coords="104,777,329,802"/>
-<area shape="rect" href="../../d5/d6a/classos_a_p_i.html#a1ceab79da45f6b676d286dedb8e34c5b" title=" " alt="" coords="121,827,312,867"/>
-<area shape="rect" href="../../d5/d6a/classos_a_p_i.html#ae2e62a2bcb736b01efc4c40a768bc5bd" title=" " alt="" coords="127,891,306,931"/>
-<area shape="rect" href="../../d5/d6a/classos_a_p_i.html#aa55a25dabd212ba0be0fae8ebb2bbf1c" title=" " alt="" coords="128,955,305,995"/>
-<area shape="rect" href="../../d5/d6a/classos_a_p_i.html#af3ad47fcc373074eadacb36aacb359a9" title=" " alt="" coords="120,1019,313,1059"/>
-<area shape="rect" href="../../d5/d6a/classos_a_p_i.html#a208a211e03d728d18454c37e7357675f" title=" " alt="" coords="110,1083,323,1123"/>
-<area shape="rect" href="../../d5/d6a/classos_a_p_i.html#af589a07900d0c56e0b6a55ebb220c40b" title=" " alt="" coords="109,1147,324,1173"/>
-<area shape="rect" href="../../d5/d6a/classos_a_p_i.html#a4adc91fe87d81b6d6bc80b9d57641f2a" title=" " alt="" coords="113,1197,321,1222"/>
-<area shape="rect" href="../../d5/d6a/classos_a_p_i.html#a2415aa443f1ead6fd5606dc4fe96496d" title=" " alt="" coords="111,1246,322,1271"/>
-<area shape="rect" href="../../d5/d6a/classos_a_p_i.html#a4db1c6583a751de11d1566ca3b7eb85e" title=" " alt="" coords="109,1295,324,1321"/>
-<area shape="rect" href="../../d5/d6a/classos_a_p_i.html#a191bf477c12aa566f4cfa73e98ba8312" title=" " alt="" coords="122,1345,311,1385"/>
-<area shape="rect" href="../../df/d0a/main_8cpp.html#a15ec9e87b70e466c4a35fce0137ff103" title=" " alt="" coords="167,1410,266,1435"/>
-<area shape="rect" href="../../df/d0a/main_8cpp.html#ad6f7ac7d3224e99fed9bc6bbc3ac0b86" title=" " alt="" coords="164,1459,269,1485"/>
-<area shape="rect" href="../../d5/d6a/classos_a_p_i.html#a2a07fd40f7bdad0a1a2dc511e71a1758" title=" " alt="" coords="406,530,559,555"/>
-<area shape="rect" href="../../de/d2c/classvertex_array_manger.html#a58c15e95ade89d87623b26fc837f3dd7" title=" " alt="" coords="395,59,570,99"/>
-<area shape="rect" href="../../de/d2c/classvertex_array_manger.html#a378deaf648d9bb4d6fd944ca342219c1" title=" " alt="" coords="404,123,561,163"/>
-<area shape="rect" href="../../de/d2c/classvertex_array_manger.html#aa20cf1f6a066380204e9fc695bf0d6fe" title=" " alt="" coords="415,187,551,227"/>
-<area shape="rect" href="../../d4/df4/classshader_manger.html#a7c7af69318c5f8d19426ad0c96f37e42" title=" " alt="" coords="385,251,580,277"/>
-<area shape="rect" href="../../d6/d26/classtexture_manger.html#a40647dc3e0d5f50e5a8ee21411915d2e" title=" " alt="" coords="388,301,577,326"/>
-<area shape="rect" href="../../de/d2c/classvertex_array_manger.html#a4b4777f5514213394d05cd6bc8faf355" title=" " alt="" coords="415,351,551,391"/>
-<area shape="rect" href="../../d6/d26/classtexture_manger.html#a4812bf5ae5a3f460a002116a4b27ea3a" title=" " alt="" coords="399,415,567,441"/>
-<area shape="rect" href="../../de/d40/classopen_g_l_renderer.html#a6d00f40cddd67381f7577ac0bd6e69bc" title=" " alt="" coords="377,465,588,490"/>
+<area shape="rect" href="../../df/d0a/main_8cpp.html#af90a3c139ab6af569327f67959bfa9dd" title=" " alt="" coords="175,465,259,490"/>
+<area shape="rect" href="../../dc/d37/classlogger.html#a55fa1aad396cc494aa03de1c2e2026af" title=" " alt="" coords="177,514,257,539"/>
+<area shape="rect" href="../../df/d0a/main_8cpp.html#a6bb8ac186730d0c7c40821efb017fae3" title=" " alt="" coords="172,563,261,589"/>
+<area shape="rect" href="../../df/d0a/main_8cpp.html#ab01c0424a8397f2aa644c5e380a79173" title=" " alt="" coords="170,613,263,638"/>
+<area shape="rect" href="../../df/d0a/main_8cpp.html#a466f75b6479308daee8cd37813e3bfc9" title=" " alt="" coords="169,366,264,391"/>
+<area shape="rect" href="../../df/d0a/main_8cpp.html#a6e0af683aa7ddd04d0625089533da9bf" title=" " alt="" coords="159,415,274,441"/>
+<area shape="rect" href="../../df/d0a/main_8cpp.html#a29fb177a9564c4c55d336a5b7eb1406f" title=" " alt="" coords="169,662,264,687"/>
+<area shape="rect" href="../../d5/d6a/classos_a_p_i.html#a02d5b9865bb58cb898b5353374f81390" title=" " alt="" coords="112,711,321,737"/>
+<area shape="rect" href="../../d5/d6a/classos_a_p_i.html#a3f5b01058cbee759ee764b1b3a548625" title=" " alt="" coords="127,761,306,801"/>
+<area shape="rect" href="../../d5/d6a/classos_a_p_i.html#a5da5e55f458142847b19525529f1eb91" title=" " alt="" coords="104,826,329,851"/>
+<area shape="rect" href="../../d5/d6a/classos_a_p_i.html#a1ceab79da45f6b676d286dedb8e34c5b" title=" " alt="" coords="121,876,312,916"/>
+<area shape="rect" href="../../d5/d6a/classos_a_p_i.html#ae2e62a2bcb736b01efc4c40a768bc5bd" title=" " alt="" coords="127,940,306,980"/>
+<area shape="rect" href="../../d5/d6a/classos_a_p_i.html#aa55a25dabd212ba0be0fae8ebb2bbf1c" title=" " alt="" coords="128,1004,305,1044"/>
+<area shape="rect" href="../../d5/d6a/classos_a_p_i.html#af3ad47fcc373074eadacb36aacb359a9" title=" " alt="" coords="120,1068,313,1108"/>
+<area shape="rect" href="../../d5/d6a/classos_a_p_i.html#a208a211e03d728d18454c37e7357675f" title=" " alt="" coords="110,1132,323,1172"/>
+<area shape="rect" href="../../d5/d6a/classos_a_p_i.html#af589a07900d0c56e0b6a55ebb220c40b" title=" " alt="" coords="109,1197,324,1222"/>
+<area shape="rect" href="../../d5/d6a/classos_a_p_i.html#a4adc91fe87d81b6d6bc80b9d57641f2a" title=" " alt="" coords="113,1246,321,1271"/>
+<area shape="rect" href="../../d5/d6a/classos_a_p_i.html#aa587319c2ce4513e037c81750590a028" title=" " alt="" coords="111,1295,322,1321"/>
+<area shape="rect" href="../../d5/d6a/classos_a_p_i.html#a4db1c6583a751de11d1566ca3b7eb85e" title=" " alt="" coords="109,1345,324,1370"/>
+<area shape="rect" href="../../df/d0a/main_8cpp.html#a15ec9e87b70e466c4a35fce0137ff103" title=" " alt="" coords="167,267,266,293"/>
+<area shape="rect" href="../../df/d0a/main_8cpp.html#ad6f7ac7d3224e99fed9bc6bbc3ac0b86" title=" " alt="" coords="164,1394,269,1419"/>
+<area shape="rect" href="../../d5/d6a/classos_a_p_i.html#a2a07fd40f7bdad0a1a2dc511e71a1758" title=" " alt="" coords="384,317,537,342"/>
+<area shape="rect" href="../../d7/d09/classrender_api.html#ab602f772843e6c1b63b18422f332891b" title=" " alt="" coords="385,366,536,391"/>
+<area shape="rect" href="../../d7/d09/classrender_api.html#a4b465b892d864f3ad54fc91533202305" title=" " alt="" coords="384,415,537,441"/>
+<area shape="rect" href="../../d7/d09/classrender_api.html#a1d2213423b9d0e13385245d59d295e18" title=" " alt="" coords="394,465,527,490"/>
+<area shape="rect" href="../../d7/d09/classrender_api.html#af689e72491ed88601188dfb8ecdcd221" title=" " alt="" coords="377,514,544,539"/>
+<area shape="rect" href="../../d7/d09/classrender_api.html#aa223f8d20090545d7b6b4be5f3d7a9d3" title=" " alt="" coords="389,663,532,689"/>
+<area shape="rect" href="../../d7/d09/classrender_api.html#a5b3e6cb76e48084c48afb002ef9261d7" title=" " alt="" coords="389,563,533,589"/>
+<area shape="rect" href="../../d7/d09/classrender_api.html#a7680fc57da092cbc8a154ad8d77bdf04" title=" " alt="" coords="399,614,523,639"/>
+<area shape="rect" href="../../dc/d2b/classentity_pool.html#ad4fb0df84c544348a0da6b6d0e20ccce" title=" " alt="" coords="628,365,772,390"/>
+<area shape="rect" href="../../df/d69/classapi_type_components.html#a322361b2ec965eb2155803c7b7422d36" title=" " alt="" coords="627,415,773,455"/>
+<area shape="rect" href="../../dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d" title=" " alt="" coords="1124,614,1259,639"/>
+<area shape="rect" href="../../df/d69/classapi_type_components.html#a42d1e7400f6df8dbeb9ba494fb21dcc0" title=" " alt="" coords="627,607,773,647"/>
+<area shape="rect" href="../../dc/d69/classopen_g_l_render_engine_1_1open_g_l_renderer.html#ab90c7872f7b41adc1cda4c3a8e28980b" title=" " alt="" coords="592,479,808,519"/>
+<area shape="rect" href="../../d7/deb/classopen_g_l_render_engine_1_1shaders.html#a55bf6df165d218c4ed2d2fc8b2920544" title=" " alt="" coords="613,735,787,775"/>
+<area shape="rect" href="../../de/dfd/classshaders_components.html#a15918cbb1e3ab8f5ad256e337df33db3" title=" " alt="" coords="893,724,1039,764"/>
+<area shape="rect" href="../../db/da5/classopen_g_l_render_engine_1_1textures.html#a71b554027b606e192aef685507d8bd5d" title=" " alt="" coords="616,543,784,583"/>
+<area shape="rect" href="../../d3/ded/classtexture_components.html#a84661909f58c402a26d868f2f524e4f1" title=" " alt="" coords="896,547,1036,587"/>
+<area shape="rect" href="../../d5/d70/classopen_g_l_render_engine_1_1vaos.html#a9a890582ef2f9c0bda339a90f2ae2de5" title=" " alt="" coords="626,671,774,711"/>
+<area shape="rect" href="../../d9/d50/class_v_a_os_components.html#a53e9544a81e954f73fb5f38ea680bd77" title=" " alt="" coords="856,671,1076,697"/>
 </map>
 </div>
 
@@ -640,9 +658,9 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   49</span>{</div>
-<div class="line"><span class="lineno">   50</span>    <span class="comment">// LOG_INFO(&quot;pointer motion (&quot; &lt;&lt; a-&gt;getWindowTitle(winId) &lt;&lt;&quot;): &quot;&lt;&lt; sendor.x &lt;&lt; &quot;, &quot; &lt;&lt; sendor.y);</span></div>
-<div class="line"><span class="lineno">   51</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   50</span>{</div>
+<div class="line"><span class="lineno">   51</span>    <span class="comment">// LOG_INFO(&quot;pointer motion (&quot; &lt;&lt; a-&gt;getWindowTitle(sendor.id) &lt;&lt;&quot;): &quot;&lt;&lt; sendor.x &lt;&lt; &quot;, &quot; &lt;&lt; sendor.y);</span></div>
+<div class="line"><span class="lineno">   52</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -670,9 +688,9 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   54</span>{</div>
-<div class="line"><span class="lineno">   55</span>    <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#abba4f33d5caf52c17ab95053b60f76d7">LOG_INFO</a>(<span class="stringliteral">&quot;pointer button press (&quot;</span> &lt;&lt;  <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#a2a07fd40f7bdad0a1a2dc511e71a1758">getWindowTitle</a>(sendor.<a class="code hl_variable" href="../../db/de8/structmouse_button_data.html#a2a6e5a99255d4225807ae01dc8db219e">id</a>) &lt;&lt; <span class="stringliteral">&quot;): &quot;</span> &lt;&lt; mouseButtonToString(sendor.<a class="code hl_variable" href="../../db/de8/structmouse_button_data.html#ad2e78970aa3b7b111e5c36c29ebf57e6">value</a>));</div>
-<div class="line"><span class="lineno">   56</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   55</span>{</div>
+<div class="line"><span class="lineno">   56</span>    <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#abba4f33d5caf52c17ab95053b60f76d7">LOG_INFO</a>(<span class="stringliteral">&quot;pointer button press (&quot;</span> &lt;&lt;  <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#a2a07fd40f7bdad0a1a2dc511e71a1758">getWindowTitle</a>(sendor.<a class="code hl_variable" href="../../db/de8/structmouse_button_data.html#a2a6e5a99255d4225807ae01dc8db219e">id</a>) &lt;&lt; <span class="stringliteral">&quot;): &quot;</span> &lt;&lt; mouseButtonToString(sendor.<a class="code hl_variable" href="../../db/de8/structmouse_button_data.html#ad2e78970aa3b7b111e5c36c29ebf57e6">value</a>));</div>
+<div class="line"><span class="lineno">   57</span>}</div>
 <div class="ttc" id="astructmouse_button_data_html_a2a6e5a99255d4225807ae01dc8db219e"><div class="ttname"><a href="../../db/de8/structmouse_button_data.html#a2a6e5a99255d4225807ae01dc8db219e">mouseButtonData::id</a></div><div class="ttdeci">surfaceId id</div><div class="ttdef"><b>Definition:</b> mouseButtonData.hpp:6</div></div>
 <div class="ttc" id="astructmouse_button_data_html_ad2e78970aa3b7b111e5c36c29ebf57e6"><div class="ttname"><a href="../../db/de8/structmouse_button_data.html#ad2e78970aa3b7b111e5c36c29ebf57e6">mouseButtonData::value</a></div><div class="ttdeci">mouseButtons value</div><div class="ttdef"><b>Definition:</b> mouseButtonData.hpp:7</div></div>
 </div><!-- fragment --><div class="dynheader">
@@ -711,9 +729,9 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   59</span>{</div>
-<div class="line"><span class="lineno">   60</span>    <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#abba4f33d5caf52c17ab95053b60f76d7">LOG_INFO</a>(<span class="stringliteral">&quot;pointer button released (&quot;</span> &lt;&lt;  <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#a2a07fd40f7bdad0a1a2dc511e71a1758">getWindowTitle</a>(sendor.<a class="code hl_variable" href="../../db/de8/structmouse_button_data.html#a2a6e5a99255d4225807ae01dc8db219e">id</a>) &lt;&lt;<span class="stringliteral">&quot;): &quot;</span> &lt;&lt; mouseButtonToString(sendor.<a class="code hl_variable" href="../../db/de8/structmouse_button_data.html#ad2e78970aa3b7b111e5c36c29ebf57e6">value</a>));</div>
-<div class="line"><span class="lineno">   61</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   60</span>{</div>
+<div class="line"><span class="lineno">   61</span>    <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#abba4f33d5caf52c17ab95053b60f76d7">LOG_INFO</a>(<span class="stringliteral">&quot;pointer button released (&quot;</span> &lt;&lt;  <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#a2a07fd40f7bdad0a1a2dc511e71a1758">getWindowTitle</a>(sendor.<a class="code hl_variable" href="../../db/de8/structmouse_button_data.html#a2a6e5a99255d4225807ae01dc8db219e">id</a>) &lt;&lt;<span class="stringliteral">&quot;): &quot;</span> &lt;&lt; mouseButtonToString(sendor.<a class="code hl_variable" href="../../db/de8/structmouse_button_data.html#ad2e78970aa3b7b111e5c36c29ebf57e6">value</a>));</div>
+<div class="line"><span class="lineno">   62</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -750,9 +768,9 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   65</span>{</div>
-<div class="line"><span class="lineno">   66</span>    <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#abba4f33d5caf52c17ab95053b60f76d7">LOG_INFO</a>(<span class="stringliteral">&quot;pointer axis &quot;</span> &lt;&lt; mouseAxisToString(sendor.<a class="code hl_variable" href="../../da/d46/structmouse_scroll_data.html#a7d7d2ed129e51c37c1265a05ce0cc49a">axis</a>) &lt;&lt; <span class="stringliteral">&quot;from source &quot;</span> &lt;&lt; mouseAxisSourceToString(sendor.<a class="code hl_variable" href="../../da/d46/structmouse_scroll_data.html#a5b79beeb14aa1decbc267de528ab5c80">axisSource</a>) &lt;&lt; <span class="stringliteral">&quot; = &quot;</span> &lt;&lt; sendor.<a class="code hl_variable" href="../../da/d46/structmouse_scroll_data.html#a264889e9001ad1a1724a97f971ed8587">discreteValue</a> &lt;&lt; <span class="stringliteral">&quot; or &quot;</span> &lt;&lt; sendor.<a class="code hl_variable" href="../../da/d46/structmouse_scroll_data.html#a1198d913d4f3d36c54f0f57b63c1806a">value</a>);</div>
-<div class="line"><span class="lineno">   67</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   66</span>{</div>
+<div class="line"><span class="lineno">   67</span>    <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#abba4f33d5caf52c17ab95053b60f76d7">LOG_INFO</a>(<span class="stringliteral">&quot;pointer axis &quot;</span> &lt;&lt; mouseAxisToString(sendor.<a class="code hl_variable" href="../../da/d46/structmouse_scroll_data.html#a7d7d2ed129e51c37c1265a05ce0cc49a">axis</a>) &lt;&lt; <span class="stringliteral">&quot;from source &quot;</span> &lt;&lt; mouseAxisSourceToString(sendor.<a class="code hl_variable" href="../../da/d46/structmouse_scroll_data.html#a5b79beeb14aa1decbc267de528ab5c80">axisSource</a>) &lt;&lt; <span class="stringliteral">&quot; = &quot;</span> &lt;&lt; sendor.<a class="code hl_variable" href="../../da/d46/structmouse_scroll_data.html#a264889e9001ad1a1724a97f971ed8587">discreteValue</a> &lt;&lt; <span class="stringliteral">&quot; or &quot;</span> &lt;&lt; sendor.<a class="code hl_variable" href="../../da/d46/structmouse_scroll_data.html#a1198d913d4f3d36c54f0f57b63c1806a">value</a>);</div>
+<div class="line"><span class="lineno">   68</span>}</div>
 <div class="ttc" id="astructmouse_scroll_data_html_a1198d913d4f3d36c54f0f57b63c1806a"><div class="ttname"><a href="../../da/d46/structmouse_scroll_data.html#a1198d913d4f3d36c54f0f57b63c1806a">mouseScrollData::value</a></div><div class="ttdeci">int value</div><div class="ttdef"><b>Definition:</b> mouseScrollData.hpp:9</div></div>
 <div class="ttc" id="astructmouse_scroll_data_html_a264889e9001ad1a1724a97f971ed8587"><div class="ttname"><a href="../../da/d46/structmouse_scroll_data.html#a264889e9001ad1a1724a97f971ed8587">mouseScrollData::discreteValue</a></div><div class="ttdeci">int discreteValue</div><div class="ttdef"><b>Definition:</b> mouseScrollData.hpp:10</div></div>
 <div class="ttc" id="astructmouse_scroll_data_html_a5b79beeb14aa1decbc267de528ab5c80"><div class="ttname"><a href="../../da/d46/structmouse_scroll_data.html#a5b79beeb14aa1decbc267de528ab5c80">mouseScrollData::axisSource</a></div><div class="ttdeci">mouseAxisSource axisSource</div><div class="ttdef"><b>Definition:</b> mouseScrollData.hpp:8</div></div>
@@ -784,10 +802,10 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   77</span>{</div>
-<div class="line"><span class="lineno">   78</span>    <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#abba4f33d5caf52c17ab95053b60f76d7">LOG_INFO</a>(<span class="stringliteral">&quot;close window(&quot;</span> &lt;&lt; <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#a2a07fd40f7bdad0a1a2dc511e71a1758">getWindowTitle</a>(winId) &lt;&lt;<span class="stringliteral">&quot;)&quot;</span>)</div>
-<div class="line"><span class="lineno">   79</span>    <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a3e6f76368abfbc8709f4c1346dfa6a20">run</a> = false;</div>
-<div class="line"><span class="lineno">   80</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   78</span>{</div>
+<div class="line"><span class="lineno">   79</span>    <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#abba4f33d5caf52c17ab95053b60f76d7">LOG_INFO</a>(<span class="stringliteral">&quot;close window(&quot;</span> &lt;&lt; <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a5cf325943b6df784c98ce6e1e2468c46">a</a>-&gt;<a class="code hl_function" href="../../d5/d6a/classos_a_p_i.html#a2a07fd40f7bdad0a1a2dc511e71a1758">getWindowTitle</a>(winId) &lt;&lt;<span class="stringliteral">&quot;)&quot;</span>)</div>
+<div class="line"><span class="lineno">   80</span>    <a class="code hl_variable" href="../../df/d0a/main_8cpp.html#a3e6f76368abfbc8709f4c1346dfa6a20">run</a> = false;</div>
+<div class="line"><span class="lineno">   81</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -824,10 +842,10 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   70</span>{</div>
-<div class="line"><span class="lineno">   71</span>    <span class="comment">// LOG_INFO(sendor.height &lt;&lt; &quot;, &quot; &lt;&lt; sendor.width &lt;&lt; &quot;, &quot; &lt;&lt; (int)sendor.state)</span></div>
-<div class="line"><span class="lineno">   72</span> </div>
-<div class="line"><span class="lineno">   73</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   71</span>{</div>
+<div class="line"><span class="lineno">   72</span>    <span class="comment">// LOG_INFO(sendor.height &lt;&lt; &quot;, &quot; &lt;&lt; sendor.width &lt;&lt; &quot;, &quot; &lt;&lt; (int)sendor.state)</span></div>
+<div class="line"><span class="lineno">   73</span> </div>
+<div class="line"><span class="lineno">   74</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -855,26 +873,18 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="ad54a84289c6ab064d04879e4ae75d90b" name="ad54a84289c6ab064d04879e4ae75d90b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad54a84289c6ab064d04879e4ae75d90b">&#9670;&#160;</a></span>indcies</h2>
+<a id="a0caedc9b2da778190eb007fac43b7ec8" name="a0caedc9b2da778190eb007fac43b7ec8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0caedc9b2da778190eb007fac43b7ec8">&#9670;&#160;</a></span>indcies</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr uint32_t indcies[]</td>
+          <td class="memname">uint32_t* indcies</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <span class="keyword">new</span> uint32_t[]{</div>
 <div class="line">    0, 1, 2,</div>
 <div class="line">    0, 3, 2</div>
 <div class="line">}</div>
@@ -895,26 +905,18 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a738fd665e4ed299512d4d27fc7605c90" name="a738fd665e4ed299512d4d27fc7605c90"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a738fd665e4ed299512d4d27fc7605c90">&#9670;&#160;</a></span>vertices1</h2>
+<a id="a2b14c10044443cbf45610ebadcfd30c0" name="a2b14c10044443cbf45610ebadcfd30c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b14c10044443cbf45610ebadcfd30c0">&#9670;&#160;</a></span>vertices1</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr float vertices1[]</td>
+          <td class="memname">float* vertices1</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <span class="keyword">new</span> <span class="keywordtype">float</span>[]{</div>
 <div class="line">    0.5f,    0.5f,    0.0f,           </div>
 <div class="line">    0.5f,   -0.5f,    0.0f,           </div>
 <div class="line">    -0.5f,  -0.5f,   0.0f,           </div>
@@ -923,26 +925,18 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a7faf18e9e82c0266ee48d4251f12d8ae" name="a7faf18e9e82c0266ee48d4251f12d8ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7faf18e9e82c0266ee48d4251f12d8ae">&#9670;&#160;</a></span>vertices2</h2>
+<a id="a2ba9ca0db23fe24e38bb62870e492177" name="a2ba9ca0db23fe24e38bb62870e492177"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ba9ca0db23fe24e38bb62870e492177">&#9670;&#160;</a></span>vertices2</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr float vertices2[]</td>
+          <td class="memname">float* vertices2</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <span class="keyword">new</span> <span class="keywordtype">float</span>[]{</div>
 <div class="line">    1.0f, 1.0f,</div>
 <div class="line">    1.0f, 0,</div>
 <div class="line">    0, 0,</div>
@@ -951,26 +945,18 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="ad0387ba3b16eac05546406437f80d804" name="ad0387ba3b16eac05546406437f80d804"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad0387ba3b16eac05546406437f80d804">&#9670;&#160;</a></span>vertices3</h2>
+<a id="a6b34eba685209067cd19619c10769c83" name="a6b34eba685209067cd19619c10769c83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b34eba685209067cd19619c10769c83">&#9670;&#160;</a></span>vertices3</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr float vertices3[]</td>
+          <td class="memname">float* vertices3</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <span class="keyword">new</span> <span class="keywordtype">float</span>[]{</div>
 <div class="line">    0.5f,    0.5f,    0.0f,          1.0f, 1.0f,</div>
 <div class="line">    0.5f,   -0.5f,    0.0f,          1.0f, 0,</div>
 <div class="line">    -0.5f,  -0.5f,   0.0f,           0, 0,</div>

@@ -1,11 +1,23 @@
 <map id="entityPool::unenlistType" name="entityPool::unenlistType">
-<area shape="rect" id="node1" title=" " alt="" coords="288,223,447,248"/>
-<area shape="rect" id="node2" href="$db/d0a/classcomponent_type.html#a734bc3318456d5b6a2b21374a2e0b2aa" title=" " alt="" coords="13,5,232,31"/>
-<area shape="rect" id="node3" href="$d5/da5/classframe_buffers_compontents.html#a3168b0bcbbae5e0dd5726df3c03717b3" title=" " alt="" coords="29,55,216,95"/>
-<area shape="rect" id="node4" href="$da/db6/classlayer_info_componenet.html#a855671d56d8128ac6549f8721a7a1da0" title=" " alt="" coords="44,119,201,159"/>
-<area shape="rect" id="node5" href="$d3/da0/classsurface_info_component.html#a9a75e083754035750c7441f02f9ea4e1" title=" " alt="" coords="39,183,206,223"/>
-<area shape="rect" id="node6" href="$df/d7d/classtoplevel_info_componenet.html#af884c1b477b3a6dc9c542a587cea3d65" title=" " alt="" coords="35,247,210,287"/>
-<area shape="rect" id="node7" href="$db/d39/classwindow_close_callback_component.html#aee543e8cb2b300370132700ab83bad47" title=" " alt="" coords="9,311,237,351"/>
-<area shape="rect" id="node8" href="$d2/d08/classwindow_resize_callback_component.html#a281c43314bba6fa6e1e4b4664f489c9c" title=" " alt="" coords="5,375,240,415"/>
-<area shape="rect" id="node9" href="$dc/d12/classwindows_info_component.html#a8675856a368ef41b7a8a3caeb1d854de" title=" " alt="" coords="35,439,210,479"/>
+<area shape="rect" id="node1" title=" " alt="" coords="304,594,463,619"/>
+<area shape="rect" id="node2" href="$df/d69/classapi_type_components.html#a37aab0ceabc5f656c6248834ba83d2f6" title=" " alt="" coords="57,5,204,45"/>
+<area shape="rect" id="node3" href="$db/d0a/classcomponent_type.html#a734bc3318456d5b6a2b21374a2e0b2aa" title=" " alt="" coords="21,70,240,95"/>
+<area shape="rect" id="node4" href="$d1/db9/classcpu_render_info_component.html#ac5df4bd9547ce31f60ca120a3b430bd0" title=" " alt="" coords="38,120,223,160"/>
+<area shape="rect" id="node5" href="$dc/d2b/classentity_pool.html#a55fb4d20bd6144e8eae42c2a47552b0b" title=" " alt="" coords="56,185,205,210"/>
+<area shape="rect" id="node6" href="$d6/d73/classframe_buffers_components.html#a28e4731b1cbe9821a76b19971934a6d1" title=" " alt="" coords="39,235,222,275"/>
+<area shape="rect" id="node7" href="$db/d85/classgpu_render_info_component.html#a32f24f807e6bb57cb5d38a8bad362d40" title=" " alt="" coords="38,299,223,339"/>
+<area shape="rect" id="node8" href="$db/dc3/classkey_callback_component.html#ab12cb636868dbac486f568a90ea48b1e" title=" " alt="" coords="45,363,216,403"/>
+<area shape="rect" id="node9" href="$da/db6/classlayer_info_componenet.html#a855671d56d8128ac6549f8721a7a1da0" title=" " alt="" coords="52,427,209,467"/>
+<area shape="rect" id="node10" href="$d7/dd6/classmouse_button_callback_component.html#a02a66cb16511e844050bffdd4c9db61b" title=" " alt="" coords="17,491,245,531"/>
+<area shape="rect" id="node11" href="$d6/dcd/classmouse_move_callback_component.html#a583af17220f6a3a7d07a9ae164a8e406" title=" " alt="" coords="19,555,242,595"/>
+<area shape="rect" id="node12" href="$df/dc4/classmouse_scroll_callback_component.html#a9150ae9e9a62403fd68e037750dc08e8" title=" " alt="" coords="19,619,242,659"/>
+<area shape="rect" id="node13" href="$de/dfd/classshaders_components.html#a89b5ed19e0a78630d61a905c771e6255" title=" " alt="" coords="57,683,205,723"/>
+<area shape="rect" id="node14" href="$db/d8e/classsubsurface_info_componenet.html#a875f13090224101e2d33a6d746fe1bb3" title=" " alt="" coords="33,747,228,787"/>
+<area shape="rect" id="node15" href="$d3/da0/classsurface_info_component.html#a9a75e083754035750c7441f02f9ea4e1" title=" " alt="" coords="47,811,214,851"/>
+<area shape="rect" id="node16" href="$d3/ded/classtexture_components.html#aba67fee7f943567e245657188a921a54" title=" " alt="" coords="60,875,201,915"/>
+<area shape="rect" id="node17" href="$df/d7d/classtoplevel_info_componenet.html#af884c1b477b3a6dc9c542a587cea3d65" title=" " alt="" coords="43,939,218,979"/>
+<area shape="rect" id="node18" href="$d9/d50/class_v_a_os_components.html#ac8c1f6d840ebffeff95cc61924b496fd" title=" " alt="" coords="5,1003,256,1029"/>
+<area shape="rect" id="node19" href="$d2/d08/classwindow_resize_callback_component.html#a281c43314bba6fa6e1e4b4664f489c9c" title=" " alt="" coords="13,1053,248,1093"/>
+<area shape="rect" id="node20" href="$dc/d12/classwindows_info_component.html#a8675856a368ef41b7a8a3caeb1d854de" title=" " alt="" coords="43,1117,218,1157"/>
+<area shape="rect" id="node21" href="$d1/d49/classwindow_surface_callback_component.html#ac302e505f903d5671b705ba479ae8d4c" title=" " alt="" coords="11,1181,251,1221"/>
 </map>

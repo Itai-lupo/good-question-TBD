@@ -55,7 +55,7 @@ void toplevel::xdgTopLevelClose(void *data, xdg_toplevel *xdgToplevel)
 
     surfaceId id = *(surfaceId*)data;
 
-    closeCallback temp = closeCallbacks->getCallback(id);
+    surfaceCallback temp = closeCallbacks->getCallback(id);
     if(temp)
         temp(id);
         

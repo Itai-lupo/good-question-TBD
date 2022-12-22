@@ -1,10 +1,15 @@
 #include "entityPool.hpp"
 
+#include "log.hpp"
+#include <Tracy.hpp>
+
 entityPool::entityPool(uint32_t maxSize): maxSize(maxSize)
 {
     maxId = 10;
     gen = new uint8_t[maxId];
-    memset(gen, 255, (maxId));    
+    memset(gen, 255, maxId);    
+    TracyAlloc(gen, maxId);
+
 }
 
 
@@ -28,12 +33,17 @@ entityId entityPool::allocEntity()
 
         if(maxAllocatedId >= maxId)
         {
-            gen = (uint8_t*)realloc(gen, maxId * 2 *sizeof(uint8_t));
+            TracyFree(gen);
+            gen = (uint8_t*)realloc(gen, maxId * 2 * sizeof(uint8_t));
+            TracyAlloc(gen, maxId * 2 *sizeof(uint8_t));
+
             memset(gen + maxId, 255, maxId);
 
             for (auto& type: listedTypes)
             {
+                TracyFree(*type.IdToIndex);
                 *type.IdToIndex = (uint32_t*)realloc(*type.IdToIndex, maxId * 2 * sizeof(uint32_t));
+                TracyAlloc(*type.IdToIndex, maxId * 2 * sizeof(uint32_t));
                 memset(*type.IdToIndex + maxId, 255, maxId * sizeof(uint32_t));
             }
 
@@ -61,9 +71,13 @@ void entityPool::freeEntity(entityId id)
 void entityPool::enlistType(void *dataPtr, typeCallback freeCallback, uint32_t **IdToIndex)
 {
     *IdToIndex =  new uint32_t[maxId];
+    TracyAlloc(*IdToIndex, sizeof(uint32_t) * maxId);
     memset(*IdToIndex, 255, sizeof(uint32_t) * maxId);      
+    if(listedTypes.size() != 0)
+            TracyFree(listedTypes.data());
 
     listedTypes.push_back({dataPtr, freeCallback, IdToIndex});
+    TracyAlloc(listedTypes.data(), sizeof(listedType) * listedTypes.size());
 }
 
 void entityPool::unenlistType(void *dataPtr, uint32_t *IdToIndex)
@@ -72,7 +86,14 @@ void entityPool::unenlistType(void *dataPtr, uint32_t *IdToIndex)
     {
         if(listedTypes[i].data == dataPtr && *listedTypes[i].IdToIndex == IdToIndex){
             listedTypes[i] = *listedTypes.end();
+            
+            TracyFree(listedTypes.data());
             listedTypes.pop_back();
+            if(listedTypes.size() != 0)
+                TracyAlloc(listedTypes.data(), sizeof(listedType) * listedTypes.size());
+
+            TracyFree(IdToIndex);
+            free(IdToIndex);
         }
 
     }
@@ -84,5 +105,9 @@ void entityPool::unenlistType(void *dataPtr, uint32_t *IdToIndex)
 
 entityPool::~entityPool()
 {
-    delete[] gen;
+    for(auto& type: listedTypes)
+        unenlistType(type.data, *type.IdToIndex);
+    
+    TracyFree(gen);
+    free(gen);
 }

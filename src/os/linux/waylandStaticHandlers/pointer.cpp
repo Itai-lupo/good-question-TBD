@@ -9,6 +9,22 @@
 #include <thread>
 #include <Tracy.hpp>
 
+void pointer::init(entityPool *surfacesesPool)
+{
+    mouseButtonPressEventListeners = new mouseButtonCallbackComponent(surfacesesPool);
+    mouseButtonReleasedEventListeners = new mouseButtonCallbackComponent(surfacesesPool);
+    mouseMovedEventListeners = new mouseMoveCallbackComponent(surfacesesPool);
+    mouseScrollEventListeners = new mouseScrollCallbackComponent(surfacesesPool);
+}
+
+void pointer::close()
+{
+    delete mouseButtonPressEventListeners;
+    delete mouseButtonReleasedEventListeners;
+    delete mouseMovedEventListeners;
+    delete mouseScrollEventListeners;
+
+}
 
 void pointer::wlPointerEnter(void *data, struct wl_pointer *wl_pointer, uint32_t serial, struct wl_surface *surface, wl_fixed_t surface_x, wl_fixed_t surface_y)
 {    
@@ -89,47 +105,42 @@ void pointer::wlPointerFrame(void *data, wl_pointer *wlPointer)
     ZoneScoped;
     inputBuffer& frameData = inputFrameData;
     
-    if(frameData.id.index == (uint8_t)-1 || frameData.id.gen != idToIndex[frameData.id.index].gen)
-        return;
 
     if(frameData.eventTypes.pointerEnter)
     {
         
     }
 
-    int index = idToIndex[frameData.id.index].mouseMovedEventIndex;
-    if(frameData.eventTypes.pointerMotion)
-    {    
-        if(index != (uint8_t)-1)
-            std::thread(
-                mouseMovedEventListeners[index], 
+    mouseMoveCallback temp = mouseMovedEventListeners->getCallback(frameData.id);
+    if(frameData.eventTypes.pointerMotion && temp)
+            std::thread(temp, 
                 mouseMoveData{frameData.id, wl_fixed_to_int(frameData.surface_x), wl_fixed_to_int(frameData.surface_y)}).detach();
-    }
+
 
     if(frameData.eventTypes.pointerButton)
     {
-        index = idToIndex[frameData.id.index].mouseButtonPressEventIndex;
-        if(frameData.state == 1 && index != (uint8_t)-1)
+        mouseCallback tempMouse = mouseButtonPressEventListeners->getCallback(frameData.id);
+        if(frameData.state == 1 && tempMouse)
             std::thread(
-                mouseButtonPressEventListeners[index], 
+                mouseButtonPressEventListeners->getCallback(frameData.id), 
                 mouseButtonData{frameData.id, mouseButtons(frameData.button - BTN_MOUSE)}).detach();
 
 
-        index = idToIndex[frameData.id.index].mouseButtonReleasedEventIndex;
-        if(frameData.state == 0 && index != (uint8_t)-1)
+        tempMouse = mouseButtonPressEventListeners->getCallback(frameData.id);
+        if(frameData.state == 0 && tempMouse)
             std::thread(
-                mouseButtonReleasedEventListeners[index], 
+                mouseButtonReleasedEventListeners->getCallback(frameData.id), 
                 mouseButtonData{frameData.id, mouseButtons(frameData.button - BTN_MOUSE)}).detach();
     }
 
 
-    index = idToIndex[frameData.id.index].mouseScrollEventIndex;
-    if(frameData.eventTypes.pointerAxis && index != (uint8_t)-1)
+    scrollCallback tempScroll = mouseScrollEventListeners->getCallback(frameData.id);
+    if(frameData.eventTypes.pointerAxis && tempScroll)
         for (size_t i = 0; i < 2; i++)
         {
             if(frameData.axes[i].valid)
                 std::thread(
-                    mouseScrollEventListeners[index], 
+                    tempScroll, 
                     mouseScrollData{frameData.id, (mouseAxis)i, (mouseAxisSource)frameData.axis_source, wl_fixed_to_int(frameData.axes[i].value), frameData.axes[i].discrete}).detach();
         }
 
@@ -142,167 +153,45 @@ void pointer::wlPointerFrame(void *data, wl_pointer *wlPointer)
 }
 
 
-void pointer::allocateWindowEvents(surfaceId id)
+void pointer::setMouseButtonPressEventListeners(surfaceId id, void(*callback)(const mouseButtonData&))
 {
-    if(id.index >= idToIndex.size())
-        idToIndex.resize(id.index + 1);
-
-    idToIndex[id.index].gen = id.gen;
+    mouseButtonPressEventListeners->setCallback(id, callback);
 }
 
-void pointer::setMouseButtonPressEventListeners(surfaceId id, std::function<void(const mouseButtonData&)> callback)
+void pointer::setMouseButtonReleasedEventListeners(surfaceId id, void(*callback)(const mouseButtonData&))
 {
-    uint32_t index = idToIndex[id.index].mouseButtonPressEventIndex;
-    if(idToIndex[id.index].gen != id.gen)
-        return;
-
-    if(index != (uint8_t)-1)
-    {    
-        mouseButtonPressEventListeners[index] = callback;
-        mouseButtonPressEventId[index] = id;
-        return;
-    }
-
-    idToIndex[id.index].mouseButtonPressEventIndex = mouseButtonPressEventListeners.size();
-    mouseButtonPressEventListeners.push_back(callback);
-    mouseButtonPressEventId.push_back(id);
+    mouseButtonReleasedEventListeners->setCallback(id, callback);
 }
 
-void pointer::setMouseButtonReleasedEventListeners(surfaceId id, std::function<void(const mouseButtonData&)> callback)
+void pointer::setMouseMovedListeners(surfaceId id, void(*callback)(const mouseMoveData&))
 {
-    uint32_t index = idToIndex[id.index].mouseButtonReleasedEventIndex;
-    if(idToIndex[id.index].gen != id.gen)
-        return;
-
-    if(index != (uint8_t)-1)
-    {    
-        mouseButtonReleasedEventListeners[index] = callback;
-        mouseButtonReleasedEventId[index] = id;
-        return;
-    }
-
-    idToIndex[id.index].mouseButtonReleasedEventIndex = mouseButtonReleasedEventListeners.size();
-    mouseButtonReleasedEventListeners.push_back(callback);
-    mouseButtonReleasedEventId.push_back(id);
+    mouseMovedEventListeners->setCallback(id, callback);
 }
 
-void pointer::setMouseMovedListeners(surfaceId id, std::function<void(const mouseMoveData&)> callback)
+void pointer::setMouseScrollListeners(surfaceId id, void(*callback)(const mouseScrollData&))
 {
-    uint32_t index = idToIndex[id.index].mouseMovedEventIndex;
-    if(idToIndex[id.index].gen != id.gen)
-        return;
-
-    if(index != (uint8_t)-1)
-    {    
-        mouseMovedEventListeners[index] = callback;
-        mouseMovedEventId[index] = id;
-        return;
-    }
-
-    idToIndex[id.index].mouseMovedEventIndex = mouseMovedEventListeners.size();
-    mouseMovedEventListeners.push_back(callback);
-    mouseMovedEventId.push_back(id);
+    mouseScrollEventListeners->setCallback(id, callback);
 }
 
-void pointer::setMouseScrollListeners(surfaceId id, std::function<void(const mouseScrollData&)> callback)
-{
-    uint32_t index = idToIndex[id.index].mouseScrollEventIndex;
-    if(idToIndex[id.index].gen != id.gen)
-        return;
-
-    if(index != (uint8_t)-1)
-    {    
-        mouseScrollEventListeners[index] = callback;
-        mouseScrollEventId[index] = id;
-        return;
-    }
-
-    idToIndex[id.index].mouseScrollEventIndex = mouseScrollEventListeners.size();
-    mouseScrollEventListeners.push_back(callback);
-    mouseScrollEventId.push_back(id);
-}
-
-
-
-void pointer::deallocateWindowEvents(surfaceId id)
-{
-    if(idToIndex[id.index].gen != id.gen)
-        return;
-
-    unsetMouseButtonPressEventListeners(id);
-    unsetMouseButtonReleasedEventListeners(id);
-    unsetMouseMovedListeners(id);
-    unsetMouseScrollListeners(id);
-
-    idToIndex[id.index].gen = -1;
-}
 
 void pointer::unsetMouseButtonPressEventListeners(surfaceId id)
 {
-    uint32_t index = idToIndex[id.index].mouseButtonPressEventIndex;
-    if(idToIndex[id.index].gen != id.gen || index == -1)
-        return;
-
-    uint32_t lastIndex = mouseButtonPressEventListeners.size() - 1;
-    idToIndex[mouseButtonPressEventId[lastIndex].index].mouseButtonPressEventIndex = index;
-    mouseButtonPressEventListeners[index] = mouseButtonPressEventListeners[lastIndex];
-    mouseButtonPressEventId[index] = mouseButtonPressEventId[lastIndex];
-
-    mouseButtonPressEventListeners.pop_back();
-    mouseButtonPressEventId.pop_back();
-
-    idToIndex[id.index].mouseButtonPressEventIndex = -1;
+    mouseButtonPressEventListeners->deleteComponent(id);
 }
 
 void pointer::unsetMouseButtonReleasedEventListeners(surfaceId id)
 {
-    uint32_t index = idToIndex[id.index].mouseButtonReleasedEventIndex;
-    if(idToIndex[id.index].gen != id.gen || index == -1)
-        return;
-
-    uint32_t lastIndex = mouseButtonReleasedEventListeners.size() - 1;
-    idToIndex[mouseButtonReleasedEventId[lastIndex].index].mouseButtonReleasedEventIndex = index;
-    mouseButtonReleasedEventListeners[index] = mouseButtonReleasedEventListeners[lastIndex];
-    mouseButtonReleasedEventId[index] = mouseButtonReleasedEventId[lastIndex];
-
-    mouseButtonReleasedEventListeners.pop_back();
-    mouseButtonReleasedEventId.pop_back();
-
-    idToIndex[id.index].mouseButtonReleasedEventIndex = -1;
-}  
+    mouseButtonReleasedEventListeners->deleteComponent(id);
+}
 
 void pointer::unsetMouseMovedListeners(surfaceId id)
 {
-    uint32_t index = idToIndex[id.index].mouseMovedEventIndex;
-    if(idToIndex[id.index].gen != id.gen || index == -1)
-        return;
-
-    uint32_t lastIndex = mouseMovedEventListeners.size() - 1;
-    idToIndex[mouseMovedEventId[lastIndex].index].mouseMovedEventIndex = index;
-    mouseMovedEventListeners[index] = mouseMovedEventListeners[lastIndex];
-    mouseMovedEventId[index] = mouseMovedEventId[lastIndex];
-
-    mouseMovedEventListeners.pop_back();
-    mouseMovedEventId.pop_back();
-
-    idToIndex[id.index].mouseMovedEventIndex = -1;
+    mouseMovedEventListeners->deleteComponent(id);
 }
 
 void pointer::unsetMouseScrollListeners(surfaceId id)
 {
-    uint32_t index = idToIndex[id.index].mouseScrollEventIndex;
-    if(idToIndex[id.index].gen != id.gen || index == -1)
-        return;
-
-    uint32_t lastIndex = mouseScrollEventListeners.size() - 1;
-    idToIndex[mouseScrollEventId[lastIndex].index].mouseScrollEventIndex = index;
-    mouseScrollEventListeners[index] = mouseScrollEventListeners[lastIndex];
-    mouseScrollEventId[index] = mouseScrollEventId[lastIndex];
-
-    mouseScrollEventListeners.pop_back();
-    mouseScrollEventId.pop_back();
-
-    idToIndex[id.index].mouseScrollEventIndex = -1;
+    mouseScrollEventListeners->deleteComponent(id);
 }
 
 

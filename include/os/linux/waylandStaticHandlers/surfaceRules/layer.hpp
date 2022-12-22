@@ -10,7 +10,7 @@
 #include "core.hpp"
 #include "surface.hpp"
 
-#include "windowCloseCallbackComponent.hpp"
+#include "windowSurfaceCallbackComponent.hpp"
 #include "windowResizeCallbackComponent.hpp"
 #include "layerInfoComponenet.hpp"
 
@@ -25,7 +25,7 @@ class layer
             .closed = layerClose
         };	
 
-        static inline windowCloseCallbackComponent *closeCallbacks;
+        static inline windowSurfaceCallbackComponent *closeCallbacks;
         static inline windowResizeCallbackComponent *resizeCallbacks;
         static inline layerInfoComponenet *layers;
 
@@ -35,7 +35,7 @@ class layer
 
         static inline void init(entityPool *surfacePool)
         {
-            closeCallbacks = new windowCloseCallbackComponent(surfacePool);
+            closeCallbacks = new windowSurfaceCallbackComponent(surfacePool);
             resizeCallbacks = new windowResizeCallbackComponent(surfacePool);
             layers = new layerInfoComponenet(surfacePool);
         }

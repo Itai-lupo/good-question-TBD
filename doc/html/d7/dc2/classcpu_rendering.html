@@ -92,7 +92,6 @@ $(document).ready(function(){initNavTree('d7/dc2/classcpu_rendering.html','../..
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="../../d0/d77/classcpu_rendering-members.html">List of all members</a>  </div>
@@ -102,29 +101,18 @@ $(document).ready(function(){initNavTree('d7/dc2/classcpu_rendering.html','../..
 
 <p><code>#include &lt;<a class="el" href="../../d6/d27/cpu_rendering_8hpp_source.html">cpuRendering.hpp</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/db9/structcpu_rendering_1_1id_to_render_info_event_indexes.html">idToRenderInfoEventIndexes</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d65/structcpu_rendering_1_1render_info.html">renderInfo</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a0eb947f467c9fc156fab13db4d22c061"><td class="memItemLeft" align="right" valign="top">static wl_buffer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dc2/classcpu_rendering.html#a0eb947f467c9fc156fab13db4d22c061">allocateWindowBuffer</a> (const <a class="el" href="../../da/d47/core_8hpp.html#aaf770ef1bf4bd89eb6332eb7c8149883">surfaceId</a> winId, uint32_t offset)</td></tr>
-<tr class="separator:a0eb947f467c9fc156fab13db4d22c061"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9abd75826f8c129132d007617aab8c7d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dc2/classcpu_rendering.html#a9abd75826f8c129132d007617aab8c7d">renderWindow</a> (<a class="el" href="../../da/d47/core_8hpp.html#aaf770ef1bf4bd89eb6332eb7c8149883">surfaceId</a> win)</td></tr>
-<tr class="separator:a9abd75826f8c129132d007617aab8c7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58eb404e2bde9045dc1b981cd94bf47d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dc2/classcpu_rendering.html#a58eb404e2bde9045dc1b981cd94bf47d">reallocateWindowCpuPool</a> (<a class="el" href="../../da/d47/core_8hpp.html#aaf770ef1bf4bd89eb6332eb7c8149883">surfaceId</a> winId)</td></tr>
-<tr class="separator:a58eb404e2bde9045dc1b981cd94bf47d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05856d539308bd01296afcb6aa6ca859"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dc2/classcpu_rendering.html#a05856d539308bd01296afcb6aa6ca859">allocateSurfaceToRender</a> (<a class="el" href="../../da/d47/core_8hpp.html#aaf770ef1bf4bd89eb6332eb7c8149883">surfaceId</a> winId)</td></tr>
-<tr class="separator:a05856d539308bd01296afcb6aa6ca859"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90efca78e9ceb744be88999780bd2ea6"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dc2/classcpu_rendering.html#a90efca78e9ceb744be88999780bd2ea6">setRenderEventListeners</a> (<a class="el" href="../../da/d47/core_8hpp.html#aaf770ef1bf4bd89eb6332eb7c8149883">surfaceId</a> winId, std::function&lt; void(const <a class="el" href="../../d0/df1/structwindow_render_data.html">windowRenderData</a> &amp;)&gt; callback)</td></tr>
-<tr class="separator:a90efca78e9ceb744be88999780bd2ea6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af424f28a0a223674eb1f8b352ffae373"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dc2/classcpu_rendering.html#af424f28a0a223674eb1f8b352ffae373">init</a> (<a class="el" href="../../dc/d2b/classentity_pool.html">entityPool</a> *surfacesPool)</td></tr>
+<tr class="separator:af424f28a0a223674eb1f8b352ffae373"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9f9ac55af4082ab2d1acd6b6fab3d48"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dc2/classcpu_rendering.html#ae9f9ac55af4082ab2d1acd6b6fab3d48">closeRenderer</a> ()</td></tr>
+<tr class="separator:ae9f9ac55af4082ab2d1acd6b6fab3d48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a094191455d745a2180ef14a29f372481"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dc2/classcpu_rendering.html#a094191455d745a2180ef14a29f372481">allocateSurfaceToRender</a> (<a class="el" href="../../da/d47/core_8hpp.html#aaf770ef1bf4bd89eb6332eb7c8149883">surfaceId</a> winId, void(*callback)(const <a class="el" href="../../d4/d29/structcpu_render_data.html">cpuRenderData</a> &amp;))</td></tr>
+<tr class="separator:a094191455d745a2180ef14a29f372481"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07416e3ae40c4b492c18857268f467a6"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dc2/classcpu_rendering.html#a07416e3ae40c4b492c18857268f467a6">deallocateSurfaceToRender</a> (<a class="el" href="../../da/d47/core_8hpp.html#aaf770ef1bf4bd89eb6332eb7c8149883">surfaceId</a> winId)</td></tr>
 <tr class="separator:a07416e3ae40c4b492c18857268f467a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ea02e0a2292f04f7e324d6a9701f5e1"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dc2/classcpu_rendering.html#a5ea02e0a2292f04f7e324d6a9701f5e1">unsetRenderEventListeners</a> (<a class="el" href="../../da/d47/core_8hpp.html#aaf770ef1bf4bd89eb6332eb7c8149883">surfaceId</a> winId)</td></tr>
-<tr class="separator:a5ea02e0a2292f04f7e324d6a9701f5e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ac668c97c9792c367f933b7b9640e13"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dc2/classcpu_rendering.html#a0ac668c97c9792c367f933b7b9640e13">setRenderEventListeners</a> (<a class="el" href="../../da/d47/core_8hpp.html#aaf770ef1bf4bd89eb6332eb7c8149883">surfaceId</a> winId, void(*callback)(const <a class="el" href="../../d4/d29/structcpu_render_data.html">cpuRenderData</a> &amp;))</td></tr>
+<tr class="separator:a0ac668c97c9792c367f933b7b9640e13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a129a17ae23cf5ae2838275bebf7fae9a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dc2/classcpu_rendering.html#a129a17ae23cf5ae2838275bebf7fae9a">resize</a> (<a class="el" href="../../da/d47/core_8hpp.html#aaf770ef1bf4bd89eb6332eb7c8149883">surfaceId</a> id, int width, int height)</td></tr>
 <tr class="separator:a129a17ae23cf5ae2838275bebf7fae9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -132,18 +120,10 @@ Static Public Member Functions</h2></td></tr>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a3b5d181ca4ebfa34e2083c309d0896a7"><td class="memItemLeft" align="right" valign="top">static wl_shm *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dc2/classcpu_rendering.html#a3b5d181ca4ebfa34e2083c309d0896a7">shm</a></td></tr>
 <tr class="separator:a3b5d181ca4ebfa34e2083c309d0896a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a507e9a0277e329d90b1e3b3f82534f77"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; <a class="el" href="../../d4/db9/structcpu_rendering_1_1id_to_render_info_event_indexes.html">idToRenderInfoEventIndexes</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dc2/classcpu_rendering.html#a507e9a0277e329d90b1e3b3f82534f77">idToIndex</a></td></tr>
-<tr class="separator:a507e9a0277e329d90b1e3b3f82534f77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0741f39fff71916162cc937c2a75e725"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; <a class="el" href="../../d2/d65/structcpu_rendering_1_1render_info.html">renderInfo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dc2/classcpu_rendering.html#a0741f39fff71916162cc937c2a75e725">surfacesToRender</a></td></tr>
-<tr class="separator:a0741f39fff71916162cc937c2a75e725"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85ff708007cdc36fc895e6f2eb136d24"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::function&lt; void(const <a class="el" href="../../d0/df1/structwindow_render_data.html">windowRenderData</a> &amp;)&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dc2/classcpu_rendering.html#a85ff708007cdc36fc895e6f2eb136d24">renderEventListeners</a></td></tr>
-<tr class="separator:a85ff708007cdc36fc895e6f2eb136d24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4044529605a3fc905f012f4c5a0fb504"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; <a class="el" href="../../da/d47/core_8hpp.html#aaf770ef1bf4bd89eb6332eb7c8149883">surfaceId</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dc2/classcpu_rendering.html#a4044529605a3fc905f012f4c5a0fb504">renderEventId</a></td></tr>
-<tr class="separator:a4044529605a3fc905f012f4c5a0fb504"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a05856d539308bd01296afcb6aa6ca859" name="a05856d539308bd01296afcb6aa6ca859"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05856d539308bd01296afcb6aa6ca859">&#9670;&#160;</a></span>allocateSurfaceToRender()</h2>
+<a id="a094191455d745a2180ef14a29f372481" name="a094191455d745a2180ef14a29f372481"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a094191455d745a2180ef14a29f372481">&#9670;&#160;</a></span>allocateSurfaceToRender()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -155,8 +135,18 @@ Static Public Attributes</h2></td></tr>
           <td class="memname">static void cpuRendering::allocateSurfaceToRender </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#aaf770ef1bf4bd89eb6332eb7c8149883">surfaceId</a>&#160;</td>
-          <td class="paramname"><em>winId</em></td><td>)</td>
+          <td class="paramname"><em>winId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">void(*)(const <a class="el" href="../../d4/d29/structcpu_render_data.html">cpuRenderData</a> &amp;)&#160;</td>
+          <td class="paramname"><em>callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -168,8 +158,8 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a0eb947f467c9fc156fab13db4d22c061" name="a0eb947f467c9fc156fab13db4d22c061"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0eb947f467c9fc156fab13db4d22c061">&#9670;&#160;</a></span>allocateWindowBuffer()</h2>
+<a id="ae9f9ac55af4082ab2d1acd6b6fab3d48" name="ae9f9ac55af4082ab2d1acd6b6fab3d48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9f9ac55af4082ab2d1acd6b6fab3d48">&#9670;&#160;</a></span>closeRenderer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -178,21 +168,10 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static wl_buffer * cpuRendering::allocateWindowBuffer </td>
+          <td class="memname">static void cpuRendering::closeRenderer </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../da/d47/core_8hpp.html#aaf770ef1bf4bd89eb6332eb7c8149883">surfaceId</a>&#160;</td>
-          <td class="paramname"><em>winId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>offset</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -230,8 +209,8 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a58eb404e2bde9045dc1b981cd94bf47d" name="a58eb404e2bde9045dc1b981cd94bf47d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58eb404e2bde9045dc1b981cd94bf47d">&#9670;&#160;</a></span>reallocateWindowCpuPool()</h2>
+<a id="af424f28a0a223674eb1f8b352ffae373" name="af424f28a0a223674eb1f8b352ffae373"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af424f28a0a223674eb1f8b352ffae373">&#9670;&#160;</a></span>init()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -240,36 +219,10 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void cpuRendering::reallocateWindowCpuPool </td>
+          <td class="memname">static void cpuRendering::init </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#aaf770ef1bf4bd89eb6332eb7c8149883">surfaceId</a>&#160;</td>
-          <td class="paramname"><em>winId</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9abd75826f8c129132d007617aab8c7d" name="a9abd75826f8c129132d007617aab8c7d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9abd75826f8c129132d007617aab8c7d">&#9670;&#160;</a></span>renderWindow()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void cpuRendering::renderWindow </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#aaf770ef1bf4bd89eb6332eb7c8149883">surfaceId</a>&#160;</td>
-          <td class="paramname"><em>win</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../dc/d2b/classentity_pool.html">entityPool</a> *&#160;</td>
+          <td class="paramname"><em>surfacesPool</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -324,8 +277,8 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a90efca78e9ceb744be88999780bd2ea6" name="a90efca78e9ceb744be88999780bd2ea6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90efca78e9ceb744be88999780bd2ea6">&#9670;&#160;</a></span>setRenderEventListeners()</h2>
+<a id="a0ac668c97c9792c367f933b7b9640e13" name="a0ac668c97c9792c367f933b7b9640e13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ac668c97c9792c367f933b7b9640e13">&#9670;&#160;</a></span>setRenderEventListeners()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -342,7 +295,7 @@ Static Public Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::function&lt; void(const <a class="el" href="../../d0/df1/structwindow_render_data.html">windowRenderData</a> &amp;)&gt;&#160;</td>
+          <td class="paramtype">void(*)(const <a class="el" href="../../d4/d29/structcpu_render_data.html">cpuRenderData</a> &amp;)&#160;</td>
           <td class="paramname"><em>callback</em>&#160;</td>
         </tr>
         <tr>
@@ -360,99 +313,7 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a5ea02e0a2292f04f7e324d6a9701f5e1" name="a5ea02e0a2292f04f7e324d6a9701f5e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5ea02e0a2292f04f7e324d6a9701f5e1">&#9670;&#160;</a></span>unsetRenderEventListeners()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void cpuRendering::unsetRenderEventListeners </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#aaf770ef1bf4bd89eb6332eb7c8149883">surfaceId</a>&#160;</td>
-          <td class="paramname"><em>winId</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a507e9a0277e329d90b1e3b3f82534f77" name="a507e9a0277e329d90b1e3b3f82534f77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a507e9a0277e329d90b1e3b3f82534f77">&#9670;&#160;</a></span>idToIndex</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="../../d4/db9/structcpu_rendering_1_1id_to_render_info_event_indexes.html">idToRenderInfoEventIndexes</a>&gt; cpuRendering::idToIndex</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a4044529605a3fc905f012f4c5a0fb504" name="a4044529605a3fc905f012f4c5a0fb504"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4044529605a3fc905f012f4c5a0fb504">&#9670;&#160;</a></span>renderEventId</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="../../da/d47/core_8hpp.html#aaf770ef1bf4bd89eb6332eb7c8149883">surfaceId</a>&gt; cpuRendering::renderEventId</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a85ff708007cdc36fc895e6f2eb136d24" name="a85ff708007cdc36fc895e6f2eb136d24"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85ff708007cdc36fc895e6f2eb136d24">&#9670;&#160;</a></span>renderEventListeners</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt; std::function&lt;void(const <a class="el" href="../../d0/df1/structwindow_render_data.html">windowRenderData</a>&amp;)&gt; &gt; cpuRendering::renderEventListeners</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a3b5d181ca4ebfa34e2083c309d0896a7" name="a3b5d181ca4ebfa34e2083c309d0896a7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3b5d181ca4ebfa34e2083c309d0896a7">&#9670;&#160;</a></span>shm</h2>
 
@@ -464,28 +325,6 @@ Static Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">wl_shm* cpuRendering::shm</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0741f39fff71916162cc937c2a75e725" name="a0741f39fff71916162cc937c2a75e725"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0741f39fff71916162cc937c2a75e725">&#9670;&#160;</a></span>surfacesToRender</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="../../d2/d65/structcpu_rendering_1_1render_info.html">renderInfo</a>&gt; cpuRendering::surfacesToRender</td>
         </tr>
       </table>
   </td>

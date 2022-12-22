@@ -57,10 +57,12 @@ print:
 
 # c++ source
 $(BUILD_DIR)/%.cpp.o: %.cpp
+	@echo "building file: " $<
 	$(MKDIR_P) $(dir $@)
 	$(CC)  $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
 
 $(BUILD_DIR)/%.c.o: %.c
+	@echo "building file: " $<
 	$(MKDIR_P) $(dir $@)
 	$(CC)  $(CFLAGS) $(CXXFLAGS) -c $< -o $@
 

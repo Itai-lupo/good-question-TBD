@@ -1,5 +1,6 @@
 #include "log.hpp"
 #include "osAPI.hpp"
+#include "renderApi.hpp"
 
 #include <Tracy.hpp>
 
@@ -13,28 +14,28 @@
 osAPI *a;
 bool run = true;
 
-constexpr float vertices3[] = {
+float *vertices3 = new float[]{
     0.5f,    0.5f,    0.0f,          1.0f, 1.0f,
     0.5f,   -0.5f,    0.0f,          1.0f, 0,
     -0.5f,  -0.5f,   0.0f,           0, 0,
     -0.5f,   0.5f,   0.0f,           0.0f, 1.0f,
 };  
 
-constexpr float vertices1[] = {
+float *vertices1 = new float[]{
     0.5f,    0.5f,    0.0f,           
     0.5f,   -0.5f,    0.0f,           
     -0.5f,  -0.5f,   0.0f,           
     -0.5f,   0.5f,   0.0f,            
 };  
 
-constexpr float vertices2[] = {
+float *vertices2 = new float[]{
     1.0f, 1.0f,
     1.0f, 0,
     0, 0,
     0.0f, 1.0f,
 };  
 
-constexpr uint32_t indcies[] = {
+uint32_t *indcies = new uint32_t[]{
     0, 1, 2,
     0, 3, 2
 };
@@ -47,7 +48,7 @@ void keyListener(const keyData& sendor)
 
 void mouseMove(const mouseMoveData& sendor)
 {
-    // LOG_INFO("pointer motion (" << a->getWindowTitle(winId) <<"): "<< sendor.x << ", " << sendor.y);
+    // LOG_INFO("pointer motion (" << a->getWindowTitle(sendor.id) <<"): "<< sendor.x << ", " << sendor.y);
 }
 
 void mousePress(const mouseButtonData& sendor)
@@ -84,7 +85,7 @@ void focusSwap(surfaceId winId)
     LOG_INFO("focus swap window(" << a->getWindowTitle(winId) <<")")
 }
 
-void cpuRender(const windowRenderData& sendor)
+void cpuRender(const cpuRenderData& sendor)
 {
     {
         static double *offset = new double();
@@ -103,48 +104,51 @@ void cpuRender(const windowRenderData& sendor)
             }
         }
     }
-    std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    std::this_thread::sleep_for(std::chrono::milliseconds(15));
 }
 
 
-void gpuRender(const windowRenderData& sendor)
+void gpuRender(const gpuRenderData& sendor)
 {
     {
         static bool temp = false;
+        static bool tempFinsh = false;
         static vaoId shapeToRender;
         static shaderId shaderToRender;
         static textureId testTexture;
+        static stbi_uc* data = nullptr;
+        static int width, height, channels;
+
         if(!temp)
         {
-            shapeToRender =  sendor.api->shapes->createVao();
-            sendor.api->shapes->attachIndexBuffer(shapeToRender, indcies, 6);
-
-
-            sendor.api->shapes->addVertexBufferBinding(shapeToRender, {
-                0,
-                vertices3,
-                sizeof(vertices3),
-                5 * sizeof(GLfloat)
-            });
-
-
-            sendor.api->shapes->addVertexBufferAttacment(shapeToRender, 0, 0, 3);
-            sendor.api->shapes->addVertexBufferAttacment(shapeToRender, 1, 0, 2, 3 * sizeof(GLfloat));
-
-            shaderToRender = sendor.api->shaders->createProgram("assets/shaders/vertex/texture.vert.spv", "assets/shaders/fragment/texture.frag.spv");
-            
-            
-
-            stbi_set_flip_vertically_on_load(1);
-            stbi_uc* data = nullptr;
-            
-            int width, height, channels;
-            data = stbi_load("assets/textures/preview-simple-dungeon-crawler-set1.png", &width, &height, &channels, 0);
-            testTexture = sendor.api->textures->createTexture(textureFormat::RGB8, width, height);
-            sendor.api->textures->loadBuffer(testTexture, 0, 0, width, height, textureFormat::RGB8, GL_UNSIGNED_BYTE, data);
             temp = true;
+
+            shapeToRender = sendor.api->allocVao(sendor.apiType);
+            shaderToRender = sendor.api->allocShader(sendor.apiType);
+            testTexture = sendor.api->allocTexture(sendor.apiType);
+            
+            sendor.api->setVao({
+                shapeToRender,
+                .iboToUpdate = new IBOUpdateRequst{indcies, 6},
+                .bindingSlotsToUpdate[0] = new VBOUpdateRequst{vertices3, sizeof(vertices3), 5 * sizeof(float)},
+                .attacmentsToUpdate[0] = new attacmentUpdateRequst{0, 3},
+                .attacmentsToUpdate[1] = new attacmentUpdateRequst{0, 2, 3 * sizeof(float)},
+                });
+
+            sendor.api->setShader({shaderToRender, "assets/shaders/vertex/texture.vert.spv", "assets/shaders/fragment/texture.frag.spv"});
+            stbi_set_flip_vertically_on_load(1);
+            
+            data = stbi_load("assets/textures/preview-simple-dungeon-crawler-set1.png", &width, &height, &channels, 0);
+
+            sendor.api->setTexture({testTexture, (uint32_t)width, (uint32_t)height, textureFormat::RGB8});
+
+            tempFinsh = true; 
         }
-        
+        while (!tempFinsh)
+        {
+            std::this_thread::sleep_for(std::chrono::milliseconds(1));
+        }
+                
             
         sendor.api->renderRequest({
         .frameBufferId = sendor.buffer, 
@@ -157,7 +161,7 @@ void gpuRender(const windowRenderData& sendor)
     });
     
     }
-    std::this_thread::sleep_for(std::chrono::milliseconds(1));
+    std::this_thread::sleep_for(std::chrono::milliseconds(15));
 }
 
 
@@ -178,8 +182,8 @@ int main()
     std::vector<windowId> winowsIds;
     std::vector<double *> offsets;
     
-    winowsIds.push_back(a->createWindow({"test 3", 64*7, 64*11}));
-    winowsIds.push_back(a->createWindow({"test 4", 64*9, 64*11}));
+    winowsIds.push_back(a->createWindow({"test 3", 64*7, 64*11, .gpuRenderFunction = gpuRender}));
+    winowsIds.push_back(a->createWindow({"test 4", 64*9, 64*11, .gpuRenderFunction = gpuRender}));
     // winowsIds.push_back(a->createWindow({"test 5", 1025, 1025}));
     // for (size_t i = 0; i < 10; i++)
     // {    
@@ -217,12 +221,9 @@ int main()
         a->setGainFocusEventListeners(id, focusSwap);
         a->setLostFocusEventListeners(id, focusSwap);
 
-        //to do fix the tearing that is coused from using the same variable for both top level rendring and sub surface
-        double *temp =  new double(0);
         
         a->setRenderEventListeners(id, gpuRender);
-        a->attachSubSurfaceToWindow(id, {0, 200, 200, 100, 100});
-        a->setsubSurfaceRenderEventListeners(id, 0, cpuRender);
+        a->attachSubSurfaceToWindow(id, {0, 200, 200, 100, 100, cpuRender});
         
     }
     

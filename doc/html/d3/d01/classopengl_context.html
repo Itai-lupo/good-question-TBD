@@ -192,7 +192,7 @@ Static Public Attributes</h2></td></tr>
 <div class="ttc" id="aclassopengl_context_html_a73855b35c394c66661f9a6eb234ea2e6"><div class="ttname"><a href="../../d3/d01/classopengl_context.html#a73855b35c394c66661f9a6eb234ea2e6">openglContext::eglContext</a></div><div class="ttdeci">EGLContext eglContext</div><div class="ttdef"><b>Definition:</b> openglContext.hpp:15</div></div>
 <div class="ttc" id="alog_8hpp_html_a1ab0ffe082dd546a0c479ac3999b6e9f"><div class="ttname"><a href="../../d4/d3d/log_8hpp.html#a1ab0ffe082dd546a0c479ac3999b6e9f">CONDTION_LOG_FATAL</a></div><div class="ttdeci">#define CONDTION_LOG_FATAL(toLog, condition)</div><div class="ttdef"><b>Definition:</b> log.hpp:13</div></div>
 <div class="ttc" id="alog_8hpp_html_abba4f33d5caf52c17ab95053b60f76d7"><div class="ttname"><a href="../../d4/d3d/log_8hpp.html#abba4f33d5caf52c17ab95053b60f76d7">LOG_INFO</a></div><div class="ttdeci">#define LOG_INFO(toLog)</div><div class="ttdef"><b>Definition:</b> log.hpp:6</div></div>
-<div class="ttc" id="aopengl_context_8cpp_html_a76259e93488aa188c59d8b8a80517f74"><div class="ttname"><a href="../../d5/d93/opengl_context_8cpp.html#a76259e93488aa188c59d8b8a80517f74">MessageCallback</a></div><div class="ttdeci">void GLAPIENTRY MessageCallback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar *message, const void *userParam)</div><div class="ttdef"><b>Definition:</b> openglContext.cpp:151</div></div>
+<div class="ttc" id="aopengl_context_8cpp_html_a76259e93488aa188c59d8b8a80517f74"><div class="ttname"><a href="../../d5/d93/opengl_context_8cpp.html#a76259e93488aa188c59d8b8a80517f74">MessageCallback</a></div><div class="ttdeci">void GLAPIENTRY MessageCallback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar *message, const void *userParam)</div><div class="ttdef"><b>Definition:</b> openglContext.cpp:156</div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -222,7 +222,10 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">   56</span>{</div>
+<div class="line"><span class="lineno">   57</span> </div>
+<div class="line"><span class="lineno">   58</span>}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -257,16 +260,16 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   77</span>{</div>
-<div class="line"><span class="lineno">   78</span>    GLenum error;</div>
-<div class="line"><span class="lineno">   79</span>    <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">   80</span>    <span class="keywordflow">while</span>((error = <a class="code hl_variable" href="../../d3/d01/classopengl_context.html#a2e33865c7f75a29f2e7f48930654343e">openGLAPI</a>-&gt;GetError()) != GL_NO_ERROR)</div>
-<div class="line"><span class="lineno">   81</span>    {</div>
-<div class="line"><span class="lineno">   82</span>        <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#abba4f33d5caf52c17ab95053b60f76d7">LOG_INFO</a>(</div>
-<div class="line"><span class="lineno">   83</span>            <span class="stringliteral">&quot;[OpenGL error] (&quot;</span> &lt;&lt; GL_TranslateError(error) &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; error &lt;&lt; <span class="stringliteral">&quot;): &quot;</span> &lt;&lt; function &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; file &lt;&lt;  <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; line);</div>
-<div class="line"><span class="lineno">   84</span>    }</div>
-<div class="line"><span class="lineno">   85</span>    </div>
-<div class="line"><span class="lineno">   86</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   82</span>{</div>
+<div class="line"><span class="lineno">   83</span>    GLenum error;</div>
+<div class="line"><span class="lineno">   84</span>    <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   85</span>    <span class="keywordflow">while</span>((error = <a class="code hl_variable" href="../../d3/d01/classopengl_context.html#a2e33865c7f75a29f2e7f48930654343e">openGLAPI</a>-&gt;GetError()) != GL_NO_ERROR)</div>
+<div class="line"><span class="lineno">   86</span>    {</div>
+<div class="line"><span class="lineno">   87</span>        <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#abba4f33d5caf52c17ab95053b60f76d7">LOG_INFO</a>(</div>
+<div class="line"><span class="lineno">   88</span>            <span class="stringliteral">&quot;[OpenGL error] (&quot;</span> &lt;&lt; GL_TranslateError(error) &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; error &lt;&lt; <span class="stringliteral">&quot;): &quot;</span> &lt;&lt; function &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; file &lt;&lt;  <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; line);</div>
+<div class="line"><span class="lineno">   89</span>    }</div>
+<div class="line"><span class="lineno">   90</span>    </div>
+<div class="line"><span class="lineno">   91</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -284,9 +287,9 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   56</span>{</div>
-<div class="line"><span class="lineno">   57</span>    <span class="keywordflow">while</span>(<a class="code hl_variable" href="../../d3/d01/classopengl_context.html#a2e33865c7f75a29f2e7f48930654343e">openGLAPI</a>-&gt;GetError() != GL_NO_ERROR);</div>
-<div class="line"><span class="lineno">   58</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   61</span>{</div>
+<div class="line"><span class="lineno">   62</span>    <span class="keywordflow">while</span>(<a class="code hl_variable" href="../../d3/d01/classopengl_context.html#a2e33865c7f75a29f2e7f48930654343e">openGLAPI</a>-&gt;GetError() != GL_NO_ERROR);</div>
+<div class="line"><span class="lineno">   63</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -454,7 +457,7 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>include/rendering/openGL/<a class="el" href="../../db/d4c/opengl_context_8hpp_source.html">openglContext.hpp</a></li>
+<li>include/rendering/openGLRenderEngine/<a class="el" href="../../db/d4c/opengl_context_8hpp_source.html">openglContext.hpp</a></li>
 <li>src/rendring/openGL/<a class="el" href="../../d5/d93/opengl_context_8cpp.html">openglContext.cpp</a></li>
 </ul>
 </div><!-- contents -->

@@ -1,4 +1,4 @@
 var shader_manger_8hpp =
 [
-    [ "shaderManger", "d4/df4/classshader_manger.html", "d4/df4/classshader_manger" ]
+    [ "openGLRenderEngine::shaders", "d7/deb/classopen_g_l_render_engine_1_1shaders.html", null ]
 ];

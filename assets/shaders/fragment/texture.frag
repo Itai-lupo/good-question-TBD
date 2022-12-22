@@ -9,4 +9,5 @@ uniform layout(binding = 0) sampler2D ourTexture;
 void main()
 {
     fragColor = texture(ourTexture, TexCoord);
+    fragColor = vec4(TexCoord.x, TexCoord.y, 0, 1);
 }

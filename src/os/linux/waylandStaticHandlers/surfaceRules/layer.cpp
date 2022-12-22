@@ -30,7 +30,7 @@ void layer::layerConfigure(void *data, zwlr_layer_surface_v1 *wlrLayer, uint32_t
 void layer::layerClose(void *data, zwlr_layer_surface_v1 *wlrLayer)
 {
     surfaceId id = *(surfaceId*)data;
-    closeCallback temp =  closeCallbacks->getCallback(id);
+    surfaceCallback temp =  closeCallbacks->getCallback(id);
     
     if(temp)
         temp(id);

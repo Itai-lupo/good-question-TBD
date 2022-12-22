@@ -1,11 +1,13 @@
 #include <gtest/gtest.h>
 #include <iostream>
 #include <stdio.h>
+#include <Tracy.hpp>
 #include "log.hpp"
 #include "entityPool.hpp"
 #include "componentType.hpp"
 
 int main(int argc, char **argv) {
+    ZoneScoped;
     std::cout << argv[1] << std::endl; 
     ::testing::InitGoogleTest(&argc, argv); 
     return RUN_ALL_TESTS();
@@ -21,6 +23,9 @@ TEST(log, log)
 
 TEST(entityPool, create)
 {
+    ZoneScoped;
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+
     entityPool test(10);
     componentType testType(&test, 4);
     componentType *testType2 = new componentType(&test, 4);
@@ -29,6 +34,7 @@ TEST(entityPool, create)
     
     for(int i = 0; i < 15; i++)
     {
+        ZoneScoped;
         testEntitys[i] = test.allocEntity();
         ASSERT_EQ(testEntitys[i].index, i) << " allocated index is worng";
         ASSERT_EQ(testEntitys[i].gen, 0) << " allocated gen is worng";
@@ -36,6 +42,7 @@ TEST(entityPool, create)
 
     for(int i = 0; i < 15; i++)
     {
+        ZoneScoped;
         testEntitys[i] = test.allocEntity();
         ASSERT_EQ(testEntitys[i].index, i + 15) << " allocated index is worng";
         ASSERT_EQ(testEntitys[i].gen, 0) << " allocated gen is worng";
@@ -47,6 +54,7 @@ TEST(entityPool, create)
 
     for(int i = 0; i < 15; i++)
     {
+        ZoneScoped;
         ASSERT_EQ(testType.getComponent(testEntitys[i]), nullptr) << "I didn't set this id data";
         testType.setComponent(testEntitys[i], new int(i));
         ASSERT_EQ(*(int*)testType.getComponent(testEntitys[i]), i) << "value was set to i";
@@ -60,6 +68,7 @@ TEST(entityPool, create)
     
     for(int i = 0; i < 15; i++)
     {
+        ZoneScoped;
         testType.deleteComponent(testEntitys[i]);
         ASSERT_EQ(testType.getComponent(testEntitys[i]), nullptr) << "value was deleted";
         
@@ -75,6 +84,8 @@ TEST(entityPool, create)
     {
         for(int i = 0; i < 15; i++)
         {
+            ZoneScoped;
+
             test.freeEntity(testEntitys[i]);
             testEntitys[i].gen++;
             ASSERT_EQ(testType.getComponent(testEntitys[i]), nullptr) << "value was deleted";
@@ -83,6 +94,8 @@ TEST(entityPool, create)
 
         for(int i = 0; i < 15; i++)
         {
+            ZoneScoped;
+
             testEntitys[i] = test.allocEntity();
             ASSERT_EQ(testEntitys[i].index, i + 15) << " allocated index is worng";
             ASSERT_EQ(testEntitys[i].gen, j) << " allocated gen is worng";

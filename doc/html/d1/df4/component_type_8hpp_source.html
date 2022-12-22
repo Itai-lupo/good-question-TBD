@@ -130,78 +130,89 @@ $(document).ready(function(){initNavTree('d1/df4/component_type_8hpp_source.html
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    pool(pool), </div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    dataSize(dataSize), </div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    dataMaxAllocated(10), </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    data( malloc(dataSize * 10)),</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    data( malloc(dataSize * dataMaxAllocated)),</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    indexToId(new <a class="code hl_struct" href="../../df/d3a/structentity_id.html">entityId</a>[dataMaxAllocated])</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>{</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    pool-&gt;<a class="code hl_function" href="../../dc/d2b/classentity_pool.html#ac8104a6775101947de2e9cdceddaaaa4">enlistType</a>((<span class="keywordtype">void</span>*)<span class="keyword">this</span>, deleteCallback, &amp;IdToIndex);</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>}</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    TracyAlloc(data,  dataMaxAllocated * dataSize);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    TracyAlloc(indexToId, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="../../df/d3a/structentity_id.html">entityId</a>) * dataMaxAllocated);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    pool-&gt;<a class="code hl_function" href="../../dc/d2b/classentity_pool.html#ac8104a6775101947de2e9cdceddaaaa4">enlistType</a>((<span class="keywordtype">void</span>*)<span class="keyword">this</span>, deleteCallback, &amp;IdToIndex);</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="../../db/d0a/classcomponent_type.html#a85983f32b6f8c697c3998a9539e0e656">   44</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../db/d0a/classcomponent_type.html#a85983f32b6f8c697c3998a9539e0e656">componentType::deleteComponent</a>(<a class="code hl_struct" href="../../df/d3a/structentity_id.html">entityId</a> <span class="keywordtype">id</span>)</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>{</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordflow">if</span>(!pool-&gt;<a class="code hl_function" href="../../dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d">isIdValid</a>(<span class="keywordtype">id</span>) || IdToIndex[<span class="keywordtype">id</span>.index] == -1)</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    uint32_t index = IdToIndex[<span class="keywordtype">id</span>.index];</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    IdToIndex[<span class="keywordtype">id</span>.index] = -1;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    indexToId[index] = indexToId[dataAllocated - 1];</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    memcpy((<span class="keywordtype">char</span>*)data + index * dataSize, (<span class="keywordtype">char</span>*)data + (dataAllocated - 1) * dataSize, dataSize);</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    dataAllocated--;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>}</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>}</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="../../db/d0a/classcomponent_type.html#a85983f32b6f8c697c3998a9539e0e656">   46</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../db/d0a/classcomponent_type.html#a85983f32b6f8c697c3998a9539e0e656">componentType::deleteComponent</a>(<a class="code hl_struct" href="../../df/d3a/structentity_id.html">entityId</a> <span class="keywordtype">id</span>)</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>{</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordflow">if</span>(!pool-&gt;<a class="code hl_function" href="../../dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d">isIdValid</a>(<span class="keywordtype">id</span>) || IdToIndex[<span class="keywordtype">id</span>.index] == -1)</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    uint32_t index = IdToIndex[<span class="keywordtype">id</span>.index];</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    IdToIndex[<span class="keywordtype">id</span>.index] = -1;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    indexToId[index] = indexToId[dataAllocated - 1];</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    memcpy((<span class="keywordtype">char</span>*)data + index * dataSize, (<span class="keywordtype">char</span>*)data + (dataAllocated - 1) * dataSize, dataSize);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    dataAllocated--;</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="../../db/d0a/classcomponent_type.html#ac46128efed5eac8245738bbc00a07785">   57</a></span><span class="keywordtype">void</span> *<a class="code hl_function" href="../../db/d0a/classcomponent_type.html#ac46128efed5eac8245738bbc00a07785">componentType::getComponent</a>(<a class="code hl_struct" href="../../df/d3a/structentity_id.html">entityId</a> <span class="keywordtype">id</span>)</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>{</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordflow">if</span>(!pool-&gt;<a class="code hl_function" href="../../dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d">isIdValid</a>(<span class="keywordtype">id</span>) || IdToIndex[<span class="keywordtype">id</span>.index] == -1)</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordflow">return</span> (<span class="keywordtype">void</span>*)((<span class="keywordtype">char</span> *)data + IdToIndex[<span class="keywordtype">id</span>.index] * dataSize);</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>}</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="../../db/d0a/classcomponent_type.html#ad17ba72d3b20a049d1f023838aa2030e">   65</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../db/d0a/classcomponent_type.html#ad17ba72d3b20a049d1f023838aa2030e">componentType::setComponent</a>(<a class="code hl_struct" href="../../df/d3a/structentity_id.html">entityId</a> <span class="keywordtype">id</span>, <span class="keywordtype">void</span> *buffer)</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>{</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordflow">if</span>(!pool-&gt;<a class="code hl_function" href="../../dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d">isIdValid</a>(<span class="keywordtype">id</span>)){</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#a3a78e155ba786a87ea2bf3ec42467a2e">LOG_ERROR</a>(<span class="stringliteral">&quot;culdn&#39;t set data, id(index: &quot;</span> &lt;&lt; <span class="keywordtype">id</span>.index &lt;&lt; <span class="stringliteral">&quot;, gen: &quot;</span> &lt;&lt; (<span class="keywordtype">int</span>)<span class="keywordtype">id</span>.gen &lt;&lt; <span class="stringliteral">&quot;)&quot;</span>)</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    }</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordflow">if</span>(IdToIndex[<span class="keywordtype">id</span>.index] == -1)</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    {</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        IdToIndex[<span class="keywordtype">id</span>.index] = dataAllocated;</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keywordflow">if</span>( dataAllocated == dataMaxAllocated)</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        {</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            dataMaxAllocated *= 2;</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            data = realloc(data, dataMaxAllocated * dataSize);</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            indexToId = (<a class="code hl_struct" href="../../df/d3a/structentity_id.html">entityId</a>*)realloc(indexToId, dataMaxAllocated * <span class="keyword">sizeof</span>(<a class="code hl_struct" href="../../df/d3a/structentity_id.html">entityId</a>));</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        } </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        memcpy((<span class="keywordtype">char</span> *)data + dataAllocated * dataSize, buffer, dataSize);</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        indexToId[dataAllocated] = id;</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        dataAllocated++;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    }</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        memcpy((<span class="keywordtype">char</span> *)data + IdToIndex[<span class="keywordtype">id</span>.index] * dataSize, buffer, dataSize);</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>}</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="../../db/d0a/classcomponent_type.html#a734bc3318456d5b6a2b21374a2e0b2aa">   92</a></span><a class="code hl_function" href="../../db/d0a/classcomponent_type.html#a734bc3318456d5b6a2b21374a2e0b2aa">componentType::~componentType</a>()</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>{</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    pool-&gt;<a class="code hl_function" href="../../dc/d2b/classentity_pool.html#ab91f97c5b47b5dd789884c33990da5e4">unenlistType</a>(<span class="keyword">this</span>, IdToIndex);</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    free(data);</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    free(IdToIndex);</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    free(indexToId);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>}</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="../../db/d0a/classcomponent_type.html#ac46128efed5eac8245738bbc00a07785">   59</a></span><span class="keywordtype">void</span> *<a class="code hl_function" href="../../db/d0a/classcomponent_type.html#ac46128efed5eac8245738bbc00a07785">componentType::getComponent</a>(<a class="code hl_struct" href="../../df/d3a/structentity_id.html">entityId</a> <span class="keywordtype">id</span>)</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>{</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordflow">if</span>(!pool-&gt;<a class="code hl_function" href="../../dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d">isIdValid</a>(<span class="keywordtype">id</span>) || IdToIndex[<span class="keywordtype">id</span>.index] == -1)</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordflow">return</span> (<span class="keywordtype">void</span>*)((<span class="keywordtype">char</span> *)data + IdToIndex[<span class="keywordtype">id</span>.index] * dataSize);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>}</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="../../db/d0a/classcomponent_type.html#ad17ba72d3b20a049d1f023838aa2030e">   67</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../db/d0a/classcomponent_type.html#ad17ba72d3b20a049d1f023838aa2030e">componentType::setComponent</a>(<a class="code hl_struct" href="../../df/d3a/structentity_id.html">entityId</a> <span class="keywordtype">id</span>, <span class="keywordtype">void</span> *buffer)</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>{</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordflow">if</span>(!pool-&gt;<a class="code hl_function" href="../../dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d">isIdValid</a>(<span class="keywordtype">id</span>)){</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#a3a78e155ba786a87ea2bf3ec42467a2e">LOG_ERROR</a>(<span class="stringliteral">&quot;culdn&#39;t set data, id(index: &quot;</span> &lt;&lt; <span class="keywordtype">id</span>.index &lt;&lt; <span class="stringliteral">&quot;, gen: &quot;</span> &lt;&lt; (<span class="keywordtype">int</span>)<span class="keywordtype">id</span>.gen &lt;&lt; <span class="stringliteral">&quot;)&quot;</span>)</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    }</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordflow">if</span>(IdToIndex[<span class="keywordtype">id</span>.index] == -1)</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        IdToIndex[<span class="keywordtype">id</span>.index] = dataAllocated;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keywordflow">if</span>( dataAllocated == dataMaxAllocated)</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        {</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            TracyFree(data);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            TracyFree(indexToId);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            dataMaxAllocated *= 2;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            data = realloc(data, dataMaxAllocated * dataSize);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            indexToId = (<a class="code hl_struct" href="../../df/d3a/structentity_id.html">entityId</a>*)realloc(indexToId, dataMaxAllocated * <span class="keyword">sizeof</span>(<a class="code hl_struct" href="../../df/d3a/structentity_id.html">entityId</a>));</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            TracyAlloc(data,  dataMaxAllocated * dataSize);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            TracyAlloc(indexToId, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="../../df/d3a/structentity_id.html">entityId</a>) * dataMaxAllocated);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        } </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        memcpy((<span class="keywordtype">char</span> *)data + dataAllocated * dataSize, buffer, dataSize);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        indexToId[dataAllocated] = id;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        dataAllocated++;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    }</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        memcpy((<span class="keywordtype">char</span> *)data + IdToIndex[<span class="keywordtype">id</span>.index] * dataSize, buffer, dataSize);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    </div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>}</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="../../db/d0a/classcomponent_type.html#a734bc3318456d5b6a2b21374a2e0b2aa">  101</a></span><a class="code hl_function" href="../../db/d0a/classcomponent_type.html#a734bc3318456d5b6a2b21374a2e0b2aa">componentType::~componentType</a>()</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>{</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    pool-&gt;<a class="code hl_function" href="../../dc/d2b/classentity_pool.html#ab91f97c5b47b5dd789884c33990da5e4">unenlistType</a>(<span class="keyword">this</span>, IdToIndex);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    TracyFree(data);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    free(data);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    TracyFree(indexToId);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    free(indexToId);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>}</div>
 <div class="ttc" id="aclasscomponent_type_html"><div class="ttname"><a href="../../db/d0a/classcomponent_type.html">componentType</a></div><div class="ttdef"><b>Definition:</b> componentType.hpp:5</div></div>
 <div class="ttc" id="aclasscomponent_type_html_a6d8d272b45a8870d58ddbe068be36873"><div class="ttname"><a href="../../db/d0a/classcomponent_type.html#a6d8d272b45a8870d58ddbe068be36873">componentType::componentType</a></div><div class="ttdeci">componentType(entityPool *pool, uint16_t dataSize)</div><div class="ttdef"><b>Definition:</b> componentType.hpp:33</div></div>
-<div class="ttc" id="aclasscomponent_type_html_a734bc3318456d5b6a2b21374a2e0b2aa"><div class="ttname"><a href="../../db/d0a/classcomponent_type.html#a734bc3318456d5b6a2b21374a2e0b2aa">componentType::~componentType</a></div><div class="ttdeci">~componentType()</div><div class="ttdef"><b>Definition:</b> componentType.hpp:92</div></div>
-<div class="ttc" id="aclasscomponent_type_html_a85983f32b6f8c697c3998a9539e0e656"><div class="ttname"><a href="../../db/d0a/classcomponent_type.html#a85983f32b6f8c697c3998a9539e0e656">componentType::deleteComponent</a></div><div class="ttdeci">void deleteComponent(entityId id)</div><div class="ttdef"><b>Definition:</b> componentType.hpp:44</div></div>
-<div class="ttc" id="aclasscomponent_type_html_ac46128efed5eac8245738bbc00a07785"><div class="ttname"><a href="../../db/d0a/classcomponent_type.html#ac46128efed5eac8245738bbc00a07785">componentType::getComponent</a></div><div class="ttdeci">void * getComponent(entityId id)</div><div class="ttdef"><b>Definition:</b> componentType.hpp:57</div></div>
-<div class="ttc" id="aclasscomponent_type_html_ad17ba72d3b20a049d1f023838aa2030e"><div class="ttname"><a href="../../db/d0a/classcomponent_type.html#ad17ba72d3b20a049d1f023838aa2030e">componentType::setComponent</a></div><div class="ttdeci">void setComponent(entityId id, void *buffer)</div><div class="ttdef"><b>Definition:</b> componentType.hpp:65</div></div>
+<div class="ttc" id="aclasscomponent_type_html_a734bc3318456d5b6a2b21374a2e0b2aa"><div class="ttname"><a href="../../db/d0a/classcomponent_type.html#a734bc3318456d5b6a2b21374a2e0b2aa">componentType::~componentType</a></div><div class="ttdeci">~componentType()</div><div class="ttdef"><b>Definition:</b> componentType.hpp:101</div></div>
+<div class="ttc" id="aclasscomponent_type_html_a85983f32b6f8c697c3998a9539e0e656"><div class="ttname"><a href="../../db/d0a/classcomponent_type.html#a85983f32b6f8c697c3998a9539e0e656">componentType::deleteComponent</a></div><div class="ttdeci">void deleteComponent(entityId id)</div><div class="ttdef"><b>Definition:</b> componentType.hpp:46</div></div>
+<div class="ttc" id="aclasscomponent_type_html_ac46128efed5eac8245738bbc00a07785"><div class="ttname"><a href="../../db/d0a/classcomponent_type.html#ac46128efed5eac8245738bbc00a07785">componentType::getComponent</a></div><div class="ttdeci">void * getComponent(entityId id)</div><div class="ttdef"><b>Definition:</b> componentType.hpp:59</div></div>
+<div class="ttc" id="aclasscomponent_type_html_ad17ba72d3b20a049d1f023838aa2030e"><div class="ttname"><a href="../../db/d0a/classcomponent_type.html#ad17ba72d3b20a049d1f023838aa2030e">componentType::setComponent</a></div><div class="ttdeci">void setComponent(entityId id, void *buffer)</div><div class="ttdef"><b>Definition:</b> componentType.hpp:67</div></div>
 <div class="ttc" id="aclassentity_pool_html"><div class="ttname"><a href="../../dc/d2b/classentity_pool.html">entityPool</a></div><div class="ttdef"><b>Definition:</b> entityPool.hpp:12</div></div>
 <div class="ttc" id="aclassentity_pool_html_a7ab2c17f55513cea557b3b5d147a584d"><div class="ttname"><a href="../../dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d">entityPool::isIdValid</a></div><div class="ttdeci">bool isIdValid(entityId id)</div><div class="ttdef"><b>Definition:</b> entityPool.hpp:42</div></div>
-<div class="ttc" id="aclassentity_pool_html_ab91f97c5b47b5dd789884c33990da5e4"><div class="ttname"><a href="../../dc/d2b/classentity_pool.html#ab91f97c5b47b5dd789884c33990da5e4">entityPool::unenlistType</a></div><div class="ttdeci">void unenlistType(void *dataPtr, uint32_t *IdToIndex)</div><div class="ttdef"><b>Definition:</b> entityPool.cpp:69</div></div>
-<div class="ttc" id="aclassentity_pool_html_ac8104a6775101947de2e9cdceddaaaa4"><div class="ttname"><a href="../../dc/d2b/classentity_pool.html#ac8104a6775101947de2e9cdceddaaaa4">entityPool::enlistType</a></div><div class="ttdeci">void enlistType(void *dataPtr, typeCallback freeCallback, uint32_t **IdToIndex)</div><div class="ttdef"><b>Definition:</b> entityPool.cpp:61</div></div>
+<div class="ttc" id="aclassentity_pool_html_ab91f97c5b47b5dd789884c33990da5e4"><div class="ttname"><a href="../../dc/d2b/classentity_pool.html#ab91f97c5b47b5dd789884c33990da5e4">entityPool::unenlistType</a></div><div class="ttdeci">void unenlistType(void *dataPtr, uint32_t *IdToIndex)</div><div class="ttdef"><b>Definition:</b> entityPool.cpp:83</div></div>
+<div class="ttc" id="aclassentity_pool_html_ac8104a6775101947de2e9cdceddaaaa4"><div class="ttname"><a href="../../dc/d2b/classentity_pool.html#ac8104a6775101947de2e9cdceddaaaa4">entityPool::enlistType</a></div><div class="ttdeci">void enlistType(void *dataPtr, typeCallback freeCallback, uint32_t **IdToIndex)</div><div class="ttdef"><b>Definition:</b> entityPool.cpp:71</div></div>
 <div class="ttc" id="aentity_pool_8hpp_html"><div class="ttname"><a href="../../d7/d3e/entity_pool_8hpp.html">entityPool.hpp</a></div></div>
 <div class="ttc" id="alog_8hpp_html_a3a78e155ba786a87ea2bf3ec42467a2e"><div class="ttname"><a href="../../d4/d3d/log_8hpp.html#a3a78e155ba786a87ea2bf3ec42467a2e">LOG_ERROR</a></div><div class="ttdeci">#define LOG_ERROR(toLog)</div><div class="ttdef"><b>Definition:</b> log.hpp:8</div></div>
 <div class="ttc" id="astructentity_id_html"><div class="ttname"><a href="../../df/d3a/structentity_id.html">entityId</a></div><div class="ttdef"><b>Definition:</b> core.hpp:6</div></div>

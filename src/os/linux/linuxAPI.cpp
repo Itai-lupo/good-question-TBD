@@ -39,7 +39,8 @@ void osAPI::attachSubSurfaceToWindow(windowId id,  const subSurfaceSpec& subSurf
             subSurfaceToAttach.height,
             subSurfaceToAttach.x,
             subSurfaceToAttach.y,
-            .parentSurface = linuxWindowAPI::windowsInfo->getComponent(id)->topLevelSurface
+            .parentSurface = linuxWindowAPI::windowsInfo->getComponent(id)->topLevelSurface,
+            .cpuRenderFunction = subSurfaceToAttach.cpuRenderFunction
         });    
 }
 
@@ -49,34 +50,16 @@ bool osAPI::isWindowOpen(windowId winId)
     return linuxWindowAPI::isWindowOpen(winId);
 }
 
-void osAPI::setVSyncForCurrentContext(bool enabled)
-{
-    
-}
-
-void osAPI::makeContextCurrent(windowId winId)
-{
-    
-}
 
 void osAPI::closeWindow(windowId winId)
 {
     linuxWindowAPI::closeWindow(winId);
 }
 
-void osAPI::swapBuffers(windowId winId)
-{
-    
-}
-
-windowId osAPI::getCurrentContextWindowId()
-{
-    
-}
 
 void* osAPI::getProcAddress()
 {
-    
+    return nullptr;    
 }
 
 
@@ -84,7 +67,7 @@ void* osAPI::getProcAddress()
 std::string osAPI::getWindowTitle(windowId winId)
 {
     surfaceId id = linuxWindowAPI::windowsInfo->getComponent(winId)->topLevelSurface;
-    toplevel::getWindowTitle(id);return 
+    return toplevel::getWindowTitle(id); 
     layer::getWindowTitle(id);
 }
 
@@ -161,7 +144,7 @@ void osAPI::setLostFocusEventListeners(windowId winId, void(*callback)(surfaceId
     keyboard::setLostFocusEventListeners(id, callback);
 }
 
-void osAPI::setRenderEventListeners(windowId winId, void(*callback)(const windowRenderData&))
+void osAPI::setRenderEventListeners(windowId winId, void(*callback)(const gpuRenderData&))
 {
     surfaceId id = linuxWindowAPI::windowsInfo->getComponent(winId)->topLevelSurface;
     switch (surface::surfacesInfo->getComponent(id)->rendererType)
@@ -170,16 +153,28 @@ void osAPI::setRenderEventListeners(windowId winId, void(*callback)(const window
             openGLRendering::setRenderEventListeners(id, callback);
             break;
 
-        case surfaceRenderAPI::cpu:
-            cpuRendering::setRenderEventListeners(id, callback);
-            break;
         
         default:
             break;
     }
 }
 
-void osAPI::setsubSurfaceRenderEventListeners(windowId winId, int subSurfaceSlot, void(*callback)(const windowRenderData&))
+void osAPI::setRenderEventListeners(windowId winId, void(*callback)(const cpuRenderData&))
+{
+    surfaceId id = linuxWindowAPI::windowsInfo->getComponent(winId)->topLevelSurface;
+    switch (surface::surfacesInfo->getComponent(id)->rendererType)
+    {
+        case surfaceRenderAPI::cpu:
+            cpuRendering::setRenderEventListeners(id, callback);
+            break;
+        
+        default:
+            LOG_FATAL("render function and render api type mismatch");
+            break;
+    }
+}
+
+void osAPI::setsubSurfaceRenderEventListeners(windowId winId, int subSurfaceSlot, void(*callback)(const cpuRenderData&))
 {
     surfaceId id = linuxWindowAPI::windowsInfo->getComponent(winId)->subsurfaces[subSurfaceSlot];
     cpuRendering::setRenderEventListeners(id, callback);
@@ -252,16 +247,5 @@ void osAPI::unsetLostFocusEventListeners(windowId winId)
     keyboard::unsetLostFocusEventListeners(id);
 }
 
-void osAPI::unsetRenderEventListeners(windowId winId)
-{
-    surfaceId id = linuxWindowAPI::windowsInfo->getComponent(winId)->topLevelSurface;
-    cpuRendering::unsetRenderEventListeners(id);
-}
-
-void osAPI::unsetsubSurfaceRenderEventListeners(windowId winId, int subSurfaceSlot)
-{
-    surfaceId id = linuxWindowAPI::windowsInfo->getComponent(winId)->subsurfaces[subSurfaceSlot];
-    cpuRendering::unsetRenderEventListeners(id);
-}
 
 #endif

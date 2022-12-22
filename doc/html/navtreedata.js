@@ -25,6 +25,13 @@
 var NAVTREE =
 [
   [ "laughtale game engine", "index.html", [
+    [ "Namespaces", "namespaces.html", [
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
+      [ "Namespace Members", "namespacemembers.html", [
+        [ "All", "namespacemembers.html", null ],
+        [ "Variables", "namespacemembers_vars.html", null ]
+      ] ]
+    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -51,9 +58,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d6/dcb/os_a_p_i_8hpp.html",
-"da/d6d/texture_manger_8hpp.html#ae83337823de7c2229be74d296e709024a2849effb989cbdcfb4b9eb143fd826aa",
-"functions_func_w.html"
+"d5/dde/mouse_format_8hpp.html#a188e4554ed3b3db425c617c2f47a07c9ae7efda40b1c94805070cd9bf9638ae27",
+"d8/dc1/_v_a_os_components_8hpp.html",
+"dd/d39/keyboard_8hpp_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

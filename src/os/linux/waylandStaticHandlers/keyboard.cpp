@@ -13,6 +13,24 @@
 
 #include <fcntl.h>
 
+void keyboard::init(entityPool *surfacesPool)
+{
+    keyPressEventListeners = new keyCallbackComponent(surfacesPool);
+    keyReleasedEventListeners = new keyCallbackComponent(surfacesPool);
+    keyRepeatEventListeners = new keyCallbackComponent(surfacesPool);
+    gainFocusEventListeners = new windowSurfaceCallbackComponent(surfacesPool);
+    lostFocusEventListeners = new windowSurfaceCallbackComponent(surfacesPool);
+}
+
+void keyboard::closeKeyboard()
+{
+    delete keyPressEventListeners;
+    delete keyReleasedEventListeners;
+    delete keyRepeatEventListeners;
+    delete gainFocusEventListeners;
+    delete lostFocusEventListeners;
+}
+
 void keyboard::wlKeymap(void *data, wl_keyboard *wl_keyboard, uint32_t format, int32_t fd, uint32_t size)
 {
     ZoneScoped;
@@ -50,9 +68,9 @@ void keyboard::wlEnter(void *data, wl_keyboard *wl_keyboard, uint32_t serial, wl
         }
     }
 
-    uint32_t index = idToIndex[activeWindow.index].gainFocusEventIndex;
-    if( index != 255 && idToIndex[activeWindow.index].gen == activeWindow.gen)         
-            std::thread(gainFocusEventListeners[index], activeWindow).detach();
+    surfaceCallback temp = gainFocusEventListeners->getCallback(activeWindow);
+    if(temp)         
+        std::thread(temp, activeWindow).detach();
 
     char buf1[128];  
     char buf2[128];  
@@ -68,18 +86,18 @@ void keyboard::wlEnter(void *data, wl_keyboard *wl_keyboard, uint32_t serial, wl
         isKeyPressed[keycodeFromScaneCode[key]] = true;
         std::thread(keyboard::keyListener, key).detach();
         
-        uint32_t index = idToIndex[activeWindow.index].pressEventIndex;
-        if( index != -1 && idToIndex[activeWindow.index].gen == activeWindow.gen)  
-            std::thread(keyPressEventListeners[index], keyData{activeWindow, buf2, keycodeFromScaneCode[key], key}).detach();
+        keyCallback temp = keyPressEventListeners->getCallback(activeWindow);
+        if(temp)  
+            std::thread(temp, keyData{activeWindow, buf2, keycodeFromScaneCode[key], key}).detach();
     }
 }
 
 void keyboard::wlLeave(void *data, wl_keyboard *wl_keyboard, uint32_t serial, wl_surface *surface)
 {
     ZoneScoped;
-    uint32_t index = idToIndex[activeWindow.index].lostFocusEventIndex;
-    if( index != 255 && idToIndex[activeWindow.index].gen == activeWindow.gen)             
-            std::thread(lostFocusEventListeners[index], activeWindow).detach();
+    surfaceCallback temp = lostFocusEventListeners->getCallback(activeWindow);
+    if(temp)             
+        std::thread(temp, activeWindow).detach();
 
     isKeyPressed.clear();
 
@@ -105,17 +123,15 @@ void keyboard::wlKey(void *data, wl_keyboard *wl_keyboard, uint32_t serial, uint
     if(state)
         std::thread(keyboard::keyListener, key).detach();
     
-    if(idToIndex[activeWindow.index].gen != activeWindow.gen)
-        return;
 
-    uint32_t index = idToIndex[activeWindow.index].pressEventIndex;
-    if(index != (uint32_t)-1 && state == WL_KEYBOARD_KEY_STATE_PRESSED)
-        std::thread(keyPressEventListeners[index], keyData{activeWindow, buf2,  keycodeFromScaneCode[key], key}).detach();
+    keyCallback temp = keyPressEventListeners->getCallback(activeWindow);
+    if(temp && state == WL_KEYBOARD_KEY_STATE_PRESSED)
+        std::thread(temp, keyData{activeWindow, buf2,  keycodeFromScaneCode[key], key}).detach();
 
 
-    index = idToIndex[activeWindow.index].releaseEventIndex;
-    if(index != (uint32_t)-1 && state == WL_KEYBOARD_KEY_STATE_PRESSED)
-        std::thread(keyReleasedEventListeners[index], keyData{activeWindow, buf2,  keycodeFromScaneCode[key], key}).detach();
+    temp = keyReleasedEventListeners->getCallback(activeWindow);
+    if(temp && state == WL_KEYBOARD_KEY_STATE_PRESSED)
+        std::thread(temp, keyData{activeWindow, buf2,  keycodeFromScaneCode[key], key}).detach();
 }
 
 void keyboard::wlModifiers(void *data, wl_keyboard *wl_keyboard, uint32_t serial, uint32_t mods_depressed, uint32_t mods_latched, uint32_t mods_locked, uint32_t group)
@@ -138,8 +154,8 @@ void keyboard::wlRepeatInfo(void *data, wl_keyboard *wl_keyboard, int32_t rate, 
 void keyboard::keyListener(uint32_t key)
 {
     ZoneScoped;
-    uint32_t index = idToIndex[activeWindow.index].repeatEventIndex;
-    if(index == (uint32_t)-1 || idToIndex[activeWindow.index].gen != activeWindow.gen)
+    keyCallback temp = keyRepeatEventListeners->getCallback(activeWindow);
+    if(!temp)
         return;
 
     char buf1[128];
@@ -153,219 +169,65 @@ void keyboard::keyListener(uint32_t key)
     prctl(PR_SET_NAME, thradNameA.c_str());
     
     std::this_thread::sleep_for(std::chrono::milliseconds(keyRepeatdelay));
-    while (isKeyPressed[keycodeFromScaneCode[key]] && index != -1 && idToIndex[activeWindow.index].gen == activeWindow.gen )
+    while (isKeyPressed[keycodeFromScaneCode[key]] && temp)
     {
         xkb_state_key_get_utf8(xkbState, key + 8, buf2, sizeof(buf2));
-        std::thread(keyRepeatEventListeners[index], keyData{activeWindow, buf2, keycodeFromScaneCode[key], key}).detach();
+        std::thread(temp, keyData{activeWindow, buf2, keycodeFromScaneCode[key], key}).detach();
 
         std::this_thread::sleep_for(std::chrono::milliseconds(keyRepeatRate));
-        
-        uint32_t index = idToIndex[activeWindow.index].repeatEventIndex;
+        temp = keyRepeatEventListeners->getCallback(activeWindow);
     }    
 }
 
-void keyboard::allocateWindowEvents(surfaceId winId)
-{
-    if(winId.index >= idToIndex.size())
-        idToIndex.resize(winId.index + 1);
 
-    idToIndex[winId.index].gen = winId.gen;
+void keyboard::setKeyPressEventListeners(surfaceId winId, keyCallback callback)
+{   
+    keyPressEventListeners->setCallback(winId, callback);
 }
 
-void keyboard::setKeyPressEventListeners(surfaceId winId, const std::function<void(const keyData&)> callback)
-{    
-    uint32_t index = idToIndex[winId.index].pressEventIndex;
-    if(idToIndex[winId.index].gen != winId.gen)
-        return;
-    
-
-    if(index != (uint8_t)-1)
-    {    
-        keyPressEventListeners[index] = callback;
-        keyPressEventId[index] = winId;
-
-        return;
-    }
-    
-    idToIndex[winId.index].pressEventIndex = keyPressEventListeners.size();
-    keyPressEventListeners.push_back(callback);
-    keyPressEventId.push_back(winId);
+void keyboard::setKeyReleasedEventListeners(surfaceId winId, keyCallback callback)
+{
+    keyReleasedEventListeners->setCallback(winId, callback);
 }
 
-void keyboard::setKeyReleasedEventListeners(surfaceId winId, const std::function<void(const keyData&)> callback)
+void keyboard::setKeyRepeatEventListeners(surfaceId winId, keyCallback callback)
 {
-    uint32_t index = idToIndex[winId.index].releaseEventIndex;
-    if(idToIndex[winId.index].gen != winId.gen)
-        return;
-
-    if(index != (uint8_t)-1)
-    {    
-        keyReleasedEventListeners[index] = callback;
-        keyReleasedEventId[index] = winId;
-
-        return;
-    }
-    
-    idToIndex[winId.index].releaseEventIndex = keyReleasedEventListeners.size();
-    keyReleasedEventListeners.push_back(callback);
-    keyReleasedEventId.push_back(winId);
-
+    keyRepeatEventListeners->setCallback(winId, callback);
 }
 
-void keyboard::setKeyRepeatEventListeners(surfaceId winId, const std::function<void(const keyData&)> callback)
+void keyboard::setGainFocusEventListeners(surfaceId winId, surfaceCallback callback)
 {
-    uint32_t index = idToIndex[winId.index].repeatEventIndex;
-    if(idToIndex[winId.index].gen != winId.gen)
-        return;
-
-    if(index != (uint8_t)-1)
-    {    
-        keyRepeatEventListeners[index] = callback;
-        keyRepeatEventId[index] = winId;
-        return;
-    }
-    
-    idToIndex[winId.index].repeatEventIndex = keyRepeatEventListeners.size();
-    keyRepeatEventListeners.push_back(callback);
-    keyRepeatEventId.push_back(winId);
+    gainFocusEventListeners->setCallback(winId, callback);
 }
 
-void keyboard::setGainFocusEventListeners(surfaceId winId, std::function<void(surfaceId winId)> callback)
+void keyboard::setLostFocusEventListeners(surfaceId winId, surfaceCallback callback)
 {
-    uint32_t index = idToIndex[winId.index].gainFocusEventIndex;
-    if(idToIndex[winId.index].gen != winId.gen)
-        return;
-
-    if(index != (uint8_t)-1)
-    {    
-        gainFocusEventListeners[index] = callback;
-        gainFocusEventId[index] = winId;
-        return;
-    }
-
-    idToIndex[winId.index].gainFocusEventIndex = gainFocusEventListeners.size();
-    gainFocusEventListeners.push_back(callback);
-    gainFocusEventId.push_back(winId);
-}
-
-void keyboard::setLostFocusEventListeners(surfaceId winId, std::function<void(surfaceId winId)> callback)
-{
-    uint32_t index = idToIndex[winId.index].lostFocusEventIndex;
-    if(idToIndex[winId.index].gen != winId.gen)
-        return;
-
-    if(index != (uint8_t)-1)
-    {    
-        lostFocusEventListeners[index] = callback;
-        lostFocusEventId[index] = winId;
-        return;
-    }
-
-    idToIndex[winId.index].lostFocusEventIndex = lostFocusEventListeners.size();
-    lostFocusEventListeners.push_back(callback);
-    lostFocusEventId.push_back(winId);
-}
-
-void keyboard::deallocateWindowEvents(surfaceId winId)
-{
-    if(idToIndex[winId.index].gen != winId.gen)
-        return;
-
-    unsetKeyPressEventListeners(winId);
-    unsetKeyReleasedEventListeners(winId);
-    unsetKeyRepeatEventListeners(winId);
-    unsetGainFocusEventListeners(winId);
-    unsetLostFocusEventListeners(winId);
-
-    idToIndex[winId.index].gen = -1;
-
+    lostFocusEventListeners->setCallback(winId, callback);
 }
 
 void keyboard::unsetKeyPressEventListeners(surfaceId winId)
 {
-    uint32_t index = idToIndex[winId.index].pressEventIndex;
-    if(idToIndex[winId.index].gen != winId.gen || index == -1)
-        return;
-
-    uint32_t lastIndex = keyPressEventListeners.size() - 1;
-    idToIndex[keyPressEventId[lastIndex].index].pressEventIndex = index;
-    keyPressEventListeners[index] = keyPressEventListeners[lastIndex];
-    keyPressEventId[index] = keyPressEventId[lastIndex];
-
-    keyPressEventListeners.pop_back();
-    keyPressEventId.pop_back();
-
-    idToIndex[winId.index].pressEventIndex = -1;
+    keyPressEventListeners->deleteComponent(winId);
 }
 
 void keyboard::unsetKeyReleasedEventListeners(surfaceId winId)
 {
-    
-    uint32_t index = idToIndex[winId.index].releaseEventIndex;
-    if(idToIndex[winId.index].gen != winId.gen || index == -1)
-        return;
-
-    uint32_t lastIndex = keyReleasedEventListeners.size() - 1;
-    idToIndex[keyReleasedEventId[lastIndex].index].releaseEventIndex = index;
-    keyReleasedEventListeners[index] = keyReleasedEventListeners[lastIndex];
-    keyReleasedEventId[index] = keyReleasedEventId[lastIndex];
-
-    keyReleasedEventListeners.pop_back();
-    keyReleasedEventId.pop_back();
-
-    idToIndex[winId.index].releaseEventIndex = -1;
-
+    keyReleasedEventListeners->deleteComponent(winId);
 }
 
 void keyboard::unsetKeyRepeatEventListeners(surfaceId winId)
 {
-    uint32_t index = idToIndex[winId.index].repeatEventIndex;
-    if(idToIndex[winId.index].gen != winId.gen || index == -1)
-        return;
-
-    uint32_t lastIndex = keyRepeatEventListeners.size() - 1;
-    idToIndex[keyRepeatEventId[lastIndex].index].repeatEventIndex = index;
-    keyRepeatEventListeners[index] = keyRepeatEventListeners[lastIndex];
-    keyRepeatEventId[index] = keyRepeatEventId[lastIndex];
-
-    keyRepeatEventListeners.pop_back();
-    keyRepeatEventId.pop_back();
-
-    idToIndex[winId.index].repeatEventIndex = -1;
+    keyRepeatEventListeners->deleteComponent(winId);
 }
 
 void keyboard::unsetGainFocusEventListeners(surfaceId winId)
 {
-    uint32_t index = idToIndex[winId.index].gainFocusEventIndex;
-    if(idToIndex[winId.index].gen != winId.gen || index == -1)
-        return;
-
-    uint32_t lastIndex = gainFocusEventListeners.size() - 1;
-    idToIndex[gainFocusEventId[lastIndex].index].repeatEventIndex = index;
-    gainFocusEventListeners[index] = gainFocusEventListeners[lastIndex];
-    gainFocusEventId[index] = gainFocusEventId[lastIndex];
-
-    gainFocusEventListeners.pop_back();
-    gainFocusEventId.pop_back();
-
-    idToIndex[winId.index].gainFocusEventIndex = -1;
+    gainFocusEventListeners->deleteComponent(winId);
 }
 
 void keyboard::unsetLostFocusEventListeners(surfaceId winId)
 {
-    uint32_t index = idToIndex[winId.index].lostFocusEventIndex;
-    if(idToIndex[winId.index].gen != winId.gen || index == -1)
-        return;
-
-    uint32_t lastIndex = lostFocusEventListeners.size() - 1;
-    idToIndex[lostFocusEventId[lastIndex].index].repeatEventIndex = index;
-    lostFocusEventListeners[index] = lostFocusEventListeners[lastIndex];
-    lostFocusEventId[index] = lostFocusEventId[lastIndex];
-
-    lostFocusEventListeners.pop_back();
-    lostFocusEventId.pop_back();
-
-    idToIndex[winId.index].lostFocusEventIndex = -1;
+    lostFocusEventListeners->deleteComponent(winId);
 }
 
 #endif

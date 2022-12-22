@@ -1,5 +1,7 @@
 var structsurface_spec =
 [
+    [ "cpuRenderFunction", "d0/d01/structsurface_spec.html#a0b2935e7f43dfd43f3e3a5ccbb29686d", null ],
+    [ "gpuRenderFunction", "d0/d01/structsurface_spec.html#a98a3cf0c705f0c961bcd1c97974ec36f", null ],
     [ "height", "d0/d01/structsurface_spec.html#a8caa2e04670db0c1eb92fb06a631ad59", null ],
     [ "parentSurface", "d0/d01/structsurface_spec.html#a11831adc847a1ab9da09bd273dbf9434", null ],
     [ "rendererType", "d0/d01/structsurface_spec.html#a62be30d208c276015da55f401f101a4a", null ],

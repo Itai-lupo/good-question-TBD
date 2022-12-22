@@ -2,7 +2,7 @@
 
 
 layout (location = 0) in vec3 pos;
-layout (location = 1) in vec2   texCoord;
+layout (location = 1) in vec2 texCoord;
 
 out layout(location = 0) vec2 TexCoord;
 

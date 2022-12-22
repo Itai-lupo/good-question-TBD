@@ -1,4 +1,3 @@
-#pragma once 
 #include "toplevelInfoComponenet.hpp"
 
 toplevelInfoComponenet::toplevelInfoComponenet(entityPool *pool): 

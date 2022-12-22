@@ -1,14 +1,15 @@
 var searchData=
 [
-  ['close_0',['close',['../d5/d88/classsurface.html#ad9b2ed10c8890cc92d9e56e26516d9fc',1,'surface::close()'],['../d2/d36/classlayer.html#a9e7b06c3de20d2fcc642c84927c777d8',1,'layer::close()'],['../da/d41/classtoplevel.html#ac4d563017911a8251f3fdfc24d25ccfd',1,'toplevel::close()'],['../dc/d37/classlogger.html#ad0973f5782961630972e85adbed14b07',1,'logger::close()']]],
+  ['close_0',['close',['../d5/db4/classopen_g_l_rendering.html#a8c96fbbd7ebf495a90f6c0035e22ee2c',1,'openGLRendering::close()'],['../d5/d88/classsurface.html#ad9b2ed10c8890cc92d9e56e26516d9fc',1,'surface::close()'],['../d2/d36/classlayer.html#a9e7b06c3de20d2fcc642c84927c777d8',1,'layer::close()'],['../d1/dfe/classsubsurface.html#ad4f8b07c6ae2184fbd737af87dce9998',1,'subsurface::close()'],['../da/d41/classtoplevel.html#ac4d563017911a8251f3fdfc24d25ccfd',1,'toplevel::close()'],['../db/d25/classopen_g_l_render_engine_1_1framebuffers.html#aaaa7764b62f55e3eb3aea26ad5cfa5a6',1,'openGLRenderEngine::framebuffers::close()'],['../dc/d69/classopen_g_l_render_engine_1_1open_g_l_renderer.html#a6ad2d3ed2577b99eb541166868f5eced',1,'openGLRenderEngine::openGLRenderer::close()'],['../d7/deb/classopen_g_l_render_engine_1_1shaders.html#afcf86c42714f4a5d8ddd85451bd0cdf3',1,'openGLRenderEngine::shaders::close()'],['../db/da5/classopen_g_l_render_engine_1_1textures.html#a67bb7dcaba681a2b8777f5e44effffbd',1,'openGLRenderEngine::textures::close()'],['../d5/d70/classopen_g_l_render_engine_1_1vaos.html#ad6d22e7990907f828c99bad5feecd9e9',1,'openGLRenderEngine::vaos::close()'],['../dc/d37/classlogger.html#ad0973f5782961630972e85adbed14b07',1,'logger::close()'],['../d4/df3/classpointer.html#a2ae7086f0c89a0d405d5013cfe08f219',1,'pointer::close()']]],
   ['closeapi_1',['closeApi',['../de/d8e/classlinux_window_a_p_i.html#ad0da3db853ade046c96c79d653942690',1,'linuxWindowAPI']]],
-  ['closewindow_2',['closeWindow',['../de/d8e/classlinux_window_a_p_i.html#a2f04da4be5a56c081477fabbcec802ed',1,'linuxWindowAPI::closeWindow()'],['../d5/d6a/classos_a_p_i.html#acad316dd14987374a79961de24e01a0f',1,'osAPI::closeWindow()']]],
-  ['componenttype_3',['componentType',['../db/d0a/classcomponent_type.html#a6d8d272b45a8870d58ddbe068be36873',1,'componentType']]],
-  ['consolekeywait_4',['consoleKeyWait',['../df/d0a/main_8cpp.html#a3de3a19b0f80e4d82b2bf426608a04bf',1,'main.cpp']]],
-  ['cpurender_5',['cpuRender',['../df/d0a/main_8cpp.html#aee5125c0ba555e89f6baca7bc81366b9',1,'main.cpp']]],
-  ['createframebuffer_6',['createFrameBuffer',['../df/dfa/classframe_buffers_manger.html#a2b01e7f48a639536127afabe0d3deb43',1,'frameBuffersManger']]],
-  ['createprogram_7',['createProgram',['../d4/df4/classshader_manger.html#a7c7af69318c5f8d19426ad0c96f37e42',1,'shaderManger']]],
-  ['createtexture_8',['createTexture',['../d6/d26/classtexture_manger.html#a40647dc3e0d5f50e5a8ee21411915d2e',1,'textureManger']]],
-  ['createvao_9',['createVao',['../de/d2c/classvertex_array_manger.html#a4b4777f5514213394d05cd6bc8faf355',1,'vertexArrayManger']]],
-  ['createwindow_10',['createWindow',['../de/d8e/classlinux_window_a_p_i.html#abb81b26381d2ec33289e37960cca04ac',1,'linuxWindowAPI::createWindow()'],['../d5/d6a/classos_a_p_i.html#aa717d13e65be64bc00998eb5e7d5e263',1,'osAPI::createWindow()']]]
+  ['closekeyboard_2',['closeKeyboard',['../d1/d4e/classkeyboard.html#a4c366a51872a766a0d347042c2683422',1,'keyboard']]],
+  ['closerenderer_3',['closeRenderer',['../d7/dc2/classcpu_rendering.html#ae9f9ac55af4082ab2d1acd6b6fab3d48',1,'cpuRendering']]],
+  ['closewindow_4',['closeWindow',['../de/d8e/classlinux_window_a_p_i.html#a2f04da4be5a56c081477fabbcec802ed',1,'linuxWindowAPI::closeWindow()'],['../d5/d6a/classos_a_p_i.html#acad316dd14987374a79961de24e01a0f',1,'osAPI::closeWindow()']]],
+  ['componenttype_5',['componentType',['../db/d0a/classcomponent_type.html#a6d8d272b45a8870d58ddbe068be36873',1,'componentType']]],
+  ['consolekeywait_6',['consoleKeyWait',['../df/d0a/main_8cpp.html#a3de3a19b0f80e4d82b2bf426608a04bf',1,'main.cpp']]],
+  ['cpurender_7',['cpuRender',['../df/d0a/main_8cpp.html#afa221060191780e27305d967bad5bd73',1,'main.cpp']]],
+  ['cpurenderdata_8',['cpuRenderData',['../d4/d29/structcpu_render_data.html#aa023b3db5d6cc20566567eebaf4502d6',1,'cpuRenderData']]],
+  ['cpurenderinfo_9',['cpuRenderInfo',['../dd/daa/structcpu_render_info.html#aabda39b8e3e0469c72aece550af0c704',1,'cpuRenderInfo']]],
+  ['cpurenderinfocomponent_10',['cpuRenderInfoComponent',['../d1/db9/classcpu_render_info_component.html#a8f9d128f90d5b6b4cb24968898dd8a5e',1,'cpuRenderInfoComponent']]],
+  ['createwindow_11',['createWindow',['../de/d8e/classlinux_window_a_p_i.html#abb81b26381d2ec33289e37960cca04ac',1,'linuxWindowAPI::createWindow()'],['../d5/d6a/classos_a_p_i.html#aa717d13e65be64bc00998eb5e7d5e263',1,'osAPI::createWindow()']]]
 ];

@@ -1,12 +1,13 @@
 var searchData=
 [
-  ['data_0',['data',['../d0/df1/structwindow_render_data.html#adf6e95514e11774ae974b65568e5b25c',1,'windowRenderData::data()'],['../d5/d49/struct_v_b_o_spec.html#a606042ff6deb00c1e0b1ee74be6eb731',1,'VBOSpec::data()'],['../d7/d87/structvertex_array_manger_1_1_v_a_o_info_1_1_v_b_o.html#a0685630e736abf6c23894e6b84236798',1,'vertexArrayManger::VAOInfo::VBO::data()']]],
-  ['datatype_1',['dataType',['../d5/d49/struct_v_b_o_spec.html#a174d6457168c55aab4e99549cac6f251',1,'VBOSpec::dataType()'],['../d8/d28/structvertex_array_manger_1_1_v_a_o_info_1_1_v_b_o_attacment.html#a2b2a06f3a3a8d44c2c0e1bdd7fe217d8',1,'vertexArrayManger::VAOInfo::VBOAttacment::dataType()']]],
+  ['data_0',['data',['../d4/d29/structcpu_render_data.html#ab3dd9119304bb922276c0178b8a80b95',1,'cpuRenderData::data()'],['../d4/d82/struct_v_b_o_update_requst.html#ac4c8259f8b7d26a9ae7542225106636d',1,'VBOUpdateRequst::data()'],['../d5/d45/struct_i_b_o_update_requst.html#a4ebc6781928d029f250cf3365f8756ff',1,'IBOUpdateRequst::data()']]],
+  ['datatype_1',['dataType',['../d4/d48/structattacment_update_requst.html#a54cf64311f37cb10956e88177b68770c',1,'attacmentUpdateRequst']]],
   ['decorationmanger_2',['decorationManger',['../da/d41/classtoplevel.html#a082d07e56e3ae480d6313141dd8937de',1,'toplevel']]],
-  ['deltatime_3',['deltaTime',['../d0/df1/structwindow_render_data.html#a87657d58fb1c02219a73277e2f69218e',1,'windowRenderData']]],
-  ['depthattachmen_4',['depthAttachmen',['../d6/df2/structframe_buffer_info.html#af4e3883e1c15cbde17e8667ef044a234',1,'frameBufferInfo']]],
-  ['discrete_5',['discrete',['../da/dbc/structpointer_1_1input_buffer.html#a385534f34fa4fd7304d7abee7af358c2',1,'pointer::inputBuffer']]],
-  ['discretevalue_6',['discreteValue',['../da/d46/structmouse_scroll_data.html#a264889e9001ad1a1724a97f971ed8587',1,'mouseScrollData']]],
-  ['display_7',['display',['../de/d8e/classlinux_window_a_p_i.html#a247a787973f65fac0f132e6af2faf28e',1,'linuxWindowAPI']]],
-  ['drawcalls_8',['drawCalls',['../d3/da2/structrender_request_info.html#af4d37691c373f0f5f97bf7e79616b886',1,'renderRequestInfo']]]
+  ['deletecallback_3',['deleteCallback',['../d4/d82/struct_v_b_o_update_requst.html#a811ae2ce6f0ea51c7739276c30474643',1,'VBOUpdateRequst::deleteCallback()'],['../d5/d45/struct_i_b_o_update_requst.html#a3f7e8a1b572cec8114c6646f2c7ce6f4',1,'IBOUpdateRequst::deleteCallback()'],['../d4/d48/structattacment_update_requst.html#a4861fe6984df536730af581f73f1761c',1,'attacmentUpdateRequst::deleteCallback()']]],
+  ['deltatime_4',['deltaTime',['../d4/d29/structcpu_render_data.html#ac2b07a7588ff37a5f1e32198c8cf8cfa',1,'cpuRenderData::deltaTime()'],['../db/d9e/structgpu_render_data.html#a47c1ef4a88c4a1ecaaedb5b1ed87e975',1,'gpuRenderData::deltaTime()']]],
+  ['depthattachmen_5',['depthAttachmen',['../d6/df2/structframe_buffer_info.html#af4e3883e1c15cbde17e8667ef044a234',1,'frameBufferInfo']]],
+  ['discrete_6',['discrete',['../da/dbc/structpointer_1_1input_buffer.html#a385534f34fa4fd7304d7abee7af358c2',1,'pointer::inputBuffer']]],
+  ['discretevalue_7',['discreteValue',['../da/d46/structmouse_scroll_data.html#a264889e9001ad1a1724a97f971ed8587',1,'mouseScrollData']]],
+  ['display_8',['display',['../de/d8e/classlinux_window_a_p_i.html#a247a787973f65fac0f132e6af2faf28e',1,'linuxWindowAPI']]],
+  ['drawcalls_9',['drawCalls',['../d3/da2/structrender_request_info.html#af4d37691c373f0f5f97bf7e79616b886',1,'renderRequestInfo']]]
 ];

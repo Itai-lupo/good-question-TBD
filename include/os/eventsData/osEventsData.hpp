@@ -5,7 +5,8 @@
 #include "mouseMoveData.hpp"
 #include "mouseScrollData.hpp"
 #include "windowResizeData.hpp"
-#include "windowRenderData.hpp"
+#include "gpuRenderData.hpp"
+#include "cpuRenderData.hpp"
 
 
 

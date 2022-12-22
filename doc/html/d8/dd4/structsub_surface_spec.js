@@ -1,5 +1,7 @@
 var structsub_surface_spec =
 [
+    [ "cpuRenderFunction", "d8/dd4/structsub_surface_spec.html#abdee5c81f82ce66304aa567881422ac0", null ],
+    [ "gpuRenderFunction", "d8/dd4/structsub_surface_spec.html#af2cf6768ce4e65a2f910a6197eb77aa1", null ],
     [ "height", "d8/dd4/structsub_surface_spec.html#a2131ab14ff633f87b88d9ea309f881eb", null ],
     [ "renderAPI", "d8/dd4/structsub_surface_spec.html#aedb68db6b69ad2c82f7cc2c0449a9a04", null ],
     [ "subSurfaceSlot", "d8/dd4/structsub_surface_spec.html#a77ccf7641195741003b107ade1322fb5", null ],

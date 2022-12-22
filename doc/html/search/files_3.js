@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['keyboard_2ecpp_0',['keyboard.cpp',['../d7/df5/keyboard_8cpp.html',1,'']]],
-  ['keyboard_2ehpp_1',['keyboard.hpp',['../dd/d39/keyboard_8hpp.html',1,'']]],
-  ['keycodes_2ehpp_2',['keycodes.hpp',['../d7/d0b/keycodes_8hpp.html',1,'']]],
-  ['keydata_2ehpp_3',['keyData.hpp',['../d3/d71/key_data_8hpp.html',1,'']]]
+  ['framebufferscomponents_2ecpp_0',['frameBuffersComponents.cpp',['../dd/db9/frame_buffers_components_8cpp.html',1,'']]],
+  ['framebufferscomponents_2ehpp_1',['frameBuffersComponents.hpp',['../dd/db2/frame_buffers_components_8hpp.html',1,'']]],
+  ['framebuffersmanger_2ecpp_2',['frameBuffersManger.cpp',['../de/d70/frame_buffers_manger_8cpp.html',1,'']]],
+  ['framebuffersmanger_2ehpp_3',['frameBuffersManger.hpp',['../d8/d20/frame_buffers_manger_8hpp.html',1,'']]]
 ];
