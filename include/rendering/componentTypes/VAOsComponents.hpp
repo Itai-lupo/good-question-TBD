@@ -67,7 +67,7 @@ struct VBOUpdateRequst
     void *data;
     uint32_t size; 
     uint32_t stride;
-    uint32_t offset;
+    uint32_t offset = 0;
 
     void(*deleteCallback)(VBOUpdateRequst*) = VBOUpdateRequstDefaultDeleteCallback;
 };
@@ -84,7 +84,7 @@ struct attacmentUpdateRequst
 {
     uint32_t bindingSlot;
     uint32_t size; 
-    uint32_t relativeOffset;
+    uint32_t relativeOffset = 0;
     uint32_t dataType = 0x1406; 
 
     void(*deleteCallback)(attacmentUpdateRequst*) = attacmentUpdateRequstDefaultDeleteCallback;

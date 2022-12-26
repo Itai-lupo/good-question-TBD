@@ -50,5 +50,5 @@ void surfaceInfoComponent::setComponent(entityId id, surfaceData buffer)
 surfaceInfoComponent::~surfaceInfoComponent()
 {
     pool->unenlistType(this, IdToIndex);
-    free(IdToIndex);
+    
 }

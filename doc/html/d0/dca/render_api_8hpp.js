@@ -1,7 +1,5 @@
 var render_api_8hpp =
 [
-    [ "textureData", "d4/d5b/structtexture_data.html", "d4/d5b/structtexture_data" ],
-    [ "textureData::bufferToUpload", "d3/d14/structtexture_data_1_1buffer_to_upload.html", "d3/d14/structtexture_data_1_1buffer_to_upload" ],
     [ "drawCallData", "d0/db1/structdraw_call_data.html", "d0/db1/structdraw_call_data" ],
     [ "renderRequestInfo", "d3/da2/structrender_request_info.html", "d3/da2/structrender_request_info" ],
     [ "renderApi", "d7/d09/classrender_api.html", "d7/d09/classrender_api" ],

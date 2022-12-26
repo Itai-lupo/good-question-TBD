@@ -51,5 +51,5 @@ void apiTypeComponents::setComponent(entityId id, supportedRenderApis buffer)
 apiTypeComponents::~apiTypeComponents()
 {
     pool->unenlistType(this, IdToIndex);
-    free(IdToIndex);
+    
 }

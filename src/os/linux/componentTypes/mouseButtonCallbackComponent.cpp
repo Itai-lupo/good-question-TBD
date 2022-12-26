@@ -50,5 +50,5 @@ void mouseButtonCallbackComponent::setCallback(entityId id, mouseCallback callba
 mouseButtonCallbackComponent::~mouseButtonCallbackComponent()
 {
     pool->unenlistType(this, IdToIndex);
-    free(IdToIndex);
+    
 }

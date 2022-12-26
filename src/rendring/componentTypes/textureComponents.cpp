@@ -14,6 +14,9 @@ void textureComponents::deleteComponent(entityId id)
         return;
 
     openGLRenderEngine::textures::toDelete.push(data[IdToIndex[id.index]].renderId);
+    
+    if(data[IdToIndex[id.index]].bufferToLoad)
+        data[IdToIndex[id.index]].bufferToLoad->deleteCallback(data[IdToIndex[id.index]].bufferToLoad);
 
     uint32_t index = IdToIndex[id.index];
     IdToIndex[id.index] = -1;
@@ -54,5 +57,12 @@ void textureComponents::setComponent(entityId id, textureInfo buffer)
 textureComponents::~textureComponents()
 {
     pool->unenlistType(this, IdToIndex);
-    free(IdToIndex);
+    
+}
+
+
+void loadTextureRequstDefaultDeleteCallback(loadTextureRequst* toDelete)
+{
+    free(toDelete->pixels);
+    delete toDelete;
 }

@@ -54,5 +54,5 @@ void shadersComponents::setComponent(entityId id, shaderInfo buffer)
 shadersComponents::~shadersComponents()
 {
     pool->unenlistType(this, IdToIndex);
-    free(IdToIndex);
+    
 }

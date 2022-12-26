@@ -1,5 +1,5 @@
 <map id="entityPool::enlistType" name="entityPool::enlistType">
-<area shape="rect" id="node1" title=" " alt="" coords="297,575,441,601"/>
+<area shape="rect" id="node1" title=" " alt="" coords="297,607,441,633"/>
 <area shape="rect" id="node2" href="$df/d69/classapi_type_components.html#a87147ef0390cacc6c031dcbcc1fcacb8" title=" " alt="" coords="54,5,201,45"/>
 <area shape="rect" id="node3" href="$db/d0a/classcomponent_type.html#a6d8d272b45a8870d58ddbe068be36873" title=" " alt="" coords="21,70,233,95"/>
 <area shape="rect" id="node4" href="$d1/db9/classcpu_render_info_component.html#a8f9d128f90d5b6b4cb24968898dd8a5e" title=" " alt="" coords="38,120,217,160"/>
@@ -15,8 +15,9 @@
 <area shape="rect" id="node14" href="$d3/da0/classsurface_info_component.html#a25d933f02b36bf69b23a258b2dfb8639" title=" " alt="" coords="48,760,207,800"/>
 <area shape="rect" id="node15" href="$d3/ded/classtexture_components.html#ab73c444e1533709f1f5ec6f09c18d346" title=" " alt="" coords="57,824,197,864"/>
 <area shape="rect" id="node16" href="$df/d7d/classtoplevel_info_componenet.html#ac3adde83dd2996cf12bfe946a55e639e" title=" " alt="" coords="43,888,211,928"/>
-<area shape="rect" id="node17" href="$d9/d50/class_v_a_os_components.html#a32810975cb12821f2b1e241d9208006b" title=" " alt="" coords="5,953,249,978"/>
-<area shape="rect" id="node18" href="$d2/d08/classwindow_resize_callback_component.html#a41ee8f74454c34ebf65809bbe98ef64d" title=" " alt="" coords="14,1003,241,1043"/>
-<area shape="rect" id="node19" href="$dc/d12/classwindows_info_component.html#a7ef05cf4baa8006d9497d9319a5e5826" title=" " alt="" coords="44,1067,211,1107"/>
-<area shape="rect" id="node20" href="$d1/d49/classwindow_surface_callback_component.html#a41f2fa4cd80c1a16cf4339e54c3fdb27" title=" " alt="" coords="11,1131,244,1171"/>
+<area shape="rect" id="node17" href="$d4/d86/classuniform_buffer_components.html#a27e75f7bb4e224b6231dd4f26466cab4" title=" " alt="" coords="38,952,217,992"/>
+<area shape="rect" id="node18" href="$d9/d50/class_v_a_os_components.html#a32810975cb12821f2b1e241d9208006b" title=" " alt="" coords="5,1017,249,1042"/>
+<area shape="rect" id="node19" href="$d2/d08/classwindow_resize_callback_component.html#a41ee8f74454c34ebf65809bbe98ef64d" title=" " alt="" coords="14,1067,241,1107"/>
+<area shape="rect" id="node20" href="$dc/d12/classwindows_info_component.html#a7ef05cf4baa8006d9497d9319a5e5826" title=" " alt="" coords="44,1131,211,1171"/>
+<area shape="rect" id="node21" href="$d1/d49/classwindow_surface_callback_component.html#a41f2fa4cd80c1a16cf4339e54c3fdb27" title=" " alt="" coords="11,1195,244,1235"/>
 </map>

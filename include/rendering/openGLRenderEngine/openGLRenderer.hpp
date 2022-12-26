@@ -8,6 +8,7 @@
 #include "vertexArrayManger.hpp"
 #include "shaderManger.hpp"
 #include "frameBuffersManger.hpp"
+#include "uniformBufferManger.hpp"
 
 
 #include <array>
@@ -23,12 +24,12 @@ namespace openGLRenderEngine
             static inline std::queue<renderRequestInfo> requests;
             static inline std::thread *renderThread;
 
-            static void renderHandle(openglContext *shared);
+            static void renderHandle();
             
         public:
             static inline openglContext *context;
 
-            static void init(openglContext *shared);
+            static void init();
             static void close();
 
             static void renderRequest(const renderRequestInfo& dataToRender);

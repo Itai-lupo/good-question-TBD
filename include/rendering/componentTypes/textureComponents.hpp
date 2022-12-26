@@ -6,6 +6,10 @@
 
 #include <array>
 
+struct loadTextureRequst;
+struct textureInfo;
+
+void loadTextureRequstDefaultDeleteCallback(loadTextureRequst* toDelete);
 
 enum class textureFormat
 {
@@ -26,34 +30,7 @@ enum class textureFormat
 };
 
 
-struct loadTextureRequst{
-    textureId id;
-    uint32_t x, y;
-    uint32_t width, height;
-    textureFormat format;
-    uint32_t type;
-    void* pixels;
-};
 
-struct textureInfo
-{
-    textureInfo(){}
-    textureInfo(textureId id, uint32_t width, uint32_t height, textureFormat format):
-        id(id), width(width), height(height), format(format){}
-
-    uint32_t renderId = 0;
-    textureId id;
-
-    int channels = 4;
-    int samples = 1;
-    uint32_t width, height;
-    
-    textureFormat format = textureFormat::RGBA8;
-    uint32_t type;
-    void* pixels = nullptr;
-    loadTextureRequst temp;
-    bool needToRebuild;
-};
 
 class textureComponents
 {
@@ -83,4 +60,34 @@ class textureComponents
         {
             return data;
         }
+};
+
+struct loadTextureRequst{
+    // textureId id;
+    uint32_t x, y;
+    uint32_t width, height;
+    textureFormat format;
+    uint32_t type;
+    void* pixels;
+    void(*deleteCallback)(loadTextureRequst*) = loadTextureRequstDefaultDeleteCallback;
+
+};
+
+struct textureInfo
+{
+    textureInfo(){}
+    textureInfo(textureId id, uint32_t width, uint32_t height, textureFormat format):
+        id(id), width(width), height(height), format(format){}
+
+    uint32_t renderId = 0;
+    textureId id;
+
+    uint32_t width, height;
+    textureFormat format = textureFormat::RGBA8;
+    int channels = 4;
+    int samples = 1;
+    
+    
+    loadTextureRequst *bufferToLoad = nullptr;
+    bool needToRebuild;
 };

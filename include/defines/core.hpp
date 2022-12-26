@@ -13,4 +13,5 @@ using framebufferId = entityId;
 using textureId = entityId;
 using vaoId = entityId;
 using shaderId = entityId;
+using uniformBufferId = entityId;
 using surfaceId = entityId;

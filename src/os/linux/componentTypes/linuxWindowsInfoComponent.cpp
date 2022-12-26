@@ -50,5 +50,5 @@ void windowsInfoComponent::setComponent(entityId id, windowInfo buffer)
 windowsInfoComponent::~windowsInfoComponent()
 {
     pool->unenlistType(this, IdToIndex);
-    free(IdToIndex);
+    
 }

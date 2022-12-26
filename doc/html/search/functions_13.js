@@ -20,8 +20,9 @@ var searchData=
   ['_7esurfaceinfocomponent_17',['~surfaceInfoComponent',['../d3/da0/classsurface_info_component.html#a9a75e083754035750c7441f02f9ea4e1',1,'surfaceInfoComponent']]],
   ['_7etexturecomponents_18',['~textureComponents',['../d3/ded/classtexture_components.html#aba67fee7f943567e245657188a921a54',1,'textureComponents']]],
   ['_7etoplevelinfocomponenet_19',['~toplevelInfoComponenet',['../df/d7d/classtoplevel_info_componenet.html#af884c1b477b3a6dc9c542a587cea3d65',1,'toplevelInfoComponenet']]],
-  ['_7evaoscomponents_20',['~VAOsComponents',['../d9/d50/class_v_a_os_components.html#ac8c1f6d840ebffeff95cc61924b496fd',1,'VAOsComponents']]],
-  ['_7ewindowresizecallbackcomponent_21',['~windowResizeCallbackComponent',['../d2/d08/classwindow_resize_callback_component.html#a281c43314bba6fa6e1e4b4664f489c9c',1,'windowResizeCallbackComponent']]],
-  ['_7ewindowsinfocomponent_22',['~windowsInfoComponent',['../dc/d12/classwindows_info_component.html#a8675856a368ef41b7a8a3caeb1d854de',1,'windowsInfoComponent']]],
-  ['_7ewindowsurfacecallbackcomponent_23',['~windowSurfaceCallbackComponent',['../d1/d49/classwindow_surface_callback_component.html#ac302e505f903d5671b705ba479ae8d4c',1,'windowSurfaceCallbackComponent']]]
+  ['_7euniformbuffercomponents_20',['~uniformBufferComponents',['../d4/d86/classuniform_buffer_components.html#a187128c990d40f7db85d85656e89684f',1,'uniformBufferComponents']]],
+  ['_7evaoscomponents_21',['~VAOsComponents',['../d9/d50/class_v_a_os_components.html#ac8c1f6d840ebffeff95cc61924b496fd',1,'VAOsComponents']]],
+  ['_7ewindowresizecallbackcomponent_22',['~windowResizeCallbackComponent',['../d2/d08/classwindow_resize_callback_component.html#a281c43314bba6fa6e1e4b4664f489c9c',1,'windowResizeCallbackComponent']]],
+  ['_7ewindowsinfocomponent_23',['~windowsInfoComponent',['../dc/d12/classwindows_info_component.html#a8675856a368ef41b7a8a3caeb1d854de',1,'windowsInfoComponent']]],
+  ['_7ewindowsurfacecallbackcomponent_24',['~windowSurfaceCallbackComponent',['../d1/d49/classwindow_surface_callback_component.html#ac302e505f903d5671b705ba479ae8d4c',1,'windowSurfaceCallbackComponent']]]
 ];

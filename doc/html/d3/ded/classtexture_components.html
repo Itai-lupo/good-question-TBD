@@ -163,10 +163,10 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   55</span>{</div>
-<div class="line"><span class="lineno">   56</span>    pool-&gt;<a class="code hl_function" href="../../dc/d2b/classentity_pool.html#ab91f97c5b47b5dd789884c33990da5e4">unenlistType</a>(<span class="keyword">this</span>, IdToIndex);</div>
-<div class="line"><span class="lineno">   57</span>    free(IdToIndex);</div>
-<div class="line"><span class="lineno">   58</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   58</span>{</div>
+<div class="line"><span class="lineno">   59</span>    pool-&gt;<a class="code hl_function" href="../../dc/d2b/classentity_pool.html#ab91f97c5b47b5dd789884c33990da5e4">unenlistType</a>(<span class="keyword">this</span>, IdToIndex);</div>
+<div class="line"><span class="lineno">   60</span>    </div>
+<div class="line"><span class="lineno">   61</span>}</div>
 <div class="ttc" id="aclassentity_pool_html_ab91f97c5b47b5dd789884c33990da5e4"><div class="ttname"><a href="../../dc/d2b/classentity_pool.html#ab91f97c5b47b5dd789884c33990da5e4">entityPool::unenlistType</a></div><div class="ttdeci">void unenlistType(void *dataPtr, uint32_t *IdToIndex)</div><div class="ttdef"><b>Definition:</b> entityPool.cpp:83</div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -201,14 +201,17 @@ Here is the call graph for this function:</div>
 <div class="line"><span class="lineno">   14</span>        <span class="keywordflow">return</span>;</div>
 <div class="line"><span class="lineno">   15</span> </div>
 <div class="line"><span class="lineno">   16</span>    <a class="code hl_variable" href="../../db/da5/classopen_g_l_render_engine_1_1textures.html#ac8677e58d08b1eeb96fbec9f95f14d9c">openGLRenderEngine::textures::toDelete</a>.push(data[IdToIndex[<span class="keywordtype">id</span>.index]].renderId);</div>
-<div class="line"><span class="lineno">   17</span> </div>
-<div class="line"><span class="lineno">   18</span>    uint32_t index = IdToIndex[<span class="keywordtype">id</span>.index];</div>
-<div class="line"><span class="lineno">   19</span>    IdToIndex[<span class="keywordtype">id</span>.index] = -1;</div>
-<div class="line"><span class="lineno">   20</span>    indexToId[index] = *indexToId.end();</div>
-<div class="line"><span class="lineno">   21</span>    data[index] = *data.end();</div>
-<div class="line"><span class="lineno">   22</span>    data.pop_back();</div>
-<div class="line"><span class="lineno">   23</span> </div>
-<div class="line"><span class="lineno">   24</span>}</div>
+<div class="line"><span class="lineno">   17</span>    </div>
+<div class="line"><span class="lineno">   18</span>    <span class="keywordflow">if</span>(data[IdToIndex[<span class="keywordtype">id</span>.index]].bufferToLoad)</div>
+<div class="line"><span class="lineno">   19</span>        data[IdToIndex[<span class="keywordtype">id</span>.index]].bufferToLoad-&gt;deleteCallback(data[IdToIndex[<span class="keywordtype">id</span>.index]].bufferToLoad);</div>
+<div class="line"><span class="lineno">   20</span> </div>
+<div class="line"><span class="lineno">   21</span>    uint32_t index = IdToIndex[<span class="keywordtype">id</span>.index];</div>
+<div class="line"><span class="lineno">   22</span>    IdToIndex[<span class="keywordtype">id</span>.index] = -1;</div>
+<div class="line"><span class="lineno">   23</span>    indexToId[index] = *indexToId.end();</div>
+<div class="line"><span class="lineno">   24</span>    data[index] = *data.end();</div>
+<div class="line"><span class="lineno">   25</span>    data.pop_back();</div>
+<div class="line"><span class="lineno">   26</span> </div>
+<div class="line"><span class="lineno">   27</span>}</div>
 <div class="ttc" id="aclassentity_pool_html_a7ab2c17f55513cea557b3b5d147a584d"><div class="ttname"><a href="../../dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d">entityPool::isIdValid</a></div><div class="ttdeci">bool isIdValid(entityId id)</div><div class="ttdef"><b>Definition:</b> entityPool.hpp:42</div></div>
 <div class="ttc" id="aclassopen_g_l_render_engine_1_1textures_html_ac8677e58d08b1eeb96fbec9f95f14d9c"><div class="ttname"><a href="../../db/da5/classopen_g_l_render_engine_1_1textures.html#ac8677e58d08b1eeb96fbec9f95f14d9c">openGLRenderEngine::textures::toDelete</a></div><div class="ttdeci">static std::queue&lt; uint32_t &gt; toDelete</div><div class="ttdef"><b>Definition:</b> textureManger.hpp:26</div></div>
 </div><!-- fragment --><div class="dynheader">
@@ -238,12 +241,12 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   27</span>{</div>
-<div class="line"><span class="lineno">   28</span>    <span class="keywordflow">if</span>(!pool-&gt;<a class="code hl_function" href="../../dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d">isIdValid</a>(<span class="keywordtype">id</span>) || IdToIndex[<span class="keywordtype">id</span>.index] == -1)</div>
-<div class="line"><span class="lineno">   29</span>        <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
-<div class="line"><span class="lineno">   30</span>    </div>
-<div class="line"><span class="lineno">   31</span>    <span class="keywordflow">return</span> &amp;data[IdToIndex[<span class="keywordtype">id</span>.index]];</div>
-<div class="line"><span class="lineno">   32</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   30</span>{</div>
+<div class="line"><span class="lineno">   31</span>    <span class="keywordflow">if</span>(!pool-&gt;<a class="code hl_function" href="../../dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d">isIdValid</a>(<span class="keywordtype">id</span>) || IdToIndex[<span class="keywordtype">id</span>.index] == -1)</div>
+<div class="line"><span class="lineno">   32</span>        <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><span class="lineno">   33</span>    </div>
+<div class="line"><span class="lineno">   34</span>    <span class="keywordflow">return</span> &amp;data[IdToIndex[<span class="keywordtype">id</span>.index]];</div>
+<div class="line"><span class="lineno">   35</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -290,9 +293,9 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   83</span>        {</div>
-<div class="line"><span class="lineno">   84</span>            <span class="keywordflow">return</span> data;</div>
-<div class="line"><span class="lineno">   85</span>        }</div>
+<div class="fragment"><div class="line"><span class="lineno">   60</span>        {</div>
+<div class="line"><span class="lineno">   61</span>            <span class="keywordflow">return</span> data;</div>
+<div class="line"><span class="lineno">   62</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -321,23 +324,23 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   35</span>{</div>
-<div class="line"><span class="lineno">   36</span>    <span class="keywordflow">if</span>(!pool-&gt;<a class="code hl_function" href="../../dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d">isIdValid</a>(<span class="keywordtype">id</span>)){</div>
-<div class="line"><span class="lineno">   37</span>        <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#a3a78e155ba786a87ea2bf3ec42467a2e">LOG_ERROR</a>(<span class="stringliteral">&quot;culdn&#39;t set data, id(index: &quot;</span> &lt;&lt; <span class="keywordtype">id</span>.index &lt;&lt; <span class="stringliteral">&quot;, gen: &quot;</span> &lt;&lt; (<span class="keywordtype">int</span>)<span class="keywordtype">id</span>.gen &lt;&lt; <span class="stringliteral">&quot;)&quot;</span>)</div>
-<div class="line"><span class="lineno">   38</span>        return;</div>
-<div class="line"><span class="lineno">   39</span>    }</div>
-<div class="line"><span class="lineno">   40</span> </div>
-<div class="line"><span class="lineno">   41</span>    if(IdToIndex[<span class="keywordtype">id</span>.index] == -1)</div>
-<div class="line"><span class="lineno">   42</span>    {</div>
-<div class="line"><span class="lineno">   43</span>        IdToIndex[<span class="keywordtype">id</span>.index] = data.size();</div>
-<div class="line"><span class="lineno">   44</span>        data.push_back(buffer);</div>
-<div class="line"><span class="lineno">   45</span>        indexToId.push_back(<span class="keywordtype">id</span>);</div>
-<div class="line"><span class="lineno">   46</span> </div>
-<div class="line"><span class="lineno">   47</span>    }</div>
-<div class="line"><span class="lineno">   48</span>    <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">   49</span>        data[IdToIndex[<span class="keywordtype">id</span>.index]] = buffer;</div>
-<div class="line"><span class="lineno">   50</span>    </div>
-<div class="line"><span class="lineno">   51</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   38</span>{</div>
+<div class="line"><span class="lineno">   39</span>    <span class="keywordflow">if</span>(!pool-&gt;<a class="code hl_function" href="../../dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d">isIdValid</a>(<span class="keywordtype">id</span>)){</div>
+<div class="line"><span class="lineno">   40</span>        <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#a3a78e155ba786a87ea2bf3ec42467a2e">LOG_ERROR</a>(<span class="stringliteral">&quot;culdn&#39;t set data, id(index: &quot;</span> &lt;&lt; <span class="keywordtype">id</span>.index &lt;&lt; <span class="stringliteral">&quot;, gen: &quot;</span> &lt;&lt; (<span class="keywordtype">int</span>)<span class="keywordtype">id</span>.gen &lt;&lt; <span class="stringliteral">&quot;)&quot;</span>)</div>
+<div class="line"><span class="lineno">   41</span>        return;</div>
+<div class="line"><span class="lineno">   42</span>    }</div>
+<div class="line"><span class="lineno">   43</span> </div>
+<div class="line"><span class="lineno">   44</span>    if(IdToIndex[<span class="keywordtype">id</span>.index] == -1)</div>
+<div class="line"><span class="lineno">   45</span>    {</div>
+<div class="line"><span class="lineno">   46</span>        IdToIndex[<span class="keywordtype">id</span>.index] = data.size();</div>
+<div class="line"><span class="lineno">   47</span>        data.push_back(buffer);</div>
+<div class="line"><span class="lineno">   48</span>        indexToId.push_back(<span class="keywordtype">id</span>);</div>
+<div class="line"><span class="lineno">   49</span> </div>
+<div class="line"><span class="lineno">   50</span>    }</div>
+<div class="line"><span class="lineno">   51</span>    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">   52</span>        data[IdToIndex[<span class="keywordtype">id</span>.index]] = buffer;</div>
+<div class="line"><span class="lineno">   53</span>    </div>
+<div class="line"><span class="lineno">   54</span>}</div>
 <div class="ttc" id="alog_8hpp_html_a3a78e155ba786a87ea2bf3ec42467a2e"><div class="ttname"><a href="../../d4/d3d/log_8hpp.html#a3a78e155ba786a87ea2bf3ec42467a2e">LOG_ERROR</a></div><div class="ttdeci">#define LOG_ERROR(toLog)</div><div class="ttdef"><b>Definition:</b> log.hpp:8</div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>

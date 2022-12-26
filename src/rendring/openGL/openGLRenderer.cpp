@@ -10,9 +10,9 @@ namespace openGLRenderEngine
 {
     std::atomic_bool canPush = true;
 
-    void openGLRenderer::init(openglContext *shared)
+    void openGLRenderer::init()
     {
-        renderThread = new std::thread(renderHandle, shared);
+        renderThread = new std::thread(renderHandle);
     }
 
     void openGLRenderer::close()
@@ -31,7 +31,7 @@ namespace openGLRenderEngine
 
     }
 
-    void openGLRenderer::renderHandle(openglContext *shared)
+    void openGLRenderer::renderHandle()
     {
         ZoneScoped;
 
@@ -39,13 +39,14 @@ namespace openGLRenderEngine
         tracy::SetThreadName("opengl");
         prctl(PR_SET_NAME, thradNameA.c_str());
         
-        openGLRenderer::context = new openglContext(shared->eglContext);
+        openGLRenderer::context = new openglContext();
         context->makeCurrent();
 
         framebuffers::setContext(context);
         shaders::setContext(context);
         textures::setContext(context);
         vaos::setContext(context);
+        uniformBuffers::setContext(context);
         
         GL_CALL(context, Enable(GL_BLEND));
         GL_CALL(context, Enable(GL_DEPTH_TEST));
@@ -54,8 +55,6 @@ namespace openGLRenderEngine
         GL_CALL(context, AlphaFunc(GL_GREATER, 0));
         GL_CALL(context, Enable(GL_PROGRAM_POINT_SIZE));
         GL_CALL(context, PointSize(10));
-
-
 
         while (context)
         {
@@ -81,7 +80,7 @@ namespace openGLRenderEngine
                     framebuffers::getFrameBuffer(dataToRender.frameBufferId)->height));
 
                 GL_CALL(context, ClearColor (0.2f, 0.2f, 0.2f, 1.0f));
-                GL_CALL(context, Clear (GL_COLOR_BUFFER_BIT));
+                GL_CALL(context, Clear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT));
                 
                 ZoneValue(dataToRender.frameBufferId.gen << (24 + dataToRender.frameBufferId.index));
                 for (auto& drawCallData: dataToRender.drawCalls)
@@ -98,11 +97,13 @@ namespace openGLRenderEngine
                         if(drawCallData.texturesIds[i].gen != 255)
                             textures::bind(drawCallData.texturesIds[i], i);
                     }
-
+                    uniformBuffers::bind(drawCallData.UBO, 0);
+                    
                     uint32_t count = vaos::getVAO(drawCallData.vertexArrayId)->count;
                     GL_CALL(context, DrawElements(GL_TRIANGLES, count, GL_UNSIGNED_INT, nullptr));
-                    GL_CALL(context, DrawElements(GL_POINTS, count, GL_UNSIGNED_INT, nullptr));
+                    // GL_CALL(context, DrawElements(GL_POINTS, count, GL_UNSIGNED_INT, nullptr));    
                 }
+            
                 GL_CALL(context, Flush());
                 requests.pop();
             }

@@ -50,5 +50,5 @@ void keyCallbackComponent::setCallback(entityId id, keyCallback callback)
 keyCallbackComponent::~keyCallbackComponent()
 {
     pool->unenlistType(this, IdToIndex);
-    free(IdToIndex);
+    
 }

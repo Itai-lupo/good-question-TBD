@@ -169,11 +169,11 @@ Static Public Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   60</span>        </div>
 <div class="line"><span class="lineno">   61</span>        <a class="code hl_define" href="../../db/d4c/opengl_context_8hpp.html#a70415707146204b62e5f7d4403f10f3a">GL_CALL</a>(context, BindTextureUnit(slot, temp-&gt;<a class="code hl_variable" href="../../d7/dae/structtexture_info.html#a5f65813bce44fc6092a29ce733d10c34">renderId</a>));  </div>
 <div class="line"><span class="lineno">   62</span>    }</div>
-<div class="ttc" id="aclasstexture_components_html_a42cf7c714bca6d1a017ee3e7132b9b2b"><div class="ttname"><a href="../../d3/ded/classtexture_components.html#a42cf7c714bca6d1a017ee3e7132b9b2b">textureComponents::getComponent</a></div><div class="ttdeci">textureInfo * getComponent(entityId id)</div><div class="ttdef"><b>Definition:</b> textureComponents.cpp:26</div></div>
+<div class="ttc" id="aclasstexture_components_html_a42cf7c714bca6d1a017ee3e7132b9b2b"><div class="ttname"><a href="../../d3/ded/classtexture_components.html#a42cf7c714bca6d1a017ee3e7132b9b2b">textureComponents::getComponent</a></div><div class="ttdeci">textureInfo * getComponent(entityId id)</div><div class="ttdef"><b>Definition:</b> textureComponents.cpp:29</div></div>
 <div class="ttc" id="aopengl_context_8hpp_html_a70415707146204b62e5f7d4403f10f3a"><div class="ttname"><a href="../../db/d4c/opengl_context_8hpp.html#a70415707146204b62e5f7d4403f10f3a">GL_CALL</a></div><div class="ttdeci">#define GL_CALL(context, call)</div><div class="ttdef"><b>Definition:</b> openglContext.hpp:42</div></div>
-<div class="ttc" id="astructtexture_info_html"><div class="ttname"><a href="../../d7/dae/structtexture_info.html">textureInfo</a></div><div class="ttdef"><b>Definition:</b> textureComponents.hpp:39</div></div>
-<div class="ttc" id="astructtexture_info_html_a5f65813bce44fc6092a29ce733d10c34"><div class="ttname"><a href="../../d7/dae/structtexture_info.html#a5f65813bce44fc6092a29ce733d10c34">textureInfo::renderId</a></div><div class="ttdeci">uint32_t renderId</div><div class="ttdef"><b>Definition:</b> textureComponents.hpp:44</div></div>
-<div class="ttc" id="astructtexture_info_html_a931a5038c804e949b51b8ba0bec0a186"><div class="ttname"><a href="../../d7/dae/structtexture_info.html#a931a5038c804e949b51b8ba0bec0a186">textureInfo::needToRebuild</a></div><div class="ttdeci">bool needToRebuild</div><div class="ttdef"><b>Definition:</b> textureComponents.hpp:55</div></div>
+<div class="ttc" id="astructtexture_info_html"><div class="ttname"><a href="../../d7/dae/structtexture_info.html">textureInfo</a></div><div class="ttdef"><b>Definition:</b> textureComponents.hpp:77</div></div>
+<div class="ttc" id="astructtexture_info_html_a5f65813bce44fc6092a29ce733d10c34"><div class="ttname"><a href="../../d7/dae/structtexture_info.html#a5f65813bce44fc6092a29ce733d10c34">textureInfo::renderId</a></div><div class="ttdeci">uint32_t renderId</div><div class="ttdef"><b>Definition:</b> textureComponents.hpp:82</div></div>
+<div class="ttc" id="astructtexture_info_html_a931a5038c804e949b51b8ba0bec0a186"><div class="ttname"><a href="../../d7/dae/structtexture_info.html#a931a5038c804e949b51b8ba0bec0a186">textureInfo::needToRebuild</a></div><div class="ttdeci">bool needToRebuild</div><div class="ttdef"><b>Definition:</b> textureComponents.hpp:92</div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -339,7 +339,7 @@ Here is the caller graph for this function:</div>
 <div class="fragment"><div class="line"><span class="lineno">    9</span>    {</div>
 <div class="line"><span class="lineno">   10</span>        texturesData = <span class="keyword">new</span> <a class="code hl_class" href="../../d3/ded/classtexture_components.html">textureComponents</a>(texturesPool);</div>
 <div class="line"><span class="lineno">   11</span>    }</div>
-<div class="ttc" id="aclasstexture_components_html"><div class="ttname"><a href="../../d3/ded/classtexture_components.html">textureComponents</a></div><div class="ttdef"><b>Definition:</b> textureComponents.hpp:59</div></div>
+<div class="ttc" id="aclasstexture_components_html"><div class="ttname"><a href="../../d3/ded/classtexture_components.html">textureComponents</a></div><div class="ttdef"><b>Definition:</b> textureComponents.hpp:36</div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -454,8 +454,8 @@ Here is the call graph for this function:</div>
 <div class="line"><span class="lineno">   43</span>        info.<a class="code hl_variable" href="../../d7/dae/structtexture_info.html#a931a5038c804e949b51b8ba0bec0a186">needToRebuild</a> = <span class="keyword">true</span>;</div>
 <div class="line"><span class="lineno">   44</span>        texturesData-&gt;<a class="code hl_function" href="../../d3/ded/classtexture_components.html#a84661909f58c402a26d868f2f524e4f1">setComponent</a>(info.<a class="code hl_variable" href="../../d7/dae/structtexture_info.html#aca975949f575cf428c8ac0fb7c4d666a">id</a>, info);</div>
 <div class="line"><span class="lineno">   45</span>    }</div>
-<div class="ttc" id="aclasstexture_components_html_a84661909f58c402a26d868f2f524e4f1"><div class="ttname"><a href="../../d3/ded/classtexture_components.html#a84661909f58c402a26d868f2f524e4f1">textureComponents::setComponent</a></div><div class="ttdeci">void setComponent(entityId id, textureInfo buffer)</div><div class="ttdef"><b>Definition:</b> textureComponents.cpp:34</div></div>
-<div class="ttc" id="astructtexture_info_html_aca975949f575cf428c8ac0fb7c4d666a"><div class="ttname"><a href="../../d7/dae/structtexture_info.html#aca975949f575cf428c8ac0fb7c4d666a">textureInfo::id</a></div><div class="ttdeci">textureId id</div><div class="ttdef"><b>Definition:</b> textureComponents.hpp:45</div></div>
+<div class="ttc" id="aclasstexture_components_html_a84661909f58c402a26d868f2f524e4f1"><div class="ttname"><a href="../../d3/ded/classtexture_components.html#a84661909f58c402a26d868f2f524e4f1">textureComponents::setComponent</a></div><div class="ttdeci">void setComponent(entityId id, textureInfo buffer)</div><div class="ttdef"><b>Definition:</b> textureComponents.cpp:37</div></div>
+<div class="ttc" id="astructtexture_info_html_aca975949f575cf428c8ac0fb7c4d666a"><div class="ttname"><a href="../../d7/dae/structtexture_info.html#aca975949f575cf428c8ac0fb7c4d666a">textureInfo::id</a></div><div class="ttdeci">textureId id</div><div class="ttdef"><b>Definition:</b> textureComponents.hpp:83</div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

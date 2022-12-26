@@ -96,15 +96,15 @@ namespace openGLRenderEngine
             GL_CALL(context, TextureParameteri(tex->renderId , GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE));
 
             GL_CALL(context, TextureStorage2D(tex->renderId, 1, textureFormatToOpenGlFormat(tex->format), tex->width, tex->height));
-            if(tex->pixels != nullptr){
+            if(tex->bufferToLoad){
                 ZoneScopedN("load texture data");
-                tex->channels = textureFormatToChannelsCount(tex->temp.format);
-                
+                tex->channels = textureFormatToChannelsCount(tex->bufferToLoad->format);
                 GL_CALL(context, 
-                TextureSubImage2D(tex->renderId, 0, tex->temp.x, tex->temp.y, tex->temp.width, tex->temp.height, 
-                            textureFormatToOpenGlDataFormat(tex->temp.format), tex->temp.type, tex->temp.pixels));  
+                TextureSubImage2D(tex->renderId, 0, tex->bufferToLoad->x, tex->bufferToLoad->y, tex->bufferToLoad->width, tex->bufferToLoad->height, 
+                            textureFormatToOpenGlDataFormat(tex->bufferToLoad->format), tex->bufferToLoad->type, tex->bufferToLoad->pixels));  
 
-                            
+                tex->bufferToLoad->deleteCallback(tex->bufferToLoad);
+                tex->bufferToLoad = nullptr;
             }
         }
         

@@ -54,5 +54,5 @@ void frameBuffersComponents::setComponent(entityId id, frameBufferInfo buffer)
 frameBuffersComponents::~frameBuffersComponents()
 {
     pool->unenlistType(this, IdToIndex);
-    free(IdToIndex);
+    
 }

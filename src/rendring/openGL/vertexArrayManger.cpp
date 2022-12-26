@@ -59,24 +59,27 @@ namespace openGLRenderEngine
             return;
 
         if(vao->VAO == 0)
+        {
             GL_CALL(context, CreateVertexArrays(1, &vao->VAO));
-
+        }
 
         for (size_t i = 0; i < 16; i++)
         {
             if(vao->bindingSlotsToUpdate[i])
             {
                 if(vao->bindingsSlots[i])
+                {
                     GL_CALL(context, DeleteBuffers(1, &vao->bindingsSlots[i])); 
-                
+                }
 
                 GL_CALL(context, CreateBuffers(1, &vao->bindingsSlots[i]));
                 GL_CALL(context, NamedBufferData(vao->bindingsSlots[i], vao->bindingSlotsToUpdate[i]->size, vao->bindingSlotsToUpdate[i]->data, GL_DYNAMIC_DRAW));
                 GL_CALL(context, VertexArrayVertexBuffer(vao->VAO, i, vao->bindingsSlots[i], vao->bindingSlotsToUpdate[i]->offset, vao->bindingSlotsToUpdate[i]->stride));
-
+                            
                 vao->bindingSlotsToUpdate[i]->deleteCallback(vao->bindingSlotsToUpdate[i]);
                 vao->bindingSlotsToUpdate[i] = nullptr;
             }
+
         }
         
         for (size_t i = 0; i < 16; i++)
@@ -87,7 +90,8 @@ namespace openGLRenderEngine
                 GL_CALL(context, EnableVertexArrayAttrib(vao->VAO, i));
                 GL_CALL(context, VertexArrayAttribBinding(vao->VAO, i, vao->attacmentsToUpdate[i]->bindingSlot));
                 GL_CALL(context, VertexArrayAttribFormat(vao->VAO, i, vao->attacmentsToUpdate[i]->size, vao->attacmentsToUpdate[i]->dataType, GL_FALSE, vao->attacmentsToUpdate[i]->relativeOffset));
-
+                
+                
                 vao->attacmentsToUpdate[i]->deleteCallback(vao->attacmentsToUpdate[i]);
                 vao->attacmentsToUpdate[i] = nullptr;
             }
@@ -96,7 +100,9 @@ namespace openGLRenderEngine
         if(vao->iboToUpdate)
         {
             if(vao->IBO)
+            {
                 GL_CALL(context, DeleteBuffers(1, &vao->IBO)); 
+            }
             
             GL_CALL(context, CreateBuffers(1, &vao->IBO));
 
@@ -110,9 +116,5 @@ namespace openGLRenderEngine
         }
         
         GL_CALL(context, BindVertexArray(vao->VAO));
-        GL_CALL(context, BindBuffer(GL_ELEMENT_ARRAY_BUFFER, vao->IBO));
-
-
     }
-
 }

@@ -50,5 +50,4 @@ void windowResizeCallbackComponent::setCallback(entityId id, resizeCallback call
 windowResizeCallbackComponent::~windowResizeCallbackComponent()
 {
     pool->unenlistType(this, IdToIndex);
-    free(IdToIndex);
 }

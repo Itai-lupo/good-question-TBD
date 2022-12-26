@@ -9,8 +9,9 @@ var searchData=
   ['allocframebuffer_6',['allocFramebuffer',['../d7/d09/classrender_api.html#a6a174c7ddd383090fb4cc4606d72b7a0',1,'renderApi']]],
   ['allocshader_7',['allocShader',['../d7/d09/classrender_api.html#ab602f772843e6c1b63b18422f332891b',1,'renderApi']]],
   ['alloctexture_8',['allocTexture',['../d7/d09/classrender_api.html#a4b465b892d864f3ad54fc91533202305',1,'renderApi']]],
-  ['allocvao_9',['allocVao',['../d7/d09/classrender_api.html#a1d2213423b9d0e13385245d59d295e18',1,'renderApi']]],
-  ['apitypecomponents_10',['apiTypeComponents',['../df/d69/classapi_type_components.html#a87147ef0390cacc6c031dcbcc1fcacb8',1,'apiTypeComponents']]],
-  ['attachsubsurfacetowindow_11',['attachSubSurfaceToWindow',['../d5/d6a/classos_a_p_i.html#a6ec19963881ae78db8a3c0703850b8eb',1,'osAPI']]],
-  ['attacmentupdaterequstdefaultdeletecallback_12',['attacmentUpdateRequstDefaultDeleteCallback',['../d5/d65/_v_a_os_components_8cpp.html#a466959f05f5ee38480832fdc84d1488b',1,'attacmentUpdateRequstDefaultDeleteCallback(attacmentUpdateRequst *toDelete):&#160;VAOsComponents.cpp'],['../d8/dc1/_v_a_os_components_8hpp.html#a466959f05f5ee38480832fdc84d1488b',1,'attacmentUpdateRequstDefaultDeleteCallback(attacmentUpdateRequst *toDelete):&#160;VAOsComponents.cpp']]]
+  ['allocuniformbuffer_9',['allocUniformBuffer',['../d7/d09/classrender_api.html#a33282ba2e43ea1233be95b58d91bf878',1,'renderApi']]],
+  ['allocvao_10',['allocVao',['../d7/d09/classrender_api.html#a1d2213423b9d0e13385245d59d295e18',1,'renderApi']]],
+  ['apitypecomponents_11',['apiTypeComponents',['../df/d69/classapi_type_components.html#a87147ef0390cacc6c031dcbcc1fcacb8',1,'apiTypeComponents']]],
+  ['attachsubsurfacetowindow_12',['attachSubSurfaceToWindow',['../d5/d6a/classos_a_p_i.html#a6ec19963881ae78db8a3c0703850b8eb',1,'osAPI']]],
+  ['attacmentupdaterequstdefaultdeletecallback_13',['attacmentUpdateRequstDefaultDeleteCallback',['../d5/d65/_v_a_os_components_8cpp.html#a466959f05f5ee38480832fdc84d1488b',1,'attacmentUpdateRequstDefaultDeleteCallback(attacmentUpdateRequst *toDelete):&#160;VAOsComponents.cpp'],['../d8/dc1/_v_a_os_components_8hpp.html#a466959f05f5ee38480832fdc84d1488b',1,'attacmentUpdateRequstDefaultDeleteCallback(attacmentUpdateRequst *toDelete):&#160;VAOsComponents.cpp']]]
 ];

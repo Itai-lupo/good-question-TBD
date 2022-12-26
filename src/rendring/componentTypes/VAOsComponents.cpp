@@ -13,7 +13,7 @@ VAOsComponents::VAOsComponents(entityPool *pool):
 VAOsComponents::~VAOsComponents()
 {
     pool->unenlistType(this, IdToIndex);
-    free(IdToIndex);
+    
 } 
 
 

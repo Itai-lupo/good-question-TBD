@@ -53,5 +53,5 @@ void subsurfaceInfoComponenet::setComponent(entityId id, subsurfaceInfo callback
 subsurfaceInfoComponenet::~subsurfaceInfoComponenet()
 {
     pool->unenlistType(this, IdToIndex);
-    free(IdToIndex);
+    
 }

@@ -53,5 +53,5 @@ void layerInfoComponenet::setComponent(entityId id, layerSurfaceInfo callback)
 layerInfoComponenet::~layerInfoComponenet()
 {
     pool->unenlistType(this, IdToIndex);
-    free(IdToIndex);
+    
 }

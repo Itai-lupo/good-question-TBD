@@ -12,16 +12,21 @@ renderApi::renderApi()
     texturesPool = new entityPool(1000);
     vaosPool = new entityPool(10000);
     shadersPool = new entityPool(1000);
+    uniformBuffersPool = new entityPool(1000);
+
 
     framebuffersApiType = new apiTypeComponents(framebuffersPool);
     texturesApiType = new apiTypeComponents(texturesPool);
     vaosApiType = new apiTypeComponents(vaosPool);
     shadersApiType = new apiTypeComponents(shadersPool);
+    uniformBuffersApiType = new apiTypeComponents(uniformBuffersPool);
+
 
     openGLRenderEngine::framebuffers::init(framebuffersPool);
     openGLRenderEngine::textures::init(texturesPool);
     openGLRenderEngine::vaos::init(vaosPool);
     openGLRenderEngine::shaders::init(shadersPool);
+    openGLRenderEngine::uniformBuffers::init(uniformBuffersPool);
 }
 
 renderApi::~renderApi()
@@ -30,16 +35,21 @@ renderApi::~renderApi()
     openGLRenderEngine::textures::close();
     openGLRenderEngine::vaos::close();
     openGLRenderEngine::shaders::close();
+    openGLRenderEngine::uniformBuffers::close();
+
 
     delete framebuffersApiType;
     delete texturesApiType;
     delete vaosApiType;
     delete shadersApiType;
+    delete uniformBuffersApiType;
+
 
     delete framebuffersPool;
     delete texturesPool;
     delete vaosPool;
     delete shadersPool;
+    delete uniformBuffersPool;
 }
 
 
@@ -71,6 +81,12 @@ shaderId renderApi::allocShader(supportedRenderApis apiType)
     return temp;
 }
 
+uniformBufferId renderApi::allocUniformBuffer(supportedRenderApis apiType)
+{
+    uniformBufferId temp = uniformBuffersPool->allocEntity();
+    uniformBuffersApiType->setComponent(temp, apiType);
+    return temp;
+}
 
 void renderApi::deallocFramebuffer(framebufferId id)
 {
@@ -92,6 +108,11 @@ void renderApi::deallocShader(shaderId id)
     shadersPool->freeEntity(id);
 }
 
+
+void renderApi::deallocUniformBuffer(uniformBufferId id)
+{
+    uniformBuffersPool->freeEntity(id);
+}
 
 void renderApi::setFramebuffer(frameBufferInfo data)
 {
@@ -145,12 +166,27 @@ void renderApi::setShader(shaderInfo data)
     }
 }
 
+void renderApi::setUniformBuffer(uniformBufferInfo data)
+{
+    switch (shadersApiType->getComponent(data.id))
+    {
+        case supportedRenderApis::openGl:
+                openGLRenderEngine::uniformBuffers::setUniformBufferData(data);
+            break;
+        
+        default:
+            break;
+    }
+}
+
+
+
 frameBufferInfo *renderApi::getFramebuffer(framebufferId id)
 {
     switch (shadersApiType->getComponent(id))
     {
         case supportedRenderApis::openGl:
-                openGLRenderEngine::framebuffers::getFrameBuffer(id);
+                return openGLRenderEngine::framebuffers::getFrameBuffer(id);
             break;
         default:
             LOG_FATAL("id is not valid");
@@ -164,7 +200,7 @@ textureInfo *renderApi::getTexture(textureId id)
     switch (shadersApiType->getComponent(id))
     {
         case supportedRenderApis::openGl:
-                openGLRenderEngine::textures::getTexture(id);
+                return openGLRenderEngine::textures::getTexture(id);
             break;
         default:
             LOG_FATAL("id is not valid");
@@ -179,7 +215,7 @@ VAOInfo *renderApi::getVao(vaoId id)
     switch (shadersApiType->getComponent(id))
     {
         case supportedRenderApis::openGl:
-                openGLRenderEngine::vaos::getVAO(id);
+                return openGLRenderEngine::vaos::getVAO(id);
             break;
         default:
             LOG_FATAL("id is not valid");
@@ -194,7 +230,7 @@ shaderInfo *renderApi::getShader(shaderId id)
     switch (shadersApiType->getComponent(id))
     {
         case supportedRenderApis::openGl:
-                openGLRenderEngine::shaders::getShaders(id);
+                return openGLRenderEngine::shaders::getShaders(id);
             break;
         default:
             LOG_FATAL("id is not valid");
@@ -204,6 +240,21 @@ shaderInfo *renderApi::getShader(shaderId id)
     return nullptr;
 }
 
+
+uniformBufferInfo *renderApi::getUniformBuffer(uniformBufferId id)
+{
+    switch (shadersApiType->getComponent(id))
+    {
+        case supportedRenderApis::openGl:
+                return openGLRenderEngine::uniformBuffers::getUniformBuffer(id);
+            break;
+        default:
+            LOG_FATAL("id is not valid");
+        
+    }    
+
+    return nullptr;
+}
 
 
 void renderApi::renderRequest(const renderRequestInfo& data)

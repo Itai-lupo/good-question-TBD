@@ -122,8 +122,10 @@ void openGLRendering::wlSurfaceFrameDone(void *data, wl_callback *cb, uint32_t t
     
     cb = wl_surface_frame(surface::getSurface(id));
     wl_callback_add_listener(cb, &wlSurfaceFrameListener, data);
-    
+
+
     context->makeCurrent(temp->eglSurface, temp->eglSurface);
+
 
     GL_CALL(context, Viewport(0, 0, surface::getWindowWidth(id), surface::getWindowHeight(id)));
     GL_CALL(context, ClearColor (0.0f, 0.0f, 0.0f, 0.0f));
@@ -159,7 +161,7 @@ void openGLRendering::init(entityPool *surfacesPool, renderApi *api)
     openglContext::setDisplay(eglGetDisplay(linuxWindowAPI::display));
 
     context = new openglContext();
-    openGLRenderEngine::openGLRenderer::init(context);
+    openGLRenderEngine::openGLRenderer::init();
 
     renderData = new gpuRenderInfoComponent(surfacesPool);
     openGLRendering::api = api;

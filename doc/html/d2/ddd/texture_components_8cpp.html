@@ -91,6 +91,8 @@ $(document).ready(function(){initNavTree('d2/ddd/texture_components_8cpp.html','
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">textureComponents.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -124,7 +126,37 @@ Include dependency graph for textureComponents.cpp:</div>
 <area shape="rect" href="../../d5/d84/supported_render_apis_8hpp.html" title=" " alt="" coords="144,240,315,265"/>
 </map>
 </div>
-</div></div><!-- contents -->
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a27fc981cd082a87de7ebea5f6890002c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/ddd/texture_components_8cpp.html#a27fc981cd082a87de7ebea5f6890002c">loadTextureRequstDefaultDeleteCallback</a> (<a class="el" href="../../db/dc1/structload_texture_requst.html">loadTextureRequst</a> *toDelete)</td></tr>
+<tr class="separator:a27fc981cd082a87de7ebea5f6890002c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a27fc981cd082a87de7ebea5f6890002c" name="a27fc981cd082a87de7ebea5f6890002c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27fc981cd082a87de7ebea5f6890002c">&#9670;&#160;</a></span>loadTextureRequstDefaultDeleteCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void loadTextureRequstDefaultDeleteCallback </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/dc1/structload_texture_requst.html">loadTextureRequst</a> *&#160;</td>
+          <td class="paramname"><em>toDelete</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><span class="lineno">   65</span>{</div>
+<div class="line"><span class="lineno">   66</span>    free(toDelete-&gt;<a class="code hl_variable" href="../../db/dc1/structload_texture_requst.html#ae20b4c16a4c43242925f89159666df4a">pixels</a>);</div>
+<div class="line"><span class="lineno">   67</span>    <span class="keyword">delete</span> toDelete;</div>
+<div class="line"><span class="lineno">   68</span>}</div>
+<div class="ttc" id="astructload_texture_requst_html_ae20b4c16a4c43242925f89159666df4a"><div class="ttname"><a href="../../db/dc1/structload_texture_requst.html#ae20b4c16a4c43242925f89159666df4a">loadTextureRequst::pixels</a></div><div class="ttdeci">void * pixels</div><div class="ttdef"><b>Definition:</b> textureComponents.hpp:71</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

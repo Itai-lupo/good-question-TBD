@@ -50,5 +50,4 @@ void windowSurfaceCallbackComponent::setCallback(entityId id, surfaceCallback ca
 windowSurfaceCallbackComponent::~windowSurfaceCallbackComponent()
 {
     pool->unenlistType(this, IdToIndex);
-    free(IdToIndex);
 }

@@ -55,5 +55,5 @@ void toplevelInfoComponenet::setComponent(entityId id, toplevelSurfaceInfo callb
 toplevelInfoComponenet::~toplevelInfoComponenet()
 {
     pool->unenlistType(this, IdToIndex);
-    free(IdToIndex);
+    
 }

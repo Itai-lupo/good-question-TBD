@@ -50,5 +50,5 @@ void mouseScrollCallbackComponent::setCallback(entityId id, scrollCallback callb
 mouseScrollCallbackComponent::~mouseScrollCallbackComponent()
 {
     pool->unenlistType(this, IdToIndex);
-    free(IdToIndex);
+    
 }
