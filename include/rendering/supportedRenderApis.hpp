@@ -3,5 +3,6 @@
 enum class supportedRenderApis
 {
     openGl,
+    vulkan,
     apiCount
 };

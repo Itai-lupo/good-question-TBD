@@ -206,7 +206,6 @@ int main()
 {
     ZoneScoped;
     logger::init("./logs/", "TBD");
-    
     a = new osAPI();
     std::vector<windowId> winowsIds;
     std::vector<double *> offsets;

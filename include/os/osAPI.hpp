@@ -12,7 +12,8 @@
 enum class surfaceRenderAPI
 {
     cpu,
-    openGL
+    openGL,
+    vulkan
 };
 
 
@@ -21,7 +22,7 @@ struct windowSpec
 	
 	std::string title;
     int w, h;
-    surfaceRenderAPI renderAPI =  surfaceRenderAPI::openGL;
+    surfaceRenderAPI renderAPI =  surfaceRenderAPI::vulkan;
 
     void (*cpuRenderFunction)(const cpuRenderData &);
     void (*gpuRenderFunction)(const gpuRenderData &);

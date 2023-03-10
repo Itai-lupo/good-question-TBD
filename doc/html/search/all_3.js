@@ -4,7 +4,7 @@ var searchData=
   ['datatype_1',['dataType',['../d4/d48/structattacment_update_requst.html#a54cf64311f37cb10956e88177b68770c',1,'attacmentUpdateRequst']]],
   ['deallocatelayer_2',['deallocateLayer',['../d2/d36/classlayer.html#a27b9d34d45467309041dd261d7bc37e4',1,'layer']]],
   ['deallocatesurface_3',['deallocateSurface',['../d5/d88/classsurface.html#a81b9938686ebd2eb7e51ffc73d06bb4d',1,'surface']]],
-  ['deallocatesurfacetorender_4',['deallocateSurfaceToRender',['../d7/dc2/classcpu_rendering.html#a07416e3ae40c4b492c18857268f467a6',1,'cpuRendering::deallocateSurfaceToRender()'],['../d5/db4/classopen_g_l_rendering.html#a131b72e5f759188ce1c3f38f04fc5c2f',1,'openGLRendering::deallocateSurfaceToRender()']]],
+  ['deallocatesurfacetorender_4',['deallocateSurfaceToRender',['../d7/dc2/classcpu_rendering.html#a07416e3ae40c4b492c18857268f467a6',1,'cpuRendering::deallocateSurfaceToRender()'],['../dc/df8/classvulkan_rendering.html#afe78dfd04454b1bc0a646d86885bf606',1,'vulkanRendering::deallocateSurfaceToRender()'],['../d5/db4/classopen_g_l_rendering.html#a131b72e5f759188ce1c3f38f04fc5c2f',1,'openGLRendering::deallocateSurfaceToRender()']]],
   ['deallocatetoplevel_5',['deallocateTopLevel',['../d1/dfe/classsubsurface.html#a875f411aafacb25729864837ce89f238',1,'subsurface::deallocateTopLevel()'],['../da/d41/classtoplevel.html#a0dab81d35190e78877d45997b7c44b94',1,'toplevel::deallocateTopLevel()']]],
   ['deallocframebuffer_6',['deallocFramebuffer',['../d7/d09/classrender_api.html#afd14a7a3c8666880106a8217c047936a',1,'renderApi']]],
   ['deallocshader_7',['deallocShader',['../d7/d09/classrender_api.html#aed6dc0416e1037098c7c01840f198326',1,'renderApi']]],

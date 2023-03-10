@@ -8,6 +8,9 @@ var annotated_dup =
       [ "uniformBuffers", "d9/d72/classopen_g_l_render_engine_1_1uniform_buffers.html", null ],
       [ "vaos", "d5/d70/classopen_g_l_render_engine_1_1vaos.html", null ]
     ] ],
+    [ "vulkanRenderEngine", "d6/df0/namespacevulkan_render_engine.html", [
+      [ "renderer", "d4/d6f/classvulkan_render_engine_1_1renderer.html", null ]
+    ] ],
     [ "apiTypeComponents", "df/d69/classapi_type_components.html", "df/d69/classapi_type_components" ],
     [ "attacmentUpdateRequst", "d4/d48/structattacment_update_requst.html", "d4/d48/structattacment_update_requst" ],
     [ "componentType", "db/d0a/classcomponent_type.html", "db/d0a/classcomponent_type" ],
@@ -68,6 +71,7 @@ var annotated_dup =
     [ "VAOInfo", "d8/dd1/struct_v_a_o_info.html", "d8/dd1/struct_v_a_o_info" ],
     [ "VAOsComponents", "d9/d50/class_v_a_os_components.html", "d9/d50/class_v_a_os_components" ],
     [ "VBOUpdateRequst", "d4/d82/struct_v_b_o_update_requst.html", "d4/d82/struct_v_b_o_update_requst" ],
+    [ "vulkanRendering", "dc/df8/classvulkan_rendering.html", null ],
     [ "windowInfo", "de/d14/structwindow_info.html", "de/d14/structwindow_info" ],
     [ "windowResizeCallbackComponent", "d2/d08/classwindow_resize_callback_component.html", "d2/d08/classwindow_resize_callback_component" ],
     [ "windowResizeData", "d4/d95/structwindow_resize_data.html", "d4/d95/structwindow_resize_data" ],

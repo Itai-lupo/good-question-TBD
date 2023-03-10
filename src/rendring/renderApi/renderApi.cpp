@@ -5,6 +5,7 @@
 #include "shaderManger.hpp"
 #include "frameBuffersManger.hpp"
 
+#include "vulkanRenderer.hpp"
 
 renderApi::renderApi()
 {
@@ -27,6 +28,12 @@ renderApi::renderApi()
     openGLRenderEngine::vaos::init(vaosPool);
     openGLRenderEngine::shaders::init(shadersPool);
     openGLRenderEngine::uniformBuffers::init(uniformBuffersPool);
+
+    vulkanRenderEngine::framebuffers::init(framebuffersPool);
+    vulkanRenderEngine::textures::init(texturesPool);
+    vulkanRenderEngine::vaos::init(vaosPool);
+    vulkanRenderEngine::shaders::init(shadersPool);
+    vulkanRenderEngine::uniformBuffers::init(uniformBuffersPool);
 }
 
 renderApi::~renderApi()
@@ -36,6 +43,12 @@ renderApi::~renderApi()
     openGLRenderEngine::vaos::close();
     openGLRenderEngine::shaders::close();
     openGLRenderEngine::uniformBuffers::close();
+
+    vulkanRenderEngine::framebuffers::close();
+    vulkanRenderEngine::textures::close();
+    vulkanRenderEngine::vaos::close();
+    vulkanRenderEngine::shaders::close();
+    vulkanRenderEngine::uniformBuffers::close();
 
 
     delete framebuffersApiType;
@@ -121,6 +134,9 @@ void renderApi::setFramebuffer(frameBufferInfo data)
         case supportedRenderApis::openGl:
                 openGLRenderEngine::framebuffers::setFrameBufferData(data);
             break;
+        case supportedRenderApis::vulkan:
+                vulkanRenderEngine::framebuffers::setFrameBufferData(data);
+            break;
         
         default:
             break;
@@ -133,6 +149,9 @@ void renderApi::setTexture(textureInfo data)
     {
         case supportedRenderApis::openGl:
                 openGLRenderEngine::textures::setTextureData(data);
+            break;
+        case supportedRenderApis::vulkan:
+                vulkanRenderEngine::textures::setTextureData(data);
             break;
         
         default:
@@ -147,6 +166,9 @@ void renderApi::setVao(VAOInfo data)
         case supportedRenderApis::openGl:
                 openGLRenderEngine::vaos::setVAOData(data);
             break;
+        case supportedRenderApis::vulkan:
+                vulkanRenderEngine::vaos::setVAOData(data);
+            break;
         
         default:
             break;
@@ -160,6 +182,9 @@ void renderApi::setShader(shaderInfo data)
         case supportedRenderApis::openGl:
                 openGLRenderEngine::shaders::setShadersData(data);
             break;
+        case supportedRenderApis::vulkan:
+                vulkanRenderEngine::shaders::setShadersData(data);
+            break;
         
         default:
             break;
@@ -172,6 +197,9 @@ void renderApi::setUniformBuffer(uniformBufferInfo data)
     {
         case supportedRenderApis::openGl:
                 openGLRenderEngine::uniformBuffers::setUniformBufferData(data);
+            break;
+        case supportedRenderApis::vulkan:
+                vulkanRenderEngine::uniformBuffers::setUniformBufferData(data);
             break;
         
         default:
@@ -188,6 +216,9 @@ frameBufferInfo *renderApi::getFramebuffer(framebufferId id)
         case supportedRenderApis::openGl:
                 return openGLRenderEngine::framebuffers::getFrameBuffer(id);
             break;
+        case supportedRenderApis::vulkan:
+                return vulkanRenderEngine::framebuffers::getFrameBuffer(id);
+            break;
         default:
             LOG_FATAL("id is not valid");
         
@@ -201,6 +232,9 @@ textureInfo *renderApi::getTexture(textureId id)
     {
         case supportedRenderApis::openGl:
                 return openGLRenderEngine::textures::getTexture(id);
+            break;
+        case supportedRenderApis::vulkan:
+                return vulkanRenderEngine::textures::getTexture(id);
             break;
         default:
             LOG_FATAL("id is not valid");
@@ -217,6 +251,9 @@ VAOInfo *renderApi::getVao(vaoId id)
         case supportedRenderApis::openGl:
                 return openGLRenderEngine::vaos::getVAO(id);
             break;
+        case supportedRenderApis::vulkan:
+                return vulkanRenderEngine::vaos::getVAO(id);
+            break;
         default:
             LOG_FATAL("id is not valid");
         
@@ -231,6 +268,9 @@ shaderInfo *renderApi::getShader(shaderId id)
     {
         case supportedRenderApis::openGl:
                 return openGLRenderEngine::shaders::getShaders(id);
+            break;
+        case supportedRenderApis::vulkan:
+                return vulkanRenderEngine::shaders::getShaders(id);
             break;
         default:
             LOG_FATAL("id is not valid");
@@ -248,6 +288,9 @@ uniformBufferInfo *renderApi::getUniformBuffer(uniformBufferId id)
         case supportedRenderApis::openGl:
                 return openGLRenderEngine::uniformBuffers::getUniformBuffer(id);
             break;
+        case supportedRenderApis::vulkan:
+                return vulkanRenderEngine::uniformBuffers::getUniformBuffer(id);
+            break;
         default:
             LOG_FATAL("id is not valid");
         
@@ -263,6 +306,9 @@ void renderApi::renderRequest(const renderRequestInfo& data)
     {
         case supportedRenderApis::openGl:
                 openGLRenderEngine::openGLRenderer::renderRequest(data);
+            break;
+        case supportedRenderApis::vulkan:
+                vulkanRenderEngine::vulkanRenderer::renderRequest(data);
             break;
         default:
             LOG_FATAL("id is not valid");

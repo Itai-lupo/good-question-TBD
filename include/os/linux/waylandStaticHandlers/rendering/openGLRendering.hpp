@@ -9,7 +9,6 @@
 #include "renderApi.hpp"
 
 #include <thread>
-#include <functional>
 #include <memory>
 #include <shared_mutex>
 #include <condition_variable>
