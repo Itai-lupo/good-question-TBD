@@ -1,5 +1,8 @@
 <map id="frameBuffersComponents::getData" name="frameBuffersComponents::getData">
-<area shape="rect" id="node1" title=" " alt="" coords="395,5,564,45"/>
-<area shape="rect" id="node2" href="$db/d25/classopen_g_l_render_engine_1_1framebuffers.html#aaaa7764b62f55e3eb3aea26ad5cfa5a6" title=" " alt="" coords="199,5,347,45"/>
-<area shape="rect" id="node3" href="$d7/d09/classrender_api.html#a4efef07da08a4bda2bf1685ae64f16f1" title=" " alt="" coords="5,13,151,38"/>
+<area shape="rect" id="node1" title=" " alt="" coords="651,37,840,77"/>
+<area shape="rect" id="node2" href="$db/d25/classopen_g_l_render_engine_1_1framebuffers.html#aaaa7764b62f55e3eb3aea26ad5cfa5a6" title=" " alt="" coords="441,5,603,45"/>
+<area shape="rect" id="node3" href="$d6/d2f/classvulkan_render_engine_1_1framebuffers.html#a3ff58e7d70fe31d5674d67be6c351efd" title=" " alt="" coords="444,69,600,109"/>
+<area shape="rect" id="node4" href="$d4/d6f/classvulkan_render_engine_1_1renderer.html#a44492216b7abdf4d014c408fad104151" title=" " alt="" coords="233,40,387,80"/>
+<area shape="rect" id="node6" href="$d7/d09/classrender_api.html#a4efef07da08a4bda2bf1685ae64f16f1" title=" " alt="" coords="227,105,393,130"/>
+<area shape="rect" id="node5" href="$dc/df8/classvulkan_rendering.html#a1f1a69f1597e81414cc00805830b3082" title=" " alt="" coords="5,47,179,73"/>
 </map>

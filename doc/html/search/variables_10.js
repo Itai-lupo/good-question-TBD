@@ -7,7 +7,7 @@ var searchData=
   ['shader_4',['shader',['../d0/db1/structdraw_call_data.html#aeaef2795d31656f4a27d143b475810ee',1,'drawCallData']]],
   ['shm_5',['shm',['../d7/dc2/classcpu_rendering.html#a3b5d181ca4ebfa34e2083c309d0896a7',1,'cpuRendering']]],
   ['size_6',['size',['../de/d1d/structuniform_buffer_requst.html#a804f3a04ca73978d31a007303a696132',1,'uniformBufferRequst::size()'],['../d4/d82/struct_v_b_o_update_requst.html#a5dc1850c5b3e83361cf93fdf2f5f948a',1,'VBOUpdateRequst::size()'],['../d4/d48/structattacment_update_requst.html#a2aa0a8fb70c3a2df4dd79ee4be50b5ae',1,'attacmentUpdateRequst::size()']]],
-  ['state_7',['state',['../da/dbc/structpointer_1_1input_buffer.html#a32b3a8b9e5fcfb2a17f91a0ece4fdaee',1,'pointer::inputBuffer::state()'],['../d4/d95/structwindow_resize_data.html#ad6cb4d3c51d4323db844c2fea5eb449b',1,'windowResizeData::state()']]],
+  ['state_7',['state',['../d4/d95/structwindow_resize_data.html#ad6cb4d3c51d4323db844c2fea5eb449b',1,'windowResizeData::state()'],['../da/dbc/structpointer_1_1input_buffer.html#a32b3a8b9e5fcfb2a17f91a0ece4fdaee',1,'pointer::inputBuffer::state()']]],
   ['stride_8',['stride',['../d4/d82/struct_v_b_o_update_requst.html#a95efd815d74bf489db02216b0d7617fe',1,'VBOUpdateRequst']]],
   ['subcompositor_9',['subcompositor',['../d1/dfe/classsubsurface.html#a72d781e9252aee30b6cc590326d24e7e',1,'subsurface']]],
   ['subsurface_10',['subsurface',['../d4/d83/structsubsurface_info.html#aec4bc1c6f676036eec83a07bffd01e37',1,'subsurfaceInfo']]],
@@ -17,5 +17,10 @@ var searchData=
   ['surface_5fx_14',['surface_x',['../da/dbc/structpointer_1_1input_buffer.html#a4b2a9c2583b2f2fcd5ccc20585bf7089',1,'pointer::inputBuffer']]],
   ['surface_5fy_15',['surface_y',['../da/dbc/structpointer_1_1input_buffer.html#aa6656a72315a010d5a138bbf649c58a1',1,'pointer::inputBuffer']]],
   ['surfacepool_16',['surfacePool',['../d5/d88/classsurface.html#a3c1f1d40a877ee59a9708356ba34c22e',1,'surface']]],
-  ['surfacesinfo_17',['surfacesInfo',['../d5/d88/classsurface.html#a812896aa00fab51393d268dd9e499581',1,'surface']]]
+  ['surfacesinfo_17',['surfacesInfo',['../d5/d88/classsurface.html#a812896aa00fab51393d268dd9e499581',1,'surface']]],
+  ['swapchain_18',['swapChain',['../de/d89/structswap_chain_info.html#a180f54b2902b538ea022f8ef3b11a4b5',1,'swapChainInfo']]],
+  ['swapchain_19',['swapchain',['../d3/d2d/structvulkan_render_info.html#afb3919918aeb0530540820ed61895f81',1,'vulkanRenderInfo']]],
+  ['swapchainframebuffers_20',['swapChainFramebuffers',['../de/d89/structswap_chain_info.html#a7d8ac1e95a2b69adba69e2404e42c632',1,'swapChainInfo']]],
+  ['swapchainimages_21',['swapChainImages',['../de/d89/structswap_chain_info.html#af4619eca213a8d03f67bbb1a0ef6a04b',1,'swapChainInfo']]],
+  ['swapchainimagesviews_22',['swapChainImagesViews',['../de/d89/structswap_chain_info.html#a7eb62803dcc18f4e50f6dc765750531b',1,'swapChainInfo']]]
 ];

@@ -13,7 +13,7 @@ BUILD_DIR ?= ./build
 OUTPUT_DIR ?= ./output
 INCLUDE_DIR ?= ./include ./vendor ./submodules/tracy/public/tracy
 SRC_DIRS ?= ./src/ ./vendor
-SHADERS_DIRS ?= ./assets/shaders/fragment ./assets/shaders/vertex
+SHADERS_DIRS ?= $(wildcard ./assets/shaders/*)
 TEST_DIR ?= ./tests
 
 SHADERS = $(call rwildcard,$(SHADERS_DIRS[0]),*.frag) $(call rwildcard,$(SHADERS_DIRS[1]),*.vert)
@@ -37,9 +37,9 @@ INC_FLAGS := $(addprefix -I,$(INC_DIRS) $(LIB_DIR))
 CPPFLAGS ?=   -std=c++20 -Wno-c99-designator
 CFLAGS ?= -std=c99
 
-CXXFLAGS += $(INC_FLAGS)  -MMD -MP -g -pthread -O0 -ggdb3 -DTRACY_ENABLE
+CXXFLAGS += $(INC_FLAGS)  -MMD -MP -g -pthread -O0 -ggdb3 
 
-LDFLAGS =  -lstdc++ -lgflags -lglog -lGL -lrt -lm -ldl  -lwayland-client -lxkbcommon -lpulse -lEGL -lwayland-egl
+LDFLAGS =  -lstdc++ -lgflags -lglog -lGL -lrt -lm -ldl  -lwayland-client -lxkbcommon -lpulse -lEGL -lwayland-egl -lvulkan
 TEST_LDFLAGS = -lgtest -lgtest_main -lgmock  
 
 
@@ -49,11 +49,12 @@ $(OUTPUT_DIR)/$(TARGET_EXEC): $(OBJS) $(SHADERS_BINARY)
 
 
 print:
+	@echo $(SHADERS_DIRS)
 	@echo $(call wildcard,$(SHADERS),*.frag)
 	@echo $(call rwildcard,*.frag)
 
 %.spv: %
-	glslangValidator -G $< -o $@ --quiet
+	glslc $< -o $@
 
 # c++ source
 $(BUILD_DIR)/%.cpp.o: %.cpp

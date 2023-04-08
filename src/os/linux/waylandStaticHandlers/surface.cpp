@@ -2,6 +2,7 @@
 #include "surface.hpp"
 #include "cpuRendering.hpp"
 #include "openGLRendering.hpp"
+#include "vulkanRendering.hpp"
 #include "linuxWindowAPI.hpp"
 #include "log.hpp"
 #include "toplevel.hpp"
@@ -14,29 +15,29 @@
 
 void surface::init()
 {
-    entityPool *temp = new entityPool(500);
-    surfacesInfo = new surfaceInfoComponent(temp);
+    surfacePool = new entityPool(500);
+    surfacesInfo = new surfaceInfoComponent(surfacePool);
     renderApi *api = new renderApi();
-    layer::init(temp);
-    subsurface::init(temp);
-    toplevel::init(temp);
-    pointer::init(temp);
-    keyboard::init(temp);
-    cpuRendering::init(temp);
-    openGLRendering::init(temp, api);
-
-    surfacePool = temp;
+    layer::init(surfacePool);
+    subsurface::init(surfacePool);
+    toplevel::init(surfacePool);
+    pointer::init(surfacePool);
+    keyboard::init(surfacePool);
+    cpuRendering::init(surfacePool);
+    // openGLRendering::init(surfacePool, api);
+    vulkanRendering::init(surfacePool);
 }
 
 void surface::close()
 {
+    vulkanRendering::close();
     layer::close();
     toplevel::close();
     subsurface::close();
     pointer::close();
     keyboard::closeKeyboard();
     cpuRendering::closeRenderer();
-    openGLRendering::close();
+    // openGLRendering::close();
     delete surfacesInfo;
     delete surfacePool;
 }
@@ -47,8 +48,8 @@ surfaceId surface::allocateSurface(windowId winId, const surfaceSpec& surfaceDat
     surfaceId id = surfacePool->allocEntity();
 
     surfaceData info;
-    info.height = surfaceDataSpec.height;
     info.width = surfaceDataSpec.width;
+    info.height = surfaceDataSpec.height;
     info.rule = surfaceDataSpec.rule;
     info.rendererType = surfaceDataSpec.rendererType;
     info.id = id;
@@ -81,6 +82,11 @@ surfaceId surface::allocateSurface(windowId winId, const surfaceSpec& surfaceDat
 
     switch (info.rendererType)
     {
+
+        case surfaceRenderAPI::vulkan:        
+            vulkanRendering::allocateSurfaceToRender(id, surfaceDataSpec.gpuRenderFunction);
+            break;
+
         case surfaceRenderAPI::openGL:        
             openGLRendering::allocateSurfaceToRender(id, surfaceDataSpec.gpuRenderFunction);
             break;
@@ -125,6 +131,11 @@ void surface::resize(surfaceId id, int width, int height)
 
     switch (temp->rendererType)
     {
+
+        case surfaceRenderAPI::vulkan:        
+            vulkanRendering::resize(id, width, height);
+            break;
+
         case surfaceRenderAPI::openGL:        
             openGLRendering::resize(id, width, height);
             break;

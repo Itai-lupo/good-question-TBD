@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['mousecallback_0',['mouseCallback',['../d9/dc0/mouse_button_callback_component_8hpp.html#ad2c02661d7b56a6d3d7e1e780573a6f0',1,'mouseButtonCallbackComponent.hpp']]],
-  ['mousemovecallback_1',['mouseMoveCallback',['../d2/dd6/mouse_move_callback_component_8hpp.html#aec3afac6f05a57ef91fa749917edcae0',1,'mouseMoveCallbackComponent.hpp']]]
+  ['keycallback_0',['keyCallback',['../df/df2/key_callback_component_8hpp.html#aa7ee79e276b188019f591990850b6336',1,'keyCallbackComponent.hpp']]]
 ];

@@ -1,7 +1,8 @@
 <map id="renderApi::getUniformBuffer" name="renderApi::getUniformBuffer">
-<area shape="rect" id="node1" title=" " alt="" coords="5,45,187,70"/>
-<area shape="rect" id="node2" href="$df/d69/classapi_type_components.html#a42d1e7400f6df8dbeb9ba494fb21dcc0" title=" " alt="" coords="478,5,625,45"/>
-<area shape="rect" id="node4" href="$d9/d72/classopen_g_l_render_engine_1_1uniform_buffers.html#ad3724ae157ef6531c02fc2eea830aa77" title=" " alt="" coords="235,62,417,117"/>
-<area shape="rect" id="node3" href="$dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d" title=" " alt="" coords="685,45,820,70"/>
-<area shape="rect" id="node5" href="$d4/d86/classuniform_buffer_components.html#a54c45f450fc93938ff6c17f0b47065f4" title=" " alt="" coords="465,69,637,109"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,77,212,102"/>
+<area shape="rect" id="node2" href="$df/d69/classapi_type_components.html#a42d1e7400f6df8dbeb9ba494fb21dcc0" title=" " alt="" coords="533,5,696,45"/>
+<area shape="rect" id="node4" href="$d9/d72/classopen_g_l_render_engine_1_1uniform_buffers.html#ad3724ae157ef6531c02fc2eea830aa77" title=" " alt="" coords="260,62,469,117"/>
+<area shape="rect" id="node6" href="$d7/d26/classvulkan_render_engine_1_1uniform_buffers.html#aa47816cc7552cdfee6db74697f2f4384" title=" " alt="" coords="260,141,469,195"/>
+<area shape="rect" id="node3" href="$dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d" title=" " alt="" coords="760,45,911,70"/>
+<area shape="rect" id="node5" href="$d4/d86/classuniform_buffer_components.html#a54c45f450fc93938ff6c17f0b47065f4" title=" " alt="" coords="517,69,712,109"/>
 </map>

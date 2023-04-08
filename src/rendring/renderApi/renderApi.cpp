@@ -1,11 +1,7 @@
 #include "renderApi.hpp"
-#include "openGLRenderer.hpp"
-#include "textureManger.hpp"
-#include "vertexArrayManger.hpp"
-#include "shaderManger.hpp"
-#include "frameBuffersManger.hpp"
 
-#include "vulkanRenderer.hpp"
+#include "openGLRenderer.hpp"
+#include "vulkanRenderEngine/renderer.hpp"
 
 renderApi::renderApi()
 {
@@ -23,31 +19,34 @@ renderApi::renderApi()
     uniformBuffersApiType = new apiTypeComponents(uniformBuffersPool);
 
 
-    openGLRenderEngine::framebuffers::init(framebuffersPool);
-    openGLRenderEngine::textures::init(texturesPool);
-    openGLRenderEngine::vaos::init(vaosPool);
-    openGLRenderEngine::shaders::init(shadersPool);
-    openGLRenderEngine::uniformBuffers::init(uniformBuffersPool);
+    // openGLRenderEngine::framebuffers::init(framebuffersPool);
+    // openGLRenderEngine::textures::init(texturesPool);
+    // openGLRenderEngine::vaos::init(vaosPool);
+    // openGLRenderEngine::shaders::init(shadersPool);
+    // openGLRenderEngine::uniformBuffers::init(uniformBuffersPool);
 
+    vulkanRenderEngine::renderPasses::init(framebuffersPool);
     vulkanRenderEngine::framebuffers::init(framebuffersPool);
     vulkanRenderEngine::textures::init(texturesPool);
     vulkanRenderEngine::vaos::init(vaosPool);
-    vulkanRenderEngine::shaders::init(shadersPool);
+    vulkanRenderEngine::graphicPiplines::init(shadersPool);
     vulkanRenderEngine::uniformBuffers::init(uniformBuffersPool);
 }
 
 renderApi::~renderApi()
 {
-    openGLRenderEngine::framebuffers::close();
-    openGLRenderEngine::textures::close();
-    openGLRenderEngine::vaos::close();
-    openGLRenderEngine::shaders::close();
-    openGLRenderEngine::uniformBuffers::close();
+    // openGLRenderEngine::framebuffers::close();
+    // openGLRenderEngine::textures::close();
+    // openGLRenderEngine::vaos::close();
+    // openGLRenderEngine::shaders::close();
+    // openGLRenderEngine::uniformBuffers::close();
 
+
+    vulkanRenderEngine::renderPasses::close();
     vulkanRenderEngine::framebuffers::close();
     vulkanRenderEngine::textures::close();
     vulkanRenderEngine::vaos::close();
-    vulkanRenderEngine::shaders::close();
+    vulkanRenderEngine::graphicPiplines::close();
     vulkanRenderEngine::uniformBuffers::close();
 
 
@@ -183,7 +182,7 @@ void renderApi::setShader(shaderInfo data)
                 openGLRenderEngine::shaders::setShadersData(data);
             break;
         case supportedRenderApis::vulkan:
-                vulkanRenderEngine::shaders::setShadersData(data);
+                // vulkanRenderEngine::graphicPiplines::set(data);
             break;
         
         default:
@@ -270,7 +269,7 @@ shaderInfo *renderApi::getShader(shaderId id)
                 return openGLRenderEngine::shaders::getShaders(id);
             break;
         case supportedRenderApis::vulkan:
-                return vulkanRenderEngine::shaders::getShaders(id);
+                // return vulkanRenderEngine::graphicPiplines::getShaders(id);
             break;
         default:
             LOG_FATAL("id is not valid");
@@ -308,7 +307,7 @@ void renderApi::renderRequest(const renderRequestInfo& data)
                 openGLRenderEngine::openGLRenderer::renderRequest(data);
             break;
         case supportedRenderApis::vulkan:
-                vulkanRenderEngine::vulkanRenderer::renderRequest(data);
+                vulkanRenderEngine::renderer::renderRequest(data);
             break;
         default:
             LOG_FATAL("id is not valid");

@@ -11,6 +11,7 @@ var dir_c611c34f9bb27b112f254f7e29362fb7 =
     [ "subsurfaceInfoComponenet.cpp", "d0/d3e/subsurface_info_componenet_8cpp.html", null ],
     [ "surfaceInfoComponent.cpp", "d7/d89/surface_info_component_8cpp.html", null ],
     [ "toplevelInfoComponenet.cpp", "d3/d49/toplevel_info_componenet_8cpp.html", null ],
+    [ "vulkanRenderInfoComponent.cpp", "d1/da5/vulkan_render_info_component_8cpp.html", null ],
     [ "windowResizeCallbackComponent.cpp", "dd/d0b/window_resize_callback_component_8cpp.html", null ],
     [ "windowSurfaceCallbackComponent.cpp", "da/d6b/window_surface_callback_component_8cpp.html", null ]
 ];

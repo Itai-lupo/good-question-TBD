@@ -1,5 +1,6 @@
 <map id="surfaceInfoComponent::getComponent" name="surfaceInfoComponent::getComponent">
-<area shape="rect" id="node1" title=" " alt="" coords="439,5,592,45"/>
-<area shape="rect" id="node2" href="$d5/d88/classsurface.html#adfb4a3648842f5870fb0162c8bb3400c" title=" " alt="" coords="256,13,391,38"/>
-<area shape="rect" id="node3" href="$d1/dfe/classsubsurface.html#a43c9125890082b39b65831eb53b15c30" title=" " alt="" coords="5,13,208,38"/>
+<area shape="rect" id="node1" title=" " alt="" coords="475,23,645,63"/>
+<area shape="rect" id="node2" href="$d5/d88/classsurface.html#adfb4a3648842f5870fb0162c8bb3400c" title=" " alt="" coords="279,31,427,56"/>
+<area shape="rect" id="node3" href="$d1/dfe/classsubsurface.html#a43c9125890082b39b65831eb53b15c30" title=" " alt="" coords="5,5,231,31"/>
+<area shape="rect" id="node4" href="$dc/df8/classvulkan_rendering.html#a28d4c14c15481768f607b8e4c8e6ab13" title=" " alt="" coords="29,55,207,80"/>
 </map>

@@ -105,8 +105,8 @@ void entityPool::unenlistType(void *dataPtr, uint32_t *IdToIndex)
 
 entityPool::~entityPool()
 {
-    for(auto& type: listedTypes)
-        unenlistType(type.data, *type.IdToIndex);
+    for(int i = 0; i < listedTypes.size(); i++)
+        unenlistType(listedTypes[i].data, *listedTypes[i].IdToIndex);
     
     TracyFree(gen);
     free(gen);

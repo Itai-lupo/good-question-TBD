@@ -5,7 +5,7 @@
 #include "openglContext.hpp"
 #include "openGLRenderer.hpp"
 #include "entityPool.hpp"
-#include "gpuRenderInfoComponent.hpp"
+#include "openGLRenderInfoComponent.hpp"
 #include "renderApi.hpp"
 
 #include <thread>
@@ -30,7 +30,7 @@ class openGLRendering
         };
 
         static void renderWindow(surfaceId id);
-        static inline gpuRenderInfoComponent *renderData;
+        static inline openGLRenderInfoComponent *renderData;
         static inline renderApi *api;
     public:
         static inline bool wasInit = false;

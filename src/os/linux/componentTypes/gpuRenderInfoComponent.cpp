@@ -1,13 +1,13 @@
-#include "gpuRenderInfoComponent.hpp"
+#include "openGLRenderInfoComponent.hpp"
 #include <Tracy.hpp>
 
-gpuRenderInfoComponent::gpuRenderInfoComponent(entityPool *pool): 
+openGLRenderInfoComponent::openGLRenderInfoComponent(entityPool *pool): 
     pool(pool)
 {
     pool->enlistType((void*)this, deleteCallback, &IdToIndex);
 }
 
-void gpuRenderInfoComponent::deleteComponent(entityId id)
+void openGLRenderInfoComponent::deleteComponent(entityId id)
 {
     if(!pool->isIdValid(id) || IdToIndex[id.index] == -1)
         return;
@@ -22,7 +22,7 @@ void gpuRenderInfoComponent::deleteComponent(entityId id)
 
 }
 
-renderInfo* gpuRenderInfoComponent::getComponent(entityId id)
+openGlrenderInfo* openGLRenderInfoComponent::getComponent(entityId id)
 {
     if(!pool->isIdValid(id) || IdToIndex[id.index] == -1)
         return nullptr;
@@ -30,7 +30,7 @@ renderInfo* gpuRenderInfoComponent::getComponent(entityId id)
     return &data[IdToIndex[id.index]];
 }
 
-void gpuRenderInfoComponent::setComponent(entityId id, renderInfo buffer)
+void openGLRenderInfoComponent::setComponent(entityId id,openGlrenderInfo buffer)
 {
     if(!pool->isIdValid(id)){
         LOG_ERROR("culdn't set data, id(index: " << id.index << ", gen: " << (int)id.gen << ")")
@@ -42,7 +42,7 @@ void gpuRenderInfoComponent::setComponent(entityId id, renderInfo buffer)
         IdToIndex[id.index] = data.size();
         data.push_back(buffer);
         indexToId.push_back(id);
-        TracyAlloc(&data.back(), sizeof(renderInfo));
+        TracyAlloc(&data.back(), sizeof(openGlrenderInfo));
     }
     else
     {
@@ -52,7 +52,7 @@ void gpuRenderInfoComponent::setComponent(entityId id, renderInfo buffer)
 }
 
 
-gpuRenderInfoComponent::~gpuRenderInfoComponent()
+openGLRenderInfoComponent::~openGLRenderInfoComponent()
 {
     pool->unenlistType(this, IdToIndex);
 }

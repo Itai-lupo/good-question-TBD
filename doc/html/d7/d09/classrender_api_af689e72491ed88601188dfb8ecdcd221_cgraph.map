@@ -1,6 +1,7 @@
 <map id="renderApi::renderRequest" name="renderApi::renderRequest">
-<area shape="rect" id="node1" title=" " alt="" coords="5,45,172,70"/>
-<area shape="rect" id="node2" href="$df/d69/classapi_type_components.html#a42d1e7400f6df8dbeb9ba494fb21dcc0" title=" " alt="" coords="255,5,401,45"/>
-<area shape="rect" id="node4" href="$dc/d69/classopen_g_l_render_engine_1_1open_g_l_renderer.html#ab90c7872f7b41adc1cda4c3a8e28980b" title=" " alt="" coords="220,69,436,109"/>
-<area shape="rect" id="node3" href="$dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d" title=" " alt="" coords="484,13,619,38"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,77,193,102"/>
+<area shape="rect" id="node2" href="$df/d69/classapi_type_components.html#a42d1e7400f6df8dbeb9ba494fb21dcc0" title=" " alt="" coords="281,5,443,45"/>
+<area shape="rect" id="node4" href="$dc/d69/classopen_g_l_render_engine_1_1open_g_l_renderer.html#ab90c7872f7b41adc1cda4c3a8e28980b" title=" " alt="" coords="241,69,483,109"/>
+<area shape="rect" id="node5" href="$d4/d6f/classvulkan_render_engine_1_1renderer.html#a37a8088728a24906b9f38a0c22512bf7" title=" " alt="" coords="268,133,456,173"/>
+<area shape="rect" id="node3" href="$dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d" title=" " alt="" coords="531,13,681,38"/>
 </map>

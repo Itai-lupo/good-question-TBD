@@ -1,7 +1,8 @@
 <map id="renderApi::getVao" name="renderApi::getVao">
-<area shape="rect" id="node1" title=" " alt="" coords="5,42,129,67"/>
-<area shape="rect" id="node2" href="$df/d69/classapi_type_components.html#a42d1e7400f6df8dbeb9ba494fb21dcc0" title=" " alt="" coords="410,5,557,45"/>
-<area shape="rect" id="node4" href="$d5/d70/classopen_g_l_render_engine_1_1vaos.html#a13227f9d7065e1879696af9134fe3660" title=" " alt="" coords="177,63,325,103"/>
-<area shape="rect" id="node3" href="$dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d" title=" " alt="" coords="641,42,776,67"/>
-<area shape="rect" id="node5" href="$d9/d50/class_v_a_os_components.html#a5691a06e146d99cbd1bf6e1fae261a99" title=" " alt="" coords="373,70,593,95"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,70,144,95"/>
+<area shape="rect" id="node2" href="$df/d69/classapi_type_components.html#a42d1e7400f6df8dbeb9ba494fb21dcc0" title=" " alt="" coords="441,5,604,45"/>
+<area shape="rect" id="node4" href="$d5/d70/classopen_g_l_render_engine_1_1vaos.html#a13227f9d7065e1879696af9134fe3660" title=" " alt="" coords="192,63,353,103"/>
+<area shape="rect" id="node6" href="$d6/da7/classvulkan_render_engine_1_1vaos.html#ac1178db9acbb6df83c8a5421003dbc98" title=" " alt="" coords="195,127,350,167"/>
+<area shape="rect" id="node3" href="$dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d" title=" " alt="" coords="692,42,843,67"/>
+<area shape="rect" id="node5" href="$d9/d50/class_v_a_os_components.html#a5691a06e146d99cbd1bf6e1fae261a99" title=" " alt="" coords="401,70,644,95"/>
 </map>

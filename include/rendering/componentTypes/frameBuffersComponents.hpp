@@ -5,7 +5,7 @@
 #include "log.hpp"
 
 #include <array>
-
+#include<vulkan/vulkan.hpp>
 
 struct frameBufferInfo
 {
@@ -18,6 +18,7 @@ struct frameBufferInfo
     textureId depthAttachmen;
     uint32_t width, height;
     bool needToRebuild = true;
+    vk::Framebuffer fbo;
 };
 
 class frameBuffersComponents

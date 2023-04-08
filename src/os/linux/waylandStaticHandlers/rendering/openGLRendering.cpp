@@ -109,7 +109,7 @@ void openGLRendering::wlSurfaceFrameDone(void *data, wl_callback *cb, uint32_t t
     ZoneScoped;
     wl_callback_destroy(cb);
     surfaceId id = *(surfaceId*)data;
-    renderInfo *temp = renderData->getComponent(id);
+   openGlrenderInfo *temp = renderData->getComponent(id);
     if(!temp)
         return;
     
@@ -163,7 +163,7 @@ void openGLRendering::init(entityPool *surfacesPool, renderApi *api)
     context = new openglContext();
     openGLRenderEngine::openGLRenderer::init();
 
-    renderData = new gpuRenderInfoComponent(surfacesPool);
+    renderData = new openGLRenderInfoComponent(surfacesPool);
     openGLRendering::api = api;
 
     GL_CALL(context, Enable(GL_BLEND));
@@ -220,7 +220,7 @@ void openGLRendering::close()
 
 void openGLRendering::allocateSurfaceToRender(surfaceId winId, void(*callback)(const gpuRenderData&))
 { 
-    renderInfo info;
+   openGlrenderInfo info;
     info.id = winId;
     info.renderFuncion = callback;
     renderData->setComponent(winId, info);
@@ -244,7 +244,7 @@ void openGLRendering::deallocateSurfaceToRender(surfaceId winId)
 
 void openGLRendering::resize(surfaceId id, int width, int height)
 {
-    renderInfo *temp = renderData->getComponent(id);
+   openGlrenderInfo *temp = renderData->getComponent(id);
 
     if(temp->eglWindow == NULL){
         
@@ -311,7 +311,7 @@ void openGLRendering::renderWindow(surfaceId id)
     std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
 
 
-    renderInfo *temp = renderData->getComponent(id);
+   openGlrenderInfo *temp = renderData->getComponent(id);
     while (temp->freeBuffer.gen == 255)
     {
         std::this_thread::sleep_for(std::chrono::milliseconds(1));

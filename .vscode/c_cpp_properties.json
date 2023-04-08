@@ -3,20 +3,20 @@
         {
             "name": "Linux",
             "compilerArgs": [
-                "-Wall",
-                "-Wextra",
-                "-pedantic"
+                "-MMD",
+                "-MP",
+                "-g",
+                "-pthread",
+                "-Wno-c99-designator"
             ],
             "includePath": [
-                "${workspaceFolder}/include/**",
                 "${workspaceFolder}/vendor/**",
-                "${workspaceFolder}/vendor/waylandExtensions/",
                 "${workspaceFolder}/submodules/tracy/public/tracy",
-                "${workspaceFolder}/vendor/glad/include"
+                "${workspaceFolder}/include/**"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/clang",
-            "cStandard": "c17",
+            "cStandard": "c23",
             "cppStandard": "c++20",
             "intelliSenseMode": "linux-clang-x64"
         }
