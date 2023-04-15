@@ -21,13 +21,13 @@ namespace vulkanRenderEngine
             static void rebuild(frameBufferInfo* fbo);
             static void destroyFrameBuffer(frameBufferInfo* fbo);
         public:
-            static inline std::queue<uint32_t> toDelete;
             
             static void init(entityPool *framebuffersPool);
             static void close();
             
             static void setFrameBufferData(frameBufferInfo info);
             static frameBufferInfo *getFrameBuffer(framebufferId FBOId);
+            static void destroy(framebufferId FBOId);
             
             static framebufferId createFrameBuffer(renderPassId compatibleRenderPassId,  vk::ImageView *attachments, int width, int height);
             

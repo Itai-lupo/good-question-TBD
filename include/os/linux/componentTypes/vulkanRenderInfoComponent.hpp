@@ -20,7 +20,7 @@
 struct vulkanRenderInfo
 {
     surfaceId id;
-    vkSurfaceId swapchain;
+    vkSurfaceId vkSurface;
     void(*renderFuncion)(const gpuRenderData&);
     
     vulkanRenderInfo(void(*callback)(const gpuRenderData&)):

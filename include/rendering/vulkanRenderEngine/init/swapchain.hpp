@@ -12,7 +12,6 @@ namespace vulkanRenderEngine
     class swapchain
     {
         private:
-            static inline swapchainsComponents *swapchainsInfo;
 
             static void logSurfaceCapabilities(vk::SurfaceCapabilitiesKHR c);
             static vk::SurfaceFormatKHR choseForamt(std::vector<vk::SurfaceFormatKHR>& formats);
@@ -21,6 +20,8 @@ namespace vulkanRenderEngine
 
             static void destroySwapchain(swapChainInfo *toDestroy);
         public:
+            static inline swapchainsComponents *swapchainsInfo;
+            
             static void init(entityPool *swapchainsPool);
             static void close();
             static void create(vkSurfaceId id, const vk::SurfaceKHR& surfaceToCreate, int width, int height); 

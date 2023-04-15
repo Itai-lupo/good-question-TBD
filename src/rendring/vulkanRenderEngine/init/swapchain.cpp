@@ -2,6 +2,7 @@
 #include "device.hpp"
 #include "log.hpp"
 #include "queueFamilys.hpp"
+#include "framebuffers.hpp"
 
 #include <vector>
 
@@ -96,6 +97,7 @@ namespace vulkanRenderEngine
 
     void swapchain::destroy(vkSurfaceId id)
     {
+        
         destroySwapchain(swapchainsInfo->getComponent(id));
         swapchainsInfo->deleteComponent(id);
     }
@@ -180,6 +182,9 @@ namespace vulkanRenderEngine
 
     void swapchain::destroySwapchain(swapChainInfo *toDestroy)
     {
+        for(int i = 0; i < toDestroy->swapChainFramebuffers.size(); i++)
+            framebuffers::destroy(toDestroy->swapChainFramebuffers[i]);
+
         for (auto imageView : toDestroy->swapChainImagesViews) {
             device::getDevice().destroyImageView(imageView, nullptr);
         }

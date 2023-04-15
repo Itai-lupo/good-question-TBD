@@ -212,8 +212,8 @@ int main()
     
     std::this_thread::sleep_for(std::chrono::milliseconds(1));
     winowsIds.push_back(a->createWindow({"test 3", 64*7, 64*11, .gpuRenderFunction = gpuRender}));
-    // winowsIds.push_back(a->createWindow({"test 4", 64*9, 64*11, .gpuRenderFunction = gpuRender}));
-    // winowsIds.push_back(a->createWindow({"test 5", 1025, 1025}));
+    winowsIds.push_back(a->createWindow({"test 4", 64*9, 64*11, .gpuRenderFunction = gpuRender}));
+    winowsIds.push_back(a->createWindow({"test 5", 1025, 1025}));
     // for (size_t i = 0; i < 10; i++)
     // {    
     //     std::vector<windowId> tempWinowsIds;

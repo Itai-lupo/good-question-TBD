@@ -93,7 +93,6 @@ $(document).ready(function(){initNavTree('d6/d2f/classvulkan_render_engine_1_1fr
 <div class="header">
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="../../de/d1f/classvulkan_render_engine_1_1framebuffers-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">vulkanRenderEngine::framebuffers Class Reference</div></div>
 </div><!--header-->
@@ -111,15 +110,12 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a64009c97f1e18c68b2841a9267ef9a54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a143ba56db79c11da0b1a03b44424300a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d6/df2/structframe_buffer_info.html">frameBufferInfo</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2f/classvulkan_render_engine_1_1framebuffers.html#a143ba56db79c11da0b1a03b44424300a">getFrameBuffer</a> (<a class="el" href="../../da/d47/core_8hpp.html#a82445fe5eef9c90f838983795096d930">framebufferId</a> FBOId)</td></tr>
 <tr class="separator:a143ba56db79c11da0b1a03b44424300a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e6c1614ca64e1695927a32153ff58f5"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2f/classvulkan_render_engine_1_1framebuffers.html#a6e6c1614ca64e1695927a32153ff58f5">destroy</a> (<a class="el" href="../../da/d47/core_8hpp.html#a82445fe5eef9c90f838983795096d930">framebufferId</a> FBOId)</td></tr>
+<tr class="separator:a6e6c1614ca64e1695927a32153ff58f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85db2e43432eb3423829dba53e89a0e8"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../da/d47/core_8hpp.html#a82445fe5eef9c90f838983795096d930">framebufferId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2f/classvulkan_render_engine_1_1framebuffers.html#a85db2e43432eb3423829dba53e89a0e8">createFrameBuffer</a> (<a class="el" href="../../da/d47/core_8hpp.html#a49d5ca552277c114f3504fe8cfe1fbc4">renderPassId</a> compatibleRenderPassId, vk::ImageView *attachments, int width, int height)</td></tr>
 <tr class="separator:a85db2e43432eb3423829dba53e89a0e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4988115a9b754437a5eff044eba602a9"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2f/classvulkan_render_engine_1_1framebuffers.html#a4988115a9b754437a5eff044eba602a9">bind</a> (<a class="el" href="../../da/d47/core_8hpp.html#a82445fe5eef9c90f838983795096d930">framebufferId</a> FBOId)</td></tr>
 <tr class="separator:a4988115a9b754437a5eff044eba602a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:ac2f58b081abfcfb2cc47488f1fd31499"><td class="memItemLeft" align="right" valign="top">static std::queue&lt; uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2f/classvulkan_render_engine_1_1framebuffers.html#ac2f58b081abfcfb2cc47488f1fd31499">toDelete</a></td></tr>
-<tr class="separator:ac2f58b081abfcfb2cc47488f1fd31499"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a4988115a9b754437a5eff044eba602a9" name="a4988115a9b754437a5eff044eba602a9"></a>
@@ -145,9 +141,9 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   69</span>    {</div>
-<div class="line"><span class="lineno">   70</span> </div>
-<div class="line"><span class="lineno">   71</span>    }</div>
+<div class="fragment"><div class="line"><span class="lineno">   75</span>    {</div>
+<div class="line"><span class="lineno">   76</span> </div>
+<div class="line"><span class="lineno">   77</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -313,6 +309,49 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a6e6c1614ca64e1695927a32153ff58f5" name="a6e6c1614ca64e1695927a32153ff58f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e6c1614ca64e1695927a32153ff58f5">&#9670;&#160;</a></span>destroy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vulkanRenderEngine::framebuffers::destroy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#a82445fe5eef9c90f838983795096d930">framebufferId</a>&#160;</td>
+          <td class="paramname"><em>FBOId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><span class="lineno">   68</span>    {</div>
+<div class="line"><span class="lineno">   69</span>        destroyFrameBuffer(framebuffersData-&gt;<a class="code hl_function" href="../../d6/d73/classframe_buffers_components.html#a2ed22ba1ae272adb7be816473af3b570">getComponent</a>(FBOId));</div>
+<div class="line"><span class="lineno">   70</span>        framebuffersData-&gt;<a class="code hl_function" href="../../d6/d73/classframe_buffers_components.html#aaffaa56a88256b50e7c79df5d7cc6311">deleteComponent</a>(FBOId);</div>
+<div class="line"><span class="lineno">   71</span>    }</div>
+<div class="ttc" id="aclassframe_buffers_components_html_a2ed22ba1ae272adb7be816473af3b570"><div class="ttname"><a href="../../d6/d73/classframe_buffers_components.html#a2ed22ba1ae272adb7be816473af3b570">frameBuffersComponents::getComponent</a></div><div class="ttdeci">frameBufferInfo * getComponent(entityId id)</div><div class="ttdef"><b>Definition:</b> frameBuffersComponents.cpp:26</div></div>
+<div class="ttc" id="aclassframe_buffers_components_html_aaffaa56a88256b50e7c79df5d7cc6311"><div class="ttname"><a href="../../d6/d73/classframe_buffers_components.html#aaffaa56a88256b50e7c79df5d7cc6311">frameBuffersComponents::deleteComponent</a></div><div class="ttdeci">void deleteComponent(entityId id)</div><div class="ttdef"><b>Definition:</b> frameBuffersComponents.cpp:11</div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/d2f/classvulkan_render_engine_1_1framebuffers_a6e6c1614ca64e1695927a32153ff58f5_cgraph.png" border="0" usemap="#ad6/d2f/classvulkan_render_engine_1_1framebuffers_a6e6c1614ca64e1695927a32153ff58f5_cgraph" alt=""/></div>
+<map name="ad6/d2f/classvulkan_render_engine_1_1framebuffers_a6e6c1614ca64e1695927a32153ff58f5_cgraph" id="ad6/d2f/classvulkan_render_engine_1_1framebuffers_a6e6c1614ca64e1695927a32153ff58f5_cgraph">
+<area shape="rect" title=" " alt="" coords="5,37,176,77"/>
+<area shape="rect" href="../../d6/d73/classframe_buffers_components.html#aaffaa56a88256b50e7c79df5d7cc6311" title=" " alt="" coords="224,5,413,45"/>
+<area shape="rect" href="../../d6/d73/classframe_buffers_components.html#a2ed22ba1ae272adb7be816473af3b570" title=" " alt="" coords="224,69,413,109"/>
+<area shape="rect" href="../../dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d" title=" " alt="" coords="461,45,612,70"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a143ba56db79c11da0b1a03b44424300a" name="a143ba56db79c11da0b1a03b44424300a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a143ba56db79c11da0b1a03b44424300a">&#9670;&#160;</a></span>getFrameBuffer()</h2>
 
@@ -339,7 +378,6 @@ Here is the caller graph for this function:</div>
 <div class="fragment"><div class="line"><span class="lineno">   30</span>    {</div>
 <div class="line"><span class="lineno">   31</span>        <span class="keywordflow">return</span> framebuffersData-&gt;<a class="code hl_function" href="../../d6/d73/classframe_buffers_components.html#a2ed22ba1ae272adb7be816473af3b570">getComponent</a>(FBOId);</div>
 <div class="line"><span class="lineno">   32</span>    }</div>
-<div class="ttc" id="aclassframe_buffers_components_html_a2ed22ba1ae272adb7be816473af3b570"><div class="ttname"><a href="../../d6/d73/classframe_buffers_components.html#a2ed22ba1ae272adb7be816473af3b570">frameBuffersComponents::getComponent</a></div><div class="ttdeci">frameBufferInfo * getComponent(entityId id)</div><div class="ttdef"><b>Definition:</b> frameBuffersComponents.cpp:26</div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -355,10 +393,8 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../d6/d2f/classvulkan_render_engine_1_1framebuffers_a143ba56db79c11da0b1a03b44424300a_icgraph.png" border="0" usemap="#ad6/d2f/classvulkan_render_engine_1_1framebuffers_a143ba56db79c11da0b1a03b44424300a_icgraph" alt=""/></div>
 <map name="ad6/d2f/classvulkan_render_engine_1_1framebuffers_a143ba56db79c11da0b1a03b44424300a_icgraph" id="ad6/d2f/classvulkan_render_engine_1_1framebuffers_a143ba56db79c11da0b1a03b44424300a_icgraph">
-<area shape="rect" title=" " alt="" coords="473,35,696,75"/>
-<area shape="rect" href="../../d4/d6f/classvulkan_render_engine_1_1renderer.html#a0a55635ff9afa4f709dbdbabf2648e55" title=" " alt="" coords="237,5,420,45"/>
-<area shape="rect" href="../../d7/d09/classrender_api.html#a8c6274dd24d0e6084946e5b36a27eee7" title=" " alt="" coords="232,70,425,95"/>
-<area shape="rect" href="../../dc/df8/classvulkan_rendering.html#a28d4c14c15481768f607b8e4c8e6ab13" title=" " alt="" coords="5,13,184,38"/>
+<area shape="rect" title=" " alt="" coords="247,5,469,45"/>
+<area shape="rect" href="../../d7/d09/classrender_api.html#a8c6274dd24d0e6084946e5b36a27eee7" title=" " alt="" coords="5,13,199,38"/>
 </map>
 </div>
 
@@ -439,29 +475,6 @@ Here is the caller graph for this function:</div>
 <area shape="rect" href="../../d7/d09/classrender_api.html#a041c12ed912a9267e2b0ee63aaa9d282" title=" " alt="" coords="5,13,197,38"/>
 </map>
 </div>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="ac2f58b081abfcfb2cc47488f1fd31499" name="ac2f58b081abfcfb2cc47488f1fd31499"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2f58b081abfcfb2cc47488f1fd31499">&#9670;&#160;</a></span>toDelete</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::queue&lt;uint32_t&gt; vulkanRenderEngine::framebuffers::toDelete</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
 
 </div>
 </div>

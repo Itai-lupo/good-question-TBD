@@ -14,8 +14,9 @@ void swapchainsComponents::deleteComponent(entityId id)
 
     uint32_t index = IdToIndex[id.index];
     IdToIndex[id.index] = -1;
-    indexToId[index] = *indexToId.end();
-    data[index] = *data.end();
+    indexToId[index] = indexToId.back();
+    data[index] = data.back();
+
     data.pop_back();
 
 }

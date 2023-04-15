@@ -92,7 +92,7 @@ void linuxWindowAPI::windowEventListener()
 void linuxWindowAPI::init()
 {
 
-    display = wl_display_connect(NULL);
+    display = wl_display_connect(nullptr);
 
     CONDTION_LOG_FATAL("can't open window: " << display, display == NULL);
     LOG_INFO("connected to display")

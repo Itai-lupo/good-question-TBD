@@ -16,6 +16,17 @@ struct swapChainInfo
     std::vector<vk::ImageView> swapChainImagesViews;
     vk::SwapchainKHR swapChain;
     std::vector<framebufferId> swapChainFramebuffers;
+
+    renderPassId renderPass;
+    shaderId graphicPiplineId;
+    commandBufferId cmdId;
+
+    vk::Semaphore imageAvailableSemaphore;
+    vk::Semaphore renderFinishedSemaphore;
+    vk::Fence inFlightFence;
+    
+    bool outOfData = false;
+    bool complete = false;
     
 };
 

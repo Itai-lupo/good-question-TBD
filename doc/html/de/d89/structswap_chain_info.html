@@ -104,7 +104,7 @@ Collaboration diagram for swapChainInfo:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../d8/da7/structswap_chain_info__coll__graph.png" border="0" usemap="#aswap_chain_info_coll__map" alt="Collaboration graph"/></div>
 <map name="aswap_chain_info_coll__map" id="aswap_chain_info_coll__map">
-<area shape="rect" title=" " alt="" coords="5,93,124,119"/>
+<area shape="rect" title=" " alt="" coords="5,137,124,163"/>
 <area shape="rect" href="../../df/d3a/structentity_id.html" title=" " alt="" coords="29,5,101,31"/>
 </map>
 <center><span class="legend">[<a target="top" href="../../graph_legend.html">legend</a>]</span></center></div>
@@ -127,8 +127,52 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a180f54b2902b538ea022f8ef3b11a4b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d8ac1e95a2b69adba69e2404e42c632"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../da/d47/core_8hpp.html#a82445fe5eef9c90f838983795096d930">framebufferId</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d89/structswap_chain_info.html#a7d8ac1e95a2b69adba69e2404e42c632">swapChainFramebuffers</a></td></tr>
 <tr class="separator:a7d8ac1e95a2b69adba69e2404e42c632"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a00655f7a54d2e635df82a55d48d043"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d47/core_8hpp.html#a49d5ca552277c114f3504fe8cfe1fbc4">renderPassId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d89/structswap_chain_info.html#a9a00655f7a54d2e635df82a55d48d043">renderPass</a></td></tr>
+<tr class="separator:a9a00655f7a54d2e635df82a55d48d043"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a336c14c9ea340ac2a16842ed732de893"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d47/core_8hpp.html#a4491274d64da33ede69e05857d6dd217">shaderId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d89/structswap_chain_info.html#a336c14c9ea340ac2a16842ed732de893">graphicPiplineId</a></td></tr>
+<tr class="separator:a336c14c9ea340ac2a16842ed732de893"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bf9fc3c7ec4c0b125e7fe482be6f557"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d47/core_8hpp.html#aec8e84fad1eb8c8700a0785661f9959f">commandBufferId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d89/structswap_chain_info.html#a2bf9fc3c7ec4c0b125e7fe482be6f557">cmdId</a></td></tr>
+<tr class="separator:a2bf9fc3c7ec4c0b125e7fe482be6f557"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a119da047bc9875354fb57d8e667126b6"><td class="memItemLeft" align="right" valign="top">vk::Semaphore&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d89/structswap_chain_info.html#a119da047bc9875354fb57d8e667126b6">imageAvailableSemaphore</a></td></tr>
+<tr class="separator:a119da047bc9875354fb57d8e667126b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a478143bd75ea9f77fb11cd23c2e0165c"><td class="memItemLeft" align="right" valign="top">vk::Semaphore&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d89/structswap_chain_info.html#a478143bd75ea9f77fb11cd23c2e0165c">renderFinishedSemaphore</a></td></tr>
+<tr class="separator:a478143bd75ea9f77fb11cd23c2e0165c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd9579136eccbfceea307dd962649f2d"><td class="memItemLeft" align="right" valign="top">vk::Fence&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d89/structswap_chain_info.html#abd9579136eccbfceea307dd962649f2d">inFlightFence</a></td></tr>
+<tr class="separator:abd9579136eccbfceea307dd962649f2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cf4df4c4ee1ea27b14104d911856d82"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d89/structswap_chain_info.html#a3cf4df4c4ee1ea27b14104d911856d82">outOfData</a> = false</td></tr>
+<tr class="separator:a3cf4df4c4ee1ea27b14104d911856d82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd72e0888869bc853b79dce002ef5392"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d89/structswap_chain_info.html#acd72e0888869bc853b79dce002ef5392">complete</a> = false</td></tr>
+<tr class="separator:acd72e0888869bc853b79dce002ef5392"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a2bf9fc3c7ec4c0b125e7fe482be6f557" name="a2bf9fc3c7ec4c0b125e7fe482be6f557"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bf9fc3c7ec4c0b125e7fe482be6f557">&#9670;&#160;</a></span>cmdId</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d47/core_8hpp.html#aec8e84fad1eb8c8700a0785661f9959f">commandBufferId</a> swapChainInfo::cmdId</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acd72e0888869bc853b79dce002ef5392" name="acd72e0888869bc853b79dce002ef5392"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd72e0888869bc853b79dce002ef5392">&#9670;&#160;</a></span>complete</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool swapChainInfo::complete = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a1c7591d6fc10d28257176c685c4cfe8f" name="a1c7591d6fc10d28257176c685c4cfe8f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1c7591d6fc10d28257176c685c4cfe8f">&#9670;&#160;</a></span>extent</h2>
 
@@ -157,6 +201,20 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a336c14c9ea340ac2a16842ed732de893" name="a336c14c9ea340ac2a16842ed732de893"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a336c14c9ea340ac2a16842ed732de893">&#9670;&#160;</a></span>graphicPiplineId</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d47/core_8hpp.html#a4491274d64da33ede69e05857d6dd217">shaderId</a> swapChainInfo::graphicPiplineId</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a35dd6d7dcfd8ab5db5bf047903923924" name="a35dd6d7dcfd8ab5db5bf047903923924"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a35dd6d7dcfd8ab5db5bf047903923924">&#9670;&#160;</a></span>id</h2>
 
@@ -171,6 +229,48 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a119da047bc9875354fb57d8e667126b6" name="a119da047bc9875354fb57d8e667126b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a119da047bc9875354fb57d8e667126b6">&#9670;&#160;</a></span>imageAvailableSemaphore</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vk::Semaphore swapChainInfo::imageAvailableSemaphore</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abd9579136eccbfceea307dd962649f2d" name="abd9579136eccbfceea307dd962649f2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd9579136eccbfceea307dd962649f2d">&#9670;&#160;</a></span>inFlightFence</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vk::Fence swapChainInfo::inFlightFence</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3cf4df4c4ee1ea27b14104d911856d82" name="a3cf4df4c4ee1ea27b14104d911856d82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cf4df4c4ee1ea27b14104d911856d82">&#9670;&#160;</a></span>outOfData</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool swapChainInfo::outOfData = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ae6ca8c83e9cb06c4029f183aadf2a737" name="ae6ca8c83e9cb06c4029f183aadf2a737"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae6ca8c83e9cb06c4029f183aadf2a737">&#9670;&#160;</a></span>presentModeToUse</h2>
 
@@ -179,6 +279,34 @@ Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">vk::PresentModeKHR swapChainInfo::presentModeToUse</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a478143bd75ea9f77fb11cd23c2e0165c" name="a478143bd75ea9f77fb11cd23c2e0165c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a478143bd75ea9f77fb11cd23c2e0165c">&#9670;&#160;</a></span>renderFinishedSemaphore</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vk::Semaphore swapChainInfo::renderFinishedSemaphore</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9a00655f7a54d2e635df82a55d48d043" name="a9a00655f7a54d2e635df82a55d48d043"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a00655f7a54d2e635df82a55d48d043">&#9670;&#160;</a></span>renderPass</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d47/core_8hpp.html#a49d5ca552277c114f3504fe8cfe1fbc4">renderPassId</a> swapChainInfo::renderPass</td>
         </tr>
       </table>
 </div><div class="memdoc">
