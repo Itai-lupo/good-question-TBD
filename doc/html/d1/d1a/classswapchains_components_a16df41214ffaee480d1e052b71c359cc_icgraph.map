@@ -1,6 +1,6 @@
 <map id="swapchainsComponents::getData" name="swapchainsComponents::getData">
-<area shape="rect" id="node1" title=" " alt="" coords="632,5,812,45"/>
-<area shape="rect" id="node2" href="$d0/d62/classvulkan_render_engine_1_1swapchain.html#a359a2d10963a6a0f50f6040be51b3588" title=" " alt="" coords="429,5,584,45"/>
-<area shape="rect" id="node3" href="$d4/d6f/classvulkan_render_engine_1_1renderer.html#a44492216b7abdf4d014c408fad104151" title=" " alt="" coords="227,5,381,45"/>
-<area shape="rect" id="node4" href="$dc/df8/classvulkan_rendering.html#a1f1a69f1597e81414cc00805830b3082" title=" " alt="" coords="5,13,179,38"/>
+<area shape="rect" id="node1" title=" " alt="" coords="624,5,804,50"/>
+<area shape="rect" id="node2" href="$d0/d62/classvulkan_render_engine_1_1swapchain.html#a359a2d10963a6a0f50f6040be51b3588" title=" " alt="" coords="422,5,576,50"/>
+<area shape="rect" id="node3" href="$d4/d6f/classvulkan_render_engine_1_1renderer.html#a44492216b7abdf4d014c408fad104151" title=" " alt="" coords="220,5,374,50"/>
+<area shape="rect" id="node4" href="$d7/d09/classrender_api.html#a4efef07da08a4bda2bf1685ae64f16f1" title=" " alt="" coords="5,14,172,42"/>
 </map>

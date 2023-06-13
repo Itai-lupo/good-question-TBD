@@ -5,5 +5,5 @@ enum class windowSizeState
     undefined,
     reizing,
     fullscreen,
-    maximized,
+    maximized
 };

@@ -1,7 +1,8 @@
 <map id="include/rendering/vulkanRenderEngine/utils/queueFamilys.hpp" name="include/rendering/vulkanRenderEngine/utils/queueFamilys.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="297,5,564,45"/>
-<area shape="rect" id="node2" href="$d3/dd4/device_8cpp.html" title=" " alt="" coords="5,101,197,141"/>
-<area shape="rect" id="node3" href="$df/d5c/swapchain_8cpp.html" title=" " alt="" coords="221,101,413,141"/>
-<area shape="rect" id="node4" href="$de/d3a/command_buffers_8cpp.html" title=" " alt="" coords="438,93,650,148"/>
-<area shape="rect" id="node5" href="$d4/d50/queue_familys_8cpp.html" title=" " alt="" coords="675,101,893,141"/>
+<area shape="rect" id="node1" title=" " alt="" coords="410,5,675,50"/>
+<area shape="rect" id="node2" href="$d3/dd4/device_8cpp.html" title=" " alt="" coords="5,107,197,151"/>
+<area shape="rect" id="node3" href="$df/d5c/swapchain_8cpp.html" title=" " alt="" coords="221,107,413,151"/>
+<area shape="rect" id="node4" href="$de/d3a/command_buffers_8cpp.html" title=" " alt="" coords="437,98,648,160"/>
+<area shape="rect" id="node5" href="$d6/d54/renderer_8cpp.html" title=" " alt="" coords="672,107,863,151"/>
+<area shape="rect" id="node6" href="$d4/d50/queue_familys_8cpp.html" title=" " alt="" coords="888,107,1106,151"/>
 </map>

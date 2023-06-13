@@ -25,7 +25,7 @@ namespace vulkanRenderEngine
             static void init(entityPool *swapchainsPool);
             static void close();
             static void create(vkSurfaceId id, const vk::SurfaceKHR& surfaceToCreate, int width, int height); 
-            static void resize(vkSurfaceId id, int width, int height); 
+            static void resize(vkSurfaceId id, const vk::SurfaceKHR& surfaceToCreate, int width, int height); 
             
             static void destroy(vkSurfaceId id); 
 

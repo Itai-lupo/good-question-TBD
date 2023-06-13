@@ -29,7 +29,6 @@ class frameBuffersComponents
         std::vector<frameBufferInfo> data;
 
         uint32_t *IdToIndex;  
-        std::vector<entityId> indexToId;  
         
 
         static void deleteCallback(void * data, entityId id)

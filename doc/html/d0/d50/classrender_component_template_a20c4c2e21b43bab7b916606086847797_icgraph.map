@@ -1,0 +1,6 @@
+<map id="renderComponentTemplate::getData" name="renderComponentTemplate::getData">
+<area shape="rect" id="node1" title="Get the Data start raw pointer used to itrater over all the obejects." alt="" coords="645,5,844,50"/>
+<area shape="rect" id="node2" href="$d1/d2d/classvulkan_render_engine_1_1memory_manger.html#a3da7e259d5c915298c8951f2ce98e74b" title=" " alt="" coords="422,5,597,50"/>
+<area shape="rect" id="node3" href="$d4/d6f/classvulkan_render_engine_1_1renderer.html#a44492216b7abdf4d014c408fad104151" title=" " alt="" coords="220,5,374,50"/>
+<area shape="rect" id="node4" href="$d7/d09/classrender_api.html#a4efef07da08a4bda2bf1685ae64f16f1" title=" " alt="" coords="5,14,172,42"/>
+</map>

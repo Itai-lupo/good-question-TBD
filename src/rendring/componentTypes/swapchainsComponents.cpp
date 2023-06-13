@@ -14,7 +14,14 @@ void swapchainsComponents::deleteComponent(entityId id)
 
     uint32_t index = IdToIndex[id.index];
     IdToIndex[id.index] = -1;
+    
+    // idToIndex of last -> deleted id to index
+    IdToIndex[indexToId.back().index] = index;
+
+    //index to id of last = deleted index to id
     indexToId[index] = indexToId.back();
+    
+    //last -> delete
     data[index] = data.back();
 
     data.pop_back();
@@ -25,7 +32,6 @@ swapChainInfo *swapchainsComponents::getComponent(entityId id)
 {
     if(!pool->isIdValid(id) || IdToIndex[id.index] == -1)
         return nullptr;
-    
     return &data[IdToIndex[id.index]];
 }
 

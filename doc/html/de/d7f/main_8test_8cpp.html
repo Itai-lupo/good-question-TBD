@@ -103,27 +103,30 @@ $(document).ready(function(){initNavTree('de/d7f/main_8test_8cpp.html','../../')
 <code>#include &quot;<a class="el" href="../../d4/d3d/log_8hpp_source.html">log.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d7/d3e/entity_pool_8hpp_source.html">entityPool.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d1/df4/component_type_8hpp_source.html">componentType.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/dce/render_component_template_8hpp_source.html">renderComponentTemplate.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for main.test.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../d0/d77/main_8test_8cpp__incl.png" border="0" usemap="#atests_2main_8test_8cpp" alt=""/></div>
 <map name="atests_2main_8test_8cpp" id="atests_2main_8test_8cpp">
-<area shape="rect" title=" " alt="" coords="279,5,411,31"/>
-<area shape="rect" title=" " alt="" coords="5,79,100,104"/>
-<area shape="rect" title=" " alt="" coords="125,79,197,104"/>
-<area shape="rect" title=" " alt="" coords="221,79,281,104"/>
-<area shape="rect" title=" " alt="" coords="305,79,384,104"/>
-<area shape="rect" href="../../d4/d3d/log_8hpp.html" title=" " alt="" coords="408,79,471,104"/>
-<area shape="rect" href="../../d7/d3e/entity_pool_8hpp.html" title=" " alt="" coords="545,152,648,177"/>
-<area shape="rect" href="../../d1/df4/component_type_8hpp.html" title=" " alt="" coords="546,79,685,104"/>
-<area shape="rect" title=" " alt="" coords="305,152,406,177"/>
-<area shape="rect" title=" " alt="" coords="431,152,485,177"/>
-<area shape="rect" href="../../da/d47/core_8hpp.html" title=" " alt="" coords="409,225,480,251"/>
-<area shape="rect" title=" " alt="" coords="504,225,543,251"/>
-<area shape="rect" title=" " alt="" coords="567,225,626,251"/>
-<area shape="rect" title=" " alt="" coords="651,225,713,251"/>
-<area shape="rect" title=" " alt="" coords="738,225,802,251"/>
-<area shape="rect" title=" " alt="" coords="414,299,475,324"/>
+<area shape="rect" title=" " alt="" coords="343,5,489,33"/>
+<area shape="rect" title=" " alt="" coords="5,81,109,109"/>
+<area shape="rect" title=" " alt="" coords="133,81,213,109"/>
+<area shape="rect" title=" " alt="" coords="236,81,302,109"/>
+<area shape="rect" title=" " alt="" coords="326,81,407,109"/>
+<area shape="rect" href="../../d4/d3d/log_8hpp.html" title=" " alt="" coords="432,81,501,109"/>
+<area shape="rect" href="../../d7/d3e/entity_pool_8hpp.html" title=" " alt="" coords="594,157,709,184"/>
+<area shape="rect" href="../../d1/df4/component_type_8hpp.html" title=" " alt="" coords="576,81,728,109"/>
+<area shape="rect" href="../../d4/dce/render_component_template_8hpp.html" title=" " alt="" coords="752,81,978,109"/>
+<area shape="rect" title=" " alt="" coords="434,157,547,184"/>
+<area shape="rect" title=" " alt="" coords="352,157,410,184"/>
+<area shape="rect" href="../../da/d47/core_8hpp.html" title=" " alt="" coords="885,232,962,260"/>
+<area shape="rect" title=" " alt="" coords="511,232,552,260"/>
+<area shape="rect" title=" " alt="" coords="577,232,639,260"/>
+<area shape="rect" title=" " alt="" coords="662,232,732,260"/>
+<area shape="rect" title=" " alt="" coords="755,232,826,260"/>
+<area shape="rect" title=" " alt="" coords="891,308,956,336"/>
+<area shape="rect" href="../../d5/d84/supported_render_apis_8hpp.html" title=" " alt="" coords="734,157,922,184"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -162,13 +165,12 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">    9</span>                                {</div>
-<div class="line"><span class="lineno">   10</span>    ZoneScoped;</div>
-<div class="line"><span class="lineno">   11</span>    std::cout &lt;&lt; argv[1] &lt;&lt; std::endl; </div>
-<div class="line"><span class="lineno">   12</span>    ::testing::InitGoogleTest(&amp;argc, argv); </div>
-<div class="line"><span class="lineno">   13</span>    <span class="keywordflow">return</span> RUN_ALL_TESTS();</div>
-<div class="line"><span class="lineno">   14</span> </div>
-<div class="line"><span class="lineno">   15</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   11</span>{</div>
+<div class="line"><span class="lineno">   12</span>    ZoneScoped;</div>
+<div class="line"><span class="lineno">   13</span>    std::cout &lt;&lt; argv[1] &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   14</span>    ::testing::InitGoogleTest(&amp;argc, argv);</div>
+<div class="line"><span class="lineno">   15</span>    <span class="keywordflow">return</span> RUN_ALL_TESTS();</div>
+<div class="line"><span class="lineno">   16</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -197,17 +199,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   25</span>{</div>
-<div class="line"><span class="lineno">   26</span>    ZoneScoped;</div>
-<div class="line"><span class="lineno">   27</span>    std::this_thread::sleep_for(std::chrono::milliseconds(200));</div>
+<div class="fragment"><div class="line"><span class="lineno">   26</span>{</div>
+<div class="line"><span class="lineno">   27</span>    ZoneScoped;</div>
 <div class="line"><span class="lineno">   28</span> </div>
 <div class="line"><span class="lineno">   29</span>    <a class="code hl_class" href="../../dc/d2b/classentity_pool.html">entityPool</a> test(10);</div>
 <div class="line"><span class="lineno">   30</span>    <a class="code hl_class" href="../../db/d0a/classcomponent_type.html">componentType</a> testType(&amp;test, 4);</div>
 <div class="line"><span class="lineno">   31</span>    <a class="code hl_class" href="../../db/d0a/classcomponent_type.html">componentType</a> *testType2 = <span class="keyword">new</span> <a class="code hl_class" href="../../db/d0a/classcomponent_type.html">componentType</a>(&amp;test, 4);</div>
 <div class="line"><span class="lineno">   32</span> </div>
 <div class="line"><span class="lineno">   33</span>    <a class="code hl_struct" href="../../df/d3a/structentity_id.html">entityId</a> testEntitys[15];</div>
-<div class="line"><span class="lineno">   34</span>    </div>
-<div class="line"><span class="lineno">   35</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 15; i++)</div>
+<div class="line"><span class="lineno">   34</span> </div>
+<div class="line"><span class="lineno">   35</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 15; i++)</div>
 <div class="line"><span class="lineno">   36</span>    {</div>
 <div class="line"><span class="lineno">   37</span>        ZoneScoped;</div>
 <div class="line"><span class="lineno">   38</span>        testEntitys[i] = test.allocEntity();</div>
@@ -215,7 +216,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   40</span>        ASSERT_EQ(testEntitys[i].gen, 0) &lt;&lt; <span class="stringliteral">&quot; allocated gen is worng&quot;</span>;</div>
 <div class="line"><span class="lineno">   41</span>    }</div>
 <div class="line"><span class="lineno">   42</span> </div>
-<div class="line"><span class="lineno">   43</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 15; i++)</div>
+<div class="line"><span class="lineno">   43</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 15; i++)</div>
 <div class="line"><span class="lineno">   44</span>    {</div>
 <div class="line"><span class="lineno">   45</span>        ZoneScoped;</div>
 <div class="line"><span class="lineno">   46</span>        testEntitys[i] = test.allocEntity();</div>
@@ -223,67 +224,78 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   48</span>        ASSERT_EQ(testEntitys[i].gen, 0) &lt;&lt; <span class="stringliteral">&quot; allocated gen is worng&quot;</span>;</div>
 <div class="line"><span class="lineno">   49</span>    }</div>
 <div class="line"><span class="lineno">   50</span> </div>
-<div class="line"><span class="lineno">   51</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 15; i++)</div>
+<div class="line"><span class="lineno">   51</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 15; i++)</div>
 <div class="line"><span class="lineno">   52</span>        test.allocEntity();</div>
 <div class="line"><span class="lineno">   53</span> </div>
-<div class="line"><span class="lineno">   54</span> </div>
-<div class="line"><span class="lineno">   55</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 15; i++)</div>
-<div class="line"><span class="lineno">   56</span>    {</div>
-<div class="line"><span class="lineno">   57</span>        ZoneScoped;</div>
-<div class="line"><span class="lineno">   58</span>        ASSERT_EQ(testType.getComponent(testEntitys[i]), <span class="keyword">nullptr</span>) &lt;&lt; <span class="stringliteral">&quot;I didn&#39;t set this id data&quot;</span>;</div>
-<div class="line"><span class="lineno">   59</span>        testType.setComponent(testEntitys[i], <span class="keyword">new</span> <span class="keywordtype">int</span>(i));</div>
-<div class="line"><span class="lineno">   60</span>        ASSERT_EQ(*(<span class="keywordtype">int</span>*)testType.getComponent(testEntitys[i]), i) &lt;&lt; <span class="stringliteral">&quot;value was set to i&quot;</span>;</div>
-<div class="line"><span class="lineno">   61</span>        testType.setComponent(testEntitys[i], <span class="keyword">new</span> <span class="keywordtype">int</span>(i * i));</div>
-<div class="line"><span class="lineno">   62</span>        ASSERT_EQ(*(<span class="keywordtype">int</span>*)testType.getComponent(testEntitys[i]), i * i) &lt;&lt; <span class="stringliteral">&quot;value was set to i * i&quot;</span>;</div>
+<div class="line"><span class="lineno">   54</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 15; i++)</div>
+<div class="line"><span class="lineno">   55</span>    {</div>
+<div class="line"><span class="lineno">   56</span>        ZoneScoped;</div>
+<div class="line"><span class="lineno">   57</span>        ASSERT_EQ(testType.getComponent(testEntitys[i]), <span class="keyword">nullptr</span>) &lt;&lt; <span class="stringliteral">&quot;I didn&#39;t set this id data&quot;</span>;</div>
+<div class="line"><span class="lineno">   58</span>        testType.setComponent(testEntitys[i], <span class="keyword">new</span> <span class="keywordtype">int</span>(i));</div>
+<div class="line"><span class="lineno">   59</span>        ASSERT_EQ(*(<span class="keywordtype">int</span> *)testType.getComponent(testEntitys[i]), i) &lt;&lt; <span class="stringliteral">&quot;value was set to i&quot;</span>;</div>
+<div class="line"><span class="lineno">   60</span>        testType.setComponent(testEntitys[i], <span class="keyword">new</span> <span class="keywordtype">int</span>(i * i));</div>
+<div class="line"><span class="lineno">   61</span>        ASSERT_EQ(*(<span class="keywordtype">int</span> *)testType.getComponent(testEntitys[i]), i * i) &lt;&lt; <span class="stringliteral">&quot;value was set to i * i&quot;</span>;</div>
+<div class="line"><span class="lineno">   62</span>    }</div>
 <div class="line"><span class="lineno">   63</span> </div>
-<div class="line"><span class="lineno">   64</span>    }</div>
-<div class="line"><span class="lineno">   65</span> </div>
-<div class="line"><span class="lineno">   66</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 15; i++)</div>
-<div class="line"><span class="lineno">   67</span>        ASSERT_EQ(*(<span class="keywordtype">int</span>*)testType.getComponent(testEntitys[i]), i * i) &lt;&lt; <span class="stringliteral">&quot;value was set to i * i&quot;</span>;</div>
-<div class="line"><span class="lineno">   68</span>    </div>
-<div class="line"><span class="lineno">   69</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 15; i++)</div>
-<div class="line"><span class="lineno">   70</span>    {</div>
-<div class="line"><span class="lineno">   71</span>        ZoneScoped;</div>
-<div class="line"><span class="lineno">   72</span>        testType.deleteComponent(testEntitys[i]);</div>
-<div class="line"><span class="lineno">   73</span>        ASSERT_EQ(testType.getComponent(testEntitys[i]), <span class="keyword">nullptr</span>) &lt;&lt; <span class="stringliteral">&quot;value was deleted&quot;</span>;</div>
-<div class="line"><span class="lineno">   74</span>        </div>
-<div class="line"><span class="lineno">   75</span>        ASSERT_EQ(testType.getComponent(testEntitys[i]), <span class="keyword">nullptr</span>) &lt;&lt; <span class="stringliteral">&quot;I didn&#39;t set this id data&quot;</span>;</div>
-<div class="line"><span class="lineno">   76</span>        testType.setComponent(testEntitys[i], <span class="keyword">new</span> <span class="keywordtype">int</span>(i));</div>
-<div class="line"><span class="lineno">   77</span>        ASSERT_EQ(*(<span class="keywordtype">int</span>*)testType.getComponent(testEntitys[i]), i) &lt;&lt; <span class="stringliteral">&quot;value was set to i&quot;</span>;</div>
-<div class="line"><span class="lineno">   78</span>        testType.setComponent(testEntitys[i], <span class="keyword">new</span> <span class="keywordtype">int</span>(i * i));</div>
-<div class="line"><span class="lineno">   79</span>        ASSERT_EQ(*(<span class="keywordtype">int</span>*)testType.getComponent(testEntitys[i]), i * i) &lt;&lt; <span class="stringliteral">&quot;value was set to i * i&quot;</span>;</div>
-<div class="line"><span class="lineno">   80</span>    }</div>
-<div class="line"><span class="lineno">   81</span>    </div>
-<div class="line"><span class="lineno">   82</span>    <span class="keyword">delete</span> testType2;</div>
-<div class="line"><span class="lineno">   83</span>    <span class="keywordflow">for</span>(uint8_t j = 1, k = 0; k != 255; j++, k += (j % 2))</div>
-<div class="line"><span class="lineno">   84</span>    {</div>
-<div class="line"><span class="lineno">   85</span>        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 15; i++)</div>
-<div class="line"><span class="lineno">   86</span>        {</div>
-<div class="line"><span class="lineno">   87</span>            ZoneScoped;</div>
-<div class="line"><span class="lineno">   88</span> </div>
-<div class="line"><span class="lineno">   89</span>            test.freeEntity(testEntitys[i]);</div>
-<div class="line"><span class="lineno">   90</span>            testEntitys[i].<a class="code hl_variable" href="../../df/d3a/structentity_id.html#ac16b5c9618eaf6b44bbcdb8a515cc7e4">gen</a>++;</div>
-<div class="line"><span class="lineno">   91</span>            ASSERT_EQ(testType.getComponent(testEntitys[i]), <span class="keyword">nullptr</span>) &lt;&lt; <span class="stringliteral">&quot;value was deleted&quot;</span>;</div>
-<div class="line"><span class="lineno">   92</span> </div>
-<div class="line"><span class="lineno">   93</span>        }</div>
-<div class="line"><span class="lineno">   94</span> </div>
-<div class="line"><span class="lineno">   95</span>        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 15; i++)</div>
-<div class="line"><span class="lineno">   96</span>        {</div>
-<div class="line"><span class="lineno">   97</span>            ZoneScoped;</div>
-<div class="line"><span class="lineno">   98</span> </div>
-<div class="line"><span class="lineno">   99</span>            testEntitys[i] = test.allocEntity();</div>
-<div class="line"><span class="lineno">  100</span>            ASSERT_EQ(testEntitys[i].index, i + 15) &lt;&lt; <span class="stringliteral">&quot; allocated index is worng&quot;</span>;</div>
-<div class="line"><span class="lineno">  101</span>            ASSERT_EQ(testEntitys[i].gen, j) &lt;&lt; <span class="stringliteral">&quot; allocated gen is worng&quot;</span>;</div>
-<div class="line"><span class="lineno">  102</span>        }</div>
-<div class="line"><span class="lineno">  103</span>    }</div>
-<div class="line"><span class="lineno">  104</span> </div>
-<div class="line"><span class="lineno">  105</span> </div>
-<div class="line"><span class="lineno">  106</span>    ASSERT_FALSE(test.isIdValid({46, 0})) &lt;&lt; <span class="stringliteral">&quot;45 should be the highset allocated id&quot;</span>;</div>
-<div class="line"><span class="lineno">  107</span>    ASSERT_FALSE(test.isIdValid({16, 0})) &lt;&lt; <span class="stringliteral">&quot;id 16 is deleted many times&quot;</span>;</div>
-<div class="line"><span class="lineno">  108</span>    ASSERT_FALSE(test.isIdValid({10, 1})) &lt;&lt; <span class="stringliteral">&quot;this should be of gen 0&quot;</span>;</div>
-<div class="line"><span class="lineno">  109</span>    ASSERT_FALSE(test.isIdValid({40, 1})) &lt;&lt; <span class="stringliteral">&quot;this should be of gen 0&quot;</span>;</div>
-<div class="line"><span class="lineno">  110</span> </div>
-<div class="line"><span class="lineno">  111</span>}</div>
+<div class="line"><span class="lineno">   64</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 15; i++)</div>
+<div class="line"><span class="lineno">   65</span>        ASSERT_EQ(*(<span class="keywordtype">int</span> *)testType.getComponent(testEntitys[i]), i * i) &lt;&lt; <span class="stringliteral">&quot;value was set to i * i&quot;</span>;</div>
+<div class="line"><span class="lineno">   66</span> </div>
+<div class="line"><span class="lineno">   67</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 15; i++)</div>
+<div class="line"><span class="lineno">   68</span>    {</div>
+<div class="line"><span class="lineno">   69</span>        ZoneScoped;</div>
+<div class="line"><span class="lineno">   70</span>        testType.deleteComponent(testEntitys[i]);</div>
+<div class="line"><span class="lineno">   71</span>        ASSERT_EQ(testType.getComponent(testEntitys[i]), <span class="keyword">nullptr</span>) &lt;&lt; <span class="stringliteral">&quot;value was deleted&quot;</span>;</div>
+<div class="line"><span class="lineno">   72</span> </div>
+<div class="line"><span class="lineno">   73</span>        ASSERT_EQ(testType.getComponent(testEntitys[i]), <span class="keyword">nullptr</span>) &lt;&lt; <span class="stringliteral">&quot;I didn&#39;t set this id data&quot;</span>;</div>
+<div class="line"><span class="lineno">   74</span>        testType.setComponent(testEntitys[i], <span class="keyword">new</span> <span class="keywordtype">int</span>(i));</div>
+<div class="line"><span class="lineno">   75</span>        ASSERT_EQ(*(<span class="keywordtype">int</span> *)testType.getComponent(testEntitys[i]), i) &lt;&lt; <span class="stringliteral">&quot;value was set to i&quot;</span>;</div>
+<div class="line"><span class="lineno">   76</span>        testType.setComponent(testEntitys[i], <span class="keyword">new</span> <span class="keywordtype">int</span>(i * i));</div>
+<div class="line"><span class="lineno">   77</span>        ASSERT_EQ(*(<span class="keywordtype">int</span> *)testType.getComponent(testEntitys[i]), i * i) &lt;&lt; <span class="stringliteral">&quot;value was set to i * i&quot;</span>;</div>
+<div class="line"><span class="lineno">   78</span>    }</div>
+<div class="line"><span class="lineno">   79</span> </div>
+<div class="line"><span class="lineno">   80</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 14; i &gt; 0; i--)</div>
+<div class="line"><span class="lineno">   81</span>    {</div>
+<div class="line"><span class="lineno">   82</span>        ZoneScoped;</div>
+<div class="line"><span class="lineno">   83</span>        testType.deleteComponent(testEntitys[i]);</div>
+<div class="line"><span class="lineno">   84</span>        ASSERT_EQ(testType.getComponent(testEntitys[i]), <span class="keyword">nullptr</span>) &lt;&lt; <span class="stringliteral">&quot;value at index(&quot;</span> &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot;)was deleted&quot;</span>;</div>
+<div class="line"><span class="lineno">   85</span> </div>
+<div class="line"><span class="lineno">   86</span>        ASSERT_EQ(testType.getComponent(testEntitys[i]), <span class="keyword">nullptr</span>) &lt;&lt; <span class="stringliteral">&quot;I didn&#39;t set this id data&quot;</span>;</div>
+<div class="line"><span class="lineno">   87</span>    }</div>
+<div class="line"><span class="lineno">   88</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 15; i++)</div>
+<div class="line"><span class="lineno">   89</span>    {</div>
+<div class="line"><span class="lineno">   90</span>        testType.setComponent(testEntitys[i], <span class="keyword">new</span> <span class="keywordtype">int</span>(i));</div>
+<div class="line"><span class="lineno">   91</span>        ASSERT_EQ(*(<span class="keywordtype">int</span> *)testType.getComponent(testEntitys[i]), i) &lt;&lt; <span class="stringliteral">&quot;value was set to i&quot;</span>;</div>
+<div class="line"><span class="lineno">   92</span>        testType.setComponent(testEntitys[i], <span class="keyword">new</span> <span class="keywordtype">int</span>(i * i));</div>
+<div class="line"><span class="lineno">   93</span>        ASSERT_EQ(*(<span class="keywordtype">int</span> *)testType.getComponent(testEntitys[i]), i * i) &lt;&lt; <span class="stringliteral">&quot;value was set to i * i&quot;</span>;</div>
+<div class="line"><span class="lineno">   94</span>    }</div>
+<div class="line"><span class="lineno">   95</span> </div>
+<div class="line"><span class="lineno">   96</span>    <span class="keyword">delete</span> testType2;</div>
+<div class="line"><span class="lineno">   97</span>    <span class="keywordflow">for</span> (uint8_t j = 1, k = 0; k != 255; j++, k += (j % 2))</div>
+<div class="line"><span class="lineno">   98</span>    {</div>
+<div class="line"><span class="lineno">   99</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 15; i++)</div>
+<div class="line"><span class="lineno">  100</span>        {</div>
+<div class="line"><span class="lineno">  101</span>            ZoneScoped;</div>
+<div class="line"><span class="lineno">  102</span> </div>
+<div class="line"><span class="lineno">  103</span>            test.freeEntity(testEntitys[i]);</div>
+<div class="line"><span class="lineno">  104</span>            testEntitys[i].<a class="code hl_variable" href="../../df/d3a/structentity_id.html#ac16b5c9618eaf6b44bbcdb8a515cc7e4">gen</a>++;</div>
+<div class="line"><span class="lineno">  105</span>            ASSERT_EQ(testType.getComponent(testEntitys[i]), <span class="keyword">nullptr</span>) &lt;&lt; <span class="stringliteral">&quot;value was deleted&quot;</span>;</div>
+<div class="line"><span class="lineno">  106</span>        }</div>
+<div class="line"><span class="lineno">  107</span> </div>
+<div class="line"><span class="lineno">  108</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 15; i++)</div>
+<div class="line"><span class="lineno">  109</span>        {</div>
+<div class="line"><span class="lineno">  110</span>            ZoneScoped;</div>
+<div class="line"><span class="lineno">  111</span> </div>
+<div class="line"><span class="lineno">  112</span>            testEntitys[i] = test.allocEntity();</div>
+<div class="line"><span class="lineno">  113</span>            ASSERT_EQ(testEntitys[i].index, i + 15) &lt;&lt; <span class="stringliteral">&quot; allocated index is worng&quot;</span>;</div>
+<div class="line"><span class="lineno">  114</span>            ASSERT_EQ(testEntitys[i].gen, j) &lt;&lt; <span class="stringliteral">&quot; allocated gen is worng&quot;</span>;</div>
+<div class="line"><span class="lineno">  115</span>        }</div>
+<div class="line"><span class="lineno">  116</span>    }</div>
+<div class="line"><span class="lineno">  117</span> </div>
+<div class="line"><span class="lineno">  118</span>    ASSERT_FALSE(test.isIdValid({46, 0})) &lt;&lt; <span class="stringliteral">&quot;45 should be the highset allocated id&quot;</span>;</div>
+<div class="line"><span class="lineno">  119</span>    ASSERT_FALSE(test.isIdValid({16, 0})) &lt;&lt; <span class="stringliteral">&quot;id 16 is deleted many times&quot;</span>;</div>
+<div class="line"><span class="lineno">  120</span>    ASSERT_FALSE(test.isIdValid({10, 1})) &lt;&lt; <span class="stringliteral">&quot;this should be of gen 0&quot;</span>;</div>
+<div class="line"><span class="lineno">  121</span>    ASSERT_FALSE(test.isIdValid({40, 1})) &lt;&lt; <span class="stringliteral">&quot;this should be of gen 0&quot;</span>;</div>
+<div class="line"><span class="lineno">  122</span>}</div>
 <div class="ttc" id="aclasscomponent_type_html"><div class="ttname"><a href="../../db/d0a/classcomponent_type.html">componentType</a></div><div class="ttdef"><b>Definition:</b> componentType.hpp:5</div></div>
 <div class="ttc" id="aclassentity_pool_html"><div class="ttname"><a href="../../dc/d2b/classentity_pool.html">entityPool</a></div><div class="ttdef"><b>Definition:</b> entityPool.hpp:12</div></div>
 <div class="ttc" id="astructentity_id_html"><div class="ttname"><a href="../../df/d3a/structentity_id.html">entityId</a></div><div class="ttdef"><b>Definition:</b> core.hpp:6</div></div>
@@ -330,11 +342,11 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   18</span>{</div>
-<div class="line"><span class="lineno">   19</span>    <a class="code hl_function" href="../../dc/d37/classlogger.html#a55fa1aad396cc494aa03de1c2e2026af">logger::init</a>(<span class="stringliteral">&quot;./logs/&quot;</span>, <span class="stringliteral">&quot;TBD&quot;</span>);</div>
-<div class="line"><span class="lineno">   20</span>    <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#abba4f33d5caf52c17ab95053b60f76d7">LOG_INFO</a>(<span class="stringliteral">&quot;works&quot;</span>);</div>
-<div class="line"><span class="lineno">   21</span>    <a class="code hl_function" href="../../dc/d37/classlogger.html#ad0973f5782961630972e85adbed14b07">logger::close</a>();</div>
-<div class="line"><span class="lineno">   22</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   19</span>{</div>
+<div class="line"><span class="lineno">   20</span>    <a class="code hl_function" href="../../dc/d37/classlogger.html#a55fa1aad396cc494aa03de1c2e2026af">logger::init</a>(<span class="stringliteral">&quot;./logs/&quot;</span>, <span class="stringliteral">&quot;TBD&quot;</span>);</div>
+<div class="line"><span class="lineno">   21</span>    <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#abba4f33d5caf52c17ab95053b60f76d7">LOG_INFO</a>(<span class="stringliteral">&quot;works&quot;</span>);</div>
+<div class="line"><span class="lineno">   22</span>    <a class="code hl_function" href="../../dc/d37/classlogger.html#ad0973f5782961630972e85adbed14b07">logger::close</a>();</div>
+<div class="line"><span class="lineno">   23</span>}</div>
 <div class="ttc" id="aclasslogger_html_a55fa1aad396cc494aa03de1c2e2026af"><div class="ttname"><a href="../../dc/d37/classlogger.html#a55fa1aad396cc494aa03de1c2e2026af">logger::init</a></div><div class="ttdeci">static void init(const std::string &amp;pathToLogs, const std::string &amp;projectName)</div><div class="ttdef"><b>Definition:</b> log.cpp:6</div></div>
 <div class="ttc" id="aclasslogger_html_ad0973f5782961630972e85adbed14b07"><div class="ttname"><a href="../../dc/d37/classlogger.html#ad0973f5782961630972e85adbed14b07">logger::close</a></div><div class="ttdeci">static void close()</div><div class="ttdef"><b>Definition:</b> log.cpp:20</div></div>
 <div class="ttc" id="alog_8hpp_html_abba4f33d5caf52c17ab95053b60f76d7"><div class="ttname"><a href="../../d4/d3d/log_8hpp.html#abba4f33d5caf52c17ab95053b60f76d7">LOG_INFO</a></div><div class="ttdeci">#define LOG_INFO(toLog)</div><div class="ttdef"><b>Definition:</b> log.hpp:6</div></div>

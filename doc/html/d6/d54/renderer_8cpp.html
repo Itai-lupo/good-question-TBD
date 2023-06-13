@@ -92,7 +92,11 @@ $(document).ready(function(){initNavTree('d6/d54/renderer_8cpp.html','../../'); 
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">renderer.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -101,66 +105,288 @@ $(document).ready(function(){initNavTree('d6/d54/renderer_8cpp.html','../../'); 
 <code>#include &quot;<a class="el" href="../../da/d7b/debug_8hpp_source.html">debug.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d5/d08/device_8hpp_source.html">device.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../dd/d32/swapchain_8hpp_source.html">swapchain.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d2/dba/graphic_piplines_8hpp_source.html">graphicPiplines.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d6/d70/framebuffers_8hpp_source.html">framebuffers.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../dc/d75/command_buffers_8hpp_source.html">commandBuffers.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d9f/queue_familys_8hpp_source.html">queueFamilys.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/daf/memory_manger_8hpp_source.html">memoryManger.hpp</a>&quot;</code><br />
+<code>#include &lt;Tracy.hpp&gt;</code><br />
+<code>#include &lt;sys/prctl.h&gt;</code><br />
+<code>#include &lt;glm/glm.hpp&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for renderer.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../df/d76/renderer_8cpp__incl.png" border="0" usemap="#asrc_2rendring_2vulkan_render_engine_2renderer_8cpp" alt=""/></div>
 <map name="asrc_2rendring_2vulkan_render_engine_2renderer_8cpp" id="asrc_2rendring_2vulkan_render_engine_2renderer_8cpp">
-<area shape="rect" title=" " alt="" coords="2841,5,3033,45"/>
-<area shape="rect" href="../../d1/dae/renderer_8hpp.html" title=" " alt="" coords="2673,93,2777,119"/>
-<area shape="rect" href="../../d2/dba/graphic_piplines_8hpp.html" title=" " alt="" coords="607,167,779,207"/>
-<area shape="rect" href="../../d6/d70/framebuffers_8hpp.html" title=" " alt="" coords="2782,167,2954,207"/>
-<area shape="rect" href="../../d8/d27/instance_8hpp.html" title=" " alt="" coords="5434,93,5539,119"/>
-<area shape="rect" href="../../da/d7b/debug_8hpp.html" title=" " alt="" coords="5737,93,5828,119"/>
-<area shape="rect" href="../../d5/d08/device_8hpp.html" title=" " alt="" coords="4969,93,5062,119"/>
-<area shape="rect" href="../../dd/d32/swapchain_8hpp.html" title=" " alt="" coords="5323,174,5442,199"/>
-<area shape="rect" href="../../dc/d75/command_buffers_8hpp.html" title=" " alt="" coords="207,174,368,199"/>
-<area shape="rect" title=" " alt="" coords="5415,328,5555,353"/>
-<area shape="rect" href="../../d0/dca/render_api_8hpp.html" title=" " alt="" coords="2978,174,3091,199"/>
-<area shape="rect" href="../../de/d77/gpu_render_data_8hpp.html" title=" " alt="" coords="4730,255,4880,280"/>
-<area shape="rect" href="../../d6/dae/vulkan_render_engine_2render_pipline_systems_2texture_manger_8hpp.html" title=" " alt="" coords="2195,167,2367,207"/>
-<area shape="rect" href="../../dc/d3c/vulkan_render_engine_2render_pipline_systems_2vertex_array_manger_8hpp.html" title=" " alt="" coords="1005,167,1184,207"/>
-<area shape="rect" href="../../d5/d6b/vulkan_render_engine_2render_pipline_systems_2uniform_buffer_manger_8hpp.html" title=" " alt="" coords="2477,167,2669,207"/>
-<area shape="rect" href="../../d9/dfd/render_passes_8hpp.html" title=" " alt="" coords="803,167,975,207"/>
-<area shape="rect" href="../../df/db5/vk_surface_components_8hpp.html" title=" " alt="" coords="4956,255,5153,280"/>
-<area shape="rect" title=" " alt="" coords="2693,174,2757,199"/>
-<area shape="rect" href="../../db/d68/safe_queue_8hpp.html" title=" " alt="" coords="1310,174,1430,199"/>
-<area shape="rect" href="../../da/d47/core_8hpp.html" title=" " alt="" coords="4054,401,4132,427"/>
-<area shape="rect" href="../../d5/d84/supported_render_apis_8hpp.html" title=" " alt="" coords="4766,328,4956,353"/>
-<area shape="rect" title=" " alt="" coords="1424,328,1487,353"/>
-<area shape="rect" title=" " alt="" coords="4694,401,4764,427"/>
-<area shape="rect" href="../../d7/d3e/entity_pool_8hpp.html" title=" " alt="" coords="2576,328,2692,353"/>
-<area shape="rect" href="../../d9/dfc/api_type_components_8hpp.html" title=" " alt="" coords="4523,255,4706,280"/>
-<area shape="rect" href="../../dd/db2/frame_buffers_components_8hpp.html" title=" " alt="" coords="4282,255,4499,280"/>
-<area shape="rect" href="../../df/dad/shaders_components_8hpp.html" title=" " alt="" coords="2794,255,2976,280"/>
-<area shape="rect" href="../../d6/dbd/texture_components_8hpp.html" title=" " alt="" coords="2192,255,2370,280"/>
-<area shape="rect" href="../../d8/dc1/_v_a_os_components_8hpp.html" title=" " alt="" coords="1950,255,2116,280"/>
-<area shape="rect" href="../../d4/d09/uniform_buffer_components_8hpp.html" title=" " alt="" coords="2547,255,2770,280"/>
-<area shape="rect" title=" " alt="" coords="4060,475,4126,500"/>
-<area shape="rect" title=" " alt="" coords="545,401,588,427"/>
-<area shape="rect" title=" " alt="" coords="1296,401,1359,427"/>
-<area shape="rect" title=" " alt="" coords="2599,401,2670,427"/>
-<area shape="rect" title=" " alt="" coords="3669,328,3725,353"/>
-<area shape="rect" href="../../d4/d3d/log_8hpp.html" title=" " alt="" coords="2286,328,2356,353"/>
-<area shape="rect" title=" " alt="" coords="2318,401,2433,427"/>
-<area shape="rect" title=" " alt="" coords="2236,401,2294,427"/>
-<area shape="rect" href="../../d4/d74/graphics_pipeline_components_8hpp.html" title=" " alt="" coords="3319,255,3558,280"/>
-<area shape="rect" href="../../de/d8a/render_passes_components_8hpp.html" title=" " alt="" coords="3886,255,4105,280"/>
-<area shape="rect" title=" " alt="" coords="1304,255,1368,280"/>
-<area shape="rect" title=" " alt="" coords="1136,255,1279,280"/>
-<area shape="rect" href="../../d8/d96/swapchains_components_8hpp.html" title=" " alt="" coords="5278,255,5486,280"/>
-<area shape="rect" href="../../d1/d60/command_buffers_components_8hpp.html" title=" " alt="" coords="3052,255,3294,280"/>
+<area shape="rect" title=" " alt="" coords="2735,5,2926,50"/>
+<area shape="rect" href="../../d1/dae/renderer_8hpp.html" title=" " alt="" coords="2824,98,2928,126"/>
+<area shape="rect" href="../../d8/d27/instance_8hpp.html" title=" " alt="" coords="525,98,629,126"/>
+<area shape="rect" href="../../da/d7b/debug_8hpp.html" title=" " alt="" coords="1726,98,1815,126"/>
+<area shape="rect" href="../../d5/d08/device_8hpp.html" title=" " alt="" coords="2375,98,2467,126"/>
+<area shape="rect" href="../../dd/d32/swapchain_8hpp.html" title=" " alt="" coords="2986,182,3104,210"/>
+<area shape="rect" href="../../d3/d9f/queue_familys_8hpp.html" title=" " alt="" coords="85,266,224,294"/>
+<area shape="rect" href="../../db/daf/memory_manger_8hpp.html" title=" " alt="" coords="5916,182,6068,210"/>
+<area shape="rect" title=" " alt="" coords="3003,98,3085,126"/>
+<area shape="rect" title=" " alt="" coords="3109,98,3197,126"/>
+<area shape="rect" title=" " alt="" coords="3222,98,3325,126"/>
+<area shape="rect" title=" " alt="" coords="1126,342,1266,370"/>
+<area shape="rect" href="../../d0/dca/render_api_8hpp.html" title=" " alt="" coords="4448,182,4560,210"/>
+<area shape="rect" href="../../de/d77/gpu_render_data_8hpp.html" title=" " alt="" coords="6279,266,6430,294"/>
+<area shape="rect" href="../../d6/dae/vulkan_render_engine_2render_pipline_systems_2texture_manger_8hpp.html" title=" " alt="" coords="3418,174,3590,218"/>
+<area shape="rect" href="../../dc/d3c/vulkan_render_engine_2render_pipline_systems_2vertex_array_manger_8hpp.html" title=" " alt="" coords="3128,174,3306,218"/>
+<area shape="rect" href="../../d2/dba/graphic_piplines_8hpp.html" title=" " alt="" coords="2398,174,2570,218"/>
+<area shape="rect" href="../../d6/d70/framebuffers_8hpp.html" title=" " alt="" coords="2790,174,2962,218"/>
+<area shape="rect" href="../../d5/d6b/vulkan_render_engine_2render_pipline_systems_2uniform_buffer_manger_8hpp.html" title=" " alt="" coords="3614,174,3805,218"/>
+<area shape="rect" href="../../d9/dfd/render_passes_8hpp.html" title=" " alt="" coords="1584,174,1755,218"/>
+<area shape="rect" href="../../dc/d75/command_buffers_8hpp.html" title=" " alt="" coords="2594,174,2766,218"/>
+<area shape="rect" href="../../df/db5/vk_surface_components_8hpp.html" title=" " alt="" coords="2286,266,2482,294"/>
+<area shape="rect" title=" " alt="" coords="3331,182,3394,210"/>
+<area shape="rect" href="../../db/d68/safe_queue_8hpp.html" title=" " alt="" coords="5710,182,5829,210"/>
+<area shape="rect" href="../../da/d47/core_8hpp.html" title=" " alt="" coords="4564,418,4641,445"/>
+<area shape="rect" href="../../d5/d84/supported_render_apis_8hpp.html" title=" " alt="" coords="6068,342,6257,370"/>
+<area shape="rect" title=" " alt="" coords="5173,342,5235,370"/>
+<area shape="rect" title=" " alt="" coords="6483,418,6552,445"/>
+<area shape="rect" href="../../d7/d3e/entity_pool_8hpp.html" title=" " alt="" coords="3226,342,3342,370"/>
+<area shape="rect" href="../../d9/dfc/api_type_components_8hpp.html" title=" " alt="" coords="5469,266,5651,294"/>
+<area shape="rect" href="../../dd/db2/frame_buffers_components_8hpp.html" title=" " alt="" coords="3525,266,3741,294"/>
+<area shape="rect" href="../../df/dad/shaders_components_8hpp.html" title=" " alt="" coords="4314,266,4496,294"/>
+<area shape="rect" href="../../d6/dbd/texture_components_8hpp.html" title=" " alt="" coords="3765,266,3944,294"/>
+<area shape="rect" href="../../d8/dc1/_v_a_os_components_8hpp.html" title=" " alt="" coords="4520,266,4685,294"/>
+<area shape="rect" href="../../d4/d09/uniform_buffer_components_8hpp.html" title=" " alt="" coords="4019,266,4240,294"/>
+<area shape="rect" href="../../d2/dff/vao_data_8hpp.html" title=" " alt="" coords="3346,266,3451,294"/>
+<area shape="rect" title=" " alt="" coords="4570,493,4635,521"/>
+<area shape="rect" title=" " alt="" coords="975,418,1017,445"/>
+<area shape="rect" title=" " alt="" coords="635,418,698,445"/>
+<area shape="rect" title=" " alt="" coords="2826,342,2881,370"/>
+<area shape="rect" href="../../d4/d3d/log_8hpp.html" title=" " alt="" coords="3947,342,4016,370"/>
+<area shape="rect" title=" " alt="" coords="1443,418,1501,445"/>
+<area shape="rect" href="../../d4/dce/render_component_template_8hpp.html" title=" " alt="" coords="6029,266,6256,294"/>
+<area shape="rect" href="../../d4/d74/graphics_pipeline_components_8hpp.html" title=" " alt="" coords="1706,266,1944,294"/>
+<area shape="rect" href="../../de/d8a/render_passes_components_8hpp.html" title=" " alt="" coords="1363,266,1581,294"/>
+<area shape="rect" href="../../d1/d60/command_buffers_components_8hpp.html" title=" " alt="" coords="1968,266,2210,294"/>
+<area shape="rect" title=" " alt="" coords="5675,266,5738,294"/>
+<area shape="rect" title=" " alt="" coords="5763,266,5904,294"/>
+<area shape="rect" href="../../d8/d96/swapchains_components_8hpp.html" title=" " alt="" coords="2608,266,2816,294"/>
+<area shape="rect" title=" " alt="" coords="117,342,192,370"/>
 </map>
 </div>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d62/struct_vertex.html">Vertex</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:d6/df0/namespacevulkan_render_engine"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/df0/namespacevulkan_render_engine.html">vulkanRenderEngine</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a2646006222e1b247e47ee9d216fd6f6c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d54/renderer_8cpp.html#a2646006222e1b247e47ee9d216fd6f6c">swapchainData</a>&#160;&#160;&#160;<a class="el" href="../../d0/d62/classvulkan_render_engine_1_1swapchain.html#aecfc6b957ab5c737f9cbec6f8b0b0b8f">vulkanRenderEngine::swapchain::getSwapChain</a>(<a class="el" href="../../da/d47/core_8hpp.html#aaf770ef1bf4bd89eb6332eb7c8149883">surfaceId</a>)</td></tr>
+<tr class="separator:a2646006222e1b247e47ee9d216fd6f6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a8c20bc5ceb5156ce1a9d261166306af0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d54/renderer_8cpp.html#a8c20bc5ceb5156ce1a9d261166306af0">defaultRenderCallback</a> (<a class="el" href="../../da/d47/core_8hpp.html#afb58bc70388839c719f65499643e3a33">vkSurfaceId</a> <a class="el" href="../../da/d47/core_8hpp.html#aaf770ef1bf4bd89eb6332eb7c8149883">surfaceId</a>, <a class="el" href="../../da/d47/core_8hpp.html#aec8e84fad1eb8c8700a0785661f9959f">commandBufferId</a> cmdId, uint32_t imageIndex)</td></tr>
+<tr class="separator:a8c20bc5ceb5156ce1a9d261166306af0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a597b1a3bc5cc9965df0ec6ac96f72e02"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="../../d7/d62/struct_vertex.html">Vertex</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d54/renderer_8cpp.html#a597b1a3bc5cc9965df0ec6ac96f72e02">vertices</a></td></tr>
+<tr class="separator:a597b1a3bc5cc9965df0ec6ac96f72e02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a2646006222e1b247e47ee9d216fd6f6c" name="a2646006222e1b247e47ee9d216fd6f6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2646006222e1b247e47ee9d216fd6f6c">&#9670;&#160;</a></span>swapchainData</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define swapchainData&#160;&#160;&#160;<a class="el" href="../../d0/d62/classvulkan_render_engine_1_1swapchain.html#aecfc6b957ab5c737f9cbec6f8b0b0b8f">vulkanRenderEngine::swapchain::getSwapChain</a>(<a class="el" href="../../da/d47/core_8hpp.html#aaf770ef1bf4bd89eb6332eb7c8149883">surfaceId</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a8c20bc5ceb5156ce1a9d261166306af0" name="a8c20bc5ceb5156ce1a9d261166306af0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c20bc5ceb5156ce1a9d261166306af0">&#9670;&#160;</a></span>defaultRenderCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void defaultRenderCallback </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#afb58bc70388839c719f65499643e3a33">vkSurfaceId</a>&#160;</td>
+          <td class="paramname"><em>surfaceId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#aec8e84fad1eb8c8700a0785661f9959f">commandBufferId</a>&#160;</td>
+          <td class="paramname"><em>cmdId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>imageIndex</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><span class="lineno">   36</span>{</div>
+<div class="line"><span class="lineno">   37</span>    <a class="code hl_struct" href="../../d8/d4e/structcommand_buffer_info.html">commandBufferInfo</a> cmdBufferData = *<a class="code hl_function" href="../../df/d2e/classvulkan_render_engine_1_1command_buffers.html#afccfbf2ef721d00c1df8da99eaa12b70">vulkanRenderEngine::commandBuffers::getBuffer</a>(cmdId);</div>
+<div class="line"><span class="lineno">   38</span><span class="preprocessor">#define swapchainData vulkanRenderEngine::swapchain::getSwapChain(surfaceId)</span></div>
+<div class="line"><span class="lineno">   39</span> </div>
+<div class="line"><span class="lineno">   40</span>    <span class="keywordflow">try</span></div>
+<div class="line"><span class="lineno">   41</span>    {</div>
+<div class="line"><span class="lineno">   42</span>        vk::CommandBufferBeginInfo beginInfo;</div>
+<div class="line"><span class="lineno">   43</span>        cmdBufferData.<a class="code hl_variable" href="../../d8/d4e/structcommand_buffer_info.html#a175a7ba6a8b09220456dfa2b26851037">vkObject</a>.begin(beginInfo);</div>
+<div class="line"><span class="lineno">   44</span>        vk::RenderPassBeginInfo renderPassCreateInfo{};</div>
+<div class="line"><span class="lineno">   45</span> </div>
+<div class="line"><span class="lineno">   46</span>        renderPassCreateInfo.renderPass = <a class="code hl_function" href="../../d1/dfe/classvulkan_render_engine_1_1render_passes.html#a79f7dcdc762e153871d67763ad83cbbb">vulkanRenderEngine::renderPasses::get</a>(<a class="code hl_define" href="../../d6/d54/renderer_8cpp.html#a2646006222e1b247e47ee9d216fd6f6c">swapchainData</a>-&gt;renderPass)-&gt;<a class="code hl_variable" href="../../dc/d73/structrender_pass_info.html#a720e89778e2a14644e06b701c149bfcc">vkObject</a>;</div>
+<div class="line"><span class="lineno">   47</span> </div>
+<div class="line"><span class="lineno">   48</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="../../d6/d2f/classvulkan_render_engine_1_1framebuffers.html#a143ba56db79c11da0b1a03b44424300a">vulkanRenderEngine::framebuffers::getFrameBuffer</a>(<a class="code hl_define" href="../../d6/d54/renderer_8cpp.html#a2646006222e1b247e47ee9d216fd6f6c">swapchainData</a>-&gt;swapChainFramebuffers[imageIndex]))</div>
+<div class="line"><span class="lineno">   49</span>            renderPassCreateInfo.framebuffer = <a class="code hl_function" href="../../d6/d2f/classvulkan_render_engine_1_1framebuffers.html#a143ba56db79c11da0b1a03b44424300a">vulkanRenderEngine::framebuffers::getFrameBuffer</a>(<a class="code hl_define" href="../../d6/d54/renderer_8cpp.html#a2646006222e1b247e47ee9d216fd6f6c">swapchainData</a>-&gt;swapChainFramebuffers[imageIndex])-&gt;<a class="code hl_variable" href="../../d6/df2/structframe_buffer_info.html#a2fde831f61f36a8ad444e69271206bae">fbo</a>;</div>
+<div class="line"><span class="lineno">   50</span>        <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">   51</span>            <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   52</span>        renderPassCreateInfo.renderArea.offset = vk::Offset2D{0, 0};</div>
+<div class="line"><span class="lineno">   53</span>        renderPassCreateInfo.renderArea.extent = <a class="code hl_define" href="../../d6/d54/renderer_8cpp.html#a2646006222e1b247e47ee9d216fd6f6c">swapchainData</a>-&gt;extent;</div>
+<div class="line"><span class="lineno">   54</span> </div>
+<div class="line"><span class="lineno">   55</span>        vk::ClearValue clearColor{std::array&lt;float, 4&gt;{{0.0f, 0.0f, 0.0f, 1.0f}}};</div>
+<div class="line"><span class="lineno">   56</span>        renderPassCreateInfo.clearValueCount = 1;</div>
+<div class="line"><span class="lineno">   57</span>        renderPassCreateInfo.pClearValues = &amp;clearColor;</div>
+<div class="line"><span class="lineno">   58</span> </div>
+<div class="line"><span class="lineno">   59</span>        cmdBufferData.<a class="code hl_variable" href="../../d8/d4e/structcommand_buffer_info.html#a175a7ba6a8b09220456dfa2b26851037">vkObject</a>.beginRenderPass(renderPassCreateInfo, vk::SubpassContents::eInline);</div>
+<div class="line"><span class="lineno">   60</span> </div>
+<div class="line"><span class="lineno">   61</span>        cmdBufferData.<a class="code hl_variable" href="../../d8/d4e/structcommand_buffer_info.html#a175a7ba6a8b09220456dfa2b26851037">vkObject</a>.bindPipeline(vk::PipelineBindPoint::eGraphics, <a class="code hl_function" href="../../dc/dc1/classvulkan_render_engine_1_1graphic_piplines.html#ad46e7883e2d15464dcb60d867ff7695c">vulkanRenderEngine::graphicPiplines::get</a>(<a class="code hl_define" href="../../d6/d54/renderer_8cpp.html#a2646006222e1b247e47ee9d216fd6f6c">swapchainData</a>-&gt;graphicPiplineId)-&gt;<a class="code hl_variable" href="../../d0/d48/structgraphics_pipeline_info.html#a93f038e0fe9ddb96a45d214577b0eaa9">graphicsPipeline</a>);</div>
+<div class="line"><span class="lineno">   62</span> </div>
+<div class="line"><span class="lineno">   63</span>        vk::Viewport viewport{};</div>
+<div class="line"><span class="lineno">   64</span>        viewport.x = 0.0f;</div>
+<div class="line"><span class="lineno">   65</span>        viewport.y = 0.0f;</div>
+<div class="line"><span class="lineno">   66</span>        viewport.width = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<a class="code hl_define" href="../../d6/d54/renderer_8cpp.html#a2646006222e1b247e47ee9d216fd6f6c">swapchainData</a>-&gt;extent.width);</div>
+<div class="line"><span class="lineno">   67</span>        viewport.height = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<a class="code hl_define" href="../../d6/d54/renderer_8cpp.html#a2646006222e1b247e47ee9d216fd6f6c">swapchainData</a>-&gt;extent.height);</div>
+<div class="line"><span class="lineno">   68</span>        viewport.minDepth = 0.0f;</div>
+<div class="line"><span class="lineno">   69</span>        viewport.maxDepth = 1.0f;</div>
+<div class="line"><span class="lineno">   70</span>        cmdBufferData.<a class="code hl_variable" href="../../d8/d4e/structcommand_buffer_info.html#a175a7ba6a8b09220456dfa2b26851037">vkObject</a>.setViewport(0, 1, &amp;viewport);</div>
+<div class="line"><span class="lineno">   71</span> </div>
+<div class="line"><span class="lineno">   72</span>        vk::Rect2D scissor{};</div>
+<div class="line"><span class="lineno">   73</span>        scissor.offset = vk::Offset2D{0, 0};</div>
+<div class="line"><span class="lineno">   74</span>        scissor.extent = <a class="code hl_define" href="../../d6/d54/renderer_8cpp.html#a2646006222e1b247e47ee9d216fd6f6c">swapchainData</a>-&gt;extent;</div>
+<div class="line"><span class="lineno">   75</span>        cmdBufferData.<a class="code hl_variable" href="../../d8/d4e/structcommand_buffer_info.html#a175a7ba6a8b09220456dfa2b26851037">vkObject</a>.setScissor(0, 1, &amp;scissor);</div>
+<div class="line"><span class="lineno">   76</span>        <span class="keyword">static</span> <a class="code hl_struct" href="../../df/d3a/structentity_id.html">vkMemoryId</a> bufferId = {(uint32_t)-1, (uint8_t)1};</div>
+<div class="line"><span class="lineno">   77</span>        <span class="keywordflow">if</span> (bufferId.<a class="code hl_variable" href="../../df/d3a/structentity_id.html#a67b238576b68f75f167a5ffcbcc84eb5">index</a> == (uint32_t)-1)</div>
+<div class="line"><span class="lineno">   78</span>        {</div>
+<div class="line"><span class="lineno">   79</span>            <a class="code hl_struct" href="../../da/d2b/structvulkan_render_engine_1_1memory_buffer.html">vulkanRenderEngine::memoryBuffer</a> info;</div>
+<div class="line"><span class="lineno">   80</span>            info.<a class="code hl_variable" href="../../da/d2b/structvulkan_render_engine_1_1memory_buffer.html#af5ec736523de59d76399a4f56fdc54cd">bufferSize</a> = <span class="keyword">sizeof</span>(<a class="code hl_variable" href="../../d6/d54/renderer_8cpp.html#a597b1a3bc5cc9965df0ec6ac96f72e02">vertices</a>[0]) * <a class="code hl_variable" href="../../d6/d54/renderer_8cpp.html#a597b1a3bc5cc9965df0ec6ac96f72e02">vertices</a>.size();</div>
+<div class="line"><span class="lineno">   81</span>            info.<a class="code hl_variable" href="../../da/d2b/structvulkan_render_engine_1_1memory_buffer.html#af8f04d4128fd64ce7ab50912789f5016">usage</a> = vk::BufferUsageFlagBits::eVertexBuffer;</div>
+<div class="line"><span class="lineno">   82</span>            info.<a class="code hl_variable" href="../../da/d2b/structvulkan_render_engine_1_1memory_buffer.html#a964416496561ddfb1b26a1d40a26b53a">sharingMode</a> = vk::SharingMode::eExclusive;</div>
+<div class="line"><span class="lineno">   83</span>            bufferId = <a class="code hl_function" href="../../d1/d2d/classvulkan_render_engine_1_1memory_manger.html#a84bb8a2131d75bea353ada35c042bd66">vulkanRenderEngine::memoryManger::mapBuffer</a>(info);</div>
+<div class="line"><span class="lineno">   84</span>            <a class="code hl_function" href="../../d1/d2d/classvulkan_render_engine_1_1memory_manger.html#ae40edffba61607ef3409a2212acdbdc4">vulkanRenderEngine::memoryManger::writeToBuffer</a>(bufferId, (<span class="keywordtype">void</span> *)<a class="code hl_variable" href="../../d6/d54/renderer_8cpp.html#a597b1a3bc5cc9965df0ec6ac96f72e02">vertices</a>.data());</div>
+<div class="line"><span class="lineno">   85</span>        }</div>
+<div class="line"><span class="lineno">   86</span> </div>
+<div class="line"><span class="lineno">   87</span>        vk::Buffer vertexBuffers[] = {<a class="code hl_function" href="../../d1/d2d/classvulkan_render_engine_1_1memory_manger.html#a77dc13d60a7148a53212d0ea4bf80a4d">vulkanRenderEngine::memoryManger::getBuffer</a>(bufferId).<a class="code hl_variable" href="../../da/d2b/structvulkan_render_engine_1_1memory_buffer.html#a609b89ca09db335999c14b71e09b9bc4">vkBuffer</a>};</div>
+<div class="line"><span class="lineno">   88</span>        vk::DeviceSize offsets[] = {0};</div>
+<div class="line"><span class="lineno">   89</span> </div>
+<div class="line"><span class="lineno">   90</span>        cmdBufferData.<a class="code hl_variable" href="../../d8/d4e/structcommand_buffer_info.html#a175a7ba6a8b09220456dfa2b26851037">vkObject</a>.bindVertexBuffers(0, 1, vertexBuffers, offsets);</div>
+<div class="line"><span class="lineno">   91</span>        cmdBufferData.<a class="code hl_variable" href="../../d8/d4e/structcommand_buffer_info.html#a175a7ba6a8b09220456dfa2b26851037">vkObject</a>.draw(<span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(<a class="code hl_variable" href="../../d6/d54/renderer_8cpp.html#a597b1a3bc5cc9965df0ec6ac96f72e02">vertices</a>.size()), 1, 0, 0);</div>
+<div class="line"><span class="lineno">   92</span> </div>
+<div class="line"><span class="lineno">   93</span>        cmdBufferData.<a class="code hl_variable" href="../../d8/d4e/structcommand_buffer_info.html#a175a7ba6a8b09220456dfa2b26851037">vkObject</a>.draw(3, 1, 0, 0);</div>
+<div class="line"><span class="lineno">   94</span>        cmdBufferData.<a class="code hl_variable" href="../../d8/d4e/structcommand_buffer_info.html#a175a7ba6a8b09220456dfa2b26851037">vkObject</a>.endRenderPass();</div>
+<div class="line"><span class="lineno">   95</span>        cmdBufferData.<a class="code hl_variable" href="../../d8/d4e/structcommand_buffer_info.html#a175a7ba6a8b09220456dfa2b26851037">vkObject</a>.end();</div>
+<div class="line"><span class="lineno">   96</span>    }</div>
+<div class="line"><span class="lineno">   97</span>    <span class="keywordflow">catch</span> (vk::SystemError err)</div>
+<div class="line"><span class="lineno">   98</span>    {</div>
+<div class="line"><span class="lineno">   99</span>        <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#a49230221e4f74e33e108a07ad4674aa6">LOG_FATAL</a>(<span class="stringliteral">&quot;failed to begin recording command buffer! &quot;</span> &lt;&lt; err.what());</div>
+<div class="line"><span class="lineno">  100</span>    }</div>
+<div class="line"><span class="lineno">  101</span><span class="preprocessor">#undef swapchainData</span></div>
+<div class="line"><span class="lineno">  102</span>}</div>
+<div class="ttc" id="aclassvulkan_render_engine_1_1command_buffers_html_afccfbf2ef721d00c1df8da99eaa12b70"><div class="ttname"><a href="../../df/d2e/classvulkan_render_engine_1_1command_buffers.html#afccfbf2ef721d00c1df8da99eaa12b70">vulkanRenderEngine::commandBuffers::getBuffer</a></div><div class="ttdeci">static commandBufferInfo * getBuffer(commandBufferId id)</div><div class="ttdoc">Get the vulkan command buffer data(includes the vulkan object)</div><div class="ttdef"><b>Definition:</b> commandBuffers.cpp:81</div></div>
+<div class="ttc" id="aclassvulkan_render_engine_1_1framebuffers_html_a143ba56db79c11da0b1a03b44424300a"><div class="ttname"><a href="../../d6/d2f/classvulkan_render_engine_1_1framebuffers.html#a143ba56db79c11da0b1a03b44424300a">vulkanRenderEngine::framebuffers::getFrameBuffer</a></div><div class="ttdeci">static frameBufferInfo * getFrameBuffer(framebufferId FBOId)</div><div class="ttdef"><b>Definition:</b> framebuffers.cpp:29</div></div>
+<div class="ttc" id="aclassvulkan_render_engine_1_1graphic_piplines_html_ad46e7883e2d15464dcb60d867ff7695c"><div class="ttname"><a href="../../dc/dc1/classvulkan_render_engine_1_1graphic_piplines.html#ad46e7883e2d15464dcb60d867ff7695c">vulkanRenderEngine::graphicPiplines::get</a></div><div class="ttdeci">static graphicsPipelineInfo * get(shaderId id)</div><div class="ttdef"><b>Definition:</b> graphicPiplines.cpp:47</div></div>
+<div class="ttc" id="aclassvulkan_render_engine_1_1memory_manger_html_a77dc13d60a7148a53212d0ea4bf80a4d"><div class="ttname"><a href="../../d1/d2d/classvulkan_render_engine_1_1memory_manger.html#a77dc13d60a7148a53212d0ea4bf80a4d">vulkanRenderEngine::memoryManger::getBuffer</a></div><div class="ttdeci">static memoryBuffer &amp; getBuffer(vkMemoryId id)</div><div class="ttdef"><b>Definition:</b> memoryManger.cpp:89</div></div>
+<div class="ttc" id="aclassvulkan_render_engine_1_1memory_manger_html_a84bb8a2131d75bea353ada35c042bd66"><div class="ttname"><a href="../../d1/d2d/classvulkan_render_engine_1_1memory_manger.html#a84bb8a2131d75bea353ada35c042bd66">vulkanRenderEngine::memoryManger::mapBuffer</a></div><div class="ttdeci">static vkMemoryId mapBuffer(memoryBuffer info)</div><div class="ttdef"><b>Definition:</b> memoryManger.cpp:26</div></div>
+<div class="ttc" id="aclassvulkan_render_engine_1_1memory_manger_html_ae40edffba61607ef3409a2212acdbdc4"><div class="ttname"><a href="../../d1/d2d/classvulkan_render_engine_1_1memory_manger.html#ae40edffba61607ef3409a2212acdbdc4">vulkanRenderEngine::memoryManger::writeToBuffer</a></div><div class="ttdeci">static void writeToBuffer(vkMemoryId id, void *buffer)</div><div class="ttdef"><b>Definition:</b> memoryManger.cpp:49</div></div>
+<div class="ttc" id="aclassvulkan_render_engine_1_1render_passes_html_a79f7dcdc762e153871d67763ad83cbbb"><div class="ttname"><a href="../../d1/dfe/classvulkan_render_engine_1_1render_passes.html#a79f7dcdc762e153871d67763ad83cbbb">vulkanRenderEngine::renderPasses::get</a></div><div class="ttdeci">static renderPassInfo * get(renderPassId id)</div><div class="ttdef"><b>Definition:</b> renderPasses.cpp:37</div></div>
+<div class="ttc" id="alog_8hpp_html_a49230221e4f74e33e108a07ad4674aa6"><div class="ttname"><a href="../../d4/d3d/log_8hpp.html#a49230221e4f74e33e108a07ad4674aa6">LOG_FATAL</a></div><div class="ttdeci">#define LOG_FATAL(toLog)</div><div class="ttdef"><b>Definition:</b> log.hpp:9</div></div>
+<div class="ttc" id="arenderer_8cpp_html_a2646006222e1b247e47ee9d216fd6f6c"><div class="ttname"><a href="../../d6/d54/renderer_8cpp.html#a2646006222e1b247e47ee9d216fd6f6c">swapchainData</a></div><div class="ttdeci">#define swapchainData</div></div>
+<div class="ttc" id="arenderer_8cpp_html_a597b1a3bc5cc9965df0ec6ac96f72e02"><div class="ttname"><a href="../../d6/d54/renderer_8cpp.html#a597b1a3bc5cc9965df0ec6ac96f72e02">vertices</a></div><div class="ttdeci">const std::vector&lt; Vertex &gt; vertices</div><div class="ttdef"><b>Definition:</b> renderer.cpp:29</div></div>
+<div class="ttc" id="astructcommand_buffer_info_html"><div class="ttname"><a href="../../d8/d4e/structcommand_buffer_info.html">commandBufferInfo</a></div><div class="ttdef"><b>Definition:</b> commandBuffersComponents.hpp:13</div></div>
+<div class="ttc" id="astructcommand_buffer_info_html_a175a7ba6a8b09220456dfa2b26851037"><div class="ttname"><a href="../../d8/d4e/structcommand_buffer_info.html#a175a7ba6a8b09220456dfa2b26851037">commandBufferInfo::vkObject</a></div><div class="ttdeci">vk::CommandBuffer vkObject</div><div class="ttdef"><b>Definition:</b> commandBuffersComponents.hpp:17</div></div>
+<div class="ttc" id="astructentity_id_html"><div class="ttname"><a href="../../df/d3a/structentity_id.html">entityId</a></div><div class="ttdef"><b>Definition:</b> core.hpp:6</div></div>
+<div class="ttc" id="astructentity_id_html_a67b238576b68f75f167a5ffcbcc84eb5"><div class="ttname"><a href="../../df/d3a/structentity_id.html#a67b238576b68f75f167a5ffcbcc84eb5">entityId::index</a></div><div class="ttdeci">uint32_t index</div><div class="ttdef"><b>Definition:</b> core.hpp:7</div></div>
+<div class="ttc" id="astructframe_buffer_info_html_a2fde831f61f36a8ad444e69271206bae"><div class="ttname"><a href="../../d6/df2/structframe_buffer_info.html#a2fde831f61f36a8ad444e69271206bae">frameBufferInfo::fbo</a></div><div class="ttdeci">vk::Framebuffer fbo</div><div class="ttdef"><b>Definition:</b> frameBuffersComponents.hpp:21</div></div>
+<div class="ttc" id="astructgraphics_pipeline_info_html_a93f038e0fe9ddb96a45d214577b0eaa9"><div class="ttname"><a href="../../d0/d48/structgraphics_pipeline_info.html#a93f038e0fe9ddb96a45d214577b0eaa9">graphicsPipelineInfo::graphicsPipeline</a></div><div class="ttdeci">vk::Pipeline graphicsPipeline</div><div class="ttdef"><b>Definition:</b> graphicsPipelineComponents.hpp:21</div></div>
+<div class="ttc" id="astructrender_pass_info_html_a720e89778e2a14644e06b701c149bfcc"><div class="ttname"><a href="../../dc/d73/structrender_pass_info.html#a720e89778e2a14644e06b701c149bfcc">renderPassInfo::vkObject</a></div><div class="ttdeci">vk::RenderPass vkObject</div><div class="ttdef"><b>Definition:</b> renderPassesComponents.hpp:15</div></div>
+<div class="ttc" id="astructvulkan_render_engine_1_1memory_buffer_html"><div class="ttname"><a href="../../da/d2b/structvulkan_render_engine_1_1memory_buffer.html">vulkanRenderEngine::memoryBuffer</a></div><div class="ttdef"><b>Definition:</b> memoryManger.hpp:13</div></div>
+<div class="ttc" id="astructvulkan_render_engine_1_1memory_buffer_html_a609b89ca09db335999c14b71e09b9bc4"><div class="ttname"><a href="../../da/d2b/structvulkan_render_engine_1_1memory_buffer.html#a609b89ca09db335999c14b71e09b9bc4">vulkanRenderEngine::memoryBuffer::vkBuffer</a></div><div class="ttdeci">vk::Buffer vkBuffer</div><div class="ttdef"><b>Definition:</b> memoryManger.hpp:19</div></div>
+<div class="ttc" id="astructvulkan_render_engine_1_1memory_buffer_html_a964416496561ddfb1b26a1d40a26b53a"><div class="ttname"><a href="../../da/d2b/structvulkan_render_engine_1_1memory_buffer.html#a964416496561ddfb1b26a1d40a26b53a">vulkanRenderEngine::memoryBuffer::sharingMode</a></div><div class="ttdeci">vk::SharingMode sharingMode</div><div class="ttdef"><b>Definition:</b> memoryManger.hpp:16</div></div>
+<div class="ttc" id="astructvulkan_render_engine_1_1memory_buffer_html_af5ec736523de59d76399a4f56fdc54cd"><div class="ttname"><a href="../../da/d2b/structvulkan_render_engine_1_1memory_buffer.html#af5ec736523de59d76399a4f56fdc54cd">vulkanRenderEngine::memoryBuffer::bufferSize</a></div><div class="ttdeci">size_t bufferSize</div><div class="ttdef"><b>Definition:</b> memoryManger.hpp:14</div></div>
+<div class="ttc" id="astructvulkan_render_engine_1_1memory_buffer_html_af8f04d4128fd64ce7ab50912789f5016"><div class="ttname"><a href="../../da/d2b/structvulkan_render_engine_1_1memory_buffer.html#af8f04d4128fd64ce7ab50912789f5016">vulkanRenderEngine::memoryBuffer::usage</a></div><div class="ttdeci">vk::Flags&lt; vk::BufferUsageFlagBits &gt; usage</div><div class="ttdef"><b>Definition:</b> memoryManger.hpp:15</div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/d54/renderer_8cpp_a8c20bc5ceb5156ce1a9d261166306af0_cgraph.png" border="0" usemap="#ad6/d54/renderer_8cpp_a8c20bc5ceb5156ce1a9d261166306af0_cgraph" alt=""/></div>
+<map name="ad6/d54/renderer_8cpp_a8c20bc5ceb5156ce1a9d261166306af0_cgraph" id="ad6/d54/renderer_8cpp_a8c20bc5ceb5156ce1a9d261166306af0_cgraph">
+<area shape="rect" title=" " alt="" coords="5,222,175,250"/>
+<area shape="rect" href="../../d1/dfe/classvulkan_render_engine_1_1render_passes.html#a79f7dcdc762e153871d67763ad83cbbb" title=" " alt="" coords="259,144,414,189"/>
+<area shape="rect" href="../../dc/dc1/classvulkan_render_engine_1_1graphic_piplines.html#ad46e7883e2d15464dcb60d867ff7695c" title=" " alt="" coords="258,5,415,50"/>
+<area shape="rect" href="../../df/d2e/classvulkan_render_engine_1_1command_buffers.html#afccfbf2ef721d00c1df8da99eaa12b70" title="Get the vulkan command buffer data(includes the vulkan object)" alt="" coords="232,213,441,258"/>
+<area shape="rect" href="../../d1/d2d/classvulkan_render_engine_1_1memory_manger.html#a77dc13d60a7148a53212d0ea4bf80a4d" title=" " alt="" coords="236,283,437,327"/>
+<area shape="rect" href="../../d6/d2f/classvulkan_render_engine_1_1framebuffers.html#a143ba56db79c11da0b1a03b44424300a" title=" " alt="" coords="225,75,448,119"/>
+<area shape="rect" href="../../d1/d2d/classvulkan_render_engine_1_1memory_manger.html#a84bb8a2131d75bea353ada35c042bd66" title=" " alt="" coords="232,421,441,466"/>
+<area shape="rect" href="../../d1/d2d/classvulkan_render_engine_1_1memory_manger.html#ae40edffba61607ef3409a2212acdbdc4" title=" " alt="" coords="223,352,450,397"/>
+<area shape="rect" href="../../dd/def/classrender_passes_components.html#a07682a2f902a440a08cc2d70e6ad4cd6" title=" " alt="" coords="511,144,700,189"/>
+<area shape="rect" href="../../dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d" title=" " alt="" coords="783,118,933,146"/>
+<area shape="rect" href="../../de/dcd/classgraphics_pipeline_components.html#ad5b2b0a4a6813b5358860cb1fd5bbba3" title=" " alt="" coords="500,5,710,50"/>
+<area shape="rect" href="../../d5/d0e/classcommand_buffers_components.html#a5598869f53b0463e17a35b4e58041c94" title=" " alt="" coords="498,213,712,258"/>
+<area shape="rect" href="../../dc/d2b/classentity_pool.html#a1bbde64e155748e51b6056d2bd25f6c9" title=" " alt="" coords="760,213,956,258"/>
+<area shape="rect" href="../../d0/d50/classrender_component_template.html#a3931193ea46d0be050c449c513ea09e5" title="Get the Component." alt="" coords="506,284,704,329"/>
+<area shape="rect" href="../../d6/d73/classframe_buffers_components.html#a2ed22ba1ae272adb7be816473af3b570" title=" " alt="" coords="511,75,699,119"/>
+<area shape="rect" href="../../dc/d2b/classentity_pool.html#ad4fb0df84c544348a0da6b6d0e20ccce" title=" " alt="" coords="523,429,687,456"/>
+<area shape="rect" href="../../d8/d58/classvulkan_render_engine_1_1device.html#ad535cddd3e084804c7a00d87c556a511" title=" " alt="" coords="528,356,682,401"/>
+<area shape="rect" href="../../d0/d50/classrender_component_template.html#a85a9adb0acd5781677f3b5cdc66846c0" title="Set the Component object(you might want to use getComponent to set the data)" alt="" coords="506,480,704,525"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/d54/renderer_8cpp_a8c20bc5ceb5156ce1a9d261166306af0_icgraph.png" border="0" usemap="#ad6/d54/renderer_8cpp_a8c20bc5ceb5156ce1a9d261166306af0_icgraph" alt=""/></div>
+<map name="ad6/d54/renderer_8cpp_a8c20bc5ceb5156ce1a9d261166306af0_icgraph" id="ad6/d54/renderer_8cpp_a8c20bc5ceb5156ce1a9d261166306af0_icgraph">
+<area shape="rect" title=" " alt="" coords="461,14,630,42"/>
+<area shape="rect" href="../../d4/d6f/classvulkan_render_engine_1_1renderer.html#a0a55635ff9afa4f709dbdbabf2648e55" title=" " alt="" coords="231,5,413,50"/>
+<area shape="rect" href="../../dc/df8/classvulkan_rendering.html#a28d4c14c15481768f607b8e4c8e6ab13" title=" " alt="" coords="5,14,183,42"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a597b1a3bc5cc9965df0ec6ac96f72e02" name="a597b1a3bc5cc9965df0ec6ac96f72e02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a597b1a3bc5cc9965df0ec6ac96f72e02">&#9670;&#160;</a></span>vertices</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt;<a class="el" href="../../d7/d62/struct_vertex.html">Vertex</a>&gt; vertices</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    {{0.0f, -0.5f}, {1.0f, 0.0f, 0.0f}},</div>
+<div class="line">    {{0.5f, 0.5f}, {0.0f, 1.0f, 0.0f}},</div>
+<div class="line">    {{-0.5f, 0.5f}, {0.0f, 0.0f, 1.0f}},</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

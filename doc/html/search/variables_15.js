@@ -1,10 +1,12 @@
 var searchData=
 [
-  ['x_0',['x',['../d9/d38/structmouse_move_data.html#a0581cd562d2666e475331986c7d083d8',1,'mouseMoveData::x()'],['../d4/d83/structsubsurface_info.html#a2ad0a7cade511fb27d8116b5c15d8fc2',1,'subsurfaceInfo::x()'],['../d0/d01/structsurface_spec.html#af7ead4fbd606eb246645379a98d5e0fb',1,'surfaceSpec::x()'],['../d8/dd4/structsub_surface_spec.html#a7bcd8deda393f9dbe0d4257516f0ac68',1,'subSurfaceSpec::x()'],['../db/dc1/structload_texture_requst.html#a9fd3965ae3f5b56b0dfc42ecd05664d2',1,'loadTextureRequst::x()']]],
-  ['xdgsurface_1',['xdgSurface',['../d9/dd4/structtoplevel_surface_info.html#a1943f5e4afe88df24ac6942979289647',1,'toplevelSurfaceInfo']]],
-  ['xdgtoplevel_2',['xdgToplevel',['../d9/dd4/structtoplevel_surface_info.html#adf5f6dd560426f74156b09e6d394b981',1,'toplevelSurfaceInfo']]],
-  ['xdgwmbase_3',['xdgWmBase',['../da/d41/classtoplevel.html#a927a366f08f0c678f1f885f68c7e1d28',1,'toplevel']]],
-  ['xkbcontext_4',['xkbContext',['../d1/d4e/classkeyboard.html#ade996edf35741d085527dbd8b5a813cb',1,'keyboard']]],
-  ['xkbkeymap_5',['xkbKeymap',['../d1/d4e/classkeyboard.html#a96e15caf5548ccfd24ba8ae578a5847d',1,'keyboard']]],
-  ['xkbstate_6',['xkbState',['../d1/d4e/classkeyboard.html#a842e3f68e592e04fbcec912d50279774',1,'keyboard']]]
+  ['w_0',['w',['../d7/d7e/structwindow_spec.html#aafef5bcda013d24414edd2d1c0d39e99',1,'windowSpec']]],
+  ['wasinit_1',['wasInit',['../d5/db4/classopen_g_l_rendering.html#ad7a0cee19ae45e4cdb99e14986f4264a',1,'openGLRendering']]],
+  ['width_2',['width',['../d6/df2/structframe_buffer_info.html#aa85a6761613ced97566c6e995ae52126',1,'frameBufferInfo::width()'],['../d7/dae/structtexture_info.html#a7e6a74bcb2e4d20be19c370dc5dcdc32',1,'textureInfo::width()'],['../db/dc1/structload_texture_requst.html#a6dc53260342097601b90e87cf2d16e75',1,'loadTextureRequst::width()'],['../de/d89/structswap_chain_info.html#ae19e53210dbf3f29d8e22956d2ead52b',1,'swapChainInfo::width()'],['../d8/dd4/structsub_surface_spec.html#a43872025fe118eef8bae7b26b1b0a670',1,'subSurfaceSpec::width()'],['../d0/d01/structsurface_spec.html#ad8c977eca9fe6456518c520d542cb6fc',1,'surfaceSpec::width()'],['../d9/dd4/structtoplevel_surface_info.html#aeedd0d587eb9e82caa02d64c037f8ad3',1,'toplevelSurfaceInfo::width()'],['../d9/d9f/structsurface_data.html#a12d4e53ad4e635fc65b51218aaa053ec',1,'surfaceData::width()'],['../d4/d95/structwindow_resize_data.html#ac7167b420da94c418d134ce5e4389180',1,'windowResizeData::width()'],['../db/d9e/structgpu_render_data.html#aa7ea65dbb169366ce9bee420484083d4',1,'gpuRenderData::width()'],['../d4/d29/structcpu_render_data.html#a9e8bb3fc8dd5cd4b494c9ee084059e8f',1,'cpuRenderData::width()']]],
+  ['windowsinfo_3',['windowsInfo',['../de/d8e/classlinux_window_a_p_i.html#a064ede46a2ab373580d73db3ae874854',1,'linuxWindowAPI']]],
+  ['windowspool_4',['windowsPool',['../de/d8e/classlinux_window_a_p_i.html#a8928064958bf92bc396395c5e60ec3be',1,'linuxWindowAPI']]],
+  ['wl_5fseat_5flistener_5',['wl_seat_listener',['../d5/d3d/classseat.html#a3159ee89e63aef1a63b2a73cee6fe89a',1,'seat']]],
+  ['wlkeyboardlistener_6',['wlKeyboardListener',['../d1/d4e/classkeyboard.html#ac5abaa0a89ae0f4a72c9c0adb67d8107',1,'keyboard']]],
+  ['wlpointerlistener_7',['wlPointerListener',['../d4/df3/classpointer.html#abee9e244abd82bac8edcef3afc719e3f',1,'pointer']]],
+  ['wlrlayershell_8',['wlrLayerShell',['../d2/d36/classlayer.html#abf843dd5f8993617c2c0c8c485be4ece',1,'layer']]]
 ];

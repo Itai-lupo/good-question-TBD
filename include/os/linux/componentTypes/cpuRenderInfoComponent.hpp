@@ -31,7 +31,7 @@ struct cpuRenderInfo
     uint32_t *buffer;
     int bufferSize;
 
-    std::thread *renderThread;
+    std::thread *renderThread = nullptr;
 
     bool renderFinshedBool;
 
@@ -67,7 +67,7 @@ class cpuRenderInfoComponent
 
         void deleteComponent(entityId id);
         cpuRenderInfo *getComponent(entityId id);
-        void setComponent(entityId id, cpuRenderInfo buffer);
+        void setComponent(entityId id, cpuRenderInfo& buffer);
         std::vector<cpuRenderInfo>& getData()
         {
             return data;

@@ -1,15 +1,25 @@
 <map id="vulkanRenderEngine::renderer::close" name="vulkanRenderEngine::renderer::close">
-<area shape="rect" id="node1" title=" " alt="" coords="5,229,160,269"/>
-<area shape="rect" id="node2" href="$db/de4/classvulkan_render_engine_1_1debug.html#ac0af4999c2414b3489c7d801b4e9b5ff" title=" " alt="" coords="216,69,371,109"/>
-<area shape="rect" id="node3" href="$df/dbb/classvulkan_render_engine_1_1instance.html#a1263cb678398e7d88e58307da4823baa" title=" " alt="" coords="447,5,617,45"/>
-<area shape="rect" id="node5" href="$d0/d62/classvulkan_render_engine_1_1swapchain.html#a359a2d10963a6a0f50f6040be51b3588" title=" " alt="" coords="216,133,371,173"/>
-<area shape="rect" id="node7" href="$d6/d2f/classvulkan_render_engine_1_1framebuffers.html#a3ff58e7d70fe31d5674d67be6c351efd" title=" " alt="" coords="215,197,371,237"/>
-<area shape="rect" id="node9" href="$dc/dc1/classvulkan_render_engine_1_1graphic_piplines.html#a81c1c87e267beab277ad82ff5ad4ef55" title=" " alt="" coords="208,261,379,301"/>
-<area shape="rect" id="node11" href="$d8/d58/classvulkan_render_engine_1_1device.html#a9654dc01a872bbd091089027853980bb" title=" " alt="" coords="216,325,371,365"/>
-<area shape="rect" id="node12" href="$df/dbb/classvulkan_render_engine_1_1instance.html#aca215bf63a91e06b72aa62054faffd04" title=" " alt="" coords="216,389,371,429"/>
-<area shape="rect" id="node13" href="$d1/dba/classvk_surface_components.html#a248841a79777750512c30eef69c89de2" title=" " alt="" coords="209,453,378,493"/>
-<area shape="rect" id="node4" href="$df/dbb/classvulkan_render_engine_1_1instance.html#a2a8dfdbaae2a7ba9fd4da2b91a113c43" title=" " alt="" coords="453,69,611,109"/>
-<area shape="rect" id="node6" href="$d1/d1a/classswapchains_components.html#a16df41214ffaee480d1e052b71c359cc" title=" " alt="" coords="442,133,622,173"/>
-<area shape="rect" id="node8" href="$d6/d73/classframe_buffers_components.html#a161361c64c74ec267621d92ffb4ec0d3" title=" " alt="" coords="437,197,627,237"/>
-<area shape="rect" id="node10" href="$de/dcd/classgraphics_pipeline_components.html#a81f6e7032c861c034b964c6077ffeea3" title=" " alt="" coords="427,261,637,301"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,485,160,530"/>
+<area shape="rect" id="node2" href="$db/de4/classvulkan_render_engine_1_1debug.html#ac0af4999c2414b3489c7d801b4e9b5ff" title=" " alt="" coords="222,75,376,119"/>
+<area shape="rect" id="node3" href="$df/dbb/classvulkan_render_engine_1_1instance.html#a1263cb678398e7d88e58307da4823baa" title=" " alt="" coords="461,5,629,50"/>
+<area shape="rect" id="node5" href="$d0/d62/classvulkan_render_engine_1_1swapchain.html#a359a2d10963a6a0f50f6040be51b3588" title=" " alt="" coords="222,157,376,202"/>
+<area shape="rect" id="node7" href="$d8/d58/classvulkan_render_engine_1_1device.html#ad535cddd3e084804c7a00d87c556a511" title=" " alt="" coords="468,213,622,258"/>
+<area shape="rect" id="node8" href="$df/d2e/classvulkan_render_engine_1_1command_buffers.html#a5a7526d43d655249f51890165fdfa492" title="destroy all the command pools and the command buffers, all command pools id will be deleted but the c..." alt="" coords="208,347,390,391"/>
+<area shape="rect" id="node10" href="$d6/d2f/classvulkan_render_engine_1_1framebuffers.html#a3ff58e7d70fe31d5674d67be6c351efd" title=" " alt="" coords="221,416,377,461"/>
+<area shape="rect" id="node12" href="$dc/dc1/classvulkan_render_engine_1_1graphic_piplines.html#a81c1c87e267beab277ad82ff5ad4ef55" title=" " alt="" coords="214,485,384,530"/>
+<area shape="rect" id="node14" href="$d1/dfe/classvulkan_render_engine_1_1render_passes.html#a837e4d099e9743edb22e81e80123ab42" title=" " alt="" coords="220,763,378,807"/>
+<area shape="rect" id="node16" href="$d7/d1b/classvulkan_render_engine_1_1textures.html#a86b5480bf9c8d262934117a3b266610d" title=" " alt="" coords="222,555,376,599"/>
+<area shape="rect" id="node17" href="$d7/d26/classvulkan_render_engine_1_1uniform_buffers.html#ac4b583bbd7f5317519c5e736ed6f8439" title=" " alt="" coords="215,624,383,669"/>
+<area shape="rect" id="node18" href="$d6/da7/classvulkan_render_engine_1_1vaos.html#a72071969be467de54d86ef53266a4475" title=" " alt="" coords="222,693,376,738"/>
+<area shape="rect" id="node19" href="$d1/d2d/classvulkan_render_engine_1_1memory_manger.html#a3da7e259d5c915298c8951f2ce98e74b" title=" " alt="" coords="211,277,387,322"/>
+<area shape="rect" id="node21" href="$d8/d58/classvulkan_render_engine_1_1device.html#a9654dc01a872bbd091089027853980bb" title=" " alt="" coords="222,832,376,877"/>
+<area shape="rect" id="node22" href="$df/dbb/classvulkan_render_engine_1_1instance.html#aca215bf63a91e06b72aa62054faffd04" title=" " alt="" coords="222,901,376,946"/>
+<area shape="rect" id="node23" href="$d1/dba/classvk_surface_components.html#a248841a79777750512c30eef69c89de2" title=" " alt="" coords="215,971,383,1015"/>
+<area shape="rect" id="node4" href="$df/dbb/classvulkan_render_engine_1_1instance.html#a2a8dfdbaae2a7ba9fd4da2b91a113c43" title=" " alt="" coords="467,75,624,119"/>
+<area shape="rect" id="node6" href="$d1/d1a/classswapchains_components.html#a16df41214ffaee480d1e052b71c359cc" title=" " alt="" coords="456,144,635,189"/>
+<area shape="rect" id="node9" href="$d5/d0e/classcommand_buffers_components.html#ae2d4c1c6c9d1812fb328d786396617ef" title=" " alt="" coords="438,352,652,397"/>
+<area shape="rect" id="node11" href="$d6/d73/classframe_buffers_components.html#a161361c64c74ec267621d92ffb4ec0d3" title=" " alt="" coords="451,421,639,466"/>
+<area shape="rect" id="node13" href="$de/dcd/classgraphics_pipeline_components.html#a81f6e7032c861c034b964c6077ffeea3" title=" " alt="" coords="440,491,650,535"/>
+<area shape="rect" id="node15" href="$dd/def/classrender_passes_components.html#a9f63ab40a2a9483007d5fe764f34ff3e" title=" " alt="" coords="451,763,640,807"/>
+<area shape="rect" id="node20" href="$d0/d50/classrender_component_template.html#a20c4c2e21b43bab7b916606086847797" title="Get the Data start raw pointer used to itrater over all the obejects." alt="" coords="446,283,644,327"/>
 </map>

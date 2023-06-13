@@ -3,9 +3,103 @@
 #include "debug.hpp"
 #include "device.hpp"
 #include "swapchain.hpp"
-#include "graphicPiplines.hpp"
-#include "framebuffers.hpp"
-#include "commandBuffers.hpp"
+#include "queueFamilys.hpp"
+#include "memoryManger.hpp"
+
+#include <Tracy.hpp>
+#include <sys/prctl.h>
+#include <glm/glm.hpp>
+
+struct Vertex
+{
+    glm::vec2 pos;
+    glm::vec3 color;
+
+    static VkVertexInputBindingDescription getBindingDescription()
+    {
+        VkVertexInputBindingDescription bindingDescription{};
+        bindingDescription.binding = 0;
+        bindingDescription.stride = sizeof(Vertex);
+        bindingDescription.inputRate = VK_VERTEX_INPUT_RATE_VERTEX;
+
+        return bindingDescription;
+    }
+};
+
+const std::vector<Vertex> vertices = {
+    {{0.0f, -0.5f}, {1.0f, 0.0f, 0.0f}},
+    {{0.5f, 0.5f}, {0.0f, 1.0f, 0.0f}},
+    {{-0.5f, 0.5f}, {0.0f, 0.0f, 1.0f}},
+};
+
+void defaultRenderCallback(vkSurfaceId surfaceId, commandBufferId cmdId, uint32_t imageIndex)
+{
+    commandBufferInfo cmdBufferData = *vulkanRenderEngine::commandBuffers::getBuffer(cmdId);
+#define swapchainData vulkanRenderEngine::swapchain::getSwapChain(surfaceId)
+
+    try
+    {
+        vk::CommandBufferBeginInfo beginInfo;
+        cmdBufferData.vkObject.begin(beginInfo);
+        vk::RenderPassBeginInfo renderPassCreateInfo{};
+
+        renderPassCreateInfo.renderPass = vulkanRenderEngine::renderPasses::get(swapchainData->renderPass)->vkObject;
+
+        if (vulkanRenderEngine::framebuffers::getFrameBuffer(swapchainData->swapChainFramebuffers[imageIndex]))
+            renderPassCreateInfo.framebuffer = vulkanRenderEngine::framebuffers::getFrameBuffer(swapchainData->swapChainFramebuffers[imageIndex])->fbo;
+        else
+            return;
+        renderPassCreateInfo.renderArea.offset = vk::Offset2D{0, 0};
+        renderPassCreateInfo.renderArea.extent = swapchainData->extent;
+
+        vk::ClearValue clearColor{std::array<float, 4>{{0.0f, 0.0f, 0.0f, 1.0f}}};
+        renderPassCreateInfo.clearValueCount = 1;
+        renderPassCreateInfo.pClearValues = &clearColor;
+
+        cmdBufferData.vkObject.beginRenderPass(renderPassCreateInfo, vk::SubpassContents::eInline);
+
+        cmdBufferData.vkObject.bindPipeline(vk::PipelineBindPoint::eGraphics, vulkanRenderEngine::graphicPiplines::get(swapchainData->graphicPiplineId)->graphicsPipeline);
+
+        vk::Viewport viewport{};
+        viewport.x = 0.0f;
+        viewport.y = 0.0f;
+        viewport.width = static_cast<float>(swapchainData->extent.width);
+        viewport.height = static_cast<float>(swapchainData->extent.height);
+        viewport.minDepth = 0.0f;
+        viewport.maxDepth = 1.0f;
+        cmdBufferData.vkObject.setViewport(0, 1, &viewport);
+
+        vk::Rect2D scissor{};
+        scissor.offset = vk::Offset2D{0, 0};
+        scissor.extent = swapchainData->extent;
+        cmdBufferData.vkObject.setScissor(0, 1, &scissor);
+        static vkMemoryId bufferId = {(uint32_t)-1, (uint8_t)1};
+        if (bufferId.index == (uint32_t)-1)
+        {
+            vulkanRenderEngine::memoryBuffer info;
+            info.bufferSize = sizeof(vertices[0]) * vertices.size();
+            info.usage = vk::BufferUsageFlagBits::eVertexBuffer;
+            info.sharingMode = vk::SharingMode::eExclusive;
+            bufferId = vulkanRenderEngine::memoryManger::mapBuffer(info);
+            vulkanRenderEngine::memoryManger::writeToBuffer(bufferId, (void *)vertices.data());
+        }
+
+        vk::Buffer vertexBuffers[] = {vulkanRenderEngine::memoryManger::getBuffer(bufferId).vkBuffer};
+        vk::DeviceSize offsets[] = {0};
+
+        cmdBufferData.vkObject.bindVertexBuffers(0, 1, vertexBuffers, offsets);
+        cmdBufferData.vkObject.draw(static_cast<uint32_t>(vertices.size()), 1, 0, 0);
+
+        cmdBufferData.vkObject.draw(3, 1, 0, 0);
+        cmdBufferData.vkObject.endRenderPass();
+        cmdBufferData.vkObject.end();
+    }
+    catch (vk::SystemError err)
+    {
+        LOG_FATAL("failed to begin recording command buffer! " << err.what());
+    }
+#undef swapchainData
+}
 
 namespace vulkanRenderEngine
 {
@@ -16,20 +110,29 @@ namespace vulkanRenderEngine
         instance::create();
         debug::setup();
         swapchain::init(vulkanWindosPool);
-        graphicPiplines::init(new entityPool(256));
+        memoryManger::init();
     }
 
     void renderer::close()
     {
-        if(deviceWasCreated)
+        if (deviceWasCreated)
         {
-            framebuffers::close();
+            isAlive = false;
+            drawThread->join();
+            device::getDevice().waitIdle();
+            commandBuffers::close();
+            textures::close();
+            vaos::close();
             graphicPiplines::close();
+            uniformBuffers::close();
+            renderPasses::close();
             swapchain::close();
+            framebuffers::close();
+            memoryManger::close();
             device::destroy();
         }
 
-        for(auto& s: surfaces->getData())
+        for (auto &s : surfaces->getData())
             instance::getInstance().destroySurfaceKHR(s);
         debug::close();
         instance::destroy();
@@ -40,15 +143,9 @@ namespace vulkanRenderEngine
 
     vkSurfaceId renderer::createSurface(vk::SurfaceKHR surfaceToCreate, int width, int height)
     {
-        if(!deviceWasCreated)
+        if (!deviceWasCreated)
         {
-            device::create(surfaceToCreate);
-            commandBuffers::init(new entityPool(200));
-            LOG_INFO("vulkan renderer init successfully")
-            drawThread = new std::thread(drawLoop);
-            presentThread = new std::thread(presentLoop);
-            deviceWasCreated = true;
-
+            initDevice(surfaceToCreate);
         }
 
         vkSurfaceId id = vulkanWindosPool->allocEntity();
@@ -56,8 +153,6 @@ namespace vulkanRenderEngine
         surfaces->setComponent(id, surfaceToCreate);
         swapchain::create(id, surfaceToCreate, width, height);
 
-
-        //need to move to the shaders manger and rename it to graphics pipline manger + extend it's api to acommdate that
         renderPassInfo renderPassData;
         renderPassData.format = swapchain::getSwapChain(id)->formatToUse.format;
         renderPassId renderPass = renderPasses::create(renderPassData);
@@ -66,61 +161,57 @@ namespace vulkanRenderEngine
         graphicsPipelineData.fragShaderCodePath = "assets/shaders/fragment/vulkanPipline.frag.spv";
         graphicsPipelineData.vertShaderCodePath = "assets/shaders/vertex/vulkanPipline.vert.spv";
         graphicsPipelineData.renderPassId = renderPass;
-        shaderId graphicPiplineId =  graphicPiplines::create(graphicsPipelineData);
-   
-        for(int i = 0; i < swapchain::getSwapChain(id)->swapChainImagesViews.size(); i++)
+
+        vao vaoInfo;
+        vaoInfo.attributes->push_back({0, 0, offsetof(Vertex, pos), vk::Format::eR32G32Sfloat});
+        vaoInfo.attributes->push_back({0, 1, offsetof(Vertex, color), vk::Format::eR32G32B32Sfloat});
+        vaoInfo.bindings->push_back({sizeof(Vertex), false});
+        graphicsPipelineData.vao = vaos::createVAO(vaoInfo);
+
+        shaderId graphicPiplineId = graphicPiplines::create(graphicsPipelineData);
+
+        for (int i = 0; i < swapchain::getSwapChain(id)->swapChainImagesViews.size(); i++)
         {
             swapchain::getSwapChain(id)->swapChainFramebuffers.push_back(
-            framebuffers::createFrameBuffer(
-                renderPass, 
-                &swapchain::getSwapChain(id)->swapChainImagesViews[i],
-                width,
-                height));
+                framebuffers::createFrameBuffer(
+                    renderPass,
+                    &swapchain::getSwapChain(id)->swapChainImagesViews[i],
+                    width,
+                    height));
         }
 
-        
-
-        
-
         vk::SemaphoreCreateInfo semaphoreInfo{};
-
         vk::FenceCreateInfo fenceInfo{};
         fenceInfo.flags = vk::FenceCreateFlagBits::eSignaled;
-
         try
         {
             swapchain::getSwapChain(id)->imageAvailableSemaphore = device::getDevice().createSemaphore(semaphoreInfo);
             swapchain::getSwapChain(id)->renderFinishedSemaphore = device::getDevice().createSemaphore(semaphoreInfo);
             swapchain::getSwapChain(id)->inFlightFence = device::getDevice().createFence(fenceInfo);
-            
         }
-        catch(vk::SystemError err)
+        catch (vk::SystemError err)
         {
             LOG_ERROR("failed to create semaphores!");
         }
-    
+
         commandBufferInfo cmdBufferData;
-        
+
+        cmdBufferData.level = vk::CommandBufferLevel::ePrimary;
+        cmdBufferData.poolId = poolId;
         swapchain::getSwapChain(id)->renderPass = renderPass;
         swapchain::getSwapChain(id)->graphicPiplineId = graphicPiplineId;
-        swapchain::getSwapChain(id)->cmdId = commandBuffers::create(cmdBufferData);
         swapchain::getSwapChain(id)->complete = true;
-        
-        drawRequsts.enqueue({id});
 
+        drawRequsts.enqueue({id, commandBuffers::createBuffer(cmdBufferData), defaultRenderCallback});
         return id;
     }
-    
 
     void renderer::destroySurface()
     {
-
     }
 
-
-    void renderer::renderRequest(const renderRequestInfo& dataToRender)
+    void renderer::renderRequest(const renderRequestInfo &dataToRender)
     {
-
     }
 
     bool renderer::isSurfaceValid(vkSurfaceId id)
@@ -128,178 +219,154 @@ namespace vulkanRenderEngine
         return vulkanWindosPool->isIdValid(id);
     }
 
-
     void renderer::drawLoop()
     {
-        while (true)
+        std::string thradNameA = "vulkan rendering";
+        tracy::SetThreadName(thradNameA.c_str());
+        prctl(PR_SET_NAME, thradNameA.c_str());
+        isAlive = true;
+
+        while (isAlive)
         {
-            drawRequst temp = drawRequsts.dequeue();
-            swapChainInfo *swapchainData =  swapchain::getSwapChain(temp.surfaceId);
-            
-            device::getDevice().waitForFences(1, &swapchainData->inFlightFence, VK_TRUE, UINT64_MAX);
-
-            auto [res, imageIndex] = device::getDevice().acquireNextImageKHR(swapchainData->swapChain, UINT64_MAX, swapchainData->imageAvailableSemaphore, VK_NULL_HANDLE);
-            if (res == vk::Result::eErrorOutOfDateKHR ) {
-                recreateSwapChain(swapchainData->id);
-                break;
-
-            } else if (res !=  vk::Result::eSuccess && res !=  vk::Result::eSuboptimalKHR) {
-                LOG_FATAL("failed to submit draw command buffer!");
-            }
-
-            device::getDevice().resetFences(1, &swapchainData->inFlightFence);
-            commandBufferInfo cmdBufferData = *commandBuffers::get(swapchainData->cmdId);
-
-            try {
-                vk::CommandBufferBeginInfo beginInfo;
-                cmdBufferData.vkObject.begin(beginInfo);
-                vk::RenderPassBeginInfo renderPassCreateInfo{};
-                
-                renderPassCreateInfo.renderPass = renderPasses::get(swapchainData->renderPass)->vkObject;
-                renderPassCreateInfo.framebuffer = framebuffers::getFrameBuffer(swapchainData->swapChainFramebuffers[imageIndex])->fbo;
-
-                renderPassCreateInfo.renderArea.offset = vk::Offset2D{0, 0};
-                renderPassCreateInfo.renderArea.extent = swapchainData->extent;
-
-                vk::ClearValue clearColor{ std::array<float, 4>{{0.0f, 0.0f, 0.0f, 1.0f}}};
-                renderPassCreateInfo.clearValueCount = 1;
-                renderPassCreateInfo.pClearValues = &clearColor;
-
-                
-
-                cmdBufferData.vkObject.beginRenderPass(renderPassCreateInfo, vk::SubpassContents::eInline);
-
-                cmdBufferData.vkObject.bindPipeline(vk::PipelineBindPoint::eGraphics, graphicPiplines::get(swapchainData->graphicPiplineId)->graphicsPipeline);
-
-                vk::Viewport viewport{};
-                viewport.x = 0.0f;
-                viewport.y = 0.0f;
-                viewport.width = static_cast<float>(swapchainData->extent.width);
-                viewport.height = static_cast<float>(swapchainData->extent.height);
-                viewport.minDepth = 0.0f;
-                viewport.maxDepth = 1.0f;
-                cmdBufferData.vkObject.setViewport(0, 1, &viewport);
-
-                vk::Rect2D scissor{};
-                scissor.offset = vk::Offset2D{0, 0};
-                scissor.extent = swapchainData->extent;
-                cmdBufferData.vkObject.setScissor(0, 1, &scissor);
-                cmdBufferData.vkObject.draw(3, 1, 0, 0);
-                cmdBufferData.vkObject.endRenderPass();
-                cmdBufferData.vkObject.end();
-            }
-            catch (vk::SystemError err) {
-                LOG_FATAL("failed to begin recording command buffer! " << err.what());
-            }
-
-            vk::SubmitInfo submitInfo;
-
-            vk::Semaphore waitSemaphores[] = {swapchainData->imageAvailableSemaphore};
-
-            vk::PipelineStageFlags waitStages[] = { vk::PipelineStageFlagBits::eColorAttachmentOutput};
-            submitInfo.waitSemaphoreCount = 1;
-            submitInfo.pWaitSemaphores = waitSemaphores;
-            submitInfo.pWaitDstStageMask = waitStages;
-            submitInfo.commandBufferCount = 1;
-            submitInfo.pCommandBuffers = &cmdBufferData.vkObject;
-            
-            vk::Semaphore signalSemaphores[] = {swapchainData->renderFinishedSemaphore};
-            submitInfo.signalSemaphoreCount = 1;
-            submitInfo.pSignalSemaphores = signalSemaphores;
-            try {
-                vk::Result  r = device::getGraphicsQueue().submit(1, &submitInfo, swapchainData->inFlightFence);
-                LOG_INFO(vk::to_string(r) << ", " << temp.surfaceId.index  << ", " << (int)temp.surfaceId.gen);
-                presentRequsts.enqueue({temp.surfaceId, submitInfo, imageIndex});
-            }
-            catch (vk::SystemError err) {
-                LOG_FATAL("failed to submit draw command buffer!" << err.what());
-            }
-
+            ZoneScoped;
+            handleAllTranferRequestes();
+            handleRenderRequest();
+            handlePresentRequset();
         }
-
     }
 
-    void renderer::presentLoop()
+    void renderer::handleAllTranferRequestes()
     {
-        while (true)
-        {
-            presentRequst temp = presentRequsts.dequeue();
-            device::getDevice().waitIdle();
-
-            swapChainInfo *swapchainData = swapchain::getSwapChain(temp.surfaceId);
-            vk::SubmitInfo submitInfo = temp.submitInfo;
-
-            vk::Semaphore signalSemaphores[] = {swapchainData->renderFinishedSemaphore};
-
-            vk::PresentInfoKHR presentInfo{};
-            presentInfo.waitSemaphoreCount = 1;
-            presentInfo.pWaitSemaphores = signalSemaphores;
-
-            if(swapchainData == nullptr)
-            {
-                break;
-            }
-
-            presentInfo.swapchainCount = 1;
-            presentInfo.pSwapchains = &swapchainData->swapChain;
-            presentInfo.pImageIndices = &temp.imageIndex;
-            
-            vk::Result  r = device::getPresentQueue().presentKHR(&presentInfo);
-            LOG_INFO(vk::to_string(r) << ", " << temp.surfaceId.index  << ", " << (int)temp.surfaceId.gen);
-            if (r == vk::Result::eErrorOutOfDateKHR || r ==  vk::Result::eSuboptimalKHR || swapchainData->outOfData) {
-                recreateSwapChain(swapchainData->id);
-                
-            } else if (r !=  vk::Result::eSuccess) {
-                LOG_FATAL("failed to submit draw command buffer!");
-            }
-            
-            drawRequsts.enqueue({temp.surfaceId});
-
-
-        }
+        ZoneScoped;
     }
 
+    void renderer::handleRenderRequest()
+    {
+        ZoneScoped;
+        drawRequst temp = drawRequsts.dequeue();
+        swapChainInfo *swapchainData = swapchain::getSwapChain(temp.surfaceId);
+        uint64_t tempPtr = (uint64_t)swapchainData;
+        device::getDevice().waitForFences(1, &swapchainData->inFlightFence, VK_TRUE, UINT64_MAX);
+        swapchainData = swapchain::getSwapChain(temp.surfaceId);
+
+        auto [res, imageIndex] = device::getDevice().acquireNextImageKHR(swapchainData->swapChain, UINT64_MAX, swapchainData->imageAvailableSemaphore, VK_NULL_HANDLE);
+        if (res == vk::Result::eErrorOutOfDateKHR)
+        {
+            recreateSwapChain(swapchainData->id);
+        }
+        else if (res != vk::Result::eSuccess && res != vk::Result::eSuboptimalKHR)
+        {
+            LOG_FATAL("failed to submit draw command buffer!");
+        }
+
+        device::getDevice().resetFences(1, &swapchainData->inFlightFence);
+        temp.callback(temp.surfaceId, temp.cmdId, imageIndex);
+
+        commandBufferInfo cmdBufferData = *commandBuffers::getBuffer(temp.cmdId);
+        vk::Semaphore waitSemaphores[] = {swapchainData->imageAvailableSemaphore};
+        vk::PipelineStageFlags waitStages[] = {vk::PipelineStageFlagBits::eColorAttachmentOutput};
+
+        vk::SubmitInfo submitInfo;
+        submitInfo.waitSemaphoreCount = 1;
+        submitInfo.pWaitSemaphores = waitSemaphores;
+        submitInfo.pWaitDstStageMask = waitStages;
+        submitInfo.commandBufferCount = 1;
+        submitInfo.pCommandBuffers = &cmdBufferData.vkObject;
+
+        vk::Semaphore signalSemaphores[] = {swapchainData->renderFinishedSemaphore};
+        submitInfo.signalSemaphoreCount = 1;
+        submitInfo.pSignalSemaphores = signalSemaphores;
+        try
+        {
+            ZoneScoped;
+
+            vk::Result r = device::getGraphicsQueue().submit(1, &submitInfo, swapchainData->inFlightFence);
+        }
+        catch (vk::SystemError err)
+        {
+            LOG_FATAL("failed to submit draw command buffer!" << err.what());
+        }
+        presentRequsts.enqueue({temp.surfaceId, temp.cmdId, temp.callback, submitInfo, imageIndex});
+    }
+
+    void renderer::handlePresentRequset()
+    {
+        ZoneScoped;
+        auto [id, cmdId, callback, submitInfo, imageIndex] = presentRequsts.dequeue();
+        swapChainInfo *swapchainData = swapchain::getSwapChain(id);
+        vk::Semaphore signalSemaphores[] = {swapchainData->renderFinishedSemaphore};
+
+        vk::PresentInfoKHR presentInfo{};
+        presentInfo.waitSemaphoreCount = 1;
+        presentInfo.pWaitSemaphores = signalSemaphores;
+        vk::SwapchainKHR swapChain[] = {swapchainData->swapChain};
+        presentInfo.swapchainCount = 1;
+        presentInfo.pSwapchains = swapChain;
+        presentInfo.pImageIndices = &imageIndex;
+        {
+            ZoneScoped;
+            vk::Result r = device::getPresentQueue().presentKHR(&presentInfo);
+            if (r == vk::Result::eErrorOutOfDateKHR || r == vk::Result::eSuboptimalKHR || swapchainData->outOfData)
+            {
+                recreateSwapChain(id);
+            }
+            else if (r != vk::Result::eSuccess)
+            {
+                LOG_FATAL("failed to submit draw command buffer!");
+            }
+        }
+
+        drawRequsts.enqueue({id, cmdId, callback});
+    }
 
     void renderer::resize(vkSurfaceId id, int width, int height)
     {
-        if(swapchain::swapchainsInfo->getComponent(id))
+        if (swapchain::swapchainsInfo->getComponent(id))
         {
             swapchain::swapchainsInfo->getComponent(id)->outOfData = true;
-            swapchain::swapchainsInfo->getComponent(id)->extent.height = height;
-            swapchain::swapchainsInfo->getComponent(id)->extent.width =  width;
+            swapchain::swapchainsInfo->getComponent(id)->height = height;
+            swapchain::swapchainsInfo->getComponent(id)->width = width;
         }
     }
 
     void renderer::recreateSwapChain(vkSurfaceId id)
     {
-        LOG_INFO(id.index << ", " << id.gen);
         device::getDevice().waitIdle();
         swapChainInfo temp = *swapchain::getSwapChain(id);
-        
-        swapchain::destroy(id);
-        
-        swapchain::create(id, surfaces->getComponent(id), temp.extent.width, temp.extent.height);
-        for(int i = 0; i < swapchain::getSwapChain(id)->swapChainImagesViews.size(); i++)
+
+        swapchain::resize(id, surfaces->getComponent(id), temp.width, temp.height);
+        for (int i = 0; i < swapchain::getSwapChain(id)->swapChainImagesViews.size(); i++)
         {
             swapchain::getSwapChain(id)->swapChainFramebuffers.push_back(
-            framebuffers::createFrameBuffer(
-                temp.renderPass, 
-                &swapchain::getSwapChain(id)->swapChainImagesViews[i],
-                temp.extent.width,
-                temp.extent.height));
+                framebuffers::createFrameBuffer(
+                    temp.renderPass,
+                    &swapchain::getSwapChain(id)->swapChainImagesViews[i],
+                    temp.width,
+                    temp.height));
         }
-
-        
 
         swapchain::getSwapChain(id)->imageAvailableSemaphore = temp.imageAvailableSemaphore;
         swapchain::getSwapChain(id)->renderFinishedSemaphore = temp.renderFinishedSemaphore;
         swapchain::getSwapChain(id)->inFlightFence = temp.inFlightFence;
-                
+
         swapchain::getSwapChain(id)->renderPass = temp.renderPass;
         swapchain::getSwapChain(id)->graphicPiplineId = temp.graphicPiplineId;
         swapchain::getSwapChain(id)->cmdId = temp.cmdId;
+        swapchain::getSwapChain(id)->outOfData = false;
         swapchain::getSwapChain(id)->complete = true;
-
     }
 
+    void renderer::initDevice(vk::SurfaceKHR surfaceToCreate)
+    {
+        device::create(surfaceToCreate);
+        LOG_INFO("vulkan renderer init successfully");
+
+        commandPoolInfo commandPoolData;
+        commandPoolData.flags = vk::CommandPoolCreateFlagBits::eResetCommandBuffer;
+        commandPoolData.queueFamilyIndex = queueFamilys::getGraphicsFamilyQueue().value();
+        poolId = commandBuffers::createPool(commandPoolData);
+
+        drawThread = new std::thread(drawLoop);
+        deviceWasCreated = true;
+    }
 }

@@ -171,27 +171,27 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  130</span>{</div>
-<div class="line"><span class="lineno">  131</span>    <a class="code hl_struct" href="../../d9/dd4/structtoplevel_surface_info.html">toplevelSurfaceInfo</a> info;</div>
-<div class="line"><span class="lineno">  132</span>    info.<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#a5ecc8881ea65ac3fbee40baac840f20c">title</a> = <a class="code hl_struct" href="../../d9/d9f/structsurface_data.html">surfaceData</a>.title;</div>
-<div class="line"><span class="lineno">  133</span>    info.<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#a1a831bbc35698ea81dc2bff33824a6a3">id</a> = id;</div>
-<div class="line"><span class="lineno">  134</span>    info.<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#aeedd0d587eb9e82caa02d64c037f8ad3">width</a> = <a class="code hl_struct" href="../../d9/d9f/structsurface_data.html">surfaceData</a>.<a class="code hl_variable" href="../../d9/d9f/structsurface_data.html#a12d4e53ad4e635fc65b51218aaa053ec">width</a>;</div>
-<div class="line"><span class="lineno">  135</span>    info.<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#a0ceea63a81aa8e91bdf981eeca125d91">height</a> = <a class="code hl_struct" href="../../d9/d9f/structsurface_data.html">surfaceData</a>.<a class="code hl_variable" href="../../d9/d9f/structsurface_data.html#aa2cc468dbd861c00e08e37140db0a2a4">height</a>;</div>
-<div class="line"><span class="lineno">  136</span> </div>
-<div class="line"><span class="lineno">  137</span>    info.<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#a1943f5e4afe88df24ac6942979289647">xdgSurface</a> = xdg_wm_base_get_xdg_surface(<a class="code hl_variable" href="../../da/d41/classtoplevel.html#a927a366f08f0c678f1f885f68c7e1d28">xdgWmBase</a>, s);</div>
-<div class="line"><span class="lineno">  138</span>    xdg_surface_add_listener(info.<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#a1943f5e4afe88df24ac6942979289647">xdgSurface</a>, &amp;xdg_surface_listener, <span class="keyword">new</span> <a class="code hl_struct" href="../../df/d3a/structentity_id.html">surfaceId</a>(<span class="keywordtype">id</span>));</div>
-<div class="line"><span class="lineno">  139</span>    </div>
-<div class="line"><span class="lineno">  140</span>    info.<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#adf5f6dd560426f74156b09e6d394b981">xdgToplevel</a> = xdg_surface_get_toplevel(info.<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#a1943f5e4afe88df24ac6942979289647">xdgSurface</a>);</div>
-<div class="line"><span class="lineno">  141</span>    xdg_toplevel_add_listener(info.<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#adf5f6dd560426f74156b09e6d394b981">xdgToplevel</a>, &amp;xdgTopLevelListener, <span class="keyword">new</span> <a class="code hl_struct" href="../../df/d3a/structentity_id.html">surfaceId</a>(<span class="keywordtype">id</span>));</div>
-<div class="line"><span class="lineno">  142</span>    xdg_toplevel_set_title(info.<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#adf5f6dd560426f74156b09e6d394b981">xdgToplevel</a>, info.<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#a5ecc8881ea65ac3fbee40baac840f20c">title</a>.c_str());</div>
-<div class="line"><span class="lineno">  143</span>    xdg_toplevel_set_app_id(info.<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#adf5f6dd560426f74156b09e6d394b981">xdgToplevel</a>, <span class="stringliteral">&quot;new tale game engine&quot;</span>);</div>
-<div class="line"><span class="lineno">  144</span>    </div>
-<div class="line"><span class="lineno">  145</span>    info.<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#a5ccb08ee142d6eb241d0bbc6c417fab9">topLevelDecoration</a> = zxdg_decoration_manager_v1_get_toplevel_decoration(<a class="code hl_variable" href="../../da/d41/classtoplevel.html#a082d07e56e3ae480d6313141dd8937de">decorationManger</a>, info.<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#adf5f6dd560426f74156b09e6d394b981">xdgToplevel</a>);</div>
-<div class="line"><span class="lineno">  146</span>    zxdg_toplevel_decoration_v1_set_mode(info.<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#a5ccb08ee142d6eb241d0bbc6c417fab9">topLevelDecoration</a>, 2);</div>
-<div class="line"><span class="lineno">  147</span>    zxdg_toplevel_decoration_v1_add_listener(info.<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#a5ccb08ee142d6eb241d0bbc6c417fab9">topLevelDecoration</a>, &amp;toplevelDecorationListener, <span class="keyword">new</span> <a class="code hl_struct" href="../../df/d3a/structentity_id.html">surfaceId</a>(<span class="keywordtype">id</span>));</div>
-<div class="line"><span class="lineno">  148</span>    </div>
-<div class="line"><span class="lineno">  149</span>    topLevelSurfaces-&gt;<a class="code hl_function" href="../../df/d7d/classtoplevel_info_componenet.html#aa7483f4d7bd45decf9800d46463ab137">setComponent</a>(<span class="keywordtype">id</span>, info);</div>
-<div class="line"><span class="lineno">  150</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">  129</span>{</div>
+<div class="line"><span class="lineno">  130</span>    <a class="code hl_struct" href="../../d9/dd4/structtoplevel_surface_info.html">toplevelSurfaceInfo</a> info;</div>
+<div class="line"><span class="lineno">  131</span>    info.<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#a5ecc8881ea65ac3fbee40baac840f20c">title</a> = <a class="code hl_struct" href="../../d9/d9f/structsurface_data.html">surfaceData</a>.title;</div>
+<div class="line"><span class="lineno">  132</span>    info.<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#a1a831bbc35698ea81dc2bff33824a6a3">id</a> = id;</div>
+<div class="line"><span class="lineno">  133</span>    info.<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#aeedd0d587eb9e82caa02d64c037f8ad3">width</a> = <a class="code hl_struct" href="../../d9/d9f/structsurface_data.html">surfaceData</a>.<a class="code hl_variable" href="../../d9/d9f/structsurface_data.html#a12d4e53ad4e635fc65b51218aaa053ec">width</a>;</div>
+<div class="line"><span class="lineno">  134</span>    info.<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#a0ceea63a81aa8e91bdf981eeca125d91">height</a> = <a class="code hl_struct" href="../../d9/d9f/structsurface_data.html">surfaceData</a>.<a class="code hl_variable" href="../../d9/d9f/structsurface_data.html#aa2cc468dbd861c00e08e37140db0a2a4">height</a>;</div>
+<div class="line"><span class="lineno">  135</span> </div>
+<div class="line"><span class="lineno">  136</span>    info.<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#a1943f5e4afe88df24ac6942979289647">xdgSurface</a> = xdg_wm_base_get_xdg_surface(<a class="code hl_variable" href="../../da/d41/classtoplevel.html#a927a366f08f0c678f1f885f68c7e1d28">xdgWmBase</a>, s);</div>
+<div class="line"><span class="lineno">  137</span>    xdg_surface_add_listener(info.<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#a1943f5e4afe88df24ac6942979289647">xdgSurface</a>, &amp;xdg_surface_listener, <span class="keyword">new</span> <a class="code hl_struct" href="../../df/d3a/structentity_id.html">surfaceId</a>(<span class="keywordtype">id</span>));</div>
+<div class="line"><span class="lineno">  138</span>    </div>
+<div class="line"><span class="lineno">  139</span>    info.<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#adf5f6dd560426f74156b09e6d394b981">xdgToplevel</a> = xdg_surface_get_toplevel(info.<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#a1943f5e4afe88df24ac6942979289647">xdgSurface</a>);</div>
+<div class="line"><span class="lineno">  140</span>    xdg_toplevel_add_listener(info.<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#adf5f6dd560426f74156b09e6d394b981">xdgToplevel</a>, &amp;xdgTopLevelListener, <span class="keyword">new</span> <a class="code hl_struct" href="../../df/d3a/structentity_id.html">surfaceId</a>(<span class="keywordtype">id</span>));</div>
+<div class="line"><span class="lineno">  141</span>    xdg_toplevel_set_title(info.<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#adf5f6dd560426f74156b09e6d394b981">xdgToplevel</a>, info.<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#a5ecc8881ea65ac3fbee40baac840f20c">title</a>.c_str());</div>
+<div class="line"><span class="lineno">  142</span>    xdg_toplevel_set_app_id(info.<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#adf5f6dd560426f74156b09e6d394b981">xdgToplevel</a>, <span class="stringliteral">&quot;new tale game engine&quot;</span>);</div>
+<div class="line"><span class="lineno">  143</span>    </div>
+<div class="line"><span class="lineno">  144</span>    info.<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#a5ccb08ee142d6eb241d0bbc6c417fab9">topLevelDecoration</a> = zxdg_decoration_manager_v1_get_toplevel_decoration(<a class="code hl_variable" href="../../da/d41/classtoplevel.html#a082d07e56e3ae480d6313141dd8937de">decorationManger</a>, info.<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#adf5f6dd560426f74156b09e6d394b981">xdgToplevel</a>);</div>
+<div class="line"><span class="lineno">  145</span>    zxdg_toplevel_decoration_v1_set_mode(info.<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#a5ccb08ee142d6eb241d0bbc6c417fab9">topLevelDecoration</a>, 2);</div>
+<div class="line"><span class="lineno">  146</span>    zxdg_toplevel_decoration_v1_add_listener(info.<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#a5ccb08ee142d6eb241d0bbc6c417fab9">topLevelDecoration</a>, &amp;toplevelDecorationListener, <span class="keyword">new</span> <a class="code hl_struct" href="../../df/d3a/structentity_id.html">surfaceId</a>(<span class="keywordtype">id</span>));</div>
+<div class="line"><span class="lineno">  147</span>    </div>
+<div class="line"><span class="lineno">  148</span>    topLevelSurfaces-&gt;<a class="code hl_function" href="../../df/d7d/classtoplevel_info_componenet.html#aa7483f4d7bd45decf9800d46463ab137">setComponent</a>(<span class="keywordtype">id</span>, info);</div>
+<div class="line"><span class="lineno">  149</span>}</div>
 <div class="ttc" id="aclasstoplevel_html_a082d07e56e3ae480d6313141dd8937de"><div class="ttname"><a href="../../da/d41/classtoplevel.html#a082d07e56e3ae480d6313141dd8937de">toplevel::decorationManger</a></div><div class="ttdeci">static zxdg_decoration_manager_v1 * decorationManger</div><div class="ttdef"><b>Definition:</b> toplevel.hpp:48</div></div>
 <div class="ttc" id="aclasstoplevel_html_a927a366f08f0c678f1f885f68c7e1d28"><div class="ttname"><a href="../../da/d41/classtoplevel.html#a927a366f08f0c678f1f885f68c7e1d28">toplevel::xdgWmBase</a></div><div class="ttdeci">static xdg_wm_base * xdgWmBase</div><div class="ttdef"><b>Definition:</b> toplevel.hpp:47</div></div>
 <div class="ttc" id="aclasstoplevel_info_componenet_html_aa7483f4d7bd45decf9800d46463ab137"><div class="ttname"><a href="../../df/d7d/classtoplevel_info_componenet.html#aa7483f4d7bd45decf9800d46463ab137">toplevelInfoComponenet::setComponent</a></div><div class="ttdeci">void setComponent(entityId id, toplevelSurfaceInfo buffer)</div><div class="ttdef"><b>Definition:</b> toplevelInfoComponenet.cpp:35</div></div>
@@ -273,16 +273,16 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  153</span>{</div>
-<div class="line"><span class="lineno">  154</span>    <a class="code hl_struct" href="../../d9/dd4/structtoplevel_surface_info.html">toplevelSurfaceInfo</a> *temp = topLevelSurfaces-&gt;<a class="code hl_function" href="../../df/d7d/classtoplevel_info_componenet.html#ab78b9254c564c02d803af27216e318ec">getComponent</a>(winId);</div>
-<div class="line"><span class="lineno">  155</span>    <span class="keywordflow">if</span>(!temp)</div>
-<div class="line"><span class="lineno">  156</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  157</span> </div>
-<div class="line"><span class="lineno">  158</span>    <a class="code hl_function" href="../../da/d41/classtoplevel.html#a0b5bf24c3f46b21f922ec86160e1c6d8">unsetCloseEventListener</a>(winId);</div>
-<div class="line"><span class="lineno">  159</span>    <a class="code hl_function" href="../../da/d41/classtoplevel.html#adce0e259eceed263fba051237873260a">unsetResizeEventListener</a>(winId);</div>
-<div class="line"><span class="lineno">  160</span>}</div>
-<div class="ttc" id="aclasstoplevel_html_a0b5bf24c3f46b21f922ec86160e1c6d8"><div class="ttname"><a href="../../da/d41/classtoplevel.html#a0b5bf24c3f46b21f922ec86160e1c6d8">toplevel::unsetCloseEventListener</a></div><div class="ttdeci">static void unsetCloseEventListener(surfaceId winId)</div><div class="ttdef"><b>Definition:</b> toplevel.cpp:98</div></div>
-<div class="ttc" id="aclasstoplevel_html_adce0e259eceed263fba051237873260a"><div class="ttname"><a href="../../da/d41/classtoplevel.html#adce0e259eceed263fba051237873260a">toplevel::unsetResizeEventListener</a></div><div class="ttdeci">static void unsetResizeEventListener(surfaceId winId)</div><div class="ttdef"><b>Definition:</b> toplevel.cpp:103</div></div>
+<div class="fragment"><div class="line"><span class="lineno">  152</span>{</div>
+<div class="line"><span class="lineno">  153</span>    <a class="code hl_struct" href="../../d9/dd4/structtoplevel_surface_info.html">toplevelSurfaceInfo</a> *temp = topLevelSurfaces-&gt;<a class="code hl_function" href="../../df/d7d/classtoplevel_info_componenet.html#ab78b9254c564c02d803af27216e318ec">getComponent</a>(winId);</div>
+<div class="line"><span class="lineno">  154</span>    <span class="keywordflow">if</span>(!temp)</div>
+<div class="line"><span class="lineno">  155</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  156</span> </div>
+<div class="line"><span class="lineno">  157</span>    <a class="code hl_function" href="../../da/d41/classtoplevel.html#a0b5bf24c3f46b21f922ec86160e1c6d8">unsetCloseEventListener</a>(winId);</div>
+<div class="line"><span class="lineno">  158</span>    <a class="code hl_function" href="../../da/d41/classtoplevel.html#adce0e259eceed263fba051237873260a">unsetResizeEventListener</a>(winId);</div>
+<div class="line"><span class="lineno">  159</span>}</div>
+<div class="ttc" id="aclasstoplevel_html_a0b5bf24c3f46b21f922ec86160e1c6d8"><div class="ttname"><a href="../../da/d41/classtoplevel.html#a0b5bf24c3f46b21f922ec86160e1c6d8">toplevel::unsetCloseEventListener</a></div><div class="ttdeci">static void unsetCloseEventListener(surfaceId winId)</div><div class="ttdef"><b>Definition:</b> toplevel.cpp:97</div></div>
+<div class="ttc" id="aclasstoplevel_html_adce0e259eceed263fba051237873260a"><div class="ttname"><a href="../../da/d41/classtoplevel.html#adce0e259eceed263fba051237873260a">toplevel::unsetResizeEventListener</a></div><div class="ttdeci">static void unsetResizeEventListener(surfaceId winId)</div><div class="ttdef"><b>Definition:</b> toplevel.cpp:102</div></div>
 <div class="ttc" id="aclasstoplevel_info_componenet_html_ab78b9254c564c02d803af27216e318ec"><div class="ttname"><a href="../../df/d7d/classtoplevel_info_componenet.html#ab78b9254c564c02d803af27216e318ec">toplevelInfoComponenet::getComponent</a></div><div class="ttdeci">toplevelSurfaceInfo * getComponent(entityId id)</div><div class="ttdef"><b>Definition:</b> toplevelInfoComponenet.cpp:27</div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -324,14 +324,14 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  120</span>{</div>
-<div class="line"><span class="lineno">  121</span>    <a class="code hl_struct" href="../../d9/dd4/structtoplevel_surface_info.html">toplevelSurfaceInfo</a> *temp = topLevelSurfaces-&gt;<a class="code hl_function" href="../../df/d7d/classtoplevel_info_componenet.html#ab78b9254c564c02d803af27216e318ec">getComponent</a>(<span class="keywordtype">id</span>);</div>
-<div class="line"><span class="lineno">  122</span> </div>
-<div class="line"><span class="lineno">  123</span>    <span class="keywordflow">if</span>(temp)</div>
-<div class="line"><span class="lineno">  124</span>        <span class="keywordflow">return</span> temp-&gt;<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#a5ecc8881ea65ac3fbee40baac840f20c">title</a>;</div>
-<div class="line"><span class="lineno">  125</span> </div>
-<div class="line"><span class="lineno">  126</span>    <span class="keywordflow">return</span> <span class="stringliteral">&quot;error window with id: &quot;</span> + std::to_string((<span class="keywordtype">id</span>.gen &lt;&lt; 8) + <span class="keywordtype">id</span>.index) + <span class="stringliteral">&quot; was&#39;nt found&quot;</span>;</div>
-<div class="line"><span class="lineno">  127</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">  119</span>{</div>
+<div class="line"><span class="lineno">  120</span>    <a class="code hl_struct" href="../../d9/dd4/structtoplevel_surface_info.html">toplevelSurfaceInfo</a> *temp = topLevelSurfaces-&gt;<a class="code hl_function" href="../../df/d7d/classtoplevel_info_componenet.html#ab78b9254c564c02d803af27216e318ec">getComponent</a>(<span class="keywordtype">id</span>);</div>
+<div class="line"><span class="lineno">  121</span> </div>
+<div class="line"><span class="lineno">  122</span>    <span class="keywordflow">if</span>(temp)</div>
+<div class="line"><span class="lineno">  123</span>        <span class="keywordflow">return</span> temp-&gt;<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#a5ecc8881ea65ac3fbee40baac840f20c">title</a>;</div>
+<div class="line"><span class="lineno">  124</span> </div>
+<div class="line"><span class="lineno">  125</span>    <span class="keywordflow">return</span> <span class="stringliteral">&quot;error window with id: &quot;</span> + std::to_string((<span class="keywordtype">id</span>.gen &lt;&lt; 8) + <span class="keywordtype">id</span>.index) + <span class="stringliteral">&quot; was&#39;nt found&quot;</span>;</div>
+<div class="line"><span class="lineno">  126</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -412,10 +412,10 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   86</span>{</div>
-<div class="line"><span class="lineno">   87</span>    closeCallbacks-&gt;<a class="code hl_function" href="../../d1/d49/classwindow_surface_callback_component.html#a9e59b53a6d33ce2acef7d8df98f1f5db">setCallback</a>(winId, callback);</div>
-<div class="line"><span class="lineno">   88</span> </div>
-<div class="line"><span class="lineno">   89</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   85</span>{</div>
+<div class="line"><span class="lineno">   86</span>    closeCallbacks-&gt;<a class="code hl_function" href="../../d1/d49/classwindow_surface_callback_component.html#a9e59b53a6d33ce2acef7d8df98f1f5db">setCallback</a>(winId, callback);</div>
+<div class="line"><span class="lineno">   87</span> </div>
+<div class="line"><span class="lineno">   88</span>}</div>
 <div class="ttc" id="aclasswindow_surface_callback_component_html_a9e59b53a6d33ce2acef7d8df98f1f5db"><div class="ttname"><a href="../../d1/d49/classwindow_surface_callback_component.html#a9e59b53a6d33ce2acef7d8df98f1f5db">windowSurfaceCallbackComponent::setCallback</a></div><div class="ttdeci">void setCallback(entityId id, surfaceCallback callback)</div><div class="ttdef"><b>Definition:</b> windowSurfaceCallbackComponent.cpp:30</div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -463,9 +463,9 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   92</span>{</div>
-<div class="line"><span class="lineno">   93</span>    resizeCallbacks-&gt;<a class="code hl_function" href="../../d2/d08/classwindow_resize_callback_component.html#a638efc8095ecd90784b980ed7d61a2c0">setCallback</a>(winId, callback);</div>
-<div class="line"><span class="lineno">   94</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   91</span>{</div>
+<div class="line"><span class="lineno">   92</span>    resizeCallbacks-&gt;<a class="code hl_function" href="../../d2/d08/classwindow_resize_callback_component.html#a638efc8095ecd90784b980ed7d61a2c0">setCallback</a>(winId, callback);</div>
+<div class="line"><span class="lineno">   93</span>}</div>
 <div class="ttc" id="aclasswindow_resize_callback_component_html_a638efc8095ecd90784b980ed7d61a2c0"><div class="ttname"><a href="../../d2/d08/classwindow_resize_callback_component.html#a638efc8095ecd90784b980ed7d61a2c0">windowResizeCallbackComponent::setCallback</a></div><div class="ttdeci">void setCallback(entityId id, resizeCallback callback)</div><div class="ttdef"><b>Definition:</b> windowResizeCallbackComponent.cpp:30</div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -513,14 +513,14 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  109</span>{        </div>
-<div class="line"><span class="lineno">  110</span>    <a class="code hl_struct" href="../../d9/dd4/structtoplevel_surface_info.html">toplevelSurfaceInfo</a> *temp = topLevelSurfaces-&gt;<a class="code hl_function" href="../../df/d7d/classtoplevel_info_componenet.html#ab78b9254c564c02d803af27216e318ec">getComponent</a>(<span class="keywordtype">id</span>);</div>
-<div class="line"><span class="lineno">  111</span> </div>
-<div class="line"><span class="lineno">  112</span>    <span class="keywordflow">if</span>(temp){</div>
-<div class="line"><span class="lineno">  113</span>        xdg_toplevel_set_title(temp-&gt;<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#adf5f6dd560426f74156b09e6d394b981">xdgToplevel</a>, temp-&gt;<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#a5ecc8881ea65ac3fbee40baac840f20c">title</a>.c_str());</div>
-<div class="line"><span class="lineno">  114</span>        temp-&gt;<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#a5ecc8881ea65ac3fbee40baac840f20c">title</a> = title;</div>
-<div class="line"><span class="lineno">  115</span>    }</div>
-<div class="line"><span class="lineno">  116</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">  108</span>{        </div>
+<div class="line"><span class="lineno">  109</span>    <a class="code hl_struct" href="../../d9/dd4/structtoplevel_surface_info.html">toplevelSurfaceInfo</a> *temp = topLevelSurfaces-&gt;<a class="code hl_function" href="../../df/d7d/classtoplevel_info_componenet.html#ab78b9254c564c02d803af27216e318ec">getComponent</a>(<span class="keywordtype">id</span>);</div>
+<div class="line"><span class="lineno">  110</span> </div>
+<div class="line"><span class="lineno">  111</span>    <span class="keywordflow">if</span>(temp){</div>
+<div class="line"><span class="lineno">  112</span>        xdg_toplevel_set_title(temp-&gt;<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#adf5f6dd560426f74156b09e6d394b981">xdgToplevel</a>, temp-&gt;<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#a5ecc8881ea65ac3fbee40baac840f20c">title</a>.c_str());</div>
+<div class="line"><span class="lineno">  113</span>        temp-&gt;<a class="code hl_variable" href="../../d9/dd4/structtoplevel_surface_info.html#a5ecc8881ea65ac3fbee40baac840f20c">title</a> = title;</div>
+<div class="line"><span class="lineno">  114</span>    }</div>
+<div class="line"><span class="lineno">  115</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -557,9 +557,9 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   99</span>{        </div>
-<div class="line"><span class="lineno">  100</span>    closeCallbacks-&gt;<a class="code hl_function" href="../../d1/d49/classwindow_surface_callback_component.html#ac2171a938d5bdd56609d6dd481fe3bdb">deleteComponent</a>(winId);</div>
-<div class="line"><span class="lineno">  101</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   98</span>{        </div>
+<div class="line"><span class="lineno">   99</span>    closeCallbacks-&gt;<a class="code hl_function" href="../../d1/d49/classwindow_surface_callback_component.html#ac2171a938d5bdd56609d6dd481fe3bdb">deleteComponent</a>(winId);</div>
+<div class="line"><span class="lineno">  100</span>}</div>
 <div class="ttc" id="aclasswindow_surface_callback_component_html_ac2171a938d5bdd56609d6dd481fe3bdb"><div class="ttname"><a href="../../d1/d49/classwindow_surface_callback_component.html#ac2171a938d5bdd56609d6dd481fe3bdb">windowSurfaceCallbackComponent::deleteComponent</a></div><div class="ttdeci">void deleteComponent(entityId id)</div><div class="ttdef"><b>Definition:</b> windowSurfaceCallbackComponent.cpp:9</div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -606,9 +606,9 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  104</span>{        </div>
-<div class="line"><span class="lineno">  105</span>    resizeCallbacks-&gt;<a class="code hl_function" href="../../d2/d08/classwindow_resize_callback_component.html#a8cc7a8f718fefaef4c917cffd1d49b1c">deleteComponent</a>(winId);</div>
-<div class="line"><span class="lineno">  106</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">  103</span>{        </div>
+<div class="line"><span class="lineno">  104</span>    resizeCallbacks-&gt;<a class="code hl_function" href="../../d2/d08/classwindow_resize_callback_component.html#a8cc7a8f718fefaef4c917cffd1d49b1c">deleteComponent</a>(winId);</div>
+<div class="line"><span class="lineno">  105</span>}</div>
 <div class="ttc" id="aclasswindow_resize_callback_component_html_a8cc7a8f718fefaef4c917cffd1d49b1c"><div class="ttname"><a href="../../d2/d08/classwindow_resize_callback_component.html#a8cc7a8f718fefaef4c917cffd1d49b1c">windowResizeCallbackComponent::deleteComponent</a></div><div class="ttdeci">void deleteComponent(entityId id)</div><div class="ttdef"><b>Definition:</b> windowResizeCallbackComponent.cpp:9</div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>

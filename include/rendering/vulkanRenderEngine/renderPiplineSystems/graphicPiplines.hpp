@@ -10,31 +10,29 @@
 #include <queue>
 #include <string>
 
-
 namespace vulkanRenderEngine
 {
     class graphicPiplines
     {
-        private:
-            static inline entityPool *shadersPool;
-            static inline graphicsPipelineComponents *graphicsPipelinesInfo;
-            
-            static void recreateGraphicsPipeline(graphicsPipelineInfo& toRecreate);
+    private:
+        static inline entityPool *shadersPool;
+        static inline graphicsPipelineComponents *graphicsPipelinesInfo;
 
-            static std::vector<char> readFile(const std::string& filename);
-            static vk::ShaderModule createShaderModule(const std::vector<char>& code);
-            
-            static void destroyGraphicsPipeline(graphicsPipelineInfo *toDestroy);
-           
+        static void recreateGraphicsPipeline(graphicsPipelineInfo &toRecreate);
 
-        public:
-            static void init(entityPool *shadersPool);
-            static void close();
+        static std::vector<char> readFile(const std::string &filename);
+        static vk::ShaderModule createShaderModule(const std::vector<char> &code);
 
-            static shaderId create(graphicsPipelineInfo& info);
-            static void set(graphicsPipelineInfo& info);
-            static void destroy(shaderId id);
+        static void destroyGraphicsPipeline(graphicsPipelineInfo *toDestroy);
 
-            static graphicsPipelineInfo *get(shaderId id);
+    public:
+        static void init(entityPool *shadersPool);
+        static void close();
+
+        static shaderId create(graphicsPipelineInfo &info);
+        static void set(graphicsPipelineInfo &info);
+        static void destroy(shaderId id);
+
+        static graphicsPipelineInfo *get(shaderId id);
     };
 }

@@ -1,5 +1,4 @@
 <map id="vulkanRenderEngine::commandBuffers::close" name="vulkanRenderEngine::commandBuffers::close">
-<area shape="rect" id="node1" title=" " alt="" coords="5,37,188,77"/>
-<area shape="rect" id="node2" href="$d5/d0e/classcommand_buffers_components.html#a401b8cf4fb598586644d793db432ea59" title=" " alt="" coords="236,5,451,45"/>
-<area shape="rect" id="node3" href="$d8/d58/classvulkan_render_engine_1_1device.html#ad535cddd3e084804c7a00d87c556a511" title=" " alt="" coords="266,69,421,109"/>
+<area shape="rect" id="node1" title="destroy all the command pools and the command buffers, all command pools id will be deleted but the c..." alt="" coords="5,5,188,50"/>
+<area shape="rect" id="node2" href="$d5/d0e/classcommand_buffers_components.html#ae2d4c1c6c9d1812fb328d786396617ef" title=" " alt="" coords="236,5,450,50"/>
 </map>

@@ -110,8 +110,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aeb55cb910e53b7fca115aa106aba8494"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa968d8d183d11366e71d185c2db40f7b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/daa/structcpu_render_info.html">cpuRenderInfo</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/db9/classcpu_render_info_component.html#aa968d8d183d11366e71d185c2db40f7b">getComponent</a> (<a class="el" href="../../df/d3a/structentity_id.html">entityId</a> id)</td></tr>
 <tr class="separator:aa968d8d183d11366e71d185c2db40f7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0519f7c99b13807dd75b57635bba7f85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/db9/classcpu_render_info_component.html#a0519f7c99b13807dd75b57635bba7f85">setComponent</a> (<a class="el" href="../../df/d3a/structentity_id.html">entityId</a> id, <a class="el" href="../../dd/daa/structcpu_render_info.html">cpuRenderInfo</a> buffer)</td></tr>
-<tr class="separator:a0519f7c99b13807dd75b57635bba7f85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4bb289a23b5f59a1ec2723af9f7f79e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/db9/classcpu_render_info_component.html#ac4bb289a23b5f59a1ec2723af9f7f79e">setComponent</a> (<a class="el" href="../../df/d3a/structentity_id.html">entityId</a> id, <a class="el" href="../../dd/daa/structcpu_render_info.html">cpuRenderInfo</a> &amp;buffer)</td></tr>
+<tr class="separator:ac4bb289a23b5f59a1ec2723af9f7f79e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd14d95fa69edc9775939f77d4c34957"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../dd/daa/structcpu_render_info.html">cpuRenderInfo</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/db9/classcpu_render_info_component.html#acd14d95fa69edc9775939f77d4c34957">getData</a> ()</td></tr>
 <tr class="separator:acd14d95fa69edc9775939f77d4c34957"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -164,16 +164,25 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 <div class="fragment"><div class="line"><span class="lineno">   56</span>{</div>
-<div class="line"><span class="lineno">   57</span>    pool-&gt;<a class="code hl_function" href="../../dc/d2b/classentity_pool.html#ab91f97c5b47b5dd789884c33990da5e4">unenlistType</a>(<span class="keyword">this</span>, IdToIndex);</div>
-<div class="line"><span class="lineno">   58</span>}</div>
-<div class="ttc" id="aclassentity_pool_html_ab91f97c5b47b5dd789884c33990da5e4"><div class="ttname"><a href="../../dc/d2b/classentity_pool.html#ab91f97c5b47b5dd789884c33990da5e4">entityPool::unenlistType</a></div><div class="ttdeci">void unenlistType(void *dataPtr, uint32_t *IdToIndex)</div><div class="ttdef"><b>Definition:</b> entityPool.cpp:83</div></div>
+<div class="line"><span class="lineno">   57</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; pool-&gt;<a class="code hl_function" href="../../dc/d2b/classentity_pool.html#a1bbde64e155748e51b6056d2bd25f6c9">getIdBufferMaxCount</a>(); i++)</div>
+<div class="line"><span class="lineno">   58</span>        IdToIndex[i] = -1;</div>
+<div class="line"><span class="lineno">   59</span>    <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp; <a class="code hl_function" href="../../df/d0a/main_8cpp.html#afa221060191780e27305d967bad5bd73">cpuRender</a>: data)</div>
+<div class="line"><span class="lineno">   60</span>        <span class="keywordflow">if</span>(<a class="code hl_function" href="../../df/d0a/main_8cpp.html#afa221060191780e27305d967bad5bd73">cpuRender</a>.renderThread-&gt;joinable())</div>
+<div class="line"><span class="lineno">   61</span>            <a class="code hl_function" href="../../df/d0a/main_8cpp.html#afa221060191780e27305d967bad5bd73">cpuRender</a>.renderThread-&gt;join();</div>
+<div class="line"><span class="lineno">   62</span>    pool-&gt;<a class="code hl_function" href="../../dc/d2b/classentity_pool.html#ab91f97c5b47b5dd789884c33990da5e4">unenlistType</a>(<span class="keyword">this</span>, IdToIndex);</div>
+<div class="line"><span class="lineno">   63</span>}</div>
+<div class="ttc" id="aclassentity_pool_html_a1bbde64e155748e51b6056d2bd25f6c9"><div class="ttname"><a href="../../dc/d2b/classentity_pool.html#a1bbde64e155748e51b6056d2bd25f6c9">entityPool::getIdBufferMaxCount</a></div><div class="ttdeci">uint32_t getIdBufferMaxCount()</div><div class="ttdef"><b>Definition:</b> entityPool.hpp:47</div></div>
+<div class="ttc" id="aclassentity_pool_html_ab91f97c5b47b5dd789884c33990da5e4"><div class="ttname"><a href="../../dc/d2b/classentity_pool.html#ab91f97c5b47b5dd789884c33990da5e4">entityPool::unenlistType</a></div><div class="ttdeci">void unenlistType(void *dataPtr, uint32_t *IdToIndex)</div><div class="ttdef"><b>Definition:</b> entityPool.cpp:84</div></div>
+<div class="ttc" id="amain_8cpp_html_afa221060191780e27305d967bad5bd73"><div class="ttname"><a href="../../df/d0a/main_8cpp.html#afa221060191780e27305d967bad5bd73">cpuRender</a></div><div class="ttdeci">void cpuRender(const cpuRenderData &amp;sendor)</div><div class="ttdef"><b>Definition:</b> main.cpp:115</div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../d1/db9/classcpu_render_info_component_ac5df4bd9547ce31f60ca120a3b430bd0_cgraph.png" border="0" usemap="#ad1/db9/classcpu_render_info_component_ac5df4bd9547ce31f60ca120a3b430bd0_cgraph" alt=""/></div>
 <map name="ad1/db9/classcpu_render_info_component_ac5df4bd9547ce31f60ca120a3b430bd0_cgraph" id="ad1/db9/classcpu_render_info_component_ac5df4bd9547ce31f60ca120a3b430bd0_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,191,45"/>
-<area shape="rect" href="../../dc/d2b/classentity_pool.html#ab91f97c5b47b5dd789884c33990da5e4" title=" " alt="" coords="239,13,397,38"/>
+<area shape="rect" title=" " alt="" coords="5,57,215,102"/>
+<area shape="rect" href="../../df/d0a/main_8cpp.html#afa221060191780e27305d967bad5bd73" title=" " alt="" coords="315,5,406,33"/>
+<area shape="rect" href="../../dc/d2b/classentity_pool.html#a1bbde64e155748e51b6056d2bd25f6c9" title=" " alt="" coords="263,57,458,102"/>
+<area shape="rect" href="../../dc/d2b/classentity_pool.html#ab91f97c5b47b5dd789884c33990da5e4" title=" " alt="" coords="272,125,449,153"/>
 </map>
 </div>
 
@@ -282,8 +291,8 @@ Here is the call graph for this function:</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a0519f7c99b13807dd75b57635bba7f85" name="a0519f7c99b13807dd75b57635bba7f85"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0519f7c99b13807dd75b57635bba7f85">&#9670;&#160;</a></span>setComponent()</h2>
+<a id="ac4bb289a23b5f59a1ec2723af9f7f79e" name="ac4bb289a23b5f59a1ec2723af9f7f79e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4bb289a23b5f59a1ec2723af9f7f79e">&#9670;&#160;</a></span>setComponent()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -297,7 +306,7 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../dd/daa/structcpu_render_info.html">cpuRenderInfo</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../dd/daa/structcpu_render_info.html">cpuRenderInfo</a> &amp;&#160;</td>
           <td class="paramname"><em>buffer</em>&#160;</td>
         </tr>
         <tr>
@@ -331,10 +340,10 @@ Here is the call graph for this function:</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/db9/classcpu_render_info_component_a0519f7c99b13807dd75b57635bba7f85_cgraph.png" border="0" usemap="#ad1/db9/classcpu_render_info_component_a0519f7c99b13807dd75b57635bba7f85_cgraph" alt=""/></div>
-<map name="ad1/db9/classcpu_render_info_component_a0519f7c99b13807dd75b57635bba7f85_cgraph" id="ad1/db9/classcpu_render_info_component_a0519f7c99b13807dd75b57635bba7f85_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,177,45"/>
-<area shape="rect" href="../../dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d" title=" " alt="" coords="225,13,360,38"/>
+<div class="center"><img src="../../d1/db9/classcpu_render_info_component_ac4bb289a23b5f59a1ec2723af9f7f79e_cgraph.png" border="0" usemap="#ad1/db9/classcpu_render_info_component_ac4bb289a23b5f59a1ec2723af9f7f79e_cgraph" alt=""/></div>
+<map name="ad1/db9/classcpu_render_info_component_ac4bb289a23b5f59a1ec2723af9f7f79e_cgraph" id="ad1/db9/classcpu_render_info_component_ac4bb289a23b5f59a1ec2723af9f7f79e_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,196,50"/>
+<area shape="rect" href="../../dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d" title=" " alt="" coords="244,14,394,42"/>
 </map>
 </div>
 

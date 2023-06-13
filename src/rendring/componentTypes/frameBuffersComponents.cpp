@@ -13,13 +13,16 @@ void frameBuffersComponents::deleteComponent(entityId id)
     if(!pool->isIdValid(id) || IdToIndex[id.index] == -1)
         return;
 
-    openGLRenderEngine::framebuffers::toDelete.push(data[IdToIndex[id.index]].renderId);
-
     uint32_t index = IdToIndex[id.index];
+
+    
+    data[index] = data.back();
+    IdToIndex[data.back().id.index] = index;
+
     IdToIndex[id.index] = -1;
-    indexToId[index] = *indexToId.end();
-    data[index] = *data.end();
+
     data.pop_back();
+
 
 }
 
@@ -42,7 +45,6 @@ void frameBuffersComponents::setComponent(entityId id, frameBufferInfo buffer)
     {
         IdToIndex[id.index] = data.size();
         data.push_back(buffer);
-        indexToId.push_back(id);
 
     }
     else

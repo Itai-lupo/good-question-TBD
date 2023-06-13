@@ -1,6 +1,6 @@
 <map id="vulkanRenderEngine::framebuffers::destroy" name="vulkanRenderEngine::framebuffers::destroy">
-<area shape="rect" id="node1" title=" " alt="" coords="5,37,176,77"/>
-<area shape="rect" id="node2" href="$d6/d73/classframe_buffers_components.html#aaffaa56a88256b50e7c79df5d7cc6311" title=" " alt="" coords="224,5,413,45"/>
-<area shape="rect" id="node4" href="$d6/d73/classframe_buffers_components.html#a2ed22ba1ae272adb7be816473af3b570" title=" " alt="" coords="224,69,413,109"/>
-<area shape="rect" id="node3" href="$dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d" title=" " alt="" coords="461,45,612,70"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,28,176,72"/>
+<area shape="rect" id="node2" href="$dc/d2b/classentity_pool.html#a12796e0235799e9936afd1a9b7dc798d" title=" " alt="" coords="238,5,398,33"/>
+<area shape="rect" id="node3" href="$d6/d73/classframe_buffers_components.html#a2ed22ba1ae272adb7be816473af3b570" title=" " alt="" coords="224,57,412,102"/>
+<area shape="rect" id="node4" href="$dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d" title=" " alt="" coords="460,65,610,93"/>
 </map>

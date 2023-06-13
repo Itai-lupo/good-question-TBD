@@ -1,4 +1,4 @@
-#pragma once 
+#pragma once
 
 #include "core.hpp"
 #include "entityPool.hpp"
@@ -10,43 +10,42 @@
 struct graphicsPipelineInfo
 {
     vkSurfaceId id;
-    
+
     renderPassId renderPassId;
+    vaoId vao;
+
     std::string fragShaderCodePath;
     std::string vertShaderCodePath;
 
     vk::PipelineLayout pipelineLayout;
     vk::Pipeline graphicsPipeline;
-    
 };
 
-
-class graphicsPipelineComponents 
+class graphicsPipelineComponents
 {
-    private:
-        entityPool *pool;
+private:
+    entityPool *pool;
 
-        std::vector<graphicsPipelineInfo> data;
+    std::vector<graphicsPipelineInfo> data;
 
-        uint32_t *IdToIndex;  
-        std::vector<entityId> indexToId;  
-        
+    uint32_t *IdToIndex;
+    std::vector<entityId> indexToId;
 
-        static void deleteCallback(void * data, entityId id)
-        {
-            graphicsPipelineComponents  *This = static_cast<graphicsPipelineComponents *>(data);
-            This->deleteComponent(id);
-        }
+    static void deleteCallback(void *data, entityId id)
+    {
+        graphicsPipelineComponents *This = static_cast<graphicsPipelineComponents *>(data);
+        This->deleteComponent(id);
+    }
 
-    public:
-        graphicsPipelineComponents (entityPool *pool);
-        ~graphicsPipelineComponents ();
+public:
+    graphicsPipelineComponents(entityPool *pool);
+    ~graphicsPipelineComponents();
 
-        void deleteComponent(entityId id);
-        graphicsPipelineInfo *getComponent(entityId id);
-        void setComponent(entityId id, graphicsPipelineInfo& buffer);
-        std::vector<graphicsPipelineInfo>& getData()
-        {
-            return data;
-        }
+    void deleteComponent(entityId id);
+    graphicsPipelineInfo *getComponent(entityId id);
+    void setComponent(entityId id, graphicsPipelineInfo &buffer);
+    std::vector<graphicsPipelineInfo> &getData()
+    {
+        return data;
+    }
 };

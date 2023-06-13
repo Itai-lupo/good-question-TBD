@@ -1,0 +1,190 @@
+{
+  "main": {
+    "id": "5b38588e0a612c2d",
+    "type": "split",
+    "children": [
+      {
+        "id": "4efeeb5c4f65c908",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1049e47cce006eb3",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "284a1ef47e697c97",
+    "type": "split",
+    "children": [
+      {
+        "id": "ecf55f13fc3f4461",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ff47cec7f9a35154",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "0d8967d171db0d17",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "c7137e7ec86a9568",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "3e5dcdc1aadd826a",
+    "type": "split",
+    "children": [
+      {
+        "id": "40d6b640f14478ed",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9152ddc976c2cccc",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "746994af2bff9f8d",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "750796cbafcf2bed",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "8e0073865d8d2704",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          },
+          {
+            "id": "7bd1528d0847ef51",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
+          },
+          {
+            "id": "2bb3bb3f7d00a847",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {}
+            }
+          },
+          {
+            "id": "71ac601cf385f1dc",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 5
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "markdown-importer:Open format converter": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false,
+      "obsidian-projects:Open projects": false
+    }
+  },
+  "active": "1049e47cce006eb3",
+  "lastOpenFiles": [
+    "Untitled Kanban.md",
+    "Untitled.canvas",
+    "2023-06-10.md",
+    "submodules/tracy/README.md",
+    "README.md",
+    "Excalidraw/Drawing 2023-06-10 22.26.57.excalidraw.md",
+    "Excalidraw",
+    "src/os/linux/waylandStaticHandlers/rendering/Drawing 2023-06-10 22.25.58.excalidraw.md",
+    "Untitled 1.canvas",
+    "build/src/rendring/vulkanRenderEngine/renderer-5ce420c4.o.tmp",
+    "build/src/rendring/vulkanRenderEngine/renderer.o",
+    "build/src/rendring/vulkanRenderEngine/renderer-1d32d539.o.tmp",
+    "build/src/rendring/vulkanRenderEngine/renderer-6d3973ce.o.tmp",
+    "build/src/rendring/renderApi/renderApi-cd3b3fc6.o.tmp",
+    "build/src/rendring/vulkanRenderEngine/renderer-dbee26e7.o.tmp",
+    "build/src/os/linux/waylandStaticHandlers/rendering/vulkanRendering-18440262.o.tmp",
+    "build/src/rendring/vulkanRenderEngine/renderer-e7d89811.o.tmp",
+    "build/src/rendring/vulkanRenderEngine/renderer-f809ae74.o.tmp"
+  ]
+}

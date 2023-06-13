@@ -68,6 +68,7 @@ namespace openGLRenderEngine
             if(vao->bindingSlotsToUpdate[i])
             {
                 if(vao->bindingsSlots[i])
+
                 {
                     GL_CALL(context, DeleteBuffers(1, &vao->bindingsSlots[i])); 
                 }

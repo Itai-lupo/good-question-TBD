@@ -27,6 +27,8 @@ struct swapChainInfo
     
     bool outOfData = false;
     bool complete = false;
+
+    int height, width;
     
 };
 

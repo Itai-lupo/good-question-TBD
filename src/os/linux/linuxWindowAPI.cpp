@@ -66,7 +66,6 @@ void linuxWindowAPI::closeApi()
     }
     
     surface::close();
-    wl_display_disconnect(display);
 
     delete windowsInfo;
     delete windowsPool;

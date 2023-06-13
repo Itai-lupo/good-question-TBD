@@ -72,6 +72,7 @@ void entityPool::enlistType(void *dataPtr, typeCallback freeCallback, uint32_t *
 {
     *IdToIndex =  new uint32_t[maxId];
     TracyAlloc(*IdToIndex, sizeof(uint32_t) * maxId);
+    
     memset(*IdToIndex, 255, sizeof(uint32_t) * maxId);      
     if(listedTypes.size() != 0)
             TracyFree(listedTypes.data());

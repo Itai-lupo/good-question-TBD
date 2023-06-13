@@ -5,6 +5,7 @@ var structswap_chain_info =
     [ "extent", "de/d89/structswap_chain_info.html#a1c7591d6fc10d28257176c685c4cfe8f", null ],
     [ "formatToUse", "de/d89/structswap_chain_info.html#ab00eac7d4977b6a234128d2488fbfe4a", null ],
     [ "graphicPiplineId", "de/d89/structswap_chain_info.html#a336c14c9ea340ac2a16842ed732de893", null ],
+    [ "height", "de/d89/structswap_chain_info.html#a9d07ae72f9f1015acc039e01922bdda6", null ],
     [ "id", "de/d89/structswap_chain_info.html#a35dd6d7dcfd8ab5db5bf047903923924", null ],
     [ "imageAvailableSemaphore", "de/d89/structswap_chain_info.html#a119da047bc9875354fb57d8e667126b6", null ],
     [ "inFlightFence", "de/d89/structswap_chain_info.html#abd9579136eccbfceea307dd962649f2d", null ],
@@ -15,5 +16,6 @@ var structswap_chain_info =
     [ "swapChain", "de/d89/structswap_chain_info.html#a180f54b2902b538ea022f8ef3b11a4b5", null ],
     [ "swapChainFramebuffers", "de/d89/structswap_chain_info.html#a7d8ac1e95a2b69adba69e2404e42c632", null ],
     [ "swapChainImages", "de/d89/structswap_chain_info.html#af4619eca213a8d03f67bbb1a0ef6a04b", null ],
-    [ "swapChainImagesViews", "de/d89/structswap_chain_info.html#a7eb62803dcc18f4e50f6dc765750531b", null ]
+    [ "swapChainImagesViews", "de/d89/structswap_chain_info.html#a7eb62803dcc18f4e50f6dc765750531b", null ],
+    [ "width", "de/d89/structswap_chain_info.html#ae19e53210dbf3f29d8e22956d2ead52b", null ]
 ];

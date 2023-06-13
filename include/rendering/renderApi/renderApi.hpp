@@ -3,7 +3,6 @@
 #include "supportedRenderApis.hpp"
 #include "gpuRenderData.hpp"
 
-
 #include "entityPool.hpp"
 #include "apiTypeComponents.hpp"
 
@@ -15,6 +14,7 @@
 
 #include <queue>
 #include <stdlib.h>
+#include "vaoData.hpp"
 
 enum class renderMode
 {
@@ -23,10 +23,7 @@ enum class renderMode
     lines
 };
 
-
 void defaultDeleteBuffer(void *buffer);
-
-
 
 struct drawCallData
 {
@@ -37,60 +34,59 @@ struct drawCallData
     renderMode mode;
 };
 
-
 struct renderRequestInfo
 {
     framebufferId frameBufferId;
 
-    std::vector<drawCallData> drawCalls;    
+    std::vector<drawCallData> drawCalls;
 };
 
 class renderApi
 {
-    private:
-        entityPool *framebuffersPool;
-        entityPool *texturesPool;
-        entityPool *vaosPool;
-        entityPool *shadersPool;
-        entityPool *uniformBuffersPool;
-        
-        apiTypeComponents *framebuffersApiType;
-        apiTypeComponents *texturesApiType;
-        apiTypeComponents *vaosApiType;
-        apiTypeComponents *shadersApiType;
-        apiTypeComponents *uniformBuffersApiType;
-        
-    public:
-        renderApi();
-        ~renderApi();
+private:
+    entityPool *commandBuffersPool;
+    entityPool *renderPassesPool;
+    entityPool *framebuffersPool;
+    entityPool *texturesPool;
+    entityPool *vaosPool;
+    entityPool *shadersPool;
+    entityPool *uniformBuffersPool;
 
-        framebufferId allocFramebuffer(supportedRenderApis apiType);
-        textureId allocTexture(supportedRenderApis apiType);
-        vaoId allocVao(supportedRenderApis apiType);
-        shaderId allocShader(supportedRenderApis apiType);
-        uniformBufferId allocUniformBuffer(supportedRenderApis apiType);
+    apiTypeComponents *commandBuffersApiType;
+    apiTypeComponents *renderPassesApiType;
+    apiTypeComponents *framebuffersApiType;
+    apiTypeComponents *texturesApiType;
+    apiTypeComponents *vaosApiType;
+    apiTypeComponents *shadersApiType;
+    apiTypeComponents *uniformBuffersApiType;
 
+public:
+    renderApi();
+    ~renderApi();
 
-        void deallocFramebuffer(framebufferId id);
-        void deallocTexture(textureId id);
-        void deallocVao(vaoId id);
-        void deallocShader(shaderId id);
-        void deallocUniformBuffer(uniformBufferId id);
+    framebufferId allocFramebuffer(supportedRenderApis apiType);
+    textureId allocTexture(supportedRenderApis apiType);
+    vaoId allocVao(supportedRenderApis apiType);
+    shaderId allocShader(supportedRenderApis apiType);
+    uniformBufferId allocUniformBuffer(supportedRenderApis apiType);
 
-        void setFramebuffer(frameBufferInfo data);
-        void setTexture(textureInfo data);
-        void setVao(VAOInfo data);
-        void setShader(shaderInfo data);
-        void setUniformBuffer(uniformBufferInfo data);
+    void deallocFramebuffer(framebufferId id);
+    void deallocTexture(textureId id);
+    void deallocVao(vaoId id);
+    void deallocShader(shaderId id);
+    void deallocUniformBuffer(uniformBufferId id);
 
+    void setFramebuffer(frameBufferInfo data);
+    void setTexture(textureInfo data);
+    void setVao(vao data);
+    void setShader(shaderInfo data);
+    void setUniformBuffer(uniformBufferInfo data);
 
-        frameBufferInfo *getFramebuffer(framebufferId id);
-        textureInfo *getTexture(textureId id);
-        VAOInfo *getVao(vaoId id);
-        shaderInfo *getShader(shaderId id);
-        uniformBufferInfo *getUniformBuffer(uniformBufferId id);
+    frameBufferInfo *getFramebuffer(framebufferId id);
+    textureInfo *getTexture(textureId id);
+    vao *getVao(vaoId id);
+    shaderInfo *getShader(shaderId id);
+    uniformBufferInfo *getUniformBuffer(uniformBufferId id);
 
-        void renderRequest(const renderRequestInfo& data);
-        
+    void renderRequest(const renderRequestInfo &data);
 };
-

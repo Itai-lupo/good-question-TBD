@@ -9,5 +9,6 @@ var searchData=
   ['discrete_6',['discrete',['../da/dbc/structpointer_1_1input_buffer.html#a385534f34fa4fd7304d7abee7af358c2',1,'pointer::inputBuffer']]],
   ['discretevalue_7',['discreteValue',['../da/d46/structmouse_scroll_data.html#a264889e9001ad1a1724a97f971ed8587',1,'mouseScrollData']]],
   ['display_8',['display',['../de/d8e/classlinux_window_a_p_i.html#a247a787973f65fac0f132e6af2faf28e',1,'linuxWindowAPI']]],
-  ['drawcalls_9',['drawCalls',['../d3/da2/structrender_request_info.html#af4d37691c373f0f5f97bf7e79616b886',1,'renderRequestInfo']]]
+  ['drawcalls_9',['drawCalls',['../d3/da2/structrender_request_info.html#af4d37691c373f0f5f97bf7e79616b886',1,'renderRequestInfo']]],
+  ['drawrequsts_10',['drawRequsts',['../d4/d6f/classvulkan_render_engine_1_1renderer.html#a4bd2aa9f7a507d7137861f5044d387ad',1,'vulkanRenderEngine::renderer']]]
 ];

@@ -18,7 +18,6 @@ void toplevel::xdgTopLevelConfigure(void *data, xdg_toplevel *xdgToplevel, int32
         return;
 
     windowSizeState activeState = windowSizeState::undefined;
-
     for (size_t i = 0; i < states->size; i+=4)
     {
         if(((uint32_t*)states->data)[i] == xdg_toplevel_state::XDG_TOPLEVEL_STATE_RESIZING )

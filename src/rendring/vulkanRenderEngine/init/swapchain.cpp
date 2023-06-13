@@ -16,7 +16,13 @@ namespace vulkanRenderEngine
     void swapchain::close()
     {        
         for(int i = 0; i < swapchainsInfo->getData().size(); i++)
+        {
+            device::getDevice().destroySemaphore(swapchainsInfo->getData()[i].imageAvailableSemaphore);
+            device::getDevice().destroySemaphore(swapchainsInfo->getData()[i].renderFinishedSemaphore);
+            device::getDevice().destroyFence(swapchainsInfo->getData()[i].inFlightFence);
+            
             destroySwapchain(&swapchainsInfo->getData()[i]);
+        }
 
         delete swapchainsInfo;
     }
@@ -90,8 +96,71 @@ namespace vulkanRenderEngine
         swapchainsInfo->setComponent(id, newSwapchain);
     }
 
-    void swapchain::resize(vkSurfaceId id, int width, int height)
+    void swapchain::resize(vkSurfaceId id, const vk::SurfaceKHR& surfaceToCreate, int width, int height)
     {
+        destroySwapchain(swapchainsInfo->getComponent(id));
+
+        swapChainInfo newSwapchain;
+        vk::SurfaceCapabilitiesKHR capabilities = device::getPhysicalDevice().getSurfaceCapabilitiesKHR(surfaceToCreate);
+        std::vector<vk::SurfaceFormatKHR> formats = device::getPhysicalDevice().getSurfaceFormatsKHR(surfaceToCreate);
+        std::vector<vk::PresentModeKHR> presentModes = device::getPhysicalDevice().getSurfacePresentModesKHR(surfaceToCreate);
+
+        
+
+        if(formats.empty() || presentModes.empty()){
+            LOG_ERROR("failed to create swapchain: formats is empty || presentModes is empty");
+        }
+
+        newSwapchain.formatToUse = choseForamt(formats);
+        newSwapchain.presentModeToUse = chosePresentMode(presentModes);
+
+        
+        newSwapchain.extent.setWidth(width);
+        newSwapchain.extent.setHeight(height);
+
+
+        vk::SwapchainCreateInfoKHR createInfo = genrateCreateInfo(newSwapchain, surfaceToCreate, capabilities);        
+		
+        try {
+            newSwapchain.swapChain = device::getDevice().createSwapchainKHR(createInfo);
+            newSwapchain.swapChainImages = device::getDevice().getSwapchainImagesKHR(newSwapchain.swapChain);
+            
+
+            newSwapchain.swapChainImagesViews.resize(newSwapchain.swapChainImages.size());
+		}
+        catch (vk::SystemError err) {
+            LOG_ERROR("failed to create swapchain: " << err.what());
+		}
+
+
+        for (size_t i = 0; i < newSwapchain.swapChainImages.size(); i++) {
+            vk::ImageViewCreateInfo createInfo{};
+            createInfo.setViewType(vk::ImageViewType::e2D);
+            createInfo.setFormat(newSwapchain.formatToUse.format);
+            createInfo.setImage(newSwapchain.swapChainImages[i]);
+
+            createInfo.components.setR(vk::ComponentSwizzle::eIdentity);
+            createInfo.components.setG(vk::ComponentSwizzle::eIdentity);
+            createInfo.components.setB(vk::ComponentSwizzle::eIdentity);
+            createInfo.components.setA(vk::ComponentSwizzle::eIdentity);
+
+            createInfo.subresourceRange.setAspectMask(vk::ImageAspectFlagBits::eColor);
+            createInfo.subresourceRange.setBaseMipLevel(0);
+            createInfo.subresourceRange.setLevelCount(1);
+            createInfo.subresourceRange.setBaseArrayLayer(0);
+            createInfo.subresourceRange.setLayerCount(1);
+
+            try
+            {
+                newSwapchain.swapChainImagesViews[i] = device::getDevice().createImageView(createInfo, nullptr);
+            }
+            catch(vk::SystemError err) 
+            {
+                LOG_ERROR("failed to create image view: " << err.what());
+            }
+            swapchainsInfo->setComponent(id, newSwapchain);
+
+        }
 
     }
 
@@ -104,6 +173,7 @@ namespace vulkanRenderEngine
 
     swapChainInfo *swapchain::getSwapChain(vkSurfaceId id)
     {
+        // LOG_INFO(id.index << ", " << (int)id.gen)
         return swapchainsInfo->getComponent(id);
     }
 
@@ -184,10 +254,8 @@ namespace vulkanRenderEngine
     {
         for(int i = 0; i < toDestroy->swapChainFramebuffers.size(); i++)
             framebuffers::destroy(toDestroy->swapChainFramebuffers[i]);
-
-        for (auto imageView : toDestroy->swapChainImagesViews) {
+        for (auto imageView : toDestroy->swapChainImagesViews) 
             device::getDevice().destroyImageView(imageView, nullptr);
-        }
         device::getDevice().destroySwapchainKHR(toDestroy->swapChain);
 
     }

@@ -1,8 +1,9 @@
 <map id="swapchainsComponents::getComponent" name="swapchainsComponents::getComponent">
-<area shape="rect" id="node1" title=" " alt="" coords="711,69,891,109"/>
-<area shape="rect" id="node2" href="$d0/d62/classvulkan_render_engine_1_1swapchain.html#a165b008ab3f5949f32beff749b749ce3" title=" " alt="" coords="485,5,641,45"/>
-<area shape="rect" id="node3" href="$d0/d62/classvulkan_render_engine_1_1swapchain.html#aecfc6b957ab5c737f9cbec6f8b0b0b8f" title=" " alt="" coords="463,69,663,109"/>
-<area shape="rect" id="node6" href="$d4/d6f/classvulkan_render_engine_1_1renderer.html#ac18cb8dcf892f30dbb17cc52769cd11a" title=" " alt="" coords="246,131,401,171"/>
-<area shape="rect" id="node4" href="$d4/d6f/classvulkan_render_engine_1_1renderer.html#a0a55635ff9afa4f709dbdbabf2648e55" title=" " alt="" coords="232,67,415,107"/>
-<area shape="rect" id="node5" href="$dc/df8/classvulkan_rendering.html#a28d4c14c15481768f607b8e4c8e6ab13" title=" " alt="" coords="5,106,184,131"/>
+<area shape="rect" id="node1" title=" " alt="" coords="708,109,888,154"/>
+<area shape="rect" id="node2" href="$d0/d62/classvulkan_render_engine_1_1swapchain.html#a165b008ab3f5949f32beff749b749ce3" title=" " alt="" coords="483,5,638,50"/>
+<area shape="rect" id="node3" href="$d0/d62/classvulkan_render_engine_1_1swapchain.html#aecfc6b957ab5c737f9cbec6f8b0b0b8f" title=" " alt="" coords="461,75,660,119"/>
+<area shape="rect" id="node6" href="$d0/d62/classvulkan_render_engine_1_1swapchain.html#ad1de46f4d386c34765244bb282abfca1" title=" " alt="" coords="484,144,638,189"/>
+<area shape="rect" id="node7" href="$d4/d6f/classvulkan_render_engine_1_1renderer.html#ac18cb8dcf892f30dbb17cc52769cd11a" title=" " alt="" coords="245,175,399,219"/>
+<area shape="rect" id="node4" href="$d4/d6f/classvulkan_render_engine_1_1renderer.html#a0a55635ff9afa4f709dbdbabf2648e55" title=" " alt="" coords="231,91,413,135"/>
+<area shape="rect" id="node5" href="$dc/df8/classvulkan_rendering.html#a28d4c14c15481768f607b8e4c8e6ab13" title=" " alt="" coords="5,149,183,176"/>
 </map>

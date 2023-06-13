@@ -103,17 +103,35 @@ $(document).ready(function(){initNavTree('df/d2e/classvulkan_render_engine_1_1co
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a2af734a1fe7c04b9463aea4009a7a41e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d2e/classvulkan_render_engine_1_1command_buffers.html#a2af734a1fe7c04b9463aea4009a7a41e">init</a> (<a class="el" href="../../dc/d2b/classentity_pool.html">entityPool</a> *commandBufferesPool)</td></tr>
+<tr class="memdesc:a2af734a1fe7c04b9463aea4009a7a41e"><td class="mdescLeft">&#160;</td><td class="mdescRight">init the commands pools id pool and the data structre to contain all the pools and buffers  <br /></td></tr>
 <tr class="separator:a2af734a1fe7c04b9463aea4009a7a41e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a7526d43d655249f51890165fdfa492"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d2e/classvulkan_render_engine_1_1command_buffers.html#a5a7526d43d655249f51890165fdfa492">close</a> ()</td></tr>
+<tr class="memdesc:a5a7526d43d655249f51890165fdfa492"><td class="mdescLeft">&#160;</td><td class="mdescRight">destroy all the command pools and the command buffers, all command pools id will be deleted but the command buffers wil remain  <br /></td></tr>
 <tr class="separator:a5a7526d43d655249f51890165fdfa492"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f4336a7c7b33c17c5a67be0b933d9fb"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../da/d47/core_8hpp.html#aec8e84fad1eb8c8700a0785661f9959f">commandBufferId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d2e/classvulkan_render_engine_1_1command_buffers.html#a5f4336a7c7b33c17c5a67be0b933d9fb">create</a> (<a class="el" href="../../d8/d4e/structcommand_buffer_info.html">commandBufferInfo</a> &amp;info)</td></tr>
-<tr class="separator:a5f4336a7c7b33c17c5a67be0b933d9fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1612445aecdd2eac856f2e9b57356b58"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d2e/classvulkan_render_engine_1_1command_buffers.html#a1612445aecdd2eac856f2e9b57356b58">set</a> (<a class="el" href="../../d8/d4e/structcommand_buffer_info.html">commandBufferInfo</a> &amp;info)</td></tr>
-<tr class="separator:a1612445aecdd2eac856f2e9b57356b58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c18a410cf4e355f5b3edd637c0f3ed0"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d8/d4e/structcommand_buffer_info.html">commandBufferInfo</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d2e/classvulkan_render_engine_1_1command_buffers.html#a0c18a410cf4e355f5b3edd637c0f3ed0">get</a> (<a class="el" href="../../da/d47/core_8hpp.html#aec8e84fad1eb8c8700a0785661f9959f">commandBufferId</a> id)</td></tr>
-<tr class="separator:a0c18a410cf4e355f5b3edd637c0f3ed0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae543865741aa3366949c8b58df8fc327"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d2e/classvulkan_render_engine_1_1command_buffers.html#ae543865741aa3366949c8b58df8fc327">destroy</a> (<a class="el" href="../../da/d47/core_8hpp.html#aec8e84fad1eb8c8700a0785661f9959f">commandBufferId</a> id)</td></tr>
-<tr class="separator:ae543865741aa3366949c8b58df8fc327"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e7571bbf9196aeba8012b42482cf5d9"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d1/d60/command_buffers_components_8hpp.html#a71d0768873be6b6466617a2d137f9e8d">commandPoolId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d2e/classvulkan_render_engine_1_1command_buffers.html#a3e7571bbf9196aeba8012b42482cf5d9">createPool</a> (<a class="el" href="../../d0/d73/structcommand_pool_info.html">commandPoolInfo</a> &amp;data)</td></tr>
+<tr class="memdesc:a3e7571bbf9196aeba8012b42482cf5d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new vulkan command Pool.  <br /></td></tr>
+<tr class="separator:a3e7571bbf9196aeba8012b42482cf5d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97cd65131fb17c9500af28ec4f96040f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d2e/classvulkan_render_engine_1_1command_buffers.html#a97cd65131fb17c9500af28ec4f96040f">setPool</a> (<a class="el" href="../../d0/d73/structcommand_pool_info.html">commandPoolInfo</a> &amp;data)</td></tr>
+<tr class="memdesc:a97cd65131fb17c9500af28ec4f96040f"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the data of a vulkan command Pool  <br /></td></tr>
+<tr class="separator:a97cd65131fb17c9500af28ec4f96040f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a481d4f3d57e4bdbb0772c303cde9ce82"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d0/d73/structcommand_pool_info.html">commandPoolInfo</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d2e/classvulkan_render_engine_1_1command_buffers.html#a481d4f3d57e4bdbb0772c303cde9ce82">getPool</a> (<a class="el" href="../../da/d47/core_8hpp.html#aec8e84fad1eb8c8700a0785661f9959f">commandBufferId</a> id)</td></tr>
+<tr class="memdesc:a481d4f3d57e4bdbb0772c303cde9ce82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the vulkan command Pool data(includes the vulkan object)  <br /></td></tr>
+<tr class="separator:a481d4f3d57e4bdbb0772c303cde9ce82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee0a55547987e80123588971ee8fa13d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d2e/classvulkan_render_engine_1_1command_buffers.html#aee0a55547987e80123588971ee8fa13d">destroyPool</a> (<a class="el" href="../../da/d47/core_8hpp.html#aec8e84fad1eb8c8700a0785661f9959f">commandBufferId</a> id)</td></tr>
+<tr class="memdesc:aee0a55547987e80123588971ee8fa13d"><td class="mdescLeft">&#160;</td><td class="mdescRight">destroy a vulkan command pool and all of it's command buffers and unvalidate the pool id but not the <a class="el" href="../../df/d2e/classvulkan_render_engine_1_1command_buffers.html">commandBuffers</a> id's  <br /></td></tr>
+<tr class="separator:aee0a55547987e80123588971ee8fa13d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48a77e017cc710f865b6a131735466f2"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../da/d47/core_8hpp.html#aec8e84fad1eb8c8700a0785661f9959f">commandBufferId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d2e/classvulkan_render_engine_1_1command_buffers.html#a48a77e017cc710f865b6a131735466f2">createBuffer</a> (<a class="el" href="../../d8/d4e/structcommand_buffer_info.html">commandBufferInfo</a> &amp;data)</td></tr>
+<tr class="memdesc:a48a77e017cc710f865b6a131735466f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new vulkan command Buffer object.  <br /></td></tr>
+<tr class="separator:a48a77e017cc710f865b6a131735466f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a65e79c2c98fb525713d5fc94afdd13"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d2e/classvulkan_render_engine_1_1command_buffers.html#a4a65e79c2c98fb525713d5fc94afdd13">setBuffer</a> (<a class="el" href="../../d8/d4e/structcommand_buffer_info.html">commandBufferInfo</a> &amp;data)</td></tr>
+<tr class="memdesc:a4a65e79c2c98fb525713d5fc94afdd13"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the data of a vulkan command buffer  <br /></td></tr>
+<tr class="separator:a4a65e79c2c98fb525713d5fc94afdd13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afccfbf2ef721d00c1df8da99eaa12b70"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d8/d4e/structcommand_buffer_info.html">commandBufferInfo</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d2e/classvulkan_render_engine_1_1command_buffers.html#afccfbf2ef721d00c1df8da99eaa12b70">getBuffer</a> (<a class="el" href="../../da/d47/core_8hpp.html#aec8e84fad1eb8c8700a0785661f9959f">commandBufferId</a> id)</td></tr>
+<tr class="memdesc:afccfbf2ef721d00c1df8da99eaa12b70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the vulkan command buffer data(includes the vulkan object)  <br /></td></tr>
+<tr class="separator:afccfbf2ef721d00c1df8da99eaa12b70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7a66af1b68bd935e9cef76c1b035cd1"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d2e/classvulkan_render_engine_1_1command_buffers.html#aa7a66af1b68bd935e9cef76c1b035cd1">destroyBuffer</a> (<a class="el" href="../../da/d47/core_8hpp.html#aec8e84fad1eb8c8700a0785661f9959f">commandBufferId</a> id)</td></tr>
+<tr class="memdesc:aa7a66af1b68bd935e9cef76c1b035cd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">deallocate a vulkan command buffer, won't unvalidate id  <br /></td></tr>
+<tr class="separator:aa7a66af1b68bd935e9cef76c1b035cd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a5a7526d43d655249f51890165fdfa492" name="a5a7526d43d655249f51890165fdfa492"></a>
@@ -138,89 +156,42 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   31</span>    {</div>
-<div class="line"><span class="lineno">   32</span>        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; commandBuffersData-&gt;<a class="code hl_function" href="../../d5/d0e/classcommand_buffers_components.html#a401b8cf4fb598586644d793db432ea59">getData</a>().size(); i++)</div>
-<div class="line"><span class="lineno">   33</span>            destroycommandBuffer(&amp;commandBuffersData-&gt;<a class="code hl_function" href="../../d5/d0e/classcommand_buffers_components.html#a401b8cf4fb598586644d793db432ea59">getData</a>()[i]);</div>
-<div class="line"><span class="lineno">   34</span> </div>
-<div class="line"><span class="lineno">   35</span>        <span class="keyword">delete</span> commandBuffersData;</div>
-<div class="line"><span class="lineno">   36</span> </div>
-<div class="line"><span class="lineno">   37</span>        <a class="code hl_function" href="../../d8/d58/classvulkan_render_engine_1_1device.html#ad535cddd3e084804c7a00d87c556a511">device::getDevice</a>().destroyCommandPool(commandPool);</div>
-<div class="line"><span class="lineno">   38</span> </div>
-<div class="line"><span class="lineno">   39</span>    }</div>
-<div class="ttc" id="aclasscommand_buffers_components_html_a401b8cf4fb598586644d793db432ea59"><div class="ttname"><a href="../../d5/d0e/classcommand_buffers_components.html#a401b8cf4fb598586644d793db432ea59">commandBuffersComponents::getData</a></div><div class="ttdeci">std::vector&lt; commandBufferInfo &gt; &amp; getData()</div><div class="ttdef"><b>Definition:</b> commandBuffersComponents.hpp:43</div></div>
-<div class="ttc" id="aclassvulkan_render_engine_1_1device_html_ad535cddd3e084804c7a00d87c556a511"><div class="ttname"><a href="../../d8/d58/classvulkan_render_engine_1_1device.html#ad535cddd3e084804c7a00d87c556a511">vulkanRenderEngine::device::getDevice</a></div><div class="ttdeci">static vk::Device &amp; getDevice()</div><div class="ttdef"><b>Definition:</b> device.cpp:35</div></div>
+
+<p>destroy all the command pools and the command buffers, all command pools id will be deleted but the command buffers wil remain </p>
+<div class="fragment"><div class="line"><span class="lineno">   20</span>    {</div>
+<div class="line"><span class="lineno">   21</span>        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; commandBuffersData-&gt;<a class="code hl_function" href="../../d5/d0e/classcommand_buffers_components.html#ae2d4c1c6c9d1812fb328d786396617ef">getData</a>().size(); i++){</div>
+<div class="line"><span class="lineno">   22</span>            <span class="keyword">delete</span> commandBuffersData-&gt;<a class="code hl_function" href="../../d5/d0e/classcommand_buffers_components.html#ae2d4c1c6c9d1812fb328d786396617ef">getData</a>()[i].buffers;</div>
+<div class="line"><span class="lineno">   23</span>            destroyCommandPool(commandBuffersData-&gt;<a class="code hl_function" href="../../d5/d0e/classcommand_buffers_components.html#ae2d4c1c6c9d1812fb328d786396617ef">getData</a>()[i]);</div>
+<div class="line"><span class="lineno">   24</span>        }</div>
+<div class="line"><span class="lineno">   25</span> </div>
+<div class="line"><span class="lineno">   26</span>        <span class="keyword">delete</span> commandBuffersData;</div>
+<div class="line"><span class="lineno">   27</span> </div>
+<div class="line"><span class="lineno">   28</span>    }</div>
+<div class="ttc" id="aclasscommand_buffers_components_html_ae2d4c1c6c9d1812fb328d786396617ef"><div class="ttname"><a href="../../d5/d0e/classcommand_buffers_components.html#ae2d4c1c6c9d1812fb328d786396617ef">commandBuffersComponents::getData</a></div><div class="ttdeci">std::vector&lt; commandPoolInfo &gt; &amp; getData()</div><div class="ttdef"><b>Definition:</b> commandBuffersComponents.hpp:86</div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../df/d2e/classvulkan_render_engine_1_1command_buffers_a5a7526d43d655249f51890165fdfa492_cgraph.png" border="0" usemap="#adf/d2e/classvulkan_render_engine_1_1command_buffers_a5a7526d43d655249f51890165fdfa492_cgraph" alt=""/></div>
 <map name="adf/d2e/classvulkan_render_engine_1_1command_buffers_a5a7526d43d655249f51890165fdfa492_cgraph" id="adf/d2e/classvulkan_render_engine_1_1command_buffers_a5a7526d43d655249f51890165fdfa492_cgraph">
-<area shape="rect" title=" " alt="" coords="5,37,188,77"/>
-<area shape="rect" href="../../d5/d0e/classcommand_buffers_components.html#a401b8cf4fb598586644d793db432ea59" title=" " alt="" coords="236,5,451,45"/>
-<area shape="rect" href="../../d8/d58/classvulkan_render_engine_1_1device.html#ad535cddd3e084804c7a00d87c556a511" title=" " alt="" coords="266,69,421,109"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a5f4336a7c7b33c17c5a67be0b933d9fb" name="a5f4336a7c7b33c17c5a67be0b933d9fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f4336a7c7b33c17c5a67be0b933d9fb">&#9670;&#160;</a></span>create()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../da/d47/core_8hpp.html#aec8e84fad1eb8c8700a0785661f9959f">commandBufferId</a> vulkanRenderEngine::commandBuffers::create </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d8/d4e/structcommand_buffer_info.html">commandBufferInfo</a> &amp;&#160;</td>
-          <td class="paramname"><em>info</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   44</span>    {</div>
-<div class="line"><span class="lineno">   45</span>        <a class="code hl_struct" href="../../df/d3a/structentity_id.html">commandBufferId</a> <span class="keywordtype">id</span> = commandBuffersPool-&gt;<a class="code hl_function" href="../../dc/d2b/classentity_pool.html#ad4fb0df84c544348a0da6b6d0e20ccce">allocEntity</a>();</div>
-<div class="line"><span class="lineno">   46</span>        data.id = id;</div>
-<div class="line"><span class="lineno">   47</span>        createcommandBuffer(data);</div>
-<div class="line"><span class="lineno">   48</span>        commandBuffersData-&gt;<a class="code hl_function" href="../../d5/d0e/classcommand_buffers_components.html#ae429d76a8c587687a0c50434d1f03175">setComponent</a>(<span class="keywordtype">id</span>, data);</div>
-<div class="line"><span class="lineno">   49</span>        <span class="keywordflow">return</span> id;</div>
-<div class="line"><span class="lineno">   50</span>    }</div>
-<div class="ttc" id="aclasscommand_buffers_components_html_ae429d76a8c587687a0c50434d1f03175"><div class="ttname"><a href="../../d5/d0e/classcommand_buffers_components.html#ae429d76a8c587687a0c50434d1f03175">commandBuffersComponents::setComponent</a></div><div class="ttdeci">void setComponent(entityId id, commandBufferInfo &amp;buffer)</div><div class="ttdef"><b>Definition:</b> commandBuffersComponents.cpp:31</div></div>
-<div class="ttc" id="aclassentity_pool_html_ad4fb0df84c544348a0da6b6d0e20ccce"><div class="ttname"><a href="../../dc/d2b/classentity_pool.html#ad4fb0df84c544348a0da6b6d0e20ccce">entityPool::allocEntity</a></div><div class="ttdeci">entityId allocEntity()</div><div class="ttdef"><b>Definition:</b> entityPool.cpp:16</div></div>
-<div class="ttc" id="astructentity_id_html"><div class="ttname"><a href="../../df/d3a/structentity_id.html">entityId</a></div><div class="ttdef"><b>Definition:</b> core.hpp:6</div></div>
-</div><!-- fragment --><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../df/d2e/classvulkan_render_engine_1_1command_buffers_a5f4336a7c7b33c17c5a67be0b933d9fb_cgraph.png" border="0" usemap="#adf/d2e/classvulkan_render_engine_1_1command_buffers_a5f4336a7c7b33c17c5a67be0b933d9fb_cgraph" alt=""/></div>
-<map name="adf/d2e/classvulkan_render_engine_1_1command_buffers_a5f4336a7c7b33c17c5a67be0b933d9fb_cgraph" id="adf/d2e/classvulkan_render_engine_1_1command_buffers_a5f4336a7c7b33c17c5a67be0b933d9fb_cgraph">
-<area shape="rect" title=" " alt="" coords="5,27,196,67"/>
-<area shape="rect" href="../../dc/d2b/classentity_pool.html#ad4fb0df84c544348a0da6b6d0e20ccce" title=" " alt="" coords="269,5,434,31"/>
-<area shape="rect" href="../../d5/d0e/classcommand_buffers_components.html#ae429d76a8c587687a0c50434d1f03175" title=" " alt="" coords="244,55,459,95"/>
-<area shape="rect" href="../../dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d" title=" " alt="" coords="507,63,657,88"/>
+<area shape="rect" title="destroy all the command pools and the command buffers, all command pools id will be deleted but the c..." alt="" coords="5,5,188,50"/>
+<area shape="rect" href="../../d5/d0e/classcommand_buffers_components.html#ae2d4c1c6c9d1812fb328d786396617ef" title=" " alt="" coords="236,5,450,50"/>
 </map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../df/d2e/classvulkan_render_engine_1_1command_buffers_a5f4336a7c7b33c17c5a67be0b933d9fb_icgraph.png" border="0" usemap="#adf/d2e/classvulkan_render_engine_1_1command_buffers_a5f4336a7c7b33c17c5a67be0b933d9fb_icgraph" alt=""/></div>
-<map name="adf/d2e/classvulkan_render_engine_1_1command_buffers_a5f4336a7c7b33c17c5a67be0b933d9fb_icgraph" id="adf/d2e/classvulkan_render_engine_1_1command_buffers_a5f4336a7c7b33c17c5a67be0b933d9fb_icgraph">
-<area shape="rect" title=" " alt="" coords="463,5,653,45"/>
-<area shape="rect" href="../../d4/d6f/classvulkan_render_engine_1_1renderer.html#a0a55635ff9afa4f709dbdbabf2648e55" title=" " alt="" coords="232,5,415,45"/>
-<area shape="rect" href="../../dc/df8/classvulkan_rendering.html#a28d4c14c15481768f607b8e4c8e6ab13" title=" " alt="" coords="5,13,184,38"/>
+<div class="center"><img src="../../df/d2e/classvulkan_render_engine_1_1command_buffers_a5a7526d43d655249f51890165fdfa492_icgraph.png" border="0" usemap="#adf/d2e/classvulkan_render_engine_1_1command_buffers_a5a7526d43d655249f51890165fdfa492_icgraph" alt=""/></div>
+<map name="adf/d2e/classvulkan_render_engine_1_1command_buffers_a5a7526d43d655249f51890165fdfa492_icgraph" id="adf/d2e/classvulkan_render_engine_1_1command_buffers_a5a7526d43d655249f51890165fdfa492_icgraph">
+<area shape="rect" title="destroy all the command pools and the command buffers, all command pools id will be deleted but the c..." alt="" coords="422,5,604,50"/>
+<area shape="rect" href="../../d4/d6f/classvulkan_render_engine_1_1renderer.html#a44492216b7abdf4d014c408fad104151" title=" " alt="" coords="220,5,374,50"/>
+<area shape="rect" href="../../d7/d09/classrender_api.html#a4efef07da08a4bda2bf1685ae64f16f1" title=" " alt="" coords="5,14,172,42"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="ae543865741aa3366949c8b58df8fc327" name="ae543865741aa3366949c8b58df8fc327"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae543865741aa3366949c8b58df8fc327">&#9670;&#160;</a></span>destroy()</h2>
+<a id="a48a77e017cc710f865b6a131735466f2" name="a48a77e017cc710f865b6a131735466f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48a77e017cc710f865b6a131735466f2">&#9670;&#160;</a></span>createBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -229,10 +200,10 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void vulkanRenderEngine::commandBuffers::destroy </td>
+          <td class="memname"><a class="el" href="../../da/d47/core_8hpp.html#aec8e84fad1eb8c8700a0785661f9959f">commandBufferId</a> vulkanRenderEngine::commandBuffers::createBuffer </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#aec8e84fad1eb8c8700a0785661f9959f">commandBufferId</a>&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../d8/d4e/structcommand_buffer_info.html">commandBufferInfo</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -242,29 +213,54 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Create a new vulkan command Buffer object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>the spesfaction of the command buffer to create </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the idenifaction of the new command bufferc in the system </dd></dl>
 <div class="fragment"><div class="line"><span class="lineno">   66</span>    {</div>
-<div class="line"><span class="lineno">   67</span>        destroycommandBuffer(commandBuffersData-&gt;<a class="code hl_function" href="../../d5/d0e/classcommand_buffers_components.html#a5422f021538051395cc564b75e63c07a">getComponent</a>(<span class="keywordtype">id</span>));</div>
-<div class="line"><span class="lineno">   68</span> </div>
-<div class="line"><span class="lineno">   69</span>        commandBuffersData-&gt;<a class="code hl_function" href="../../d5/d0e/classcommand_buffers_components.html#ac7664b8c18e43a2446e2688c45ccd55c">deleteComponent</a>(<span class="keywordtype">id</span>);</div>
-<div class="line"><span class="lineno">   70</span>    }</div>
-<div class="ttc" id="aclasscommand_buffers_components_html_a5422f021538051395cc564b75e63c07a"><div class="ttname"><a href="../../d5/d0e/classcommand_buffers_components.html#a5422f021538051395cc564b75e63c07a">commandBuffersComponents::getComponent</a></div><div class="ttdeci">commandBufferInfo * getComponent(entityId id)</div><div class="ttdef"><b>Definition:</b> commandBuffersComponents.cpp:23</div></div>
-<div class="ttc" id="aclasscommand_buffers_components_html_ac7664b8c18e43a2446e2688c45ccd55c"><div class="ttname"><a href="../../d5/d0e/classcommand_buffers_components.html#ac7664b8c18e43a2446e2688c45ccd55c">commandBuffersComponents::deleteComponent</a></div><div class="ttdeci">void deleteComponent(entityId id)</div><div class="ttdef"><b>Definition:</b> commandBuffersComponents.cpp:10</div></div>
+<div class="line"><span class="lineno">   67</span>        <a class="code hl_struct" href="../../df/d3a/structentity_id.html">commandBufferId</a> <span class="keywordtype">id</span> = commandBuffersPool-&gt;<a class="code hl_function" href="../../dc/d2b/classentity_pool.html#ad4fb0df84c544348a0da6b6d0e20ccce">allocEntity</a>();</div>
+<div class="line"><span class="lineno">   68</span>        data.<a class="code hl_variable" href="../../d8/d4e/structcommand_buffer_info.html#a2657a1ce82cc0f95a7e1c04c5c5d2395">id</a> = id;</div>
+<div class="line"><span class="lineno">   69</span>        createCommandBuffer(data);</div>
+<div class="line"><span class="lineno">   70</span>        commandBuffersData-&gt;<a class="code hl_function" href="../../d5/d0e/classcommand_buffers_components.html#a48a40add3655ee77ccedc1f82f2a9906">setBuffer</a>(<span class="keywordtype">id</span>, data);</div>
+<div class="line"><span class="lineno">   71</span>        <span class="keywordflow">return</span> id;</div>
+<div class="line"><span class="lineno">   72</span>    }</div>
+<div class="ttc" id="aclasscommand_buffers_components_html_a48a40add3655ee77ccedc1f82f2a9906"><div class="ttname"><a href="../../d5/d0e/classcommand_buffers_components.html#a48a40add3655ee77ccedc1f82f2a9906">commandBuffersComponents::setBuffer</a></div><div class="ttdeci">void setBuffer(entityId id, commandBufferInfo &amp;buffer)</div><div class="ttdef"><b>Definition:</b> commandBuffersComponents.cpp:89</div></div>
+<div class="ttc" id="aclassentity_pool_html_ad4fb0df84c544348a0da6b6d0e20ccce"><div class="ttname"><a href="../../dc/d2b/classentity_pool.html#ad4fb0df84c544348a0da6b6d0e20ccce">entityPool::allocEntity</a></div><div class="ttdeci">entityId allocEntity()</div><div class="ttdef"><b>Definition:</b> entityPool.cpp:16</div></div>
+<div class="ttc" id="astructcommand_buffer_info_html_a2657a1ce82cc0f95a7e1c04c5c5d2395"><div class="ttname"><a href="../../d8/d4e/structcommand_buffer_info.html#a2657a1ce82cc0f95a7e1c04c5c5d2395">commandBufferInfo::id</a></div><div class="ttdeci">commandBufferId id</div><div class="ttdef"><b>Definition:</b> commandBuffersComponents.hpp:14</div></div>
+<div class="ttc" id="astructentity_id_html"><div class="ttname"><a href="../../df/d3a/structentity_id.html">entityId</a></div><div class="ttdef"><b>Definition:</b> core.hpp:6</div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../df/d2e/classvulkan_render_engine_1_1command_buffers_ae543865741aa3366949c8b58df8fc327_cgraph.png" border="0" usemap="#adf/d2e/classvulkan_render_engine_1_1command_buffers_ae543865741aa3366949c8b58df8fc327_cgraph" alt=""/></div>
-<map name="adf/d2e/classvulkan_render_engine_1_1command_buffers_ae543865741aa3366949c8b58df8fc327_cgraph" id="adf/d2e/classvulkan_render_engine_1_1command_buffers_ae543865741aa3366949c8b58df8fc327_cgraph">
-<area shape="rect" title=" " alt="" coords="5,37,204,77"/>
-<area shape="rect" href="../../d5/d0e/classcommand_buffers_components.html#ac7664b8c18e43a2446e2688c45ccd55c" title=" " alt="" coords="252,5,467,45"/>
-<area shape="rect" href="../../d5/d0e/classcommand_buffers_components.html#a5422f021538051395cc564b75e63c07a" title=" " alt="" coords="252,69,467,109"/>
-<area shape="rect" href="../../dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d" title=" " alt="" coords="515,45,665,70"/>
+<div class="center"><img src="../../df/d2e/classvulkan_render_engine_1_1command_buffers_a48a77e017cc710f865b6a131735466f2_cgraph.png" border="0" usemap="#adf/d2e/classvulkan_render_engine_1_1command_buffers_a48a77e017cc710f865b6a131735466f2_cgraph" alt=""/></div>
+<map name="adf/d2e/classvulkan_render_engine_1_1command_buffers_a48a77e017cc710f865b6a131735466f2_cgraph" id="adf/d2e/classvulkan_render_engine_1_1command_buffers_a48a77e017cc710f865b6a131735466f2_cgraph">
+<area shape="rect" title="Create a new vulkan command Buffer object." alt="" coords="5,28,234,72"/>
+<area shape="rect" href="../../dc/d2b/classentity_pool.html#ad4fb0df84c544348a0da6b6d0e20ccce" title=" " alt="" coords="307,5,471,33"/>
+<area shape="rect" href="../../d5/d0e/classcommand_buffers_components.html#a48a40add3655ee77ccedc1f82f2a9906" title=" " alt="" coords="282,57,496,102"/>
+<area shape="rect" href="../../d5/d0e/classcommand_buffers_components.html#a636cd8c16b7562a8517538fa9a906e0a" title=" " alt="" coords="544,57,758,102"/>
+<area shape="rect" href="../../dc/d2b/classentity_pool.html#a1bbde64e155748e51b6056d2bd25f6c9" title=" " alt="" coords="806,13,1002,58"/>
+<area shape="rect" href="../../dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d" title=" " alt="" coords="829,96,979,124"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../df/d2e/classvulkan_render_engine_1_1command_buffers_a48a77e017cc710f865b6a131735466f2_icgraph.png" border="0" usemap="#adf/d2e/classvulkan_render_engine_1_1command_buffers_a48a77e017cc710f865b6a131735466f2_icgraph" alt=""/></div>
+<map name="adf/d2e/classvulkan_render_engine_1_1command_buffers_a48a77e017cc710f865b6a131735466f2_icgraph" id="adf/d2e/classvulkan_render_engine_1_1command_buffers_a48a77e017cc710f865b6a131735466f2_icgraph">
+<area shape="rect" title="Create a new vulkan command Buffer object." alt="" coords="461,5,689,50"/>
+<area shape="rect" href="../../d4/d6f/classvulkan_render_engine_1_1renderer.html#a0a55635ff9afa4f709dbdbabf2648e55" title=" " alt="" coords="231,5,413,50"/>
+<area shape="rect" href="../../dc/df8/classvulkan_rendering.html#a28d4c14c15481768f607b8e4c8e6ab13" title=" " alt="" coords="5,14,183,42"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a0c18a410cf4e355f5b3edd637c0f3ed0" name="a0c18a410cf4e355f5b3edd637c0f3ed0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0c18a410cf4e355f5b3edd637c0f3ed0">&#9670;&#160;</a></span>get()</h2>
+<a id="a3e7571bbf9196aeba8012b42482cf5d9" name="a3e7571bbf9196aeba8012b42482cf5d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e7571bbf9196aeba8012b42482cf5d9">&#9670;&#160;</a></span>createPool()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -273,7 +269,62 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d8/d4e/structcommand_buffer_info.html">commandBufferInfo</a> * vulkanRenderEngine::commandBuffers::get </td>
+          <td class="memname"><a class="el" href="../../d1/d60/command_buffers_components_8hpp.html#a71d0768873be6b6466617a2d137f9e8d">commandPoolId</a> vulkanRenderEngine::commandBuffers::createPool </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/d73/structcommand_pool_info.html">commandPoolInfo</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create a new vulkan command Pool. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>the spesfaction of the command pool to create </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the idenifaction of the new command pool in the system </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   32</span>    {</div>
+<div class="line"><span class="lineno">   33</span>        <a class="code hl_struct" href="../../df/d3a/structentity_id.html">commandPoolId</a> <span class="keywordtype">id</span> = commandPoolsPool-&gt;<a class="code hl_function" href="../../dc/d2b/classentity_pool.html#ad4fb0df84c544348a0da6b6d0e20ccce">allocEntity</a>();</div>
+<div class="line"><span class="lineno">   34</span>        data.<a class="code hl_variable" href="../../d0/d73/structcommand_pool_info.html#acf21476754802515aafe28cb26d537d1">id</a> = id;</div>
+<div class="line"><span class="lineno">   35</span>        createCommandPool(data);</div>
+<div class="line"><span class="lineno">   36</span>        commandBuffersData-&gt;<a class="code hl_function" href="../../d5/d0e/classcommand_buffers_components.html#a93f6e288aef7192e38d2efb155add22f">setPool</a>(data.<a class="code hl_variable" href="../../d0/d73/structcommand_pool_info.html#acf21476754802515aafe28cb26d537d1">id</a>, data);</div>
+<div class="line"><span class="lineno">   37</span>        <span class="keywordflow">return</span> data.<a class="code hl_variable" href="../../d0/d73/structcommand_pool_info.html#acf21476754802515aafe28cb26d537d1">id</a>;</div>
+<div class="line"><span class="lineno">   38</span>    }</div>
+<div class="ttc" id="aclasscommand_buffers_components_html_a93f6e288aef7192e38d2efb155add22f"><div class="ttname"><a href="../../d5/d0e/classcommand_buffers_components.html#a93f6e288aef7192e38d2efb155add22f">commandBuffersComponents::setPool</a></div><div class="ttdeci">void setPool(entityId id, commandPoolInfo &amp;buffer)</div><div class="ttdef"><b>Definition:</b> commandBuffersComponents.cpp:36</div></div>
+<div class="ttc" id="astructcommand_pool_info_html_acf21476754802515aafe28cb26d537d1"><div class="ttname"><a href="../../d0/d73/structcommand_pool_info.html#acf21476754802515aafe28cb26d537d1">commandPoolInfo::id</a></div><div class="ttdeci">commandPoolId id</div><div class="ttdef"><b>Definition:</b> commandBuffersComponents.hpp:25</div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../df/d2e/classvulkan_render_engine_1_1command_buffers_a3e7571bbf9196aeba8012b42482cf5d9_cgraph.png" border="0" usemap="#adf/d2e/classvulkan_render_engine_1_1command_buffers_a3e7571bbf9196aeba8012b42482cf5d9_cgraph" alt=""/></div>
+<map name="adf/d2e/classvulkan_render_engine_1_1command_buffers_a3e7571bbf9196aeba8012b42482cf5d9_cgraph" id="adf/d2e/classvulkan_render_engine_1_1command_buffers_a3e7571bbf9196aeba8012b42482cf5d9_cgraph">
+<area shape="rect" title="Create a new vulkan command Pool." alt="" coords="5,28,223,72"/>
+<area shape="rect" href="../../dc/d2b/classentity_pool.html#ad4fb0df84c544348a0da6b6d0e20ccce" title=" " alt="" coords="296,5,460,33"/>
+<area shape="rect" href="../../d5/d0e/classcommand_buffers_components.html#a93f6e288aef7192e38d2efb155add22f" title=" " alt="" coords="271,57,485,102"/>
+<area shape="rect" href="../../dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d" title=" " alt="" coords="533,65,683,93"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa7a66af1b68bd935e9cef76c1b035cd1" name="aa7a66af1b68bd935e9cef76c1b035cd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7a66af1b68bd935e9cef76c1b035cd1">&#9670;&#160;</a></span>destroyBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vulkanRenderEngine::commandBuffers::destroyBuffer </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#aec8e84fad1eb8c8700a0785661f9959f">commandBufferId</a>&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
@@ -286,18 +337,201 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   60</span>    {</div>
-<div class="line"><span class="lineno">   61</span>        <span class="keywordflow">return</span> commandBuffersData-&gt;<a class="code hl_function" href="../../d5/d0e/classcommand_buffers_components.html#a5422f021538051395cc564b75e63c07a">getComponent</a>(<span class="keywordtype">id</span>);</div>
-<div class="line"><span class="lineno">   62</span> </div>
-<div class="line"><span class="lineno">   63</span>    }</div>
+
+<p>deallocate a vulkan command buffer, won't unvalidate id </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>the buffer to destroy </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   87</span>    {</div>
+<div class="line"><span class="lineno">   88</span>        destroyCommandBuffer(commandBuffersData-&gt;<a class="code hl_function" href="../../d5/d0e/classcommand_buffers_components.html#a5598869f53b0463e17a35b4e58041c94">getBuffer</a>(<span class="keywordtype">id</span>));</div>
+<div class="line"><span class="lineno">   89</span> </div>
+<div class="line"><span class="lineno">   90</span>        commandBuffersData-&gt;<a class="code hl_function" href="../../d5/d0e/classcommand_buffers_components.html#a636cd8c16b7562a8517538fa9a906e0a">deleteBuffer</a>(<span class="keywordtype">id</span>);</div>
+<div class="line"><span class="lineno">   91</span>    }</div>
+<div class="ttc" id="aclasscommand_buffers_components_html_a5598869f53b0463e17a35b4e58041c94"><div class="ttname"><a href="../../d5/d0e/classcommand_buffers_components.html#a5598869f53b0463e17a35b4e58041c94">commandBuffersComponents::getBuffer</a></div><div class="ttdeci">commandBufferInfo * getBuffer(entityId id)</div><div class="ttdef"><b>Definition:</b> commandBuffersComponents.cpp:74</div></div>
+<div class="ttc" id="aclasscommand_buffers_components_html_a636cd8c16b7562a8517538fa9a906e0a"><div class="ttname"><a href="../../d5/d0e/classcommand_buffers_components.html#a636cd8c16b7562a8517538fa9a906e0a">commandBuffersComponents::deleteBuffer</a></div><div class="ttdeci">void deleteBuffer(entityId id)</div><div class="ttdef"><b>Definition:</b> commandBuffersComponents.cpp:55</div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../df/d2e/classvulkan_render_engine_1_1command_buffers_a0c18a410cf4e355f5b3edd637c0f3ed0_cgraph.png" border="0" usemap="#adf/d2e/classvulkan_render_engine_1_1command_buffers_a0c18a410cf4e355f5b3edd637c0f3ed0_cgraph" alt=""/></div>
-<map name="adf/d2e/classvulkan_render_engine_1_1command_buffers_a0c18a410cf4e355f5b3edd637c0f3ed0_cgraph" id="adf/d2e/classvulkan_render_engine_1_1command_buffers_a0c18a410cf4e355f5b3edd637c0f3ed0_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,176,45"/>
-<area shape="rect" href="../../d5/d0e/classcommand_buffers_components.html#a5422f021538051395cc564b75e63c07a" title=" " alt="" coords="224,5,439,45"/>
-<area shape="rect" href="../../dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d" title=" " alt="" coords="487,13,637,38"/>
+<div class="center"><img src="../../df/d2e/classvulkan_render_engine_1_1command_buffers_aa7a66af1b68bd935e9cef76c1b035cd1_cgraph.png" border="0" usemap="#adf/d2e/classvulkan_render_engine_1_1command_buffers_aa7a66af1b68bd935e9cef76c1b035cd1_cgraph" alt=""/></div>
+<map name="adf/d2e/classvulkan_render_engine_1_1command_buffers_aa7a66af1b68bd935e9cef76c1b035cd1_cgraph" id="adf/d2e/classvulkan_render_engine_1_1command_buffers_aa7a66af1b68bd935e9cef76c1b035cd1_cgraph">
+<area shape="rect" title="deallocate a vulkan command buffer, won&#39;t unvalidate id" alt="" coords="5,40,242,85"/>
+<area shape="rect" href="../../d5/d0e/classcommand_buffers_components.html#a636cd8c16b7562a8517538fa9a906e0a" title=" " alt="" coords="290,5,504,50"/>
+<area shape="rect" href="../../d5/d0e/classcommand_buffers_components.html#a5598869f53b0463e17a35b4e58041c94" title=" " alt="" coords="290,75,504,119"/>
+<area shape="rect" href="../../dc/d2b/classentity_pool.html#a1bbde64e155748e51b6056d2bd25f6c9" title=" " alt="" coords="552,8,747,53"/>
+<area shape="rect" href="../../dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d" title=" " alt="" coords="575,79,725,107"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aee0a55547987e80123588971ee8fa13d" name="aee0a55547987e80123588971ee8fa13d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee0a55547987e80123588971ee8fa13d">&#9670;&#160;</a></span>destroyPool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vulkanRenderEngine::commandBuffers::destroyPool </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#aec8e84fad1eb8c8700a0785661f9959f">commandBufferId</a>&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>destroy a vulkan command pool and all of it's command buffers and unvalidate the pool id but not the <a class="el" href="../../df/d2e/classvulkan_render_engine_1_1command_buffers.html">commandBuffers</a> id's </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>the pool to destroy </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   56</span>    {</div>
+<div class="line"><span class="lineno">   57</span>        destroyCommandPool(*commandBuffersData-&gt;<a class="code hl_function" href="../../d5/d0e/classcommand_buffers_components.html#a8565c6b343efc03123f6ed96d813f699">getPool</a>(<span class="keywordtype">id</span>));</div>
+<div class="line"><span class="lineno">   58</span> </div>
+<div class="line"><span class="lineno">   59</span>        commandBuffersData-&gt;<a class="code hl_function" href="../../d5/d0e/classcommand_buffers_components.html#a5b20727035c2c618edf144ec51e7e98b">deletePool</a>(<span class="keywordtype">id</span>);</div>
+<div class="line"><span class="lineno">   60</span>    }</div>
+<div class="ttc" id="aclasscommand_buffers_components_html_a5b20727035c2c618edf144ec51e7e98b"><div class="ttname"><a href="../../d5/d0e/classcommand_buffers_components.html#a5b20727035c2c618edf144ec51e7e98b">commandBuffersComponents::deletePool</a></div><div class="ttdeci">void deletePool(entityId id)</div><div class="ttdef"><b>Definition:</b> commandBuffersComponents.cpp:12</div></div>
+<div class="ttc" id="aclasscommand_buffers_components_html_a8565c6b343efc03123f6ed96d813f699"><div class="ttname"><a href="../../d5/d0e/classcommand_buffers_components.html#a8565c6b343efc03123f6ed96d813f699">commandBuffersComponents::getPool</a></div><div class="ttdeci">commandPoolInfo * getPool(entityId id)</div><div class="ttdef"><b>Definition:</b> commandBuffersComponents.cpp:28</div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../df/d2e/classvulkan_render_engine_1_1command_buffers_aee0a55547987e80123588971ee8fa13d_cgraph.png" border="0" usemap="#adf/d2e/classvulkan_render_engine_1_1command_buffers_aee0a55547987e80123588971ee8fa13d_cgraph" alt=""/></div>
+<map name="adf/d2e/classvulkan_render_engine_1_1command_buffers_aee0a55547987e80123588971ee8fa13d_cgraph" id="adf/d2e/classvulkan_render_engine_1_1command_buffers_aee0a55547987e80123588971ee8fa13d_cgraph">
+<area shape="rect" title="destroy a vulkan command pool and all of it&#39;s command buffers and unvalidate the pool id but not the ..." alt="" coords="5,40,231,85"/>
+<area shape="rect" href="../../d5/d0e/classcommand_buffers_components.html#a5b20727035c2c618edf144ec51e7e98b" title=" " alt="" coords="279,5,493,50"/>
+<area shape="rect" href="../../d5/d0e/classcommand_buffers_components.html#a8565c6b343efc03123f6ed96d813f699" title=" " alt="" coords="279,75,493,119"/>
+<area shape="rect" href="../../dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d" title=" " alt="" coords="541,49,691,76"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../df/d2e/classvulkan_render_engine_1_1command_buffers_aee0a55547987e80123588971ee8fa13d_icgraph.png" border="0" usemap="#adf/d2e/classvulkan_render_engine_1_1command_buffers_aee0a55547987e80123588971ee8fa13d_icgraph" alt=""/></div>
+<map name="adf/d2e/classvulkan_render_engine_1_1command_buffers_aee0a55547987e80123588971ee8fa13d_icgraph" id="adf/d2e/classvulkan_render_engine_1_1command_buffers_aee0a55547987e80123588971ee8fa13d_icgraph">
+<area shape="rect" title="destroy a vulkan command pool and all of it&#39;s command buffers and unvalidate the pool id but not the ..." alt="" coords="250,5,475,50"/>
+<area shape="rect" href="../../df/d2e/classvulkan_render_engine_1_1command_buffers.html#a97cd65131fb17c9500af28ec4f96040f" title="set the data of a vulkan command Pool" alt="" coords="5,5,202,50"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="afccfbf2ef721d00c1df8da99eaa12b70" name="afccfbf2ef721d00c1df8da99eaa12b70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afccfbf2ef721d00c1df8da99eaa12b70">&#9670;&#160;</a></span>getBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d8/d4e/structcommand_buffer_info.html">commandBufferInfo</a> * vulkanRenderEngine::commandBuffers::getBuffer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#aec8e84fad1eb8c8700a0785661f9959f">commandBufferId</a>&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the vulkan command buffer data(includes the vulkan object) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>the id of the buffer to get </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the command buffer data </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   82</span>    {</div>
+<div class="line"><span class="lineno">   83</span>        <span class="keywordflow">return</span> commandBuffersData-&gt;<a class="code hl_function" href="../../d5/d0e/classcommand_buffers_components.html#a5598869f53b0463e17a35b4e58041c94">getBuffer</a>(<span class="keywordtype">id</span>);</div>
+<div class="line"><span class="lineno">   84</span>    }</div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../df/d2e/classvulkan_render_engine_1_1command_buffers_afccfbf2ef721d00c1df8da99eaa12b70_cgraph.png" border="0" usemap="#adf/d2e/classvulkan_render_engine_1_1command_buffers_afccfbf2ef721d00c1df8da99eaa12b70_cgraph" alt=""/></div>
+<map name="adf/d2e/classvulkan_render_engine_1_1command_buffers_afccfbf2ef721d00c1df8da99eaa12b70_cgraph" id="adf/d2e/classvulkan_render_engine_1_1command_buffers_afccfbf2ef721d00c1df8da99eaa12b70_cgraph">
+<area shape="rect" title="Get the vulkan command buffer data(includes the vulkan object)" alt="" coords="5,36,214,81"/>
+<area shape="rect" href="../../d5/d0e/classcommand_buffers_components.html#a5598869f53b0463e17a35b4e58041c94" title=" " alt="" coords="262,36,476,81"/>
+<area shape="rect" href="../../dc/d2b/classentity_pool.html#a1bbde64e155748e51b6056d2bd25f6c9" title=" " alt="" coords="524,5,719,50"/>
+<area shape="rect" href="../../dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d" title=" " alt="" coords="547,74,697,102"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../df/d2e/classvulkan_render_engine_1_1command_buffers_afccfbf2ef721d00c1df8da99eaa12b70_icgraph.png" border="0" usemap="#adf/d2e/classvulkan_render_engine_1_1command_buffers_afccfbf2ef721d00c1df8da99eaa12b70_icgraph" alt=""/></div>
+<map name="adf/d2e/classvulkan_render_engine_1_1command_buffers_afccfbf2ef721d00c1df8da99eaa12b70_icgraph" id="adf/d2e/classvulkan_render_engine_1_1command_buffers_afccfbf2ef721d00c1df8da99eaa12b70_icgraph">
+<area shape="rect" title="Get the vulkan command buffer data(includes the vulkan object)" alt="" coords="678,5,887,50"/>
+<area shape="rect" href="../../d6/d54/renderer_8cpp.html#a8c20bc5ceb5156ce1a9d261166306af0" title=" " alt="" coords="461,14,630,42"/>
+<area shape="rect" href="../../d4/d6f/classvulkan_render_engine_1_1renderer.html#a0a55635ff9afa4f709dbdbabf2648e55" title=" " alt="" coords="231,5,413,50"/>
+<area shape="rect" href="../../dc/df8/classvulkan_rendering.html#a28d4c14c15481768f607b8e4c8e6ab13" title=" " alt="" coords="5,14,183,42"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a481d4f3d57e4bdbb0772c303cde9ce82" name="a481d4f3d57e4bdbb0772c303cde9ce82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a481d4f3d57e4bdbb0772c303cde9ce82">&#9670;&#160;</a></span>getPool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/d73/structcommand_pool_info.html">commandPoolInfo</a> * vulkanRenderEngine::commandBuffers::getPool </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d47/core_8hpp.html#aec8e84fad1eb8c8700a0785661f9959f">commandBufferId</a>&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the vulkan command Pool data(includes the vulkan object) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>the id of the pool to get </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the command pool data </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   50</span>    {</div>
+<div class="line"><span class="lineno">   51</span>        <span class="keywordflow">return</span> commandBuffersData-&gt;<a class="code hl_function" href="../../d5/d0e/classcommand_buffers_components.html#a8565c6b343efc03123f6ed96d813f699">getPool</a>(<span class="keywordtype">id</span>);</div>
+<div class="line"><span class="lineno">   52</span> </div>
+<div class="line"><span class="lineno">   53</span>    }</div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../df/d2e/classvulkan_render_engine_1_1command_buffers_a481d4f3d57e4bdbb0772c303cde9ce82_cgraph.png" border="0" usemap="#adf/d2e/classvulkan_render_engine_1_1command_buffers_a481d4f3d57e4bdbb0772c303cde9ce82_cgraph" alt=""/></div>
+<map name="adf/d2e/classvulkan_render_engine_1_1command_buffers_a481d4f3d57e4bdbb0772c303cde9ce82_cgraph" id="adf/d2e/classvulkan_render_engine_1_1command_buffers_a481d4f3d57e4bdbb0772c303cde9ce82_cgraph">
+<area shape="rect" title="Get the vulkan command Pool data(includes the vulkan object)" alt="" coords="5,5,203,50"/>
+<area shape="rect" href="../../d5/d0e/classcommand_buffers_components.html#a8565c6b343efc03123f6ed96d813f699" title=" " alt="" coords="251,5,465,50"/>
+<area shape="rect" href="../../dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d" title=" " alt="" coords="513,14,663,42"/>
 </map>
 </div>
 
@@ -326,52 +560,36 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>init the commands pools id pool and the data structre to contain all the pools and buffers </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">commandBufferesPool</td><td>the gloable command buffers pool </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="fragment"><div class="line"><span class="lineno">   11</span>    {</div>
-<div class="line"><span class="lineno">   12</span>        commandBuffers::commandBuffersPool = commandBuffersPool;<span class="comment">// commandBuffersPool;</span></div>
-<div class="line"><span class="lineno">   13</span>        commandBuffersData = <span class="keyword">new</span> <a class="code hl_class" href="../../d5/d0e/classcommand_buffers_components.html">commandBuffersComponents</a>(commandBuffersPool);</div>
-<div class="line"><span class="lineno">   14</span> </div>
-<div class="line"><span class="lineno">   15</span> </div>
-<div class="line"><span class="lineno">   16</span>        vk::CommandPoolCreateInfo poolInfo;</div>
-<div class="line"><span class="lineno">   17</span>        poolInfo.flags = vk::CommandPoolCreateFlagBits::eResetCommandBuffer;</div>
-<div class="line"><span class="lineno">   18</span>        poolInfo.queueFamilyIndex = <a class="code hl_function" href="../../dc/df4/classvulkan_render_engine_1_1queue_familys.html#ac85f4016118530c9e47a2de23195740a">queueFamilys::getGraphicsFamilyQueue</a>().value();</div>
-<div class="line"><span class="lineno">   19</span> </div>
-<div class="line"><span class="lineno">   20</span>        <span class="keywordflow">try</span> {</div>
-<div class="line"><span class="lineno">   21</span>            commandPool = <a class="code hl_function" href="../../d8/d58/classvulkan_render_engine_1_1device.html#ad535cddd3e084804c7a00d87c556a511">device::getDevice</a>().createCommandPool(poolInfo);</div>
-<div class="line"><span class="lineno">   22</span>        }</div>
-<div class="line"><span class="lineno">   23</span>        <span class="keywordflow">catch</span> (vk::SystemError err) {</div>
-<div class="line"><span class="lineno">   24</span>            <a class="code hl_define" href="../../d4/d3d/log_8hpp.html#a49230221e4f74e33e108a07ad4674aa6">LOG_FATAL</a>(<span class="stringliteral">&quot;failed to create command pool! &quot;</span> &lt;&lt; err.what());</div>
-<div class="line"><span class="lineno">   25</span>        }</div>
-<div class="line"><span class="lineno">   26</span> </div>
-<div class="line"><span class="lineno">   27</span> </div>
-<div class="line"><span class="lineno">   28</span>    }</div>
-<div class="ttc" id="aclasscommand_buffers_components_html"><div class="ttname"><a href="../../d5/d0e/classcommand_buffers_components.html">commandBuffersComponents</a></div><div class="ttdef"><b>Definition:</b> commandBuffersComponents.hpp:20</div></div>
-<div class="ttc" id="aclassvulkan_render_engine_1_1queue_familys_html_ac85f4016118530c9e47a2de23195740a"><div class="ttname"><a href="../../dc/df4/classvulkan_render_engine_1_1queue_familys.html#ac85f4016118530c9e47a2de23195740a">vulkanRenderEngine::queueFamilys::getGraphicsFamilyQueue</a></div><div class="ttdeci">static std::optional&lt; uint32_t &gt; getGraphicsFamilyQueue()</div><div class="ttdef"><b>Definition:</b> queueFamilys.cpp:55</div></div>
-<div class="ttc" id="alog_8hpp_html_a49230221e4f74e33e108a07ad4674aa6"><div class="ttname"><a href="../../d4/d3d/log_8hpp.html#a49230221e4f74e33e108a07ad4674aa6">LOG_FATAL</a></div><div class="ttdeci">#define LOG_FATAL(toLog)</div><div class="ttdef"><b>Definition:</b> log.hpp:9</div></div>
+<div class="line"><span class="lineno">   12</span>        commandPoolsPool = <span class="keyword">new</span> <a class="code hl_class" href="../../dc/d2b/classentity_pool.html">entityPool</a>(100);</div>
+<div class="line"><span class="lineno">   13</span>        commandBuffers::commandBuffersPool = commandBuffersPool;<span class="comment">// commandBuffersPool;</span></div>
+<div class="line"><span class="lineno">   14</span>        </div>
+<div class="line"><span class="lineno">   15</span>        commandBuffersData = <span class="keyword">new</span> <a class="code hl_class" href="../../d5/d0e/classcommand_buffers_components.html">commandBuffersComponents</a>(commandBuffersPool, commandPoolsPool);</div>
+<div class="line"><span class="lineno">   16</span>    }</div>
+<div class="ttc" id="aclasscommand_buffers_components_html"><div class="ttname"><a href="../../d5/d0e/classcommand_buffers_components.html">commandBuffersComponents</a></div><div class="ttdef"><b>Definition:</b> commandBuffersComponents.hpp:38</div></div>
+<div class="ttc" id="aclassentity_pool_html"><div class="ttname"><a href="../../dc/d2b/classentity_pool.html">entityPool</a></div><div class="ttdef"><b>Definition:</b> entityPool.hpp:12</div></div>
 </div><!-- fragment --><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../df/d2e/classvulkan_render_engine_1_1command_buffers_a2af734a1fe7c04b9463aea4009a7a41e_cgraph.png" border="0" usemap="#adf/d2e/classvulkan_render_engine_1_1command_buffers_a2af734a1fe7c04b9463aea4009a7a41e_cgraph" alt=""/></div>
-<map name="adf/d2e/classvulkan_render_engine_1_1command_buffers_a2af734a1fe7c04b9463aea4009a7a41e_cgraph" id="adf/d2e/classvulkan_render_engine_1_1command_buffers_a2af734a1fe7c04b9463aea4009a7a41e_cgraph">
-<area shape="rect" title=" " alt="" coords="5,41,176,81"/>
-<area shape="rect" href="../../d8/d58/classvulkan_render_engine_1_1device.html#ad535cddd3e084804c7a00d87c556a511" title=" " alt="" coords="250,5,405,45"/>
-<area shape="rect" href="../../dc/df4/classvulkan_render_engine_1_1queue_familys.html#ac85f4016118530c9e47a2de23195740a" title=" " alt="" coords="224,70,431,125"/>
-</map>
-</div>
-<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../df/d2e/classvulkan_render_engine_1_1command_buffers_a2af734a1fe7c04b9463aea4009a7a41e_icgraph.png" border="0" usemap="#adf/d2e/classvulkan_render_engine_1_1command_buffers_a2af734a1fe7c04b9463aea4009a7a41e_icgraph" alt=""/></div>
 <map name="adf/d2e/classvulkan_render_engine_1_1command_buffers_a2af734a1fe7c04b9463aea4009a7a41e_icgraph" id="adf/d2e/classvulkan_render_engine_1_1command_buffers_a2af734a1fe7c04b9463aea4009a7a41e_icgraph">
-<area shape="rect" title=" " alt="" coords="463,5,633,45"/>
-<area shape="rect" href="../../d4/d6f/classvulkan_render_engine_1_1renderer.html#a0a55635ff9afa4f709dbdbabf2648e55" title=" " alt="" coords="232,5,415,45"/>
-<area shape="rect" href="../../dc/df8/classvulkan_rendering.html#a28d4c14c15481768f607b8e4c8e6ab13" title=" " alt="" coords="5,13,184,38"/>
+<area shape="rect" title="init the commands pools id pool and the data structre to contain all the pools and buffers" alt="" coords="209,5,378,50"/>
+<area shape="rect" href="../../d7/d09/classrender_api.html#a288801c0954dceca81f5a45af2ccfc0d" title=" " alt="" coords="5,14,161,42"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a1612445aecdd2eac856f2e9b57356b58" name="a1612445aecdd2eac856f2e9b57356b58"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1612445aecdd2eac856f2e9b57356b58">&#9670;&#160;</a></span>set()</h2>
+<a id="a4a65e79c2c98fb525713d5fc94afdd13" name="a4a65e79c2c98fb525713d5fc94afdd13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a65e79c2c98fb525713d5fc94afdd13">&#9670;&#160;</a></span>setBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -380,10 +598,10 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void vulkanRenderEngine::commandBuffers::set </td>
+          <td class="memname">void vulkanRenderEngine::commandBuffers::setBuffer </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d8/d4e/structcommand_buffer_info.html">commandBufferInfo</a> &amp;&#160;</td>
-          <td class="paramname"><em>info</em></td><td>)</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -393,18 +611,81 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   53</span>    {</div>
-<div class="line"><span class="lineno">   54</span>        createcommandBuffer(data);</div>
-<div class="line"><span class="lineno">   55</span>        commandBuffersData-&gt;<a class="code hl_function" href="../../d5/d0e/classcommand_buffers_components.html#ae429d76a8c587687a0c50434d1f03175">setComponent</a>(data.id, data);</div>
-<div class="line"><span class="lineno">   56</span>    }</div>
+
+<p>set the data of a vulkan command buffer </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>the new data of the command buffer </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   75</span>    {</div>
+<div class="line"><span class="lineno">   76</span>        createCommandBuffer(data);</div>
+<div class="line"><span class="lineno">   77</span>        commandBuffersData-&gt;<a class="code hl_function" href="../../d5/d0e/classcommand_buffers_components.html#a48a40add3655ee77ccedc1f82f2a9906">setBuffer</a>(data.<a class="code hl_variable" href="../../d8/d4e/structcommand_buffer_info.html#a2657a1ce82cc0f95a7e1c04c5c5d2395">id</a>, data);</div>
+<div class="line"><span class="lineno">   78</span>    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../df/d2e/classvulkan_render_engine_1_1command_buffers_a1612445aecdd2eac856f2e9b57356b58_cgraph.png" border="0" usemap="#adf/d2e/classvulkan_render_engine_1_1command_buffers_a1612445aecdd2eac856f2e9b57356b58_cgraph" alt=""/></div>
-<map name="adf/d2e/classvulkan_render_engine_1_1command_buffers_a1612445aecdd2eac856f2e9b57356b58_cgraph" id="adf/d2e/classvulkan_render_engine_1_1command_buffers_a1612445aecdd2eac856f2e9b57356b58_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,175,45"/>
-<area shape="rect" href="../../d5/d0e/classcommand_buffers_components.html#ae429d76a8c587687a0c50434d1f03175" title=" " alt="" coords="223,5,437,45"/>
-<area shape="rect" href="../../dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d" title=" " alt="" coords="485,13,636,38"/>
+<div class="center"><img src="../../df/d2e/classvulkan_render_engine_1_1command_buffers_a4a65e79c2c98fb525713d5fc94afdd13_cgraph.png" border="0" usemap="#adf/d2e/classvulkan_render_engine_1_1command_buffers_a4a65e79c2c98fb525713d5fc94afdd13_cgraph" alt=""/></div>
+<map name="adf/d2e/classvulkan_render_engine_1_1command_buffers_a4a65e79c2c98fb525713d5fc94afdd13_cgraph" id="adf/d2e/classvulkan_render_engine_1_1command_buffers_a4a65e79c2c98fb525713d5fc94afdd13_cgraph">
+<area shape="rect" title="set the data of a vulkan command buffer" alt="" coords="5,49,213,94"/>
+<area shape="rect" href="../../d5/d0e/classcommand_buffers_components.html#a48a40add3655ee77ccedc1f82f2a9906" title=" " alt="" coords="261,49,475,94"/>
+<area shape="rect" href="../../d5/d0e/classcommand_buffers_components.html#a636cd8c16b7562a8517538fa9a906e0a" title=" " alt="" coords="523,49,737,94"/>
+<area shape="rect" href="../../dc/d2b/classentity_pool.html#a1bbde64e155748e51b6056d2bd25f6c9" title=" " alt="" coords="785,5,981,50"/>
+<area shape="rect" href="../../dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d" title=" " alt="" coords="808,89,958,116"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a97cd65131fb17c9500af28ec4f96040f" name="a97cd65131fb17c9500af28ec4f96040f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97cd65131fb17c9500af28ec4f96040f">&#9670;&#160;</a></span>setPool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vulkanRenderEngine::commandBuffers::setPool </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/d73/structcommand_pool_info.html">commandPoolInfo</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>set the data of a vulkan command Pool </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>the new data of the command pool </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   42</span>    {</div>
+<div class="line"><span class="lineno">   43</span>        <a class="code hl_function" href="../../df/d2e/classvulkan_render_engine_1_1command_buffers.html#aee0a55547987e80123588971ee8fa13d">destroyPool</a>(data.<a class="code hl_variable" href="../../d0/d73/structcommand_pool_info.html#acf21476754802515aafe28cb26d537d1">id</a>);</div>
+<div class="line"><span class="lineno">   44</span>        createCommandPool(data);</div>
+<div class="line"><span class="lineno">   45</span>        commandBuffersData-&gt;<a class="code hl_function" href="../../d5/d0e/classcommand_buffers_components.html#a93f6e288aef7192e38d2efb155add22f">setPool</a>(data.<a class="code hl_variable" href="../../d0/d73/structcommand_pool_info.html#acf21476754802515aafe28cb26d537d1">id</a>, data);</div>
+<div class="line"><span class="lineno">   46</span>    }</div>
+<div class="ttc" id="aclassvulkan_render_engine_1_1command_buffers_html_aee0a55547987e80123588971ee8fa13d"><div class="ttname"><a href="../../df/d2e/classvulkan_render_engine_1_1command_buffers.html#aee0a55547987e80123588971ee8fa13d">vulkanRenderEngine::commandBuffers::destroyPool</a></div><div class="ttdeci">static void destroyPool(commandBufferId id)</div><div class="ttdoc">destroy a vulkan command pool and all of it's command buffers and unvalidate the pool id but not the ...</div><div class="ttdef"><b>Definition:</b> commandBuffers.cpp:55</div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../df/d2e/classvulkan_render_engine_1_1command_buffers_a97cd65131fb17c9500af28ec4f96040f_cgraph.png" border="0" usemap="#adf/d2e/classvulkan_render_engine_1_1command_buffers_a97cd65131fb17c9500af28ec4f96040f_cgraph" alt=""/></div>
+<map name="adf/d2e/classvulkan_render_engine_1_1command_buffers_a97cd65131fb17c9500af28ec4f96040f_cgraph" id="adf/d2e/classvulkan_render_engine_1_1command_buffers_a97cd65131fb17c9500af28ec4f96040f_cgraph">
+<area shape="rect" title="set the data of a vulkan command Pool" alt="" coords="5,100,202,145"/>
+<area shape="rect" href="../../df/d2e/classvulkan_render_engine_1_1command_buffers.html#aee0a55547987e80123588971ee8fa13d" title="destroy a vulkan command pool and all of it&#39;s command buffers and unvalidate the pool id but not the ..." alt="" coords="250,65,475,110"/>
+<area shape="rect" href="../../d5/d0e/classcommand_buffers_components.html#a93f6e288aef7192e38d2efb155add22f" title=" " alt="" coords="255,135,470,179"/>
+<area shape="rect" href="../../d5/d0e/classcommand_buffers_components.html#a5b20727035c2c618edf144ec51e7e98b" title=" " alt="" coords="523,5,737,50"/>
+<area shape="rect" href="../../d5/d0e/classcommand_buffers_components.html#a8565c6b343efc03123f6ed96d813f699" title=" " alt="" coords="523,75,737,119"/>
+<area shape="rect" href="../../dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d" title=" " alt="" coords="785,83,936,111"/>
 </map>
 </div>
 

@@ -132,7 +132,9 @@
         "regex": "cpp",
         "shared_mutex": "cpp",
         "cerrno": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "format": "cpp",
+        "stdfloat": "cpp"
     },
     "files.exclude": {
         ".gitignore": true,
@@ -191,14 +193,15 @@
     ],
     "cpp-class-helper.headerFileDefaultValue": "#pragma once\n\nclass ${class_name}\n{\n\tpublic:\n\t\t${class_name}();\n\t\t${class_name}(const ${class_name}&) = default;\n\t\t${class_name}(${class_name}&&) = default;\n\t\t${class_name}& operator=(const ${class_name}&);\n\t\t${class_name}& operator=(${class_name}&&);\n\n\t\t~${class_name}();\n};\n",
     "cpp-class-helper.sourceFileDefaultValue": "#include \"${class_name}.hpp\"\n\n${class_name}::${class_name}()\n{\n\t\n}\n\t\n${class_name}::~${class_name}()\n{\n\n}\n",
-
     "CppHelper.SourcePattern": [
         "{FILE}.cpp",
         "{FILE}.c",
         "{FILE}.inl",
         "/src/*/{FILE}.cpp"
     ],
-
-    
-
+    "C_Cpp.codeAnalysis.clangTidy.checks.disabled": [
+        "clang-diagnostic-error",
+        "clang-diagnostic-pragma-once-outside-header",
+        "clang-diagnostic-error"
+    ],
 }

@@ -67,7 +67,7 @@ namespace vulkanRenderEngine
     void framebuffers::destroy(framebufferId FBOId)
     {
         destroyFrameBuffer(framebuffersData->getComponent(FBOId));
-        framebuffersData->deleteComponent(FBOId);
+        framebuffersPool->freeEntity(FBOId);
     }
 
     

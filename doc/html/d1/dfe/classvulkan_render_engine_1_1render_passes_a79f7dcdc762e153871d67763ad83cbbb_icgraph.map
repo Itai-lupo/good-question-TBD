@@ -1,6 +1,7 @@
 <map id="vulkanRenderEngine::renderPasses::get" name="vulkanRenderEngine::renderPasses::get">
-<area shape="rect" id="node1" title=" " alt="" coords="715,13,869,53"/>
-<area shape="rect" id="node2" href="$d6/d2f/classvulkan_render_engine_1_1framebuffers.html#a85db2e43432eb3423829dba53e89a0e8" title=" " alt="" coords="463,5,667,60"/>
-<area shape="rect" id="node3" href="$d4/d6f/classvulkan_render_engine_1_1renderer.html#a0a55635ff9afa4f709dbdbabf2648e55" title=" " alt="" coords="232,13,415,53"/>
-<area shape="rect" id="node4" href="$dc/df8/classvulkan_rendering.html#a28d4c14c15481768f607b8e4c8e6ab13" title=" " alt="" coords="5,20,184,45"/>
+<area shape="rect" id="node1" title=" " alt="" coords="712,49,867,93"/>
+<area shape="rect" id="node2" href="$d6/d2f/classvulkan_render_engine_1_1framebuffers.html#a85db2e43432eb3423829dba53e89a0e8" title=" " alt="" coords="461,5,664,67"/>
+<area shape="rect" id="node5" href="$d6/d54/renderer_8cpp.html#a8c20bc5ceb5156ce1a9d261166306af0" title=" " alt="" coords="478,92,647,119"/>
+<area shape="rect" id="node3" href="$d4/d6f/classvulkan_render_engine_1_1renderer.html#a0a55635ff9afa4f709dbdbabf2648e55" title=" " alt="" coords="231,49,413,93"/>
+<area shape="rect" id="node4" href="$dc/df8/classvulkan_rendering.html#a28d4c14c15481768f607b8e4c8e6ab13" title=" " alt="" coords="5,57,183,85"/>
 </map>

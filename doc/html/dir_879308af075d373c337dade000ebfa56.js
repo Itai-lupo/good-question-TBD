@@ -4,6 +4,7 @@ var dir_879308af075d373c337dade000ebfa56 =
     [ "commandBuffersComponents.cpp", "dd/da4/command_buffers_components_8cpp.html", null ],
     [ "frameBuffersComponents.cpp", "dd/db9/frame_buffers_components_8cpp.html", null ],
     [ "graphicsPipelineComponents.cpp", "d1/d8e/graphics_pipeline_components_8cpp.html", null ],
+    [ "renderComponentTemplate.cpp", "de/d8b/render_component_template_8cpp.html", null ],
     [ "renderPassesComponents.cpp", "db/d6f/render_passes_components_8cpp.html", null ],
     [ "shadersComponents.cpp", "d2/dd7/shaders_components_8cpp.html", null ],
     [ "swapchainsComponents.cpp", "d1/d59/swapchains_components_8cpp.html", null ],

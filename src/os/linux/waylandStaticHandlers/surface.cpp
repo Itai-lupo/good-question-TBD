@@ -17,7 +17,6 @@ void surface::init()
 {
     surfacePool = new entityPool(500);
     surfacesInfo = new surfaceInfoComponent(surfacePool);
-    renderApi *api = new renderApi();
     layer::init(surfacePool);
     subsurface::init(surfacePool);
     toplevel::init(surfacePool);
@@ -26,11 +25,15 @@ void surface::init()
     cpuRendering::init(surfacePool);
     // openGLRendering::init(surfacePool, api);
     vulkanRendering::init(surfacePool);
+    api = new renderApi();
 }
 
 void surface::close()
 {
     vulkanRendering::close();
+    delete api;
+
+    wl_display_disconnect(linuxWindowAPI::display);
     layer::close();
     toplevel::close();
     subsurface::close();
@@ -42,9 +45,9 @@ void surface::close()
     delete surfacePool;
 }
 
-surfaceId surface::allocateSurface(windowId winId, const surfaceSpec& surfaceDataSpec)
+surfaceId surface::allocateSurface(windowId winId, const surfaceSpec &surfaceDataSpec)
 {
-    
+
     surfaceId id = surfacePool->allocEntity();
 
     surfaceData info;
@@ -59,71 +62,66 @@ surfaceId surface::allocateSurface(windowId winId, const surfaceSpec& surfaceDat
     CONDTION_LOG_FATAL("can't  create surface", info.surface == NULL);
     surfacesInfo->setComponent(id, info);
 
-    
-
     switch (info.rule)
     {
-        case surfaceRule::layer:
-            layer::allocateLayer(id, info.surface, surfaceDataSpec);
-            break;
+    case surfaceRule::layer:
+        layer::allocateLayer(id, info.surface, surfaceDataSpec);
+        break;
 
-        case surfaceRule::topLevel:
-            toplevel::allocateTopLevel(id, info.surface, surfaceDataSpec);
+    case surfaceRule::topLevel:
+        toplevel::allocateTopLevel(id, info.surface, surfaceDataSpec);
 
-            break;
-        
-        case surfaceRule::subsurface:
-            subsurface::allocateSubsurface(id, info.surface, surfaceDataSpec);
-            break;
-        default:
-            LOG_FATAL("need to set valid window rule")
-            break;
+        break;
+
+    case surfaceRule::subsurface:
+        subsurface::allocateSubsurface(id, info.surface, surfaceDataSpec);
+        break;
+    default:
+        LOG_FATAL("need to set valid window rule")
+        break;
     }
 
     switch (info.rendererType)
     {
 
-        case surfaceRenderAPI::vulkan:        
-            vulkanRendering::allocateSurfaceToRender(id, surfaceDataSpec.gpuRenderFunction);
-            break;
+    case surfaceRenderAPI::vulkan:
+        vulkanRendering::allocateSurfaceToRender(id, surfaceDataSpec.gpuRenderFunction);
+        break;
 
-        case surfaceRenderAPI::openGL:        
-            openGLRendering::allocateSurfaceToRender(id, surfaceDataSpec.gpuRenderFunction);
-            break;
+    case surfaceRenderAPI::openGL:
+        openGLRendering::allocateSurfaceToRender(id, surfaceDataSpec.gpuRenderFunction);
+        break;
 
-        case surfaceRenderAPI::cpu:        
-            cpuRendering::allocateSurfaceToRender(id, surfaceDataSpec.cpuRenderFunction);
-            break;
-    
-        default:
-            LOG_FATAL("need to set with render api")
-            break;
+    case surfaceRenderAPI::cpu:
+        cpuRendering::allocateSurfaceToRender(id, surfaceDataSpec.cpuRenderFunction);
+        break;
+
+    default:
+        LOG_FATAL("need to set with render api")
+        break;
     }
-    
-    wl_surface_commit(info.surface);
 
+    wl_surface_commit(info.surface);
+    vulkanRendering::setRenderEventListeners(id, surfaceDataSpec.gpuRenderFunction);
     return id;
 }
 
 void surface::deallocateSurface(surfaceId winId)
 {
-    if(surfacePool->isIdValid(winId))
+    if (surfacePool->isIdValid(winId))
         return;
 
-
-
     wl_surface *temp = surfacesInfo->getComponent(winId)->surface;
-    
+
     surfacePool->freeEntity(winId);
     wl_surface_destroy(temp);
-
 }
 
 void surface::resize(surfaceId id, int width, int height)
 {
-    
+
     surfaceData *temp = surfacesInfo->getComponent(id);
-    if(!temp)
+    if (!temp)
         return;
 
     temp->width = width;
@@ -132,21 +130,21 @@ void surface::resize(surfaceId id, int width, int height)
     switch (temp->rendererType)
     {
 
-        case surfaceRenderAPI::vulkan:        
-            vulkanRendering::resize(id, width, height);
-            break;
+    case surfaceRenderAPI::vulkan:
+        vulkanRendering::resize(id, width, height);
+        break;
 
-        case surfaceRenderAPI::openGL:        
-            openGLRendering::resize(id, width, height);
-            break;
+    case surfaceRenderAPI::openGL:
+        openGLRendering::resize(id, width, height);
+        break;
 
-        case surfaceRenderAPI::cpu:        
-            cpuRendering::resize(id, width, height);
-            break;
-    
-        default:
-            LOG_FATAL("need to set with render api")
-            break;
+    case surfaceRenderAPI::cpu:
+        cpuRendering::resize(id, width, height);
+        break;
+
+    default:
+        LOG_FATAL("need to set with render api")
+        break;
     }
 }
 
@@ -154,19 +152,17 @@ void surface::setWindowHeight(surfaceId id, int height)
 {
     surfaceData *temp = surfacesInfo->getComponent(id);
 
-    if(temp)
+    if (temp)
         temp->height = height;
-    
 }
-
 
 int surface::getWindowHeight(surfaceId id)
 {
     surfaceData *temp = surfacesInfo->getComponent(id);
 
-    if(temp)
+    if (temp)
         return temp->height;
-        
+
     return -1;
 }
 
@@ -174,18 +170,17 @@ void surface::setWindowWidth(surfaceId id, int width)
 {
     surfaceData *temp = surfacesInfo->getComponent(id);
 
-    if(temp)
+    if (temp)
         temp->width = width;
 }
-
 
 int surface::getWindowWidth(surfaceId id)
 {
     surfaceData *temp = surfacesInfo->getComponent(id);
 
-    if(temp)
+    if (temp)
         return temp->width;
-        
+
     return -1;
 }
 

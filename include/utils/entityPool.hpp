@@ -41,12 +41,12 @@ class entityPool
         void unenlistType(void *dataPtr, uint32_t *IdToIndex);
         bool isIdValid(entityId id)
         {
-            return !(id.index > maxAllocatedId || gen[id.index] != id.gen);
+            return id.index < maxAllocatedId && gen[id.index] == id.gen;
         }
 
         uint32_t getIdBufferMaxCount()
         {
-            return maxId;
+            return maxAllocatedId;
         }
         
 };

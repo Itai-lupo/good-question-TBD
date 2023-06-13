@@ -16,11 +16,11 @@ var classrender_api =
     [ "getShader", "d7/d09/classrender_api.html#afcc32a1ae1393cacab39d23ed2c72b65", null ],
     [ "getTexture", "d7/d09/classrender_api.html#a3c671a53627546b2bac6193ae10ce20f", null ],
     [ "getUniformBuffer", "d7/d09/classrender_api.html#a7caf4700e5cb08fb686c77326bbd27de", null ],
-    [ "getVao", "d7/d09/classrender_api.html#a7057992a3cf006901ef30ce8d7758eb9", null ],
+    [ "getVao", "d7/d09/classrender_api.html#afd21331bbbcbbdc23e5762f87a5fa548", null ],
     [ "renderRequest", "d7/d09/classrender_api.html#af689e72491ed88601188dfb8ecdcd221", null ],
     [ "setFramebuffer", "d7/d09/classrender_api.html#a041c12ed912a9267e2b0ee63aaa9d282", null ],
     [ "setShader", "d7/d09/classrender_api.html#aa223f8d20090545d7b6b4be5f3d7a9d3", null ],
     [ "setTexture", "d7/d09/classrender_api.html#a5b3e6cb76e48084c48afb002ef9261d7", null ],
     [ "setUniformBuffer", "d7/d09/classrender_api.html#a063e59b4eedb82526b499c1720129243", null ],
-    [ "setVao", "d7/d09/classrender_api.html#a7680fc57da092cbc8a154ad8d77bdf04", null ]
+    [ "setVao", "d7/d09/classrender_api.html#a226b316f4f005ee262ed408a6b95c576", null ]
 ];

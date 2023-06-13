@@ -19,11 +19,11 @@ TEST_DIR ?= ./tests
 SHADERS = $(call rwildcard,$(SHADERS_DIRS[0]),*.frag) $(call rwildcard,$(SHADERS_DIRS[1]),*.vert)
 SHADERS_BINARY = $(foreach  shader,$(SHADERS),$(shader).spv) 
 SRCS += $(foreach  dir,$(SRC_DIRS),$(call rwildcard,$(dir),*.c*)) submodules/tracy/public/TracyClient.cpp
-OBJS :=  $(SRCS:%=$(BUILD_DIR)/%.o)
+OBJS :=  $(addprefix $(BUILD_DIR)/,$(addsuffix .o,$(basename $(SRCS))))
 DEPS := $(OBJS:.o=.d)
 
 TESTS := $(call rwildcard,$(TEST_DIR),*.c*)
-TEST_OBJS  := $(TESTS:%=$(BUILD_DIR)/%.o) $(filter-out ./build/./src/main.cpp.o, $(subst ./build/./src/core.h.o,./build/./src/app.cpp.o,$(OBJS)))
+TEST_OBJS  := $(addprefix $(BUILD_DIR)/,$(addsuffix .o,$(basename $(TESTS)))) $(filter-out ./build/./src/main.o, $(subst ./build/./src/core.h.o,./build/./src/app.cpp.o,$(OBJS)))
 TEST_DEPS := $(TEST_OBJS:.o=.d)
 
 GTEST_HEADERS = $(GTEST_DIR)/include/gtest/*.h \
@@ -49,6 +49,7 @@ $(OUTPUT_DIR)/$(TARGET_EXEC): $(OBJS) $(SHADERS_BINARY)
 
 
 print:
+	@echo $(OBJS)
 	@echo $(SHADERS_DIRS)
 	@echo $(call wildcard,$(SHADERS),*.frag)
 	@echo $(call rwildcard,*.frag)
@@ -57,12 +58,12 @@ print:
 	glslc $< -o $@
 
 # c++ source
-$(BUILD_DIR)/%.cpp.o: %.cpp
+$(BUILD_DIR)/%.o: %.cpp
 	@echo "building file: " $<
 	$(MKDIR_P) $(dir $@)
 	$(CC)  $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
 
-$(BUILD_DIR)/%.c.o: %.c
+$(BUILD_DIR)/%.o: %.c
 	@echo "building file: " $<
 	$(MKDIR_P) $(dir $@)
 	$(CC)  $(CFLAGS) $(CXXFLAGS) -c $< -o $@

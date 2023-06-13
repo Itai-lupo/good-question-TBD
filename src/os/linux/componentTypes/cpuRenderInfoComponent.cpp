@@ -30,7 +30,7 @@ cpuRenderInfo* cpuRenderInfoComponent::getComponent(entityId id)
     return &data[IdToIndex[id.index]];
 }
 
-void cpuRenderInfoComponent::setComponent(entityId id, cpuRenderInfo buffer)
+void cpuRenderInfoComponent::setComponent(entityId id, cpuRenderInfo& buffer)
 {
     if(!pool->isIdValid(id)){
         LOG_ERROR("culdn't set data, id(index: " << id.index << ", gen: " << (int)id.gen << ")")
@@ -54,5 +54,10 @@ void cpuRenderInfoComponent::setComponent(entityId id, cpuRenderInfo buffer)
 
 cpuRenderInfoComponent::~cpuRenderInfoComponent()
 {
+    for(int i = 0; i < pool->getIdBufferMaxCount(); i++)
+        IdToIndex[i] = -1;
+    for(auto& cpuRender: data)
+        if(cpuRender.renderThread->joinable())
+            cpuRender.renderThread->join();
     pool->unenlistType(this, IdToIndex);
 }

@@ -34,13 +34,15 @@ struct surfaceSpec
 class surface
 {
     private:
+        static inline renderApi *api;
+        
     public:
         static inline wl_compositor *compositor = NULL;
         static inline wl_registry *registry;
 
-
         static inline entityPool *surfacePool;
         static inline surfaceInfoComponent *surfacesInfo;
+
         
         static void init();
 

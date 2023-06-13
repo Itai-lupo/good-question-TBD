@@ -1,12 +1,19 @@
 var searchData=
 [
-  ['w_0',['w',['../d7/d7e/structwindow_spec.html#aafef5bcda013d24414edd2d1c0d39e99',1,'windowSpec']]],
-  ['wasinit_1',['wasInit',['../d5/db4/classopen_g_l_rendering.html#ad7a0cee19ae45e4cdb99e14986f4264a',1,'openGLRendering']]],
-  ['width_2',['width',['../d6/df2/structframe_buffer_info.html#aa85a6761613ced97566c6e995ae52126',1,'frameBufferInfo::width()'],['../d7/dae/structtexture_info.html#a7e6a74bcb2e4d20be19c370dc5dcdc32',1,'textureInfo::width()'],['../db/dc1/structload_texture_requst.html#a6dc53260342097601b90e87cf2d16e75',1,'loadTextureRequst::width()'],['../d8/dd4/structsub_surface_spec.html#a43872025fe118eef8bae7b26b1b0a670',1,'subSurfaceSpec::width()'],['../d0/d01/structsurface_spec.html#ad8c977eca9fe6456518c520d542cb6fc',1,'surfaceSpec::width()'],['../d9/dd4/structtoplevel_surface_info.html#aeedd0d587eb9e82caa02d64c037f8ad3',1,'toplevelSurfaceInfo::width()'],['../d9/d9f/structsurface_data.html#a12d4e53ad4e635fc65b51218aaa053ec',1,'surfaceData::width()'],['../d4/d95/structwindow_resize_data.html#ac7167b420da94c418d134ce5e4389180',1,'windowResizeData::width()'],['../db/d9e/structgpu_render_data.html#aa7ea65dbb169366ce9bee420484083d4',1,'gpuRenderData::width()'],['../d4/d29/structcpu_render_data.html#a9e8bb3fc8dd5cd4b494c9ee084059e8f',1,'cpuRenderData::width()']]],
-  ['windowsinfo_3',['windowsInfo',['../de/d8e/classlinux_window_a_p_i.html#a064ede46a2ab373580d73db3ae874854',1,'linuxWindowAPI']]],
-  ['windowspool_4',['windowsPool',['../de/d8e/classlinux_window_a_p_i.html#a8928064958bf92bc396395c5e60ec3be',1,'linuxWindowAPI']]],
-  ['wl_5fseat_5flistener_5',['wl_seat_listener',['../d5/d3d/classseat.html#a3159ee89e63aef1a63b2a73cee6fe89a',1,'seat']]],
-  ['wlkeyboardlistener_6',['wlKeyboardListener',['../d1/d4e/classkeyboard.html#ac5abaa0a89ae0f4a72c9c0adb67d8107',1,'keyboard']]],
-  ['wlpointerlistener_7',['wlPointerListener',['../d4/df3/classpointer.html#abee9e244abd82bac8edcef3afc719e3f',1,'pointer']]],
-  ['wlrlayershell_8',['wlrLayerShell',['../d2/d36/classlayer.html#abf843dd5f8993617c2c0c8c485be4ece',1,'layer']]]
+  ['valid_0',['valid',['../da/dbc/structpointer_1_1input_buffer.html#af63bfcae041cb8023f9c512ee9059c19',1,'pointer::inputBuffer']]],
+  ['value_1',['value',['../dc/da2/structkey_data.html#a7d43bb6d37ab93eaa27d445a95c188f7',1,'keyData::value()'],['../db/de8/structmouse_button_data.html#ad2e78970aa3b7b111e5c36c29ebf57e6',1,'mouseButtonData::value()'],['../da/d46/structmouse_scroll_data.html#a1198d913d4f3d36c54f0f57b63c1806a',1,'mouseScrollData::value()'],['../da/dbc/structpointer_1_1input_buffer.html#afa38b67ce9bbffff458de3bf1232c300',1,'pointer::inputBuffer::value()']]],
+  ['vao_2',['VAO',['../d8/dd1/struct_v_a_o_info.html#a074c25f7890cc0459647fdca6e1797e7',1,'VAOInfo']]],
+  ['vao_3',['vao',['../d0/d48/structgraphics_pipeline_info.html#a9d1199f95a75edd96f663472f49da794',1,'graphicsPipelineInfo']]],
+  ['vertexarrayid_4',['vertexArrayId',['../d0/db1/structdraw_call_data.html#ae9c2ab62f71470930cd26502124ba1ac',1,'drawCallData']]],
+  ['vertexbuffermemory_5',['vertexBufferMemory',['../da/d2b/structvulkan_render_engine_1_1memory_buffer.html#a9d1c7f289f6e788ca289b34e46bf5ee2',1,'vulkanRenderEngine::memoryBuffer']]],
+  ['vertexpath_6',['vertexPath',['../dd/dc6/structshader_info.html#aa7ce187b58aabb41761a52255fe01e29',1,'shaderInfo']]],
+  ['vertexshader_7',['vertexShader',['../dd/dc6/structshader_info.html#a362bf42a15c6df8c09ec7c7cc4561f18',1,'shaderInfo']]],
+  ['vertices_8',['vertices',['../d6/d54/renderer_8cpp.html#a597b1a3bc5cc9965df0ec6ac96f72e02',1,'renderer.cpp']]],
+  ['vertices1_9',['vertices1',['../df/d0a/main_8cpp.html#a2b14c10044443cbf45610ebadcfd30c0',1,'main.cpp']]],
+  ['vertices2_10',['vertices2',['../df/d0a/main_8cpp.html#a2ba9ca0db23fe24e38bb62870e492177',1,'main.cpp']]],
+  ['vertices3_11',['vertices3',['../df/d0a/main_8cpp.html#a6b34eba685209067cd19619c10769c83',1,'main.cpp']]],
+  ['vertshadercodepath_12',['vertShaderCodePath',['../d0/d48/structgraphics_pipeline_info.html#a8af0ae486cea7a5b13600a85df2ce39c',1,'graphicsPipelineInfo']]],
+  ['vkbuffer_13',['vkBuffer',['../da/d2b/structvulkan_render_engine_1_1memory_buffer.html#a609b89ca09db335999c14b71e09b9bc4',1,'vulkanRenderEngine::memoryBuffer']]],
+  ['vkobject_14',['vkObject',['../d8/d4e/structcommand_buffer_info.html#a175a7ba6a8b09220456dfa2b26851037',1,'commandBufferInfo::vkObject()'],['../d0/d73/structcommand_pool_info.html#a348e858b21dc6237ac0cbee617672b73',1,'commandPoolInfo::vkObject()'],['../dc/d73/structrender_pass_info.html#a720e89778e2a14644e06b701c149bfcc',1,'renderPassInfo::vkObject()']]],
+  ['vksurface_15',['vkSurface',['../d3/d2d/structvulkan_render_info.html#af169bbeaeb4ab6c175f288177a6ebbde',1,'vulkanRenderInfo']]]
 ];

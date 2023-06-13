@@ -7,6 +7,8 @@ var namespacevulkan_render_engine =
     [ "graphicPiplines", "dc/dc1/classvulkan_render_engine_1_1graphic_piplines.html", null ],
     [ "graphicsPipeline", "d6/deb/classvulkan_render_engine_1_1graphics_pipeline.html", null ],
     [ "instance", "df/dbb/classvulkan_render_engine_1_1instance.html", null ],
+    [ "memoryBuffer", "da/d2b/structvulkan_render_engine_1_1memory_buffer.html", "da/d2b/structvulkan_render_engine_1_1memory_buffer" ],
+    [ "memoryManger", "d1/d2d/classvulkan_render_engine_1_1memory_manger.html", null ],
     [ "queueFamilys", "dc/df4/classvulkan_render_engine_1_1queue_familys.html", null ],
     [ "renderer", "d4/d6f/classvulkan_render_engine_1_1renderer.html", null ],
     [ "renderPasses", "d1/dfe/classvulkan_render_engine_1_1render_passes.html", null ],
