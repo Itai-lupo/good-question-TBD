@@ -22,6 +22,9 @@ namespace vulkanRenderEngine
 
         static std::vector<char> readFile(const std::string &filename);
         static vk::ShaderModule createShaderModule(const std::vector<char> &code);
+        static void createDescriptorSetLayout(graphicsPipelineInfo &toRecreate);
+        static void createDescriptorSetsPool(graphicsPipelineInfo &toRecreate);
+        static void createDescriptorSets(graphicsPipelineInfo &toRecreate);
 
         static void destroyGraphicsPipeline(graphicsPipelineInfo *toDestroy);
 

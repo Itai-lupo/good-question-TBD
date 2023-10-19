@@ -1,41 +1,35 @@
 #include "vulkanRenderEngine/renderPiplineSystems/uniformBufferManger.hpp"
+#include "device.hpp"
 
 namespace vulkanRenderEngine
 {
-    void uniformBuffers::init(entityPool *uniformBuffersPool)
+    void UBOs::init(entityPool *pool) noexcept
     {
-
-    }
-    void uniformBuffers::close()
-    {
-
-    }
-    
-    void uniformBuffers::setContext()
-    {
-
-    }
-    void uniformBuffers::handleRequsets()
-    {
-
+        UBOsPool = pool;
+        UBOsData = new renderComponentTemplate(pool, sizeof(ubo));
     }
 
-    void uniformBuffers::setUniformBufferData(uniformBufferInfo info)
+    void UBOs::close() noexcept
     {
-
-    }
-    uniformBufferInfo *uniformBuffers::getUniformBuffer(uniformBufferId id)
-    {
-
-    }
-    
-    void uniformBuffers::bind(uniformBufferId id, int bindingIndex)
-    {
-
+        delete UBOsData;
     }
 
-    void uniformBuffers::rebuild(uniformBufferInfo *info)
+    vaoId UBOs::createUniformBufferData(ubo info)
     {
-
+        uniformBufferId id = UBOsPool->allocEntity();
+        info.id = id;
+        setUniformBufferData(info);
+        return id;
     }
+
+    void UBOs::setUniformBufferData(ubo info) noexcept
+    {
+        UBOsData->setComponent(info.id, (void *)&info);
+    }
+
+    ubo &UBOs::getUniformBuffer(uniformBufferId id) noexcept
+    {
+        return UBOsData->getComponent<ubo>(id);
+    }
+
 }

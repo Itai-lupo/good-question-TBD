@@ -48,11 +48,9 @@ $(OUTPUT_DIR)/$(TARGET_EXEC): $(OBJS) $(SHADERS_BINARY)
 	$(CC) $(CXXFLAGS) $(OBJS)  -o $@ $(LDFLAGS)
 
 
-print:
-	@echo $(OBJS)
-	@echo $(SHADERS_DIRS)
-	@echo $(call wildcard,$(SHADERS),*.frag)
-	@echo $(call rwildcard,*.frag)
+print:	
+	@echo $(AR) $(RM)
+
 
 %.spv: %
 	glslc $< -o $@
@@ -92,7 +90,7 @@ gtest_main.a : gtest-all.o gtest_main.o
 	$(AR) $(ARFLAGS) $@ $^
 
 clean:
-	$(RM) -f gtest.a gtest_main.a *.o
+	$(RM) gtest.a gtest_main.a *.o
 	$(RM) -r $(BUILD_DIR) 
 	$(RM) -r $(OUTPUT_DIR)
 

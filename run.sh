@@ -11,7 +11,7 @@ done
 
 # export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./libs/:$b
 filePath=output/editor.out
-make -j 14 -s -w $filePath || exit 1
+compiledb make -j 20 -s -w $filePath || exit 1
 clear
 #uncommit for waland debug info
 # WAYLAND_DEBUG=1 $filePath

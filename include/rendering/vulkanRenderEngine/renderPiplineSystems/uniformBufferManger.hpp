@@ -2,33 +2,36 @@
 #include "core.hpp"
 #include "gpuRenderData.hpp"
 #include "entityPool.hpp"
-#include "uniformBufferComponents.hpp"
+#include "renderComponentTemplate.hpp"
 
 #include <array>
 #include <list>
 #include <vector>
 #include <queue>
 
+struct ubo
+{
+    uniformBufferId id;
+};
+
 namespace vulkanRenderEngine
 {
-    class uniformBuffers
+    class UBOs
     {
-        private:
-            static inline uniformBufferComponents *uniformBuffersData;
+    private:
+        static inline entityPool *UBOsPool;
+        static inline renderComponentTemplate *UBOsData;
 
-            static void rebuild(uniformBufferInfo *info);
-        public:
-            static inline std::queue<uint32_t> toDelete;
-            
-            static void init(entityPool *uniformBuffersPool);
-            static void close();
-            
-            static void setContext();
-            static void handleRequsets();
+        static void buildPool();
 
-            static void setUniformBufferData(uniformBufferInfo info);
-            static uniformBufferInfo *getUniformBuffer(uniformBufferId id);
-            
-            static void bind(uniformBufferId id, int bindingIndex);
+    public:
+        static inline std::queue<uint32_t> toDelete;
+
+        static void init(entityPool *UBOsPool) noexcept;
+        static void close() noexcept;
+
+        static vaoId createUniformBufferData(ubo info);
+        static void setUniformBufferData(ubo info) noexcept;
+        static ubo &getUniformBuffer(uniformBufferId id) noexcept;
     };
 }

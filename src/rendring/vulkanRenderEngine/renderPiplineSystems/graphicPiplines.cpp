@@ -5,6 +5,7 @@
 #include "log.hpp"
 
 #include <fstream>
+#include <vulkan/vk_enum_string_helper.h>
 
 namespace vulkanRenderEngine
 {
@@ -98,42 +99,46 @@ namespace vulkanRenderEngine
         rasterizer.rasterizerDiscardEnable = VK_FALSE;
         rasterizer.polygonMode = vk::PolygonMode::eFill;
         rasterizer.lineWidth = 1.0f;
-        rasterizer.cullMode = vk::CullModeFlagBits::eBack;
+        rasterizer.cullMode = vk::CullModeFlagBits::eNone;
         rasterizer.frontFace = vk::FrontFace::eClockwise;
 
         vk::PipelineMultisampleStateCreateInfo multisampling{};
         multisampling.sampleShadingEnable = VK_FALSE;
         multisampling.rasterizationSamples = vk::SampleCountFlagBits::e1;
-        multisampling.minSampleShading = 1.0f;          // Optional
-        multisampling.pSampleMask = nullptr;            // Optional
-        multisampling.alphaToCoverageEnable = VK_FALSE; // Optional
-        multisampling.alphaToOneEnable = VK_FALSE;      // Optional
+        multisampling.minSampleShading = 1.0f;
+        multisampling.pSampleMask = nullptr;
+        multisampling.alphaToCoverageEnable = VK_FALSE;
+        multisampling.alphaToOneEnable = VK_FALSE;
 
         vk::PipelineColorBlendAttachmentState colorBlendAttachment{};
         colorBlendAttachment.colorWriteMask = vk::ColorComponentFlagBits::eR | vk::ColorComponentFlagBits::eG | vk::ColorComponentFlagBits::eB | vk::ColorComponentFlagBits::eA;
         colorBlendAttachment.blendEnable = VK_FALSE;
-        colorBlendAttachment.srcColorBlendFactor = vk::BlendFactor::eSrcAlpha;         // Optional
-        colorBlendAttachment.dstColorBlendFactor = vk::BlendFactor::eOneMinusSrcAlpha; // Optional
-        colorBlendAttachment.colorBlendOp = vk::BlendOp::eAdd;                         // Optional
-        colorBlendAttachment.srcAlphaBlendFactor = vk::BlendFactor::eOne;              // Optional
-        colorBlendAttachment.dstAlphaBlendFactor = vk::BlendFactor::eZero;             // Optional
-        colorBlendAttachment.alphaBlendOp = vk::BlendOp::eAdd;                         // Optional
+        colorBlendAttachment.srcColorBlendFactor = vk::BlendFactor::eSrcAlpha;
+        colorBlendAttachment.dstColorBlendFactor = vk::BlendFactor::eOneMinusSrcAlpha;
+        colorBlendAttachment.colorBlendOp = vk::BlendOp::eAdd;
+        colorBlendAttachment.srcAlphaBlendFactor = vk::BlendFactor::eOne;
+        colorBlendAttachment.dstAlphaBlendFactor = vk::BlendFactor::eZero;
+        colorBlendAttachment.alphaBlendOp = vk::BlendOp::eAdd;
 
         vk::PipelineColorBlendStateCreateInfo colorBlending{};
         colorBlending.logicOpEnable = VK_FALSE;
-        colorBlending.logicOp = vk::LogicOp::eCopy; // Optional
+        colorBlending.logicOp = vk::LogicOp::eCopy;
         colorBlending.attachmentCount = 1;
         colorBlending.pAttachments = &colorBlendAttachment;
-        colorBlending.blendConstants[0] = 0.0f; // Optional
-        colorBlending.blendConstants[1] = 0.0f; // Optional
-        colorBlending.blendConstants[2] = 0.0f; // Optional
-        colorBlending.blendConstants[3] = 0.0f; // Optional
+        colorBlending.blendConstants[0] = 0.0f;
+        colorBlending.blendConstants[1] = 0.0f;
+        colorBlending.blendConstants[2] = 0.0f;
+        colorBlending.blendConstants[3] = 0.0f;
+
+        createDescriptorSetLayout(toRecreate);
+        createDescriptorSetsPool(toRecreate);
+        createDescriptorSets(toRecreate);
 
         vk::PipelineLayoutCreateInfo pipelineLayoutInfo{};
-        pipelineLayoutInfo.setLayoutCount = 0;            // Optional
-        pipelineLayoutInfo.pSetLayouts = nullptr;         // Optional
-        pipelineLayoutInfo.pushConstantRangeCount = 0;    // Optional
-        pipelineLayoutInfo.pPushConstantRanges = nullptr; // Optional
+        pipelineLayoutInfo.setLayoutCount = 1;
+        pipelineLayoutInfo.pSetLayouts = &toRecreate.descriptorSetLayout;
+        pipelineLayoutInfo.pushConstantRangeCount = 0;
+        pipelineLayoutInfo.pPushConstantRanges = nullptr;
 
         try
         {
@@ -152,14 +157,14 @@ namespace vulkanRenderEngine
         pipelineInfo.pViewportState = &viewportState;
         pipelineInfo.pRasterizationState = &rasterizer;
         pipelineInfo.pMultisampleState = &multisampling;
-        pipelineInfo.pDepthStencilState = nullptr; // Optional
+        pipelineInfo.pDepthStencilState = nullptr;
         pipelineInfo.pColorBlendState = &colorBlending;
         pipelineInfo.pDynamicState = &dynamicState;
         pipelineInfo.layout = toRecreate.pipelineLayout;
         pipelineInfo.renderPass = compatibleRenderPass;
         pipelineInfo.subpass = 0;
-        pipelineInfo.basePipelineHandle = VK_NULL_HANDLE; // Optional
-        pipelineInfo.basePipelineIndex = -1;              // Optional
+        pipelineInfo.basePipelineHandle = VK_NULL_HANDLE;
+        pipelineInfo.basePipelineIndex = -1;
 
         try
         {
@@ -211,8 +216,68 @@ namespace vulkanRenderEngine
         }
     }
 
+    void graphicPiplines::createDescriptorSetLayout(graphicsPipelineInfo &toRecreate)
+    {
+        vk::DescriptorSetLayoutBinding uboLayoutBinding{};
+        uboLayoutBinding.binding = 0;
+        uboLayoutBinding.descriptorType = vk::DescriptorType::eUniformBuffer;
+        uboLayoutBinding.descriptorCount = 1;
+        uboLayoutBinding.stageFlags = vk::ShaderStageFlagBits::eVertex;
+
+        vk::DescriptorSetLayoutCreateInfo layoutInfo{};
+        layoutInfo.bindingCount = 1;
+        layoutInfo.pBindings = &uboLayoutBinding;
+        toRecreate.descriptorSetLayout = device::getDevice().createDescriptorSetLayout(layoutInfo, nullptr);
+    }
+
+    void graphicPiplines::createDescriptorSetsPool(graphicsPipelineInfo &toRecreate)
+    {
+        vk::DescriptorPoolSize poolSize{};
+        poolSize.type = vk::DescriptorType::eUniformBuffer;
+        poolSize.descriptorCount = toRecreate.descriptorPoolSize;
+
+        vk::DescriptorPoolCreateInfo poolInfo{};
+        poolInfo.poolSizeCount = 1;
+        poolInfo.pPoolSizes = &poolSize;
+        poolInfo.maxSets = toRecreate.descriptorPoolSize;
+
+        toRecreate.descriptorPool = device::getDevice().createDescriptorPool(poolInfo);
+    }
+
+    void graphicPiplines::createDescriptorSets(graphicsPipelineInfo &toRecreate)
+    {
+        std::vector<vk::DescriptorSetLayout> layouts(toRecreate.descriptorPoolSize, toRecreate.descriptorSetLayout);
+        vk::DescriptorSetAllocateInfo allocInfo{};
+        allocInfo.descriptorPool = toRecreate.descriptorPool;
+        allocInfo.descriptorSetCount = toRecreate.descriptorPoolSize;
+        allocInfo.pSetLayouts = layouts.data();
+
+        *toRecreate.descriptorSets = device::getDevice().allocateDescriptorSets(allocInfo);
+
+        // for (size_t i = 0; i < toRecreate.descriptorPoolSize; i++)
+        // {
+        //     vk::DescriptorBufferInfo bufferInfo{};
+        //     bufferInfo.buffer = uniformBuffers[i];
+        //     bufferInfo.offset = 0;
+        //     bufferInfo.range = sizeof(UniformBufferObject);
+
+        //     vk::WriteDescriptorSet descriptorWrite{};
+        //     descriptorWrite.sType = vk::StructureType::eWriteDescriptorSet;
+        //     descriptorWrite.dstSet = toRecreate->descriptorSets[i];
+        //     descriptorWrite.dstBinding = 0;
+        //     descriptorWrite.dstArrayElement = 0;
+        //     descriptorWrite.descriptorType = vk::DescriptorType::eUniformBuffer;
+        //     descriptorWrite.descriptorCount = 1;
+        //     descriptorWrite.pBufferInfo = &bufferInfo;
+
+        //     vk::UpdateDescriptorSets(device, 1, &descriptorWrite, 0, nullptr);
+        // }
+    }
+
     void graphicPiplines::destroyGraphicsPipeline(graphicsPipelineInfo *toDestroy)
     {
+        device::getDevice().destroyDescriptorPool(toDestroy->descriptorPool);
+        device::getDevice().destroyDescriptorSetLayout(toDestroy->descriptorSetLayout);
         device::getDevice().destroyPipelineLayout(toDestroy->pipelineLayout);
         device::getDevice().destroyPipeline(toDestroy->graphicsPipeline);
     }

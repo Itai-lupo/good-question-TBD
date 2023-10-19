@@ -14,8 +14,14 @@ struct graphicsPipelineInfo
     renderPassId renderPassId;
     vaoId vao;
 
+    uint32_t descriptorPoolSize;
+
     std::string fragShaderCodePath;
     std::string vertShaderCodePath;
+
+    vk::DescriptorSetLayout descriptorSetLayout;
+    vk::DescriptorPool descriptorPool;
+    std::vector<vk::DescriptorSet> *descriptorSets = new std::vector<vk::DescriptorSet>;
 
     vk::PipelineLayout pipelineLayout;
     vk::Pipeline graphicsPipeline;

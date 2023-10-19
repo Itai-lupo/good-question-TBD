@@ -33,7 +33,7 @@ renderApi::renderApi()
     vulkanRenderEngine::textures::init(texturesPool);
     vulkanRenderEngine::vaos::init(vaosPool);
     vulkanRenderEngine::graphicPiplines::init(shadersPool);
-    vulkanRenderEngine::uniformBuffers::init(uniformBuffersPool);
+    vulkanRenderEngine::UBOs::init(uniformBuffersPool);
 
     vulkanRenderEngine::renderer::init();
 }
@@ -197,7 +197,7 @@ void renderApi::setUniformBuffer(uniformBufferInfo data)
         openGLRenderEngine::uniformBuffers::setUniformBufferData(data);
         break;
     case supportedRenderApis::vulkan:
-        vulkanRenderEngine::uniformBuffers::setUniformBufferData(data);
+        // vulkanRenderEngine::UBOs::setUniformBufferData(data);
         break;
 
     default:
@@ -281,7 +281,7 @@ uniformBufferInfo *renderApi::getUniformBuffer(uniformBufferId id)
         return openGLRenderEngine::uniformBuffers::getUniformBuffer(id);
         break;
     case supportedRenderApis::vulkan:
-        return vulkanRenderEngine::uniformBuffers::getUniformBuffer(id);
+        // return vulkanRenderEngine::UBOs::getUniformBuffer(id);
         break;
     default:
         LOG_FATAL("id is not valid");
