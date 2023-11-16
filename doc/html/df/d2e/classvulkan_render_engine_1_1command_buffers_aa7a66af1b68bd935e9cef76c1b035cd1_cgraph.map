@@ -1,7 +1,0 @@
-<map id="vulkanRenderEngine::commandBuffers::destroyBuffer" name="vulkanRenderEngine::commandBuffers::destroyBuffer">
-<area shape="rect" id="node1" title="deallocate a vulkan command buffer, won&#39;t unvalidate id" alt="" coords="5,40,242,85"/>
-<area shape="rect" id="node2" href="$d5/d0e/classcommand_buffers_components.html#a636cd8c16b7562a8517538fa9a906e0a" title=" " alt="" coords="290,5,504,50"/>
-<area shape="rect" id="node5" href="$d5/d0e/classcommand_buffers_components.html#a5598869f53b0463e17a35b4e58041c94" title=" " alt="" coords="290,75,504,119"/>
-<area shape="rect" id="node3" href="$dc/d2b/classentity_pool.html#a1bbde64e155748e51b6056d2bd25f6c9" title=" " alt="" coords="552,8,747,53"/>
-<area shape="rect" id="node4" href="$dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d" title=" " alt="" coords="575,79,725,107"/>
-</map>

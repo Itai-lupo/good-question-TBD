@@ -1,6 +1,0 @@
-<map id="commandBuffersComponents::getPool" name="commandBuffersComponents::getPool">
-<area shape="rect" id="node1" title=" " alt="" coords="523,40,737,85"/>
-<area shape="rect" id="node2" href="$df/d2e/classvulkan_render_engine_1_1command_buffers.html#aee0a55547987e80123588971ee8fa13d" title="destroy a vulkan command pool and all of it&#39;s command buffers and unvalidate the pool id but not the ..." alt="" coords="250,5,475,50"/>
-<area shape="rect" id="node4" href="$df/d2e/classvulkan_render_engine_1_1command_buffers.html#a481d4f3d57e4bdbb0772c303cde9ce82" title="Get the vulkan command Pool data(includes the vulkan object)" alt="" coords="264,75,461,119"/>
-<area shape="rect" id="node3" href="$df/d2e/classvulkan_render_engine_1_1command_buffers.html#a97cd65131fb17c9500af28ec4f96040f" title="set the data of a vulkan command Pool" alt="" coords="5,5,202,50"/>
-</map>

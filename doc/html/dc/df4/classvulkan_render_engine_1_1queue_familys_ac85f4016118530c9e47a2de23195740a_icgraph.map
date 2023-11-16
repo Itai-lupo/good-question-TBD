@@ -1,6 +1,0 @@
-<map id="vulkanRenderEngine::queueFamilys::getGraphicsFamilyQueue" name="vulkanRenderEngine::queueFamilys::getGraphicsFamilyQueue">
-<area shape="rect" id="node1" title=" " alt="" coords="681,5,888,60"/>
-<area shape="rect" id="node2" href="$df/d2e/classvulkan_render_engine_1_1command_buffers.html#a2af734a1fe7c04b9463aea4009a7a41e" title=" " alt="" coords="463,13,633,53"/>
-<area shape="rect" id="node3" href="$d4/d6f/classvulkan_render_engine_1_1renderer.html#a0a55635ff9afa4f709dbdbabf2648e55" title=" " alt="" coords="232,13,415,53"/>
-<area shape="rect" id="node4" href="$dc/df8/classvulkan_rendering.html#a28d4c14c15481768f607b8e4c8e6ab13" title=" " alt="" coords="5,20,184,45"/>
-</map>

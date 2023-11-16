@@ -1,6 +1,0 @@
-<map id="vulkanRenderEngine::commandBuffers::getBuffer" name="vulkanRenderEngine::commandBuffers::getBuffer">
-<area shape="rect" id="node1" title="Get the vulkan command buffer data(includes the vulkan object)" alt="" coords="678,5,887,50"/>
-<area shape="rect" id="node2" href="$d6/d54/renderer_8cpp.html#a8c20bc5ceb5156ce1a9d261166306af0" title=" " alt="" coords="461,14,630,42"/>
-<area shape="rect" id="node3" href="$d4/d6f/classvulkan_render_engine_1_1renderer.html#a0a55635ff9afa4f709dbdbabf2648e55" title=" " alt="" coords="231,5,413,50"/>
-<area shape="rect" id="node4" href="$dc/df8/classvulkan_rendering.html#a28d4c14c15481768f607b8e4c8e6ab13" title=" " alt="" coords="5,14,183,42"/>
-</map>

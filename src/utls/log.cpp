@@ -1,4 +1,5 @@
 #include "log.hpp"
+#include <glog/logging.h>
 #include <stdio.h>
 
 
@@ -15,6 +16,7 @@ void logger::init(const std::string& pathToLogs, const std::string& projectName)
     google::SetLogDestination(google::FATAL, (pathToLogs + "fatal/" + projectName + "_").c_str());
     wasInit = true;
     LOG(INFO) << "init glog successfully";
+    google::EnableLogCleaner(1);
 }
 
 void logger::close()

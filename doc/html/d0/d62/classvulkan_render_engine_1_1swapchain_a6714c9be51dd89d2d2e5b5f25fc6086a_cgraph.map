@@ -1,7 +1,0 @@
-<map id="vulkanRenderEngine::swapchain::create" name="vulkanRenderEngine::swapchain::create">
-<area shape="rect" id="node1" title=" " alt="" coords="5,69,160,109"/>
-<area shape="rect" id="node2" href="$d8/d58/classvulkan_render_engine_1_1device.html#ad535cddd3e084804c7a00d87c556a511" title=" " alt="" coords="231,5,386,45"/>
-<area shape="rect" id="node3" href="$d8/d58/classvulkan_render_engine_1_1device.html#acf50a78fbbd76889f05e8ff1efa508ea" title=" " alt="" coords="208,69,409,109"/>
-<area shape="rect" id="node4" href="$d1/d1a/classswapchains_components.html#ab2567b901fcf37f813b33dca6a982ac9" title=" " alt="" coords="219,133,399,173"/>
-<area shape="rect" id="node5" href="$dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d" title=" " alt="" coords="457,141,608,166"/>
-</map>

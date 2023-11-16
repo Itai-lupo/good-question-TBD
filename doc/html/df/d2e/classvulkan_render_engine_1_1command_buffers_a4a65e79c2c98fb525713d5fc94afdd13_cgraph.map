@@ -1,7 +1,0 @@
-<map id="vulkanRenderEngine::commandBuffers::setBuffer" name="vulkanRenderEngine::commandBuffers::setBuffer">
-<area shape="rect" id="node1" title="set the data of a vulkan command buffer" alt="" coords="5,49,213,94"/>
-<area shape="rect" id="node2" href="$d5/d0e/classcommand_buffers_components.html#a48a40add3655ee77ccedc1f82f2a9906" title=" " alt="" coords="261,49,475,94"/>
-<area shape="rect" id="node3" href="$d5/d0e/classcommand_buffers_components.html#a636cd8c16b7562a8517538fa9a906e0a" title=" " alt="" coords="523,49,737,94"/>
-<area shape="rect" id="node4" href="$dc/d2b/classentity_pool.html#a1bbde64e155748e51b6056d2bd25f6c9" title=" " alt="" coords="785,5,981,50"/>
-<area shape="rect" id="node5" href="$dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d" title=" " alt="" coords="808,89,958,116"/>
-</map>

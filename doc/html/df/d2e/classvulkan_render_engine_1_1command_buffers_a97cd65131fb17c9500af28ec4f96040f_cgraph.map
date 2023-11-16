@@ -1,8 +1,0 @@
-<map id="vulkanRenderEngine::commandBuffers::setPool" name="vulkanRenderEngine::commandBuffers::setPool">
-<area shape="rect" id="node1" title="set the data of a vulkan command Pool" alt="" coords="5,100,202,145"/>
-<area shape="rect" id="node2" href="$df/d2e/classvulkan_render_engine_1_1command_buffers.html#aee0a55547987e80123588971ee8fa13d" title="destroy a vulkan command pool and all of it&#39;s command buffers and unvalidate the pool id but not the ..." alt="" coords="250,65,475,110"/>
-<area shape="rect" id="node6" href="$d5/d0e/classcommand_buffers_components.html#a93f6e288aef7192e38d2efb155add22f" title=" " alt="" coords="255,135,470,179"/>
-<area shape="rect" id="node3" href="$d5/d0e/classcommand_buffers_components.html#a5b20727035c2c618edf144ec51e7e98b" title=" " alt="" coords="523,5,737,50"/>
-<area shape="rect" id="node5" href="$d5/d0e/classcommand_buffers_components.html#a8565c6b343efc03123f6ed96d813f699" title=" " alt="" coords="523,75,737,119"/>
-<area shape="rect" id="node4" href="$dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d" title=" " alt="" coords="785,83,936,111"/>
-</map>

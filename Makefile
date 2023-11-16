@@ -11,7 +11,7 @@ TARGET_EXEC ?= editor.out
 
 BUILD_DIR ?= ./build
 OUTPUT_DIR ?= ./output
-INCLUDE_DIR ?= ./include ./vendor ./submodules/tracy/public/tracy
+INCLUDE_DIR ?= ./include ./vendor ./submodules/tracy/public/tracy ./build/include
 SRC_DIRS ?= ./src/ ./vendor
 SHADERS_DIRS ?= $(wildcard ./assets/shaders/*)
 TEST_DIR ?= ./tests
@@ -42,32 +42,36 @@ CXXFLAGS += $(INC_FLAGS)  -MMD -MP -g -pthread -O0 -ggdb3
 LDFLAGS =  -lstdc++ -lgflags -lglog -lGL -lrt -lm -ldl  -lwayland-client -lxkbcommon -lpulse -lEGL -lwayland-egl -lvulkan
 TEST_LDFLAGS = -lgtest -lgtest_main -lgmock  
 
-
-$(OUTPUT_DIR)/$(TARGET_EXEC): $(OBJS) $(SHADERS_BINARY)
+SHELL = /bin/bash
+$(OUTPUT_DIR)/$(TARGET_EXEC):  ./build/include/files.json $(OBJS) $(SHADERS_BINARY)
 	mkdir -p output
 	$(CC) $(CXXFLAGS) $(OBJS)  -o $@ $(LDFLAGS)
 
 
-print:	
-	@echo $(AR) $(RM)
+getFileId = $(shell python -c "import json; files = json.load(open('./build/include/files.json', 'r')); print(files[[file[0] for file in files].index('$(1)')][1])" 2>/dev/null)
 
+
+	
 
 %.spv: %
 	glslc $< -o $@
+	
+./build/include/files.json: $(SRCS)
+	$(MKDIR_P) ./build/include
+	python addFIleToFIleList.py
 
 # c++ source
 $(BUILD_DIR)/%.o: %.cpp
-	@echo "building file: " $<
+	@echo "building file: " $< " with id " $(call getFileId,$<)
 	$(MKDIR_P) $(dir $@)
-	$(CC)  $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
+	$(CC)  $(CPPFLAGS) $(CXXFLAGS) -DFILE_ID=$(call getFileId,$<) -DFILE_NAME="\"$<\"" -c $< -o $@
 
 $(BUILD_DIR)/%.o: %.c
-	@echo "building file: " $<
+	@echo "building file: " $< " with id " $(call getFileId,$<) 
 	$(MKDIR_P) $(dir $@)
-	$(CC)  $(CFLAGS) $(CXXFLAGS) -c $< -o $@
+	$(CC)  $(CFLAGS) $(CXXFLAGS) -DFILE_ID=$(call getFileId,$<)  -DFILE_NAME="\"$<\"" -c $< -o $@
 
-
-.PHONY: clean
+.PHONY: clean print
 
 test: $(OUTPUT_DIR)/test.out
 

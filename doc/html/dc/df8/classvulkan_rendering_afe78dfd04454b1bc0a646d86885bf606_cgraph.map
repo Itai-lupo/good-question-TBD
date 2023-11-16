@@ -1,6 +1,0 @@
-<map id="vulkanRendering::deallocateSurfaceToRender" name="vulkanRendering::deallocateSurfaceToRender">
-<area shape="rect" id="node1" title=" " alt="" coords="5,37,212,77"/>
-<area shape="rect" id="node2" href="$db/dbb/classvulkan_render_info_component.html#ad54b39c3c6a6eb6aff5d14e122833286" title=" " alt="" coords="260,5,471,45"/>
-<area shape="rect" id="node4" href="$d4/d6f/classvulkan_render_engine_1_1renderer.html#a1f0d72756e0347e1081fdd8308204c13" title=" " alt="" coords="270,69,461,109"/>
-<area shape="rect" id="node3" href="$dc/d2b/classentity_pool.html#a7ab2c17f55513cea557b3b5d147a584d" title=" " alt="" coords="519,13,669,38"/>
-</map>

@@ -1,9 +1,0 @@
-<map id="commandBuffersComponents::deleteBuffer" name="commandBuffersComponents::deleteBuffer">
-<area shape="rect" id="node1" title=" " alt="" coords="1022,40,1236,85"/>
-<area shape="rect" id="node2" href="$df/d2e/classvulkan_render_engine_1_1command_buffers.html#aa7a66af1b68bd935e9cef76c1b035cd1" title="deallocate a vulkan command buffer, won&#39;t unvalidate id" alt="" coords="737,5,974,50"/>
-<area shape="rect" id="node3" href="$d5/d0e/classcommand_buffers_components.html#a48a40add3655ee77ccedc1f82f2a9906" title=" " alt="" coords="748,75,963,119"/>
-<area shape="rect" id="node4" href="$df/d2e/classvulkan_render_engine_1_1command_buffers.html#a48a77e017cc710f865b6a131735466f2" title="Create a new vulkan command Buffer object." alt="" coords="461,40,689,85"/>
-<area shape="rect" id="node7" href="$df/d2e/classvulkan_render_engine_1_1command_buffers.html#a4a65e79c2c98fb525713d5fc94afdd13" title="set the data of a vulkan command buffer" alt="" coords="472,109,679,154"/>
-<area shape="rect" id="node5" href="$d4/d6f/classvulkan_render_engine_1_1renderer.html#a0a55635ff9afa4f709dbdbabf2648e55" title=" " alt="" coords="231,40,413,85"/>
-<area shape="rect" id="node6" href="$dc/df8/classvulkan_rendering.html#a28d4c14c15481768f607b8e4c8e6ab13" title=" " alt="" coords="5,49,183,76"/>
-</map>

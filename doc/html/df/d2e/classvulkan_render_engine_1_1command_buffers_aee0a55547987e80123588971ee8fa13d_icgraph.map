@@ -1,4 +1,0 @@
-<map id="vulkanRenderEngine::commandBuffers::destroyPool" name="vulkanRenderEngine::commandBuffers::destroyPool">
-<area shape="rect" id="node1" title="destroy a vulkan command pool and all of it&#39;s command buffers and unvalidate the pool id but not the ..." alt="" coords="250,5,475,50"/>
-<area shape="rect" id="node2" href="$df/d2e/classvulkan_render_engine_1_1command_buffers.html#a97cd65131fb17c9500af28ec4f96040f" title="set the data of a vulkan command Pool" alt="" coords="5,5,202,50"/>
-</map>

@@ -1,4 +1,0 @@
-<map id="vulkanRenderEngine::commandBuffers::close" name="vulkanRenderEngine::commandBuffers::close">
-<area shape="rect" id="node1" title="destroy all the command pools and the command buffers, all command pools id will be deleted but the c..." alt="" coords="5,5,188,50"/>
-<area shape="rect" id="node2" href="$d5/d0e/classcommand_buffers_components.html#ae2d4c1c6c9d1812fb328d786396617ef" title=" " alt="" coords="236,5,450,50"/>
-</map>

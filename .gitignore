@@ -34,3 +34,7 @@
 logs/*
 output/*
 build/*
+.cache/*
+Context/*
+doc/*
+.vscode/*
