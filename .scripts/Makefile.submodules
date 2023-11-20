@@ -1,0 +1,4 @@
+SRC_DIRS += 
+INCLUDE_DIR += ./vendor/spdlog/include  ./submodules/tracy/public/tracy 
+SRCS += submodules/tracy/public/TracyClient.cpp
+

@@ -32,8 +32,8 @@
 *.app
 
 logs/*
-output/*
-build/*
+.output/*
+.build/*
 .cache/*
 Context/*
 doc/*

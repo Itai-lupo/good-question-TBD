@@ -3,7 +3,6 @@
 
 #include <vector>
 #include <set>
-#include <vulkan/vk_enum_string_helper.h>
 
 namespace vulkanRenderEngine
 {

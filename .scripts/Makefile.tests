@@ -1,0 +1,37 @@
+TESTS := $(call rwildcard,$(TESTS_DIR),*.c*)
+TEST_OBJS  := $(call turnInfoObjectFile,$(TESTS))  $(call turnInfoObjectFile, $(filter-out ./src/main.cpp,$(SRCS)))
+
+TEST_DEPS := $(TEST_OBJS:.o=.d)
+
+
+TEST_INCLUDE_DIRS := $(TEST_DIR)/include
+
+
+ifeq ($(MAKECMDGOALS),all_tests)
+	INC_FLAGS += $(addprefix -I,$(TEST_INCLUDE_DIRS))
+	LDLIBS += -lgtest -lgtest_main -lgmock 
+endif
+
+
+test: build_tests
+	$(OUTPUT_DIR)/test.out
+
+
+build_tests: 
+	$(MAKE) $(BUILD_DIR)/include/files.json 
+	$(MAKE) $(PCH_OUT)
+	compiledb  -o $(BUILD_DIR)/compile_commands.json $(MAKE) all_tests
+
+
+all_tests: $(OUTPUT_DIR)/test.out
+
+print:
+	@echo $(OUTPUT_DIR)/test.out
+
+
+$(OUTPUT_DIR)/test.out: $(TEST_OBJS)
+	$(MKDIR_P) $(OUTPUT_DIR)
+	$(CC)  $(CXXFLAGS) $(TEST_OBJS) -o $@ $(LDFLAGS) $(LDLIBS)
+
+
+-include $(TEST_DEPS)

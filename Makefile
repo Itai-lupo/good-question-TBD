@@ -1,108 +1,75 @@
 CC = clang
+DB = gdb
+MAKEFLAGS += -j -w -s
 
-GTEST_DIR=/usr/src/googletest/
-
-# Make does not offer a recursive wildcard function, so here's one:
-rwildcard=$(wildcard $1$2) $(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2))
-rwildcardDir=$(wildcard $1*/) $(foreach d,$(wildcard $1*),$(call rwildcardDir,$d/))
+MKDIR_P ?= mkdir -p
 
 
-TARGET_EXEC ?= editor.out
+TARGET_EXEC ?= logger.out
 
-BUILD_DIR ?= ./build
-OUTPUT_DIR ?= ./output
-INCLUDE_DIR ?= ./include ./vendor ./submodules/tracy/public/tracy ./build/include
-SRC_DIRS ?= ./src/ ./vendor
+BUILD_DIR ?= ./.build
+OUTPUT_DIR ?= ./.output
+
+INCLUDE_DIR ?= ./include/ $(BUILD_DIR)/include/
+SRC_DIRS ?= ./src/ 
 SHADERS_DIRS ?= $(wildcard ./assets/shaders/*)
-TEST_DIR ?= ./tests
+TESTS_DIR ?= ./tests
 
-SHADERS = $(call rwildcard,$(SHADERS_DIRS[0]),*.frag) $(call rwildcard,$(SHADERS_DIRS[1]),*.vert)
-SHADERS_BINARY = $(foreach  shader,$(SHADERS),$(shader).spv) 
-SRCS += $(foreach  dir,$(SRC_DIRS),$(call rwildcard,$(dir),*.c*)) submodules/tracy/public/TracyClient.cpp
-OBJS :=  $(addprefix $(BUILD_DIR)/,$(addsuffix .o,$(basename $(SRCS))))
+SCRIPTS_DIR ?= ./.scripts
+
+PCH_PATH = ./include/defines/core.hpp
+PCH_OUT = $(BUILD_DIR)/include/core.hpp.gch
+
+-include $(SCRIPTS_DIR)/Makefile.utils 
+-include $(SCRIPTS_DIR)/Makefile.submodules
+
+SRCS += $(foreach  dir,$(SRC_DIRS),$(call rwildcard,$(dir),*.c*)) 
+SHADERS := $(call rwildcard,$(SHADERS_DIRS[0]),*.frag) $(call rwildcard,$(SHADERS_DIRS[1]),*.vert)
+
+OBJS :=  $(call turnInfoObjectFile,$(SRCS))  
+SHADERS_BINARY := $(foreach  shader,$(SHADERS),$(shader).spv) 
+
 DEPS := $(OBJS:.o=.d)
 
-TESTS := $(call rwildcard,$(TEST_DIR),*.c*)
-TEST_OBJS  := $(addprefix $(BUILD_DIR)/,$(addsuffix .o,$(basename $(TESTS)))) $(filter-out ./build/./src/main.o, $(subst ./build/./src/core.h.o,./build/./src/app.cpp.o,$(OBJS)))
-TEST_DEPS := $(TEST_OBJS:.o=.d)
 
-GTEST_HEADERS = $(GTEST_DIR)/include/gtest/*.h \
-                $(GTEST_DIR)/include/gtest/internal/*.h
-
-
-INC_DIRS := $(foreach dir,$(INCLUDE_DIR),$(call rwildcardDir,$(dir)))
-TEST_INC_DIRS := $(foreach dir,$(INCLUDE_DIR),$(call rwildcardDir,$(dir)))
-INC_FLAGS := $(addprefix -I,$(INC_DIRS) $(LIB_DIR))
-
-CPPFLAGS ?=   -std=c++20 -Wno-c99-designator
+CPPFLAGS ?=  -std=c++20 -Wno-c99-designator
 CFLAGS ?= -std=c99
 
-CXXFLAGS += $(INC_FLAGS)  -MMD -MP -g -pthread -O0 -ggdb3 
+INC_FLAGS := $(addprefix -I,$(INCLUDE_DIR))
+CXXFLAGS += $(INC_FLAGS)  -MMD -MP -g -pthread -O0 -ggdb3 -Wall -Wextra -Werror -pedantic-errors 
+LDFLAGS =  
+LDLIBS +=   -lstdc++ -lgflags -lglog -lGL -lrt -lm -ldl -lwayland-client -lxkbcommon -lpulse -lEGL -lwayland-egl -lvulkan -lspdlog -lfmt
 
-LDFLAGS =  -lstdc++ -lgflags -lglog -lGL -lrt -lm -ldl  -lwayland-client -lxkbcommon -lpulse -lEGL -lwayland-egl -lvulkan
-TEST_LDFLAGS = -lgtest -lgtest_main -lgmock  
-
-SHELL = /bin/bash
-$(OUTPUT_DIR)/$(TARGET_EXEC):  ./build/include/files.json $(OBJS) $(SHADERS_BINARY)
-	mkdir -p output
-	$(CC) $(CXXFLAGS) $(OBJS)  -o $@ $(LDFLAGS)
-
-
-getFileId = $(shell python -c "import json; files = json.load(open('./build/include/files.json', 'r')); print(files[[file[0] for file in files].index('$(1)')][1])" 2>/dev/null)
+all:
+	$(MAKE) $(BUILD_DIR)/include/files.json
+	$(MAKE) $(PCH_OUT)
+	compiledb  -o $(BUILD_DIR)/compile_commands.json $(MAKE) $(OUTPUT_DIR)/$(TARGET_EXEC)
 
 
-	
+$(OUTPUT_DIR)/$(TARGET_EXEC): $(BUILD_DIR)/include/files.json $(PCH_OUT) $(OBJS) $(SHADERS_BINARY)
+	$(MKDIR_P) $(OUTPUT_DIR)
+	$(CC)  $(OBJS) -o $@ $(LDFLAGS) $(LDLIBS)
 
-%.spv: %
-	glslc $< -o $@
-	
-./build/include/files.json: $(SRCS)
-	$(MKDIR_P) ./build/include
-	python addFIleToFIleList.py
 
-# c++ source
-$(BUILD_DIR)/%.o: %.cpp
-	@echo "building file: " $< " with id " $(call getFileId,$<)
-	$(MKDIR_P) $(dir $@)
-	$(CC)  $(CPPFLAGS) $(CXXFLAGS) -DFILE_ID=$(call getFileId,$<) -DFILE_NAME="\"$<\"" -c $< -o $@
+run: all
+	./$(OUTPUT_DIR)/$(TARGET_EXEC)
 
-$(BUILD_DIR)/%.o: %.c
-	@echo "building file: " $< " with id " $(call getFileId,$<) 
-	$(MKDIR_P) $(dir $@)
-	$(CC)  $(CFLAGS) $(CXXFLAGS) -DFILE_ID=$(call getFileId,$<)  -DFILE_NAME="\"$<\"" -c $< -o $@
 
-.PHONY: clean print
+debug: all
+	$(DB) ./$(OUTPUT_DIR)/$(TARGET_EXEC)
 
-test: $(OUTPUT_DIR)/test.out
-
-$(OUTPUT_DIR)/test.out: $(TEST_OBJS)
-	mkdir -p output
-	$(CC)  $(CXXFLAGS) $(TEST_OBJS) -o $@ $(LDFLAGS) $(TEST_LDFLAGS)
-
-gtest-all.o : $(GTEST_SRCS_)
-	$(CXX) $(CPPFLAGS) -I$(GTEST_DIR) $(CXXFLAGS) -c \
-            $(GTEST_DIR)/src/gtest-all.cc
-
-gtest_main.o : $(GTEST_SRCS_)
-	$(CXX) $(CPPFLAGS) -I$(GTEST_DIR) $(CXXFLAGS) -c \
-            $(GTEST_DIR)/src/gtest_main.cc
-
-gtest.a : gtest-all.o
-	$(AR) $(ARFLAGS) $@ $^
-
-gtest_main.a : gtest-all.o gtest_main.o
-	$(AR) $(ARFLAGS) $@ $^
 
 clean:
-	$(RM) gtest.a gtest_main.a *.o
 	$(RM) -r $(BUILD_DIR) 
 	$(RM) -r $(OUTPUT_DIR)
 
-setEnv: $(LIB_DIR)
-	@echo $<
-	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$<:
 
+-include $(SCRIPTS_DIR)/Makefile.shaders
+-include $(SCRIPTS_DIR)/Makefile.tests
+include $(SCRIPTS_DIR)/Makefile.doc	
+-include $(SCRIPTS_DIR)/Makefile.build
+-include $(SCRIPTS_DIR)/Makefile.pch
 -include $(DEPS)
--include $(TEST_DEPS)
 
-MKDIR_P ?= mkdir -p
+
+.PHONY: clean print all test run_test run build_test debug debug_test

@@ -12,7 +12,7 @@ def verfyFiles(files):
     '''
     files = [file for file in files if os.path.isfile(file[0])]
     files = sorted(files, key=lambda x: x[1])
-    for filename in glob.iglob('src/**/*.c*', recursive=True):
+    for filename in list(glob.iglob('src/**/*.c*', recursive=True)) + list(glob.iglob('tests/**/**.c*', recursive=True)):
         try:
             fileIndex = [file[0] for file in files].index(filename)
         except ValueError:
@@ -34,7 +34,7 @@ def find_smallest_available_id(files):
     return j
 
 def main():
-    with open("build/include/files.json", "a+") as f:
+    with open(".build/include/files.json", "a+") as f:
         f.seek(0)
         files = []
         try:

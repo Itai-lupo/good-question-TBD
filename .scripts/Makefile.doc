@@ -1,0 +1,2 @@
+doc: $(SRCS)
+	doxygen config/doc.conf

@@ -1,0 +1,16 @@
+
+# c++ source
+$(BUILD_DIR)/%.o: %.cpp
+	@echo "building file: " $< " with id " $(call getFileId,$<)
+	$(MKDIR_P) $(dir $@)
+	$(CC)  -include-pch $(PCH_OUT) $(CPPFLAGS) $(CXXFLAGS) -DFILE_ID=$(call getFileId,$<) -DFILE_NAME="\"$<\"" -c $< -o $@
+
+
+#c source
+$(BUILD_DIR)/%.o: %.c
+	@echo "building file: " $< " with id " $(call getFileId,$<) 
+	$(MKDIR_P) $(dir $@)
+	$(CC)  $(CFLAGS) $(CXXFLAGS) -DFILE_ID=$(call getFileId,$<)  -DFILE_NAME="\"$<\"" -c $< -o $@
+
+
+

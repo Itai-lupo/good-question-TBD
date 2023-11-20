@@ -5,7 +5,6 @@
 #include "log.hpp"
 
 #include <fstream>
-#include <vulkan/vk_enum_string_helper.h>
 
 namespace vulkanRenderEngine
 {

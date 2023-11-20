@@ -1,9 +1,7 @@
 #pragma once
-
-#include <glog/logging.h>
+#include <spdlog/spdlog.h>
 #include <string>
 
-#include "fileId.hpp"
 
 #define LOG_INFO(toLog) LOG(INFO) << FILE_ID << ", " << toLog;
 #define LOG_WARNING(toLog) LOG(WARNING) << toLog;

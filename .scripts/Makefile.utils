@@ -1,0 +1,20 @@
+
+# Make does not offer a recursive wildcard function, so here's one:
+rwildcard=$(wildcard $1$2) $(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2))
+rwildcardDir=$(wildcard $1*/) $(foreach d,$(wildcard $1*),$(call rwildcardDir,$d/))
+
+
+# for every source file we need to have a o file
+turnInfoObjectFile = $(addprefix $(BUILD_DIR)/,$(addsuffix .o,$(basename $1)))
+
+
+# run a python code to get a file id from files.json
+getFileId = $(shell python -c "import json; files = json.load(open('./.build/include/files.json', 'r')); print(files[[file[0] for file in files].index('$(1)')][1])" 2>/dev/null)
+
+
+# genrate a json file with all the source files and there id
+$(BUILD_DIR)/include/files.json: $(SRCS)
+	@echo "building files.json"
+	$(MKDIR_P) $(BUILD_DIR)/include
+	python $(SCRIPTS_DIR)/addFIleToFIleList.py
+
